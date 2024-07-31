@@ -1,0 +1,1 @@
+ /Users/mac/Downloads/newicare/.dart_tool/flutter_build/555956409f50207391e225d47040b4c5/native_assets.yaml: 

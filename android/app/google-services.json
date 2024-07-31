@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "460453921403",
+    "project_id": "icaredb-95d57",
+    "storage_bucket": "icaredb-95d57.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:460453921403:android:d7b39c712a90afa06798de",
+        "android_client_info": {
+          "package_name": "com.company.icarev2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBG0VJQAeGLML2BZNEHirXcHkJn1MSHFA4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:460453921403:android:868286e8d7e5d0576798de",
+        "android_client_info": {
+          "package_name": "com.mycompany.icare"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBG0VJQAeGLML2BZNEHirXcHkJn1MSHFA4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:460453921403:android:2862f4a39a3112f26798de",
+        "android_client_info": {
+          "package_name": "com.mycompanyV2.icare"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBG0VJQAeGLML2BZNEHirXcHkJn1MSHFA4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
