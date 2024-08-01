@@ -123,8 +123,19 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                       size: 24.0,
                     ),
                     onPressed: () async {
+                      _model.currentPageLink = await generateCurrentPageLink(
+                        context,
+                        title: 'Meet This Professional: A True Standout!',
+                        imageUrl: profileInfoUsersRecord?.photoUrl != null &&
+                                profileInfoUsersRecord?.photoUrl != ''
+                            ? profileInfoUsersRecord?.photoUrl
+                            : 'https://i.ibb.co/2qkDLKb/Frame-74.png',
+                        description:
+                            'Discover a professional who makes a difference.',
+                      );
+
                       await Share.share(
-                        'newicare://newicare.com${GoRouterState.of(context).uri.toString()}',
+                        _model.currentPageLink,
                         sharePositionOrigin: getWidgetBoundingBox(context),
                       );
                     },

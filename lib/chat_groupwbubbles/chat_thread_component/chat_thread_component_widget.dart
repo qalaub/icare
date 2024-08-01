@@ -11,10 +11,13 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/upload_data.dart';
 import 'dart:async';
+import '/flutter_flow/permissions_util.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:collection/collection.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:record/record.dart';
 import 'chat_thread_component_model.dart';
 export 'chat_thread_component_model.dart';
 
@@ -70,6 +73,8 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
         _model.isStandar = true;
         _model.updatePage(() {});
       }
+
+      await requestPermission(microphonePermission);
     });
 
     _model.textController ??= TextEditingController();
@@ -413,6 +418,19 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                                       child: TextFormField(
                                         controller: _model.textController,
                                         focusNode: _model.textFieldFocusNode,
+                                        onChanged: (_) => EasyDebounce.debounce(
+                                          '_model.textController',
+                                          const Duration(milliseconds: 2000),
+                                          () async {
+                                            if (!_model.isTyping) {
+                                              _model.isTyping = true;
+                                            }
+                                            if (_model.textController.text ==
+                                                    '') {
+                                              _model.isTyping = false;
+                                            }
+                                          },
+                                        ),
                                         onFieldSubmitted: (_) async {
                                           if (_model.formKey.currentState ==
                                                   null ||
@@ -478,7 +496,8 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                                         textCapitalization:
                                             TextCapitalization.sentences,
                                         textInputAction: TextInputAction.send,
-                                        readOnly: _model.isStandar == false,
+                                        readOnly: (_model.isStandar == false) ||
+                                            (_model.isRecording == true),
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           labelStyle:
@@ -571,153 +590,233 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                                   ),
                                   Align(
                                     alignment: const AlignmentDirectional(1.0, 0.0),
-                                    child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 4.0, 6.0, 4.0),
-                                      child: FlutterFlowIconButton(
-                                        borderColor:
-                                            FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                        borderRadius: 20.0,
-                                        borderWidth: 1.0,
-                                        buttonSize: 40.0,
-                                        fillColor: const Color(0x54CE69CE),
-                                        icon: const Icon(
-                                          Icons.send_rounded,
-                                          color: Color(0xFF432C43),
-                                          size: 20.0,
-                                        ),
-                                        onPressed: () {
-                                          print('IconButton pressed ...');
-                                        },
-                                      ),
-                                    ),
-                                  ),
-                                  Align(
-                                    alignment: const AlignmentDirectional(1.0, 0.0),
-                                    child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 4.0, 6.0, 4.0),
-                                      child: FlutterFlowIconButton(
-                                        borderColor:
-                                            FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                        borderRadius: 20.0,
-                                        borderWidth: 1.0,
-                                        buttonSize: 40.0,
-                                        fillColor: const Color(0x54CE69CE),
-                                        icon: const Icon(
-                                          Icons.mic_outlined,
-                                          color: Color(0xFF432C43),
-                                          size: 20.0,
-                                        ),
-                                        onPressed: () async {
-                                          final firestoreBatch =
-                                              FirebaseFirestore.instance
-                                                  .batch();
-                                          try {
-                                            if (_model.formKey.currentState ==
-                                                    null ||
-                                                !_model.formKey.currentState!
-                                                    .validate()) {
-                                              return;
-                                            }
-                                            // newChatMessage
+                                    child: Builder(
+                                      builder: (context) {
+                                        if (_model.isTyping == false) {
+                                          return Builder(
+                                            builder: (context) {
+                                              if (_model.isRecording) {
+                                                return Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 4.0, 6.0, 4.0),
+                                                  child: FlutterFlowIconButton(
+                                                    borderColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryBackground,
+                                                    borderRadius: 20.0,
+                                                    borderWidth: 1.0,
+                                                    buttonSize: 40.0,
+                                                    fillColor:
+                                                        const Color(0x54CE69CE),
+                                                    icon: const Icon(
+                                                      Icons.square,
+                                                      color: Color(0xFF432C43),
+                                                      size: 20.0,
+                                                    ),
+                                                    onPressed: () async {
+                                                      await stopAudioRecording(
+                                                        audioRecorder: _model
+                                                            .audioRecorder,
+                                                        audioName:
+                                                            'recordedFileBytes.mp3',
+                                                        onRecordingComplete:
+                                                            (audioFilePath,
+                                                                audioBytes) {
+                                                          _model.newAudioMessage =
+                                                              audioFilePath;
+                                                          _model.recordedFileBytes =
+                                                              audioBytes;
+                                                        },
+                                                      );
 
-                                            var chatMessagesRecordReference =
-                                                ChatMessagesRecord.collection
-                                                    .doc();
-                                            firestoreBatch.set(
-                                                chatMessagesRecordReference,
-                                                createChatMessagesRecordData(
-                                                  user: currentUserReference,
-                                                  chat: widget
-                                                      .chatRef?.reference,
-                                                  text: valueOrDefault<String>(
-                                                    _model.textController.text,
-                                                    'hrhr',
+                                                      _model.isRecording =
+                                                          false;
+                                                      setState(() {});
+
+                                                      setState(() {});
+                                                    },
                                                   ),
-                                                  timestamp:
-                                                      getCurrentTimestamp,
-                                                  image: _model.uploadedFileUrl,
-                                                ));
-                                            _model.newChat = ChatMessagesRecord
-                                                .getDocumentFromData(
-                                                    createChatMessagesRecordData(
-                                                      user:
-                                                          currentUserReference,
-                                                      chat: widget
-                                                          .chatRef?.reference,
-                                                      text: valueOrDefault<
-                                                          String>(
-                                                        _model.textController
-                                                            .text,
-                                                        'hrhr',
-                                                      ),
-                                                      timestamp:
-                                                          getCurrentTimestamp,
-                                                      image: _model
-                                                          .uploadedFileUrl,
+                                                );
+                                              } else {
+                                                return Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 4.0, 6.0, 4.0),
+                                                  child: FlutterFlowIconButton(
+                                                    borderColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryBackground,
+                                                    borderRadius: 20.0,
+                                                    borderWidth: 1.0,
+                                                    buttonSize: 40.0,
+                                                    fillColor:
+                                                        const Color(0x54CE69CE),
+                                                    icon: const Icon(
+                                                      Icons.mic_outlined,
+                                                      color: Color(0xFF432C43),
+                                                      size: 20.0,
                                                     ),
-                                                    chatMessagesRecordReference);
-                                            // clearUsers
-                                            _model.lastSeenBy = [];
-                                            // In order to add a single user reference to a list of user references we are adding our current user reference to a page state.
-                                            //
-                                            // We will then set the value of the user reference list from this page state.
-                                            // addMyUserToList
-                                            _model.addToLastSeenBy(
-                                                currentUserReference!);
-                                            if (widget.chatRef != null) {
-                                              // updateChatDocument
-                                              unawaited(
-                                                () async {
-                                                  firestoreBatch.update(
-                                                      widget.chatRefTotal!, {
-                                                    ...createChatsRecordData(
-                                                      lastMessage: _model
-                                                          .textController.text,
-                                                      lastMessageTime:
-                                                          getCurrentTimestamp,
-                                                      lastMessageSentBy:
-                                                          currentUserReference,
-                                                    ),
-                                                    ...mapToFirestore(
-                                                      {
-                                                        'last_message_seen_by':
-                                                            FieldValue
-                                                                .arrayUnion([
-                                                          currentUserReference
-                                                        ]),
-                                                      },
-                                                    ),
+                                                    onPressed: () async {
+                                                      _model.isRecording = true;
+                                                      setState(() {});
+                                                      await startAudioRecording(
+                                                        context,
+                                                        audioRecorder: _model
+                                                                .audioRecorder ??=
+                                                            AudioRecorder(),
+                                                      );
+                                                    },
+                                                  ),
+                                                );
+                                              }
+                                            },
+                                          );
+                                        } else {
+                                          return Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 4.0, 6.0, 4.0),
+                                            child: FlutterFlowIconButton(
+                                              borderColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              borderRadius: 20.0,
+                                              borderWidth: 1.0,
+                                              buttonSize: 40.0,
+                                              fillColor: const Color(0x54CE69CE),
+                                              icon: const Icon(
+                                                Icons.send_rounded,
+                                                color: Color(0xFF432C43),
+                                                size: 20.0,
+                                              ),
+                                              onPressed: () async {
+                                                final firestoreBatch =
+                                                    FirebaseFirestore.instance
+                                                        .batch();
+                                                try {
+                                                  if (_model.formKey
+                                                              .currentState ==
+                                                          null ||
+                                                      !_model
+                                                          .formKey.currentState!
+                                                          .validate()) {
+                                                    return;
+                                                  }
+                                                  // newChatMessage
+
+                                                  var chatMessagesRecordReference =
+                                                      ChatMessagesRecord
+                                                          .collection
+                                                          .doc();
+                                                  firestoreBatch.set(
+                                                      chatMessagesRecordReference,
+                                                      createChatMessagesRecordData(
+                                                        user:
+                                                            currentUserReference,
+                                                        chat: widget
+                                                            .chatRef?.reference,
+                                                        text: valueOrDefault<
+                                                            String>(
+                                                          _model.textController
+                                                              .text,
+                                                          'hrhr',
+                                                        ),
+                                                        timestamp:
+                                                            getCurrentTimestamp,
+                                                        image: _model
+                                                            .uploadedFileUrl,
+                                                      ));
+                                                  _model.newChat = ChatMessagesRecord
+                                                      .getDocumentFromData(
+                                                          createChatMessagesRecordData(
+                                                            user:
+                                                                currentUserReference,
+                                                            chat: widget
+                                                                .chatRef
+                                                                ?.reference,
+                                                            text:
+                                                                valueOrDefault<
+                                                                    String>(
+                                                              _model
+                                                                  .textController
+                                                                  .text,
+                                                              'hrhr',
+                                                            ),
+                                                            timestamp:
+                                                                getCurrentTimestamp,
+                                                            image: _model
+                                                                .uploadedFileUrl,
+                                                          ),
+                                                          chatMessagesRecordReference);
+                                                  // clearUsers
+                                                  _model.lastSeenBy = [];
+                                                  // In order to add a single user reference to a list of user references we are adding our current user reference to a page state.
+                                                  //
+                                                  // We will then set the value of the user reference list from this page state.
+                                                  // addMyUserToList
+                                                  _model.addToLastSeenBy(
+                                                      currentUserReference!);
+                                                  if (widget.chatRef != null) {
+                                                    // updateChatDocument
+                                                    unawaited(
+                                                      () async {
+                                                        firestoreBatch.update(
+                                                            widget
+                                                                .chatRefTotal!,
+                                                            {
+                                                              ...createChatsRecordData(
+                                                                lastMessage: _model
+                                                                    .textController
+                                                                    .text,
+                                                                lastMessageTime:
+                                                                    getCurrentTimestamp,
+                                                                lastMessageSentBy:
+                                                                    currentUserReference,
+                                                              ),
+                                                              ...mapToFirestore(
+                                                                {
+                                                                  'last_message_seen_by':
+                                                                      FieldValue
+                                                                          .arrayUnion([
+                                                                    currentUserReference
+                                                                  ]),
+                                                                },
+                                                              ),
+                                                            });
+                                                      }(),
+                                                    );
+                                                  }
+                                                  // clearUsers
+                                                  _model.lastSeenBy = [];
+                                                  setState(() {
+                                                    _model.textController
+                                                        ?.clear();
                                                   });
-                                                }(),
-                                              );
-                                            }
-                                            // clearUsers
-                                            _model.lastSeenBy = [];
-                                            setState(() {
-                                              _model.textController?.clear();
-                                            });
-                                            setState(() {
-                                              _model.isDataUploading = false;
-                                              _model.uploadedLocalFile =
-                                                  FFUploadedFile(
-                                                      bytes: Uint8List.fromList(
-                                                          []));
-                                              _model.uploadedFileUrl = '';
-                                            });
+                                                  setState(() {
+                                                    _model.isDataUploading =
+                                                        false;
+                                                    _model.uploadedLocalFile =
+                                                        FFUploadedFile(
+                                                            bytes: Uint8List
+                                                                .fromList([]));
+                                                    _model.uploadedFileUrl = '';
+                                                  });
 
-                                            _model.imagesUploaded = [];
-                                            setState(() {});
-                                          } finally {
-                                            await firestoreBatch.commit();
-                                          }
+                                                  _model.imagesUploaded = [];
+                                                  setState(() {});
+                                                } finally {
+                                                  await firestoreBatch.commit();
+                                                }
 
-                                          setState(() {});
-                                        },
-                                      ),
+                                                setState(() {});
+                                              },
+                                            ),
+                                          );
+                                        }
+                                      },
                                     ),
                                   ),
                                 ],
