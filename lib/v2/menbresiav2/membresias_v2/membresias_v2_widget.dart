@@ -210,7 +210,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                   child: Container(
                                     width:
                                         MediaQuery.sizeOf(context).width * 0.84,
-                                    height: 158.0,
+                                    height: 163.0,
                                     decoration: const BoxDecoration(
                                       color: Colors.white,
                                       borderRadius: BorderRadius.only(
@@ -255,11 +255,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   0.6,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                              ),
+                                              decoration: const BoxDecoration(),
                                               child: Text(
                                                 'You can talk to customers easily',
                                                 style:
@@ -314,11 +310,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                       MediaQuery.sizeOf(context)
                                                               .width *
                                                           0.559,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryBackground,
-                                                  ),
+                                                  decoration: const BoxDecoration(),
                                                   child: Text(
                                                     'You go out in search of caregivers',
                                                     style: FlutterFlowTheme.of(
@@ -418,11 +410,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   0.6,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                              ),
+                                              decoration: const BoxDecoration(),
                                               child: Text(
                                                 'You can use the map to navigate',
                                                 style:
@@ -559,7 +547,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                 child: Container(
                                   width:
                                       MediaQuery.sizeOf(context).width * 0.84,
-                                  height: 158.0,
+                                  height: 163.0,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
@@ -603,11 +591,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
                                                 0.6,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                            ),
+                                            decoration: const BoxDecoration(),
                                             child: Text(
                                               'you will be a verified and trusted Caregiver',
                                               style: FlutterFlowTheme.of(
@@ -658,11 +642,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                     MediaQuery.sizeOf(context)
                                                             .width *
                                                         0.55,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryBackground,
-                                                ),
+                                                decoration: const BoxDecoration(),
                                                 child: Text(
                                                   'Get in touch with users and send your messages',
                                                   style: FlutterFlowTheme.of(
@@ -767,11 +747,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
                                                 0.6,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                            ),
+                                            decoration: const BoxDecoration(),
                                             child: Text(
                                               'Your collaborators will be able to write as soon as they are chosen',
                                               style: FlutterFlowTheme.of(
@@ -906,7 +882,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                 child: Container(
                                   width:
                                       MediaQuery.sizeOf(context).width * 0.84,
-                                  height: 158.0,
+                                  height: 163.0,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
@@ -950,11 +926,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
                                                 0.6,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                            ),
+                                            decoration: const BoxDecoration(),
                                             child: Text(
                                               'You can attach standard and basic caregivers as your collaborators',
                                               style: FlutterFlowTheme.of(
@@ -1006,11 +978,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                     MediaQuery.sizeOf(context)
                                                             .width *
                                                         0.563,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryBackground,
-                                                ),
+                                                decoration: const BoxDecoration(),
                                                 child: Text(
                                                   'Your collaborators will be better positioned',
                                                   style: FlutterFlowTheme.of(
@@ -1099,11 +1067,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
                                                 0.6,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                            ),
+                                            decoration: const BoxDecoration(),
                                             child: Text(
                                               'Your collaborators will be able to write as soon as they are chosen',
                                               style: FlutterFlowTheme.of(
@@ -1233,7 +1197,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                   height: 50.0,
                   decoration: const BoxDecoration(),
                   child: Align(
-                    alignment: const AlignmentDirectional(-0.9, -0.98),
+                    alignment: const AlignmentDirectional(-5.1, -0.98),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
@@ -1249,7 +1213,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                       child: const Icon(
                         Icons.chevron_left_outlined,
                         color: Colors.black,
-                        size: 49.0,
+                        size: 43.0,
                       ),
                     ),
                   ),

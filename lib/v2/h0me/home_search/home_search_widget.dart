@@ -1112,7 +1112,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
               Align(
                 alignment: const AlignmentDirectional(0.0, 1.0),
                 child: Container(
-                  height: 66.0,
+                  height: 87.0,
                   decoration: const BoxDecoration(
                     color: Color(0xECB928B8),
                   ),

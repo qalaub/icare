@@ -36,7 +36,6 @@ dependencies:
   cloud_functions_platform_interface: 5.5.26
   cloud_functions_web: 4.9.4
   collection: 1.18.0
-  cross_file: 0.3.3+7
   dropdown_button2: 2.3.9
   easy_debounce: 2.0.1
   equatable: 2.0.5
@@ -108,10 +107,6 @@ dependencies:
   plugin_platform_interface: 2.1.8
   pointer_interceptor: 0.10.1
   provider: 6.1.2
-  record: 5.0.4
-  record_android: 1.0.4
-  record_platform_interface: 1.0.2
-  record_web: 1.0.4
   rxdart: 0.27.7
   share_plus: 9.0.0
   shared_preferences: 2.2.2

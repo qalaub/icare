@@ -3,7 +3,6 @@ import '/chat_groupwbubbles/chat_thread_update/chat_thread_update_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'chat_thread_component_widget.dart' show ChatThreadComponentWidget;
 import 'package:flutter/material.dart';
-import 'package:record/record.dart';
 
 class ChatThreadComponentModel
     extends FlutterFlowModel<ChatThreadComponentWidget> {
@@ -62,10 +61,6 @@ class ChatThreadComponentModel
 
   // Stores action output result for [Backend Call - Create Document] action in TextField widget.
   ChatMessagesRecord? newChatMessage;
-  String? newAudioMessage;
-  FFUploadedFile recordedFileBytes =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
-  AudioRecorder? audioRecorder;
   // Stores action output result for [Backend Call - Create Document] action in IconButton widget.
   ChatMessagesRecord? newChat;
 
