@@ -14,7 +14,6 @@ class RegisterProfessional3Model
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // State field(s) for question widget.
   FormFieldController<String>? questionValueController;
@@ -35,7 +34,6 @@ class RegisterProfessional3Model
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     codeFocusNode?.dispose();
     codeTextController?.dispose();
   }

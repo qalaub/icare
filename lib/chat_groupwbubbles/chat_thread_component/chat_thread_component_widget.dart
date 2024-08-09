@@ -11,7 +11,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/upload_data.dart';
 import 'dart:async';
-import '/flutter_flow/permissions_util.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
@@ -71,8 +70,6 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
         _model.isStandar = true;
         _model.updatePage(() {});
       }
-
-      await requestPermission(microphonePermission);
     });
 
     _model.textController ??= TextEditingController();

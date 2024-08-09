@@ -6,7 +6,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'filtros_model.dart';
 export 'filtros_model.dart';
@@ -43,9 +42,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: const Color(0xFFEEEAEA),
@@ -124,7 +121,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                     valueOrDefault<String>(
                                       functions.concatStrings(
                                           _model.distanceValue?.toString(),
-                                          'Mi',
+                                          'KM',
                                           ' '),
                                       '10 Km',
                                     ),
@@ -174,9 +171,9 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                             1000.0)
                                     ? valueOrDefault<double>(
                                         FFAppState().filtersPage.distance,
-                                        10.0,
+                                        1000.0,
                                       )
-                                    : 10.0,
+                                    : 1000.0,
                                 divisions: 10,
                                 onChanged: (newValue) {
                                   setState(
@@ -218,111 +215,15 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                               children: [
                                 Align(
                                   alignment: const AlignmentDirectional(-1.0, 0.0),
-                                  child: InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      context.safePop();
-                                    },
-                                    child: Text(
-                                      'Show Ages:',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Montserrat',
-                                            color: const Color(0xFF545454),
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                    ),
-                                  ),
-                                ),
-                                RichText(
-                                  textScaler: MediaQuery.of(context).textScaler,
-                                  text: TextSpan(
-                                    children: [
-                                      TextSpan(
-                                        text: valueOrDefault<String>(
-                                          () {
-                                            if (FFAppState()
-                                                    .filtersPage
-                                                    .age
-                                                    .contains(FFAppConstants
-                                                        .agesType[2]) ==
-                                                true) {
-                                              return 'Young ';
-                                            } else if (FFAppState()
-                                                    .filtersPage
-                                                    .age
-                                                    .contains(FFAppConstants
-                                                        .agesType[1]) ==
-                                                true) {
-                                              return 'Adult ';
-                                            } else if (FFAppState()
-                                                    .filtersPage
-                                                    .age
-                                                    .contains(FFAppConstants
-                                                        .agesType[0]) ==
-                                                true) {
-                                              return 'Senior ';
-                                            } else {
-                                              return 'Young ';
-                                            }
-                                          }(),
-                                          'Young',
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Montserrat',
-                                              color: Colors.black,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                      ),
-                                      TextSpan(
-                                        text: valueOrDefault<String>(
-                                          () {
-                                            if (FFAppState()
-                                                    .filtersPage
-                                                    .age
-                                                    .contains(FFAppConstants
-                                                        .agesType[2]) ==
-                                                true) {
-                                              return '18-25';
-                                            } else if (FFAppState()
-                                                    .filtersPage
-                                                    .age
-                                                    .contains(FFAppConstants
-                                                        .agesType[1]) ==
-                                                true) {
-                                              return '25-40';
-                                            } else if (FFAppState()
-                                                    .filtersPage
-                                                    .age
-                                                    .contains(FFAppConstants
-                                                        .agesType[0]) ==
-                                                true) {
-                                              return '40-60+';
-                                            } else {
-                                              return '40-60+ ';
-                                            }
-                                          }(),
-                                          '18-25',
-                                        ),
-                                        style: GoogleFonts.getFont(
-                                          'Montserrat',
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      )
-                                    ],
+                                  child: Text(
+                                    'Show Ages:',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Readex Pro',
+                                          fontFamily: 'Montserrat',
+                                          color: const Color(0xFF545454),
                                           letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w500,
                                         ),
                                   ),
                                 ),
@@ -331,92 +232,119 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                           ),
                         ),
                         Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
-                          child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 10.0, 0.0, 0.0),
-                            child: Container(
-                              width: 346.0,
-                              height: 61.0,
-                              decoration: BoxDecoration(
+                          alignment: const AlignmentDirectional(-0.03, -0.86),
+                          child: Container(
+                            width: 347.0,
+                            height: 152.0,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: const BorderRadius.only(
+                                bottomLeft: Radius.circular(12.0),
+                                bottomRight: Radius.circular(12.0),
+                                topLeft: Radius.circular(12.0),
+                                topRight: Radius.circular(12.0),
+                              ),
+                              border: Border.all(
                                 color: Colors.white,
-                                borderRadius: const BorderRadius.only(
-                                  bottomLeft: Radius.circular(12.0),
-                                  bottomRight: Radius.circular(12.0),
-                                  topLeft: Radius.circular(12.0),
-                                  topRight: Radius.circular(12.0),
-                                ),
-                                border: Border.all(
-                                  color: Colors.white,
-                                ),
                               ),
-                              child: Align(
-                                alignment: const AlignmentDirectional(0.0, 0.0),
-                                child: Slider(
-                                  activeColor: const Color(0xFFFF09BA),
-                                  inactiveColor: const Color(0xFFE4E4E4),
-                                  min: 1.0,
-                                  max: 3.0,
-                                  value: _model.ageValue ??=
-                                      valueOrDefault<double>(
-                                    () {
-                                      if (FFAppState().filtersPage.age.contains(
-                                              FFAppConstants.agesType[2]) ==
-                                          true) {
-                                        return 1.0;
-                                      } else if (FFAppState()
-                                              .filtersPage
-                                              .age
-                                              .contains(
-                                                  FFAppConstants.agesType[1]) ==
-                                          true) {
-                                        return 2.0;
-                                      } else if (FFAppState()
-                                              .filtersPage
-                                              .age
-                                              .contains(
-                                                  FFAppConstants.agesType[0]) ==
-                                          true) {
-                                        return 3.0;
-                                      } else {
-                                        return 1.0;
-                                      }
-                                    }(),
-                                    1.0,
+                            ),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Align(
+                                  alignment: const AlignmentDirectional(0.0, 0.77),
+                                  child: CheckboxListTile(
+                                    value: _model.age1Value ??= FFAppState()
+                                            .filtersPage
+                                            .age
+                                            .contains(
+                                                FFAppConstants.agesType[2]) ==
+                                        true,
+                                    onChanged: (newValue) async {
+                                      setState(
+                                          () => _model.age1Value = newValue!);
+                                    },
+                                    title: Text(
+                                      '18-25 years',
+                                      style: FlutterFlowTheme.of(context)
+                                          .titleLarge
+                                          .override(
+                                            fontFamily: 'Montserrat',
+                                            color: Colors.black,
+                                            fontSize: 14.0,
+                                            letterSpacing: 0.0,
+                                          ),
+                                    ),
+                                    activeColor: const Color(0xFFFF09BA),
+                                    checkColor: Colors.white,
+                                    dense: false,
+                                    controlAffinity:
+                                        ListTileControlAffinity.trailing,
                                   ),
-                                  divisions: 2,
-                                  onChanged: (newValue) async {
-                                    setState(() => _model.ageValue = newValue);
-                                    FFAppState().updateFiltersPageStruct(
-                                      (e) => e..age = [],
-                                    );
-                                    FFAppState().updateFiltersPageStruct(
-                                      (e) => e
-                                        ..updateAge(
-                                          (e) => e.add(_model.ageValue == 1.0
-                                              ? '18-25 years'
-                                              : ' '),
-                                        ),
-                                    );
-                                    FFAppState().updateFiltersPageStruct(
-                                      (e) => e
-                                        ..updateAge(
-                                          (e) => e.add(_model.ageValue == 2.0
-                                              ? '25-40 years'
-                                              : ' '),
-                                        ),
-                                    );
-                                    FFAppState().updateFiltersPageStruct(
-                                      (e) => e
-                                        ..updateAge(
-                                          (e) => e.add(_model.ageValue == 3.0
-                                              ? '40-65+ years'
-                                              : ' '),
-                                        ),
-                                    );
-                                  },
                                 ),
-                              ),
+                                Align(
+                                  alignment: const AlignmentDirectional(0.0, 0.13),
+                                  child: CheckboxListTile(
+                                    value: _model.age2Value ??= FFAppState()
+                                            .filtersPage
+                                            .age
+                                            .contains(
+                                                FFAppConstants.agesType[1]) ==
+                                        true,
+                                    onChanged: (newValue) async {
+                                      setState(
+                                          () => _model.age2Value = newValue!);
+                                    },
+                                    title: Text(
+                                      '25-40 years',
+                                      style: FlutterFlowTheme.of(context)
+                                          .titleLarge
+                                          .override(
+                                            fontFamily: 'Montserrat',
+                                            color: Colors.black,
+                                            fontSize: 14.0,
+                                            letterSpacing: 0.0,
+                                          ),
+                                    ),
+                                    activeColor: const Color(0xFFFF09BA),
+                                    checkColor: Colors.white,
+                                    dense: false,
+                                    controlAffinity:
+                                        ListTileControlAffinity.trailing,
+                                  ),
+                                ),
+                                Align(
+                                  alignment: const AlignmentDirectional(0.0, -0.46),
+                                  child: CheckboxListTile(
+                                    value: _model.age3Value ??= FFAppState()
+                                            .filtersPage
+                                            .age
+                                            .contains(
+                                                FFAppConstants.agesType[0]) ==
+                                        true,
+                                    onChanged: (newValue) async {
+                                      setState(
+                                          () => _model.age3Value = newValue!);
+                                    },
+                                    title: Text(
+                                      '40-65+ years',
+                                      style: FlutterFlowTheme.of(context)
+                                          .titleLarge
+                                          .override(
+                                            fontFamily: 'Montserrat',
+                                            color: Colors.black,
+                                            fontSize: 14.0,
+                                            letterSpacing: 0.0,
+                                          ),
+                                    ),
+                                    activeColor: const Color(0xFFFF09BA),
+                                    checkColor: Colors.white,
+                                    dense: false,
+                                    controlAffinity:
+                                        ListTileControlAffinity.trailing,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ),
@@ -468,7 +396,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                           alignment: const AlignmentDirectional(-0.03, -0.86),
                           child: Container(
                             width: 347.0,
-                            height: 204.0,
+                            height: 246.0,
                             decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: const BorderRadius.only(
@@ -485,20 +413,20 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.77),
+                                  alignment: const AlignmentDirectional(0.0, -0.98),
                                   child: CheckboxListTile(
-                                    value: _model.homeValue ??= FFAppState()
+                                    value: _model.supportValue1 ??= FFAppState()
                                             .filtersPage
                                             .services
                                             .contains(FFAppConstants
-                                                .servicesType[3]) ==
+                                                .servicesType[0]) ==
                                         true,
                                     onChanged: (newValue) async {
-                                      setState(
-                                          () => _model.homeValue = newValue!);
+                                      setState(() =>
+                                          _model.supportValue1 = newValue!);
                                     },
                                     title: Text(
-                                      'Home Maintenance ',
+                                      'Support Workers',
                                       style: FlutterFlowTheme.of(context)
                                           .titleLarge
                                           .override(
@@ -516,21 +444,20 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.13),
+                                  alignment: const AlignmentDirectional(0.0, -0.98),
                                   child: CheckboxListTile(
-                                    value: _model.therapeuticValue ??=
-                                        FFAppState()
-                                                .filtersPage
-                                                .services
-                                                .contains(FFAppConstants
-                                                    .servicesType[2]) ==
-                                            true,
+                                    value: _model.supportValue2 ??= FFAppState()
+                                            .filtersPage
+                                            .services
+                                            .contains(FFAppConstants
+                                                .servicesType[0]) ==
+                                        true,
                                     onChanged: (newValue) async {
                                       setState(() =>
-                                          _model.therapeuticValue = newValue!);
+                                          _model.supportValue2 = newValue!);
                                     },
                                     title: Text(
-                                      '\tTherapeutic Supports',
+                                      ' Support Coordinators',
                                       style: FlutterFlowTheme.of(context)
                                           .titleLarge
                                           .override(
@@ -562,7 +489,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                           _model.coordinatorsValue = newValue!);
                                     },
                                     title: Text(
-                                      '\tCoordinators',
+                                      'Recovery Coaches',
                                       style: FlutterFlowTheme.of(context)
                                           .titleLarge
                                           .override(
@@ -580,20 +507,52 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: const AlignmentDirectional(0.0, -0.98),
+                                  alignment: const AlignmentDirectional(0.0, 0.13),
                                   child: CheckboxListTile(
-                                    value: _model.supportValue ??= FFAppState()
+                                    value: _model.therapeuticValue ??=
+                                        FFAppState()
+                                                .filtersPage
+                                                .services
+                                                .contains(FFAppConstants
+                                                    .servicesType[2]) ==
+                                            true,
+                                    onChanged: (newValue) async {
+                                      setState(() =>
+                                          _model.therapeuticValue = newValue!);
+                                    },
+                                    title: Text(
+                                      'Therapeutic Supports',
+                                      style: FlutterFlowTheme.of(context)
+                                          .titleLarge
+                                          .override(
+                                            fontFamily: 'Montserrat',
+                                            color: Colors.black,
+                                            fontSize: 14.0,
+                                            letterSpacing: 0.0,
+                                          ),
+                                    ),
+                                    activeColor: const Color(0xFFFF09BA),
+                                    checkColor: Colors.white,
+                                    dense: false,
+                                    controlAffinity:
+                                        ListTileControlAffinity.trailing,
+                                  ),
+                                ),
+                                Align(
+                                  alignment: const AlignmentDirectional(0.0, 0.77),
+                                  child: CheckboxListTile(
+                                    value: _model.homeValue ??= FFAppState()
                                             .filtersPage
                                             .services
                                             .contains(FFAppConstants
-                                                .servicesType[0]) ==
+                                                .servicesType[3]) ==
                                         true,
                                     onChanged: (newValue) async {
-                                      setState(() =>
-                                          _model.supportValue = newValue!);
+                                      setState(
+                                          () => _model.homeValue = newValue!);
                                     },
                                     title: Text(
-                                      'Support Workers',
+                                      'Home Maintenance ',
                                       style: FlutterFlowTheme.of(context)
                                           .titleLarge
                                           .override(
@@ -771,7 +730,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                 },
                               );
                             },
-                            text: 'Clean filters',
+                            text: 'Clear filters',
                             options: FFButtonOptions(
                               height: 37.0,
                               padding: const EdgeInsetsDirectional.fromSTEB(
@@ -823,12 +782,12 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                 FFAppState().updateFiltersPageStruct(
                                   (e) => e
                                     ..updateAge(
-                                      (e) => e.add(_model.ageValue == 1.0
+                                      (e) => e.add(_model.age1Value == true
                                           ? '18-25 years'
                                           : ' '),
                                     )
                                     ..updateServices(
-                                      (e) => e.add(_model.supportValue == true
+                                      (e) => e.add(_model.supportValue1 == true
                                           ? 'Support Worker'
                                           : ' '),
                                     ),
@@ -836,7 +795,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                 FFAppState().updateFiltersPageStruct(
                                   (e) => e
                                     ..updateAge(
-                                      (e) => e.add(_model.ageValue == 2.0
+                                      (e) => e.add(_model.age2Value == true
                                           ? '25-40 years'
                                           : ' '),
                                     )
@@ -850,7 +809,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                 FFAppState().updateFiltersPageStruct(
                                   (e) => e
                                     ..updateAge(
-                                      (e) => e.add(_model.ageValue == 3.0
+                                      (e) => e.add(_model.age3Value == true
                                           ? '40-65+ years'
                                           : ' '),
                                     )

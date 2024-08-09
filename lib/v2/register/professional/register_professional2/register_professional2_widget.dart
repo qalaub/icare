@@ -115,9 +115,7 @@ class _RegisterProfessional2WidgetState
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -166,13 +164,13 @@ class _RegisterProfessional2WidgetState
                               alignment: const AlignmentDirectional(0.0, -1.0),
                               child: Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 10.0, 0.0, 0.0),
+                                    0.0, 6.0, 0.0, 0.0),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(8.0),
                                   child: Image.asset(
-                                    'assets/images/I=G=.png',
-                                    width: 79.0,
-                                    height: 90.0,
+                                    'assets/images/icare.png',
+                                    width: 100.0,
+                                    height: 106.0,
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -235,7 +233,7 @@ class _RegisterProfessional2WidgetState
                                                     .fromSTEB(
                                                         0.0, 10.0, 0.0, 0.0),
                                                 child: Text(
-                                                  'Create Account\nOptional',
+                                                  'Create Account',
                                                   textAlign: TextAlign.center,
                                                   style: FlutterFlowTheme.of(
                                                           context)

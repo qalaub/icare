@@ -17,7 +17,7 @@ import '/auth/firebase_auth/auth_util.dart';
 LatLng? changeUbication(LatLng ubication) {
   // Radio de la Tierra en metros
   const double earthRadius = 6371000;
-  const int meters = 300;
+  const int meters = 100;
   // Calcular el cambi  o en latitud
   double deltaLatitude = meters / earthRadius;
   // Convertir de radianes a grados
@@ -114,4 +114,24 @@ int getRestantDays(
 
   // Si los días restantes son negativos, devolver 0 (la membresía ya expiró)
   return remainingDays > 0 ? remainingDays : 0;
+}
+
+LatLng stringToLatLng(String ubication) {
+  // Dividimos la cadena usando la coma como delimitador.
+  List<String> parts = ubication.split(',');
+
+  // Convertimos las partes en valores numéricos.
+  double latitude = double.parse(parts[0].trim());
+  double longitude = double.parse(parts[1].trim());
+
+  // Creamos y retornamos el objeto LatLng.
+  return LatLng(latitude, longitude);
+}
+
+String generateBodyForEmail(
+  String user1,
+  String user2,
+  String reason,
+) {
+  return '$user1 has reported $user2 for the following reason: $reason.';
 }

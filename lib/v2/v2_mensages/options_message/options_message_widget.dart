@@ -46,7 +46,7 @@ class _OptionsMessageWidgetState extends State<OptionsMessageWidget> {
       alignment: const AlignmentDirectional(1.0, -1.0),
       child: Container(
         width: MediaQuery.sizeOf(context).width * 0.55,
-        height: 96.0,
+        height: 127.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
           boxShadow: const [
@@ -152,6 +152,46 @@ class _OptionsMessageWidgetState extends State<OptionsMessageWidget> {
                         ),
                   ),
                 ].addToStart(const SizedBox(width: 16.0)),
+              ),
+            ),
+            const Divider(
+              thickness: 1.0,
+              color: Color(0xFFBDBDBD),
+            ),
+            InkWell(
+              splashColor: Colors.transparent,
+              focusColor: Colors.transparent,
+              hoverColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              onTap: () async {
+                context.pushNamed(
+                  'report',
+                  queryParameters: {
+                    'user1': serializeParam(
+                      currentUserEmail,
+                      ParamType.String,
+                    ),
+                    'user2': serializeParam(
+                      widget.userRef?.email,
+                      ParamType.String,
+                    ),
+                  }.withoutNulls,
+                );
+              },
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Report User',
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Montserrat',
+                          fontSize: 18.0,
+                          letterSpacing: 0.0,
+                          fontWeight: FontWeight.w500,
+                        ),
+                  ),
+                ],
               ),
             ),
           ].addToStart(const SizedBox(height: 16.0)),

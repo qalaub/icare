@@ -1,10 +1,11 @@
-import '/backend/schema/structs/index.dart';
+import '/backend/api_requests/api_calls.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_place_picker.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/v2/user/mapbuscar/mapbuscar_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
@@ -52,6 +53,9 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
     _model.phoneTextController ??= TextEditingController();
     _model.phoneFocusNode ??= FocusNode();
 
+    _model.queryTextController ??= TextEditingController();
+    _model.queryFocusNode ??= FocusNode();
+
     animationsMap.addAll({
       'textOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
@@ -66,10 +70,6 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
-          _model.phoneTextController?.text = '04';
-        }));
   }
 
   @override
@@ -84,9 +84,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -139,9 +137,9 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(8.0),
                                   child: Image.asset(
-                                    'assets/images/I=G=.png',
-                                    width: 79.0,
-                                    height: 90.0,
+                                    'assets/images/icare.png',
+                                    width: 100.0,
+                                    height: 106.0,
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -201,7 +199,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                   .fromSTEB(
                                                       0.0, 10.0, 0.0, 0.0),
                                               child: Text(
-                                                'Create Account\nOptional',
+                                                'Create Account',
                                                 textAlign: TextAlign.center,
                                                 style: FlutterFlowTheme.of(
                                                         context)
@@ -692,7 +690,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                   .fromSTEB(
                                                       0.0, 15.0, 0.0, 15.0),
                                               child: Text(
-                                                '*Enter your 8-digit phone number\n(after 04)',
+                                                '*Enter your 10-digit phone number',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -767,13 +765,15 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                                 'Readex Pro',
                                                             letterSpacing: 0.0,
                                                           ),
+                                                  hintText:
+                                                      'Example:  0475345234',
                                                   hintStyle:
                                                       FlutterFlowTheme.of(
                                                               context)
                                                           .labelMedium
                                                           .override(
                                                             fontFamily:
-                                                                'Readex Pro',
+                                                                'Montserrat',
                                                             letterSpacing: 0.0,
                                                           ),
                                                   errorStyle: FlutterFlowTheme
@@ -845,13 +845,13 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                           letterSpacing: 0.0,
                                                         ),
                                                 maxLines: null,
+                                                maxLength: 10,
                                                 validator: _model
                                                     .phoneTextControllerValidator
                                                     .asValidator(context),
                                                 inputFormatters: [
                                                   FilteringTextInputFormatter
-                                                      .allow(RegExp(
-                                                          '^04(\\s?\\d+)+\$'))
+                                                      .allow(RegExp('[0-9]'))
                                                 ],
                                               ),
                                             ),
@@ -864,7 +864,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                   .fromSTEB(
                                                       0.0, 15.0, 0.0, 15.0),
                                               child: Text(
-                                                '*Suburb',
+                                                '*selection suburb',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -941,55 +941,116 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                           padding:
                                                               const EdgeInsetsDirectional
                                                                   .fromSTEB(
-                                                                      4.0,
-                                                                      4.0,
+                                                                      8.0,
                                                                       0.0,
-                                                                      4.0),
-                                                          child:
-                                                              FlutterFlowPlacePicker(
-                                                            iOSGoogleMapsApiKey:
-                                                                'AIzaSyC_-OevMj7qlreC-KNHfbbpZ6I1dAeBTX8',
-                                                            androidGoogleMapsApiKey:
-                                                                'AIzaSyArSl-isY2tQa--YEne30YvnjTiDb6JQig',
-                                                            webGoogleMapsApiKey:
-                                                                'AIzaSyDBNDkPkM6SPi79KuZ-oFApSvIBURZCnE0',
-                                                            onSelect:
-                                                                (place) async {
-                                                              setState(() =>
-                                                                  _model.placePickerValue =
-                                                                      place);
-                                                            },
-                                                            defaultText: '',
-                                                            buttonOptions:
-                                                                FFButtonOptions(
-                                                              width: 250.0,
-                                                              height: 40.0,
-                                                              color:
-                                                                  Colors.white,
-                                                              textStyle:
+                                                                      8.0,
+                                                                      0.0),
+                                                          child: TextFormField(
+                                                            controller: _model
+                                                                .queryTextController,
+                                                            focusNode: _model
+                                                                .queryFocusNode,
+                                                            onChanged: (_) =>
+                                                                EasyDebounce
+                                                                    .debounce(
+                                                              '_model.queryTextController',
+                                                              const Duration(
+                                                                  milliseconds:
+                                                                      100),
+                                                              () async {
+                                                                _model.isLoading =
+                                                                    true;
+                                                                _model.apiResultuev =
+                                                                    await GetSuggestionMapProfesionalCall
+                                                                        .call(
+                                                                  query: _model
+                                                                      .queryTextController
+                                                                      .text,
+                                                                );
+
+                                                                if ((_model
+                                                                        .apiResultuev
+                                                                        ?.succeeded ??
+                                                                    true)) {
+                                                                  _model
+                                                                      .queryResults = GetSuggestionMapProfesionalCall
+                                                                          .predictions(
+                                                                    (_model.apiResultuev
+                                                                            ?.jsonBody ??
+                                                                        ''),
+                                                                  )!
+                                                                      .toList()
+                                                                      .cast<
+                                                                          QueryResultsStruct>();
+                                                                } else {
+                                                                  _model.isLoading =
+                                                                      false;
+                                                                }
+
+                                                                _model.isLoading =
+                                                                    false;
+
+                                                                setState(() {});
+                                                              },
+                                                            ),
+                                                            autofocus: false,
+                                                            obscureText: false,
+                                                            decoration:
+                                                                InputDecoration(
+                                                              labelStyle:
                                                                   FlutterFlowTheme.of(
                                                                           context)
-                                                                      .titleSmall
+                                                                      .labelMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            'Montserrat',
-                                                                        color: Colors
-                                                                            .black,
+                                                                            'Readex Pro',
+                                                                        fontSize:
+                                                                            20.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
-                                                              elevation: 0.0,
-                                                              borderSide:
-                                                                  const BorderSide(
-                                                                color: Colors
-                                                                    .transparent,
-                                                                width: 2.0,
-                                                              ),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          24.0),
+                                                              hintText:
+                                                                  'Select suburb',
+                                                              hintStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        fontSize:
+                                                                            16.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
+                                                              enabledBorder:
+                                                                  InputBorder
+                                                                      .none,
+                                                              focusedBorder:
+                                                                  InputBorder
+                                                                      .none,
+                                                              errorBorder:
+                                                                  InputBorder
+                                                                      .none,
+                                                              focusedErrorBorder:
+                                                                  InputBorder
+                                                                      .none,
                                                             ),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Readex Pro',
+                                                                  fontSize:
+                                                                      20.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                            validator: _model
+                                                                .queryTextControllerValidator
+                                                                .asValidator(
+                                                                    context),
                                                           ),
                                                         ),
                                                       ),
@@ -1087,28 +1148,12 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                       0.0, 10.0, 0.0, 10.0),
                                               child: FFButtonWidget(
                                                 onPressed: () async {
-                                                  FFAppState()
-                                                      .updateVerifyFormStruct(
-                                                    (e) => e
-                                                      ..subur =
-                                                          valueOrDefault<bool>(
-                                                        _model.placePickerValue
-                                                                    .name !=
-                                                                '',
-                                                        false,
-                                                      ),
-                                                  );
-                                                  FFAppState().counter = 4;
                                                   if (_model.formKey
                                                               .currentState ==
                                                           null ||
                                                       !_model
                                                           .formKey.currentState!
                                                           .validate()) {
-                                                    return;
-                                                  }
-                                                  if (_model.placePickerValue ==
-                                                      const FFPlace()) {
                                                     return;
                                                   }
                                                   FFAppState()
@@ -1126,9 +1171,10 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                       ..company = _model
                                                           .companyTextController
                                                           .text
-                                                      ..suburb = _model
-                                                          .placePickerValue
-                                                          .latLng,
+                                                      ..suburb = functions
+                                                          .changeUbication(functions
+                                                              .stringToLatLng(_model
+                                                                  .newUbication!)),
                                                   );
                                                   FFAppState().verifyForm =
                                                       FormVerifyStruct();
@@ -1200,6 +1246,122 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                 ),
                               ),
                             ),
+                            if (_model.queryResults.isNotEmpty)
+                              Align(
+                                alignment: const AlignmentDirectional(0.0, -0.9),
+                                child: Container(
+                                  width:
+                                      MediaQuery.sizeOf(context).width * 0.96,
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.648,
+                                  decoration: BoxDecoration(
+                                    color: const Color(0x33000000),
+                                    borderRadius: BorderRadius.circular(0.0),
+                                  ),
+                                  child: SingleChildScrollView(
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Align(
+                                          alignment:
+                                              const AlignmentDirectional(0.0, 0.0),
+                                          child: Builder(
+                                            builder: (context) {
+                                              final newquery =
+                                                  _model.queryResults.toList();
+
+                                              return ListView.separated(
+                                                padding: EdgeInsets.zero,
+                                                shrinkWrap: true,
+                                                scrollDirection: Axis.vertical,
+                                                itemCount: newquery.length,
+                                                separatorBuilder: (_, __) =>
+                                                    const SizedBox(height: 0.0),
+                                                itemBuilder:
+                                                    (context, newqueryIndex) {
+                                                  final newqueryItem =
+                                                      newquery[newqueryIndex];
+                                                  return InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      _model.newPlace =
+                                                          await GetPlaceCall
+                                                              .call(
+                                                        placeId: newqueryItem
+                                                            .placeId,
+                                                      );
+
+                                                      if ((_model.newPlace
+                                                              ?.succeeded ??
+                                                          true)) {
+                                                        _model.newUbication = functions
+                                                            .concatStrings(
+                                                                GetPlaceCall
+                                                                        .location(
+                                                                  (_model.newPlace
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )
+                                                                    ?.lat
+                                                                    .toString(),
+                                                                GetPlaceCall
+                                                                    .location(
+                                                                  (_model.newPlace
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )?.lng.toString(),
+                                                                ',');
+                                                        setState(() {
+                                                          _model.queryTextController
+                                                                  ?.text =
+                                                              GetPlaceCall.name(
+                                                            (_model.newPlace
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )!;
+                                                          _model.queryTextController
+                                                                  ?.selection =
+                                                              TextSelection.collapsed(
+                                                                  offset: _model
+                                                                      .queryTextController!
+                                                                      .text
+                                                                      .length);
+                                                        });
+                                                      }
+                                                      _model.isLoading = false;
+                                                      _model.queryResults = [];
+
+                                                      setState(() {});
+                                                    },
+                                                    child: MapbuscarWidget(
+                                                      key: Key(
+                                                          'Keyg9n_${newqueryIndex}_of_${newquery.length}'),
+                                                      icon: const Icon(
+                                                        Icons.location_on,
+                                                        color:
+                                                            Color(0xFFD26AD2),
+                                                      ),
+                                                      text: newqueryItem
+                                                          .description,
+                                                    ),
+                                                  );
+                                                },
+                                              );
+                                            },
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
                           ],
                         ),
                       ),

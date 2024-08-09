@@ -34,9 +34,7 @@ class _EscogerUsuarioWidgetState extends State<EscogerUsuarioWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -82,18 +80,14 @@ class _EscogerUsuarioWidgetState extends State<EscogerUsuarioWidget> {
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.0, -1.0),
-                              child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 10.0, 0.0, 0.0),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  child: Image.asset(
-                                    'assets/images/I=G=.png',
-                                    width: 79.0,
-                                    height: 90.0,
-                                    fit: BoxFit.cover,
-                                  ),
+                              alignment: const AlignmentDirectional(0.0, -0.8),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(8.0),
+                                child: Image.asset(
+                                  'assets/images/icare.png',
+                                  width: 130.0,
+                                  height: 136.0,
+                                  fit: BoxFit.cover,
                                 ),
                               ),
                             ),

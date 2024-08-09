@@ -13,7 +13,6 @@ class UserprofileModel extends FlutterFlowModel<UserprofileWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Model for AccountOption component.
   late AccountOptionModel accountOptionModel1;
   // Model for AccountOption component.
@@ -49,7 +48,6 @@ class UserprofileModel extends FlutterFlowModel<UserprofileWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     accountOptionModel1.dispose();
     accountOptionModel2.dispose();
     accountOptionModel3.dispose();

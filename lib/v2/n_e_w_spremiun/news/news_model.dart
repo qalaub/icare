@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 class NewsModel extends FlutterFlowModel<NewsWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Model for Navbar component.
   late NavbarModel navbarModel;
   // Model for NavbarPremiun component.
@@ -21,7 +20,6 @@ class NewsModel extends FlutterFlowModel<NewsWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     navbarModel.dispose();
     navbarPremiunModel.dispose();
   }

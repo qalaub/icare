@@ -11,7 +11,6 @@ class RegisterBusiness2Model extends FlutterFlowModel<RegisterBusiness2Widget> {
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // State field(s) for serviceType widget.
   List<String>? serviceTypeValue;
@@ -87,7 +86,6 @@ class RegisterBusiness2Model extends FlutterFlowModel<RegisterBusiness2Widget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     ndisFocusNode?.dispose();
     ndisTextController?.dispose();
 

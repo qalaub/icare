@@ -116,7 +116,7 @@ class _ChatThreadUpdateWidgetState extends State<ChatThreadUpdateWidget> {
                                     Text(
                                       valueOrDefault<String>(
                                         dateTimeFormat(
-                                          'relative',
+                                          "relative",
                                           widget.chatMessagesRef?.timestamp,
                                           locale: FFLocalizations.of(context)
                                                   .languageShortCode ??
@@ -276,7 +276,7 @@ class _ChatThreadUpdateWidgetState extends State<ChatThreadUpdateWidget> {
                       child: Text(
                         valueOrDefault<String>(
                           dateTimeFormat(
-                            'relative',
+                            "relative",
                             widget.chatMessagesRef?.timestamp,
                             locale:
                                 FFLocalizations.of(context).languageShortCode ??

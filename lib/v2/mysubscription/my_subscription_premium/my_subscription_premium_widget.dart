@@ -40,9 +40,7 @@ class _MySubscriptionPremiumWidgetState
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: Colors.white,
@@ -191,7 +189,7 @@ class _MySubscriptionPremiumWidgetState
                                     AuthUserStreamWidget(
                                       builder: (context) => Text(
                                         dateTimeFormat(
-                                          'd/M/y',
+                                          "d/M/y",
                                           currentUserDocument!.paymentDate!,
                                           locale: FFLocalizations.of(context)
                                               .languageCode,
@@ -284,7 +282,7 @@ class _MySubscriptionPremiumWidgetState
                                     AuthUserStreamWidget(
                                       builder: (context) => Text(
                                         dateTimeFormat(
-                                          'd/M/y',
+                                          "d/M/y",
                                           dateTimeFromSecondsSinceEpoch(
                                               functions.addDays(
                                                   currentUserDocument!

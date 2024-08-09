@@ -66,9 +66,7 @@ class _TinDERv1WidgetState extends State<TinDERv1Widget> {
         List<UsersRecord> tinDERv1UsersRecordList = snapshot.data!;
 
         return GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
             body: SafeArea(

@@ -21,7 +21,6 @@ class ProfileInfoModel extends FlutterFlowModel<ProfileInfoWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   String currentPageLink = '';
   // Stores action output result for [Firestore Query - Query a collection] action in MENSAJES widget.
   List<ChatsRecord>? chatRef;
@@ -42,7 +41,6 @@ class ProfileInfoModel extends FlutterFlowModel<ProfileInfoWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     addFavoritesModel.dispose();
     membresiaLogoModel.dispose();
     descripcionProfesionalModel.dispose();

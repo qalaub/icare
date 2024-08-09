@@ -9,7 +9,6 @@ class PeoplewhoputyouinfavoritesModel
     extends FlutterFlowModel<PeoplewhoputyouinfavoritesWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Model for Navbar component.
   late NavbarModel navbarModel;
   // Model for NavbarPremiun component.
@@ -23,7 +22,6 @@ class PeoplewhoputyouinfavoritesModel
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     navbarModel.dispose();
     navbarPremiunModel.dispose();
   }

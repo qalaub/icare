@@ -7,7 +7,6 @@ import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 class RegisterUser2Model extends FlutterFlowModel<RegisterUser2Widget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // State field(s) for ndis widget.
   FocusNode? ndisFocusNode;
@@ -90,7 +89,6 @@ class RegisterUser2Model extends FlutterFlowModel<RegisterUser2Widget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     ndisFocusNode?.dispose();
     ndisTextController?.dispose();
 

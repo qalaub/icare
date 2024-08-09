@@ -19,7 +19,6 @@ class Chat2InviteUsersModel extends FlutterFlowModel<Chat2InviteUsersWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for CheckboxListTile widget.
   Map<UsersRecord, bool> checkboxListTileValueMap = {};
   List<UsersRecord> get checkboxListTileCheckedItems =>
@@ -37,7 +36,5 @@ class Chat2InviteUsersModel extends FlutterFlowModel<Chat2InviteUsersWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

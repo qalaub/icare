@@ -43,9 +43,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -478,7 +476,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                   Icons.no_accounts,
                                   size: 30.0,
                                 ),
-                                text: 'Block list',
+                                text: 'Blocked list',
                               ),
                             ),
                           ),
@@ -570,7 +568,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
 
                                 context.goNamedAuth('Login', context.mounted);
                               },
-                              text: 'Sign off',
+                              text: 'Sign out',
                               icon: const Icon(
                                 Icons.login_sharp,
                                 size: 25.0,

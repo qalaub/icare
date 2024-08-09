@@ -1,11 +1,13 @@
+import '/backend/api_requests/api_calls.dart';
+import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_place_picker.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/v2/user/mapbuscar/mapbuscar_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:easy_debounce/easy_debounce.dart';
@@ -63,6 +65,9 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
     _model.phoneTextController ??= TextEditingController();
     _model.phoneFocusNode ??= FocusNode();
 
+    _model.queryTextController ??= TextEditingController();
+    _model.queryFocusNode ??= FocusNode();
+
     animationsMap.addAll({
       'textOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
@@ -89,10 +94,6 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
-          _model.phoneTextController?.text = '04';
-        }));
   }
 
   @override
@@ -107,9 +108,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -156,17 +155,13 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                             ),
                             Align(
                               alignment: const AlignmentDirectional(0.0, -1.0),
-                              child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 10.0, 0.0, 0.0),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  child: Image.asset(
-                                    'assets/images/I=G=.png',
-                                    width: 79.0,
-                                    height: 90.0,
-                                    fit: BoxFit.cover,
-                                  ),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(8.0),
+                                child: Image.asset(
+                                  'assets/images/icare.png',
+                                  width: 100.0,
+                                  height: 106.0,
+                                  fit: BoxFit.cover,
                                 ),
                               ),
                             ),
@@ -223,7 +218,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                   .fromSTEB(
                                                       0.0, 10.0, 0.0, 0.0),
                                               child: Text(
-                                                'Create Account\nOptional',
+                                                'Create Account',
                                                 textAlign: TextAlign.center,
                                                 style: FlutterFlowTheme.of(
                                                         context)
@@ -671,14 +666,14 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                   valueOrDefault<
                                                                       String>(
                                                                     dateTimeFormat(
-                                                                      'd/M/y',
+                                                                      "d/M/y",
                                                                       _model
                                                                           .datePicked,
                                                                       locale: FFLocalizations.of(
                                                                               context)
                                                                           .languageCode,
                                                                     ),
-                                                                    '[D/M/Y]',
+                                                                    'DD/MM/YYYY',
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
@@ -770,6 +765,10 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                     'select your date of birth',
                                                                 options:
                                                                     FFButtonOptions(
+                                                                  width: MediaQuery.sizeOf(
+                                                                              context)
+                                                                          .width *
+                                                                      0.45,
                                                                   height: 40.0,
                                                                   padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
@@ -886,7 +885,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                   .fromSTEB(
                                                       0.0, 15.0, 0.0, 15.0),
                                               child: Text(
-                                                '*Enter your 8-digit phone number\n(after 04)',
+                                                '*Enter your 10-digit phone number',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -963,13 +962,15 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                 'Readex Pro',
                                                             letterSpacing: 0.0,
                                                           ),
+                                                  hintText:
+                                                      'Example:  0475345234',
                                                   hintStyle:
                                                       FlutterFlowTheme.of(
                                                               context)
                                                           .labelMedium
                                                           .override(
                                                             fontFamily:
-                                                                'Readex Pro',
+                                                                'Montserrat',
                                                             letterSpacing: 0.0,
                                                           ),
                                                   errorStyle: FlutterFlowTheme
@@ -1041,14 +1042,13 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                           letterSpacing: 0.0,
                                                         ),
                                                 maxLines: null,
-                                                maxLength: 16,
+                                                maxLength: 12,
                                                 validator: _model
                                                     .phoneTextControllerValidator
                                                     .asValidator(context),
                                                 inputFormatters: [
                                                   FilteringTextInputFormatter
-                                                      .allow(RegExp(
-                                                          '^04(\\s?\\d+)+\$'))
+                                                      .allow(RegExp('[0-9]'))
                                                 ],
                                               ),
                                             ),
@@ -1061,7 +1061,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                   .fromSTEB(
                                                       0.0, 0.0, 0.0, 15.0),
                                               child: Text(
-                                                '*Suburb',
+                                                '*selection suburb',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -1140,56 +1140,108 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                           padding:
                                                               const EdgeInsetsDirectional
                                                                   .fromSTEB(
-                                                                      4.0,
-                                                                      4.0,
+                                                                      8.0,
                                                                       0.0,
-                                                                      4.0),
-                                                          child:
-                                                              FlutterFlowPlacePicker(
-                                                            iOSGoogleMapsApiKey:
-                                                                'AIzaSyC_-OevMj7qlreC-KNHfbbpZ6I1dAeBTX8',
-                                                            androidGoogleMapsApiKey:
-                                                                'AIzaSyArSl-isY2tQa--YEne30YvnjTiDb6JQig',
-                                                            webGoogleMapsApiKey:
-                                                                'AIzaSyDBNDkPkM6SPi79KuZ-oFApSvIBURZCnE0',
-                                                            onSelect:
-                                                                (place) async {
-                                                              setState(() =>
-                                                                  _model.placePickerValue =
-                                                                      place);
-                                                            },
-                                                            defaultText:
-                                                                'Select ubication',
-                                                            buttonOptions:
-                                                                FFButtonOptions(
-                                                              width: 250.0,
-                                                              height: 40.0,
-                                                              color:
-                                                                  Colors.white,
-                                                              textStyle:
+                                                                      8.0,
+                                                                      0.0),
+                                                          child: TextFormField(
+                                                            controller: _model
+                                                                .queryTextController,
+                                                            focusNode: _model
+                                                                .queryFocusNode,
+                                                            onChanged: (_) =>
+                                                                EasyDebounce
+                                                                    .debounce(
+                                                              '_model.queryTextController',
+                                                              const Duration(
+                                                                  milliseconds:
+                                                                      100),
+                                                              () async {
+                                                                _model.apiResultuev =
+                                                                    await GetSuggestionMapProfesionalCall
+                                                                        .call(
+                                                                  query: _model
+                                                                      .queryTextController
+                                                                      .text,
+                                                                );
+
+                                                                if ((_model
+                                                                        .apiResultuev
+                                                                        ?.succeeded ??
+                                                                    true)) {
+                                                                  _model
+                                                                      .queryResults = GetSuggestionMapProfesionalCall
+                                                                          .predictions(
+                                                                    (_model.apiResultuev
+                                                                            ?.jsonBody ??
+                                                                        ''),
+                                                                  )!
+                                                                      .toList()
+                                                                      .cast<
+                                                                          QueryResultsStruct>();
+                                                                }
+
+                                                                setState(() {});
+                                                              },
+                                                            ),
+                                                            autofocus: false,
+                                                            obscureText: false,
+                                                            decoration:
+                                                                InputDecoration(
+                                                              labelStyle:
                                                                   FlutterFlowTheme.of(
                                                                           context)
-                                                                      .titleSmall
+                                                                      .labelMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            'Montserrat',
-                                                                        color: const Color(
-                                                                            0xFF565656),
+                                                                            'Readex Pro',
+                                                                        fontSize:
+                                                                            20.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
-                                                              elevation: 0.0,
-                                                              borderSide:
-                                                                  const BorderSide(
-                                                                color: Colors
-                                                                    .transparent,
-                                                                width: 2.0,
-                                                              ),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          24.0),
+                                                              hintText:
+                                                                  'Select suburb',
+                                                              hintStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        fontSize:
+                                                                            16.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
+                                                              enabledBorder:
+                                                                  InputBorder
+                                                                      .none,
+                                                              focusedBorder:
+                                                                  InputBorder
+                                                                      .none,
+                                                              errorBorder:
+                                                                  InputBorder
+                                                                      .none,
+                                                              focusedErrorBorder:
+                                                                  InputBorder
+                                                                      .none,
                                                             ),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Readex Pro',
+                                                                  fontSize:
+                                                                      20.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                            validator: _model
+                                                                .queryTextControllerValidator
+                                                                .asValidator(
+                                                                    context),
                                                           ),
                                                         ),
                                                       ),
@@ -1302,7 +1354,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                         (e) => e
                                                           ..date =
                                                               dateTimeFormat(
-                                                                        'd/M/y',
+                                                                        "d/M/y",
                                                                         _model
                                                                             .datePicked,
                                                                         locale:
@@ -1312,8 +1364,9 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                           ..subur =
                                                               valueOrDefault<
                                                                   bool>(
-                                                            _model.placePickerValue
-                                                                        .name !=
+                                                            _model.newUbication !=
+                                                                    null &&
+                                                                _model.newUbication !=
                                                                     '',
                                                             false,
                                                           ),
@@ -1329,11 +1382,6 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                       }
                                                       if (_model.datePicked ==
                                                           null) {
-                                                        return;
-                                                      }
-                                                      if (_model
-                                                              .placePickerValue ==
-                                                          const FFPlace()) {
                                                         return;
                                                       }
                                                       FFAppState().verifyForm =
@@ -1354,10 +1402,10 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                               .phoneTextController
                                                               .text
                                                           ..suburb = functions
-                                                              .changeUbication(
-                                                                  _model
-                                                                      .placePickerValue
-                                                                      .latLng)
+                                                              .changeUbication(functions
+                                                                  .stringToLatLng(
+                                                                      _model
+                                                                          .newUbication!))
                                                           ..plan = Plan.standar,
                                                       );
 
@@ -1432,6 +1480,121 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                 ),
                               ),
                             ),
+                            if (_model.queryResults.isNotEmpty)
+                              Align(
+                                alignment: const AlignmentDirectional(0.0, -0.9),
+                                child: Container(
+                                  width:
+                                      MediaQuery.sizeOf(context).width * 0.96,
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.648,
+                                  decoration: BoxDecoration(
+                                    color: const Color(0x33000000),
+                                    borderRadius: BorderRadius.circular(0.0),
+                                  ),
+                                  child: SingleChildScrollView(
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Align(
+                                          alignment:
+                                              const AlignmentDirectional(0.0, 0.0),
+                                          child: Builder(
+                                            builder: (context) {
+                                              final newquery =
+                                                  _model.queryResults.toList();
+
+                                              return ListView.separated(
+                                                padding: EdgeInsets.zero,
+                                                shrinkWrap: true,
+                                                scrollDirection: Axis.vertical,
+                                                itemCount: newquery.length,
+                                                separatorBuilder: (_, __) =>
+                                                    const SizedBox(height: 0.0),
+                                                itemBuilder:
+                                                    (context, newqueryIndex) {
+                                                  final newqueryItem =
+                                                      newquery[newqueryIndex];
+                                                  return InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      _model.newPlace =
+                                                          await GetPlaceCall
+                                                              .call(
+                                                        placeId: newqueryItem
+                                                            .placeId,
+                                                      );
+
+                                                      if ((_model.newPlace
+                                                              ?.succeeded ??
+                                                          true)) {
+                                                        _model.newUbication = functions
+                                                            .concatStrings(
+                                                                GetPlaceCall
+                                                                        .location(
+                                                                  (_model.newPlace
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )
+                                                                    ?.lat
+                                                                    .toString(),
+                                                                GetPlaceCall
+                                                                    .location(
+                                                                  (_model.newPlace
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )?.lng.toString(),
+                                                                ',');
+                                                        setState(() {
+                                                          _model.queryTextController
+                                                                  ?.text =
+                                                              GetPlaceCall.name(
+                                                            (_model.newPlace
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )!;
+                                                          _model.queryTextController
+                                                                  ?.selection =
+                                                              TextSelection.collapsed(
+                                                                  offset: _model
+                                                                      .queryTextController!
+                                                                      .text
+                                                                      .length);
+                                                        });
+                                                      }
+                                                      _model.queryResults = [];
+
+                                                      setState(() {});
+                                                    },
+                                                    child: MapbuscarWidget(
+                                                      key: Key(
+                                                          'Keygju_${newqueryIndex}_of_${newquery.length}'),
+                                                      icon: const Icon(
+                                                        Icons.location_on,
+                                                        color:
+                                                            Color(0xFFD26AD2),
+                                                      ),
+                                                      text: newqueryItem
+                                                          .description,
+                                                    ),
+                                                  );
+                                                },
+                                              );
+                                            },
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
                           ],
                         ),
                       ),

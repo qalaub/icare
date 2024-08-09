@@ -112,6 +112,10 @@ class GetPlaceCall {
         response,
         r'''$.result.geometry.location''',
       ));
+  static String? name(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.result.formatted_address''',
+      ));
 }
 
 class ApiPagingParams {

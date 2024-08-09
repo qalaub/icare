@@ -8,7 +8,6 @@ import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
 import '/v2/professional/tinderv2_c0/tinderv2_c0_widget.dart';
 import 'dart:async';
-import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
@@ -63,9 +62,7 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -107,38 +104,37 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Container(
-                              width: 60.0,
-                              height: 3.0,
-                              decoration: BoxDecoration(
-                                color: const Color(0xFFC56AB1),
-                                borderRadius: BorderRadius.circular(4.0),
-                              ),
-                            ),
-                          ],
-                        ),
                         Align(
                           alignment: const AlignmentDirectional(0.0, 1.0),
                           child: Text(
-                            valueOrDefault<String>(
-                              functions.concatStrings(
-                                  _model.professional?.length.toString(),
-                                  'Results',
-                                  ' '),
-                              '35 Results',
-                            ),
+                            'View Profile',
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Montserrat',
-                                  color: Colors.black,
+                                  color: const Color(0xFFED1F79),
+                                  fontSize: 23.0,
                                   letterSpacing: 0.0,
+                                  fontWeight: FontWeight.bold,
                                 ),
                           ),
+                        ),
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Align(
+                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              child: Container(
+                                width: 124.0,
+                                height: 3.0,
+                                decoration: BoxDecoration(
+                                  color: const Color(0xFFC56AB1),
+                                  borderRadius: BorderRadius.circular(4.0),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
@@ -475,7 +471,7 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                 shape: BoxShape.circle,
                               ),
                               child: Image.asset(
-                                'assets/images/chuI0.png',
+                                'assets/images/ME-GUSTA.png',
                                 fit: BoxFit.cover,
                               ),
                             ),

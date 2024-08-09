@@ -1,12 +1,29 @@
+import '/backend/api_requests/api_calls.dart';
+import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'register_professional1_widget.dart' show RegisterProfessional1Widget;
 import 'package:flutter/material.dart';
 
 class RegisterProfessional1Model
     extends FlutterFlowModel<RegisterProfessional1Widget> {
+  ///  Local state fields for this page.
+
+  String? newUbication;
+
+  List<QueryResultsStruct> queryResults = [];
+  void addToQueryResults(QueryResultsStruct item) => queryResults.add(item);
+  void removeFromQueryResults(QueryResultsStruct item) =>
+      queryResults.remove(item);
+  void removeAtIndexFromQueryResults(int index) => queryResults.removeAt(index);
+  void insertAtIndexInQueryResults(int index, QueryResultsStruct item) =>
+      queryResults.insert(index, item);
+  void updateQueryResultsAtIndex(
+          int index, Function(QueryResultsStruct) updateFn) =>
+      queryResults[index] = updateFn(queryResults[index]);
+
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // State field(s) for firstName widget.
   FocusNode? firstNameFocusNode;
@@ -68,8 +85,14 @@ class RegisterProfessional1Model
     return null;
   }
 
-  // State field(s) for PlacePicker widget.
-  FFPlace placePickerValue = const FFPlace();
+  // State field(s) for query widget.
+  FocusNode? queryFocusNode;
+  TextEditingController? queryTextController;
+  String? Function(BuildContext, String?)? queryTextControllerValidator;
+  // Stores action output result for [Backend Call - API (getSuggestionMapProfesional)] action in query widget.
+  ApiCallResponse? apiResultuev;
+  // Stores action output result for [Backend Call - API (getPlace)] action in mapbuscar widget.
+  ApiCallResponse? newPlace;
 
   @override
   void initState(BuildContext context) {
@@ -81,7 +104,6 @@ class RegisterProfessional1Model
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     firstNameFocusNode?.dispose();
     firstNameTextController?.dispose();
 
@@ -93,5 +115,8 @@ class RegisterProfessional1Model
 
     phoneFocusNode?.dispose();
     phoneTextController?.dispose();
+
+    queryFocusNode?.dispose();
+    queryTextController?.dispose();
   }
 }

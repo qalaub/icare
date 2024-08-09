@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 class RegisterBusiness4Model extends FlutterFlowModel<RegisterBusiness4Widget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Model for img1.
   late ImageUploadModel img1Model;
   // Model for img2.
@@ -34,7 +33,6 @@ class RegisterBusiness4Model extends FlutterFlowModel<RegisterBusiness4Widget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     img1Model.dispose();
     img2Model.dispose();
     img3Model.dispose();

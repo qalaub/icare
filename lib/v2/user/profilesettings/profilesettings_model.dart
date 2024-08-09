@@ -20,7 +20,6 @@ class ProfilesettingsModel extends FlutterFlowModel<ProfilesettingsWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Model for upload_profile_image component.
   late UploadProfileImageModel uploadProfileImageModel;
   bool isDataUploading = false;
@@ -63,7 +62,6 @@ class ProfilesettingsModel extends FlutterFlowModel<ProfilesettingsWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     uploadProfileImageModel.dispose();
     nameFocusNode?.dispose();
     nameTextController?.dispose();

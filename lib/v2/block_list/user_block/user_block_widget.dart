@@ -161,7 +161,7 @@ class _UserBlockWidgetState extends State<UserBlockWidget> {
                         ),
                       );
                     },
-                  ).then((value) => setState(() {}));
+                  );
                 },
                 child: const Icon(
                   Icons.more_vert,

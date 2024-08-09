@@ -12,7 +12,6 @@ class RegisterProfessional2Model
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // State field(s) for serviceType widget.
   String? serviceTypeValue;
@@ -90,7 +89,6 @@ class RegisterProfessional2Model
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     ndisFocusNode?.dispose();
     ndisTextController?.dispose();
 

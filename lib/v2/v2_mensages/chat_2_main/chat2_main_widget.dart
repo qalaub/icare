@@ -71,9 +71,7 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
         List<ChatsRecord> chat2MainChatsRecordList = snapshot.data!;
 
         return GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: const Color(0xFFF2F2F2),
@@ -448,7 +446,7 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
                                                                         child:
                                                                             Text(
                                                                           dateTimeFormat(
-                                                                            'relative',
+                                                                            "relative",
                                                                             chat2MainVarItem.lastMessageTime!,
                                                                             locale:
                                                                                 FFLocalizations.of(context).languageShortCode ?? FFLocalizations.of(context).languageCode,
@@ -862,7 +860,7 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
                                                                           valueOrDefault<
                                                                               String>(
                                                                             dateTimeFormat(
-                                                                              'relative',
+                                                                              "relative",
                                                                               chat2MainVarItem.lastMessageTime,
                                                                               locale: FFLocalizations.of(context).languageShortCode ?? FFLocalizations.of(context).languageCode,
                                                                             ),

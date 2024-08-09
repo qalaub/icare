@@ -48,9 +48,7 @@ class _RegisterProfessional3WidgetState
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -88,13 +86,13 @@ class _RegisterProfessional3WidgetState
                               alignment: const AlignmentDirectional(0.0, -1.0),
                               child: Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 10.0, 0.0, 0.0),
+                                    0.0, 6.0, 0.0, 0.0),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(8.0),
                                   child: Image.asset(
-                                    'assets/images/I=G=.png',
-                                    width: 79.0,
-                                    height: 90.0,
+                                    'assets/images/icare.png',
+                                    width: 100.0,
+                                    height: 106.0,
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -134,7 +132,8 @@ class _RegisterProfessional3WidgetState
                                     ),
                                   ),
                                   child: Container(
-                                    width: 350.0,
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 0.96,
                                     height:
                                         MediaQuery.sizeOf(context).height * 0.4,
                                     constraints: const BoxConstraints(
@@ -179,7 +178,7 @@ class _RegisterProfessional3WidgetState
                                                     .override(
                                                       fontFamily: 'Montserrat',
                                                       color: const Color(0xFF8E058A),
-                                                      fontSize: 17.0,
+                                                      fontSize: 16.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.bold,
@@ -236,7 +235,7 @@ class _RegisterProfessional3WidgetState
                                                             fontFamily:
                                                                 'Montserrat',
                                                             color: Colors.black,
-                                                            fontSize: 15.0,
+                                                            fontSize: 14.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w600,

@@ -442,6 +442,38 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'MySubscriptionBasic',
           path: '/mySubscriptionBasic',
           builder: (context, params) => const MySubscriptionBasicWidget(),
+        ),
+        FFRoute(
+          name: 'report',
+          path: '/report',
+          builder: (context, params) => ReportWidget(
+            user1: params.getParam(
+              'user1',
+              ParamType.String,
+            ),
+            user2: params.getParam(
+              'user2',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'reportSection',
+          path: '/reportSection',
+          builder: (context, params) => ReportSectionWidget(
+            report: params.getParam(
+              'report',
+              ParamType.String,
+            ),
+            user1: params.getParam(
+              'user1',
+              ParamType.String,
+            ),
+            user2: params.getParam(
+              'user2',
+              ParamType.String,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
