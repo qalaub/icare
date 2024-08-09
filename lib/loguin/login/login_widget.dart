@@ -652,6 +652,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                         style:
                                                             GoogleFonts.getFont(
                                                           'Montserrat',
+                                                          color: Colors.black,
                                                           fontWeight:
                                                               FontWeight.bold,
                                                           fontSize: 16.0,
