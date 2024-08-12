@@ -1,9 +1,7 @@
 import '/backend/schema/structs/index.dart';
-import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -415,7 +413,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                 Align(
                                   alignment: const AlignmentDirectional(0.0, -0.98),
                                   child: CheckboxListTile(
-                                    value: _model.supportValue1 ??= FFAppState()
+                                    value: _model.supportValue ??= FFAppState()
                                             .filtersPage
                                             .services
                                             .contains(FFAppConstants
@@ -423,41 +421,10 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                         true,
                                     onChanged: (newValue) async {
                                       setState(() =>
-                                          _model.supportValue1 = newValue!);
+                                          _model.supportValue = newValue!);
                                     },
                                     title: Text(
                                       'Support Workers',
-                                      style: FlutterFlowTheme.of(context)
-                                          .titleLarge
-                                          .override(
-                                            fontFamily: 'Montserrat',
-                                            color: Colors.black,
-                                            fontSize: 14.0,
-                                            letterSpacing: 0.0,
-                                          ),
-                                    ),
-                                    activeColor: const Color(0xFFFF09BA),
-                                    checkColor: Colors.white,
-                                    dense: false,
-                                    controlAffinity:
-                                        ListTileControlAffinity.trailing,
-                                  ),
-                                ),
-                                Align(
-                                  alignment: const AlignmentDirectional(0.0, -0.98),
-                                  child: CheckboxListTile(
-                                    value: _model.supportValue2 ??= FFAppState()
-                                            .filtersPage
-                                            .services
-                                            .contains(FFAppConstants
-                                                .servicesType[0]) ==
-                                        true,
-                                    onChanged: (newValue) async {
-                                      setState(() =>
-                                          _model.supportValue2 = newValue!);
-                                    },
-                                    title: Text(
-                                      ' Support Coordinators',
                                       style: FlutterFlowTheme.of(context)
                                           .titleLarge
                                           .override(
@@ -487,6 +454,37 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                     onChanged: (newValue) async {
                                       setState(() =>
                                           _model.coordinatorsValue = newValue!);
+                                    },
+                                    title: Text(
+                                      ' Support Coordinators',
+                                      style: FlutterFlowTheme.of(context)
+                                          .titleLarge
+                                          .override(
+                                            fontFamily: 'Montserrat',
+                                            color: Colors.black,
+                                            fontSize: 14.0,
+                                            letterSpacing: 0.0,
+                                          ),
+                                    ),
+                                    activeColor: const Color(0xFFFF09BA),
+                                    checkColor: Colors.white,
+                                    dense: false,
+                                    controlAffinity:
+                                        ListTileControlAffinity.trailing,
+                                  ),
+                                ),
+                                Align(
+                                  alignment: const AlignmentDirectional(0.0, -0.98),
+                                  child: CheckboxListTile(
+                                    value: _model.recoveryValue ??= FFAppState()
+                                            .filtersPage
+                                            .services
+                                            .contains(FFAppConstants
+                                                .servicesType[4]) ==
+                                        true,
+                                    onChanged: (newValue) async {
+                                      setState(() =>
+                                          _model.recoveryValue = newValue!);
                                     },
                                     title: Text(
                                       'Recovery Coaches',
@@ -578,123 +576,6 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
-                          child: Container(
-                            width: 346.0,
-                            height: 30.0,
-                            decoration: BoxDecoration(
-                              color: const Color(0xFFEEEAEA),
-                              borderRadius: const BorderRadius.only(
-                                bottomLeft: Radius.circular(12.0),
-                                bottomRight: Radius.circular(12.0),
-                                topLeft: Radius.circular(12.0),
-                                topRight: Radius.circular(12.0),
-                              ),
-                              border: Border.all(
-                                color: const Color(0xFFEEEAEA),
-                              ),
-                            ),
-                            child: Align(
-                              alignment: const AlignmentDirectional(-1.0, 0.0),
-                              child: Text(
-                                'caregiver language',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Montserrat',
-                                      color: const Color(0xFF545454),
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Container(
-                          width: MediaQuery.sizeOf(context).width * 10.0,
-                          height: 100.0,
-                          decoration: const BoxDecoration(
-                            color: Color(0xFFF6F5F5),
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(32.0),
-                              bottomRight: Radius.circular(32.0),
-                              topLeft: Radius.circular(32.0),
-                              topRight: Radius.circular(32.0),
-                            ),
-                          ),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Align(
-                                alignment: const AlignmentDirectional(-1.0, 0.0),
-                                child: Container(
-                                  width:
-                                      MediaQuery.sizeOf(context).width * 0.75,
-                                  height: 48.0,
-                                  decoration: const BoxDecoration(
-                                    borderRadius: BorderRadius.only(
-                                      bottomLeft: Radius.circular(12.0),
-                                      bottomRight: Radius.circular(12.0),
-                                      topLeft: Radius.circular(12.0),
-                                      topRight: Radius.circular(12.0),
-                                    ),
-                                  ),
-                                  child: FlutterFlowDropDown<String>(
-                                    controller:
-                                        _model.languageValueController ??=
-                                            FormFieldController<String>(
-                                      _model.languageValue ??=
-                                          FFAppState().filtersPage.language,
-                                    ),
-                                    options: List<String>.from(
-                                        ['Spanish', 'English']),
-                                    optionLabels: const ['Spanish', 'English'],
-                                    onChanged: (val) => setState(
-                                        () => _model.languageValue = val),
-                                    width: 300.0,
-                                    height: 56.0,
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Montserrat',
-                                          letterSpacing: 0.0,
-                                        ),
-                                    hintText: 'Please select...',
-                                    icon: const Icon(
-                                      Icons.keyboard_arrow_down_rounded,
-                                      color: Colors.black,
-                                      size: 24.0,
-                                    ),
-                                    fillColor: const Color(0xFEFDA0FD),
-                                    elevation: 2.0,
-                                    borderColor: Colors.transparent,
-                                    borderWidth: 2.0,
-                                    borderRadius: 8.0,
-                                    margin: const EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 0.0, 16.0, 0.0),
-                                    hidesUnderline: true,
-                                    isOverButton: true,
-                                    isSearchable: false,
-                                    isMultiSelect: false,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ].divide(const SizedBox(height: 12.0)),
-                    ),
-                  ),
-                  Padding(
-                    padding:
                         const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
@@ -775,7 +656,6 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                 FFAppState().updateFiltersPageStruct(
                                   (e) => e
                                     ..distance = _model.distanceValue
-                                    ..language = _model.languageValue
                                     ..age = []
                                     ..services = [],
                                 );
@@ -787,7 +667,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                           : ' '),
                                     )
                                     ..updateServices(
-                                      (e) => e.add(_model.supportValue1 == true
+                                      (e) => e.add(_model.supportValue == true
                                           ? 'Support Worker'
                                           : ' '),
                                     ),
@@ -825,6 +705,14 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                     ..updateServices(
                                       (e) => e.add(_model.homeValue == true
                                           ? 'Home Maintence'
+                                          : ' '),
+                                    ),
+                                );
+                                FFAppState().updateFiltersPageStruct(
+                                  (e) => e
+                                    ..updateServices(
+                                      (e) => e.add(_model.recoveryValue == true
+                                          ? 'Recovery Coaches'
                                           : ' '),
                                     ),
                                 );

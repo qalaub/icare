@@ -62,6 +62,9 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
     _model.lastNameTextController ??= TextEditingController();
     _model.lastNameFocusNode ??= FocusNode();
 
+    _model.dateTextController ??= TextEditingController();
+    _model.dateFocusNode ??= FocusNode();
+
     _model.phoneTextController ??= TextEditingController();
     _model.phoneFocusNode ??= FocusNode();
 
@@ -605,19 +608,19 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                     Align(
                                                       alignment:
                                                           const AlignmentDirectional(
-                                                              0.0, -1.0),
+                                                              -0.01, -0.69),
                                                       child: Container(
                                                         width:
                                                             MediaQuery.sizeOf(
                                                                         context)
                                                                     .width *
                                                                 0.8,
-                                                        height: 45.0,
                                                         decoration:
-                                                            BoxDecoration(
-                                                          color: Colors.white,
+                                                            const BoxDecoration(
+                                                          color:
+                                                              Color(0xFFFFFEFE),
                                                           borderRadius:
-                                                              const BorderRadius.only(
+                                                              BorderRadius.only(
                                                             bottomLeft:
                                                                 Radius.circular(
                                                                     12.0),
@@ -631,183 +634,131 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                 Radius.circular(
                                                                     12.0),
                                                           ),
-                                                          border: Border.all(
-                                                            color:
-                                                                valueOrDefault<
-                                                                    Color>(
-                                                              FFAppState()
-                                                                          .verifyForm
-                                                                          .date ==
-                                                                      true
-                                                                  ? const Color(
-                                                                      0xFFBB33B9)
-                                                                  : const Color(
-                                                                      0xFFFF5963),
-                                                              const Color(0xFFBB33B9),
+                                                        ),
+                                                        child: TextFormField(
+                                                          controller: _model
+                                                              .dateTextController,
+                                                          focusNode: _model
+                                                              .dateFocusNode,
+                                                          autofocus: true,
+                                                          textCapitalization:
+                                                              TextCapitalization
+                                                                  .none,
+                                                          obscureText: false,
+                                                          decoration:
+                                                              InputDecoration(
+                                                            isDense: true,
+                                                            labelStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
+                                                            hintText:
+                                                                'DD/MM/YYYY',
+                                                            hintStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
+                                                            errorStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Readex Pro',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .error,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
+                                                            enabledBorder:
+                                                                OutlineInputBorder(
+                                                              borderSide:
+                                                                  const BorderSide(
+                                                                color: Color(
+                                                                    0xFFBB33B9),
+                                                                width: 0.0,
+                                                              ),
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          12.0),
+                                                            ),
+                                                            focusedBorder:
+                                                                OutlineInputBorder(
+                                                              borderSide:
+                                                                  const BorderSide(
+                                                                color: Color(
+                                                                    0xFF762075),
+                                                                width: 0.0,
+                                                              ),
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          12.0),
+                                                            ),
+                                                            errorBorder:
+                                                                OutlineInputBorder(
+                                                              borderSide:
+                                                                  BorderSide(
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .error,
+                                                                width: 0.0,
+                                                              ),
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          12.0),
+                                                            ),
+                                                            focusedErrorBorder:
+                                                                OutlineInputBorder(
+                                                              borderSide:
+                                                                  BorderSide(
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .error,
+                                                                width: 0.0,
+                                                              ),
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          12.0),
                                                             ),
                                                           ),
-                                                        ),
-                                                        child: Stack(
-                                                          children: [
-                                                            Align(
-                                                              alignment:
-                                                                  const AlignmentDirectional(
-                                                                      -1.0,
-                                                                      0.0),
-                                                              child: Padding(
-                                                                padding:
-                                                                    const EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            10.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                child: Text(
-                                                                  valueOrDefault<
-                                                                      String>(
-                                                                    dateTimeFormat(
-                                                                      "d/M/y",
-                                                                      _model
-                                                                          .datePicked,
-                                                                      locale: FFLocalizations.of(
-                                                                              context)
-                                                                          .languageCode,
-                                                                    ),
-                                                                    'DD/MM/YYYY',
-                                                                  ),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Montserrat',
-                                                                        color: const Color(
-                                                                            0xFF565656),
-                                                                        fontSize:
-                                                                            16.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                      ),
-                                                                ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Montserrat',
+                                                                color: Colors
+                                                                    .black,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
-                                                            ),
-                                                            Align(
-                                                              alignment:
-                                                                  const AlignmentDirectional(
-                                                                      1.01,
-                                                                      0.0),
-                                                              child:
-                                                                  FFButtonWidget(
-                                                                onPressed:
-                                                                    () async {
-                                                                  final datePickedDate =
-                                                                      await showDatePicker(
-                                                                    context:
-                                                                        context,
-                                                                    initialDate:
-                                                                        getCurrentTimestamp,
-                                                                    firstDate:
-                                                                        DateTime(
-                                                                            1900),
-                                                                    lastDate:
-                                                                        getCurrentTimestamp,
-                                                                    builder:
-                                                                        (context,
-                                                                            child) {
-                                                                      return wrapInMaterialDatePickerTheme(
-                                                                        context,
-                                                                        child!,
-                                                                        headerBackgroundColor:
-                                                                            FlutterFlowTheme.of(context).primary,
-                                                                        headerForegroundColor:
-                                                                            FlutterFlowTheme.of(context).info,
-                                                                        headerTextStyle: FlutterFlowTheme.of(context)
-                                                                            .headlineLarge
-                                                                            .override(
-                                                                              fontFamily: 'Outfit',
-                                                                              fontSize: 32.0,
-                                                                              letterSpacing: 0.0,
-                                                                              fontWeight: FontWeight.w600,
-                                                                            ),
-                                                                        pickerBackgroundColor:
-                                                                            FlutterFlowTheme.of(context).secondaryBackground,
-                                                                        pickerForegroundColor:
-                                                                            FlutterFlowTheme.of(context).primaryText,
-                                                                        selectedDateTimeBackgroundColor:
-                                                                            const Color(0xFFBB33B9),
-                                                                        selectedDateTimeForegroundColor:
-                                                                            FlutterFlowTheme.of(context).info,
-                                                                        actionButtonForegroundColor:
-                                                                            FlutterFlowTheme.of(context).primaryText,
-                                                                        iconSize:
-                                                                            24.0,
-                                                                      );
-                                                                    },
-                                                                  );
-
-                                                                  if (datePickedDate !=
-                                                                      null) {
-                                                                    safeSetState(
-                                                                        () {
-                                                                      _model.datePicked =
-                                                                          DateTime(
-                                                                        datePickedDate
-                                                                            .year,
-                                                                        datePickedDate
-                                                                            .month,
-                                                                        datePickedDate
-                                                                            .day,
-                                                                      );
-                                                                    });
-                                                                  }
-                                                                },
-                                                                text:
-                                                                    'select your date of birth',
-                                                                options:
-                                                                    FFButtonOptions(
-                                                                  width: MediaQuery.sizeOf(
-                                                                              context)
-                                                                          .width *
-                                                                      0.45,
-                                                                  height: 40.0,
-                                                                  padding: const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          24.0,
-                                                                          0.0,
-                                                                          24.0,
-                                                                          0.0),
-                                                                  iconPadding:
-                                                                      const EdgeInsets
-                                                                          .all(
-                                                                              12.0),
-                                                                  color: Colors
-                                                                      .white,
-                                                                  textStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodySmall
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Montserrat',
-                                                                        color: Colors
-                                                                            .black,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                      ),
-                                                                  elevation:
-                                                                      0.0,
-                                                                  borderSide:
-                                                                      const BorderSide(
-                                                                    color: Colors
-                                                                        .transparent,
-                                                                    width: 1.0,
-                                                                  ),
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              12.0),
-                                                                ),
-                                                              ),
-                                                            ),
+                                                          maxLines: null,
+                                                          keyboardType:
+                                                              TextInputType
+                                                                  .datetime,
+                                                          validator: _model
+                                                              .dateTextControllerValidator
+                                                              .asValidator(
+                                                                  context),
+                                                          inputFormatters: [
+                                                            _model.dateMask
                                                           ],
                                                         ),
                                                       ),
@@ -885,7 +836,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                   .fromSTEB(
                                                       0.0, 15.0, 0.0, 15.0),
                                               child: Text(
-                                                '*Enter your 10-digit phone number',
+                                                '*Enter Your 10-Digit Mobile Number',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -1042,13 +993,14 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                           letterSpacing: 0.0,
                                                         ),
                                                 maxLines: null,
-                                                maxLength: 12,
+                                                maxLength: 10,
+                                                keyboardType:
+                                                    TextInputType.number,
                                                 validator: _model
                                                     .phoneTextControllerValidator
                                                     .asValidator(context),
                                                 inputFormatters: [
-                                                  FilteringTextInputFormatter
-                                                      .allow(RegExp('[0-9]'))
+                                                  _model.phoneMask
                                                 ],
                                               ),
                                             ),
@@ -1201,7 +1153,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                             0.0,
                                                                       ),
                                                               hintText:
-                                                                  'Select suburb',
+                                                                  'Selection Suburb',
                                                               hintStyle:
                                                                   FlutterFlowTheme.of(
                                                                           context)
@@ -1328,7 +1280,6 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                               width: 269.0,
                                               height: 93.0,
                                               decoration: const BoxDecoration(
-                                                color: Color(0xFFFFFEFE),
                                                 borderRadius: BorderRadius.only(
                                                   bottomLeft:
                                                       Radius.circular(12.0),
@@ -1352,15 +1303,9 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                       FFAppState()
                                                           .updateVerifyFormStruct(
                                                         (e) => e
-                                                          ..date =
-                                                              dateTimeFormat(
-                                                                        "d/M/y",
-                                                                        _model
-                                                                            .datePicked,
-                                                                        locale:
-                                                                            FFLocalizations.of(context).languageCode,
-                                                                      ) !=
-                                                                      ''
+                                                          ..date = _model.dateTextController
+                                                                      .text !=
+                                                                  ''
                                                           ..subur =
                                                               valueOrDefault<
                                                                   bool>(
@@ -1380,10 +1325,6 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                               .validate()) {
                                                         return;
                                                       }
-                                                      if (_model.datePicked ==
-                                                          null) {
-                                                        return;
-                                                      }
                                                       FFAppState().verifyForm =
                                                           FormVerifyStruct();
                                                       FFAppState().counter = 0;
@@ -1396,8 +1337,11 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                           ..lastName = _model
                                                               .lastNameTextController
                                                               .text
-                                                          ..birthdate =
-                                                              _model.datePicked
+                                                          ..birthdate = functions
+                                                              .convertStringToDate(
+                                                                  _model
+                                                                      .dateTextController
+                                                                      .text)
                                                           ..phone = _model
                                                               .phoneTextController
                                                               .text

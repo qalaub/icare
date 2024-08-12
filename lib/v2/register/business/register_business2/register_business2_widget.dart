@@ -366,7 +366,8 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
                                                                 'Support Worker',
                                                                 ' Coordinator',
                                                                 'Therapeutic Supports',
-                                                                'Home Maintence'
+                                                                'Home Maintence',
+                                                                'Recovery Coaches'
                                                               ],
                                                               width: 261.0,
                                                               height: 56.0,

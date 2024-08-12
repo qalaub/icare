@@ -1,5 +1,4 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/form_field_controller.dart';
 import 'filtros_widget.dart' show FiltrosWidget;
 import 'package:flutter/material.dart';
 
@@ -15,18 +14,15 @@ class FiltrosModel extends FlutterFlowModel<FiltrosWidget> {
   // State field(s) for age3 widget.
   bool? age3Value;
   // State field(s) for support widget.
-  bool? supportValue1;
-  // State field(s) for support widget.
-  bool? supportValue2;
+  bool? supportValue;
   // State field(s) for coordinators widget.
   bool? coordinatorsValue;
+  // State field(s) for recovery widget.
+  bool? recoveryValue;
   // State field(s) for therapeutic widget.
   bool? therapeuticValue;
   // State field(s) for home widget.
   bool? homeValue;
-  // State field(s) for language widget.
-  String? languageValue;
-  FormFieldController<String>? languageValueController;
 
   @override
   void initState(BuildContext context) {}

@@ -338,7 +338,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                   Icons.location_history,
                                   size: 30.0,
                                 ),
-                                text: 'Edit Profile',
+                                text: 'My Profile',
                               ),
                             ),
                           ),

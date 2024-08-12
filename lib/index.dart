@@ -73,3 +73,5 @@ export '/v2/mysubscription/my_subscription_basic/my_subscription_basic_widget.da
 export '/v2/v2_mensages/report/report_widget.dart' show ReportWidget;
 export '/v2/v2_mensages/report_section/report_section_widget.dart'
     show ReportSectionWidget;
+export '/v2/favoritesv2/fav_v3_copy/fav_v3_copy_widget.dart'
+    show FavV3CopyWidget;

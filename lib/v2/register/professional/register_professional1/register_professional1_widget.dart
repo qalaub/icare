@@ -751,7 +751,7 @@ class _RegisterProfessional1WidgetState
                                                   .fromSTEB(
                                                       0.0, 15.0, 0.0, 15.0),
                                               child: Text(
-                                                '*Enter your 10-digit phone number',
+                                                '*Enter Your 10-Digit Mobile Number',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -816,6 +816,8 @@ class _RegisterProfessional1WidgetState
                                                   },
                                                 ),
                                                 autofocus: true,
+                                                textCapitalization:
+                                                    TextCapitalization.none,
                                                 obscureText: false,
                                                 decoration: InputDecoration(
                                                   isDense: true,
@@ -898,13 +900,14 @@ class _RegisterProfessional1WidgetState
                                                       letterSpacing: 0.0,
                                                     ),
                                                 maxLines: null,
-                                                maxLength: 12,
+                                                maxLength: 10,
+                                                keyboardType:
+                                                    TextInputType.number,
                                                 validator: _model
                                                     .phoneTextControllerValidator
                                                     .asValidator(context),
                                                 inputFormatters: [
-                                                  FilteringTextInputFormatter
-                                                      .allow(RegExp('[0-9]'))
+                                                  _model.phoneMask
                                                 ],
                                               ),
                                             ),
@@ -1057,7 +1060,7 @@ class _RegisterProfessional1WidgetState
                                                                             0.0,
                                                                       ),
                                                               hintText:
-                                                                  'Select suburb',
+                                                                  'Selection Suburb',
                                                               hintStyle:
                                                                   FlutterFlowTheme.of(
                                                                           context)

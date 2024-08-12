@@ -175,7 +175,7 @@ class _PerfilProfesionalMapaWidgetState
                     ),
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(0.67, -0.63),
+                    alignment: const AlignmentDirectional(0.74, -0.19),
                     child: wrapWithModel(
                       model: _model.membresiaLogoModel,
                       updateCallback: () => setState(() {}),

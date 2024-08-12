@@ -61,7 +61,7 @@ class _BlockListWidgetState extends State<BlockListWidget> {
             },
           ),
           title: Text(
-            'BLOCK LIST',
+            'Blocked list',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Montserrat',
                   color: Colors.white,

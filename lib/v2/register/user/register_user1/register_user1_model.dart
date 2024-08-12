@@ -4,6 +4,7 @@ import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'register_user1_widget.dart' show RegisterUser1Widget;
 import 'package:flutter/material.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class RegisterUser1Model extends FlutterFlowModel<RegisterUser1Widget> {
   ///  Local state fields for this page.
@@ -54,10 +55,15 @@ class RegisterUser1Model extends FlutterFlowModel<RegisterUser1Widget> {
     return null;
   }
 
-  DateTime? datePicked;
+  // State field(s) for date widget.
+  FocusNode? dateFocusNode;
+  TextEditingController? dateTextController;
+  final dateMask = MaskTextInputFormatter(mask: '##/##/####');
+  String? Function(BuildContext, String?)? dateTextControllerValidator;
   // State field(s) for phone widget.
   FocusNode? phoneFocusNode;
   TextEditingController? phoneTextController;
+  final phoneMask = MaskTextInputFormatter(mask: '04########');
   String? Function(BuildContext, String?)? phoneTextControllerValidator;
   String? _phoneTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
@@ -96,6 +102,9 @@ class RegisterUser1Model extends FlutterFlowModel<RegisterUser1Widget> {
 
     lastNameFocusNode?.dispose();
     lastNameTextController?.dispose();
+
+    dateFocusNode?.dispose();
+    dateTextController?.dispose();
 
     phoneFocusNode?.dispose();
     phoneTextController?.dispose();

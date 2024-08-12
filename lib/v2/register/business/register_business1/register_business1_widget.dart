@@ -690,7 +690,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                   .fromSTEB(
                                                       0.0, 15.0, 0.0, 15.0),
                                               child: Text(
-                                                '*Enter your 10-digit phone number',
+                                                '*Enter Your 10-Digit Mobile Number',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -846,12 +846,13 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                         ),
                                                 maxLines: null,
                                                 maxLength: 10,
+                                                keyboardType:
+                                                    TextInputType.number,
                                                 validator: _model
                                                     .phoneTextControllerValidator
                                                     .asValidator(context),
                                                 inputFormatters: [
-                                                  FilteringTextInputFormatter
-                                                      .allow(RegExp('[0-9]'))
+                                                  _model.phoneMask
                                                 ],
                                               ),
                                             ),
@@ -1010,7 +1011,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                                             0.0,
                                                                       ),
                                                               hintText:
-                                                                  'Select suburb',
+                                                                  'Selection Suburb',
                                                               hintStyle:
                                                                   FlutterFlowTheme.of(
                                                                           context)

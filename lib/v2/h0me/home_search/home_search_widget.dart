@@ -55,9 +55,6 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      if (RootPageContext.isInactiveRootPage(context)) {
-        return;
-      }
       if (!(await getPermissionStatus(locationPermission))) {
         FFAppState().registerProviderForm = RegisterProviderTypeStruct();
         await Future.delayed(const Duration(milliseconds: 1500));

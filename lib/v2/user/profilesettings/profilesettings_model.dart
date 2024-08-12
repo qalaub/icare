@@ -44,9 +44,6 @@ class ProfilesettingsModel extends FlutterFlowModel<ProfilesettingsWidget> {
   FocusNode? descriptionFocusNode;
   TextEditingController? descriptionTextController;
   String? Function(BuildContext, String?)? descriptionTextControllerValidator;
-  // State field(s) for languages widget.
-  String? languagesValue;
-  FormFieldController<String>? languagesValueController;
   // Model for Navbar component.
   late NavbarModel navbarModel;
   // Model for NavbarPremiun component.

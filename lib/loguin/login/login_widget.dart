@@ -105,7 +105,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                   child: Image.asset(
                                     'assets/images/icare.png',
                                     width: 120.0,
-                                    height: 126.0,
+                                    height: 116.0,
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -613,71 +613,63 @@ class _LoginWidgetState extends State<LoginWidget> {
                                             ),
                                           ),
                                         ),
-                                        Row(
-                                          mainAxisSize: MainAxisSize.min,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceAround,
-                                          children: [
-                                            Flexible(
-                                              child: Align(
-                                                alignment: const AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: RichText(
-                                                  textScaler:
-                                                      MediaQuery.of(context)
-                                                          .textScaler,
-                                                  text: TextSpan(
-                                                    children: [
-                                                      TextSpan(
-                                                        text:
-                                                            'Don\'t Have An Account? ',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Montserrat',
-                                                              color:
-                                                                  Colors.black,
-                                                              fontSize: 14.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500,
-                                                            ),
+                                        Flexible(
+                                          child: Align(
+                                            alignment:
+                                                const AlignmentDirectional(0.0, 0.0),
+                                            child: Container(
+                                              decoration: const BoxDecoration(),
+                                              child: RichText(
+                                                textScaler:
+                                                    MediaQuery.of(context)
+                                                        .textScaler,
+                                                text: TextSpan(
+                                                  children: [
+                                                    TextSpan(
+                                                      text:
+                                                          'Don\'t Have An Account? ',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Montserrat',
+                                                            color: Colors.black,
+                                                            fontSize: 13.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                    ),
+                                                    TextSpan(
+                                                      text: 'Create one here',
+                                                      style:
+                                                          GoogleFonts.getFont(
+                                                        'Montserrat',
+                                                        color: Colors.black,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        fontSize: 16.0,
+                                                        decoration:
+                                                            TextDecoration
+                                                                .underline,
                                                       ),
-                                                      TextSpan(
-                                                        text: 'Create one here',
-                                                        style:
-                                                            GoogleFonts.getFont(
-                                                          'Montserrat',
-                                                          color: Colors.black,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                          fontSize: 16.0,
-                                                          decoration:
-                                                              TextDecoration
-                                                                  .underline,
-                                                        ),
-                                                        mouseCursor:
-                                                            SystemMouseCursors
-                                                                .click,
-                                                        recognizer:
-                                                            TapGestureRecognizer()
-                                                              ..onTap =
-                                                                  () async {
-                                                                context.pushNamed(
-                                                                    'Escoger_Usuario');
-                                                              },
-                                                      )
-                                                    ],
-                                                    style: const TextStyle(),
-                                                  ),
+                                                      mouseCursor:
+                                                          SystemMouseCursors
+                                                              .click,
+                                                      recognizer:
+                                                          TapGestureRecognizer()
+                                                            ..onTap = () async {
+                                                              context.pushNamed(
+                                                                  'Escoger_Usuario');
+                                                            },
+                                                    )
+                                                  ],
+                                                  style: const TextStyle(),
                                                 ),
                                               ),
                                             ),
-                                          ].divide(const SizedBox(width: 0.0)),
+                                          ),
                                         ),
                                       ],
                                     ),

@@ -373,13 +373,15 @@ class _RegisterProfessional2WidgetState
                                                                 'Support Worker',
                                                                 ' Coordinator',
                                                                 'Therapeutic Supports',
-                                                                'Home Maintence'
+                                                                'Home Maintence',
+                                                                'Recovery Coaches'
                                                               ]),
                                                               optionLabels: const [
                                                                 'Support Worker',
                                                                 ' Coordinator',
                                                                 'Therapeutic Supports',
-                                                                'Home Maintence'
+                                                                'Home Maintence',
+                                                                ''
                                                               ],
                                                               onChanged: (val) =>
                                                                   setState(() =>

@@ -79,18 +79,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) => _RouteErrorBuilder(
         state: state,
-        child: RootPageContext.wrap(
-          appStateNotifier.loggedIn ? const NavBarPage() : const HomeSearchWidget(),
-          errorRoute: state.uri.toString(),
-        ),
+        child: appStateNotifier.loggedIn ? const NavBarPage() : const Tinderv2C1Widget(),
       ),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => RootPageContext.wrap(
-            appStateNotifier.loggedIn ? const NavBarPage() : const HomeSearchWidget(),
-          ),
+          builder: (context, _) =>
+              appStateNotifier.loggedIn ? const NavBarPage() : const Tinderv2C1Widget(),
         ),
         FFRoute(
           name: 'HomeSearch',
@@ -474,6 +470,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ParamType.String,
             ),
           ),
+        ),
+        FFRoute(
+          name: 'favV3Copy',
+          path: '/favV3Copy',
+          requireAuth: true,
+          builder: (context, params) => const FavV3CopyWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
@@ -647,7 +649,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.uri.toString());
-            return '/homeSearch';
+            return '/tinderv2C1';
           }
           return null;
         },

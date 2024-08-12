@@ -80,7 +80,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
             },
           ),
           title: Text(
-            'Profile',
+            'My Profile',
             style: FlutterFlowTheme.of(context).headlineLarge.override(
                   fontFamily: 'Montserrat',
                   color: Colors.white,
@@ -88,110 +88,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                   letterSpacing: 0.0,
                 ),
           ),
-          actions: [
-            Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
-              child: FFButtonWidget(
-                onPressed: () async {
-                  FFAppState().updateRegisterProviderFormStruct(
-                    (e) => e
-                      ..firstName =
-                          valueOrDefault(currentUserDocument?.firtsName, '')
-                      ..languagues =
-                          valueOrDefault(currentUserDocument?.languagues, '')
-                      ..description =
-                          valueOrDefault(currentUserDocument?.description, '')
-                      ..age = valueOrDefault(currentUserDocument?.age, '')
-                      ..serviceType =
-                          (currentUserDocument?.serviceType.toList() ?? [])
-                              .toList(),
-                  );
-                  FFAppState().updateRegisterProviderFormStruct(
-                    (e) => e
-                      ..firstName = _model.nameTextController.text
-                      ..languagues = _model.languagesValue
-                      ..description = _model.descriptionTextController.text
-                      ..updateTime = getCurrentTimestamp
-                      ..age = _model.ageValue,
-                  );
-                  if (currentUserDocument?.rol != Roles.user) {
-                    if (currentUserDocument?.rol == Roles.business) {
-                      FFAppState().updateRegisterProviderFormStruct(
-                        (e) => e
-                          ..serviceType = _model.servicesPremiunValue!.toList(),
-                      );
-                    } else {
-                      FFAppState().updateRegisterProviderFormStruct(
-                        (e) => e
-                          ..updateServiceType(
-                            (e) => e[0] = _model.servicesValue!,
-                          ),
-                      );
-                    }
-                  }
-
-                  await currentUserReference!.update({
-                    ...createUsersRecordData(
-                      firtsName: FFAppState().registerProviderForm.firstName,
-                      languagues: FFAppState().registerProviderForm.languagues,
-                      updateTime: FFAppState().registerProviderForm.updateTime,
-                      description:
-                          FFAppState().registerProviderForm.description,
-                      age: FFAppState().registerProviderForm.age,
-                    ),
-                    ...mapToFirestore(
-                      {
-                        'serviceType':
-                            FFAppState().registerProviderForm.serviceType,
-                      },
-                    ),
-                  });
-                  if (_model.uploadedFileUrl != '') {
-                    await currentUserReference!.update(createUsersRecordData(
-                      photoUrl: _model.uploadedFileUrl,
-                    ));
-                  }
-                  FFAppState().registerProviderForm =
-                      RegisterProviderTypeStruct();
-                  setState(() {});
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text(
-                        'Update success',
-                        style: TextStyle(
-                          color: FlutterFlowTheme.of(context).primaryText,
-                        ),
-                      ),
-                      duration: const Duration(milliseconds: 4000),
-                      backgroundColor: FlutterFlowTheme.of(context).secondary,
-                    ),
-                  );
-                },
-                text: 'save',
-                options: FFButtonOptions(
-                  width: 91.0,
-                  height: 36.0,
-                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                  iconPadding:
-                      const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                  color: const Color(0xFFFF6FF7),
-                  textStyle:
-                      FlutterFlowTheme.of(context).headlineLarge.override(
-                            fontFamily: 'Montserrat',
-                            color: Colors.white,
-                            fontSize: 24.0,
-                            letterSpacing: 0.0,
-                          ),
-                  elevation: 3.0,
-                  borderSide: const BorderSide(
-                    color: Colors.transparent,
-                    width: 1.0,
-                  ),
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-              ),
-            ),
-          ],
+          actions: const [],
           centerTitle: false,
           elevation: 0.0,
         ),
@@ -211,8 +108,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        if (valueOrDefault(currentUserDocument?.role, '') !=
-                            Roles.user.name)
+                        if (currentUserDocument?.rol != Roles.user)
                           Align(
                             alignment: const AlignmentDirectional(0.0, 0.0),
                             child: AuthUserStreamWidget(
@@ -776,13 +672,15 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                             'Support Worker',
                                                             'Therapeutic Supports',
                                                             ' Coordinator',
-                                                            'Home Maintence'
+                                                            'Home Maintence',
+                                                            'Recovery Coaches'
                                                           ]),
                                                           optionLabels: const [
                                                             'Support Worker',
                                                             'Therapeutic Supports',
                                                             ' Coordinator',
-                                                            'Home Maintence'
+                                                            'Home Maintence',
+                                                            'Recovery Coaches'
                                                           ],
                                                           onChanged: (val) =>
                                                               setState(() =>
@@ -873,14 +771,16 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                               String>.from([
                                                             'Support Worker',
                                                             'Therapeutic Supports',
-                                                            ' Coordinator',
-                                                            'Home Maintence'
+                                                            'Support Coordinators ',
+                                                            'Home Maintence',
+                                                            ' Recovery Coaches '
                                                           ]),
                                                           optionLabels: const [
                                                             'Support Worker',
                                                             'Therapeutic Supports',
                                                             ' Coordinator',
-                                                            'Home Maintence'
+                                                            'Home Maintence',
+                                                            'Recovery Coaches'
                                                           ],
                                                           width:
                                                               MediaQuery.sizeOf(
@@ -961,183 +861,197 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                               ),
                             ),
                           ),
-                        Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
-                          child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                16.0, 0.0, 16.0, 0.0),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Row(
+                        if (currentUserDocument?.rol != Roles.user)
+                          Align(
+                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 0.0, 16.0, 0.0),
+                              child: AuthUserStreamWidget(
+                                builder: (context) => Column(
                                   mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Text(
-                                      'Age',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Montserrat',
-                                            color: const Color(0xFFC14BBC),
-                                            fontSize: 15.0,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                    ),
-                                  ],
-                                ),
-                                Align(
-                                  alignment: const AlignmentDirectional(-1.0, 0.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                0.9,
-                                        height: 39.0,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                        ),
-                                        child: Align(
-                                          alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
-                                          child: Text(
-                                            'You can modify your age with an age range for more comfort',
-                                            textAlign: TextAlign.justify,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Montserrat',
-                                                  fontSize: 12.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.normal,
-                                                ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Align(
-                                  alignment: const AlignmentDirectional(-1.0, 0.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      Expanded(
-                                        child: Material(
-                                          color: Colors.transparent,
-                                          elevation: 2.0,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(12.0),
-                                          ),
-                                          child: Container(
-                                            width: double.infinity,
-                                            height: 52.0,
-                                            decoration: BoxDecoration(
-                                              color: const Color(0xFFF0F0F0),
-                                              borderRadius:
-                                                  BorderRadius.circular(12.0),
-                                              border: Border.all(
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Age',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Montserrat',
                                                 color: const Color(0xFFC14BBC),
-                                                width: 3.0,
+                                                fontSize: 15.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w600,
                                               ),
+                                        ),
+                                      ],
+                                    ),
+                                    Align(
+                                      alignment:
+                                          const AlignmentDirectional(-1.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                0.9,
+                                            height: 39.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
                                             ),
                                             child: Align(
                                               alignment: const AlignmentDirectional(
-                                                  0.0, 0.0),
-                                              child: AuthUserStreamWidget(
-                                                builder: (context) =>
-                                                    FlutterFlowDropDown<String>(
-                                                  controller: _model
-                                                          .ageValueController ??=
-                                                      FormFieldController<
-                                                          String>(
-                                                    _model.ageValue ??=
-                                                        valueOrDefault(
-                                                            currentUserDocument
-                                                                ?.age,
-                                                            ''),
+                                                  -1.0, 0.0),
+                                              child: Text(
+                                                'Select your age group',
+                                                textAlign: TextAlign.justify,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Montserrat',
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Align(
+                                      alignment:
+                                          const AlignmentDirectional(-1.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          Expanded(
+                                            child: Material(
+                                              color: Colors.transparent,
+                                              elevation: 2.0,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(12.0),
+                                              ),
+                                              child: Container(
+                                                width: double.infinity,
+                                                height: 52.0,
+                                                decoration: BoxDecoration(
+                                                  color: const Color(0xFFF0F0F0),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          12.0),
+                                                  border: Border.all(
+                                                    color: const Color(0xFFC14BBC),
+                                                    width: 3.0,
                                                   ),
-                                                  options: List<String>.from([
-                                                    '18-25 years',
-                                                    '25-40 years',
-                                                    '40-65+ years'
-                                                  ]),
-                                                  optionLabels: const [
-                                                    '18-25 years',
-                                                    '25-40 years',
-                                                    '40-65+ years'
-                                                  ],
-                                                  onChanged: (val) => setState(
-                                                      () => _model.ageValue =
-                                                          val),
-                                                  width:
-                                                      MediaQuery.sizeOf(context)
-                                                              .width *
-                                                          1.0,
-                                                  height: 56.0,
-                                                  textStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Montserrat',
-                                                            fontSize: 13.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                          ),
-                                                  hintText: 'Please select...',
-                                                  icon: Icon(
-                                                    Icons
-                                                        .keyboard_arrow_down_rounded,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryText,
-                                                    size: 24.0,
+                                                ),
+                                                child: Align(
+                                                  alignment:
+                                                      const AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: FlutterFlowDropDown<
+                                                      String>(
+                                                    controller: _model
+                                                            .ageValueController ??=
+                                                        FormFieldController<
+                                                            String>(
+                                                      _model.ageValue ??=
+                                                          valueOrDefault(
+                                                              currentUserDocument
+                                                                  ?.age,
+                                                              ''),
+                                                    ),
+                                                    options: List<String>.from([
+                                                      '18-25 years',
+                                                      '25-40 years',
+                                                      '40-65+ years'
+                                                    ]),
+                                                    optionLabels: const [
+                                                      '18-25 years',
+                                                      '25-40 years',
+                                                      '40-65+ years'
+                                                    ],
+                                                    onChanged: (val) =>
+                                                        setState(() => _model
+                                                            .ageValue = val),
+                                                    width: MediaQuery.sizeOf(
+                                                                context)
+                                                            .width *
+                                                        1.0,
+                                                    height: 56.0,
+                                                    textStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Montserrat',
+                                                          fontSize: 13.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                                    hintText:
+                                                        'Please select...',
+                                                    icon: Icon(
+                                                      Icons
+                                                          .keyboard_arrow_down_rounded,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondaryText,
+                                                      size: 24.0,
+                                                    ),
+                                                    elevation: 0.0,
+                                                    borderColor:
+                                                        Colors.transparent,
+                                                    borderWidth: 0.0,
+                                                    borderRadius: 0.0,
+                                                    margin:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(16.0, 4.0,
+                                                                16.0, 4.0),
+                                                    hidesUnderline: true,
+                                                    isOverButton: true,
+                                                    isSearchable: false,
+                                                    isMultiSelect: false,
+                                                    labelText: '',
+                                                    labelTextStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .labelMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Readex Pro',
+                                                              letterSpacing:
+                                                                  0.0,
+                                                            ),
                                                   ),
-                                                  elevation: 0.0,
-                                                  borderColor:
-                                                      Colors.transparent,
-                                                  borderWidth: 0.0,
-                                                  borderRadius: 0.0,
-                                                  margin: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          16.0, 4.0, 16.0, 4.0),
-                                                  hidesUnderline: true,
-                                                  isOverButton: true,
-                                                  isSearchable: false,
-                                                  isMultiSelect: false,
-                                                  labelText: '',
-                                                  labelTextStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .labelMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Readex Pro',
-                                                            letterSpacing: 0.0,
-                                                          ),
                                                 ),
                                               ),
                                             ),
                                           ),
-                                        ),
+                                        ],
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                  ].divide(const SizedBox(height: 8.0)),
                                 ),
-                              ].divide(const SizedBox(height: 8.0)),
+                              ),
                             ),
                           ),
-                        ),
                         Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -1215,7 +1129,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                               FontWeight.w500,
                                                         ),
                                                     hintText:
-                                                        'Tell us a little about yourself sothat caregivers \ncan get to know you',
+                                                        'Tell us more about yourself',
                                                     hintStyle: FlutterFlowTheme
                                                             .of(context)
                                                         .labelMedium
@@ -1383,112 +1297,130 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                               ),
                             ),
                           ),
-                        Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Align(
-                              alignment: const AlignmentDirectional(-1.0, 0.0),
-                              child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    20.0, 16.0, 0.0, 0.0),
-                                child: Text(
-                                  'Languages ​​I Speak',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyLarge
-                                      .override(
-                                        fontFamily: 'Montserrat',
-                                        color: const Color(0xFFC14BBC),
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w600,
+                        Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 8.0, 0.0),
+                          child: FFButtonWidget(
+                            onPressed: () async {
+                              FFAppState().updateRegisterProviderFormStruct(
+                                (e) => e
+                                  ..firstName = valueOrDefault(
+                                      currentUserDocument?.firtsName, '')
+                                  ..languagues = valueOrDefault(
+                                      currentUserDocument?.languagues, '')
+                                  ..description = valueOrDefault(
+                                      currentUserDocument?.description, '')
+                                  ..age = valueOrDefault(
+                                      currentUserDocument?.age, '')
+                                  ..serviceType = (currentUserDocument
+                                              ?.serviceType
+                                              .toList() ??
+                                          [])
+                                      .toList(),
+                              );
+                              FFAppState().updateRegisterProviderFormStruct(
+                                (e) => e
+                                  ..firstName = _model.nameTextController.text
+                                  ..description =
+                                      _model.descriptionTextController.text
+                                  ..updateTime = getCurrentTimestamp
+                                  ..age = _model.ageValue,
+                              );
+                              if (currentUserDocument?.rol != Roles.user) {
+                                if (currentUserDocument?.rol ==
+                                    Roles.business) {
+                                  FFAppState().updateRegisterProviderFormStruct(
+                                    (e) => e
+                                      ..serviceType =
+                                          _model.servicesPremiunValue!.toList(),
+                                  );
+                                } else {
+                                  FFAppState().updateRegisterProviderFormStruct(
+                                    (e) => e
+                                      ..updateServiceType(
+                                        (e) => e[0] = _model.servicesValue!,
                                       ),
+                                  );
+                                }
+                              }
+
+                              await currentUserReference!.update({
+                                ...createUsersRecordData(
+                                  firtsName: FFAppState()
+                                      .registerProviderForm
+                                      .firstName,
+                                  languagues: FFAppState()
+                                      .registerProviderForm
+                                      .languagues,
+                                  updateTime: FFAppState()
+                                      .registerProviderForm
+                                      .updateTime,
+                                  description: FFAppState()
+                                      .registerProviderForm
+                                      .description,
+                                  age: FFAppState().registerProviderForm.age,
                                 ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  20.0, 10.0, 20.0, 20.0),
-                              child: Container(
-                                width: double.infinity,
-                                height: 98.0,
-                                decoration: BoxDecoration(
-                                  color: const Color(0xFFF0F0F0),
-                                  borderRadius: BorderRadius.circular(12.0),
+                                ...mapToFirestore(
+                                  {
+                                    'serviceType': FFAppState()
+                                        .registerProviderForm
+                                        .serviceType,
+                                  },
                                 ),
-                                child: Stack(
-                                  children: [
-                                    Align(
-                                      alignment: const AlignmentDirectional(0.0, 0.0),
-                                      child: AuthUserStreamWidget(
-                                        builder: (context) =>
-                                            FlutterFlowDropDown<String>(
-                                          controller: _model
-                                                  .languagesValueController ??=
-                                              FormFieldController<String>(
-                                            _model.languagesValue ??=
-                                                valueOrDefault(
-                                                    currentUserDocument
-                                                        ?.languagues,
-                                                    ''),
-                                          ),
-                                          options: List<String>.from(
-                                              ['English', 'Spanish']),
-                                          optionLabels: const ['English', 'Spanish'],
-                                          onChanged: (val) => setState(() =>
-                                              _model.languagesValue = val),
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  0.47,
-                                          height: 52.0,
-                                          textStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily: 'Montserrat',
-                                                    color: Colors.black,
-                                                    fontSize: 13.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w500,
-                                                    lineHeight: 1.0,
-                                                  ),
-                                          hintText: 'LANGUAGE',
-                                          icon: Icon(
-                                            Icons.keyboard_arrow_down_rounded,
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryText,
-                                            size: 24.0,
-                                          ),
-                                          fillColor: const Color(0xFFFF34E7),
-                                          elevation: 2.0,
-                                          borderColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .alternate,
-                                          borderWidth: 2.0,
-                                          borderRadius: 8.0,
-                                          margin:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  34.0, 4.0, 15.0, 4.0),
-                                          hidesUnderline: true,
-                                          isOverButton: true,
-                                          isSearchable: false,
-                                          isMultiSelect: false,
-                                          labelText: '',
-                                          labelTextStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .headlineSmall
-                                                  .override(
-                                                    fontFamily: 'Outfit',
-                                                    letterSpacing: 0.0,
-                                                  ),
-                                        ),
-                                      ),
+                              });
+                              if (_model.uploadedFileUrl != '') {
+                                await currentUserReference!
+                                    .update(createUsersRecordData(
+                                  photoUrl: _model.uploadedFileUrl,
+                                ));
+                              }
+                              FFAppState().registerProviderForm =
+                                  RegisterProviderTypeStruct();
+                              setState(() {});
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    'Update success',
+                                    style: TextStyle(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
                                     ),
-                                  ],
+                                  ),
+                                  duration: const Duration(milliseconds: 4000),
+                                  backgroundColor:
+                                      FlutterFlowTheme.of(context).secondary,
                                 ),
+                              );
+                            },
+                            text: 'save changes',
+                            options: FFButtonOptions(
+                              width: 167.0,
+                              height: 57.0,
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  12.0, 0.0, 12.0, 0.0),
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: const Color(0xFFFF6FF7),
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .headlineLarge
+                                  .override(
+                                    fontFamily: 'Montserrat',
+                                    color: Colors.white,
+                                    fontSize: 24.0,
+                                    letterSpacing: 0.0,
+                                  ),
+                              elevation: 3.0,
+                              borderSide: const BorderSide(
+                                color: Colors.transparent,
+                                width: 1.0,
                               ),
+                              borderRadius: BorderRadius.circular(16.0),
                             ),
-                          ].divide(const SizedBox(height: 8.0)),
+                          ),
                         ),
-                      ].divide(const SizedBox(height: 16.0)),
+                      ]
+                          .divide(const SizedBox(height: 16.0))
+                          .addToEnd(const SizedBox(height: 16.0)),
                     ),
                   ),
                 ),

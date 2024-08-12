@@ -8,9 +8,10 @@ abstract class FFAppConstants {
   ];
   static const List<String> servicesType = [
     'Support Worker',
-    ' Coordinator',
+    ' Support Coordinators',
     'Therapeutic Supports',
-    'Home Maintence'
+    'Home Maintence',
+    'Recovery Coaches'
   ];
   static const int basicPrice = 145;
   static const int standarPrice = 845;
