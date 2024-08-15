@@ -53,54 +53,58 @@ class _NavbarWidgetState extends State<NavbarWidget> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Align(
-              alignment: const AlignmentDirectional(0.0, 0.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Expanded(
-                    flex: 1,
-                    child: Align(
-                      alignment: const AlignmentDirectional(0.0, 0.0),
-                      child: FlutterFlowIconButton(
-                        borderColor: Colors.transparent,
-                        buttonSize: MediaQuery.sizeOf(context).width * 0.12,
-                        icon: const Icon(
-                          Icons.search_sharp,
-                          color: Colors.white,
-                          size: 34.0,
-                        ),
-                        onPressed: () async {
-                          if (FFAppState().authUserFireBase) {
-                            context.pushNamed('tinderv2C1');
-                          } else {
-                            context.pushNamed('Login');
-                          }
-                        },
-                      ),
-                    ),
-                  ),
-                  Align(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
-                    child: Text(
-                      'Home',
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Poppins',
-                            color: Colors.white,
-                            letterSpacing: 0.0,
-                            fontWeight: FontWeight.w500,
+            if (currentUserDocument?.rol == Roles.user)
+              Align(
+                alignment: const AlignmentDirectional(0.0, 0.0),
+                child: AuthUserStreamWidget(
+                  builder: (context) => Column(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        flex: 1,
+                        child: Align(
+                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          child: FlutterFlowIconButton(
+                            borderColor: Colors.transparent,
+                            buttonSize: MediaQuery.sizeOf(context).width * 0.12,
+                            icon: const Icon(
+                              Icons.search_sharp,
+                              color: Colors.white,
+                              size: 34.0,
+                            ),
+                            onPressed: () async {
+                              if (FFAppState().authUserFireBase) {
+                                context.pushNamed('tinderv2C1');
+                              } else {
+                                context.pushNamed('Login');
+                              }
+                            },
                           ),
-                    ),
+                        ),
+                      ),
+                      Align(
+                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        child: Text(
+                          'Home',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Poppins',
+                                    color: Colors.white,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                        ),
+                      ),
+                      Container(
+                        height: 5.0,
+                        decoration: const BoxDecoration(),
+                      ),
+                    ],
                   ),
-                  Container(
-                    height: 5.0,
-                    decoration: const BoxDecoration(),
-                  ),
-                ],
+                ),
               ),
-            ),
             if (currentUserDocument?.business == null)
               AuthUserStreamWidget(
                 builder: (context) => Column(
@@ -121,7 +125,7 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                           onPressed: () async {
                             if (FFAppState().authUserFireBase) {
                               if (currentUserDocument?.rol == Roles.user) {
-                                context.pushNamed('favV2');
+                                context.pushNamed('favV3Copy');
                               } else {
                                 if (currentUserDocument?.plan == Plan.standar) {
                                   context
@@ -219,9 +223,9 @@ class _NavbarWidgetState extends State<NavbarWidget> {
                           borderRadius: 34.0,
                           buttonSize: 48.0,
                           icon: const FaIcon(
-                            FontAwesomeIcons.map,
+                            FontAwesomeIcons.mapMarkedAlt,
                             color: Colors.white,
-                            size: 34.0,
+                            size: 30.0,
                           ),
                           onPressed: () async {
                             if (FFAppState().authUserFireBase) {

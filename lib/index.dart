@@ -75,3 +75,4 @@ export '/v2/v2_mensages/report_section/report_section_widget.dart'
     show ReportSectionWidget;
 export '/v2/favoritesv2/fav_v3_copy/fav_v3_copy_widget.dart'
     show FavV3CopyWidget;
+export '/v2/inici0app/pantainci1/pantainci1_widget.dart' show Pantainci1Widget;

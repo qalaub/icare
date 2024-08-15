@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/v2/favoritesv2/add_favorites/add_favorites_widget.dart';
 import '/v2/menbresiav2/membresia_logo/membresia_logo_widget.dart';
@@ -19,6 +20,8 @@ class V3fv0ritesModel extends FlutterFlowModel<V3fv0ritesWidget> {
 
   ///  State fields for stateful widgets in this component.
 
+  // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
+  ChatsRecord? chat;
   // Model for AddFavorites component.
   late AddFavoritesModel addFavoritesModel;
   // Model for MembresiaLogo component.

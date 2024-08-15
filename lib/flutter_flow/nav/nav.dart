@@ -87,396 +87,405 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/',
           builder: (context, _) =>
               appStateNotifier.loggedIn ? const NavBarPage() : const Tinderv2C1Widget(),
-        ),
-        FFRoute(
-          name: 'HomeSearch',
-          path: '/homeSearch',
-          builder: (context, params) => HomeSearchWidget(
-            currentLatLng: params.getParam<LatLng>(
-              'currentLatLng',
-              ParamType.LatLng,
-              isList: true,
+          routes: [
+            FFRoute(
+              name: 'HomeSearch',
+              path: 'homeSearch',
+              builder: (context, params) => HomeSearchWidget(
+                currentLatLng: params.getParam<LatLng>(
+                  'currentLatLng',
+                  ParamType.LatLng,
+                  isList: true,
+                ),
+                authUser: params.getParam(
+                  'authUser',
+                  ParamType.bool,
+                ),
+              ),
             ),
-            authUser: params.getParam(
-              'authUser',
-              ParamType.bool,
+            FFRoute(
+              name: 'User',
+              path: 'user',
+              builder: (context, params) => params.isEmpty
+                  ? const NavBarPage(initialPage: 'User')
+                  : const UserWidget(),
             ),
-          ),
-        ),
-        FFRoute(
-          name: 'User',
-          path: '/user',
-          builder: (context, params) =>
-              params.isEmpty ? const NavBarPage(initialPage: 'User') : const UserWidget(),
-        ),
-        FFRoute(
-          name: 'Filtros',
-          path: '/filtros',
-          builder: (context, params) => const FiltrosWidget(),
-        ),
-        FFRoute(
-          name: 'Favorites1',
-          path: '/favorites1',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'Favorites1')
-              : const Favorites1Widget(),
-        ),
-        FFRoute(
-          name: 'RegisterUser1',
-          path: '/registerUser1',
-          builder: (context, params) => const RegisterUser1Widget(),
-        ),
-        FFRoute(
-          name: 'RegisterUser2',
-          path: '/registerUser2',
-          builder: (context, params) => const RegisterUser2Widget(),
-        ),
-        FFRoute(
-          name: 'RegisterProfessional1',
-          path: '/registerProfessional1',
-          builder: (context, params) => RegisterProfessional1Widget(
-            businessRef: params.getParam(
-              'businessRef',
-              ParamType.DocumentReference,
-              isList: false,
-              collectionNamePath: ['users'],
+            FFRoute(
+              name: 'Filtros',
+              path: 'filtros',
+              builder: (context, params) => const FiltrosWidget(),
             ),
-          ),
-        ),
-        FFRoute(
-          name: 'RegisterProfessional2',
-          path: '/registerProfessional2',
-          builder: (context, params) => RegisterProfessional2Widget(
-            businessRef: params.getParam(
-              'businessRef',
-              ParamType.DocumentReference,
-              isList: false,
-              collectionNamePath: ['users'],
+            FFRoute(
+              name: 'Favorites1',
+              path: 'favorites1',
+              builder: (context, params) => params.isEmpty
+                  ? const NavBarPage(initialPage: 'Favorites1')
+                  : const Favorites1Widget(),
             ),
-          ),
-        ),
-        FFRoute(
-          name: 'Login',
-          path: '/login',
-          builder: (context, params) => const LoginWidget(),
-        ),
-        FFRoute(
-          name: 'Escoger_Usuario',
-          path: '/escogerUsuario',
-          builder: (context, params) => const EscogerUsuarioWidget(),
-        ),
-        FFRoute(
-          name: 'Registro_usuario4',
-          path: '/registroUsuario4',
-          builder: (context, params) => const RegistroUsuario4Widget(),
-        ),
-        FFRoute(
-          name: 'Membresia',
-          path: '/membresia',
-          builder: (context, params) => const MembresiaWidget(),
-        ),
-        FFRoute(
-          name: 'userprofile',
-          path: '/userprofile',
-          requireAuth: true,
-          builder: (context, params) => const UserprofileWidget(),
-        ),
-        FFRoute(
-          name: 'chat_2_Details',
-          path: '/chat2Details',
-          requireAuth: true,
-          asyncParams: {
-            'chatRef': getDoc(['chats'], ChatsRecord.fromSnapshot),
-          },
-          builder: (context, params) => Chat2DetailsWidget(
-            chatRef: params.getParam(
-              'chatRef',
-              ParamType.Document,
+            FFRoute(
+              name: 'RegisterUser1',
+              path: 'registerUser1',
+              builder: (context, params) => const RegisterUser1Widget(),
             ),
-            chatRefTotal: params.getParam(
-              'chatRefTotal',
-              ParamType.DocumentReference,
-              isList: false,
-              collectionNamePath: ['chats'],
+            FFRoute(
+              name: 'RegisterUser2',
+              path: 'registerUser2',
+              builder: (context, params) => const RegisterUser2Widget(),
             ),
-          ),
-        ),
-        FFRoute(
-          name: 'chat_2_main',
-          path: '/chat2Main',
-          requireAuth: true,
-          builder: (context, params) => const Chat2MainWidget(),
-        ),
-        FFRoute(
-          name: 'chat_2_InviteUsers',
-          path: '/chat2InviteUsers',
-          asyncParams: {
-            'chatRef': getDoc(['chats'], ChatsRecord.fromSnapshot),
-          },
-          builder: (context, params) => Chat2InviteUsersWidget(
-            chatRef: params.getParam(
-              'chatRef',
-              ParamType.Document,
+            FFRoute(
+              name: 'RegisterProfessional1',
+              path: 'registerProfessional1',
+              builder: (context, params) => RegisterProfessional1Widget(
+                businessRef: params.getParam(
+                  'businessRef',
+                  ParamType.DocumentReference,
+                  isList: false,
+                  collectionNamePath: ['users'],
+                ),
+              ),
             ),
-          ),
-        ),
-        FFRoute(
-          name: 'image_Details',
-          path: '/imageDetails',
-          asyncParams: {
-            'chatMessage':
-                getDoc(['chat_messages'], ChatMessagesRecord.fromSnapshot),
-          },
-          builder: (context, params) => ImageDetailsWidget(
-            chatMessage: params.getParam(
-              'chatMessage',
-              ParamType.Document,
+            FFRoute(
+              name: 'RegisterProfessional2',
+              path: 'registerProfessional2',
+              builder: (context, params) => RegisterProfessional2Widget(
+                businessRef: params.getParam(
+                  'businessRef',
+                  ParamType.DocumentReference,
+                  isList: false,
+                  collectionNamePath: ['users'],
+                ),
+              ),
             ),
-          ),
-        ),
-        FFRoute(
-          name: 'professionalprofile',
-          path: '/professionalprofile',
-          builder: (context, params) => const ProfessionalprofileWidget(),
-        ),
-        FFRoute(
-          name: 'Profilesettings',
-          path: '/profilesettings',
-          requireAuth: true,
-          builder: (context, params) => const ProfilesettingsWidget(),
-        ),
-        FFRoute(
-          name: 'listofcollaborators',
-          path: '/listofcollaborators',
-          requireAuth: true,
-          builder: (context, params) => const ListofcollaboratorsWidget(),
-        ),
-        FFRoute(
-          name: 'profile_info',
-          path: '/profileInfo',
-          requireAuth: true,
-          builder: (context, params) => ProfileInfoWidget(
-            professional: params.getParam(
-              'professional',
-              ParamType.DocumentReference,
-              isList: false,
-              collectionNamePath: ['users'],
+            FFRoute(
+              name: 'Login',
+              path: 'login',
+              builder: (context, params) => const LoginWidget(),
             ),
-          ),
-        ),
-        FFRoute(
-          name: 'MembresiaPerfil_Estandar',
-          path: '/membresiaPerfilEstandar',
-          builder: (context, params) => const MembresiaPerfilEstandarWidget(),
-        ),
-        FFRoute(
-          name: 'peoplewhoputyouinfavorites',
-          path: '/peoplewhoputyouinfavorites',
-          requireAuth: true,
-          builder: (context, params) => const PeoplewhoputyouinfavoritesWidget(),
-        ),
-        FFRoute(
-          name: 'MembresiaPerfil_Basico',
-          path: '/membresiaPerfilBasico',
-          builder: (context, params) => const MembresiaPerfilBasicoWidget(),
-        ),
-        FFRoute(
-          name: 'peoplewhoputyouinfavoriteBasic',
-          path: '/peoplewhoputyouinfavoriteBasic',
-          requireAuth: true,
-          builder: (context, params) => const PeoplewhoputyouinfavoriteBasicWidget(),
-        ),
-        FFRoute(
-          name: 'favV2',
-          path: '/favV2',
-          requireAuth: true,
-          builder: (context, params) => const FavV2Widget(),
-        ),
-        FFRoute(
-          name: 'RegisterProfessional3',
-          path: '/registerProfessional3',
-          builder: (context, params) => const RegisterProfessional3Widget(),
-        ),
-        FFRoute(
-          name: 'MembresiasV2',
-          path: '/membresiasV2',
-          builder: (context, params) => MembresiasV2Widget(
-            professionalUpdate: params.getParam(
-              'professionalUpdate',
-              ParamType.DocumentReference,
-              isList: false,
-              collectionNamePath: ['users'],
+            FFRoute(
+              name: 'Escoger_Usuario',
+              path: 'escogerUsuario',
+              builder: (context, params) => const EscogerUsuarioWidget(),
             ),
-            currentPlan: params.getParam<Plan>(
-              'currentPlan',
-              ParamType.Enum,
+            FFRoute(
+              name: 'Registro_usuario4',
+              path: 'registroUsuario4',
+              builder: (context, params) => const RegistroUsuario4Widget(),
             ),
-            isUpdate: params.getParam(
-              'isUpdate',
-              ParamType.bool,
+            FFRoute(
+              name: 'Membresia',
+              path: 'membresia',
+              builder: (context, params) => const MembresiaWidget(),
             ),
-          ),
-        ),
-        FFRoute(
-          name: 'RegisterBusiness1',
-          path: '/registerBusiness1',
-          builder: (context, params) => RegisterBusiness1Widget(
-            businessRef: params.getParam(
-              'businessRef',
-              ParamType.DocumentReference,
-              isList: false,
-              collectionNamePath: ['users'],
+            FFRoute(
+              name: 'userprofile',
+              path: 'userprofile',
+              requireAuth: true,
+              builder: (context, params) => const UserprofileWidget(),
             ),
-          ),
-        ),
-        FFRoute(
-          name: 'RegisterBusiness2',
-          path: '/registerBusiness2',
-          builder: (context, params) => RegisterBusiness2Widget(
-            businessRef: params.getParam(
-              'businessRef',
-              ParamType.DocumentReference,
-              isList: false,
-              collectionNamePath: ['users'],
+            FFRoute(
+              name: 'chat_2_Details',
+              path: 'chat2Details',
+              requireAuth: true,
+              asyncParams: {
+                'chatRef': getDoc(['chats'], ChatsRecord.fromSnapshot),
+              },
+              builder: (context, params) => Chat2DetailsWidget(
+                chatRef: params.getParam(
+                  'chatRef',
+                  ParamType.Document,
+                ),
+                chatRefTotal: params.getParam(
+                  'chatRefTotal',
+                  ParamType.DocumentReference,
+                  isList: false,
+                  collectionNamePath: ['chats'],
+                ),
+              ),
             ),
-          ),
-        ),
-        FFRoute(
-          name: 'RegisterBusiness3',
-          path: '/registerBusiness3',
-          builder: (context, params) => const RegisterBusiness3Widget(),
-        ),
-        FFRoute(
-          name: 'RegisterBusiness4',
-          path: '/registerBusiness4',
-          builder: (context, params) => const RegisterBusiness4Widget(),
-        ),
-        FFRoute(
-          name: 'TinDERv1',
-          path: '/tinDERv1',
-          builder: (context, params) => const TinDERv1Widget(),
-        ),
-        FFRoute(
-          name: 'tinderv2C1',
-          path: '/tinderv2C1',
-          builder: (context, params) => const Tinderv2C1Widget(),
-        ),
-        FFRoute(
-          name: 'news',
-          path: '/news',
-          requireAuth: true,
-          builder: (context, params) => const NewsWidget(),
-        ),
-        FFRoute(
-          name: 'BlockList',
-          path: '/blockList',
-          builder: (context, params) => const BlockListWidget(),
-        ),
-        FFRoute(
-          name: 'STANDAR',
-          path: '/standar',
-          builder: (context, params) => StandarWidget(
-            userRef: params.getParam(
-              'userRef',
-              ParamType.DocumentReference,
-              isList: false,
-              collectionNamePath: ['users'],
+            FFRoute(
+              name: 'chat_2_main',
+              path: 'chat2Main',
+              requireAuth: true,
+              builder: (context, params) => const Chat2MainWidget(),
             ),
-            currentPlan: params.getParam<Plan>(
-              'currentPlan',
-              ParamType.Enum,
+            FFRoute(
+              name: 'chat_2_InviteUsers',
+              path: 'chat2InviteUsers',
+              asyncParams: {
+                'chatRef': getDoc(['chats'], ChatsRecord.fromSnapshot),
+              },
+              builder: (context, params) => Chat2InviteUsersWidget(
+                chatRef: params.getParam(
+                  'chatRef',
+                  ParamType.Document,
+                ),
+              ),
             ),
-          ),
+            FFRoute(
+              name: 'image_Details',
+              path: 'imageDetails',
+              asyncParams: {
+                'chatMessage':
+                    getDoc(['chat_messages'], ChatMessagesRecord.fromSnapshot),
+              },
+              builder: (context, params) => ImageDetailsWidget(
+                chatMessage: params.getParam(
+                  'chatMessage',
+                  ParamType.Document,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'professionalprofile',
+              path: 'professionalprofile',
+              builder: (context, params) => const ProfessionalprofileWidget(),
+            ),
+            FFRoute(
+              name: 'Profilesettings',
+              path: 'profilesettings',
+              requireAuth: true,
+              builder: (context, params) => const ProfilesettingsWidget(),
+            ),
+            FFRoute(
+              name: 'listofcollaborators',
+              path: 'listofcollaborators',
+              requireAuth: true,
+              builder: (context, params) => const ListofcollaboratorsWidget(),
+            ),
+            FFRoute(
+              name: 'profile_info',
+              path: 'profileInfo',
+              requireAuth: true,
+              builder: (context, params) => ProfileInfoWidget(
+                professional: params.getParam(
+                  'professional',
+                  ParamType.DocumentReference,
+                  isList: false,
+                  collectionNamePath: ['users'],
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'MembresiaPerfil_Estandar',
+              path: 'membresiaPerfilEstandar',
+              builder: (context, params) => const MembresiaPerfilEstandarWidget(),
+            ),
+            FFRoute(
+              name: 'peoplewhoputyouinfavorites',
+              path: 'peoplewhoputyouinfavorites',
+              requireAuth: true,
+              builder: (context, params) => const PeoplewhoputyouinfavoritesWidget(),
+            ),
+            FFRoute(
+              name: 'MembresiaPerfil_Basico',
+              path: 'membresiaPerfilBasico',
+              builder: (context, params) => const MembresiaPerfilBasicoWidget(),
+            ),
+            FFRoute(
+              name: 'peoplewhoputyouinfavoriteBasic',
+              path: 'peoplewhoputyouinfavoriteBasic',
+              requireAuth: true,
+              builder: (context, params) =>
+                  const PeoplewhoputyouinfavoriteBasicWidget(),
+            ),
+            FFRoute(
+              name: 'favV2',
+              path: 'favV2',
+              requireAuth: true,
+              builder: (context, params) => const FavV2Widget(),
+            ),
+            FFRoute(
+              name: 'RegisterProfessional3',
+              path: 'registerProfessional3',
+              builder: (context, params) => const RegisterProfessional3Widget(),
+            ),
+            FFRoute(
+              name: 'MembresiasV2',
+              path: 'membresiasV2',
+              builder: (context, params) => MembresiasV2Widget(
+                professionalUpdate: params.getParam(
+                  'professionalUpdate',
+                  ParamType.DocumentReference,
+                  isList: false,
+                  collectionNamePath: ['users'],
+                ),
+                currentPlan: params.getParam<Plan>(
+                  'currentPlan',
+                  ParamType.Enum,
+                ),
+                isUpdate: params.getParam(
+                  'isUpdate',
+                  ParamType.bool,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'RegisterBusiness1',
+              path: 'registerBusiness1',
+              builder: (context, params) => RegisterBusiness1Widget(
+                businessRef: params.getParam(
+                  'businessRef',
+                  ParamType.DocumentReference,
+                  isList: false,
+                  collectionNamePath: ['users'],
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'RegisterBusiness2',
+              path: 'registerBusiness2',
+              builder: (context, params) => RegisterBusiness2Widget(
+                businessRef: params.getParam(
+                  'businessRef',
+                  ParamType.DocumentReference,
+                  isList: false,
+                  collectionNamePath: ['users'],
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'RegisterBusiness3',
+              path: 'registerBusiness3',
+              builder: (context, params) => const RegisterBusiness3Widget(),
+            ),
+            FFRoute(
+              name: 'RegisterBusiness4',
+              path: 'registerBusiness4',
+              builder: (context, params) => const RegisterBusiness4Widget(),
+            ),
+            FFRoute(
+              name: 'TinDERv1',
+              path: 'tinDERv1',
+              builder: (context, params) => const TinDERv1Widget(),
+            ),
+            FFRoute(
+              name: 'tinderv2C1',
+              path: 'tinderv2C1',
+              builder: (context, params) => const Tinderv2C1Widget(),
+            ),
+            FFRoute(
+              name: 'news',
+              path: 'news',
+              requireAuth: true,
+              builder: (context, params) => const NewsWidget(),
+            ),
+            FFRoute(
+              name: 'BlockList',
+              path: 'blockList',
+              builder: (context, params) => const BlockListWidget(),
+            ),
+            FFRoute(
+              name: 'STANDAR',
+              path: 'standar',
+              builder: (context, params) => StandarWidget(
+                userRef: params.getParam(
+                  'userRef',
+                  ParamType.DocumentReference,
+                  isList: false,
+                  collectionNamePath: ['users'],
+                ),
+                currentPlan: params.getParam<Plan>(
+                  'currentPlan',
+                  ParamType.Enum,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'Premium',
+              path: 'premium',
+              builder: (context, params) => PremiumWidget(
+                userRef: params.getParam(
+                  'userRef',
+                  ParamType.DocumentReference,
+                  isList: false,
+                  collectionNamePath: ['users'],
+                ),
+                currentPlan: params.getParam<Plan>(
+                  'currentPlan',
+                  ParamType.Enum,
+                ),
+                isUpdatePremiun: params.getParam(
+                  'isUpdatePremiun',
+                  ParamType.bool,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'BASIC',
+              path: 'basic',
+              builder: (context, params) => BasicWidget(
+                userRef: params.getParam(
+                  'userRef',
+                  ParamType.DocumentReference,
+                  isList: false,
+                  collectionNamePath: ['users'],
+                ),
+                currentPlan: params.getParam<Plan>(
+                  'currentPlan',
+                  ParamType.Enum,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'MySubscriptionStandard',
+              path: 'mySubscriptionStandard',
+              builder: (context, params) => const MySubscriptionStandardWidget(),
+            ),
+            FFRoute(
+              name: 'MySubscriptionPremium',
+              path: 'mySubscriptionPremium',
+              builder: (context, params) => const MySubscriptionPremiumWidget(),
+            ),
+            FFRoute(
+              name: 'MySubscriptionBasic',
+              path: 'mySubscriptionBasic',
+              builder: (context, params) => const MySubscriptionBasicWidget(),
+            ),
+            FFRoute(
+              name: 'report',
+              path: 'report',
+              builder: (context, params) => ReportWidget(
+                user1: params.getParam(
+                  'user1',
+                  ParamType.String,
+                ),
+                user2: params.getParam(
+                  'user2',
+                  ParamType.String,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'reportSection',
+              path: 'reportSection',
+              builder: (context, params) => ReportSectionWidget(
+                report: params.getParam(
+                  'report',
+                  ParamType.String,
+                ),
+                user1: params.getParam(
+                  'user1',
+                  ParamType.String,
+                ),
+                user2: params.getParam(
+                  'user2',
+                  ParamType.String,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'favV3Copy',
+              path: 'favV3Copy',
+              requireAuth: true,
+              builder: (context, params) => const FavV3CopyWidget(),
+            ),
+            FFRoute(
+              name: 'pantainci1',
+              path: 'pantainci1',
+              builder: (context, params) => const Pantainci1Widget(),
+            )
+          ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
-        FFRoute(
-          name: 'Premium',
-          path: '/premium',
-          builder: (context, params) => PremiumWidget(
-            userRef: params.getParam(
-              'userRef',
-              ParamType.DocumentReference,
-              isList: false,
-              collectionNamePath: ['users'],
-            ),
-            currentPlan: params.getParam<Plan>(
-              'currentPlan',
-              ParamType.Enum,
-            ),
-            isUpdatePremiun: params.getParam(
-              'isUpdatePremiun',
-              ParamType.bool,
-            ),
-          ),
-        ),
-        FFRoute(
-          name: 'BASIC',
-          path: '/basic',
-          builder: (context, params) => BasicWidget(
-            userRef: params.getParam(
-              'userRef',
-              ParamType.DocumentReference,
-              isList: false,
-              collectionNamePath: ['users'],
-            ),
-            currentPlan: params.getParam<Plan>(
-              'currentPlan',
-              ParamType.Enum,
-            ),
-          ),
-        ),
-        FFRoute(
-          name: 'MySubscriptionStandard',
-          path: '/mySubscriptionStandard',
-          builder: (context, params) => const MySubscriptionStandardWidget(),
-        ),
-        FFRoute(
-          name: 'MySubscriptionPremium',
-          path: '/mySubscriptionPremium',
-          builder: (context, params) => const MySubscriptionPremiumWidget(),
-        ),
-        FFRoute(
-          name: 'MySubscriptionBasic',
-          path: '/mySubscriptionBasic',
-          builder: (context, params) => const MySubscriptionBasicWidget(),
-        ),
-        FFRoute(
-          name: 'report',
-          path: '/report',
-          builder: (context, params) => ReportWidget(
-            user1: params.getParam(
-              'user1',
-              ParamType.String,
-            ),
-            user2: params.getParam(
-              'user2',
-              ParamType.String,
-            ),
-          ),
-        ),
-        FFRoute(
-          name: 'reportSection',
-          path: '/reportSection',
-          builder: (context, params) => ReportSectionWidget(
-            report: params.getParam(
-              'report',
-              ParamType.String,
-            ),
-            user1: params.getParam(
-              'user1',
-              ParamType.String,
-            ),
-            user2: params.getParam(
-              'user2',
-              ParamType.String,
-            ),
-          ),
-        ),
-        FFRoute(
-          name: 'favV3Copy',
-          path: '/favV3Copy',
-          requireAuth: true,
-          builder: (context, params) => const FavV3CopyWidget(),
-        )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
     );

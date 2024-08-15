@@ -1,3 +1,5 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -23,7 +25,11 @@ class _UserWidgetState extends State<UserWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      context.pushNamed('tinderv2C1');
+      if (currentUserDocument?.rol == Roles.user) {
+        context.pushNamed('tinderv2C1');
+      } else {
+        context.pushNamed('HomeSearch');
+      }
     });
   }
 

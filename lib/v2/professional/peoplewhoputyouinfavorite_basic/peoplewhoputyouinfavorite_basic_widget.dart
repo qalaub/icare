@@ -4,7 +4,7 @@ import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/v2/favoritesv2/cliente_favorito/cliente_favorito_widget.dart';
+import '/v2/favoritesv2/v2_favoritos_componente/v2_favoritos_componente_widget.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
 import 'dart:ui';
@@ -157,22 +157,11 @@ class _PeoplewhoputyouinfavoriteBasicWidgetState
                                         final listViewUsersRecord =
                                             listViewUsersRecordList[
                                                 listViewIndex];
-                                        return InkWell(
-                                          splashColor: Colors.transparent,
-                                          focusColor: Colors.transparent,
-                                          hoverColor: Colors.transparent,
-                                          highlightColor: Colors.transparent,
-                                          onTap: () async {
-                                            context.pushNamed('HomeSearch');
-                                          },
-                                          child: ClienteFavoritoWidget(
-                                            key: Key(
-                                                'Keygd4_${listViewIndex}_of_${listViewUsersRecordList.length}'),
-                                            username:
-                                                listViewUsersRecord.firtsName,
-                                            userRef:
-                                                listViewUsersRecord.reference,
-                                          ),
+                                        return V2FavoritosComponenteWidget(
+                                          key: Key(
+                                              'Keyj0b_${listViewIndex}_of_${listViewUsersRecordList.length}'),
+                                          professionalRef:
+                                              listViewUsersRecord.reference,
                                         );
                                       },
                                     );

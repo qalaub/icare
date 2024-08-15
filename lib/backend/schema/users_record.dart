@@ -196,6 +196,11 @@ class UsersRecord extends FirestoreRecord {
   bool get isFreeTrialFInish => _isFreeTrialFInish ?? false;
   bool hasIsFreeTrialFInish() => _isFreeTrialFInish != null;
 
+  // "firtsLogin" field.
+  bool? _firtsLogin;
+  bool get firtsLogin => _firtsLogin ?? false;
+  bool hasFirtsLogin() => _firtsLogin != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -233,6 +238,7 @@ class UsersRecord extends FirestoreRecord {
     _freeTrial = snapshotData['freeTrial'] as bool?;
     _paymentDate = snapshotData['paymentDate'] as DateTime?;
     _isFreeTrialFInish = snapshotData['isFreeTrialFInish'] as bool?;
+    _firtsLogin = snapshotData['firtsLogin'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -298,6 +304,7 @@ Map<String, dynamic> createUsersRecordData({
   bool? freeTrial,
   DateTime? paymentDate,
   bool? isFreeTrialFInish,
+  bool? firtsLogin,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -330,6 +337,7 @@ Map<String, dynamic> createUsersRecordData({
       'freeTrial': freeTrial,
       'paymentDate': paymentDate,
       'isFreeTrialFInish': isFreeTrialFInish,
+      'firtsLogin': firtsLogin,
     }.withoutNulls,
   );
 
@@ -377,7 +385,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         listEquality.equals(e1?.blockUser, e2?.blockUser) &&
         e1?.freeTrial == e2?.freeTrial &&
         e1?.paymentDate == e2?.paymentDate &&
-        e1?.isFreeTrialFInish == e2?.isFreeTrialFInish;
+        e1?.isFreeTrialFInish == e2?.isFreeTrialFInish &&
+        e1?.firtsLogin == e2?.firtsLogin;
   }
 
   @override
@@ -417,7 +426,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.blockUser,
         e?.freeTrial,
         e?.paymentDate,
-        e?.isFreeTrialFInish
+        e?.isFreeTrialFInish,
+        e?.firtsLogin
       ]);
 
   @override

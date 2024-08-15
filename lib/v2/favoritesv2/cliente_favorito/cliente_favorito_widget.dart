@@ -97,15 +97,97 @@ class _ClienteFavoritoWidgetState extends State<ClienteFavoritoWidget> {
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  context.pushNamed(
-                    'profile_info',
-                    queryParameters: {
-                      'professional': serializeParam(
-                        widget.userRef,
-                        ParamType.DocumentReference,
+                  _model.addToUsers(widget.userRef!);
+                  setState(() {});
+                  _model.addToUsers(currentUserReference!);
+                  setState(() {});
+                  _model.chats = await queryChatsRecordOnce(
+                    queryBuilder: (chatsRecord) => chatsRecord
+                        .whereArrayContainsAny('users', _model.users),
+                    singleRecord: true,
+                  ).then((s) => s.firstOrNull);
+                  if (_model.chats?.reference.id != null &&
+                      _model.chats?.reference.id != '') {
+                    _model.newRef = await queryChatsRecordOnce(
+                      queryBuilder: (chatsRecord) => chatsRecord
+                          .where(
+                            'user_a',
+                            isEqualTo: widget.userRef,
+                          )
+                          .where(
+                            'user_b',
+                            isEqualTo: currentUserReference,
+                          ),
+                      singleRecord: true,
+                    ).then((s) => s.firstOrNull);
+
+                    context.pushNamed(
+                      'chat_2_Details',
+                      queryParameters: {
+                        'chatRef': serializeParam(
+                          _model.newRef,
+                          ParamType.Document,
+                        ),
+                      }.withoutNulls,
+                      extra: <String, dynamic>{
+                        'chatRef': _model.newRef,
+                      },
+                    );
+                  } else {
+                    // newChat
+
+                    var chatsRecordReference = ChatsRecord.collection.doc();
+                    await chatsRecordReference.set({
+                      ...createChatsRecordData(
+                        userA: widget.userRef,
+                        userB: currentUserReference,
+                        lastMessage: '',
+                        lastMessageTime: getCurrentTimestamp,
+                        lastMessageSentBy: currentUserReference,
+                        groupChatId:
+                            random_data.randomInteger(1000000, 9999999),
                       ),
-                    }.withoutNulls,
-                  );
+                      ...mapToFirestore(
+                        {
+                          'users': _model.users,
+                        },
+                      ),
+                    });
+                    _model.newChatThread = ChatsRecord.getDocumentFromData({
+                      ...createChatsRecordData(
+                        userA: widget.userRef,
+                        userB: currentUserReference,
+                        lastMessage: '',
+                        lastMessageTime: getCurrentTimestamp,
+                        lastMessageSentBy: currentUserReference,
+                        groupChatId:
+                            random_data.randomInteger(1000000, 9999999),
+                      ),
+                      ...mapToFirestore(
+                        {
+                          'users': _model.users,
+                        },
+                      ),
+                    }, chatsRecordReference);
+
+                    context.pushNamed(
+                      'chat_2_Details',
+                      queryParameters: {
+                        'chatRef': serializeParam(
+                          _model.newChatThread,
+                          ParamType.Document,
+                        ),
+                      }.withoutNulls,
+                      extra: <String, dynamic>{
+                        'chatRef': _model.newChatThread,
+                      },
+                    );
+                  }
+
+                  _model.users = [];
+                  setState(() {});
+
+                  setState(() {});
                 },
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
@@ -208,101 +290,8 @@ class _ClienteFavoritoWidgetState extends State<ClienteFavoritoWidget> {
                               color: Colors.black,
                               size: 34.0,
                             ),
-                            onPressed: () async {
-                              _model.addToUsers(widget.userRef!);
-                              setState(() {});
-                              _model.addToUsers(currentUserReference!);
-                              setState(() {});
-                              _model.chats = await queryChatsRecordOnce(
-                                queryBuilder: (chatsRecord) =>
-                                    chatsRecord.whereArrayContainsAny(
-                                        'users', _model.users),
-                                singleRecord: true,
-                              ).then((s) => s.firstOrNull);
-                              if (_model.chats?.reference.id != null &&
-                                  _model.chats?.reference.id != '') {
-                                _model.newRef = await queryChatsRecordOnce(
-                                  queryBuilder: (chatsRecord) => chatsRecord
-                                      .where(
-                                        'user_a',
-                                        isEqualTo: widget.userRef,
-                                      )
-                                      .where(
-                                        'user_b',
-                                        isEqualTo: currentUserReference,
-                                      ),
-                                  singleRecord: true,
-                                ).then((s) => s.firstOrNull);
-
-                                context.pushNamed(
-                                  'chat_2_Details',
-                                  queryParameters: {
-                                    'chatRef': serializeParam(
-                                      _model.newRef,
-                                      ParamType.Document,
-                                    ),
-                                  }.withoutNulls,
-                                  extra: <String, dynamic>{
-                                    'chatRef': _model.newRef,
-                                  },
-                                );
-                              } else {
-                                // newChat
-
-                                var chatsRecordReference =
-                                    ChatsRecord.collection.doc();
-                                await chatsRecordReference.set({
-                                  ...createChatsRecordData(
-                                    userA: widget.userRef,
-                                    userB: currentUserReference,
-                                    lastMessage: '',
-                                    lastMessageTime: getCurrentTimestamp,
-                                    lastMessageSentBy: currentUserReference,
-                                    groupChatId: random_data.randomInteger(
-                                        1000000, 9999999),
-                                  ),
-                                  ...mapToFirestore(
-                                    {
-                                      'users': _model.users,
-                                    },
-                                  ),
-                                });
-                                _model.newChatThread =
-                                    ChatsRecord.getDocumentFromData({
-                                  ...createChatsRecordData(
-                                    userA: widget.userRef,
-                                    userB: currentUserReference,
-                                    lastMessage: '',
-                                    lastMessageTime: getCurrentTimestamp,
-                                    lastMessageSentBy: currentUserReference,
-                                    groupChatId: random_data.randomInteger(
-                                        1000000, 9999999),
-                                  ),
-                                  ...mapToFirestore(
-                                    {
-                                      'users': _model.users,
-                                    },
-                                  ),
-                                }, chatsRecordReference);
-
-                                context.pushNamed(
-                                  'chat_2_Details',
-                                  queryParameters: {
-                                    'chatRef': serializeParam(
-                                      _model.newChatThread,
-                                      ParamType.Document,
-                                    ),
-                                  }.withoutNulls,
-                                  extra: <String, dynamic>{
-                                    'chatRef': _model.newChatThread,
-                                  },
-                                );
-                              }
-
-                              _model.users = [];
-                              setState(() {});
-
-                              setState(() {});
+                            onPressed: () {
+                              print('IconButton pressed ...');
                             },
                           ),
                         ),

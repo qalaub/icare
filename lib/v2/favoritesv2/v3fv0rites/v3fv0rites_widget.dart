@@ -1,8 +1,10 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/v2/favoritesv2/add_favorites/add_favorites_widget.dart';
 import '/v2/menbresiav2/membresia_logo/membresia_logo_widget.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'v3fv0rites_model.dart';
@@ -77,16 +79,34 @@ class _V3fv0ritesWidgetState extends State<V3fv0ritesWidget> {
               if (!FFAppState().authUserFireBase) {
                 context.pushNamed('Login');
               } else {
+                _model.chat = await queryChatsRecordOnce(
+                  queryBuilder: (chatsRecord) => chatsRecord
+                      .where(
+                        'user_a',
+                        isEqualTo: currentUserReference,
+                      )
+                      .where(
+                        'user_b',
+                        isEqualTo: widget.profesionalId,
+                      ),
+                  singleRecord: true,
+                ).then((s) => s.firstOrNull);
+
                 context.pushNamed(
-                  'profile_info',
+                  'chat_2_Details',
                   queryParameters: {
-                    'professional': serializeParam(
-                      containerUsersRecord.reference,
-                      ParamType.DocumentReference,
+                    'chatRef': serializeParam(
+                      _model.chat,
+                      ParamType.Document,
                     ),
                   }.withoutNulls,
+                  extra: <String, dynamic>{
+                    'chatRef': _model.chat,
+                  },
                 );
               }
+
+              setState(() {});
             },
             child: Material(
               color: Colors.transparent,

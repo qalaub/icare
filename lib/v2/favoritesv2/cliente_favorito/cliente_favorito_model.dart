@@ -17,11 +17,11 @@ class ClienteFavoritoModel extends FlutterFlowModel<ClienteFavoritoWidget> {
 
   ///  State fields for stateful widgets in this component.
 
-  // Stores action output result for [Firestore Query - Query a collection] action in IconButton widget.
+  // Stores action output result for [Firestore Query - Query a collection] action in Row widget.
   ChatsRecord? chats;
-  // Stores action output result for [Firestore Query - Query a collection] action in IconButton widget.
+  // Stores action output result for [Firestore Query - Query a collection] action in Row widget.
   ChatsRecord? newRef;
-  // Stores action output result for [Backend Call - Create Document] action in IconButton widget.
+  // Stores action output result for [Backend Call - Create Document] action in Row widget.
   ChatsRecord? newChatThread;
 
   @override

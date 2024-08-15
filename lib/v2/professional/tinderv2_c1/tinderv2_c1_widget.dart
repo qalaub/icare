@@ -34,22 +34,42 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _model.professional = await queryUsersRecordOnce(
-        queryBuilder: (usersRecord) => usersRecord.where(
-          'rol',
-          isNotEqualTo: Roles.user.serialize(),
-        ),
-      );
-      _model.professionals = _model.professional!
-          .where((e) =>
-              (currentUserDocument?.dontShow.toList() ?? [])
-                  .contains(e.reference) ==
-              false)
-          .toList()
-          .toList()
-          .cast<UsersRecord>();
-      setState(() {});
-      _model.currentProfessional = _model.professionals.first;
+      if (loggedIn) {
+        if ((valueOrDefault<bool>(currentUserDocument?.firtsLogin, false) ==
+                null) ||
+            (valueOrDefault<bool>(currentUserDocument?.firtsLogin, false) ==
+                false)) {
+          context.pushNamed('pantainci1');
+        } else {
+          _model.professional = await queryUsersRecordOnce(
+            queryBuilder: (usersRecord) => usersRecord.where(
+              'rol',
+              isNotEqualTo: Roles.user.serialize(),
+            ),
+          );
+          _model.professionals = _model.professional!
+              .where((e) =>
+                  (currentUserDocument?.dontShow.toList() ?? [])
+                      .contains(e.reference) ==
+                  false)
+              .toList()
+              .toList()
+              .cast<UsersRecord>();
+          setState(() {});
+          _model.currentProfessional = _model.professionals.first;
+        }
+      } else {
+        _model.professionalWithoutAuth = await queryUsersRecordOnce(
+          queryBuilder: (usersRecord) => usersRecord.where(
+            'rol',
+            isNotEqualTo: Roles.user.serialize(),
+          ),
+        );
+        _model.professionals =
+            _model.professionalWithoutAuth!.toList().cast<UsersRecord>();
+        setState(() {});
+        _model.currentProfessional = _model.professionals.first;
+      }
     });
   }
 
@@ -200,16 +220,16 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                   final newData = _model.professionals.toList();
 
                                   return FlutterFlowSwipeableStack(
-                                    onSwipeFn: (index) async {
-                                      final newDataItem = newData[index];
-                                      _model.currentProfessional =
-                                          newData[index];
-                                    },
+                                    onSwipeFn: (index) {},
                                     onLeftSwipe: (index) async {
                                       final newDataItem = newData[index];
                                       if (loggedIn == false) {
                                         context.pushNamed('Login');
                                       } else {
+                                        _model.currentIndex =
+                                            _model.currentIndex + 1;
+                                        _model.currentProfessional =
+                                            newData[_model.currentIndex];
                                         unawaited(
                                           () async {
                                             await currentUserReference!.update({
@@ -457,6 +477,10 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                             }.withoutNulls,
                                           );
 
+                                          _model.currentIndex =
+                                              _model.currentIndex + 1;
+                                          _model.currentProfessional =
+                                              newData[_model.currentIndex];
                                           _model.userToAdd = [];
                                         }
                                       } finally {

@@ -40,21 +40,6 @@ class RegisterUser1Model extends FlutterFlowModel<RegisterUser1Widget> {
     return null;
   }
 
-  // State field(s) for lastName widget.
-  FocusNode? lastNameFocusNode;
-  TextEditingController? lastNameTextController;
-  String? Function(BuildContext, String?)? lastNameTextControllerValidator;
-  String? _lastNameTextControllerValidator(BuildContext context, String? val) {
-    if (val == null || val.isEmpty) {
-      return 'Field is required';
-    }
-
-    if (!RegExp(kTextValidatorUsernameRegex).hasMatch(val)) {
-      return 'Must start with a letter and can only contain letters, digits and - or _.';
-    }
-    return null;
-  }
-
   // State field(s) for date widget.
   FocusNode? dateFocusNode;
   TextEditingController? dateTextController;
@@ -91,7 +76,6 @@ class RegisterUser1Model extends FlutterFlowModel<RegisterUser1Widget> {
   @override
   void initState(BuildContext context) {
     firstNameTextControllerValidator = _firstNameTextControllerValidator;
-    lastNameTextControllerValidator = _lastNameTextControllerValidator;
     phoneTextControllerValidator = _phoneTextControllerValidator;
   }
 
@@ -99,9 +83,6 @@ class RegisterUser1Model extends FlutterFlowModel<RegisterUser1Widget> {
   void dispose() {
     firstNameFocusNode?.dispose();
     firstNameTextController?.dispose();
-
-    lastNameFocusNode?.dispose();
-    lastNameTextController?.dispose();
 
     dateFocusNode?.dispose();
     dateTextController?.dispose();

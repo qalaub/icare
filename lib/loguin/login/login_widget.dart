@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -547,38 +548,17 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                   FFAppState()
                                                       .authUserFireBase = true;
                                                   setState(() {});
-
-                                                  context.pushNamedAuth(
-                                                    'HomeSearch',
-                                                    context.mounted,
-                                                    queryParameters: {
-                                                      'authUser':
-                                                          serializeParam(
-                                                        loggedIn,
-                                                        ParamType.bool,
-                                                      ),
-                                                    }.withoutNulls,
-                                                  );
-                                                } else {
-                                                  await showDialog(
-                                                    context: context,
-                                                    builder:
-                                                        (alertDialogContext) {
-                                                      return AlertDialog(
-                                                        title: const Text('Error'),
-                                                        content: const Text(
-                                                            'Not valid user'),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () =>
-                                                                Navigator.pop(
-                                                                    alertDialogContext),
-                                                            child: const Text('Ok'),
-                                                          ),
-                                                        ],
-                                                      );
-                                                    },
-                                                  );
+                                                  if (currentUserDocument
+                                                          ?.rol ==
+                                                      Roles.user) {
+                                                    context.pushNamedAuth(
+                                                        'tinderv2C1',
+                                                        context.mounted);
+                                                  } else {
+                                                    context.pushNamedAuth(
+                                                        'HomeSearch',
+                                                        context.mounted);
+                                                  }
                                                 }
                                               },
                                               text: 'Access My Account',

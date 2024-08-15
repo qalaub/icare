@@ -149,7 +149,7 @@ class _PeoplewhoputyouinfavoritesWidgetState
                                         listViewUsersRecordList[listViewIndex];
                                     return ClienteFavoritoWidget(
                                       key: Key(
-                                          'Key0we_${listViewIndex}_of_${listViewUsersRecordList.length}'),
+                                          'Key89l_${listViewIndex}_of_${listViewUsersRecordList.length}'),
                                       username: listViewUsersRecord.firtsName,
                                       userRef: listViewUsersRecord.reference,
                                     );
