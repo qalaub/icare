@@ -233,7 +233,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                           alignment: const AlignmentDirectional(-0.03, -0.86),
                           child: Container(
                             width: 347.0,
-                            height: 152.0,
+                            height: MediaQuery.sizeOf(context).height * 0.18,
                             decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: const BorderRadius.only(
@@ -394,7 +394,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                           alignment: const AlignmentDirectional(-0.03, -0.86),
                           child: Container(
                             width: 347.0,
-                            height: 246.0,
+                            height: MediaQuery.sizeOf(context).height * 0.3,
                             decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: const BorderRadius.only(
