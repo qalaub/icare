@@ -22,9 +22,6 @@ class RegisterBusiness3Model extends FlutterFlowModel<RegisterBusiness3Widget> {
   // State field(s) for gender widget.
   String? genderValue;
   FormFieldController<String>? genderValueController;
-  // State field(s) for languages widget.
-  String? languagesValue;
-  FormFieldController<String>? languagesValueController;
   // State field(s) for disabilities widget.
   FocusNode? disabilitiesFocusNode;
   TextEditingController? disabilitiesTextController;

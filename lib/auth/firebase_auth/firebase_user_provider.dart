@@ -5,8 +5,8 @@ import '../base_auth_user_provider.dart';
 
 export '../base_auth_user_provider.dart';
 
-class NewicareFirebaseUser extends BaseAuthUser {
-  NewicareFirebaseUser(this.user);
+class ICareFirebaseUser extends BaseAuthUser {
+  ICareFirebaseUser(this.user);
   User? user;
   @override
   bool get loggedIn => user != null;
@@ -54,18 +54,17 @@ class NewicareFirebaseUser extends BaseAuthUser {
 
   static BaseAuthUser fromUserCredential(UserCredential userCredential) =>
       fromFirebaseUser(userCredential.user);
-  static BaseAuthUser fromFirebaseUser(User? user) =>
-      NewicareFirebaseUser(user);
+  static BaseAuthUser fromFirebaseUser(User? user) => ICareFirebaseUser(user);
 }
 
-Stream<BaseAuthUser> newicareFirebaseUserStream() => FirebaseAuth.instance
+Stream<BaseAuthUser> iCareFirebaseUserStream() => FirebaseAuth.instance
         .authStateChanges()
         .debounce((user) => user == null && !loggedIn
             ? TimerStream(true, const Duration(seconds: 1))
             : Stream.value(user))
         .map<BaseAuthUser>(
       (user) {
-        currentUser = NewicareFirebaseUser(user);
+        currentUser = ICareFirebaseUser(user);
         return currentUser!;
       },
     );

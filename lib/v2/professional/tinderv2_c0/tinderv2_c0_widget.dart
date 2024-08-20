@@ -67,7 +67,7 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                   maxHeight: MediaQuery.sizeOf(context).height * 0.65,
                 ),
                 decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                  color: const Color(0xFFF2F2F2),
                   borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(20.0),
                     bottomRight: Radius.circular(20.0),

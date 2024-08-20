@@ -1,4 +1,4 @@
-# newicare
+# iCare
 
 A new Flutter project.
 

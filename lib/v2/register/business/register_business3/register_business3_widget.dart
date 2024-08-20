@@ -42,19 +42,7 @@ class _RegisterBusiness3WidgetState extends State<RegisterBusiness3Widget>
     _model.disabilitiesFocusNode ??= FocusNode();
 
     animationsMap.addAll({
-      'textOnPageLoadAnimation1': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          MoveEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: const Offset(0.0, -11.0),
-            end: const Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'textOnPageLoadAnimation2': AnimationInfo(
+      'textOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           MoveEffect(
@@ -484,7 +472,8 @@ class _RegisterBusiness3WidgetState extends State<RegisterBusiness3Widget>
                                                                       null),
                                                               options: const [
                                                                 'Male',
-                                                                'Female'
+                                                                'Female',
+                                                                'Other'
                                                               ],
                                                               onChanged: (val) =>
                                                                   setState(() =>
@@ -566,218 +555,7 @@ class _RegisterBusiness3WidgetState extends State<RegisterBusiness3Widget>
                                                                       ),
                                                                 ).animateOnPageLoad(
                                                                     animationsMap[
-                                                                        'textOnPageLoadAnimation1']!),
-                                                              );
-                                                            } else {
-                                                              return Text(
-                                                                ' ',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Readex Pro',
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                    ),
-                                                              );
-                                                            }
-                                                          },
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                            Align(
-                                              alignment: const AlignmentDirectional(
-                                                  -0.84, -0.73),
-                                              child: Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 15.0, 0.0, 15.0),
-                                                child: Text(
-                                                  '*Languages',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Montserrat',
-                                                        color: Colors.black,
-                                                        fontSize: 15.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                      ),
-                                                ),
-                                              ),
-                                            ),
-                                            Align(
-                                              alignment: const AlignmentDirectional(
-                                                  0.0, 0.0),
-                                              child: Container(
-                                                height: 90.0,
-                                                decoration: const BoxDecoration(),
-                                                child: Align(
-                                                  alignment:
-                                                      const AlignmentDirectional(
-                                                          0.0, -1.0),
-                                                  child: Stack(
-                                                    alignment:
-                                                        const AlignmentDirectional(
-                                                            0.0, -1.0),
-                                                    children: [
-                                                      Align(
-                                                        alignment:
-                                                            const AlignmentDirectional(
-                                                                0.0, -1.0),
-                                                        child: Container(
-                                                          width:
-                                                              MediaQuery.sizeOf(
-                                                                          context)
-                                                                      .width *
-                                                                  0.8,
-                                                          height: 45.0,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: Colors.white,
-                                                            borderRadius:
-                                                                const BorderRadius
-                                                                    .only(
-                                                              bottomLeft: Radius
-                                                                  .circular(
-                                                                      12.0),
-                                                              bottomRight:
-                                                                  Radius
-                                                                      .circular(
-                                                                          12.0),
-                                                              topLeft: Radius
-                                                                  .circular(
-                                                                      12.0),
-                                                              topRight: Radius
-                                                                  .circular(
-                                                                      12.0),
-                                                            ),
-                                                            border: Border.all(
-                                                              color:
-                                                                  valueOrDefault<
-                                                                      Color>(
-                                                                FFAppState()
-                                                                            .verifyForm
-                                                                            .dropdown2 ==
-                                                                        true
-                                                                    ? const Color(
-                                                                        0xFFBB33B9)
-                                                                    : const Color(
-                                                                        0xFFFF5963),
-                                                                const Color(
-                                                                    0xFFBB33B9),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                          child: Padding(
-                                                            padding:
-                                                                const EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        16.0,
-                                                                        0.0,
-                                                                        16.0,
-                                                                        0.0),
-                                                            child:
-                                                                FlutterFlowDropDown<
-                                                                    String>(
-                                                              controller: _model
-                                                                      .languagesValueController ??=
-                                                                  FormFieldController<
-                                                                          String>(
-                                                                      null),
-                                                              options: const [
-                                                                'Spanish',
-                                                                'English'
-                                                              ],
-                                                              onChanged: (val) =>
-                                                                  setState(() =>
-                                                                      _model.languagesValue =
-                                                                          val),
-                                                              width: 253.0,
-                                                              height: 40.0,
-                                                              textStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Montserrat',
-                                                                        color: Colors
-                                                                            .black,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                      ),
-                                                              hintText:
-                                                                  'Please select...',
-                                                              icon: const Icon(
-                                                                Icons
-                                                                    .keyboard_arrow_down_rounded,
-                                                                color: Colors
-                                                                    .black,
-                                                                size: 24.0,
-                                                              ),
-                                                              fillColor:
-                                                                  Colors.white,
-                                                              elevation: 2.0,
-                                                              borderColor: Colors
-                                                                  .transparent,
-                                                              borderWidth: 2.0,
-                                                              borderRadius: 8.0,
-                                                              margin: const EdgeInsets
-                                                                  .all(0.0),
-                                                              hidesUnderline:
-                                                                  true,
-                                                              isOverButton:
-                                                                  true,
-                                                              isSearchable:
-                                                                  false,
-                                                              isMultiSelect:
-                                                                  false,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Align(
-                                                        alignment:
-                                                            const AlignmentDirectional(
-                                                                0.0, 0.0),
-                                                        child: Builder(
-                                                          builder: (context) {
-                                                            if (!FFAppState()
-                                                                    .verifyForm
-                                                                    .dropdown2 &&
-                                                                (FFAppState()
-                                                                        .counter >
-                                                                    2)) {
-                                                              return Align(
-                                                                alignment:
-                                                                    const AlignmentDirectional(
-                                                                        -0.62,
-                                                                        1.0),
-                                                                child: Text(
-                                                                  'Field is required',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Montserrat',
-                                                                        color: const Color(
-                                                                            0xFFFF5963),
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                      ),
-                                                                ).animateOnPageLoad(
-                                                                    animationsMap[
-                                                                        'textOnPageLoadAnimation2']!),
+                                                                        'textOnPageLoadAnimation']!),
                                                               );
                                                             } else {
                                                               return Text(
@@ -809,7 +587,7 @@ class _RegisterBusiness3WidgetState extends State<RegisterBusiness3Widget>
                                                     .fromSTEB(
                                                         20.0, 15.0, 0.0, 15.0),
                                                 child: Text(
-                                                  '*Disabilities they have experience with',
+                                                  '*  Tell us more about yourself, include your experience within the disability sector…',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -817,7 +595,7 @@ class _RegisterBusiness3WidgetState extends State<RegisterBusiness3Widget>
                                                         fontFamily:
                                                             'Montserrat',
                                                         color: Colors.black,
-                                                        fontSize: 14.0,
+                                                        fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -988,15 +766,6 @@ class _RegisterBusiness3WidgetState extends State<RegisterBusiness3Widget>
                                                               _model.genderValue !=
                                                                   '',
                                                           false,
-                                                        )
-                                                        ..dropdown2 =
-                                                            valueOrDefault<
-                                                                bool>(
-                                                          _model.languagesValue !=
-                                                                  null &&
-                                                              _model.languagesValue !=
-                                                                  '',
-                                                          false,
                                                         ),
                                                     );
                                                     FFAppState().counter = 4;
@@ -1012,10 +781,6 @@ class _RegisterBusiness3WidgetState extends State<RegisterBusiness3Widget>
                                                         null) {
                                                       return;
                                                     }
-                                                    if (_model.languagesValue ==
-                                                        null) {
-                                                      return;
-                                                    }
                                                     FFAppState()
                                                         .updateRegisterProviderFormStruct(
                                                       (e) => e
@@ -1027,9 +792,7 @@ class _RegisterBusiness3WidgetState extends State<RegisterBusiness3Widget>
                                                             _model.genderValue
                                                         ..disabilities = _model
                                                             .disabilitiesTextController
-                                                            .text
-                                                        ..languagues = _model
-                                                            .languagesValue,
+                                                            .text,
                                                     );
                                                     FFAppState().verifyForm =
                                                         FormVerifyStruct();

@@ -62,7 +62,7 @@ class _MyAppState extends State<MyApp> {
 
     _appStateNotifier = AppStateNotifier.instance;
     _router = createRouter(_appStateNotifier);
-    userStream = newicareFirebaseUserStream()
+    userStream = iCareFirebaseUserStream()
       ..listen((user) {
         _appStateNotifier.update(user);
       });
@@ -91,7 +91,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'newicare',
+      title: 'iCare',
       localizationsDelegates: const [
         FFLocalizationsDelegate(),
         GlobalMaterialLocalizations.delegate,

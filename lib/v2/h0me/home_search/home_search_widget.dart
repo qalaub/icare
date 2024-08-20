@@ -272,276 +272,310 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                   showTraffic: false,
                                   centerMapOnMarkerTap: false,
                                 ),
-                              Align(
-                                alignment: const AlignmentDirectional(-0.04, -0.84),
-                                child: PointerInterceptor(
-                                  intercepting: isWeb,
-                                  child: Material(
-                                    color: Colors.transparent,
-                                    elevation: 2.0,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(24.0),
-                                    ),
-                                    child: Container(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          0.96,
-                                      height: 50.0,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius:
-                                            BorderRadius.circular(24.0),
-                                        border: Border.all(
-                                          width: 2.0,
+                              if (currentUserDocument?.rol == Roles.user)
+                                Align(
+                                  alignment: const AlignmentDirectional(-0.04, -0.84),
+                                  child: PointerInterceptor(
+                                    intercepting: isWeb,
+                                    child: AuthUserStreamWidget(
+                                      builder: (context) => Material(
+                                        color: Colors.transparent,
+                                        elevation: 2.0,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(24.0),
                                         ),
-                                      ),
-                                      child: Align(
-                                        alignment:
-                                            const AlignmentDirectional(0.0, -0.97),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: [
-                                            Builder(
-                                              builder: (context) {
-                                                if (_model.isLoading == true) {
-                                                  return Container(
-                                                    clipBehavior:
-                                                        Clip.antiAlias,
-                                                    decoration: const BoxDecoration(
-                                                      shape: BoxShape.circle,
+                                        child: Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.96,
+                                          height: 50.0,
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(24.0),
+                                            border: Border.all(
+                                              width: 2.0,
+                                            ),
+                                          ),
+                                          child: Align(
+                                            alignment: const AlignmentDirectional(
+                                                0.0, -0.97),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              children: [
+                                                Builder(
+                                                  builder: (context) {
+                                                    if (_model.isLoading ==
+                                                        true) {
+                                                      return Container(
+                                                        clipBehavior:
+                                                            Clip.antiAlias,
+                                                        decoration:
+                                                            const BoxDecoration(
+                                                          shape:
+                                                              BoxShape.circle,
+                                                        ),
+                                                        child: Image.asset(
+                                                          'assets/images/Animation_-_1720469111880.gif',
+                                                          fit: BoxFit.cover,
+                                                        ),
+                                                      );
+                                                    } else {
+                                                      return Align(
+                                                        alignment:
+                                                            const AlignmentDirectional(
+                                                                -0.82, -0.96),
+                                                        child: Padding(
+                                                          padding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      2.0,
+                                                                      2.0,
+                                                                      0.0,
+                                                                      3.0),
+                                                          child:
+                                                              FlutterFlowIconButton(
+                                                            borderColor:
+                                                                Colors.white,
+                                                            borderRadius: 20.0,
+                                                            borderWidth: 1.0,
+                                                            buttonSize: 40.0,
+                                                            fillColor:
+                                                                Colors.white,
+                                                            icon: const Icon(
+                                                              Icons
+                                                                  .search_sharp,
+                                                              color: Color(
+                                                                  0xFFDB00FF),
+                                                              size: 24.0,
+                                                            ),
+                                                            onPressed: () {
+                                                              print(
+                                                                  'IconButton pressed ...');
+                                                            },
+                                                          ),
+                                                        ),
+                                                      );
+                                                    }
+                                                  },
+                                                ),
+                                                Expanded(
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(8.0, 0.0,
+                                                                8.0, 0.0),
+                                                    child: TextFormField(
+                                                      controller: _model
+                                                          .queryTextController,
+                                                      focusNode:
+                                                          _model.queryFocusNode,
+                                                      onChanged: (_) =>
+                                                          EasyDebounce.debounce(
+                                                        '_model.queryTextController',
+                                                        const Duration(
+                                                            milliseconds: 100),
+                                                        () async {
+                                                          _model.isLoading =
+                                                              true;
+                                                          _model.apiResultuev =
+                                                              await GetSuggestionMapCall
+                                                                  .call(
+                                                            query: _model
+                                                                .queryTextController
+                                                                .text,
+                                                            types: (valueOrDefault(
+                                                                            currentUserDocument
+                                                                                ?.role,
+                                                                            '') !=
+                                                                        Roles
+                                                                            .profesional
+                                                                            .name) &&
+                                                                    (valueOrDefault(
+                                                                            currentUserDocument
+                                                                                ?.role,
+                                                                            '') !=
+                                                                        Roles
+                                                                            .business
+                                                                            .name)
+                                                                ? '(cities)'
+                                                                : ' ',
+                                                          );
+
+                                                          if ((_model
+                                                                  .apiResultuev
+                                                                  ?.succeeded ??
+                                                              true)) {
+                                                            _model.queryResults =
+                                                                GetSuggestionMapCall
+                                                                        .predictions(
+                                                              (_model.apiResultuev
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            )!
+                                                                    .toList()
+                                                                    .cast<
+                                                                        QueryResultsStruct>();
+                                                          } else {
+                                                            _model.isLoading =
+                                                                false;
+                                                          }
+
+                                                          _model.isLoading =
+                                                              false;
+
+                                                          setState(() {});
+                                                        },
+                                                      ),
+                                                      autofocus: false,
+                                                      obscureText: false,
+                                                      decoration:
+                                                          InputDecoration(
+                                                        labelStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Readex Pro',
+                                                                  fontSize:
+                                                                      20.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                        hintText:
+                                                            'City Or Zip Code',
+                                                        hintStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Readex Pro',
+                                                                  fontSize:
+                                                                      20.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                        enabledBorder:
+                                                            InputBorder.none,
+                                                        focusedBorder:
+                                                            InputBorder.none,
+                                                        errorBorder:
+                                                            InputBorder.none,
+                                                        focusedErrorBorder:
+                                                            InputBorder.none,
+                                                      ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Readex Pro',
+                                                            fontSize: 20.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                      validator: _model
+                                                          .queryTextControllerValidator
+                                                          .asValidator(context),
                                                     ),
-                                                    child: Image.asset(
-                                                      'assets/images/Animation_-_1720469111880.gif',
-                                                      fit: BoxFit.cover,
+                                                  ),
+                                                ),
+                                                const SizedBox(
+                                                  height: 100.0,
+                                                  child: VerticalDivider(
+                                                    width: 5.0,
+                                                    thickness: 1.0,
+                                                    indent: 5.0,
+                                                    endIndent: 5.0,
+                                                    color: Color(0xFFBAB4B4),
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 2.0, 0.0, 2.0),
+                                                  child: FFButtonWidget(
+                                                    onPressed: () async {
+                                                      context.pushNamed(
+                                                        'Filtros',
+                                                        extra: <String,
+                                                            dynamic>{
+                                                          kTransitionInfoKey:
+                                                              const TransitionInfo(
+                                                            hasTransition: true,
+                                                            transitionType:
+                                                                PageTransitionType
+                                                                    .fade,
+                                                          ),
+                                                        },
+                                                      );
+                                                    },
+                                                    text: 'Filter',
+                                                    icon: const Icon(
+                                                      Icons.filter_list_alt,
+                                                      color: Color(0xAEDB00FF),
+                                                      size: 26.0,
                                                     ),
-                                                  );
-                                                } else {
-                                                  return Align(
-                                                    alignment:
-                                                        const AlignmentDirectional(
-                                                            -0.82, -0.96),
-                                                    child: Padding(
+                                                    options: FFButtonOptions(
+                                                      width: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width *
+                                                          0.309,
+                                                      height: 39.0,
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  2.0,
-                                                                  2.0,
+                                                                  14.0,
                                                                   0.0,
-                                                                  3.0),
-                                                      child:
-                                                          FlutterFlowIconButton(
-                                                        borderColor:
-                                                            Colors.white,
-                                                        borderRadius: 20.0,
-                                                        borderWidth: 1.0,
-                                                        buttonSize: 40.0,
-                                                        fillColor: Colors.white,
-                                                        icon: const Icon(
-                                                          Icons.search_sharp,
-                                                          color:
-                                                              Color(0xFFDB00FF),
-                                                          size: 24.0,
-                                                        ),
-                                                        onPressed: () {
-                                                          print(
-                                                              'IconButton pressed ...');
-                                                        },
+                                                                  14.0,
+                                                                  0.0),
+                                                      iconPadding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      color: Colors.white,
+                                                      textStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmall
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Montserrat',
+                                                                color: Colors
+                                                                    .black,
+                                                                fontSize: 20.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                              ),
+                                                      elevation: 0.0,
+                                                      borderSide: const BorderSide(
+                                                        color: Colors.white,
+                                                        width: 1.0,
                                                       ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              24.0),
                                                     ),
-                                                  );
-                                                }
-                                              },
-                                            ),
-                                            Expanded(
-                                              child: Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        8.0, 0.0, 8.0, 0.0),
-                                                child: TextFormField(
-                                                  controller: _model
-                                                      .queryTextController,
-                                                  focusNode:
-                                                      _model.queryFocusNode,
-                                                  onChanged: (_) =>
-                                                      EasyDebounce.debounce(
-                                                    '_model.queryTextController',
-                                                    const Duration(milliseconds: 100),
-                                                    () async {
-                                                      _model.isLoading = true;
-                                                      _model.apiResultuev =
-                                                          await GetSuggestionMapCall
-                                                              .call(
-                                                        query: _model
-                                                            .queryTextController
-                                                            .text,
-                                                        types: (valueOrDefault(
-                                                                        currentUserDocument
-                                                                            ?.role,
-                                                                        '') !=
-                                                                    Roles
-                                                                        .profesional
-                                                                        .name) &&
-                                                                (valueOrDefault(
-                                                                        currentUserDocument
-                                                                            ?.role,
-                                                                        '') !=
-                                                                    Roles
-                                                                        .business
-                                                                        .name)
-                                                            ? '(cities)'
-                                                            : ' ',
-                                                      );
-
-                                                      if ((_model.apiResultuev
-                                                              ?.succeeded ??
-                                                          true)) {
-                                                        _model.queryResults =
-                                                            GetSuggestionMapCall
-                                                                    .predictions(
-                                                          (_model.apiResultuev
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        )!
-                                                                .toList()
-                                                                .cast<
-                                                                    QueryResultsStruct>();
-                                                      } else {
-                                                        _model.isLoading =
-                                                            false;
-                                                      }
-
-                                                      _model.isLoading = false;
-
-                                                      setState(() {});
-                                                    },
                                                   ),
-                                                  autofocus: false,
-                                                  obscureText: false,
-                                                  decoration: InputDecoration(
-                                                    labelStyle: FlutterFlowTheme
-                                                            .of(context)
-                                                        .labelMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Readex Pro',
-                                                          fontSize: 20.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                    hintText:
-                                                        'City Or Zip Code',
-                                                    hintStyle: FlutterFlowTheme
-                                                            .of(context)
-                                                        .labelMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Readex Pro',
-                                                          fontSize: 20.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                    enabledBorder:
-                                                        InputBorder.none,
-                                                    focusedBorder:
-                                                        InputBorder.none,
-                                                    errorBorder:
-                                                        InputBorder.none,
-                                                    focusedErrorBorder:
-                                                        InputBorder.none,
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        fontSize: 20.0,
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                                  validator: _model
-                                                      .queryTextControllerValidator
-                                                      .asValidator(context),
                                                 ),
-                                              ),
+                                              ],
                                             ),
-                                            const SizedBox(
-                                              height: 100.0,
-                                              child: VerticalDivider(
-                                                width: 5.0,
-                                                thickness: 1.0,
-                                                indent: 5.0,
-                                                endIndent: 5.0,
-                                                color: Color(0xFFBAB4B4),
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 2.0, 0.0, 2.0),
-                                              child: FFButtonWidget(
-                                                onPressed: () async {
-                                                  context.pushNamed(
-                                                    'Filtros',
-                                                    extra: <String, dynamic>{
-                                                      kTransitionInfoKey:
-                                                          const TransitionInfo(
-                                                        hasTransition: true,
-                                                        transitionType:
-                                                            PageTransitionType
-                                                                .fade,
-                                                      ),
-                                                    },
-                                                  );
-                                                },
-                                                text: 'Filter',
-                                                icon: const Icon(
-                                                  Icons.filter_list_alt,
-                                                  color: Color(0xAEDB00FF),
-                                                  size: 26.0,
-                                                ),
-                                                options: FFButtonOptions(
-                                                  width:
-                                                      MediaQuery.sizeOf(context)
-                                                              .width *
-                                                          0.309,
-                                                  height: 39.0,
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          14.0, 0.0, 14.0, 0.0),
-                                                  iconPadding:
-                                                      const EdgeInsetsDirectional
-                                                          .fromSTEB(0.0, 0.0,
-                                                              0.0, 0.0),
-                                                  color: Colors.white,
-                                                  textStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .titleSmall
-                                                          .override(
-                                                            fontFamily:
-                                                                'Montserrat',
-                                                            color: Colors.black,
-                                                            fontSize: 20.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                          ),
-                                                  elevation: 0.0,
-                                                  borderSide: const BorderSide(
-                                                    color: Colors.white,
-                                                    width: 1.0,
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          24.0),
-                                                ),
-                                              ),
-                                            ),
-                                          ],
+                                          ),
                                         ),
                                       ),
                                     ),
                                   ),
                                 ),
-                              ),
                               if (_model.queryResults.isNotEmpty)
                                 Align(
                                   alignment: const AlignmentDirectional(0.0, 0.7),

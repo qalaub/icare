@@ -771,6 +771,7 @@ class _RegisterProfessional2WidgetState
                                                                       0.0,
                                                                 ),
                                                             maxLines: null,
+                                                            maxLength: 15,
                                                             keyboardType:
                                                                 TextInputType
                                                                     .number,
@@ -1564,21 +1565,36 @@ class _RegisterProfessional2WidgetState
                                                                       0.0,
                                                                       0.0,
                                                                       0.0),
-                                                          child: Text(
-                                                            'I Accept icare\'s Privacy Policies',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Montserrat',
-                                                                  color: Colors
-                                                                      .black,
-                                                                  fontSize:
-                                                                      13.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
+                                                          child: InkWell(
+                                                            splashColor: Colors
+                                                                .transparent,
+                                                            focusColor: Colors
+                                                                .transparent,
+                                                            hoverColor: Colors
+                                                                .transparent,
+                                                            highlightColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            onTap: () async {
+                                                              await launchURL(
+                                                                  'https://icareapp.com.au/privacy-policy');
+                                                            },
+                                                            child: Text(
+                                                              'I Accept icare\'s Privacy Policies',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Montserrat',
+                                                                    color: Colors
+                                                                        .black,
+                                                                    fontSize:
+                                                                        13.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
+                                                            ),
                                                           ),
                                                         ),
                                                       ),

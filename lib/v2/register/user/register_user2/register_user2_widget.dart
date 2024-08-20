@@ -389,6 +389,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                         letterSpacing: 0.0,
                                                       ),
                                                   maxLines: null,
+                                                  maxLength: 15,
                                                   keyboardType:
                                                       TextInputType.number,
                                                   validator: _model

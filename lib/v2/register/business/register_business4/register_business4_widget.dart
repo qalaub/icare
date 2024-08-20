@@ -697,7 +697,7 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
 
                                               setState(() {});
                                             },
-                                            text: 'Create',
+                                            text: 'Create Profile',
                                             options: FFButtonOptions(
                                               width: 275.0,
                                               height: 45.0,

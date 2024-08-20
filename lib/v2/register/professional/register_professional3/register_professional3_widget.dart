@@ -166,11 +166,7 @@ class _RegisterProfessional3WidgetState
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
                                                 0.9,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                            ),
+                                            decoration: const BoxDecoration(),
                                             child: Align(
                                               alignment: const AlignmentDirectional(
                                                   0.0, 0.0),
@@ -235,7 +231,7 @@ class _RegisterProfessional3WidgetState
                                             ),
                                           ),
                                           if (_model.questionValue ==
-                                              'Are you registering as an employee with a Company Code ?')
+                                              'Use existing company code (This option is for employees of an existing company who wish to create their employee profile)')
                                             Column(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [

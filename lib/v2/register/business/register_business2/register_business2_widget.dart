@@ -763,6 +763,7 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
                                                                       0.0,
                                                                 ),
                                                             maxLines: null,
+                                                            maxLength: 15,
                                                             keyboardType:
                                                                 TextInputType
                                                                     .number,
