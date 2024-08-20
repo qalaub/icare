@@ -56,7 +56,12 @@ class _PremiumWidgetState extends State<PremiumWidget> {
             width: MediaQuery.sizeOf(context).width * 1.0,
             height: MediaQuery.sizeOf(context).height * 1.0,
             decoration: const BoxDecoration(
-              color: Color(0xFFAD72D9),
+              gradient: LinearGradient(
+                colors: [Color(0xFFEFB810), Color(0xFF896909)],
+                stops: [0.0, 1.0],
+                begin: AlignmentDirectional(1.0, 0.34),
+                end: AlignmentDirectional(-1.0, -0.34),
+              ),
             ),
             child: Column(
               mainAxisSize: MainAxisSize.max,
@@ -172,7 +177,7 @@ class _PremiumWidgetState extends State<PremiumWidget> {
                             width: MediaQuery.sizeOf(context).width * 1.0,
                             height: 90.0,
                             decoration: const BoxDecoration(
-                              color: Color(0x8452154B),
+                              color: Color(0x84583D56),
                               borderRadius: BorderRadius.only(
                                 bottomLeft: Radius.circular(16.0),
                                 bottomRight: Radius.circular(16.0),
@@ -213,13 +218,13 @@ class _PremiumWidgetState extends State<PremiumWidget> {
                                         Container(
                                           decoration: const BoxDecoration(),
                                           child: Text(
-                                            'First 30 days free - Then \$999/Year',
+                                            'Then \$288/Year',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Inter',
                                                   color: Colors.white,
-                                                  fontSize: 13.0,
+                                                  fontSize: 18.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
                                                 ),
@@ -315,13 +320,13 @@ class _PremiumWidgetState extends State<PremiumWidget> {
                                       Container(
                                         decoration: const BoxDecoration(),
                                         child: Text(
-                                          'First 7 days free - Then \$99/Month',
+                                          '\$28.99 / monthly ',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Inter',
                                                 color: Colors.white,
-                                                fontSize: 13.0,
+                                                fontSize: 18.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w300,
                                               ),
@@ -383,7 +388,7 @@ class _PremiumWidgetState extends State<PremiumWidget> {
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Inter',
-                                            color: const Color(0xFFFFD400),
+                                            color: Colors.white,
                                             fontSize: 13.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
@@ -459,10 +464,10 @@ class _PremiumWidgetState extends State<PremiumWidget> {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Inter',
-                                        color: const Color(0xFF5E0C5D),
+                                        color: const Color(0xFFA17B0D),
                                         fontSize: 18.0,
                                         letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
+                                        fontWeight: FontWeight.bold,
                                       ),
                                 ),
                               ),

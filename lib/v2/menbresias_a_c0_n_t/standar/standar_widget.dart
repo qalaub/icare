@@ -54,7 +54,12 @@ class _StandarWidgetState extends State<StandarWidget> {
             width: MediaQuery.sizeOf(context).width * 1.0,
             height: MediaQuery.sizeOf(context).height * 1.0,
             decoration: const BoxDecoration(
-              color: Color(0xFF6D69C8),
+              gradient: LinearGradient(
+                colors: [Color(0xFF758195), Color(0xFF25292F)],
+                stops: [0.0, 1.0],
+                begin: AlignmentDirectional(0.0, -1.0),
+                end: AlignmentDirectional(0, 1.0),
+              ),
             ),
             child: Column(
               mainAxisSize: MainAxisSize.max,
@@ -207,13 +212,13 @@ class _StandarWidgetState extends State<StandarWidget> {
                                         Container(
                                           decoration: const BoxDecoration(),
                                           child: Text(
-                                            'First 30 days free - Then \$999/Year',
+                                            'Then \$117/Year',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Inter',
                                                   color: Colors.white,
-                                                  fontSize: 13.0,
+                                                  fontSize: 18.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
                                                 ),
@@ -309,13 +314,13 @@ class _StandarWidgetState extends State<StandarWidget> {
                                       Container(
                                         decoration: const BoxDecoration(),
                                         child: Text(
-                                          'First 7 days free - Then \$99/Month',
+                                          '  \$17.99 / monthly ',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Inter',
                                                 color: Colors.white,
-                                                fontSize: 13.0,
+                                                fontSize: 18.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w300,
                                               ),
@@ -453,10 +458,10 @@ class _StandarWidgetState extends State<StandarWidget> {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Inter',
-                                        color: const Color(0xFF0D368C),
+                                        color: const Color(0xFF25292F),
                                         fontSize: 18.0,
                                         letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
+                                        fontWeight: FontWeight.bold,
                                       ),
                                 ),
                               ),

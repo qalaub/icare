@@ -224,7 +224,7 @@ class _PeoplewhoputyouinfavoriteBasicWidgetState
               Align(
                 alignment: const AlignmentDirectional(0.0, 1.01),
                 child: Container(
-                  height: 69.0,
+                  height: 73.0,
                   decoration: const BoxDecoration(
                     color: Color(0xB3B928B8),
                   ),

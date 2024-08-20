@@ -54,7 +54,12 @@ class _BasicWidgetState extends State<BasicWidget> {
             width: MediaQuery.sizeOf(context).width * 1.0,
             height: MediaQuery.sizeOf(context).height * 1.0,
             decoration: const BoxDecoration(
-              color: Color(0xFFD7AE71),
+              gradient: LinearGradient(
+                colors: [Color(0xFFC8A269), Color(0xFF624F33)],
+                stops: [0.0, 1.0],
+                begin: AlignmentDirectional(0.0, -1.0),
+                end: AlignmentDirectional(0, 1.0),
+              ),
             ),
             child: Column(
               mainAxisSize: MainAxisSize.max,
@@ -167,7 +172,7 @@ class _BasicWidgetState extends State<BasicWidget> {
                             width: MediaQuery.sizeOf(context).width * 1.0,
                             height: 90.0,
                             decoration: const BoxDecoration(
-                              color: Color(0x8F6F542C),
+                              color: Color(0x8FDAD7D4),
                               borderRadius: BorderRadius.only(
                                 bottomLeft: Radius.circular(16.0),
                                 bottomRight: Radius.circular(16.0),
@@ -198,7 +203,7 @@ class _BasicWidgetState extends State<BasicWidget> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Inter',
-                                                  color: Colors.white,
+                                                  color: const Color(0xFF0F0E0E),
                                                   fontSize: 18.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
@@ -208,13 +213,13 @@ class _BasicWidgetState extends State<BasicWidget> {
                                         Container(
                                           decoration: const BoxDecoration(),
                                           child: Text(
-                                            'First 30 days free - Then \$999/Year',
+                                            'Then \$108/Year',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Inter',
                                                   color: Colors.white,
-                                                  fontSize: 13.0,
+                                                  fontSize: 18.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
                                                 ),
@@ -266,7 +271,7 @@ class _BasicWidgetState extends State<BasicWidget> {
                             width: MediaQuery.sizeOf(context).width * 1.0,
                             height: 90.0,
                             decoration: BoxDecoration(
-                              color: const Color(0x35FFFFFF),
+                              color: const Color(0x7FFFFFFF),
                               borderRadius: const BorderRadius.only(
                                 bottomLeft: Radius.circular(16.0),
                                 bottomRight: Radius.circular(16.0),
@@ -310,13 +315,13 @@ class _BasicWidgetState extends State<BasicWidget> {
                                       Container(
                                         decoration: const BoxDecoration(),
                                         child: Text(
-                                          'First 7 days free - Then \$99/Month',
+                                          ' \$8.99 / monthly ',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Inter',
                                                 color: Colors.black,
-                                                fontSize: 13.0,
+                                                fontSize: 18.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w300,
                                               ),
@@ -378,7 +383,7 @@ class _BasicWidgetState extends State<BasicWidget> {
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Inter',
-                                            color: Colors.black,
+                                            color: Colors.white,
                                             fontSize: 13.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
@@ -457,7 +462,7 @@ class _BasicWidgetState extends State<BasicWidget> {
                                         color: Colors.black,
                                         fontSize: 18.0,
                                         letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
+                                        fontWeight: FontWeight.bold,
                                       ),
                                 ),
                               ),

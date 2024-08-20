@@ -72,7 +72,7 @@ class _EscogerUsuarioWidgetState extends State<EscogerUsuarioWidget> {
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
                                 child: Image.asset(
-                                  'assets/images/inicio.png',
+                                  'assets/images/escoger-users.png',
                                   width: double.infinity,
                                   height: double.infinity,
                                   fit: BoxFit.cover,
@@ -84,7 +84,7 @@ class _EscogerUsuarioWidgetState extends State<EscogerUsuarioWidget> {
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
                                 child: Image.asset(
-                                  'assets/images/icare.png',
+                                  'assets/images/I=G=.png',
                                   width: 130.0,
                                   height: 136.0,
                                   fit: BoxFit.cover,
@@ -174,7 +174,7 @@ class _EscogerUsuarioWidgetState extends State<EscogerUsuarioWidget> {
                                             text: 'Participant account ',
                                             options: FFButtonOptions(
                                               width: 250.0,
-                                              height: 40.0,
+                                              height: 47.0,
                                               padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       24.0, 0.0, 24.0, 0.0),
@@ -189,7 +189,7 @@ class _EscogerUsuarioWidgetState extends State<EscogerUsuarioWidget> {
                                                     color: Colors.white,
                                                     fontSize: 17.0,
                                                     letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.bold,
+                                                    fontWeight: FontWeight.w500,
                                                   ),
                                               elevation: 3.0,
                                               borderSide: const BorderSide(
@@ -197,7 +197,7 @@ class _EscogerUsuarioWidgetState extends State<EscogerUsuarioWidget> {
                                                 width: 1.0,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(8.0),
+                                                  BorderRadius.circular(14.0),
                                             ),
                                           ),
                                         ),
@@ -205,52 +205,49 @@ class _EscogerUsuarioWidgetState extends State<EscogerUsuarioWidget> {
                                       Align(
                                         alignment:
                                             const AlignmentDirectional(0.0, 0.0),
-                                        child: Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 5.0, 0.0),
-                                          child: FFButtonWidget(
-                                            onPressed: () async {
-                                              context.pushNamed(
-                                                'RegisterProfessional3',
-                                                extra: <String, dynamic>{
-                                                  kTransitionInfoKey:
-                                                      const TransitionInfo(
-                                                    hasTransition: true,
-                                                    transitionType:
-                                                        PageTransitionType
-                                                            .leftToRight,
-                                                  ),
-                                                },
-                                              );
-                                            },
-                                            text: 'Professional account ',
-                                            options: FFButtonOptions(
-                                              width: 250.0,
-                                              height: 40.0,
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      24.0, 0.0, 24.0, 0.0),
-                                              iconPadding: const EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              color: const Color(0xFFFFD0FD),
-                                              textStyle: FlutterFlowTheme.of(
-                                                      context)
-                                                  .titleSmall
-                                                  .override(
-                                                    fontFamily: 'Montserrat',
-                                                    color: Colors.black,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w600,
-                                                  ),
-                                              elevation: 3.0,
-                                              borderSide: const BorderSide(
-                                                color: Color(0xFFC000B8),
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
+                                        child: FFButtonWidget(
+                                          onPressed: () async {
+                                            context.pushNamed(
+                                              'RegisterProfessional3',
+                                              extra: <String, dynamic>{
+                                                kTransitionInfoKey:
+                                                    const TransitionInfo(
+                                                  hasTransition: true,
+                                                  transitionType:
+                                                      PageTransitionType
+                                                          .leftToRight,
+                                                ),
+                                              },
+                                            );
+                                          },
+                                          text: 'Professional account ',
+                                          options: FFButtonOptions(
+                                            width: 250.0,
+                                            height: 47.0,
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    24.0, 0.0, 24.0, 0.0),
+                                            iconPadding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 0.0),
+                                            color: const Color(0xFFFFD0FD),
+                                            textStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall
+                                                    .override(
+                                                      fontFamily: 'Montserrat',
+                                                      color: Colors.black,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                    ),
+                                            elevation: 3.0,
+                                            borderSide: const BorderSide(
+                                              color: Color(0xFFC000B8),
+                                              width: 1.0,
                                             ),
+                                            borderRadius:
+                                                BorderRadius.circular(14.0),
                                           ),
                                         ),
                                       ),

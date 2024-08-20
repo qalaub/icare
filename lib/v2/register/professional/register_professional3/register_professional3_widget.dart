@@ -75,7 +75,7 @@ class _RegisterProfessional3WidgetState
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
                                 child: Image.asset(
-                                  'assets/images/inicio.png',
+                                  'assets/images/escoger-users.png',
                                   width: double.infinity,
                                   height: double.infinity,
                                   fit: BoxFit.cover,
@@ -90,7 +90,7 @@ class _RegisterProfessional3WidgetState
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(8.0),
                                   child: Image.asset(
-                                    'assets/images/icare.png',
+                                    'assets/images/I=G=.png',
                                     width: 100.0,
                                     height: 106.0,
                                     fit: BoxFit.cover,
@@ -162,30 +162,6 @@ class _RegisterProfessional3WidgetState
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
-                                          Align(
-                                            alignment:
-                                                const AlignmentDirectional(0.0, -1.0),
-                                            child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 10.0, 0.0, 0.0),
-                                              child: Text(
-                                                'You are part of a company registered\n on this app',
-                                                textAlign: TextAlign.center,
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      fontFamily: 'Montserrat',
-                                                      color: const Color(0xFF8E058A),
-                                                      fontSize: 16.0,
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                    ),
-                                              ),
-                                            ),
-                                          ),
                                           Container(
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
@@ -204,8 +180,8 @@ class _RegisterProfessional3WidgetState
                                                         0.5, 0.0, 0.5, 0.0),
                                                 child: FlutterFlowRadioButton(
                                                   options: [
-                                                    'Are you registering as an employee with a Company Code ?',
-                                                    'Are you creating a new bussiness account ?'
+                                                    'Use existing company code\n(This option is for employees of an existing company who wish to create their employee profile)',
+                                                    'Register a new business profile\n(This option is for any provider or professional that delivers services under the NDIS umbrella, including sole traders and/or companies.)'
                                                   ].toList(),
                                                   onChanged: (val) =>
                                                       setState(() {}),
@@ -213,11 +189,11 @@ class _RegisterProfessional3WidgetState
                                                           .questionValueController ??=
                                                       FormFieldController<
                                                           String>(null),
-                                                  optionHeight: 74.0,
+                                                  optionHeight: 150.0,
                                                   optionWidth:
                                                       MediaQuery.sizeOf(context)
                                                               .width *
-                                                          0.81,
+                                                          0.86,
                                                   textStyle:
                                                       FlutterFlowTheme.of(
                                                               context)

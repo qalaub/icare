@@ -83,12 +83,12 @@ class _MySubscriptionStandardWidgetState
               children: [
                 Container(
                   width: MediaQuery.sizeOf(context).width * 1.0,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: Image.asset(
-                        'assets/images/standard_account.png',
-                      ).image,
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [Color(0xFF758195), Color(0xFF25292F)],
+                      stops: [0.0, 1.0],
+                      begin: AlignmentDirectional(0.0, -1.0),
+                      end: AlignmentDirectional(0, 1.0),
                     ),
                   ),
                   child: Column(

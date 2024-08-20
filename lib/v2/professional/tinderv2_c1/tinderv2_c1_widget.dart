@@ -104,7 +104,7 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(8.0),
                   child: Image.asset(
-                    'assets/images/fondo-de-membresia.png',
+                    'assets/images/werwee.png',
                     width: MediaQuery.sizeOf(context).width * 1.0,
                     height: MediaQuery.sizeOf(context).height * 1.0,
                     fit: BoxFit.cover,
@@ -163,30 +163,13 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Montserrat',
-                                      color: const Color(0xFFED1F79),
-                                      fontSize: 23.0,
+                                      fontFamily: 'Poppins',
+                                      color: const Color(0xFF8D0684),
+                                      fontSize: 22.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
                                     ),
                               ),
-                            ),
-                            Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
-                                  child: Container(
-                                    width: 124.0,
-                                    height: 3.0,
-                                    decoration: BoxDecoration(
-                                      color: const Color(0xFFC56AB1),
-                                      borderRadius: BorderRadius.circular(4.0),
-                                    ),
-                                  ),
-                                ),
-                              ],
                             ),
                           ],
                         ),
@@ -572,14 +555,14 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                             ),
                           ].divide(const SizedBox(width: 32.0)),
                         ),
-                      ].divide(const SizedBox(height: 5.0)),
+                      ].divide(const SizedBox(height: 2.0)),
                     ),
                   ),
                 ),
                 Align(
                   alignment: const AlignmentDirectional(0.0, 1.0),
                   child: Container(
-                    height: 70.0,
+                    height: 73.0,
                     decoration: const BoxDecoration(
                       color: Color(0xB3B928B8),
                     ),

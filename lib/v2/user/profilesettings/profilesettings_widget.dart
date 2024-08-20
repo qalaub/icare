@@ -1428,7 +1428,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
               Align(
                 alignment: const AlignmentDirectional(0.0, 1.0),
                 child: Container(
-                  height: 70.0,
+                  height: 73.0,
                   decoration: const BoxDecoration(
                     color: Color(0xB3B928B8),
                   ),

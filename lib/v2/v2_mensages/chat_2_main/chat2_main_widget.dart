@@ -915,9 +915,9 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
                   Align(
                     alignment: const AlignmentDirectional(0.0, 1.01),
                     child: Container(
-                      height: 69.0,
+                      height: 73.0,
                       decoration: const BoxDecoration(
-                        color: Color(0xB3B928B8),
+                        color: Color(0xBEB928B8),
                       ),
                       child: Builder(
                         builder: (context) {

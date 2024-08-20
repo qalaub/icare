@@ -70,7 +70,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                 width: double.infinity,
                                 height: 200.0,
                                 decoration: const BoxDecoration(
-                                  color: Color(0x31FB8CE2),
+                                  color: Color(0x76807D7F),
                                 ),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -608,9 +608,9 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
               Align(
                 alignment: const AlignmentDirectional(0.0, 1.01),
                 child: Container(
-                  height: 69.0,
+                  height: 73.0,
                   decoration: const BoxDecoration(
-                    color: Color(0xB3B928B8),
+                    color: Color(0xBEB928B8),
                   ),
                   child: Builder(
                     builder: (context) {

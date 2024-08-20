@@ -72,88 +72,92 @@ class _FavV3CopyWidgetState extends State<FavV3CopyWidget> {
         centerTitle: true,
         elevation: 2.0,
       ),
-      body: Column(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Container(
-            height: MediaQuery.sizeOf(context).height * 0.75,
-            constraints: BoxConstraints(
-              maxHeight: MediaQuery.sizeOf(context).height * 0.75,
-            ),
-            decoration: const BoxDecoration(),
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  AuthUserStreamWidget(
-                    builder: (context) => Builder(
-                      builder: (context) {
-                        final userList =
-                            (currentUserDocument?.favorites.toList() ?? [])
-                                .where((e) =>
-                                    (currentUserDocument?.blockList.toList() ??
-                                            [])
-                                        .contains(e) ==
-                                    false)
-                                .toList();
+      body: SafeArea(
+        top: true,
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              height: MediaQuery.sizeOf(context).height * 0.802,
+              constraints: BoxConstraints(
+                maxHeight: MediaQuery.sizeOf(context).height * 0.75,
+              ),
+              decoration: const BoxDecoration(),
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    AuthUserStreamWidget(
+                      builder: (context) => Builder(
+                        builder: (context) {
+                          final userList =
+                              (currentUserDocument?.favorites.toList() ?? [])
+                                  .where((e) =>
+                                      (currentUserDocument?.blockList
+                                                  .toList() ??
+                                              [])
+                                          .contains(e) ==
+                                      false)
+                                  .toList();
 
-                        return ListView.separated(
-                          padding: const EdgeInsets.fromLTRB(
-                            0,
-                            16.0,
-                            0,
-                            0,
-                          ),
-                          primary: false,
-                          shrinkWrap: true,
-                          scrollDirection: Axis.vertical,
-                          itemCount: userList.length,
-                          separatorBuilder: (_, __) => const SizedBox(height: 16.0),
-                          itemBuilder: (context, userListIndex) {
-                            final userListItem = userList[userListIndex];
-                            return V3fv0ritesWidget(
-                              key: Key(
-                                  'Key4z3_${userListIndex}_of_${userList.length}'),
-                              profesionalId: userListItem,
-                            );
-                          },
-                        );
-                      },
+                          return ListView.separated(
+                            padding: const EdgeInsets.fromLTRB(
+                              0,
+                              16.0,
+                              0,
+                              0,
+                            ),
+                            primary: false,
+                            shrinkWrap: true,
+                            scrollDirection: Axis.vertical,
+                            itemCount: userList.length,
+                            separatorBuilder: (_, __) => const SizedBox(height: 16.0),
+                            itemBuilder: (context, userListIndex) {
+                              final userListItem = userList[userListIndex];
+                              return V3fv0ritesWidget(
+                                key: Key(
+                                    'Key4z3_${userListIndex}_of_${userList.length}'),
+                                profesionalId: userListItem,
+                              );
+                            },
+                          );
+                        },
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-          ),
-          Align(
-            alignment: const AlignmentDirectional(0.0, 1.0),
-            child: Container(
-              height: 69.0,
-              decoration: const BoxDecoration(
-                color: Color(0xB3B928B8),
-              ),
-              child: Builder(
-                builder: (context) {
-                  if (currentUserDocument?.rol != Roles.business) {
-                    return wrapWithModel(
-                      model: _model.navbarModel,
-                      updateCallback: () => setState(() {}),
-                      child: const NavbarWidget(),
-                    );
-                  } else {
-                    return wrapWithModel(
-                      model: _model.navbarPremiunModel,
-                      updateCallback: () => setState(() {}),
-                      child: const NavbarPremiunWidget(),
-                    );
-                  }
-                },
+            Align(
+              alignment: const AlignmentDirectional(0.0, 1.0),
+              child: Container(
+                height: 73.0,
+                decoration: const BoxDecoration(
+                  color: Color(0xBCB928B8),
+                ),
+                child: Builder(
+                  builder: (context) {
+                    if (currentUserDocument?.rol != Roles.business) {
+                      return wrapWithModel(
+                        model: _model.navbarModel,
+                        updateCallback: () => setState(() {}),
+                        child: const NavbarWidget(),
+                      );
+                    } else {
+                      return wrapWithModel(
+                        model: _model.navbarPremiunModel,
+                        updateCallback: () => setState(() {}),
+                        child: const NavbarPremiunWidget(),
+                      );
+                    }
+                  },
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

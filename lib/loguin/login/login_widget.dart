@@ -89,7 +89,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
                                 child: Image.asset(
-                                  'assets/images/inicio.png',
+                                  'assets/images/escoger-users.png',
                                   width: double.infinity,
                                   height: double.infinity,
                                   fit: BoxFit.cover,
@@ -104,7 +104,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(8.0),
                                   child: Image.asset(
-                                    'assets/images/icare.png',
+                                    'assets/images/I=G=.png',
                                     width: 120.0,
                                     height: 116.0,
                                     fit: BoxFit.cover,

@@ -52,7 +52,7 @@ class _ReportSectionWidgetState extends State<ReportSectionWidget> {
           top: true,
           child: Container(
             decoration: const BoxDecoration(
-              color: Colors.black,
+              color: Color(0xFF272727),
             ),
             child: Column(
               mainAxisSize: MainAxisSize.max,
