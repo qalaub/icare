@@ -4,7 +4,6 @@ import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'register_business1_widget.dart' show RegisterBusiness1Widget;
 import 'package:flutter/material.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class RegisterBusiness1Model extends FlutterFlowModel<RegisterBusiness1Widget> {
   ///  Local state fields for this page.
@@ -72,15 +71,14 @@ class RegisterBusiness1Model extends FlutterFlowModel<RegisterBusiness1Widget> {
   // State field(s) for phone widget.
   FocusNode? phoneFocusNode;
   TextEditingController? phoneTextController;
-  final phoneMask = MaskTextInputFormatter(mask: '##########');
   String? Function(BuildContext, String?)? phoneTextControllerValidator;
   String? _phoneTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return 'Field is required';
     }
 
-    if (val.length > 16) {
-      return 'Maximum 16 characters allowed, currently ${val.length}.';
+    if (val.length > 10) {
+      return 'Maximum 10 characters allowed, currently ${val.length}.';
     }
     if (!RegExp('^04\\s?(\\d{2}\\s?\\d{3}\\s?\\d{3})\$').hasMatch(val)) {
       return 'Invalid format. Use 0453463465';

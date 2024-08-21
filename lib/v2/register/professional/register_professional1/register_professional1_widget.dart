@@ -906,9 +906,6 @@ class _RegisterProfessional1WidgetState
                                                 validator: _model
                                                     .phoneTextControllerValidator
                                                     .asValidator(context),
-                                                inputFormatters: [
-                                                  _model.phoneMask
-                                                ],
                                               ),
                                             ),
                                           ),

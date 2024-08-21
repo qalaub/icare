@@ -843,9 +843,6 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                 validator: _model
                                                     .phoneTextControllerValidator
                                                     .asValidator(context),
-                                                inputFormatters: [
-                                                  _model.phoneMask
-                                                ],
                                               ),
                                             ),
                                           ),

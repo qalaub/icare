@@ -851,9 +851,6 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                 validator: _model
                                                     .phoneTextControllerValidator
                                                     .asValidator(context),
-                                                inputFormatters: [
-                                                  _model.phoneMask
-                                                ],
                                               ),
                                             ),
                                           ),
