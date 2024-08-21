@@ -48,7 +48,7 @@ class RegisterUser1Model extends FlutterFlowModel<RegisterUser1Widget> {
   // State field(s) for phone widget.
   FocusNode? phoneFocusNode;
   TextEditingController? phoneTextController;
-  final phoneMask = MaskTextInputFormatter(mask: '04########');
+  final phoneMask = MaskTextInputFormatter(mask: '##########');
   String? Function(BuildContext, String?)? phoneTextControllerValidator;
   String? _phoneTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {

@@ -67,7 +67,7 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                   maxHeight: MediaQuery.sizeOf(context).height * 0.65,
                 ),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFF2F2F2),
+                  color: const Color(0xFFD0D0D0),
                   borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(20.0),
                     bottomRight: Radius.circular(20.0),

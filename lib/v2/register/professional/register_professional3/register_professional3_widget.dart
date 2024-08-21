@@ -176,7 +176,7 @@ class _RegisterProfessional3WidgetState
                                                         0.5, 0.0, 0.5, 0.0),
                                                 child: FlutterFlowRadioButton(
                                                   options: [
-                                                    'Use existing company code\n(This option is for employees of an existing company who wish to create their employee profile)',
+                                                    'Use existing company code (This option is for employees of an existing company who wish to create their employee profile)',
                                                     'Register a new business profile\n(This option is for any provider or professional that delivers services under the NDIS umbrella, including sole traders and/or companies.)'
                                                   ].toList(),
                                                   onChanged: (val) =>
@@ -645,7 +645,7 @@ class _RegisterProfessional3WidgetState
                                                     return;
                                                   }
                                                   if (_model.questionValue !=
-                                                      'Are you registering as an employee with a Company Code ?') {
+                                                      'Use existing company code (This option is for employees of an existing company who wish to create their employee profile)') {
                                                     context.pushNamed(
                                                         'MembresiasV2');
                                                   } else {

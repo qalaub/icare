@@ -865,7 +865,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                   .fromSTEB(
                                                       0.0, 15.0, 0.0, 15.0),
                                               child: Text(
-                                                '*selection suburb',
+                                                '*Select your suburb',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -1011,14 +1011,14 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                                             0.0,
                                                                       ),
                                                               hintText:
-                                                                  'Selection Suburb',
+                                                                  'Select your suburb',
                                                               hintStyle:
                                                                   FlutterFlowTheme.of(
                                                                           context)
                                                                       .labelMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            'Readex Pro',
+                                                                            'Montserrat',
                                                                         fontSize:
                                                                             16.0,
                                                                         letterSpacing:

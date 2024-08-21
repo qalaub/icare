@@ -108,9 +108,9 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                       gradient: LinearGradient(
                                         colors: [
                                           Color(0xFF6F542C),
-                                          Color(0xFFD4A255)
+                                          Color(0xFFB28744)
                                         ],
-                                        stops: [0.0, 0.899],
+                                        stops: [0.0, 0.7],
                                         begin: AlignmentDirectional(0.0, -1.0),
                                         end: AlignmentDirectional(0, 1.0),
                                       ),
@@ -829,9 +829,9 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                     gradient: LinearGradient(
                                       colors: [
                                         Color(0xFFEFB810),
-                                        Color(0xFF896909)
+                                        Color(0xFF94740C)
                                       ],
-                                      stops: [0.0, 0.899],
+                                      stops: [0.0, 0.99],
                                       begin: AlignmentDirectional(0.0, -1.0),
                                       end: AlignmentDirectional(0, 1.0),
                                     ),
