@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'register_business2_widget.dart' show RegisterBusiness2Widget;
 import 'package:flutter/material.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class RegisterBusiness2Model extends FlutterFlowModel<RegisterBusiness2Widget> {
   ///  Local state fields for this page.
@@ -21,7 +20,6 @@ class RegisterBusiness2Model extends FlutterFlowModel<RegisterBusiness2Widget> {
   // State field(s) for ndis widget.
   FocusNode? ndisFocusNode;
   TextEditingController? ndisTextController;
-  final ndisMask = MaskTextInputFormatter(mask: '#########');
   String? Function(BuildContext, String?)? ndisTextControllerValidator;
   // State field(s) for age widget.
   String? ageValue;

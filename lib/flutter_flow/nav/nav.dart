@@ -166,11 +166,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => const EscogerUsuarioWidget(),
             ),
             FFRoute(
-              name: 'Registro_usuario4',
-              path: 'registroUsuario4',
-              builder: (context, params) => const RegistroUsuario4Widget(),
-            ),
-            FFRoute(
               name: 'Membresia',
               path: 'membresia',
               builder: (context, params) => const MembresiaWidget(),
@@ -482,6 +477,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'pantainci1',
               path: 'pantainci1',
               builder: (context, params) => const Pantainci1Widget(),
+            ),
+            FFRoute(
+              name: 'RegisterPfofesional4',
+              path: 'registerPfofesional4',
+              builder: (context, params) => RegisterPfofesional4Widget(
+                businessRef: params.getParam(
+                  'businessRef',
+                  ParamType.DocumentReference,
+                  isList: false,
+                  collectionNamePath: ['users'],
+                ),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

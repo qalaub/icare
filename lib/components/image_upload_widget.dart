@@ -45,8 +45,8 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
           borderRadius: BorderRadius.circular(8.0),
           child: Image.network(
             _model.uploadedFileUrl,
-            width: 300.0,
-            height: 200.0,
+            width: MediaQuery.sizeOf(context).width * 1.0,
+            height: MediaQuery.sizeOf(context).height * 1.0,
             fit: BoxFit.cover,
           ),
         ),

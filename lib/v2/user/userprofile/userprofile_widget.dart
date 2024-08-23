@@ -481,7 +481,8 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                             ),
                           ),
                         ),
-                        if (currentUserDocument?.rol != Roles.user)
+                        if ((currentUserDocument?.rol != Roles.user) &&
+                            (currentUserDocument?.business == null))
                           Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 64.0),

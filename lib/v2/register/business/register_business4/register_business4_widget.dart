@@ -513,186 +513,190 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                   0.0, 10.0, 0.0, 10.0),
                                           child: FFButtonWidget(
                                             onPressed: () async {
-                                              FFAppState()
-                                                  .updateRegisterProviderFormStruct(
-                                                (e) => e
-                                                  ..images = FFAppState()
-                                                      .imagesUserUpload
-                                                      .toList(),
-                                              );
-                                              setState(() {});
-                                              GoRouter.of(context)
-                                                  .prepareAuthEvent();
-
-                                              final user = await authManager
-                                                  .createAccountWithEmail(
-                                                context,
+                                              if (FFAppState()
+                                                      .imagesUserUpload.isNotEmpty) {
                                                 FFAppState()
-                                                    .registerProviderForm
-                                                    .email,
-                                                FFAppState()
-                                                    .registerProviderForm
-                                                    .password,
-                                              );
-                                              if (user == null) {
-                                                return;
-                                              }
+                                                    .updateRegisterProviderFormStruct(
+                                                  (e) => e
+                                                    ..images = FFAppState()
+                                                        .imagesUserUpload
+                                                        .toList(),
+                                                );
+                                                setState(() {});
+                                                GoRouter.of(context)
+                                                    .prepareAuthEvent();
 
-                                              await UsersRecord.collection
-                                                  .doc(user.uid)
-                                                  .update({
-                                                ...createUsersRecordData(
-                                                  firtsName: FFAppState()
-                                                      .registerProviderForm
-                                                      .firstName,
-                                                  lastName: FFAppState()
-                                                      .registerProviderForm
-                                                      .lastName,
-                                                  birthdate: FFAppState()
-                                                      .registerProviderForm
-                                                      .birthdate,
-                                                  suburb: FFAppState()
-                                                      .registerProviderForm
-                                                      .suburb,
-                                                  ndis: FFAppState()
-                                                      .registerProviderForm
-                                                      .ndis,
-                                                  phoneNumber: FFAppState()
-                                                      .registerProviderForm
-                                                      .phone,
-                                                  email: FFAppState()
+                                                final user = await authManager
+                                                    .createAccountWithEmail(
+                                                  context,
+                                                  FFAppState()
                                                       .registerProviderForm
                                                       .email,
-                                                  age: FFAppState()
+                                                  FFAppState()
                                                       .registerProviderForm
-                                                      .age,
-                                                  disabilities: FFAppState()
-                                                      .registerProviderForm
-                                                      .disabilities,
-                                                  years: FFAppState()
-                                                      .registerProviderForm
-                                                      .years,
-                                                  gender: FFAppState()
-                                                      .registerProviderForm
-                                                      .gender,
-                                                  description: FFAppState()
-                                                      .registerProviderForm
-                                                      .description,
-                                                  comapny: FFAppState()
-                                                      .registerProviderForm
-                                                      .company,
-                                                  languagues: '',
-                                                  rol: FFAppState()
-                                                      .registerProviderForm
-                                                      .rol,
-                                                  plan: FFAppState()
-                                                      .registerProviderForm
-                                                      .plan,
-                                                  photoUrl: FFAppState()
-                                                              .registerProviderForm
-                                                              .images.isNotEmpty
-                                                      ? FFAppState()
-                                                          .registerProviderForm
-                                                          .images
-                                                          .first
-                                                      : ' ',
-                                                  business: FFAppState()
-                                                      .registerProviderForm
-                                                      .business,
-                                                  paymentDate:
-                                                      getCurrentTimestamp,
-                                                  freeTrial: true,
-                                                ),
-                                                ...mapToFirestore(
-                                                  {
-                                                    'images': FFAppState()
-                                                        .imagesUserUpload,
-                                                    'serviceType': FFAppState()
+                                                      .password,
+                                                );
+                                                if (user == null) {
+                                                  return;
+                                                }
+
+                                                await UsersRecord.collection
+                                                    .doc(user.uid)
+                                                    .update({
+                                                  ...createUsersRecordData(
+                                                    firtsName: FFAppState()
                                                         .registerProviderForm
-                                                        .serviceType,
-                                                  },
-                                                ),
-                                              });
+                                                        .firstName,
+                                                    lastName: FFAppState()
+                                                        .registerProviderForm
+                                                        .lastName,
+                                                    birthdate: FFAppState()
+                                                        .registerProviderForm
+                                                        .birthdate,
+                                                    suburb: FFAppState()
+                                                        .registerProviderForm
+                                                        .suburb,
+                                                    ndis: FFAppState()
+                                                        .registerProviderForm
+                                                        .ndis,
+                                                    phoneNumber: FFAppState()
+                                                        .registerProviderForm
+                                                        .phone,
+                                                    email: FFAppState()
+                                                        .registerProviderForm
+                                                        .email,
+                                                    age: FFAppState()
+                                                        .registerProviderForm
+                                                        .age,
+                                                    disabilities: FFAppState()
+                                                        .registerProviderForm
+                                                        .disabilities,
+                                                    years: FFAppState()
+                                                        .registerProviderForm
+                                                        .years,
+                                                    gender: FFAppState()
+                                                        .registerProviderForm
+                                                        .gender,
+                                                    description: FFAppState()
+                                                        .registerProviderForm
+                                                        .description,
+                                                    comapny: FFAppState()
+                                                        .registerProviderForm
+                                                        .company,
+                                                    languagues: '',
+                                                    rol: FFAppState()
+                                                        .registerProviderForm
+                                                        .rol,
+                                                    plan: FFAppState()
+                                                        .registerProviderForm
+                                                        .plan,
+                                                    photoUrl: FFAppState()
+                                                                .registerProviderForm
+                                                                .images.isNotEmpty
+                                                        ? FFAppState()
+                                                            .registerProviderForm
+                                                            .images
+                                                            .first
+                                                        : ' ',
+                                                    business: FFAppState()
+                                                        .registerProviderForm
+                                                        .business,
+                                                    paymentDate:
+                                                        getCurrentTimestamp,
+                                                    freeTrial: true,
+                                                  ),
+                                                  ...mapToFirestore(
+                                                    {
+                                                      'images': FFAppState()
+                                                          .imagesUserUpload,
+                                                      'serviceType': FFAppState()
+                                                          .registerProviderForm
+                                                          .serviceType,
+                                                    },
+                                                  ),
+                                                });
 
-                                              final paymentResponse =
-                                                  await processStripePayment(
-                                                context,
-                                                amount: () {
-                                                  if (FFAppState()
-                                                          .registerProviderForm
-                                                          .plan ==
-                                                      Plan.basic) {
-                                                    return FFAppConstants
-                                                        .basicPrice;
-                                                  } else if (FFAppState()
-                                                          .registerProviderForm
-                                                          .plan ==
-                                                      Plan.standar) {
-                                                    return FFAppConstants
-                                                        .standarPrice;
-                                                  } else {
-                                                    return FFAppConstants
-                                                        .premiunPrice;
-                                                  }
-                                                }(),
-                                                currency: 'AUD',
-                                                customerEmail: FFAppState()
-                                                    .registerProviderForm
-                                                    .email,
-                                                customerName: FFAppState()
-                                                    .registerProviderForm
-                                                    .firstName,
-                                                description: () {
-                                                  if (FFAppState()
-                                                          .registerProviderForm
-                                                          .plan ==
-                                                      Plan.basic) {
-                                                    return 'Plan Basic';
-                                                  } else if (FFAppState()
-                                                          .registerProviderForm
-                                                          .plan ==
-                                                      Plan.standar) {
-                                                    return 'Plan Standar';
-                                                  } else {
-                                                    return 'Plan Premiun';
-                                                  }
-                                                }(),
-                                                allowGooglePay: true,
-                                                allowApplePay: false,
-                                              );
-                                              if (paymentResponse.paymentId ==
-                                                      null &&
-                                                  paymentResponse
-                                                          .errorMessage !=
-                                                      null) {
-                                                showSnackbar(
+                                                final paymentResponse =
+                                                    await processStripePayment(
                                                   context,
-                                                  'Error: ${paymentResponse.errorMessage}',
+                                                  amount: () {
+                                                    if (FFAppState()
+                                                            .registerProviderForm
+                                                            .plan ==
+                                                        Plan.basic) {
+                                                      return FFAppConstants
+                                                          .basicPrice;
+                                                    } else if (FFAppState()
+                                                            .registerProviderForm
+                                                            .plan ==
+                                                        Plan.standar) {
+                                                      return FFAppConstants
+                                                          .standarPrice;
+                                                    } else {
+                                                      return FFAppConstants
+                                                          .premiunPrice;
+                                                    }
+                                                  }(),
+                                                  currency: 'AUD',
+                                                  customerEmail: FFAppState()
+                                                      .registerProviderForm
+                                                      .email,
+                                                  customerName: FFAppState()
+                                                      .registerProviderForm
+                                                      .firstName,
+                                                  description: () {
+                                                    if (FFAppState()
+                                                            .registerProviderForm
+                                                            .plan ==
+                                                        Plan.basic) {
+                                                      return 'Plan Basic';
+                                                    } else if (FFAppState()
+                                                            .registerProviderForm
+                                                            .plan ==
+                                                        Plan.standar) {
+                                                      return 'Plan Standar';
+                                                    } else {
+                                                      return 'Plan Premiun';
+                                                    }
+                                                  }(),
+                                                  allowGooglePay: true,
+                                                  allowApplePay: false,
                                                 );
-                                              }
-                                              _model.paymentId =
-                                                  paymentResponse.paymentId ??
-                                                      '';
+                                                if (paymentResponse.paymentId ==
+                                                        null &&
+                                                    paymentResponse
+                                                            .errorMessage !=
+                                                        null) {
+                                                  showSnackbar(
+                                                    context,
+                                                    'Error: ${paymentResponse.errorMessage}',
+                                                  );
+                                                }
+                                                _model.paymentId =
+                                                    paymentResponse.paymentId ??
+                                                        '';
 
-                                              if (_model.paymentId != null &&
-                                                  _model.paymentId != '') {
-                                                FFAppState().authUserFireBase =
-                                                    true;
-                                                setState(() {});
+                                                if (_model.paymentId != null &&
+                                                    _model.paymentId != '') {
+                                                  FFAppState()
+                                                      .authUserFireBase = true;
+                                                  setState(() {});
 
-                                                context.goNamedAuth(
-                                                  'HomeSearch',
-                                                  context.mounted,
-                                                  queryParameters: {
-                                                    'authUser': serializeParam(
-                                                      true,
-                                                      ParamType.bool,
-                                                    ),
-                                                  }.withoutNulls,
-                                                );
-                                              } else {
-                                                await authManager
-                                                    .deleteUser(context);
+                                                  context.goNamedAuth(
+                                                    'HomeSearch',
+                                                    context.mounted,
+                                                    queryParameters: {
+                                                      'authUser':
+                                                          serializeParam(
+                                                        true,
+                                                        ParamType.bool,
+                                                      ),
+                                                    }.withoutNulls,
+                                                  );
+                                                } else {
+                                                  await authManager
+                                                      .deleteUser(context);
+                                                }
                                               }
 
                                               setState(() {});

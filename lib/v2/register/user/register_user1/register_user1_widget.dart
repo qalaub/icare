@@ -56,8 +56,11 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
       setState(() {});
     });
 
-    _model.firstNameTextController ??= TextEditingController();
-    _model.firstNameFocusNode ??= FocusNode();
+    _model.firstNameTextController1 ??= TextEditingController();
+    _model.firstNameFocusNode1 ??= FocusNode();
+
+    _model.firstNameTextController2 ??= TextEditingController();
+    _model.firstNameFocusNode2 ??= FocusNode();
 
     _model.dateTextController ??= TextEditingController();
     _model.dateFocusNode ??= FocusNode();
@@ -261,7 +264,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                   .fromSTEB(
                                                       0.0, 15.0, 0.0, 15.0),
                                               child: Text(
-                                                '*Name',
+                                                '*Firs name',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -303,9 +306,9 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                     0.0, -1.0),
                                                 child: TextFormField(
                                                   controller: _model
-                                                      .firstNameTextController,
-                                                  focusNode:
-                                                      _model.firstNameFocusNode,
+                                                      .firstNameTextController1,
+                                                  focusNode: _model
+                                                      .firstNameFocusNode1,
                                                   autofocus: true,
                                                   obscureText: false,
                                                   decoration: InputDecoration(
@@ -400,7 +403,165 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                   keyboardType:
                                                       TextInputType.name,
                                                   validator: _model
-                                                      .firstNameTextControllerValidator
+                                                      .firstNameTextController1Validator
+                                                      .asValidator(context),
+                                                  inputFormatters: [
+                                                    FilteringTextInputFormatter
+                                                        .allow(
+                                                            RegExp('[a-zA-Z]'))
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          Align(
+                                            alignment: const AlignmentDirectional(
+                                                -0.84, -0.73),
+                                            child: Padding(
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 15.0, 0.0, 15.0),
+                                              child: Text(
+                                                '*Last name',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Montserrat',
+                                                          color: Colors.black,
+                                                          fontSize: 15.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                              ),
+                                            ),
+                                          ),
+                                          Align(
+                                            alignment: const AlignmentDirectional(
+                                                -0.01, -0.69),
+                                            child: Container(
+                                              width: MediaQuery.sizeOf(context)
+                                                      .width *
+                                                  0.8,
+                                              height: 70.0,
+                                              decoration: const BoxDecoration(
+                                                color: Color(0xFFFFFEFE),
+                                                borderRadius: BorderRadius.only(
+                                                  bottomLeft:
+                                                      Radius.circular(12.0),
+                                                  bottomRight:
+                                                      Radius.circular(12.0),
+                                                  topLeft:
+                                                      Radius.circular(12.0),
+                                                  topRight:
+                                                      Radius.circular(12.0),
+                                                ),
+                                              ),
+                                              child: Align(
+                                                alignment: const AlignmentDirectional(
+                                                    0.0, -1.0),
+                                                child: TextFormField(
+                                                  controller: _model
+                                                      .firstNameTextController2,
+                                                  focusNode: _model
+                                                      .firstNameFocusNode2,
+                                                  autofocus: true,
+                                                  obscureText: false,
+                                                  decoration: InputDecoration(
+                                                    isDense: true,
+                                                    labelStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                    hintStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                    errorStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .error,
+                                                          letterSpacing: 0.0,
+                                                          lineHeight: 1.0,
+                                                        ),
+                                                    enabledBorder:
+                                                        OutlineInputBorder(
+                                                      borderSide: const BorderSide(
+                                                        color:
+                                                            Color(0xFFBB33B9),
+                                                        width: 0.0,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              12.0),
+                                                    ),
+                                                    focusedBorder:
+                                                        OutlineInputBorder(
+                                                      borderSide: const BorderSide(
+                                                        color:
+                                                            Color(0xFF762075),
+                                                        width: 0.0,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              12.0),
+                                                    ),
+                                                    errorBorder:
+                                                        OutlineInputBorder(
+                                                      borderSide: BorderSide(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .error,
+                                                        width: 0.0,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              12.0),
+                                                    ),
+                                                    focusedErrorBorder:
+                                                        OutlineInputBorder(
+                                                      borderSide: BorderSide(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .error,
+                                                        width: 0.0,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              12.0),
+                                                    ),
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Montserrat',
+                                                        color: Colors.black,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                  maxLines: null,
+                                                  keyboardType:
+                                                      TextInputType.name,
+                                                  validator: _model
+                                                      .firstNameTextController2Validator
                                                       .asValidator(context),
                                                   inputFormatters: [
                                                     FilteringTextInputFormatter
@@ -1173,7 +1334,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                           .updateRegisterProviderFormStruct(
                                                         (e) => e
                                                           ..firstName = _model
-                                                              .firstNameTextController
+                                                              .firstNameTextController1
                                                               .text
                                                           ..birthdate = functions
                                                               .convertStringToDate(

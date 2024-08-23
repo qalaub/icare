@@ -1,7 +1,5 @@
-import '/auth/firebase_auth/auth_util.dart';
-import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
-import '/backend/stripe/payment_manager.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -779,9 +777,6 @@ class _RegisterProfessional2WidgetState
                                                                 .ndisTextControllerValidator
                                                                 .asValidator(
                                                                     context),
-                                                            inputFormatters: [
-                                                              _model.ndisMask
-                                                            ],
                                                           ),
                                                         ),
                                                       );
@@ -1069,7 +1064,7 @@ class _RegisterProfessional2WidgetState
                                                                 .passwordTextController,
                                                             focusNode: _model
                                                                 .passwordFocusNode,
-                                                            autofocus: true,
+                                                            autofocus: false,
                                                             obscureText: !_model
                                                                 .passwordVisibility,
                                                             decoration:
@@ -1330,7 +1325,7 @@ class _RegisterProfessional2WidgetState
                                                                 .confirmPasswordTextController,
                                                             focusNode: _model
                                                                 .confirmPasswordFocusNode,
-                                                            autofocus: true,
+                                                            autofocus: false,
                                                             obscureText: !_model
                                                                 .confirmPasswordVisibility,
                                                             decoration:
@@ -1755,237 +1750,19 @@ class _RegisterProfessional2WidgetState
                                                       FFAppState().verifyForm =
                                                           FormVerifyStruct();
                                                       FFAppState().counter = 0;
-                                                      if (widget.businessRef !=
-                                                          null) {
-                                                        FFAppState()
-                                                            .updateRegisterProviderFormStruct(
-                                                          (e) => e
-                                                            ..plan =
-                                                                Plan.premiun,
-                                                        );
-                                                      }
-                                                      GoRouter.of(context)
-                                                          .prepareAuthEvent();
 
-                                                      final user = await authManager
-                                                          .createAccountWithEmail(
-                                                        context,
-                                                        FFAppState()
-                                                            .registerProviderForm
-                                                            .email,
-                                                        FFAppState()
-                                                            .registerProviderForm
-                                                            .password,
+                                                      context.pushNamed(
+                                                        'RegisterPfofesional4',
+                                                        queryParameters: {
+                                                          'businessRef':
+                                                              serializeParam(
+                                                            widget.businessRef,
+                                                            ParamType
+                                                                .DocumentReference,
+                                                          ),
+                                                        }.withoutNulls,
                                                       );
-                                                      if (user == null) {
-                                                        return;
-                                                      }
-
-                                                      await UsersRecord
-                                                          .collection
-                                                          .doc(user.uid)
-                                                          .update({
-                                                        ...createUsersRecordData(
-                                                          firtsName: FFAppState()
-                                                              .registerProviderForm
-                                                              .firstName,
-                                                          lastName: FFAppState()
-                                                              .registerProviderForm
-                                                              .lastName,
-                                                          birthdate: FFAppState()
-                                                              .registerProviderForm
-                                                              .birthdate,
-                                                          suburb: FFAppState()
-                                                              .registerProviderForm
-                                                              .suburb,
-                                                          ndis: FFAppState()
-                                                              .registerProviderForm
-                                                              .ndis,
-                                                          phoneNumber: FFAppState()
-                                                              .registerProviderForm
-                                                              .phone,
-                                                          email: FFAppState()
-                                                              .registerProviderForm
-                                                              .email,
-                                                          age: FFAppState()
-                                                              .registerProviderForm
-                                                              .age,
-                                                          disabilities: FFAppState()
-                                                              .registerProviderForm
-                                                              .disabilities,
-                                                          years: FFAppState()
-                                                              .registerProviderForm
-                                                              .years,
-                                                          gender: FFAppState()
-                                                              .registerProviderForm
-                                                              .gender,
-                                                          description: FFAppState()
-                                                              .registerProviderForm
-                                                              .description,
-                                                          comapny: FFAppState()
-                                                              .registerProviderForm
-                                                              .company,
-                                                          languagues: '',
-                                                          rol: FFAppState()
-                                                              .registerProviderForm
-                                                              .rol,
-                                                          plan: FFAppState()
-                                                              .registerProviderForm
-                                                              .plan,
-                                                          photoUrl: FFAppState()
-                                                                      .registerProviderForm
-                                                                      .images.isNotEmpty
-                                                              ? FFAppState()
-                                                                  .registerProviderForm
-                                                                  .images
-                                                                  .first
-                                                              : ' ',
-                                                          business: FFAppState()
-                                                              .registerProviderForm
-                                                              .business,
-                                                          paymentDate:
-                                                              getCurrentTimestamp,
-                                                          freeTrial: true,
-                                                        ),
-                                                        ...mapToFirestore(
-                                                          {
-                                                            'images': FFAppState()
-                                                                .imagesUserUpload,
-                                                            'serviceType':
-                                                                FFAppState()
-                                                                    .registerProviderForm
-                                                                    .serviceType,
-                                                          },
-                                                        ),
-                                                      });
-
-                                                      if (widget.businessRef !=
-                                                          null) {
-                                                        if (widget
-                                                                .businessRef !=
-                                                            null) {
-                                                          await widget
-                                                              .businessRef!
-                                                              .update({
-                                                            ...mapToFirestore(
-                                                              {
-                                                                'professionals':
-                                                                    FieldValue
-                                                                        .arrayUnion([
-                                                                  currentUserReference
-                                                                ]),
-                                                              },
-                                                            ),
-                                                          });
-                                                        }
-                                                        FFAppState()
-                                                                .authUserFireBase =
-                                                            true;
-
-                                                        context.goNamedAuth(
-                                                            'HomeSearch',
-                                                            context.mounted);
-                                                      } else {
-                                                        final paymentResponse =
-                                                            await processStripePayment(
-                                                          context,
-                                                          amount: () {
-                                                            if (FFAppState()
-                                                                    .registerProviderForm
-                                                                    .plan ==
-                                                                Plan.basic) {
-                                                              return FFAppConstants
-                                                                  .basicPrice;
-                                                            } else if (FFAppState()
-                                                                    .registerProviderForm
-                                                                    .plan ==
-                                                                Plan.standar) {
-                                                              return FFAppConstants
-                                                                  .standarPrice;
-                                                            } else {
-                                                              return FFAppConstants
-                                                                  .premiunPrice;
-                                                            }
-                                                          }(),
-                                                          currency: 'AUD',
-                                                          customerEmail:
-                                                              FFAppState()
-                                                                  .registerProviderForm
-                                                                  .email,
-                                                          customerName: FFAppState()
-                                                              .registerProviderForm
-                                                              .firstName,
-                                                          description: () {
-                                                            if (FFAppState()
-                                                                    .registerProviderForm
-                                                                    .plan ==
-                                                                Plan.basic) {
-                                                              return 'Plan Basic';
-                                                            } else if (FFAppState()
-                                                                    .registerProviderForm
-                                                                    .plan ==
-                                                                Plan.standar) {
-                                                              return 'Plan Standar';
-                                                            } else {
-                                                              return 'Plan Premiun';
-                                                            }
-                                                          }(),
-                                                          allowGooglePay: true,
-                                                          allowApplePay: false,
-                                                        );
-                                                        if (paymentResponse
-                                                                    .paymentId ==
-                                                                null &&
-                                                            paymentResponse
-                                                                    .errorMessage !=
-                                                                null) {
-                                                          showSnackbar(
-                                                            context,
-                                                            'Error: ${paymentResponse.errorMessage}',
-                                                          );
-                                                        }
-                                                        _model.paymentId =
-                                                            paymentResponse
-                                                                    .paymentId ??
-                                                                '';
-
-                                                        if (_model.paymentId !=
-                                                                null &&
-                                                            _model.paymentId !=
-                                                                '') {
-                                                          if (widget
-                                                                  .businessRef !=
-                                                              null) {
-                                                            await widget
-                                                                .businessRef!
-                                                                .update({
-                                                              ...mapToFirestore(
-                                                                {
-                                                                  'professionals':
-                                                                      FieldValue
-                                                                          .arrayUnion([
-                                                                    currentUserReference
-                                                                  ]),
-                                                                },
-                                                              ),
-                                                            });
-                                                          }
-                                                          FFAppState()
-                                                                  .authUserFireBase =
-                                                              true;
-
-                                                          context.goNamedAuth(
-                                                              'HomeSearch',
-                                                              context.mounted);
-                                                        } else {
-                                                          await authManager
-                                                              .deleteUser(
-                                                                  context);
-                                                        }
-                                                      }
                                                     }
-
-                                                    setState(() {});
                                                   },
                                                   text: 'Continue',
                                                   options: FFButtonOptions(

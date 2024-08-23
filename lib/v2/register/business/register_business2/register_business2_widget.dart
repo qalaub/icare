@@ -771,9 +771,6 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
                                                                 .ndisTextControllerValidator
                                                                 .asValidator(
                                                                     context),
-                                                            inputFormatters: [
-                                                              _model.ndisMask
-                                                            ],
                                                           ),
                                                         ),
                                                       );
@@ -1063,7 +1060,7 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
                                                                 .passwordTextController,
                                                             focusNode: _model
                                                                 .passwordFocusNode,
-                                                            autofocus: true,
+                                                            autofocus: false,
                                                             obscureText: !_model
                                                                 .passwordVisibility,
                                                             decoration:
@@ -1324,7 +1321,7 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
                                                                 .confirmPasswordTextController,
                                                             focusNode: _model
                                                                 .confirmPasswordFocusNode,
-                                                            autofocus: true,
+                                                            autofocus: false,
                                                             obscureText: !_model
                                                                 .confirmPasswordVisibility,
                                                             decoration:

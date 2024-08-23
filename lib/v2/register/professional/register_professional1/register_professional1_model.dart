@@ -40,6 +40,10 @@ class RegisterProfessional1Model
     return null;
   }
 
+  // State field(s) for lastName widget.
+  FocusNode? lastNameFocusNode;
+  TextEditingController? lastNameTextController;
+  String? Function(BuildContext, String?)? lastNameTextControllerValidator;
   // State field(s) for company widget.
   FocusNode? companyFocusNode;
   TextEditingController? companyTextController;
@@ -67,6 +71,8 @@ class RegisterProfessional1Model
     return null;
   }
 
+  // Stores action output result for [Firestore Query - Query a collection] action in email widget.
+  int? emailExists;
   // State field(s) for phone widget.
   FocusNode? phoneFocusNode;
   TextEditingController? phoneTextController;
@@ -106,6 +112,9 @@ class RegisterProfessional1Model
   void dispose() {
     firstNameFocusNode?.dispose();
     firstNameTextController?.dispose();
+
+    lastNameFocusNode?.dispose();
+    lastNameTextController?.dispose();
 
     companyFocusNode?.dispose();
     companyTextController?.dispose();

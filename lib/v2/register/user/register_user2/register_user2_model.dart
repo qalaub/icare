@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'register_user2_widget.dart' show RegisterUser2Widget;
 import 'package:flutter/material.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class RegisterUser2Model extends FlutterFlowModel<RegisterUser2Widget> {
   ///  State fields for stateful widgets in this page.
@@ -11,7 +10,6 @@ class RegisterUser2Model extends FlutterFlowModel<RegisterUser2Widget> {
   // State field(s) for ndis widget.
   FocusNode? ndisFocusNode;
   TextEditingController? ndisTextController;
-  final ndisMask = MaskTextInputFormatter(mask: '#########');
   String? Function(BuildContext, String?)? ndisTextControllerValidator;
   // State field(s) for email widget.
   FocusNode? emailFocusNode;
@@ -28,6 +26,8 @@ class RegisterUser2Model extends FlutterFlowModel<RegisterUser2Widget> {
     return null;
   }
 
+  // Stores action output result for [Firestore Query - Query a collection] action in email widget.
+  int? emailExists;
   // State field(s) for DropDown widget.
   String? dropDownValue;
   FormFieldController<String>? dropDownValueController;

@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'register_professional2_widget.dart' show RegisterProfessional2Widget;
 import 'package:flutter/material.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class RegisterProfessional2Model
     extends FlutterFlowModel<RegisterProfessional2Widget> {
@@ -22,7 +21,6 @@ class RegisterProfessional2Model
   // State field(s) for ndis widget.
   FocusNode? ndisFocusNode;
   TextEditingController? ndisTextController;
-  final ndisMask = MaskTextInputFormatter(mask: '#########');
   String? Function(BuildContext, String?)? ndisTextControllerValidator;
   // State field(s) for age widget.
   String? ageValue;
@@ -75,8 +73,6 @@ class RegisterProfessional2Model
 
   // State field(s) for Checkbox widget.
   bool? checkboxValue;
-  // Stores action output result for [Stripe Payment] action in Button widget.
-  String? paymentId;
 
   @override
   void initState(BuildContext context) {
