@@ -1537,7 +1537,7 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
                                                     .fromSTEB(
                                                         0.0, 15.0, 0.0, 15.0),
                                                 child: Container(
-                                                  width: 256.0,
+                                                  width: 282.0,
                                                   height: 74.0,
                                                   decoration: const BoxDecoration(
                                                     color: Color(0x80D9D9D9),
@@ -1556,21 +1556,39 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
                                                                       0.0,
                                                                       0.0,
                                                                       0.0),
-                                                          child: Text(
-                                                            'I Accept icare\'s Privacy Policies',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Montserrat',
-                                                                  color: Colors
-                                                                      .black,
-                                                                  fontSize:
-                                                                      13.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
+                                                          child: InkWell(
+                                                            splashColor: Colors
+                                                                .transparent,
+                                                            focusColor: Colors
+                                                                .transparent,
+                                                            hoverColor: Colors
+                                                                .transparent,
+                                                            highlightColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            onTap: () async {
+                                                              await launchURL(
+                                                                  'https://icareapp.com.au/privacy-policy');
+                                                            },
+                                                            child: Text(
+                                                              'I agree to the iCare App privacy policy',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Montserrat',
+                                                                    color: const Color(
+                                                                        0xFFB928B8),
+                                                                    fontSize:
+                                                                        12.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                  ),
+                                                            ),
                                                           ),
                                                         ),
                                                       ),

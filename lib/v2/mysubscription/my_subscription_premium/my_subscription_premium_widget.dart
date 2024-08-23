@@ -85,7 +85,7 @@ class _MySubscriptionPremiumWidgetState
                   width: MediaQuery.sizeOf(context).width * 1.0,
                   decoration: const BoxDecoration(
                     gradient: LinearGradient(
-                      colors: [Color(0xFFEFB810), Color(0xFF896909)],
+                      colors: [Color(0xFFEFB810), Color(0xFFA97F0D)],
                       stops: [0.0, 0.899],
                       begin: AlignmentDirectional(0.0, -1.0),
                       end: AlignmentDirectional(0, 1.0),
@@ -121,7 +121,7 @@ class _MySubscriptionPremiumWidgetState
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Inter',
-                                    color: const Color(0xB6ECECEC),
+                                    color: const Color(0xF8FFFFFF),
                                     letterSpacing: 0.0,
                                   ),
                         ),
@@ -144,7 +144,7 @@ class _MySubscriptionPremiumWidgetState
                                     ),
                               ),
                               TextSpan(
-                                text: '18,45',
+                                text: '28.99 / monthly ',
                                 style: GoogleFonts.getFont(
                                   'Inter',
                                   color: const Color(0xFFECE7E7),
@@ -355,7 +355,7 @@ class _MySubscriptionPremiumWidgetState
                             children: [
                               Container(
                                 width: MediaQuery.sizeOf(context).width * 0.9,
-                                height: 39.0,
+                                height: 99.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -363,7 +363,7 @@ class _MySubscriptionPremiumWidgetState
                                 child: Align(
                                   alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Text(
-                                    'You can attach standard and basiccaregivers as your collaborators',
+                                    'List several staff members, including coordinators or support workers to increase your chances of connecting with NDIS participants. Get access to our map features.',
                                     textAlign: TextAlign.start,
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -419,7 +419,7 @@ class _MySubscriptionPremiumWidgetState
                             children: [
                               Container(
                                 width: MediaQuery.sizeOf(context).width * 0.9,
-                                height: 39.0,
+                                height: 79.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -427,7 +427,7 @@ class _MySubscriptionPremiumWidgetState
                                 child: Align(
                                   alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Text(
-                                    'You can attach standard and basiccaregivers as your collaborators',
+                                    'Be seen quicker as you placed higher on the search list. Your employees can customise their profiles and appear as part of your organisation. ',
                                     textAlign: TextAlign.start,
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -483,7 +483,7 @@ class _MySubscriptionPremiumWidgetState
                             children: [
                               Container(
                                 width: MediaQuery.sizeOf(context).width * 0.9,
-                                height: 39.0,
+                                height: 79.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -491,71 +491,7 @@ class _MySubscriptionPremiumWidgetState
                                 child: Align(
                                   alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Text(
-                                    'You can attach standard and basiccaregivers as your collaborators',
-                                    textAlign: TextAlign.start,
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Montserrat',
-                                          color: Colors.black,
-                                          fontSize: 14.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.normal,
-                                        ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ].divide(const SizedBox(height: 8.0)),
-                    ),
-                  ),
-                ),
-                Align(
-                  alignment: const AlignmentDirectional(0.0, 0.0),
-                  child: Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Benefits of Membership',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Montserrat',
-                                    color: const Color(0xFFC14BBC),
-                                    fontSize: 15.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                            ),
-                          ],
-                        ),
-                        Align(
-                          alignment: const AlignmentDirectional(-1.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Container(
-                                width: MediaQuery.sizeOf(context).width * 0.9,
-                                height: 39.0,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                ),
-                                child: Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
-                                  child: Text(
-                                    'You can attach standard and basiccaregivers as your collaborators',
+                                    'Get notifications when participants like any of your listed employees. Send and receive messages to NDIS participants regarding your staff members ',
                                     textAlign: TextAlign.start,
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium

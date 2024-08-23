@@ -143,7 +143,7 @@ class _MySubscriptionBasicWidgetState extends State<MySubscriptionBasicWidget> {
                                     ),
                               ),
                               TextSpan(
-                                text: '1,45',
+                                text: '\$8.99 / monthly',
                                 style: GoogleFonts.getFont(
                                   'Inter',
                                   color: const Color(0xFFECE7E7),
@@ -350,9 +350,9 @@ class _MySubscriptionBasicWidgetState extends State<MySubscriptionBasicWidget> {
                                       .secondaryBackground,
                                 ),
                                 child: Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(-1.0, 0.0),
                                   child: Text(
-                                    'You can attach standard and basiccaregivers as your collaborators',
+                                    'Connect with a wide range of NDIS participants ',
                                     textAlign: TextAlign.start,
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -414,9 +414,9 @@ class _MySubscriptionBasicWidgetState extends State<MySubscriptionBasicWidget> {
                                       .secondaryBackground,
                                 ),
                                 child: Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(-1.0, 0.0),
                                   child: Text(
-                                    'You can attach standard and basiccaregivers as your collaborators',
+                                    'Customise your own profile, including BIO, photos and videos',
                                     textAlign: TextAlign.start,
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -478,9 +478,9 @@ class _MySubscriptionBasicWidgetState extends State<MySubscriptionBasicWidget> {
                                       .secondaryBackground,
                                 ),
                                 child: Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(-1.0, 0.0),
                                   child: Text(
-                                    'You can attach standard and basiccaregivers as your collaborators',
+                                    'Get notified when participants like your profile, commence service right away ',
                                     textAlign: TextAlign.start,
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
