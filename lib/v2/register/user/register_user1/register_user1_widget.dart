@@ -56,11 +56,11 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
       setState(() {});
     });
 
-    _model.firstNameTextController1 ??= TextEditingController();
-    _model.firstNameFocusNode1 ??= FocusNode();
+    _model.firstNameTextController ??= TextEditingController();
+    _model.firstNameFocusNode ??= FocusNode();
 
-    _model.firstNameTextController2 ??= TextEditingController();
-    _model.firstNameFocusNode2 ??= FocusNode();
+    _model.lastnameTextController ??= TextEditingController();
+    _model.lastnameFocusNode ??= FocusNode();
 
     _model.dateTextController ??= TextEditingController();
     _model.dateFocusNode ??= FocusNode();
@@ -306,9 +306,9 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                     0.0, -1.0),
                                                 child: TextFormField(
                                                   controller: _model
-                                                      .firstNameTextController1,
-                                                  focusNode: _model
-                                                      .firstNameFocusNode1,
+                                                      .firstNameTextController,
+                                                  focusNode:
+                                                      _model.firstNameFocusNode,
                                                   autofocus: true,
                                                   obscureText: false,
                                                   decoration: InputDecoration(
@@ -403,7 +403,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                   keyboardType:
                                                       TextInputType.name,
                                                   validator: _model
-                                                      .firstNameTextController1Validator
+                                                      .firstNameTextControllerValidator
                                                       .asValidator(context),
                                                   inputFormatters: [
                                                     FilteringTextInputFormatter
@@ -464,9 +464,9 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                     0.0, -1.0),
                                                 child: TextFormField(
                                                   controller: _model
-                                                      .firstNameTextController2,
-                                                  focusNode: _model
-                                                      .firstNameFocusNode2,
+                                                      .lastnameTextController,
+                                                  focusNode:
+                                                      _model.lastnameFocusNode,
                                                   autofocus: true,
                                                   obscureText: false,
                                                   decoration: InputDecoration(
@@ -561,7 +561,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                   keyboardType:
                                                       TextInputType.name,
                                                   validator: _model
-                                                      .firstNameTextController2Validator
+                                                      .lastnameTextControllerValidator
                                                       .asValidator(context),
                                                   inputFormatters: [
                                                     FilteringTextInputFormatter
@@ -1334,7 +1334,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                           .updateRegisterProviderFormStruct(
                                                         (e) => e
                                                           ..firstName = _model
-                                                              .firstNameTextController1
+                                                              .firstNameTextController
                                                               .text
                                                           ..birthdate = functions
                                                               .convertStringToDate(
@@ -1349,7 +1349,10 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                   .stringToLatLng(
                                                                       _model
                                                                           .newUbication!))
-                                                          ..plan = Plan.standar,
+                                                          ..plan = Plan.standar
+                                                          ..lastName = _model
+                                                              .lastnameTextController
+                                                              .text,
                                                       );
 
                                                       context.pushNamed(

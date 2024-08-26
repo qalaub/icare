@@ -26,11 +26,10 @@ class RegisterUser1Model extends FlutterFlowModel<RegisterUser1Widget> {
 
   final formKey = GlobalKey<FormState>();
   // State field(s) for firstName widget.
-  FocusNode? firstNameFocusNode1;
-  TextEditingController? firstNameTextController1;
-  String? Function(BuildContext, String?)? firstNameTextController1Validator;
-  String? _firstNameTextController1Validator(
-      BuildContext context, String? val) {
+  FocusNode? firstNameFocusNode;
+  TextEditingController? firstNameTextController;
+  String? Function(BuildContext, String?)? firstNameTextControllerValidator;
+  String? _firstNameTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return 'Field is required';
     }
@@ -41,10 +40,10 @@ class RegisterUser1Model extends FlutterFlowModel<RegisterUser1Widget> {
     return null;
   }
 
-  // State field(s) for firstName widget.
-  FocusNode? firstNameFocusNode2;
-  TextEditingController? firstNameTextController2;
-  String? Function(BuildContext, String?)? firstNameTextController2Validator;
+  // State field(s) for lastname widget.
+  FocusNode? lastnameFocusNode;
+  TextEditingController? lastnameTextController;
+  String? Function(BuildContext, String?)? lastnameTextControllerValidator;
   // State field(s) for date widget.
   FocusNode? dateFocusNode;
   TextEditingController? dateTextController;
@@ -79,17 +78,17 @@ class RegisterUser1Model extends FlutterFlowModel<RegisterUser1Widget> {
 
   @override
   void initState(BuildContext context) {
-    firstNameTextController1Validator = _firstNameTextController1Validator;
+    firstNameTextControllerValidator = _firstNameTextControllerValidator;
     phoneTextControllerValidator = _phoneTextControllerValidator;
   }
 
   @override
   void dispose() {
-    firstNameFocusNode1?.dispose();
-    firstNameTextController1?.dispose();
+    firstNameFocusNode?.dispose();
+    firstNameTextController?.dispose();
 
-    firstNameFocusNode2?.dispose();
-    firstNameTextController2?.dispose();
+    lastnameFocusNode?.dispose();
+    lastnameTextController?.dispose();
 
     dateFocusNode?.dispose();
     dateTextController?.dispose();

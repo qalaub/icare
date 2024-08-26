@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'flutter_flow/request_manager.dart';
 import '/backend/backend.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 
 class FFAppState extends ChangeNotifier {
@@ -16,12 +17,19 @@ class FFAppState extends ChangeNotifier {
     _instance = FFAppState._internal();
   }
 
-  Future initializePersistedState() async {}
+  Future initializePersistedState() async {
+    prefs = await SharedPreferences.getInstance();
+    _safeInit(() {
+      _showTutorial = prefs.getBool('ff_showTutorial') ?? _showTutorial;
+    });
+  }
 
   void update(VoidCallback callback) {
     callback();
     notifyListeners();
   }
+
+  late SharedPreferences prefs;
 
   RegisterFormTypeStruct _registerUserForm = RegisterFormTypeStruct();
   RegisterFormTypeStruct get registerUserForm => _registerUserForm;
@@ -137,6 +145,13 @@ class FFAppState extends ChangeNotifier {
     updateFn(_filtersPage);
   }
 
+  bool _showTutorial = true;
+  bool get showTutorial => _showTutorial;
+  set showTutorial(bool value) {
+    _showTutorial = value;
+    prefs.setBool('ff_showTutorial', value);
+  }
+
   final _userDocQueryManager = FutureRequestManager<UsersRecord>();
   Future<UsersRecord> userDocQuery({
     String? uniqueQueryKey,
@@ -151,4 +166,16 @@ class FFAppState extends ChangeNotifier {
   void clearUserDocQueryCache() => _userDocQueryManager.clear();
   void clearUserDocQueryCacheKey(String? uniqueKey) =>
       _userDocQueryManager.clearRequest(uniqueKey);
+}
+
+void _safeInit(Function() initializeField) {
+  try {
+    initializeField();
+  } catch (_) {}
+}
+
+Future _safeInitAsync(Function() initializeField) async {
+  try {
+    await initializeField();
+  } catch (_) {}
 }

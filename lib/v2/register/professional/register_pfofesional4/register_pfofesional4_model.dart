@@ -5,6 +5,10 @@ import 'package:flutter/material.dart';
 
 class RegisterPfofesional4Model
     extends FlutterFlowModel<RegisterPfofesional4Widget> {
+  ///  Local state fields for this page.
+
+  bool photosVerify = true;
+
   ///  State fields for stateful widgets in this page.
 
   // Model for imageUpload component.

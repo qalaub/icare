@@ -4,6 +4,10 @@ import 'register_business4_widget.dart' show RegisterBusiness4Widget;
 import 'package:flutter/material.dart';
 
 class RegisterBusiness4Model extends FlutterFlowModel<RegisterBusiness4Widget> {
+  ///  Local state fields for this page.
+
+  bool photoVerify = true;
+
   ///  State fields for stateful widgets in this page.
 
   // Model for img1.

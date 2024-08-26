@@ -166,28 +166,54 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                           ),
                                         ),
                                       ),
-                                      Align(
-                                        alignment:
-                                            const AlignmentDirectional(0.0, -1.0),
-                                        child: Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 10.0, 10.0, 10.0),
-                                          child: Text(
-                                            'At least you must upload 2 photos for your profile where your face can be seen',
-                                            textAlign: TextAlign.center,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Montserrat',
-                                                  color: const Color(0xFF6F6F6F),
-                                                  fontSize: 13.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w500,
-                                                ),
+                                      if (_model.photoVerify)
+                                        Align(
+                                          alignment:
+                                              const AlignmentDirectional(0.0, -1.0),
+                                          child: Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    10.0, 10.0, 10.0, 10.0),
+                                            child: Text(
+                                              'At least you must upload 2 photos for your profile where your face can be seen',
+                                              textAlign: TextAlign.center,
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Montserrat',
+                                                    color: const Color(0xFF6F6F6F),
+                                                    fontSize: 13.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
+                                            ),
                                           ),
                                         ),
-                                      ),
+                                      if (!_model.photoVerify)
+                                        Align(
+                                          alignment:
+                                              const AlignmentDirectional(0.0, -1.0),
+                                          child: Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    10.0, 0.0, 10.0, 0.0),
+                                            child: Text(
+                                              'Please upload photos to complete your profile. Make sure your face is clear and visible, don’t forget to',
+                                              textAlign: TextAlign.center,
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Montserrat',
+                                                    color: const Color(0xFFE90606),
+                                                    fontSize: 13.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
+                                            ),
+                                          ),
+                                        ),
                                       Align(
                                         alignment:
                                             const AlignmentDirectional(0.0, 0.0),
@@ -515,6 +541,8 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                             onPressed: () async {
                                               if (FFAppState()
                                                       .imagesUserUpload.isNotEmpty) {
+                                                _model.photoVerify = true;
+                                                setState(() {});
                                                 FFAppState()
                                                     .updateRegisterProviderFormStruct(
                                                   (e) => e
@@ -697,6 +725,9 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                   await authManager
                                                       .deleteUser(context);
                                                 }
+                                              } else {
+                                                _model.photoVerify = false;
+                                                setState(() {});
                                               }
 
                                               setState(() {});
