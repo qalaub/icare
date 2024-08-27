@@ -12,6 +12,7 @@ import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:provider/provider.dart';
 import 'tinderv2_c1_model.dart';
 export 'tinderv2_c1_model.dart';
 
@@ -35,12 +36,10 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       if (loggedIn) {
-        if ((valueOrDefault<bool>(currentUserDocument?.firtsLogin, false) ==
+        if (!((valueOrDefault<bool>(currentUserDocument?.firtsLogin, false) ==
                 null) ||
             (valueOrDefault<bool>(currentUserDocument?.firtsLogin, false) ==
-                false)) {
-          context.pushNamed('pantainci1');
-        } else {
+                false))) {
           _model.professional = await queryUsersRecordOnce(
             queryBuilder: (usersRecord) => usersRecord.where(
               'rol',
@@ -59,16 +58,18 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
           _model.currentProfessional = _model.professionals.first;
         }
       } else {
-        _model.professionalWithoutAuth = await queryUsersRecordOnce(
-          queryBuilder: (usersRecord) => usersRecord.where(
-            'rol',
-            isNotEqualTo: Roles.user.serialize(),
-          ),
-        );
-        _model.professionals =
-            _model.professionalWithoutAuth!.toList().cast<UsersRecord>();
-        setState(() {});
-        _model.currentProfessional = _model.professionals.first;
+        if (!FFAppState().showTutorial) {
+          _model.professionalWithoutAuth = await queryUsersRecordOnce(
+            queryBuilder: (usersRecord) => usersRecord.where(
+              'rol',
+              isNotEqualTo: Roles.user.serialize(),
+            ),
+          );
+          _model.professionals =
+              _model.professionalWithoutAuth!.toList().cast<UsersRecord>();
+          setState(() {});
+          _model.currentProfessional = _model.professionals.first;
+        }
       }
     });
   }
@@ -82,6 +83,8 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(

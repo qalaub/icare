@@ -68,7 +68,7 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                           borderRadius: 34.0,
                           buttonSize: 48.0,
                           icon: const FaIcon(
-                            FontAwesomeIcons.mapMarkedAlt,
+                            FontAwesomeIcons.houseUser,
                             color: Colors.white,
                             size: 30.0,
                           ),
@@ -85,7 +85,7 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                     Align(
                       alignment: const AlignmentDirectional(0.29, 0.64),
                       child: Text(
-                        'Maps',
+                        'Home',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Poppins',
                               color: Colors.white,

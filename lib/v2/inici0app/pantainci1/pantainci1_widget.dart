@@ -42,7 +42,7 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
         }
       } else {
         if (FFAppState().showTutorial) {
-          if (!loggedIn) {
+          if (loggedIn) {
             if (!valueOrDefault<bool>(currentUserDocument?.firtsLogin, false)) {
               context.goNamedAuth('tinderv2C1', context.mounted);
             }
