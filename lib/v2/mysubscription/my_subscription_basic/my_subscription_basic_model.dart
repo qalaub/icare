@@ -4,6 +4,10 @@ import 'package:flutter/material.dart';
 
 class MySubscriptionBasicModel
     extends FlutterFlowModel<MySubscriptionBasicWidget> {
+  ///  State fields for stateful widgets in this page.
+
+  final unfocusNode = FocusNode();
+
   @override
   void initState(BuildContext context) {}
 

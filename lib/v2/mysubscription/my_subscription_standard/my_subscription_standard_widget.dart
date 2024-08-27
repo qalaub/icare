@@ -355,7 +355,8 @@ class _MySubscriptionStandardWidgetState
                             children: [
                               Container(
                                 width: MediaQuery.sizeOf(context).width * 0.9,
-                                height: 39.0,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.11,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -419,7 +420,8 @@ class _MySubscriptionStandardWidgetState
                             children: [
                               Container(
                                 width: MediaQuery.sizeOf(context).width * 0.9,
-                                height: 68.0,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.13,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -483,7 +485,7 @@ class _MySubscriptionStandardWidgetState
                             children: [
                               Container(
                                 width: MediaQuery.sizeOf(context).width * 0.9,
-                                height: 39.0,
+                                height: MediaQuery.sizeOf(context).height * 0.1,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,

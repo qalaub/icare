@@ -35,6 +35,7 @@ class Tinderv2C1Model extends FlutterFlowModel<Tinderv2C1Widget> {
 
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Stores action output result for [Firestore Query - Query a collection] action in tinderv2C1 widget.
   List<UsersRecord>? professional;
   // Stores action output result for [Firestore Query - Query a collection] action in tinderv2C1 widget.

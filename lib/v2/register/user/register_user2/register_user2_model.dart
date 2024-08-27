@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 class RegisterUser2Model extends FlutterFlowModel<RegisterUser2Widget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // State field(s) for ndis widget.
   FocusNode? ndisFocusNode;

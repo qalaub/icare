@@ -11,6 +11,7 @@ class RegisterProfessional2Model
 
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // State field(s) for serviceType widget.
   String? serviceTypeValue;

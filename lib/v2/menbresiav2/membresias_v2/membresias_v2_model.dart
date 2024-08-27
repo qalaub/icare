@@ -11,6 +11,10 @@ class MembresiasV2Model extends FlutterFlowModel<MembresiasV2Widget> {
 
   bool premiun = false;
 
+  ///  State fields for stateful widgets in this page.
+
+  final unfocusNode = FocusNode();
+
   @override
   void initState(BuildContext context) {}
 

@@ -5,6 +5,9 @@ import 'package:flutter/material.dart';
 class Pantainci1Model extends FlutterFlowModel<Pantainci1Widget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
+  // Stores action output result for [Custom Action - getToken] action in pantainci1 widget.
+  String? tokenTemp;
   // State field(s) for PageView widget.
   PageController? pageViewController;
 
@@ -13,6 +16,8 @@ class Pantainci1Model extends FlutterFlowModel<Pantainci1Widget> {
           pageViewController!.page != null
       ? pageViewController!.page!.round()
       : 0;
+  // State field(s) for Checkbox widget.
+  bool? checkboxValue;
 
   @override
   void initState(BuildContext context) {}

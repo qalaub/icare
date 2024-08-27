@@ -14,6 +14,7 @@ class RegisterProfessional3Model
 
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // State field(s) for question widget.
   FormFieldController<String>? questionValueController;

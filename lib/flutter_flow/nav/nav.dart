@@ -78,14 +78,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) => _RouteErrorBuilder(
         state: state,
-        child: appStateNotifier.loggedIn ? const NavBarPage() : const Tinderv2C1Widget(),
+        child: appStateNotifier.loggedIn ? const NavBarPage() : const Pantainci1Widget(),
       ),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? const NavBarPage() : const Tinderv2C1Widget(),
+              appStateNotifier.loggedIn ? const NavBarPage() : const Pantainci1Widget(),
           routes: [
             FFRoute(
               name: 'HomeSearch',
@@ -664,7 +664,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.uri.toString());
-            return '/tinderv2C1';
+            return '/pantainci1';
           }
           return null;
         },

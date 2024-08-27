@@ -96,7 +96,7 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                         ),
                         width: MediaQuery.sizeOf(context).width * 1.0,
                         height: MediaQuery.sizeOf(context).height * 0.5,
-                        fit: BoxFit.fitWidth,
+                        fit: BoxFit.cover,
                       ),
                     ),
                     Row(

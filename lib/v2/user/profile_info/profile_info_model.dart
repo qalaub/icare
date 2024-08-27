@@ -21,6 +21,7 @@ class ProfileInfoModel extends FlutterFlowModel<ProfileInfoWidget> {
 
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   String currentPageLink = '';
   // Stores action output result for [Firestore Query - Query a collection] action in MENSAJES widget.
   List<ChatsRecord>? chatRef;

@@ -11,6 +11,7 @@ class RegisterPfofesional4Model
 
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Model for imageUpload component.
   late ImageUploadModel imageUploadModel;
   // Stores action output result for [Stripe Payment] action in Button widget.

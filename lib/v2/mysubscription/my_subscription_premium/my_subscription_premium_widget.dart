@@ -355,7 +355,8 @@ class _MySubscriptionPremiumWidgetState
                             children: [
                               Container(
                                 width: MediaQuery.sizeOf(context).width * 0.9,
-                                height: 99.0,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.12,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -419,7 +420,8 @@ class _MySubscriptionPremiumWidgetState
                             children: [
                               Container(
                                 width: MediaQuery.sizeOf(context).width * 0.9,
-                                height: 79.0,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.09,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -483,7 +485,8 @@ class _MySubscriptionPremiumWidgetState
                             children: [
                               Container(
                                 width: MediaQuery.sizeOf(context).width * 0.9,
-                                height: 79.0,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.13,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,

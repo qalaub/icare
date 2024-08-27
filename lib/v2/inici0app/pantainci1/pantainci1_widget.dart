@@ -1,13 +1,13 @@
 import '/auth/firebase_auth/auth_util.dart';
-import '/backend/backend.dart';
-import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:provider/provider.dart';
 import 'pantainci1_model.dart';
 export 'pantainci1_model.dart';
 
@@ -30,9 +30,25 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      if (!loggedIn) {
-        if (!valueOrDefault<bool>(currentUserDocument?.firtsLogin, false)) {
-          context.pushNamed('tinderv2C1');
+      _model.tokenTemp = await actions.getToken();
+      if (_model.tokenTemp != null && _model.tokenTemp != '') {
+        GoRouter.of(context).prepareAuthEvent();
+        final user = await authManager.signInWithJwtToken(
+          context,
+          _model.tokenTemp!,
+        );
+        if (user == null) {
+          return;
+        }
+      } else {
+        if (FFAppState().showTutorial) {
+          if (!loggedIn) {
+            if (!valueOrDefault<bool>(currentUserDocument?.firtsLogin, false)) {
+              context.goNamedAuth('tinderv2C1', context.mounted);
+            }
+          }
+        } else {
+          context.goNamedAuth('tinderv2C1', context.mounted);
         }
       }
     });
@@ -47,6 +63,8 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
@@ -106,7 +124,7 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
                               alignment: const AlignmentDirectional(0.0, 0.8),
                               child: Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 0.0, 16.0),
+                                    16.0, 0.0, 0.0, 83.0),
                                 child:
                                     smooth_page_indicator.SmoothPageIndicator(
                                   controller: _model.pageViewController ??=
@@ -139,7 +157,7 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
                       ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(0.01, 0.95),
+                      alignment: const AlignmentDirectional(0.01, 0.9),
                       child: Padding(
                         padding: const EdgeInsetsDirectional.fromSTEB(
                             0.0, 10.0, 0.0, 10.0),
@@ -151,15 +169,13 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
                                 curve: Curves.ease,
                               );
                             } else {
-                              await currentUserReference!
-                                  .update(createUsersRecordData(
-                                firtsLogin: true,
-                              ));
-                              if (currentUserDocument?.rol == Roles.user) {
-                                context.pushNamed('tinderv2C1');
+                              if (_model.checkboxValue == true) {
+                                FFAppState().showTutorial = false;
                               } else {
-                                context.pushNamed('HomeSearch');
+                                FFAppState().showTutorial = true;
                               }
+
+                              context.pushNamed('tinderv2C1');
                             }
                           },
                           text: 'Continue',
@@ -185,6 +201,62 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
                               width: 1.0,
                             ),
                             borderRadius: BorderRadius.circular(24.0),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: const AlignmentDirectional(0.0, 0.75),
+                      child: Container(
+                        width: MediaQuery.sizeOf(context).width * 0.675,
+                        decoration: const BoxDecoration(),
+                        child: Align(
+                          alignment: const AlignmentDirectional(0.0, 0.7),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Theme(
+                                data: ThemeData(
+                                  checkboxTheme: CheckboxThemeData(
+                                    visualDensity: VisualDensity.compact,
+                                    materialTapTargetSize:
+                                        MaterialTapTargetSize.shrinkWrap,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(4.0),
+                                    ),
+                                  ),
+                                  unselectedWidgetColor:
+                                      FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                ),
+                                child: Checkbox(
+                                  value: _model.checkboxValue ??= true,
+                                  onChanged: (newValue) async {
+                                    setState(
+                                        () => _model.checkboxValue = newValue!);
+                                  },
+                                  side: BorderSide(
+                                    width: 2,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                  ),
+                                  activeColor: const Color(0xFF6539EF),
+                                  checkColor: FlutterFlowTheme.of(context).info,
+                                ),
+                              ),
+                              Text(
+                                'never see this screen again',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Montserrat',
+                                      color: Colors.white,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                              ),
+                            ],
                           ),
                         ),
                       ),

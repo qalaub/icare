@@ -8,6 +8,7 @@ import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 class TinDERv1Model extends FlutterFlowModel<TinDERv1Widget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // State field(s) for SwipeableStack widget.
   late CardSwiperController swipeableStackController;
   // Model for Navbar component.
