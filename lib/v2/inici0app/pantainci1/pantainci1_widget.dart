@@ -206,59 +206,51 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
                       ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(0.0, 0.75),
-                      child: Container(
-                        width: MediaQuery.sizeOf(context).width * 0.675,
-                        decoration: const BoxDecoration(),
-                        child: Align(
-                          alignment: const AlignmentDirectional(0.0, 0.7),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Theme(
-                                data: ThemeData(
-                                  checkboxTheme: CheckboxThemeData(
-                                    visualDensity: VisualDensity.compact,
-                                    materialTapTargetSize:
-                                        MaterialTapTargetSize.shrinkWrap,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(4.0),
-                                    ),
-                                  ),
-                                  unselectedWidgetColor:
-                                      FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                ),
-                                child: Checkbox(
-                                  value: _model.checkboxValue ??= true,
-                                  onChanged: (newValue) async {
-                                    setState(
-                                        () => _model.checkboxValue = newValue!);
-                                  },
-                                  side: BorderSide(
-                                    width: 2,
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryText,
-                                  ),
-                                  activeColor: const Color(0xFF6539EF),
-                                  checkColor: FlutterFlowTheme.of(context).info,
+                      alignment: const AlignmentDirectional(0.0, 0.7),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Theme(
+                            data: ThemeData(
+                              checkboxTheme: CheckboxThemeData(
+                                visualDensity: VisualDensity.compact,
+                                materialTapTargetSize:
+                                    MaterialTapTargetSize.shrinkWrap,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(4.0),
                                 ),
                               ),
-                              Text(
-                                'never see this screen again',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Montserrat',
-                                      color: Colors.white,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                              unselectedWidgetColor:
+                                  FlutterFlowTheme.of(context).secondaryText,
+                            ),
+                            child: Checkbox(
+                              value: _model.checkboxValue ??= true,
+                              onChanged: (newValue) async {
+                                setState(
+                                    () => _model.checkboxValue = newValue!);
+                              },
+                              side: BorderSide(
+                                width: 2,
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
                               ),
-                            ],
+                              activeColor: const Color(0xFF6539EF),
+                              checkColor: FlutterFlowTheme.of(context).info,
+                            ),
                           ),
-                        ),
+                          Text(
+                            'never see this screen again',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  color: Colors.white,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
