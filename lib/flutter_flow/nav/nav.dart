@@ -489,6 +489,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   collectionNamePath: ['users'],
                 ),
               ),
+            ),
+            FFRoute(
+              name: 'cuestionario',
+              path: 'cuestionario',
+              builder: (context, params) => const CuestionarioWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
@@ -679,7 +684,7 @@ class FFRoute {
               : builder(context, ffParams);
           final child = appStateNotifier.loading
               ? Container(
-                  color: Colors.transparent,
+                  color: Colors.white,
                   child: Center(
                     child: Image.asset(
                       'assets/images/icare-masgrande.png',

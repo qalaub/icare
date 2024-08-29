@@ -148,3 +148,18 @@ DateTime convertStringToDate(String dateStr) {
 
   return DateTime(year, month, day);
 }
+
+String suguestionPlan(
+  bool firts,
+  bool second,
+  bool tree,
+  bool four,
+) {
+  if (firts) 'Premiun';
+  if (firts && tree) return 'Premiun';
+  if (second && four) return 'Standar';
+  if (four) return 'Standar';
+  if (second) return 'Standar';
+  if (tree) 'Premiun';
+  return 'Basic';
+}

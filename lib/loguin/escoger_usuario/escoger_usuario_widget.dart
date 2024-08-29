@@ -208,7 +208,7 @@ class _EscogerUsuarioWidgetState extends State<EscogerUsuarioWidget> {
                                         child: FFButtonWidget(
                                           onPressed: () async {
                                             context.pushNamed(
-                                              'RegisterProfessional3',
+                                              'cuestionario',
                                               extra: <String, dynamic>{
                                                 kTransitionInfoKey:
                                                     const TransitionInfo(

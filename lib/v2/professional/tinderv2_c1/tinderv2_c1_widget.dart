@@ -33,7 +33,42 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
     _model = createModel(context, () => Tinderv2C1Model());
 
     // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {});
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      if (loggedIn) {
+        if (!((valueOrDefault<bool>(currentUserDocument?.firtsLogin, false) ==
+                null) ||
+            (valueOrDefault<bool>(currentUserDocument?.firtsLogin, false) ==
+                false))) {
+          _model.professional = await queryUsersRecordOnce(
+            queryBuilder: (usersRecord) => usersRecord.where(
+              'rol',
+              isNotEqualTo: Roles.user.serialize(),
+            ),
+          );
+          _model.professionals = _model.professional!
+              .where((e) =>
+                  (currentUserDocument?.dontShow.toList() ?? [])
+                      .contains(e.reference) ==
+                  false)
+              .toList()
+              .toList()
+              .cast<UsersRecord>();
+          setState(() {});
+          _model.currentProfessional = _model.professionals.first;
+        }
+      } else {
+        _model.professionalWithoutAuth = await queryUsersRecordOnce(
+          queryBuilder: (usersRecord) => usersRecord.where(
+            'rol',
+            isNotEqualTo: Roles.user.serialize(),
+          ),
+        );
+        _model.professionals =
+            _model.professionalWithoutAuth!.toList().cast<UsersRecord>();
+        setState(() {});
+        _model.currentProfessional = _model.professionals.first;
+      }
+    });
   }
 
   @override
@@ -128,9 +163,9 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                     .override(
                                       fontFamily: 'Poppins',
                                       color: const Color(0xFF8D0684),
-                                      fontSize: 22.0,
+                                      fontSize: 20.0,
                                       letterSpacing: 0.0,
-                                      fontWeight: FontWeight.bold,
+                                      fontWeight: FontWeight.w600,
                                     ),
                               ),
                             ),

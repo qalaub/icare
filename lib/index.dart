@@ -76,3 +76,5 @@ export '/v2/favoritesv2/fav_v3_copy/fav_v3_copy_widget.dart'
 export '/v2/inici0app/pantainci1/pantainci1_widget.dart' show Pantainci1Widget;
 export '/v2/register/professional/register_pfofesional4/register_pfofesional4_widget.dart'
     show RegisterPfofesional4Widget;
+export '/cuestionario/cuestionario/cuestionario_widget.dart'
+    show CuestionarioWidget;
