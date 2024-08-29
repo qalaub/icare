@@ -436,6 +436,7 @@ class _PremiumWidgetState extends State<PremiumWidget> {
                                 await widget.userRef!
                                     .update(createUsersRecordData(
                                   plan: Plan.premiun,
+                                  rol: Roles.business,
                                 ));
 
                                 context.pushNamed('userprofile');

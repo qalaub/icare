@@ -1,3 +1,4 @@
+import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -1035,8 +1036,26 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                         ),
                       ),
                       FFButtonWidget(
-                        onPressed: () {
-                          print('Button pressed ...');
+                        onPressed: () async {
+                          if (_model.suguestion == 'Premiun') {
+                            FFAppState().updateRegisterProviderFormStruct(
+                              (e) => e..plan = Plan.premiun,
+                            );
+
+                            context.pushNamed('RegisterBusiness1');
+                          } else if (_model.suguestion == 'Standar') {
+                            FFAppState().updateRegisterProviderFormStruct(
+                              (e) => e..plan = Plan.standar,
+                            );
+
+                            context.pushNamed('RegisterProfessional1');
+                          } else {
+                            FFAppState().updateRegisterProviderFormStruct(
+                              (e) => e..plan = Plan.basic,
+                            );
+
+                            context.pushNamed('RegisterProfessional1');
+                          }
                         },
                         text:
                             _model.suguestion != null && _model.suguestion != ''

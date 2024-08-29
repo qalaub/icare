@@ -647,7 +647,7 @@ class _RegisterProfessional3WidgetState
                                                   if (_model.questionValue !=
                                                       'Use existing company code (This option is for employees of an existing company who wish to create their employee profile)') {
                                                     context.pushNamed(
-                                                        'MembresiasV2');
+                                                        'cuestionario');
                                                   } else {
                                                     _model.business =
                                                         await queryCodesRecordOnce(

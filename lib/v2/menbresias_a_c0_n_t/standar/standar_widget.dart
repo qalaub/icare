@@ -430,6 +430,7 @@ class _StandarWidgetState extends State<StandarWidget> {
                                 await widget.userRef!
                                     .update(createUsersRecordData(
                                   plan: Plan.standar,
+                                  rol: Roles.profesional,
                                 ));
 
                                 context.pushNamed('userprofile');

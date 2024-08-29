@@ -4,7 +4,7 @@ import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/v2/favoritesv2/cliente_favorito/cliente_favorito_widget.dart';
+import '/v2/favoritesv2/v3fv0rites/v3fv0rites_widget.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
 import 'package:flutter/material.dart';
@@ -147,11 +147,11 @@ class _PeoplewhoputyouinfavoritesWidgetState
                                   itemBuilder: (context, listViewIndex) {
                                     final listViewUsersRecord =
                                         listViewUsersRecordList[listViewIndex];
-                                    return ClienteFavoritoWidget(
+                                    return V3fv0ritesWidget(
                                       key: Key(
-                                          'Key89l_${listViewIndex}_of_${listViewUsersRecordList.length}'),
-                                      username: listViewUsersRecord.firtsName,
-                                      userRef: listViewUsersRecord.reference,
+                                          'Keydwx_${listViewIndex}_of_${listViewUsersRecordList.length}'),
+                                      profesionalId:
+                                          listViewUsersRecord.reference,
                                     );
                                   },
                                 );

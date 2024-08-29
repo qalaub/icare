@@ -431,6 +431,7 @@ class _BasicWidgetState extends State<BasicWidget> {
                                 await widget.userRef!
                                     .update(createUsersRecordData(
                                   plan: Plan.basic,
+                                  rol: Roles.profesional,
                                 ));
 
                                 context.pushNamed('userprofile');

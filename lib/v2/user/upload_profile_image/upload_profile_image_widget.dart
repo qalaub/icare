@@ -112,7 +112,7 @@ class _UploadProfileImageWidgetState extends State<UploadProfileImageWidget> {
                         child: Image.network(
                           valueOrDefault<String>(
                             widget.img,
-                            'https://png.pngtree.com/png-clipart/20191122/original/pngtree-user-icon-isolated-on-abstract-background-png-image_5192004.jpg',
+                            'https://i.ibb.co/2qkDLKb/Frame-74.png',
                           ),
                           width: 160.0,
                           height: 160.0,

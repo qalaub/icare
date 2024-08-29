@@ -44,7 +44,10 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
         ClipRRect(
           borderRadius: BorderRadius.circular(8.0),
           child: Image.network(
-            _model.uploadedFileUrl,
+            valueOrDefault<String>(
+              _model.uploadedFileUrl,
+              'https://i.ibb.co/2qkDLKb/Frame-74.png',
+            ),
             width: MediaQuery.sizeOf(context).width * 1.0,
             height: MediaQuery.sizeOf(context).height * 1.0,
             fit: BoxFit.cover,
