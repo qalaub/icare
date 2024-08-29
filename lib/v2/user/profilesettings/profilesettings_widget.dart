@@ -643,8 +643,8 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                 child: Builder(
                                                   builder: (context) {
                                                     if (currentUserDocument
-                                                            ?.rol !=
-                                                        Roles.business) {
+                                                            ?.rol ==
+                                                        Roles.user) {
                                                       return Align(
                                                         alignment:
                                                             const AlignmentDirectional(
@@ -770,17 +770,17 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                           options: List<
                                                               String>.from([
                                                             'Support Worker',
-                                                            'Therapeutic Supports',
                                                             'Support Coordinators ',
-                                                            'Home Maintence',
-                                                            ' Recovery Coaches '
+                                                            'Recovery Coaches ',
+                                                            'Therapeutic Supports',
+                                                            ' Home Maintence'
                                                           ]),
                                                           optionLabels: const [
                                                             'Support Worker',
-                                                            'Therapeutic Supports',
-                                                            ' Coordinator',
-                                                            'Home Maintence',
-                                                            'Recovery Coaches'
+                                                            'Support Coordinators',
+                                                            'Recovery Coaches ',
+                                                            ' Therapeutic Supports',
+                                                            'Home Maintence'
                                                           ],
                                                           width:
                                                               MediaQuery.sizeOf(
@@ -1337,9 +1337,8 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                 } else {
                                   FFAppState().updateRegisterProviderFormStruct(
                                     (e) => e
-                                      ..updateServiceType(
-                                        (e) => e[0] = _model.servicesValue!,
-                                      ),
+                                      ..serviceType =
+                                          _model.servicesPremiunValue!.toList(),
                                   );
                                 }
                               }

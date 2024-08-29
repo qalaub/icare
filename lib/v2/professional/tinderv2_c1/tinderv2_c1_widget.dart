@@ -34,40 +34,29 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      _model.professional = await queryUsersRecordOnce(
+        queryBuilder: (usersRecord) => usersRecord.where(
+          'rol',
+          isNotEqualTo: Roles.user.serialize(),
+        ),
+      );
       if (loggedIn) {
-        if (!((valueOrDefault<bool>(currentUserDocument?.firtsLogin, false) ==
-                null) ||
-            (valueOrDefault<bool>(currentUserDocument?.firtsLogin, false) ==
-                false))) {
-          _model.professional = await queryUsersRecordOnce(
-            queryBuilder: (usersRecord) => usersRecord.where(
-              'rol',
-              isNotEqualTo: Roles.user.serialize(),
-            ),
-          );
-          _model.professionals = _model.professional!
-              .where((e) =>
-                  (currentUserDocument?.dontShow.toList() ?? [])
-                      .contains(e.reference) ==
-                  false)
-              .toList()
-              .toList()
-              .cast<UsersRecord>();
-          setState(() {});
-          _model.currentProfessional = _model.professionals.first;
-        }
-      } else {
-        _model.professionalWithoutAuth = await queryUsersRecordOnce(
-          queryBuilder: (usersRecord) => usersRecord.where(
-            'rol',
-            isNotEqualTo: Roles.user.serialize(),
-          ),
-        );
-        _model.professionals =
-            _model.professionalWithoutAuth!.toList().cast<UsersRecord>();
+        _model.professionals = _model.professional!
+            .where((e) =>
+                (currentUserDocument?.dontShow.toList() ?? [])
+                    .contains(e.reference) ==
+                false)
+            .toList()
+            .toList()
+            .cast<UsersRecord>();
         setState(() {});
-        _model.currentProfessional = _model.professionals.first;
+      } else {
+        _model.professionals =
+            _model.professional!.toList().cast<UsersRecord>();
+        setState(() {});
       }
+
+      _model.currentProfessional = _model.professionals.first;
     });
   }
 

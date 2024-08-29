@@ -59,12 +59,10 @@ class RegisterUser1Model extends FlutterFlowModel<RegisterUser1Widget> {
       return 'Field is required';
     }
 
-    if (val.length > 16) {
-      return 'Maximum 16 characters allowed, currently ${val.length}.';
+    if (val.length > 10) {
+      return 'Maximum 10 characters allowed, currently ${val.length}.';
     }
-    if (!RegExp('^04\\s?(\\d{2}\\s?\\d{3}\\s?\\d{3})\$').hasMatch(val)) {
-      return 'Invalid format. Use 0453463465';
-    }
+
     return null;
   }
 

@@ -364,10 +364,10 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
                                                                       null),
                                                               options: const [
                                                                 'Support Worker',
-                                                                ' Coordinator',
+                                                                'Support  Coordinator',
+                                                                'Recovery Coaches',
                                                                 'Therapeutic Supports',
-                                                                'Home Maintence',
-                                                                'Recovery Coaches'
+                                                                'Home Maintence'
                                                               ],
                                                               width: 261.0,
                                                               height: 56.0,

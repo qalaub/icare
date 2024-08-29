@@ -359,32 +359,18 @@ class _RegisterProfessional2WidgetState
                                                             child:
                                                                 FlutterFlowDropDown<
                                                                     String>(
-                                                              controller: _model
+                                                              multiSelectController: _model
                                                                       .serviceTypeValueController ??=
-                                                                  FormFieldController<
-                                                                      String>(
-                                                                _model.serviceTypeValue ??=
-                                                                    '',
-                                                              ),
-                                                              options: List<
-                                                                  String>.from([
+                                                                  FormListFieldController<
+                                                                          String>(
+                                                                      null),
+                                                              options: const [
                                                                 'Support Worker',
-                                                                ' Coordinator',
+                                                                'Support  Coordinator',
+                                                                'Recovery Coaches',
                                                                 'Therapeutic Supports',
-                                                                'Home Maintence',
-                                                                'Recovery Coaches'
-                                                              ]),
-                                                              optionLabels: const [
-                                                                'Support Worker',
-                                                                ' Coordinator',
-                                                                'Therapeutic Supports',
-                                                                'Home Maintence',
-                                                                ''
+                                                                'Home Maintence'
                                                               ],
-                                                              onChanged: (val) =>
-                                                                  setState(() =>
-                                                                      _model.serviceTypeValue =
-                                                                          val),
                                                               width: 261.0,
                                                               height: 56.0,
                                                               textStyle:
@@ -424,7 +410,12 @@ class _RegisterProfessional2WidgetState
                                                               isSearchable:
                                                                   false,
                                                               isMultiSelect:
-                                                                  false,
+                                                                  true,
+                                                              onMultiSelectChanged:
+                                                                  (val) => setState(
+                                                                      () => _model
+                                                                              .serviceTypeValue =
+                                                                          val),
                                                             ),
                                                           ),
                                                         ),
@@ -1682,10 +1673,9 @@ class _RegisterProfessional2WidgetState
                                                         ..dropdown =
                                                             valueOrDefault<
                                                                 bool>(
-                                                          _model.serviceTypeValue !=
-                                                                  null &&
-                                                              _model.serviceTypeValue !=
-                                                                  '',
+                                                          _model.serviceTypeValue
+                                                                  ?.length !=
+                                                              null,
                                                           false,
                                                         )
                                                         ..dropdown2 =
@@ -1745,10 +1735,9 @@ class _RegisterProfessional2WidgetState
                                                               .text
                                                           ..rol =
                                                               Roles.profesional
-                                                          ..updateServiceType(
-                                                            (e) => e.add(_model
-                                                                .serviceTypeValue!),
-                                                          ),
+                                                          ..serviceType = _model
+                                                              .serviceTypeValue!
+                                                              .toList(),
                                                       );
                                                       FFAppState().verifyForm =
                                                           FormVerifyStruct();

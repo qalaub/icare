@@ -14,8 +14,8 @@ class RegisterProfessional2Model
   final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // State field(s) for serviceType widget.
-  String? serviceTypeValue;
-  FormFieldController<String>? serviceTypeValueController;
+  List<String>? serviceTypeValue;
+  FormFieldController<List<String>>? serviceTypeValueController;
   // State field(s) for ndisselect widget.
   String? ndisselectValue;
   FormFieldController<String>? ndisselectValueController;

@@ -1031,23 +1031,7 @@ class _RegisterProfessional1WidgetState
                                                     EasyDebounce.debounce(
                                                   '_model.phoneTextController',
                                                   const Duration(milliseconds: 2000),
-                                                  () async {
-                                                    setState(() {
-                                                      _model.phoneTextController
-                                                              ?.text =
-                                                          functions.handlePhone(
-                                                              _model
-                                                                  .phoneTextController
-                                                                  .text);
-                                                      _model.phoneTextController
-                                                              ?.selection =
-                                                          TextSelection.collapsed(
-                                                              offset: _model
-                                                                  .phoneTextController!
-                                                                  .text
-                                                                  .length);
-                                                    });
-                                                  },
+                                                  () async {},
                                                 ),
                                                 autofocus: true,
                                                 textCapitalization:
@@ -1056,7 +1040,7 @@ class _RegisterProfessional1WidgetState
                                                 decoration: InputDecoration(
                                                   isDense: true,
                                                   hintText:
-                                                      'Example:  0475345234',
+                                                      'Example:  3175345234',
                                                   hintStyle:
                                                       FlutterFlowTheme.of(
                                                               context)
