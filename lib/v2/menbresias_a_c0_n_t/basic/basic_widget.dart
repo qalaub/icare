@@ -136,7 +136,7 @@ class _BasicWidgetState extends State<BasicWidget> {
                             child: Align(
                               alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Text(
-                                'You go out in search of caregivers,You can use the map to navigate',
+                                'You go out in search of caregivers. You can use the map to navigate.',
                                 textAlign: TextAlign.center,
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
@@ -362,8 +362,7 @@ class _BasicWidgetState extends State<BasicWidget> {
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryText,
                                 ),
-                                activeColor:
-                                    FlutterFlowTheme.of(context).primary,
+                                activeColor: const Color(0xFF8F2BFD),
                                 checkColor: FlutterFlowTheme.of(context).info,
                               ),
                             ),

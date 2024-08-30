@@ -272,7 +272,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                         0.6,
                                                 decoration: const BoxDecoration(),
                                                 child: Text(
-                                                  ' Connect with a wide range of NDIS participants ',
+                                                  'Connect with a wide range of NDIS participants.',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -329,7 +329,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                         0.559,
                                                     decoration: const BoxDecoration(),
                                                     child: Text(
-                                                      'Customise your own profile, including BIO, photos and videos',
+                                                      'Customise your profile, including bio, photos, and videos.',
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .bodyMedium
@@ -431,7 +431,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                         0.6,
                                                 decoration: const BoxDecoration(),
                                                 child: Text(
-                                                  'Get notified when participants like your profile, commence service right away',
+                                                  'Get notified when participants like your profile. Commence service right away.',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -628,7 +628,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                   0.6,
                                               decoration: const BoxDecoration(),
                                               child: Text(
-                                                'Connect with a wide range of NDIS participants, send and receive messages instantly',
+                                                'Connect with a wide range of NDIS participants. Send and receive messages instantly.',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -684,7 +684,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                           0.55,
                                                   decoration: const BoxDecoration(),
                                                   child: Text(
-                                                    'Be seen quicker as you placed higher on the search list. Customise your own profile, including BIO, photos and videos',
+                                                    'Be seen more quickly by being placed higher on the search list. Customise your profile, including bio, photos, and videos.',
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
@@ -792,7 +792,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                   0.6,
                                               decoration: const BoxDecoration(),
                                               child: Text(
-                                                'Utilise our innovative map feature to see how many participants are around your area',
+                                                'Utilise our innovative map feature to see how many participants are in your area',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -987,7 +987,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                   0.6,
                                               decoration: const BoxDecoration(),
                                               child: Text(
-                                                'List several staff members, including coordinators or support workers to increase your chances of connecting with NDIS participants. Get access to our map features',
+                                                'List several staff members, including coordinators or support workers, to increase your chances of connecting with NDIS participants. Get access to our map features.',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -1043,7 +1043,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                           0.563,
                                                   decoration: const BoxDecoration(),
                                                   child: Text(
-                                                    'Be seen quicker as you placed higher on the search list. Your employees can customise their profiles and appear as part of your organisation',
+                                                    'Be seen more quickly by being placed higher on the search list. Your employees can customise their profiles and appear as part of your organisation.',
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
@@ -1137,7 +1137,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                   0.6,
                                               decoration: const BoxDecoration(),
                                               child: Text(
-                                                'Get notifications when participants like any of your listed employees. Send and receive messages to NDIS participants regarding your staff members',
+                                                'Get notifications when participants like any of your listed employees. Send and receive messages with NDIS participants regarding your staff members.',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -1288,8 +1288,8 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                       },
                       child: const Icon(
                         Icons.chevron_left_outlined,
-                        color: Colors.black,
-                        size: 43.0,
+                        color: Colors.white,
+                        size: 40.0,
                       ),
                     ),
                   ),

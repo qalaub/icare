@@ -563,7 +563,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                         width: MediaQuery.sizeOf(context).width * 0.96,
                         height: 230.0,
                         decoration: BoxDecoration(
-                          color: const Color(0xADE3E1E1),
+                          color: const Color(0xADFFD8FF),
                           borderRadius: BorderRadius.circular(18.0),
                         ),
                         child: Column(
@@ -611,7 +611,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                             ),
                                       ),
                                       const TextSpan(
-                                        text: 'Basic',
+                                        text: ' Basic',
                                         style: TextStyle(
                                           color: Color(0xFFF0AE2C),
                                           fontWeight: FontWeight.w600,
@@ -619,7 +619,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                         ),
                                       ),
                                       const TextSpan(
-                                        text: ' plan.',
+                                        text: '  plan.',
                                         style: TextStyle(),
                                       )
                                     ],

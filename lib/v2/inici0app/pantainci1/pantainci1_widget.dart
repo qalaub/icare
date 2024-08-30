@@ -94,7 +94,7 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
                                 ClipRRect(
                                   borderRadius: BorderRadius.circular(8.0),
                                   child: Image.asset(
-                                    'assets/images/3v3.png',
+                                    'assets/images/inicio_1-1.png',
                                     width: 300.0,
                                     height: 239.0,
                                     fit: BoxFit.cover,
@@ -103,7 +103,7 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
                                 ClipRRect(
                                   borderRadius: BorderRadius.circular(8.0),
                                   child: Image.asset(
-                                    'assets/images/2v2.png',
+                                    'assets/images/inicio_1-3.png',
                                     width: 300.0,
                                     height: 200.0,
                                     fit: BoxFit.cover,
@@ -112,7 +112,7 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
                                 ClipRRect(
                                   borderRadius: BorderRadius.circular(8.0),
                                   child: Image.asset(
-                                    'assets/images/1v1.png',
+                                    'assets/images/inicio_1-2.png',
                                     width: 300.0,
                                     height: 200.0,
                                     fit: BoxFit.cover,
@@ -225,7 +225,7 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
                                   FlutterFlowTheme.of(context).secondaryText,
                             ),
                             child: Checkbox(
-                              value: _model.checkboxValue ??= true,
+                              value: _model.checkboxValue ??= false,
                               onChanged: (newValue) async {
                                 setState(
                                     () => _model.checkboxValue = newValue!);
@@ -235,12 +235,12 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
                                 color:
                                     FlutterFlowTheme.of(context).secondaryText,
                               ),
-                              activeColor: const Color(0xFF6539EF),
+                              activeColor: const Color(0xFF8F2BFD),
                               checkColor: FlutterFlowTheme.of(context).info,
                             ),
                           ),
                           Text(
-                            'never see this screen again',
+                            'Never see this screen again',
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(

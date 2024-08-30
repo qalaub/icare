@@ -83,6 +83,9 @@ class RegisterProfessional1Model
       return 'Field is required';
     }
 
+    if (val.length < 10) {
+      return 'Requires at least 10 characters.';
+    }
     if (val.length > 10) {
       return 'Maximum 10 characters allowed, currently ${val.length}.';
     }

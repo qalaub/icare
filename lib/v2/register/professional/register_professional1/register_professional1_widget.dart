@@ -151,10 +151,10 @@ class _RegisterProfessional1WidgetState
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(8.0),
                                   child: Image.asset(
-                                    'assets/images/I=G=.png',
-                                    width: 100.0,
-                                    height: 100.0,
-                                    fit: BoxFit.cover,
+                                    'assets/images/logo.png',
+                                    width: 110.0,
+                                    height: 110.0,
+                                    fit: BoxFit.fitWidth,
                                   ),
                                 ),
                               ),
@@ -1268,7 +1268,7 @@ class _RegisterProfessional1WidgetState
                                                                       .labelMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            'Readex Pro',
+                                                                            'Montserrat',
                                                                         fontSize:
                                                                             20.0,
                                                                         letterSpacing:
@@ -1306,7 +1306,7 @@ class _RegisterProfessional1WidgetState
                                                                 .bodyMedium
                                                                 .override(
                                                                   fontFamily:
-                                                                      'Readex Pro',
+                                                                      'Montserrat',
                                                                   fontSize:
                                                                       20.0,
                                                                   letterSpacing:
@@ -1373,7 +1373,7 @@ class _RegisterProfessional1WidgetState
                                                                   .bodyMedium
                                                                   .override(
                                                                     fontFamily:
-                                                                        'Readex Pro',
+                                                                        'Montserrat',
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),

@@ -141,7 +141,7 @@ class _PremiumWidgetState extends State<PremiumWidget> {
                             child: Align(
                               alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Text(
-                                'business profile suitable for companies,Your collaborators will be better positioned',
+                                'Business profile suitable for companies. Your collaborators will be better positioned.',
                                 textAlign: TextAlign.center,
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
@@ -478,7 +478,7 @@ class _PremiumWidgetState extends State<PremiumWidget> {
                       ]
                           .divide(const SizedBox(height: 8.0))
                           .addToStart(const SizedBox(height: 16.0))
-                          .addToEnd(const SizedBox(height: 16.0)),
+                          .addToEnd(const SizedBox(height: 32.0)),
                     ),
                   ),
                 ),

@@ -69,7 +69,7 @@ class _NavbarPremiunWidgetState extends State<NavbarPremiunWidget> {
                         icon: const FaIcon(
                           FontAwesomeIcons.houseUser,
                           color: Colors.white,
-                          size: 34.0,
+                          size: 32.0,
                         ),
                         onPressed: () async {
                           if (FFAppState().authUserFireBase) {
@@ -156,7 +156,7 @@ class _NavbarPremiunWidgetState extends State<NavbarPremiunWidget> {
                       borderRadius: 34.0,
                       buttonSize: 52.0,
                       icon: const Icon(
-                        FFIcons.kmessage,
+                        Icons.wechat_rounded,
                         color: Colors.white,
                         size: 34.0,
                       ),
@@ -255,9 +255,9 @@ class _NavbarPremiunWidgetState extends State<NavbarPremiunWidget> {
                         borderRadius: 31.0,
                         buttonSize: 52.0,
                         icon: const Icon(
-                          FFIcons.kuser,
+                          Icons.person,
                           color: Colors.white,
-                          size: 34.0,
+                          size: 35.0,
                         ),
                         onPressed: () async {
                           if (FFAppState().authUserFireBase) {

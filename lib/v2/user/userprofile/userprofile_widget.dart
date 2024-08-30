@@ -70,7 +70,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                 width: double.infinity,
                                 height: 200.0,
                                 decoration: const BoxDecoration(
-                                  color: Color(0x76807D7F),
+                                  color: Color(0xB6E7A2D2),
                                 ),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,

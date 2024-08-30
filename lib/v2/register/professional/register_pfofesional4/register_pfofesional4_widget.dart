@@ -92,10 +92,10 @@ class _RegisterPfofesional4WidgetState
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(8.0),
                                     child: Image.asset(
-                                      'assets/images/I=G=.png',
-                                      width: 100.0,
-                                      height: 106.0,
-                                      fit: BoxFit.cover,
+                                      'assets/images/logo.png',
+                                      width: 110.0,
+                                      height: 116.0,
+                                      fit: BoxFit.fitWidth,
                                     ),
                                   ),
                                 ),

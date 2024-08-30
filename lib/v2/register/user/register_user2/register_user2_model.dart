@@ -45,7 +45,9 @@ class RegisterUser2Model extends FlutterFlowModel<RegisterUser2Widget> {
     if (val.length < 8) {
       return 'Requires at least 8 characters.';
     }
-
+    if (val.length > 15) {
+      return 'Maximum 15 characters allowed, currently ${val.length}.';
+    }
     if (!RegExp(
             '^(?=.*\\d)(?=.*[\\u0021-\\u002b\\u003c-\\u0040])(?=.*[A-Z])(?=.*[a-z])\\S{8,50}\$')
         .hasMatch(val)) {

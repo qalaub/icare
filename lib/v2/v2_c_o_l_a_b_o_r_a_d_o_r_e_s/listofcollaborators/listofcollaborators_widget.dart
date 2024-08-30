@@ -131,10 +131,7 @@ class _ListofcollaboratorsWidgetState extends State<ListofcollaboratorsWidget> {
                           child: Container(
                             width: 300.0,
                             height: 480.0,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                            ),
+                            decoration: const BoxDecoration(),
                             child: AuthUserStreamWidget(
                               builder: (context) => Builder(
                                 builder: (context) {

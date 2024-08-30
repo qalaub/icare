@@ -191,7 +191,7 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                                             .override(
                                               fontFamily: 'Poppins',
                                               color: Colors.white,
-                                              fontSize: 13.0,
+                                              fontSize: 12.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -200,7 +200,7 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                                   ),
                                   Container(
                                     width:
-                                        MediaQuery.sizeOf(context).width * 0.3,
+                                        MediaQuery.sizeOf(context).width * 0.21,
                                     height: 30.0,
                                     decoration: const BoxDecoration(
                                       color: Color(0xFFAC16A4),
@@ -224,7 +224,7 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                                             .override(
                                               fontFamily: 'Poppins',
                                               color: Colors.white,
-                                              fontSize: 13.0,
+                                              fontSize: 12.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),

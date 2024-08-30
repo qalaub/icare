@@ -46,7 +46,7 @@ class _OptionsMessageWidgetState extends State<OptionsMessageWidget> {
       alignment: const AlignmentDirectional(1.0, -1.0),
       child: Container(
         width: MediaQuery.sizeOf(context).width * 0.55,
-        height: 127.0,
+        height: 137.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
           boxShadow: const [

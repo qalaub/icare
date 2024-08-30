@@ -159,22 +159,6 @@ class _RegisterProfessional2WidgetState
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.0, -1.0),
-                              child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 6.0, 0.0, 0.0),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  child: Image.asset(
-                                    'assets/images/I=G=.png',
-                                    width: 100.0,
-                                    height: 106.0,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Align(
                               alignment: const AlignmentDirectional(-0.91, -0.96),
                               child: FlutterFlowIconButton(
                                 borderRadius: 20.0,
@@ -365,11 +349,11 @@ class _RegisterProfessional2WidgetState
                                                                           String>(
                                                                       null),
                                                               options: const [
-                                                                'Support Worker',
-                                                                'Support  Coordinator',
+                                                                'Support Workers',
+                                                                'Support  Coordinators',
                                                                 'Recovery Coaches',
                                                                 'Therapeutic Supports',
-                                                                'Home Maintence'
+                                                                'Home Maintenance'
                                                               ],
                                                               width: 261.0,
                                                               height: 56.0,
@@ -1795,6 +1779,22 @@ class _RegisterProfessional2WidgetState
                                         ),
                                       ),
                                     ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: const AlignmentDirectional(0.0, -1.0),
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 6.0, 0.0, 0.0),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  child: Image.asset(
+                                    'assets/images/logo.png',
+                                    width: 113.0,
+                                    height: 106.0,
+                                    fit: BoxFit.fitWidth,
                                   ),
                                 ),
                               ),

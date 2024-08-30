@@ -105,9 +105,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(8.0),
                                   child: Image.asset(
-                                    'assets/images/I=G=.png',
-                                    width: 120.0,
-                                    height: 116.0,
+                                    'assets/images/logo.png',
+                                    width: 123.0,
+                                    height: 113.0,
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -149,7 +149,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                 const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 10.0, 0.0, 0.0),
                                             child: Text(
-                                              'Log In To Your iCare Account',
+                                              'Log in to your iCare account',
                                               textAlign: TextAlign.center,
                                               style: FlutterFlowTheme.of(
                                                       context)
@@ -616,7 +616,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                   children: [
                                                     TextSpan(
                                                       text:
-                                                          'Don\'t Have An Account? ',
+                                                          'Don\'t have an account?',
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .bodyMedium
@@ -637,7 +637,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                         'Montserrat',
                                                         color: Colors.black,
                                                         fontWeight:
-                                                            FontWeight.bold,
+                                                            FontWeight.w600,
                                                         fontSize: 16.0,
                                                         decoration:
                                                             TextDecoration

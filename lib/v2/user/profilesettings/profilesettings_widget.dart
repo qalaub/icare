@@ -769,18 +769,18 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                           )),
                                                           options: List<
                                                               String>.from([
-                                                            'Support Worker',
+                                                            'Support Workers',
                                                             'Support Coordinators ',
                                                             'Recovery Coaches ',
                                                             'Therapeutic Supports',
-                                                            ' Home Maintence'
+                                                            ' Home Maintenance'
                                                           ]),
                                                           optionLabels: const [
-                                                            'Support Worker',
+                                                            'Support Workers',
                                                             'Support Coordinators',
                                                             'Recovery Coaches ',
                                                             ' Therapeutic Supports',
-                                                            'Home Maintence'
+                                                            'Home Maintenance'
                                                           ],
                                                           width:
                                                               MediaQuery.sizeOf(

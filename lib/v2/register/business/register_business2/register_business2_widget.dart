@@ -166,10 +166,10 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(8.0),
                                   child: Image.asset(
-                                    'assets/images/I=G=.png',
+                                    'assets/images/logo.png',
                                     width: 100.0,
                                     height: 106.0,
-                                    fit: BoxFit.cover,
+                                    fit: BoxFit.fitWidth,
                                   ),
                                 ),
                               ),
@@ -363,11 +363,11 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
                                                                           String>(
                                                                       null),
                                                               options: const [
-                                                                'Support Worker',
-                                                                'Support  Coordinator',
+                                                                'Support Workers',
+                                                                'Support  Coordinators',
                                                                 'Recovery Coaches',
                                                                 'Therapeutic Supports',
-                                                                'Home Maintence'
+                                                                'Home Maintenance'
                                                               ],
                                                               width: 261.0,
                                                               height: 56.0,

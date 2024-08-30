@@ -135,7 +135,7 @@ class _StandarWidgetState extends State<StandarWidget> {
                             child: Align(
                               alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Text(
-                                'Unlock all the power of this mobile tool and enjoy digital experience like never before!',
+                                'Unlock all the power of this mobile tool and enjoy a digital experience like never before!',
                                 textAlign: TextAlign.center,
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium

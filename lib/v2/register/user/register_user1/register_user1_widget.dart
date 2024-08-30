@@ -161,10 +161,10 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
                                 child: Image.asset(
-                                  'assets/images/I=G=.png',
-                                  width: 100.0,
+                                  'assets/images/logo.png',
+                                  width: 110.0,
                                   height: 106.0,
-                                  fit: BoxFit.cover,
+                                  fit: BoxFit.fitWidth,
                                 ),
                               ),
                             ),
@@ -1132,7 +1132,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                       .labelMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            'Readex Pro',
+                                                                            'Montserrat',
                                                                         fontSize:
                                                                             20.0,
                                                                         letterSpacing:
@@ -1170,7 +1170,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                 .bodyMedium
                                                                 .override(
                                                                   fontFamily:
-                                                                      'Readex Pro',
+                                                                      'Montserrat',
                                                                   fontSize:
                                                                       20.0,
                                                                   letterSpacing:
@@ -1226,7 +1226,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                   .bodyMedium
                                                                   .override(
                                                                     fontFamily:
-                                                                        'Readex Pro',
+                                                                        'Montserrat',
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),

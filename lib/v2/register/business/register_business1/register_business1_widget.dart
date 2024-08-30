@@ -152,10 +152,10 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(8.0),
                                   child: Image.asset(
-                                    'assets/images/I=G=.png',
+                                    'assets/images/logo.png',
                                     width: 100.0,
                                     height: 106.0,
-                                    fit: BoxFit.cover,
+                                    fit: BoxFit.fitWidth,
                                   ),
                                 ),
                               ),
@@ -1221,11 +1221,13 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                                       .labelMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            'Readex Pro',
+                                                                            'Montserrat',
                                                                         fontSize:
                                                                             20.0,
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
                                                                       ),
                                                               hintText:
                                                                   'Select your suburb',
@@ -1259,7 +1261,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                                 .bodyMedium
                                                                 .override(
                                                                   fontFamily:
-                                                                      'Readex Pro',
+                                                                      'Montserrat',
                                                                   fontSize:
                                                                       20.0,
                                                                   letterSpacing:

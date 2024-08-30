@@ -114,7 +114,7 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                           borderColor: Colors.transparent,
                           buttonSize: 48.0,
                           icon: const Icon(
-                            FFIcons.kheart,
+                            Icons.favorite_border_rounded,
                             color: Colors.white,
                             size: 34.0,
                           ),
@@ -172,7 +172,7 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                           borderColor: Colors.transparent,
                           buttonSize: 48.0,
                           icon: const Icon(
-                            FFIcons.kmessage,
+                            Icons.wechat_rounded,
                             color: Colors.white,
                             size: 34.0,
                           ),
@@ -219,9 +219,9 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                         borderColor: Colors.transparent,
                         buttonSize: 48.0,
                         icon: const Icon(
-                          FFIcons.kuser,
+                          Icons.person,
                           color: Colors.white,
-                          size: 34.0,
+                          size: 37.0,
                         ),
                         onPressed: () async {
                           if (FFAppState().authUserFireBase) {
