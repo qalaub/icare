@@ -8,7 +8,6 @@ import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
 import '/v2/professional/tinderv2_c0/tinderv2_c0_widget.dart';
 import 'dart:async';
-import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +34,6 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _model.tokenTemp = await actions.getToken();
       _model.professional = await queryUsersRecordOnce(
         queryBuilder: (usersRecord) => usersRecord.where(
           'rol',

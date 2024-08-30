@@ -45,6 +45,14 @@ class RegisterUser1Model extends FlutterFlowModel<RegisterUser1Widget> {
   FocusNode? lastnameFocusNode;
   TextEditingController? lastnameTextController;
   String? Function(BuildContext, String?)? lastnameTextControllerValidator;
+  String? _lastnameTextControllerValidator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Field is required';
+    }
+
+    return null;
+  }
+
   // State field(s) for date widget.
   FocusNode? dateFocusNode;
   TextEditingController? dateTextController;
@@ -81,6 +89,7 @@ class RegisterUser1Model extends FlutterFlowModel<RegisterUser1Widget> {
   @override
   void initState(BuildContext context) {
     firstNameTextControllerValidator = _firstNameTextControllerValidator;
+    lastnameTextControllerValidator = _lastnameTextControllerValidator;
     phoneTextControllerValidator = _phoneTextControllerValidator;
   }
 

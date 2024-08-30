@@ -883,12 +883,6 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                     _model.phoneTextController,
                                                 focusNode:
                                                     _model.phoneFocusNode,
-                                                onChanged: (_) =>
-                                                    EasyDebounce.debounce(
-                                                  '_model.phoneTextController',
-                                                  const Duration(milliseconds: 2000),
-                                                  () async {},
-                                                ),
                                                 autofocus: true,
                                                 obscureText: false,
                                                 decoration: InputDecoration(
@@ -988,6 +982,10 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                 validator: _model
                                                     .phoneTextControllerValidator
                                                     .asValidator(context),
+                                                inputFormatters: [
+                                                  FilteringTextInputFormatter
+                                                      .allow(RegExp('[0-9]'))
+                                                ],
                                               ),
                                             ),
                                           ),
@@ -1202,7 +1200,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                       -0.62,
                                                                       1.0),
                                                               child: Text(
-                                                                'Field is required',
+                                                                'Invalid suburb',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -1295,14 +1293,18 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                           ..subur =
                                                               valueOrDefault<
                                                                   bool>(
-                                                            _model.newUbication !=
-                                                                    null &&
-                                                                _model.newUbication !=
-                                                                    '',
+                                                            (_model.queryTextController
+                                                                            .text !=
+                                                                        '') &&
+                                                                (_model.newUbication !=
+                                                                        null &&
+                                                                    _model.newUbication !=
+                                                                        ''),
                                                             false,
                                                           ),
                                                       );
                                                       FFAppState().counter = 4;
+                                                      setState(() {});
                                                       if (_model.formKey
                                                                   .currentState ==
                                                               null ||
@@ -1311,50 +1313,61 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                               .validate()) {
                                                         return;
                                                       }
-                                                      FFAppState().verifyForm =
-                                                          FormVerifyStruct();
-                                                      FFAppState().counter = 0;
-                                                      FFAppState()
-                                                          .updateRegisterProviderFormStruct(
-                                                        (e) => e
-                                                          ..firstName = _model
-                                                              .firstNameTextController
-                                                              .text
-                                                          ..birthdate = functions
-                                                              .convertStringToDate(
-                                                                  _model
-                                                                      .dateTextController
-                                                                      .text)
-                                                          ..phone = _model
-                                                              .phoneTextController
-                                                              .text
-                                                          ..suburb = functions
-                                                              .changeUbication(functions
-                                                                  .stringToLatLng(
-                                                                      _model
-                                                                          .newUbication!))
-                                                          ..plan = Plan.standar
-                                                          ..lastName = _model
-                                                              .lastnameTextController
-                                                              .text,
-                                                      );
+                                                      if (FFAppState()
+                                                              .verifyForm
+                                                              .subur &&
+                                                          FFAppState()
+                                                              .verifyForm
+                                                              .date) {
+                                                        FFAppState()
+                                                                .verifyForm =
+                                                            FormVerifyStruct();
+                                                        FFAppState().counter =
+                                                            0;
+                                                        FFAppState()
+                                                            .updateRegisterProviderFormStruct(
+                                                          (e) => e
+                                                            ..firstName = _model
+                                                                .firstNameTextController
+                                                                .text
+                                                            ..birthdate = functions
+                                                                .convertStringToDate(
+                                                                    _model
+                                                                        .dateTextController
+                                                                        .text)
+                                                            ..phone = _model
+                                                                .phoneTextController
+                                                                .text
+                                                            ..suburb = functions
+                                                                .changeUbication(
+                                                                    functions.stringToLatLng(
+                                                                        _model
+                                                                            .newUbication!))
+                                                            ..plan =
+                                                                Plan.standar
+                                                            ..lastName = _model
+                                                                .lastnameTextController
+                                                                .text,
+                                                        );
 
-                                                      context.pushNamed(
-                                                        'RegisterUser2',
-                                                        extra: <String,
-                                                            dynamic>{
-                                                          kTransitionInfoKey:
-                                                              const TransitionInfo(
-                                                            hasTransition: true,
-                                                            transitionType:
-                                                                PageTransitionType
-                                                                    .fade,
-                                                            duration: Duration(
-                                                                milliseconds:
-                                                                    200),
-                                                          ),
-                                                        },
-                                                      );
+                                                        context.pushNamed(
+                                                          'RegisterUser2',
+                                                          extra: <String,
+                                                              dynamic>{
+                                                            kTransitionInfoKey:
+                                                                const TransitionInfo(
+                                                              hasTransition:
+                                                                  true,
+                                                              transitionType:
+                                                                  PageTransitionType
+                                                                      .fade,
+                                                              duration: Duration(
+                                                                  milliseconds:
+                                                                      200),
+                                                            ),
+                                                          },
+                                                        );
+                                                      }
                                                     },
                                                     text: 'Continue',
                                                     options: FFButtonOptions(

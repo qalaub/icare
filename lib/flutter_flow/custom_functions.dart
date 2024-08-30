@@ -163,3 +163,7 @@ String suguestionPlan(
   if (tree) 'Premiun';
   return 'Basic';
 }
+
+String emptyString() {
+  return "";
+}

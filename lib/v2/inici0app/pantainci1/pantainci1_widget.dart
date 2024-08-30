@@ -34,22 +34,11 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
       if (FFAppState().showTutorial) {
         if (loggedIn) {
           if (!valueOrDefault<bool>(currentUserDocument?.firtsLogin, false)) {
-            context.goNamedAuth('tinderv2C1', context.mounted);
-          }
-        } else {
-          if (_model.tokenTemp != null && _model.tokenTemp != '') {
-            GoRouter.of(context).prepareAuthEvent();
-            final user = await authManager.signInWithJwtToken(
-              context,
-              _model.tokenTemp!,
-            );
-            if (user == null) {
-              return;
-            }
+            context.goNamed('tinderv2C1');
           }
         }
       } else {
-        context.goNamedAuth('tinderv2C1', context.mounted);
+        context.goNamed('tinderv2C1');
       }
     });
   }

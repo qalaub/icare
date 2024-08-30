@@ -45,6 +45,14 @@ class RegisterProfessional1Model
   FocusNode? lastNameFocusNode;
   TextEditingController? lastNameTextController;
   String? Function(BuildContext, String?)? lastNameTextControllerValidator;
+  String? _lastNameTextControllerValidator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Field is required';
+    }
+
+    return null;
+  }
+
   // State field(s) for company widget.
   FocusNode? companyFocusNode;
   TextEditingController? companyTextController;
@@ -105,6 +113,7 @@ class RegisterProfessional1Model
   @override
   void initState(BuildContext context) {
     firstNameTextControllerValidator = _firstNameTextControllerValidator;
+    lastNameTextControllerValidator = _lastNameTextControllerValidator;
     companyTextControllerValidator = _companyTextControllerValidator;
     emailTextControllerValidator = _emailTextControllerValidator;
     phoneTextControllerValidator = _phoneTextControllerValidator;

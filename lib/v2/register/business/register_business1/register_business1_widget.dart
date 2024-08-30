@@ -1296,7 +1296,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                                             0.0,
                                                                             0.0),
                                                                 child: Text(
-                                                                  'Field is required',
+                                                                  'Invalid suburb',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
@@ -1363,6 +1363,19 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                       0.0, 10.0, 0.0, 10.0),
                                               child: FFButtonWidget(
                                                 onPressed: () async {
+                                                  FFAppState()
+                                                      .updateVerifyFormStruct(
+                                                    (e) => e
+                                                      ..subur = (_model.queryTextController
+                                                                      .text !=
+                                                                  '') &&
+                                                          (_model.newUbication !=
+                                                                  null &&
+                                                              _model.newUbication !=
+                                                                  ''),
+                                                  );
+                                                  FFAppState().counter = 4;
+                                                  setState(() {});
                                                   if (_model.formKey
                                                               .currentState ==
                                                           null ||
@@ -1371,56 +1384,63 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                           .validate()) {
                                                     return;
                                                   }
-                                                  FFAppState()
-                                                      .updateRegisterProviderFormStruct(
-                                                    (e) => e
-                                                      ..firstName = _model
-                                                          .firstNameTextController
-                                                          .text
-                                                      ..email = _model
-                                                          .emailTextController
-                                                          .text
-                                                      ..phone = _model
-                                                          .phoneTextController
-                                                          .text
-                                                      ..company = _model
-                                                          .companyTextController
-                                                          .text
-                                                      ..suburb = functions
-                                                          .changeUbication(functions
-                                                              .stringToLatLng(_model
-                                                                  .newUbication!))
-                                                      ..lastName = _model
-                                                          .lastNameTextController
-                                                          .text,
-                                                  );
-                                                  FFAppState().verifyForm =
-                                                      FormVerifyStruct();
-                                                  FFAppState().counter = 0;
-                                                  FFAppState()
-                                                      .updateRegisterProviderFormStruct(
-                                                    (e) => e
-                                                      ..suburb = functions
-                                                          .changeUbication(
-                                                              FFAppState()
-                                                                  .registerProviderForm
-                                                                  .suburb!),
-                                                  );
+                                                  if (FFAppState()
+                                                          .verifyForm
+                                                          .subur ==
+                                                      true) {
+                                                    FFAppState()
+                                                        .updateRegisterProviderFormStruct(
+                                                      (e) => e
+                                                        ..firstName = _model
+                                                            .firstNameTextController
+                                                            .text
+                                                        ..email = _model
+                                                            .emailTextController
+                                                            .text
+                                                        ..phone = _model
+                                                            .phoneTextController
+                                                            .text
+                                                        ..company = _model
+                                                            .companyTextController
+                                                            .text
+                                                        ..suburb = functions
+                                                            .changeUbication(functions
+                                                                .stringToLatLng(
+                                                                    _model
+                                                                        .newUbication!))
+                                                        ..lastName = _model
+                                                            .lastNameTextController
+                                                            .text,
+                                                    );
+                                                    FFAppState().verifyForm =
+                                                        FormVerifyStruct();
+                                                    FFAppState().counter = 0;
+                                                    FFAppState()
+                                                        .updateRegisterProviderFormStruct(
+                                                      (e) => e
+                                                        ..suburb = functions
+                                                            .changeUbication(
+                                                                FFAppState()
+                                                                    .registerProviderForm
+                                                                    .suburb!),
+                                                    );
 
-                                                  context.pushNamed(
-                                                    'RegisterBusiness2',
-                                                    extra: <String, dynamic>{
-                                                      kTransitionInfoKey:
-                                                          const TransitionInfo(
-                                                        hasTransition: true,
-                                                        transitionType:
-                                                            PageTransitionType
-                                                                .fade,
-                                                        duration: Duration(
-                                                            milliseconds: 200),
-                                                      ),
-                                                    },
-                                                  );
+                                                    context.pushNamed(
+                                                      'RegisterBusiness2',
+                                                      extra: <String, dynamic>{
+                                                        kTransitionInfoKey:
+                                                            const TransitionInfo(
+                                                          hasTransition: true,
+                                                          transitionType:
+                                                              PageTransitionType
+                                                                  .fade,
+                                                          duration: Duration(
+                                                              milliseconds:
+                                                                  200),
+                                                        ),
+                                                      },
+                                                    );
+                                                  }
                                                 },
                                                 text: 'Continue',
                                                 options: FFButtonOptions(
