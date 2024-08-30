@@ -87,21 +87,67 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    ClipRRect(
-                      borderRadius: const BorderRadius.only(
-                        bottomLeft: Radius.circular(0.0),
-                        bottomRight: Radius.circular(0.0),
-                        topLeft: Radius.circular(14.0),
-                        topRight: Radius.circular(14.0),
-                      ),
-                      child: Image.network(
-                        valueOrDefault<String>(
-                          widget.professional?.photoUrl,
-                          'https://i.ibb.co/2qkDLKb/Frame-74.png',
-                        ),
-                        width: MediaQuery.sizeOf(context).width * 1.0,
-                        height: MediaQuery.sizeOf(context).height * 0.5,
-                        fit: BoxFit.cover,
+                    Expanded(
+                      child: Builder(
+                        builder: (context) {
+                          final imagesProfessional = widget
+                                  .professional?.images
+                                  .map((e) => e)
+                                  .toList()
+                                  .toList() ??
+                              [];
+
+                          return SizedBox(
+                            width: double.infinity,
+                            height: 500.0,
+                            child: PageView.builder(
+                              controller: _model.pageViewController ??=
+                                  PageController(
+                                      initialPage: max(
+                                          0,
+                                          min(0,
+                                              imagesProfessional.length - 1))),
+                              scrollDirection: Axis.horizontal,
+                              itemCount: imagesProfessional.length,
+                              itemBuilder: (context, imagesProfessionalIndex) {
+                                final imagesProfessionalItem =
+                                    imagesProfessional[imagesProfessionalIndex];
+                                return InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    await _model.pageViewController?.nextPage(
+                                      duration: const Duration(milliseconds: 300),
+                                      curve: Curves.ease,
+                                    );
+                                  },
+                                  child: ClipRRect(
+                                    borderRadius: const BorderRadius.only(
+                                      bottomLeft: Radius.circular(0.0),
+                                      bottomRight: Radius.circular(0.0),
+                                      topLeft: Radius.circular(14.0),
+                                      topRight: Radius.circular(14.0),
+                                    ),
+                                    child: Image.network(
+                                      valueOrDefault<String>(
+                                        imagesProfessionalItem,
+                                        'https://i.ibb.co/2qkDLKb/Frame-74.png',
+                                      ),
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.5,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                );
+                              },
+                            ),
+                          );
+                        },
                       ),
                     ),
                     Row(

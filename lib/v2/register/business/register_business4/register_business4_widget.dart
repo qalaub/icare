@@ -540,7 +540,9 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                           child: FFButtonWidget(
                                             onPressed: () async {
                                               if (FFAppState()
-                                                      .imagesUserUpload.isNotEmpty) {
+                                                      .imagesUserUpload
+                                                      .length >
+                                                  1) {
                                                 _model.photoVerify = true;
                                                 setState(() {});
                                                 FFAppState()

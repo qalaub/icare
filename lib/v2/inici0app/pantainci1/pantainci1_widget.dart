@@ -31,25 +31,25 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       _model.tokenTemp = await actions.getToken();
-      if (_model.tokenTemp != null && _model.tokenTemp != '') {
-        GoRouter.of(context).prepareAuthEvent();
-        final user = await authManager.signInWithJwtToken(
-          context,
-          _model.tokenTemp!,
-        );
-        if (user == null) {
-          return;
-        }
-      } else {
-        if (FFAppState().showTutorial) {
-          if (loggedIn) {
-            if (!valueOrDefault<bool>(currentUserDocument?.firtsLogin, false)) {
-              context.goNamedAuth('tinderv2C1', context.mounted);
-            }
+      if (FFAppState().showTutorial) {
+        if (loggedIn) {
+          if (!valueOrDefault<bool>(currentUserDocument?.firtsLogin, false)) {
+            context.goNamedAuth('tinderv2C1', context.mounted);
           }
         } else {
-          context.goNamedAuth('tinderv2C1', context.mounted);
+          if (_model.tokenTemp != null && _model.tokenTemp != '') {
+            GoRouter.of(context).prepareAuthEvent();
+            final user = await authManager.signInWithJwtToken(
+              context,
+              _model.tokenTemp!,
+            );
+            if (user == null) {
+              return;
+            }
+          }
         }
+      } else {
+        context.goNamedAuth('tinderv2C1', context.mounted);
       }
     });
   }

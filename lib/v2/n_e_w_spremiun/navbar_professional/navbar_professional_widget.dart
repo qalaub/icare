@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:provider/provider.dart';
 import 'navbar_professional_model.dart';
 export 'navbar_professional_model.dart';
 
@@ -41,8 +40,6 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Align(
       alignment: const AlignmentDirectional(0.0, 0.0),
       child: Container(
@@ -73,7 +70,7 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                             size: 30.0,
                           ),
                           onPressed: () async {
-                            if (FFAppState().authUserFireBase) {
+                            if (loggedIn) {
                               context.pushNamed('HomeSearch');
                             } else {
                               context.pushNamed('Login');
@@ -119,7 +116,7 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                             size: 34.0,
                           ),
                           onPressed: () async {
-                            if (FFAppState().authUserFireBase) {
+                            if (loggedIn) {
                               if (currentUserDocument?.rol == Roles.user) {
                                 context.pushNamed('favV3Copy');
                               } else {
@@ -177,7 +174,7 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                             size: 34.0,
                           ),
                           onPressed: () async {
-                            if (FFAppState().authUserFireBase) {
+                            if (loggedIn) {
                               context.pushNamed('chat_2_main');
                             } else {
                               context.pushNamed('Login');
@@ -224,7 +221,7 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                           size: 37.0,
                         ),
                         onPressed: () async {
-                          if (FFAppState().authUserFireBase) {
+                          if (loggedIn) {
                             context.pushNamed('userprofile');
                           } else {
                             context.pushNamed('Login');

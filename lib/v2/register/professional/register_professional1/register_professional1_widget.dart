@@ -9,7 +9,6 @@ import '/v2/user/mapbuscar/mapbuscar_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
 import 'register_professional1_model.dart';
@@ -384,13 +383,11 @@ class _RegisterProfessional1WidgetState
                                                           letterSpacing: 0.0,
                                                         ),
                                                 maxLines: null,
+                                                keyboardType:
+                                                    TextInputType.name,
                                                 validator: _model
                                                     .firstNameTextControllerValidator
                                                     .asValidator(context),
-                                                inputFormatters: [
-                                                  FilteringTextInputFormatter
-                                                      .allow(RegExp('[a-zA-Z]'))
-                                                ],
                                               ),
                                             ),
                                           ),
@@ -535,13 +532,11 @@ class _RegisterProfessional1WidgetState
                                                           letterSpacing: 0.0,
                                                         ),
                                                 maxLines: null,
+                                                keyboardType:
+                                                    TextInputType.name,
                                                 validator: _model
                                                     .lastNameTextControllerValidator
                                                     .asValidator(context),
-                                                inputFormatters: [
-                                                  FilteringTextInputFormatter
-                                                      .allow(RegExp('[a-zA-Z]'))
-                                                ],
                                               ),
                                             ),
                                           ),

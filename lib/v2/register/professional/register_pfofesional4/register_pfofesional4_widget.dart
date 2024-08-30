@@ -3,6 +3,7 @@ import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
 import '/backend/stripe/payment_manager.dart';
 import '/components/image_upload_widget.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -101,6 +102,23 @@ class _RegisterPfofesional4WidgetState
                                 ),
                               ),
                               Align(
+                                alignment: const AlignmentDirectional(-0.91, -0.96),
+                                child: FlutterFlowIconButton(
+                                  borderColor: Colors.transparent,
+                                  borderRadius: 20.0,
+                                  borderWidth: 1.0,
+                                  buttonSize: 40.0,
+                                  icon: const Icon(
+                                    Icons.arrow_back_ios_new,
+                                    color: Colors.black,
+                                    size: 24.0,
+                                  ),
+                                  onPressed: () async {
+                                    context.safePop();
+                                  },
+                                ),
+                              ),
+                              Align(
                                 alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
@@ -147,6 +165,31 @@ class _RegisterPfofesional4WidgetState
                                             ),
                                           ),
                                         ),
+                                        if (_model.photosVerify)
+                                          Align(
+                                            alignment:
+                                                const AlignmentDirectional(0.0, -1.0),
+                                            child: Padding(
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      10.0, 10.0, 10.0, 10.0),
+                                              child: Text(
+                                                'At least you must upload 2 photos for your profile where your face can be seen',
+                                                textAlign: TextAlign.center,
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily: 'Montserrat',
+                                                      color: const Color(0xFF6F6F6F),
+                                                      fontSize: 13.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                    ),
+                                              ),
+                                            ),
+                                          ),
                                         if (!_model.photosVerify)
                                           Align(
                                             alignment:
@@ -164,31 +207,6 @@ class _RegisterPfofesional4WidgetState
                                                     .override(
                                                       fontFamily: 'Montserrat',
                                                       color: const Color(0xFFE90606),
-                                                      fontSize: 13.0,
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FontWeight.w500,
-                                                    ),
-                                              ),
-                                            ),
-                                          ),
-                                        if (_model.photosVerify)
-                                          Align(
-                                            alignment:
-                                                const AlignmentDirectional(0.0, -1.0),
-                                            child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      10.0, 10.0, 10.0, 10.0),
-                                              child: Text(
-                                                'You must upload at least 1 photo for your profile where your face can be seen.',
-                                                textAlign: TextAlign.center,
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      fontFamily: 'Montserrat',
-                                                      color: const Color(0xFF6F6F6F),
                                                       fontSize: 13.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
@@ -237,32 +255,274 @@ class _RegisterPfofesional4WidgetState
                                                 Align(
                                                   alignment:
                                                       const AlignmentDirectional(
-                                                          0.0, 0.0),
-                                                  child: Material(
-                                                    color: Colors.transparent,
-                                                    elevation: 2.0,
-                                                    shape:
-                                                        RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              20.0),
-                                                    ),
+                                                          -1.0, -1.0),
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(10.0,
+                                                                10.0, 0.0, 0.0),
                                                     child: Container(
-                                                      width: 300.0,
-                                                      height: 282.0,
+                                                      width: 100.0,
+                                                      height: 130.0,
                                                       decoration: BoxDecoration(
+                                                        color:
+                                                            const Color(0xFFD9D9D9),
                                                         borderRadius:
-                                                            BorderRadius
-                                                                .circular(20.0),
+                                                            const BorderRadius.only(
+                                                          bottomLeft:
+                                                              Radius.circular(
+                                                                  12.0),
+                                                          bottomRight:
+                                                              Radius.circular(
+                                                                  12.0),
+                                                          topLeft:
+                                                              Radius.circular(
+                                                                  12.0),
+                                                          topRight:
+                                                              Radius.circular(
+                                                                  12.0),
+                                                        ),
                                                         border: Border.all(
                                                           color:
                                                               const Color(0xFFD9D9D9),
-                                                          width: 2.0,
+                                                          width: 1.0,
                                                         ),
                                                       ),
                                                       child: wrapWithModel(
-                                                        model: _model
-                                                            .imageUploadModel,
+                                                        model: _model.img1Model,
+                                                        updateCallback: () =>
+                                                            setState(() {}),
+                                                        child:
+                                                            const ImageUploadWidget(),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                Align(
+                                                  alignment:
+                                                      const AlignmentDirectional(
+                                                          0.0, -1.0),
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 10.0,
+                                                                0.0, 0.0),
+                                                    child: Container(
+                                                      width: 100.0,
+                                                      height: 130.0,
+                                                      decoration: BoxDecoration(
+                                                        color:
+                                                            const Color(0xFFD9D9D9),
+                                                        borderRadius:
+                                                            const BorderRadius.only(
+                                                          bottomLeft:
+                                                              Radius.circular(
+                                                                  12.0),
+                                                          bottomRight:
+                                                              Radius.circular(
+                                                                  12.0),
+                                                          topLeft:
+                                                              Radius.circular(
+                                                                  12.0),
+                                                          topRight:
+                                                              Radius.circular(
+                                                                  12.0),
+                                                        ),
+                                                        border: Border.all(
+                                                          color:
+                                                              const Color(0xFFD9D9D9),
+                                                          width: 1.0,
+                                                        ),
+                                                      ),
+                                                      child: wrapWithModel(
+                                                        model: _model.img2Model,
+                                                        updateCallback: () =>
+                                                            setState(() {}),
+                                                        child:
+                                                            const ImageUploadWidget(),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                Align(
+                                                  alignment:
+                                                      const AlignmentDirectional(
+                                                          1.0, -1.0),
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 10.0,
+                                                                10.0, 0.0),
+                                                    child: Container(
+                                                      width: 100.0,
+                                                      height: 130.0,
+                                                      decoration: BoxDecoration(
+                                                        color:
+                                                            const Color(0xFFD9D9D9),
+                                                        borderRadius:
+                                                            const BorderRadius.only(
+                                                          bottomLeft:
+                                                              Radius.circular(
+                                                                  12.0),
+                                                          bottomRight:
+                                                              Radius.circular(
+                                                                  12.0),
+                                                          topLeft:
+                                                              Radius.circular(
+                                                                  12.0),
+                                                          topRight:
+                                                              Radius.circular(
+                                                                  12.0),
+                                                        ),
+                                                        border: Border.all(
+                                                          color:
+                                                              const Color(0xFFD9D9D9),
+                                                          width: 1.0,
+                                                        ),
+                                                      ),
+                                                      child: wrapWithModel(
+                                                        model: _model.img3Model,
+                                                        updateCallback: () =>
+                                                            setState(() {}),
+                                                        child:
+                                                            const ImageUploadWidget(),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                Align(
+                                                  alignment:
+                                                      const AlignmentDirectional(
+                                                          -1.0, 1.0),
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(
+                                                                10.0,
+                                                                10.0,
+                                                                0.0,
+                                                                10.0),
+                                                    child: Container(
+                                                      width: 100.0,
+                                                      height: 130.0,
+                                                      decoration: BoxDecoration(
+                                                        color:
+                                                            const Color(0xFFD9D9D9),
+                                                        borderRadius:
+                                                            const BorderRadius.only(
+                                                          bottomLeft:
+                                                              Radius.circular(
+                                                                  12.0),
+                                                          bottomRight:
+                                                              Radius.circular(
+                                                                  12.0),
+                                                          topLeft:
+                                                              Radius.circular(
+                                                                  12.0),
+                                                          topRight:
+                                                              Radius.circular(
+                                                                  12.0),
+                                                        ),
+                                                        border: Border.all(
+                                                          color:
+                                                              const Color(0xFFD9D9D9),
+                                                          width: 1.0,
+                                                        ),
+                                                      ),
+                                                      child: wrapWithModel(
+                                                        model: _model.img4Model,
+                                                        updateCallback: () =>
+                                                            setState(() {}),
+                                                        child:
+                                                            const ImageUploadWidget(),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                Align(
+                                                  alignment:
+                                                      const AlignmentDirectional(
+                                                          0.0, 1.0),
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 10.0,
+                                                                0.0, 10.0),
+                                                    child: Container(
+                                                      width: 100.0,
+                                                      height: 130.0,
+                                                      decoration: BoxDecoration(
+                                                        color:
+                                                            const Color(0xFFD9D9D9),
+                                                        borderRadius:
+                                                            const BorderRadius.only(
+                                                          bottomLeft:
+                                                              Radius.circular(
+                                                                  12.0),
+                                                          bottomRight:
+                                                              Radius.circular(
+                                                                  12.0),
+                                                          topLeft:
+                                                              Radius.circular(
+                                                                  12.0),
+                                                          topRight:
+                                                              Radius.circular(
+                                                                  12.0),
+                                                        ),
+                                                        border: Border.all(
+                                                          color:
+                                                              const Color(0xFFD9D9D9),
+                                                          width: 1.0,
+                                                        ),
+                                                      ),
+                                                      child: wrapWithModel(
+                                                        model: _model.img5Model,
+                                                        updateCallback: () =>
+                                                            setState(() {}),
+                                                        child:
+                                                            const ImageUploadWidget(),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                Align(
+                                                  alignment:
+                                                      const AlignmentDirectional(
+                                                          1.0, 1.0),
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 10.0,
+                                                                10.0, 10.0),
+                                                    child: Container(
+                                                      width: 100.0,
+                                                      height: 130.0,
+                                                      decoration: BoxDecoration(
+                                                        color:
+                                                            const Color(0xFFD9D9D9),
+                                                        borderRadius:
+                                                            const BorderRadius.only(
+                                                          bottomLeft:
+                                                              Radius.circular(
+                                                                  12.0),
+                                                          bottomRight:
+                                                              Radius.circular(
+                                                                  12.0),
+                                                          topLeft:
+                                                              Radius.circular(
+                                                                  12.0),
+                                                          topRight:
+                                                              Radius.circular(
+                                                                  12.0),
+                                                        ),
+                                                        border: Border.all(
+                                                          color:
+                                                              const Color(0xFFD9D9D9),
+                                                          width: 1.0,
+                                                        ),
+                                                      ),
+                                                      child: wrapWithModel(
+                                                        model: _model.img6Model,
                                                         updateCallback: () =>
                                                             setState(() {}),
                                                         child:
@@ -303,25 +563,20 @@ class _RegisterPfofesional4WidgetState
                                                     0.0, 10.0, 0.0, 10.0),
                                             child: FFButtonWidget(
                                               onPressed: () async {
-                                                if (_model.imageUploadModel
-                                                            .uploadedFileUrl !=
-                                                        '') {
+                                                if (FFAppState()
+                                                        .imagesUserUpload
+                                                        .length >
+                                                    1) {
                                                   _model.photosVerify = true;
                                                   setState(() {});
-                                                } else {
-                                                  _model.photosVerify = false;
+                                                  FFAppState()
+                                                      .updateRegisterProviderFormStruct(
+                                                    (e) => e
+                                                      ..images = FFAppState()
+                                                          .imagesUserUpload
+                                                          .toList(),
+                                                  );
                                                   setState(() {});
-                                                }
-
-                                                if (_model.photosVerify) {
-                                                  if (widget.businessRef !=
-                                                      null) {
-                                                    FFAppState()
-                                                        .updateRegisterProviderFormStruct(
-                                                      (e) => e
-                                                        ..plan = Plan.premiun,
-                                                    );
-                                                  }
                                                   GoRouter.of(context)
                                                       .prepareAuthEvent();
 
@@ -415,141 +670,94 @@ class _RegisterPfofesional4WidgetState
                                                     ),
                                                   });
 
-                                                  if (widget.businessRef !=
-                                                      null) {
-                                                    if (widget.businessRef !=
-                                                        null) {
-                                                      await widget.businessRef!
-                                                          .update({
-                                                        ...mapToFirestore(
-                                                          {
-                                                            'professionals':
-                                                                FieldValue
-                                                                    .arrayUnion([
-                                                              currentUserReference
-                                                            ]),
-                                                          },
-                                                        ),
-                                                      });
-                                                    }
+                                                  final paymentResponse =
+                                                      await processStripePayment(
+                                                    context,
+                                                    amount: () {
+                                                      if (FFAppState()
+                                                              .registerProviderForm
+                                                              .plan ==
+                                                          Plan.basic) {
+                                                        return FFAppConstants
+                                                            .basicPrice;
+                                                      } else if (FFAppState()
+                                                              .registerProviderForm
+                                                              .plan ==
+                                                          Plan.standar) {
+                                                        return FFAppConstants
+                                                            .standarPrice;
+                                                      } else {
+                                                        return FFAppConstants
+                                                            .premiunPrice;
+                                                      }
+                                                    }(),
+                                                    currency: 'AUD',
+                                                    customerEmail: FFAppState()
+                                                        .registerProviderForm
+                                                        .email,
+                                                    customerName: FFAppState()
+                                                        .registerProviderForm
+                                                        .firstName,
+                                                    description: () {
+                                                      if (FFAppState()
+                                                              .registerProviderForm
+                                                              .plan ==
+                                                          Plan.basic) {
+                                                        return 'Plan Basic';
+                                                      } else if (FFAppState()
+                                                              .registerProviderForm
+                                                              .plan ==
+                                                          Plan.standar) {
+                                                        return 'Plan Standar';
+                                                      } else {
+                                                        return 'Plan Premiun';
+                                                      }
+                                                    }(),
+                                                    allowGooglePay: true,
+                                                    allowApplePay: false,
+                                                  );
+                                                  if (paymentResponse
+                                                              .paymentId ==
+                                                          null &&
+                                                      paymentResponse
+                                                              .errorMessage !=
+                                                          null) {
+                                                    showSnackbar(
+                                                      context,
+                                                      'Error: ${paymentResponse.errorMessage}',
+                                                    );
+                                                  }
+                                                  _model.paymentId =
+                                                      paymentResponse
+                                                              .paymentId ??
+                                                          '';
 
-                                                    await currentUserReference!
-                                                        .update(
-                                                            createUsersRecordData(
-                                                      photoUrl: _model
-                                                          .imageUploadModel
-                                                          .uploadedFileUrl,
-                                                    ));
+                                                  if (_model.paymentId !=
+                                                          null &&
+                                                      _model.paymentId != '') {
                                                     FFAppState()
                                                             .authUserFireBase =
                                                         true;
+                                                    setState(() {});
 
                                                     context.goNamedAuth(
-                                                        'HomeSearch',
-                                                        context.mounted);
-                                                  } else {
-                                                    final paymentResponse =
-                                                        await processStripePayment(
-                                                      context,
-                                                      amount: () {
-                                                        if (FFAppState()
-                                                                .registerProviderForm
-                                                                .plan ==
-                                                            Plan.basic) {
-                                                          return FFAppConstants
-                                                              .basicPrice;
-                                                        } else if (FFAppState()
-                                                                .registerProviderForm
-                                                                .plan ==
-                                                            Plan.standar) {
-                                                          return FFAppConstants
-                                                              .standarPrice;
-                                                        } else {
-                                                          return FFAppConstants
-                                                              .premiunPrice;
-                                                        }
-                                                      }(),
-                                                      currency: 'AUD',
-                                                      customerEmail: FFAppState()
-                                                          .registerProviderForm
-                                                          .email,
-                                                      customerName: FFAppState()
-                                                          .registerProviderForm
-                                                          .firstName,
-                                                      description: () {
-                                                        if (FFAppState()
-                                                                .registerProviderForm
-                                                                .plan ==
-                                                            Plan.basic) {
-                                                          return 'Plan Basic';
-                                                        } else if (FFAppState()
-                                                                .registerProviderForm
-                                                                .plan ==
-                                                            Plan.standar) {
-                                                          return 'Plan Standar';
-                                                        } else {
-                                                          return 'Plan Premiun';
-                                                        }
-                                                      }(),
-                                                      allowGooglePay: true,
-                                                      allowApplePay: false,
+                                                      'HomeSearch',
+                                                      context.mounted,
+                                                      queryParameters: {
+                                                        'authUser':
+                                                            serializeParam(
+                                                          true,
+                                                          ParamType.bool,
+                                                        ),
+                                                      }.withoutNulls,
                                                     );
-                                                    if (paymentResponse
-                                                                .paymentId ==
-                                                            null &&
-                                                        paymentResponse
-                                                                .errorMessage !=
-                                                            null) {
-                                                      showSnackbar(
-                                                        context,
-                                                        'Error: ${paymentResponse.errorMessage}',
-                                                      );
-                                                    }
-                                                    _model.paymentId =
-                                                        paymentResponse
-                                                                .paymentId ??
-                                                            '';
-
-                                                    if (_model.paymentId !=
-                                                            null &&
-                                                        _model.paymentId !=
-                                                            '') {
-                                                      if (widget.businessRef !=
-                                                          null) {
-                                                        await widget
-                                                            .businessRef!
-                                                            .update({
-                                                          ...mapToFirestore(
-                                                            {
-                                                              'professionals':
-                                                                  FieldValue
-                                                                      .arrayUnion([
-                                                                currentUserReference
-                                                              ]),
-                                                            },
-                                                          ),
-                                                        });
-                                                      }
-
-                                                      await currentUserReference!
-                                                          .update(
-                                                              createUsersRecordData(
-                                                        photoUrl: _model
-                                                            .imageUploadModel
-                                                            .uploadedFileUrl,
-                                                      ));
-                                                      FFAppState()
-                                                              .authUserFireBase =
-                                                          true;
-
-                                                      context.goNamedAuth(
-                                                          'HomeSearch',
-                                                          context.mounted);
-                                                    } else {
-                                                      await authManager
-                                                          .deleteUser(context);
-                                                    }
+                                                  } else {
+                                                    await authManager
+                                                        .deleteUser(context);
                                                   }
+                                                } else {
+                                                  _model.photosVerify = false;
+                                                  setState(() {});
                                                 }
 
                                                 setState(() {});
