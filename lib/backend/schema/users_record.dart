@@ -106,11 +106,6 @@ class UsersRecord extends FirestoreRecord {
   String get languagues => _languagues ?? '';
   bool hasLanguagues() => _languagues != null;
 
-  // "disabilities" field.
-  String? _disabilities;
-  String get disabilities => _disabilities ?? '';
-  bool hasDisabilities() => _disabilities != null;
-
   // "years" field.
   int? _years;
   int get years => _years ?? 0;
@@ -201,6 +196,11 @@ class UsersRecord extends FirestoreRecord {
   bool get firtsLogin => _firtsLogin ?? false;
   bool hasFirtsLogin() => _firtsLogin != null;
 
+  // "disabilities" field.
+  List<String>? _disabilities;
+  List<String> get disabilities => _disabilities ?? const [];
+  bool hasDisabilities() => _disabilities != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -220,7 +220,6 @@ class UsersRecord extends FirestoreRecord {
     _comapny = snapshotData['comapny'] as String?;
     _age = snapshotData['age'] as String?;
     _languagues = snapshotData['languagues'] as String?;
-    _disabilities = snapshotData['disabilities'] as String?;
     _years = castToType<int>(snapshotData['years']);
     _gender = snapshotData['gender'] as String?;
     _images = getDataList(snapshotData['images']);
@@ -239,6 +238,7 @@ class UsersRecord extends FirestoreRecord {
     _paymentDate = snapshotData['paymentDate'] as DateTime?;
     _isFreeTrialFInish = snapshotData['isFreeTrialFInish'] as bool?;
     _firtsLogin = snapshotData['firtsLogin'] as bool?;
+    _disabilities = getDataList(snapshotData['disabilities']);
   }
 
   static CollectionReference get collection =>
@@ -293,7 +293,6 @@ Map<String, dynamic> createUsersRecordData({
   String? comapny,
   String? age,
   String? languagues,
-  String? disabilities,
   int? years,
   String? gender,
   String? description,
@@ -326,7 +325,6 @@ Map<String, dynamic> createUsersRecordData({
       'comapny': comapny,
       'age': age,
       'languagues': languagues,
-      'disabilities': disabilities,
       'years': years,
       'gender': gender,
       'description': description,
@@ -368,7 +366,6 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.comapny == e2?.comapny &&
         e1?.age == e2?.age &&
         e1?.languagues == e2?.languagues &&
-        e1?.disabilities == e2?.disabilities &&
         e1?.years == e2?.years &&
         e1?.gender == e2?.gender &&
         listEquality.equals(e1?.images, e2?.images) &&
@@ -386,7 +383,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.freeTrial == e2?.freeTrial &&
         e1?.paymentDate == e2?.paymentDate &&
         e1?.isFreeTrialFInish == e2?.isFreeTrialFInish &&
-        e1?.firtsLogin == e2?.firtsLogin;
+        e1?.firtsLogin == e2?.firtsLogin &&
+        listEquality.equals(e1?.disabilities, e2?.disabilities);
   }
 
   @override
@@ -409,7 +407,6 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.comapny,
         e?.age,
         e?.languagues,
-        e?.disabilities,
         e?.years,
         e?.gender,
         e?.images,
@@ -427,7 +424,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.freeTrial,
         e?.paymentDate,
         e?.isFreeTrialFInish,
-        e?.firtsLogin
+        e?.firtsLogin,
+        e?.disabilities
       ]);
 
   @override

@@ -13,7 +13,7 @@ abstract class FFAppConstants {
     'Home Maintence',
     'Recovery Coaches'
   ];
-  static const int basicPrice = 145;
-  static const int standarPrice = 845;
-  static const int premiunPrice = 1845;
+  static const int basicPrice = 899;
+  static const int standarPrice = 1799;
+  static const int premiunPrice = 2899;
 }

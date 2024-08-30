@@ -366,7 +366,6 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                           (e) => e
                                                             ..plan = Plan.basic,
                                                         );
-                                                        setState(() {});
                                                         _model.basic = true;
                                                         _model.standar = false;
                                                         _model.premiun = false;
@@ -469,7 +468,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                     gradient: LinearGradient(
                                       colors: [
                                         Color(0xFF758195),
-                                        Color(0xFF25292F)
+                                        Color(0xFFA9A9A9)
                                       ],
                                       stops: [0.0, 0.99],
                                       begin: AlignmentDirectional(0.0, -1.0),
@@ -726,7 +725,6 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                               ..plan =
                                                                   Plan.standar,
                                                           );
-                                                          setState(() {});
                                                           _model.basic = false;
                                                           _model.standar = true;
                                                           _model.premiun =
@@ -828,10 +826,10 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                   decoration: const BoxDecoration(
                                     gradient: LinearGradient(
                                       colors: [
-                                        Color(0xFFEFB810),
-                                        Color(0xFF94740C)
+                                        Color(0xFFFFD700),
+                                        Color(0xFFDAA520)
                                       ],
-                                      stops: [0.0, 0.99],
+                                      stops: [0.0, 0.88],
                                       begin: AlignmentDirectional(0.0, -1.0),
                                       end: AlignmentDirectional(0, 1.0),
                                     ),
@@ -1073,7 +1071,6 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                         (e) => e
                                                           ..plan = Plan.premiun,
                                                       );
-                                                      setState(() {});
                                                       _model.basic = false;
                                                       _model.standar = false;
                                                       _model.premiun = true;

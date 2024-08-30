@@ -2,6 +2,7 @@ import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'listofcollaborators_p_e_r_f_i_l_model.dart';
@@ -142,10 +143,13 @@ class _ListofcollaboratorsPERFILWidgetState
                                 alignment: const AlignmentDirectional(-1.0, 1.0),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(8.0),
-                                  child: Image.network(
-                                    valueOrDefault<String>(
+                                  child: CachedNetworkImage(
+                                    fadeInDuration: const Duration(milliseconds: 500),
+                                    fadeOutDuration:
+                                        const Duration(milliseconds: 500),
+                                    imageUrl: valueOrDefault<String>(
                                       containerUsersRecord.photoUrl,
-                                      'https://png.pngtree.com/png-clipart/20191122/original/pngtree-user-icon-isolated-on-abstract-background-png-image_5192004.jpg',
+                                      'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
                                     ),
                                     width: double.infinity,
                                     height: double.infinity,

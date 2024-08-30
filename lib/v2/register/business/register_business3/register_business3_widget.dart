@@ -790,7 +790,7 @@ class _RegisterBusiness3WidgetState extends State<RegisterBusiness3Widget>
                                                                 .text)
                                                         ..gender =
                                                             _model.genderValue
-                                                        ..disabilities = _model
+                                                        ..description = _model
                                                             .disabilitiesTextController
                                                             .text,
                                                     );

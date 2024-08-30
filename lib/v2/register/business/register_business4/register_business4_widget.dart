@@ -598,9 +598,6 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                     age: FFAppState()
                                                         .registerProviderForm
                                                         .age,
-                                                    disabilities: FFAppState()
-                                                        .registerProviderForm
-                                                        .disabilities,
                                                     years: FFAppState()
                                                         .registerProviderForm
                                                         .years,
@@ -634,6 +631,7 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                     paymentDate:
                                                         getCurrentTimestamp,
                                                     freeTrial: true,
+                                                    displayName: '',
                                                   ),
                                                   ...mapToFirestore(
                                                     {
@@ -642,6 +640,9 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                       'serviceType': FFAppState()
                                                           .registerProviderForm
                                                           .serviceType,
+                                                      'disabilities': FFAppState()
+                                                          .registerProviderForm
+                                                          .disabilities,
                                                     },
                                                   ),
                                                 });

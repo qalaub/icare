@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/v2/menbresiav2/membresia_logo/membresia_logo_widget.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'tinderv2_c0_model.dart';
 export 'tinderv2_c0_model.dart';
@@ -130,10 +131,14 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                                       topLeft: Radius.circular(14.0),
                                       topRight: Radius.circular(14.0),
                                     ),
-                                    child: Image.network(
-                                      valueOrDefault<String>(
+                                    child: CachedNetworkImage(
+                                      fadeInDuration:
+                                          const Duration(milliseconds: 500),
+                                      fadeOutDuration:
+                                          const Duration(milliseconds: 500),
+                                      imageUrl: valueOrDefault<String>(
                                         imagesProfessionalItem,
-                                        'https://i.ibb.co/2qkDLKb/Frame-74.png',
+                                        'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
                                       ),
                                       width: MediaQuery.sizeOf(context).width *
                                           1.0,

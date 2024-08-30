@@ -309,13 +309,20 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
                                                                     borderRadius:
                                                                         BorderRadius.circular(
                                                                             24.0),
-                                                                    child: Image
-                                                                        .network(
-                                                                      valueOrDefault<
-                                                                          String>(
+                                                                    child:
+                                                                        CachedNetworkImage(
+                                                                      fadeInDuration:
+                                                                          const Duration(
+                                                                              milliseconds: 500),
+                                                                      fadeOutDuration:
+                                                                          const Duration(
+                                                                              milliseconds: 500),
+                                                                      imageUrl:
+                                                                          valueOrDefault<
+                                                                              String>(
                                                                         rowUsersRecord
                                                                             .photoUrl,
-                                                                        'https://i.ibb.co/2qkDLKb/Frame-74.png',
+                                                                        'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
                                                                       ),
                                                                       width:
                                                                           44.0,

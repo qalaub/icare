@@ -722,9 +722,9 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                           child:
                                                               FlutterFlowDropDown<
                                                                   String>(
-                                                            controller: _model
+                                                            multiSelectController: _model
                                                                     .dropDownValueController ??=
-                                                                FormFieldController<
+                                                                FormListFieldController<
                                                                         String>(
                                                                     null),
                                                             options: const [
@@ -738,10 +738,6 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                               'Psychosocial/Mental Health',
                                                               'Vision Impairment '
                                                             ],
-                                                            onChanged: (val) =>
-                                                                setState(() =>
-                                                                    _model.dropDownValue =
-                                                                        val),
                                                             width: 261.0,
                                                             height: 56.0,
                                                             textStyle:
@@ -779,8 +775,12 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                                 true,
                                                             isOverButton: true,
                                                             isSearchable: false,
-                                                            isMultiSelect:
-                                                                false,
+                                                            isMultiSelect: true,
+                                                            onMultiSelectChanged:
+                                                                (val) => setState(
+                                                                    () => _model
+                                                                            .dropDownValue =
+                                                                        val),
                                                           ),
                                                         ),
                                                       ),
@@ -1381,10 +1381,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                     .updateVerifyFormStruct(
                                                   (e) => e
                                                     ..dropdown = _model
-                                                                .dropDownValue !=
-                                                            null &&
-                                                        _model.dropDownValue !=
-                                                            ''
+                                                            .dropDownValue!.isNotEmpty
                                                     ..confirm1 = _model.passwordTextController
                                                                 .text !=
                                                             ''
@@ -1421,14 +1418,12 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                         currentUserDocument
                                                             ?.ndis,
                                                         '')
-                                                    ..disabilities =
-                                                        valueOrDefault(
-                                                            currentUserDocument
-                                                                ?.disabilities,
-                                                            '')
                                                     ..email = _model
                                                         .emailTextController
-                                                        .text,
+                                                        .text
+                                                    ..disabilities = _model
+                                                        .dropDownValue!
+                                                        .toList(),
                                                 );
                                                 if (FFAppState()
                                                         .verifyForm
@@ -1488,9 +1483,6 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                       age: FFAppState()
                                                           .registerProviderForm
                                                           .age,
-                                                      disabilities: FFAppState()
-                                                          .registerProviderForm
-                                                          .disabilities,
                                                       years: FFAppState()
                                                           .registerProviderForm
                                                           .years,
@@ -1524,6 +1516,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                       paymentDate:
                                                           getCurrentTimestamp,
                                                       freeTrial: true,
+                                                      displayName: '',
                                                     ),
                                                     ...mapToFirestore(
                                                       {
@@ -1532,6 +1525,9 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                         'serviceType': FFAppState()
                                                             .registerProviderForm
                                                             .serviceType,
+                                                        'disabilities': FFAppState()
+                                                            .registerProviderForm
+                                                            .disabilities,
                                                       },
                                                     ),
                                                   });

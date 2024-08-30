@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/v2/favoritesv2/add_favorites/add_favorites_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'v2_favoritos_componente_model.dart';
 export 'v2_favoritos_componente_model.dart';
@@ -115,10 +116,12 @@ class _V2FavoritosComponenteWidgetState
                             const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8.0),
-                          child: Image.network(
-                            valueOrDefault<String>(
+                          child: CachedNetworkImage(
+                            fadeInDuration: const Duration(milliseconds: 500),
+                            fadeOutDuration: const Duration(milliseconds: 500),
+                            imageUrl: valueOrDefault<String>(
                               containerUsersRecord?.photoUrl,
-                              'https://i.ibb.co/2qkDLKb/Frame-74.png',
+                              'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
                             ),
                             width: MediaQuery.sizeOf(context).width * 0.17,
                             height: 63.0,

@@ -23,7 +23,6 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
     String? company,
     String? age,
     String? description,
-    String? disabilities,
     String? gender,
     int? years,
     String? languagues,
@@ -33,6 +32,7 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
     DateTime? updateTime,
     List<String>? serviceType,
     DocumentReference? business,
+    List<String>? disabilities,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _firstName = firstName,
         _lastName = lastName,
@@ -46,7 +46,6 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
         _company = company,
         _age = age,
         _description = description,
-        _disabilities = disabilities,
         _gender = gender,
         _years = years,
         _languagues = languagues,
@@ -56,6 +55,7 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
         _updateTime = updateTime,
         _serviceType = serviceType,
         _business = business,
+        _disabilities = disabilities,
         super(firestoreUtilData);
 
   // "firstName" field.
@@ -142,13 +142,6 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
 
   bool hasDescription() => _description != null;
 
-  // "disabilities" field.
-  String? _disabilities;
-  String get disabilities => _disabilities ?? '';
-  set disabilities(String? val) => _disabilities = val;
-
-  bool hasDisabilities() => _disabilities != null;
-
   // "gender" field.
   String? _gender;
   String get gender => _gender ?? '';
@@ -222,6 +215,17 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
 
   bool hasBusiness() => _business != null;
 
+  // "disabilities" field.
+  List<String>? _disabilities;
+  List<String> get disabilities => _disabilities ?? const [];
+  set disabilities(List<String>? val) => _disabilities = val;
+
+  void updateDisabilities(Function(List<String>) updateFn) {
+    updateFn(_disabilities ??= []);
+  }
+
+  bool hasDisabilities() => _disabilities != null;
+
   static RegisterProviderTypeStruct fromMap(Map<String, dynamic> data) =>
       RegisterProviderTypeStruct(
         firstName: data['firstName'] as String?,
@@ -236,7 +240,6 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
         company: data['company'] as String?,
         age: data['age'] as String?,
         description: data['description'] as String?,
-        disabilities: data['disabilities'] as String?,
         gender: data['gender'] as String?,
         years: castToType<int>(data['years']),
         languagues: data['languagues'] as String?,
@@ -246,6 +249,7 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
         updateTime: data['update_time'] as DateTime?,
         serviceType: getDataList(data['serviceType']),
         business: data['business'] as DocumentReference?,
+        disabilities: getDataList(data['disabilities']),
       );
 
   static RegisterProviderTypeStruct? maybeFromMap(dynamic data) => data is Map
@@ -265,7 +269,6 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
         'company': _company,
         'age': _age,
         'description': _description,
-        'disabilities': _disabilities,
         'gender': _gender,
         'years': _years,
         'languagues': _languagues,
@@ -275,6 +278,7 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
         'update_time': _updateTime,
         'serviceType': _serviceType,
         'business': _business,
+        'disabilities': _disabilities,
       }.withoutNulls;
 
   @override
@@ -327,10 +331,6 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
           _description,
           ParamType.String,
         ),
-        'disabilities': serializeParam(
-          _disabilities,
-          ParamType.String,
-        ),
         'gender': serializeParam(
           _gender,
           ParamType.String,
@@ -368,6 +368,11 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
         'business': serializeParam(
           _business,
           ParamType.DocumentReference,
+        ),
+        'disabilities': serializeParam(
+          _disabilities,
+          ParamType.String,
+          isList: true,
         ),
       }.withoutNulls;
 
@@ -434,11 +439,6 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
           ParamType.String,
           false,
         ),
-        disabilities: deserializeParam(
-          data['disabilities'],
-          ParamType.String,
-          false,
-        ),
         gender: deserializeParam(
           data['gender'],
           ParamType.String,
@@ -485,6 +485,11 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
           false,
           collectionNamePath: ['users'],
         ),
+        disabilities: deserializeParam<String>(
+          data['disabilities'],
+          ParamType.String,
+          true,
+        ),
       );
 
   @override
@@ -506,7 +511,6 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
         company == other.company &&
         age == other.age &&
         description == other.description &&
-        disabilities == other.disabilities &&
         gender == other.gender &&
         years == other.years &&
         languagues == other.languagues &&
@@ -515,7 +519,8 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
         plan == other.plan &&
         updateTime == other.updateTime &&
         listEquality.equals(serviceType, other.serviceType) &&
-        business == other.business;
+        business == other.business &&
+        listEquality.equals(disabilities, other.disabilities);
   }
 
   @override
@@ -532,7 +537,6 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
         company,
         age,
         description,
-        disabilities,
         gender,
         years,
         languagues,
@@ -541,7 +545,8 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
         plan,
         updateTime,
         serviceType,
-        business
+        business,
+        disabilities
       ]);
 }
 
@@ -558,7 +563,6 @@ RegisterProviderTypeStruct createRegisterProviderTypeStruct({
   String? company,
   String? age,
   String? description,
-  String? disabilities,
   String? gender,
   int? years,
   String? languagues,
@@ -584,7 +588,6 @@ RegisterProviderTypeStruct createRegisterProviderTypeStruct({
       company: company,
       age: age,
       description: description,
-      disabilities: disabilities,
       gender: gender,
       years: years,
       languagues: languagues,

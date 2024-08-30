@@ -136,13 +136,23 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                               updateCallback: () =>
                                                   setState(() {}),
                                               child: UploadProfileImageWidget(
-                                                img: _model.uploadedFileUrl !=
-                                                            ''
-                                                    ? _model.uploadedFileUrl
-                                                    : (currentUserPhoto !=
-                                                                ''
-                                                        ? currentUserPhoto
-                                                        : ' '),
+                                                img: valueOrDefault<String>(
+                                                  _model.uploadedFileUrl !=
+                                                              ''
+                                                      ? valueOrDefault<String>(
+                                                          _model
+                                                              .uploadedFileUrl,
+                                                          'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
+                                                        )
+                                                      : valueOrDefault<String>(
+                                                          currentUserPhoto !=
+                                                                      ''
+                                                              ? currentUserPhoto
+                                                              : ' ',
+                                                          'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
+                                                        ),
+                                                  'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
+                                                ),
                                               ),
                                             ),
                                           ),

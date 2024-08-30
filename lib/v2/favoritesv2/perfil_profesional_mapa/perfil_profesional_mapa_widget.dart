@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/v2/favoritesv2/add_favorites/add_favorites_widget.dart';
 import '/v2/menbresiav2/membresia_logo/membresia_logo_widget.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:provider/provider.dart';
@@ -122,10 +123,12 @@ class _PerfilProfesionalMapaWidgetState
                           alignment: const AlignmentDirectional(-1.0, 1.0),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
-                            child: Image.network(
-                              valueOrDefault<String>(
+                            child: CachedNetworkImage(
+                              fadeInDuration: const Duration(milliseconds: 500),
+                              fadeOutDuration: const Duration(milliseconds: 500),
+                              imageUrl: valueOrDefault<String>(
                                 widget.profesionalId?.photoUrl,
-                                'https://i.ibb.co/2qkDLKb/Frame-74.png',
+                                'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
                               ),
                               width: double.infinity,
                               height: double.infinity,

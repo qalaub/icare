@@ -30,8 +30,8 @@ class RegisterUser2Model extends FlutterFlowModel<RegisterUser2Widget> {
   // Stores action output result for [Firestore Query - Query a collection] action in email widget.
   int? emailExists;
   // State field(s) for DropDown widget.
-  String? dropDownValue;
-  FormFieldController<String>? dropDownValueController;
+  List<String>? dropDownValue;
+  FormFieldController<List<String>>? dropDownValueController;
   // State field(s) for password widget.
   FocusNode? passwordFocusNode;
   TextEditingController? passwordTextController;

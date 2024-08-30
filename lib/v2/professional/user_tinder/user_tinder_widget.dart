@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'user_tinder_model.dart';
 export 'user_tinder_model.dart';
@@ -73,10 +74,12 @@ class _UserTinderWidgetState extends State<UserTinderWidget> {
                   topLeft: Radius.circular(22.0),
                   topRight: Radius.circular(22.0),
                 ),
-                child: Image.network(
-                  valueOrDefault<String>(
+                child: CachedNetworkImage(
+                  fadeInDuration: const Duration(milliseconds: 500),
+                  fadeOutDuration: const Duration(milliseconds: 500),
+                  imageUrl: valueOrDefault<String>(
                     widget.professional?.photoUrl,
-                    'https://i.ibb.co/2qkDLKb/Frame-74.png',
+                    'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
                   ),
                   height: MediaQuery.sizeOf(context).height * 0.4,
                   fit: BoxFit.cover,

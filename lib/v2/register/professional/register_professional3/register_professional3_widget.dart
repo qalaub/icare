@@ -738,7 +738,11 @@ class _RegisterProfessional3WidgetState
                                                               (e) => e
                                                                 ..business = _model
                                                                     .newBusi
-                                                                    ?.reference,
+                                                                    ?.reference
+                                                                ..plan =
+                                                                    Plan.premiun
+                                                                ..rol = Roles
+                                                                    .profesional,
                                                             );
 
                                                             context.pushNamed(

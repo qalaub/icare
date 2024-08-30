@@ -684,10 +684,10 @@ class FFRoute {
               : builder(context, ffParams);
           final child = appStateNotifier.loading
               ? Container(
-                  color: Colors.white,
+                  color: Colors.transparent,
                   child: Image.asset(
-                    'assets/images/logo.png',
-                    fit: BoxFit.contain,
+                    'assets/images/logo-smool.png',
+                    fit: BoxFit.cover,
                   ),
                 )
               : page;

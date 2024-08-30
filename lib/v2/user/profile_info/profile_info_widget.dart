@@ -7,6 +7,7 @@ import '/v2/favoritesv2/add_favorites/add_favorites_widget.dart';
 import '/v2/menbresiav2/membresia_logo/membresia_logo_widget.dart';
 import '/v2/user/descripcion_profesional/descripcion_profesional_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
 import 'profile_info_model.dart';
@@ -262,10 +263,14 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                   opacity: 0.5,
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(8.0),
-                                    child: Image.network(
-                                      valueOrDefault<String>(
+                                    child: CachedNetworkImage(
+                                      fadeInDuration:
+                                          const Duration(milliseconds: 500),
+                                      fadeOutDuration:
+                                          const Duration(milliseconds: 500),
+                                      imageUrl: valueOrDefault<String>(
                                         profileInfoUsersRecord.photoUrl,
-                                        'https://i.ibb.co/2qkDLKb/Frame-74.png',
+                                        'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
                                       ),
                                       width: double.infinity,
                                       height: double.infinity,
@@ -303,10 +308,14 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                           topLeft: Radius.circular(32.0),
                                           topRight: Radius.circular(32.0),
                                         ),
-                                        child: Image.network(
-                                          valueOrDefault<String>(
+                                        child: CachedNetworkImage(
+                                          fadeInDuration:
+                                              const Duration(milliseconds: 500),
+                                          fadeOutDuration:
+                                              const Duration(milliseconds: 500),
+                                          imageUrl: valueOrDefault<String>(
                                             profileInfoUsersRecord.photoUrl,
-                                            'https://i.ibb.co/2qkDLKb/Frame-74.png',
+                                            'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
                                           ),
                                           width: double.infinity,
                                           height: double.infinity,

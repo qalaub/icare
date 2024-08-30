@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/v2/v2_mensages/options_message/options_message_widget.dart';
 import 'dart:async';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'chat2_details_model.dart';
@@ -147,10 +148,13 @@ class _Chat2DetailsWidgetState extends State<Chat2DetailsWidget> {
                                   decoration: const BoxDecoration(
                                     shape: BoxShape.circle,
                                   ),
-                                  child: Image.network(
-                                    valueOrDefault<String>(
+                                  child: CachedNetworkImage(
+                                    fadeInDuration: const Duration(milliseconds: 500),
+                                    fadeOutDuration:
+                                        const Duration(milliseconds: 500),
+                                    imageUrl: valueOrDefault<String>(
                                       chat2DetailsUsersRecord.photoUrl,
-                                      'https://i.ibb.co/2qkDLKb/Frame-74.png',
+                                      'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
                                     ),
                                     fit: BoxFit.cover,
                                   ),

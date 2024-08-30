@@ -1721,7 +1721,9 @@ class _RegisterProfessional2WidgetState
                                                               Roles.profesional
                                                           ..serviceType = _model
                                                               .serviceTypeValue!
-                                                              .toList(),
+                                                              .toList()
+                                                          ..business = widget
+                                                              .businessRef,
                                                       );
                                                       FFAppState().verifyForm =
                                                           FormVerifyStruct();

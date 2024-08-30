@@ -81,7 +81,7 @@ class _UserBlockWidgetState extends State<UserBlockWidget> {
                   child: Image.network(
                     valueOrDefault<String>(
                       widget.image,
-                      'https://images.unsplash.com/photo-1499996860823-5214fcc65f8f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw2fHxGQUNFfGVufDB8fHx8MTcyMTEzODkxNXww&ixlib=rb-4.0.3&q=80&w=1080',
+                      'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
                     ),
                     fit: BoxFit.cover,
                   ),

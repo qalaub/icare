@@ -1,6 +1,7 @@
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'new_notifcations_model.dart';
@@ -108,10 +109,12 @@ class _NewNotifcationsWidgetState extends State<NewNotifcationsWidget> {
                               decoration: const BoxDecoration(
                                 shape: BoxShape.circle,
                               ),
-                              child: Image.network(
-                                valueOrDefault<String>(
+                              child: CachedNetworkImage(
+                                fadeInDuration: const Duration(milliseconds: 500),
+                                fadeOutDuration: const Duration(milliseconds: 500),
+                                imageUrl: valueOrDefault<String>(
                                   containerUsersRecord.photoUrl,
-                                  'https://i.ibb.co/2qkDLKb/Frame-74.png',
+                                  'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
                                 ),
                                 fit: BoxFit.cover,
                               ),

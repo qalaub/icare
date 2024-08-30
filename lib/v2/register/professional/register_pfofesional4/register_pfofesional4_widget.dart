@@ -622,9 +622,6 @@ class _RegisterPfofesional4WidgetState
                                                       age: FFAppState()
                                                           .registerProviderForm
                                                           .age,
-                                                      disabilities: FFAppState()
-                                                          .registerProviderForm
-                                                          .disabilities,
                                                       years: FFAppState()
                                                           .registerProviderForm
                                                           .years,
@@ -658,6 +655,7 @@ class _RegisterPfofesional4WidgetState
                                                       paymentDate:
                                                           getCurrentTimestamp,
                                                       freeTrial: true,
+                                                      displayName: '',
                                                     ),
                                                     ...mapToFirestore(
                                                       {
@@ -666,80 +664,15 @@ class _RegisterPfofesional4WidgetState
                                                         'serviceType': FFAppState()
                                                             .registerProviderForm
                                                             .serviceType,
+                                                        'disabilities': FFAppState()
+                                                            .registerProviderForm
+                                                            .disabilities,
                                                       },
                                                     ),
                                                   });
 
-                                                  final paymentResponse =
-                                                      await processStripePayment(
-                                                    context,
-                                                    amount: () {
-                                                      if (FFAppState()
-                                                              .registerProviderForm
-                                                              .plan ==
-                                                          Plan.basic) {
-                                                        return FFAppConstants
-                                                            .basicPrice;
-                                                      } else if (FFAppState()
-                                                              .registerProviderForm
-                                                              .plan ==
-                                                          Plan.standar) {
-                                                        return FFAppConstants
-                                                            .standarPrice;
-                                                      } else {
-                                                        return FFAppConstants
-                                                            .premiunPrice;
-                                                      }
-                                                    }(),
-                                                    currency: 'AUD',
-                                                    customerEmail: FFAppState()
-                                                        .registerProviderForm
-                                                        .email,
-                                                    customerName: FFAppState()
-                                                        .registerProviderForm
-                                                        .firstName,
-                                                    description: () {
-                                                      if (FFAppState()
-                                                              .registerProviderForm
-                                                              .plan ==
-                                                          Plan.basic) {
-                                                        return 'Plan Basic';
-                                                      } else if (FFAppState()
-                                                              .registerProviderForm
-                                                              .plan ==
-                                                          Plan.standar) {
-                                                        return 'Plan Standar';
-                                                      } else {
-                                                        return 'Plan Premiun';
-                                                      }
-                                                    }(),
-                                                    allowGooglePay: true,
-                                                    allowApplePay: false,
-                                                  );
-                                                  if (paymentResponse
-                                                              .paymentId ==
-                                                          null &&
-                                                      paymentResponse
-                                                              .errorMessage !=
-                                                          null) {
-                                                    showSnackbar(
-                                                      context,
-                                                      'Error: ${paymentResponse.errorMessage}',
-                                                    );
-                                                  }
-                                                  _model.paymentId =
-                                                      paymentResponse
-                                                              .paymentId ??
-                                                          '';
-
-                                                  if (_model.paymentId !=
-                                                          null &&
-                                                      _model.paymentId != '') {
-                                                    FFAppState()
-                                                            .authUserFireBase =
-                                                        true;
-                                                    setState(() {});
-
+                                                  if (widget.businessRef !=
+                                                      null) {
                                                     context.goNamedAuth(
                                                       'HomeSearch',
                                                       context.mounted,
@@ -752,8 +685,92 @@ class _RegisterPfofesional4WidgetState
                                                       }.withoutNulls,
                                                     );
                                                   } else {
-                                                    await authManager
-                                                        .deleteUser(context);
+                                                    final paymentResponse =
+                                                        await processStripePayment(
+                                                      context,
+                                                      amount: () {
+                                                        if (FFAppState()
+                                                                .registerProviderForm
+                                                                .plan ==
+                                                            Plan.basic) {
+                                                          return FFAppConstants
+                                                              .basicPrice;
+                                                        } else if (FFAppState()
+                                                                .registerProviderForm
+                                                                .plan ==
+                                                            Plan.standar) {
+                                                          return FFAppConstants
+                                                              .standarPrice;
+                                                        } else {
+                                                          return FFAppConstants
+                                                              .premiunPrice;
+                                                        }
+                                                      }(),
+                                                      currency: 'AUD',
+                                                      customerEmail: FFAppState()
+                                                          .registerProviderForm
+                                                          .email,
+                                                      customerName: FFAppState()
+                                                          .registerProviderForm
+                                                          .firstName,
+                                                      description: () {
+                                                        if (FFAppState()
+                                                                .registerProviderForm
+                                                                .plan ==
+                                                            Plan.basic) {
+                                                          return 'Plan Basic';
+                                                        } else if (FFAppState()
+                                                                .registerProviderForm
+                                                                .plan ==
+                                                            Plan.standar) {
+                                                          return 'Plan Standar';
+                                                        } else {
+                                                          return 'Plan Premiun';
+                                                        }
+                                                      }(),
+                                                      allowGooglePay: true,
+                                                      allowApplePay: false,
+                                                    );
+                                                    if (paymentResponse
+                                                                .paymentId ==
+                                                            null &&
+                                                        paymentResponse
+                                                                .errorMessage !=
+                                                            null) {
+                                                      showSnackbar(
+                                                        context,
+                                                        'Error: ${paymentResponse.errorMessage}',
+                                                      );
+                                                    }
+                                                    _model.paymentId =
+                                                        paymentResponse
+                                                                .paymentId ??
+                                                            '';
+
+                                                    if (_model.paymentId !=
+                                                            null &&
+                                                        _model.paymentId !=
+                                                            '') {
+                                                      FFAppState()
+                                                              .authUserFireBase =
+                                                          true;
+                                                      setState(() {});
+
+                                                      context.goNamedAuth(
+                                                        'HomeSearch',
+                                                        context.mounted,
+                                                        queryParameters: {
+                                                          'authUser':
+                                                              serializeParam(
+                                                            true,
+                                                            ParamType.bool,
+                                                          ),
+                                                        }.withoutNulls,
+                                                      );
+                                                    } else {
+                                                      await authManager
+                                                          .deleteUser(context);
+                                                    }
                                                   }
                                                 } else {
                                                   _model.photosVerify = false;

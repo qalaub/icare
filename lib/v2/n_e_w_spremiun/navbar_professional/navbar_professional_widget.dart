@@ -51,53 +51,50 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            if (currentUserDocument?.business == null)
-              AuthUserStreamWidget(
-                builder: (context) => Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Expanded(
-                      flex: 1,
-                      child: Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
-                        child: FlutterFlowIconButton(
-                          borderColor: Colors.transparent,
-                          borderRadius: 34.0,
-                          buttonSize: 48.0,
-                          icon: const FaIcon(
-                            FontAwesomeIcons.houseUser,
-                            color: Colors.white,
-                            size: 30.0,
-                          ),
-                          onPressed: () async {
-                            if (loggedIn) {
-                              context.pushNamed('HomeSearch');
-                            } else {
-                              context.pushNamed('Login');
-                            }
-                          },
-                        ),
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: Align(
+                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    child: FlutterFlowIconButton(
+                      borderColor: Colors.transparent,
+                      borderRadius: 34.0,
+                      buttonSize: 48.0,
+                      icon: const FaIcon(
+                        FontAwesomeIcons.houseUser,
+                        color: Colors.white,
+                        size: 30.0,
                       ),
+                      onPressed: () async {
+                        if (loggedIn) {
+                          context.pushNamed('HomeSearch');
+                        } else {
+                          context.pushNamed('Login');
+                        }
+                      },
                     ),
-                    Align(
-                      alignment: const AlignmentDirectional(0.29, 0.64),
-                      child: Text(
-                        'Home',
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Poppins',
-                              color: Colors.white,
-                              letterSpacing: 0.0,
-                              fontWeight: FontWeight.w500,
-                            ),
-                      ),
-                    ),
-                    Container(
-                      height: 5.0,
-                      decoration: const BoxDecoration(),
-                    ),
-                  ],
+                  ),
                 ),
-              ),
+                Align(
+                  alignment: const AlignmentDirectional(0.29, 0.64),
+                  child: Text(
+                    'Home',
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Poppins',
+                          color: Colors.white,
+                          letterSpacing: 0.0,
+                          fontWeight: FontWeight.w500,
+                        ),
+                  ),
+                ),
+                Container(
+                  height: 5.0,
+                  decoration: const BoxDecoration(),
+                ),
+              ],
+            ),
             if (currentUserDocument?.business == null)
               AuthUserStreamWidget(
                 builder: (context) => Column(
