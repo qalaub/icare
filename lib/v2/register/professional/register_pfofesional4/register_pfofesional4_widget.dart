@@ -93,7 +93,7 @@ class _RegisterPfofesional4WidgetState
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(8.0),
                                     child: Image.asset(
-                                      'assets/images/logo.png',
+                                      'assets/images/logo-1.png',
                                       width: 110.0,
                                       height: 116.0,
                                       fit: BoxFit.fitWidth,
@@ -174,7 +174,7 @@ class _RegisterPfofesional4WidgetState
                                                   .fromSTEB(
                                                       10.0, 10.0, 10.0, 10.0),
                                               child: Text(
-                                                'At least you must upload 2 photos for your profile where your face can be seen',
+                                                'You must upload at least one profile photo where your face is visible.',
                                                 textAlign: TextAlign.center,
                                                 style: FlutterFlowTheme.of(
                                                         context)

@@ -84,7 +84,7 @@ class _EscogerUsuarioWidgetState extends State<EscogerUsuarioWidget> {
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
                                 child: Image.asset(
-                                  'assets/images/logo.png',
+                                  'assets/images/logo-1.png',
                                   width: 130.0,
                                   height: 136.0,
                                   fit: BoxFit.contain,

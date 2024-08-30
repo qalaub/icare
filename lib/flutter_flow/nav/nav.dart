@@ -203,19 +203,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => const Chat2MainWidget(),
             ),
             FFRoute(
-              name: 'chat_2_InviteUsers',
-              path: 'chat2InviteUsers',
-              asyncParams: {
-                'chatRef': getDoc(['chats'], ChatsRecord.fromSnapshot),
-              },
-              builder: (context, params) => Chat2InviteUsersWidget(
-                chatRef: params.getParam(
-                  'chatRef',
-                  ParamType.Document,
-                ),
-              ),
-            ),
-            FFRoute(
               name: 'image_Details',
               path: 'imageDetails',
               asyncParams: {
@@ -686,8 +673,8 @@ class FFRoute {
               ? Container(
                   color: Colors.transparent,
                   child: Image.asset(
-                    'assets/images/logo-smool.png',
-                    fit: BoxFit.cover,
+                    'assets/images/logo-1.png',
+                    fit: BoxFit.contain,
                   ),
                 )
               : page;

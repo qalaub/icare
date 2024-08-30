@@ -162,7 +162,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
                                 child: Image.asset(
-                                  'assets/images/logo.png',
+                                  'assets/images/logo-1.png',
                                   width: 110.0,
                                   height: 106.0,
                                   fit: BoxFit.fitWidth,
