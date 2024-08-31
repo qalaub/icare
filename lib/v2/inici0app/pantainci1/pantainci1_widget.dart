@@ -201,8 +201,7 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
                                   borderRadius: BorderRadius.circular(4.0),
                                 ),
                               ),
-                              unselectedWidgetColor:
-                                  FlutterFlowTheme.of(context).secondaryText,
+                              unselectedWidgetColor: const Color(0xFF26343E),
                             ),
                             child: Checkbox(
                               value: _model.checkboxValue ??= false,
@@ -210,10 +209,9 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
                                 setState(
                                     () => _model.checkboxValue = newValue!);
                               },
-                              side: BorderSide(
+                              side: const BorderSide(
                                 width: 2,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
+                                color: Color(0xFF26343E),
                               ),
                               activeColor: const Color(0xFF8F2BFD),
                               checkColor: FlutterFlowTheme.of(context).info,

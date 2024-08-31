@@ -1166,18 +1166,18 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                   ),
                 ),
                 Align(
-                  alignment: const AlignmentDirectional(0.0, 1.0),
+                  alignment: const AlignmentDirectional(0.0, 1.01),
                   child: Container(
                     height: 73.0,
                     decoration: const BoxDecoration(
-                      color: Color(0xBDB928B8),
+                      color: Color(0xD7B928B8),
                     ),
                     alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Builder(
                       builder: (context) {
                         if (currentUserDocument?.rol != Roles.business) {
                           return Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: const AlignmentDirectional(0.0, 1.0),
                             child: wrapWithModel(
                               model: _model.navbarModel,
                               updateCallback: () => setState(() {}),

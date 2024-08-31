@@ -486,61 +486,70 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                               ),
                             ),
                           ),
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                if (loggedIn == false) {
-                                  context.pushNamed('Login');
-                                } else {
-                                  _model.swipeableStackController.swipeLeft();
-                                }
-                              },
-                              child: Container(
-                                width: MediaQuery.sizeOf(context).width * 0.2,
-                                height: MediaQuery.sizeOf(context).width * 0.2,
-                                clipBehavior: Clip.antiAlias,
-                                decoration: const BoxDecoration(
-                                  shape: BoxShape.circle,
-                                ),
-                                child: Image.asset(
-                                  'assets/images/ggy9g_x.png',
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                            ),
-                            InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                if (loggedIn == false) {
-                                  context.pushNamed('Login');
-                                } else {
-                                  _model.swipeableStackController.swipeRight();
-                                }
-                              },
-                              child: Container(
-                                width: MediaQuery.sizeOf(context).width * 0.2,
-                                height: MediaQuery.sizeOf(context).width * 0.2,
-                                clipBehavior: Clip.antiAlias,
-                                decoration: const BoxDecoration(
-                                  shape: BoxShape.circle,
-                                ),
-                                child: Image.asset(
-                                  'assets/images/ME-GUSTA.png',
-                                  fit: BoxFit.cover,
+                        Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 4.0, 0.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  if (loggedIn == false) {
+                                    context.pushNamed('Login');
+                                  } else {
+                                    _model.swipeableStackController.swipeLeft();
+                                  }
+                                },
+                                child: Container(
+                                  width:
+                                      MediaQuery.sizeOf(context).width * 0.18,
+                                  height:
+                                      MediaQuery.sizeOf(context).width * 0.18,
+                                  clipBehavior: Clip.antiAlias,
+                                  decoration: const BoxDecoration(
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Image.asset(
+                                    'assets/images/ggy9g_x.png',
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
                               ),
-                            ),
-                          ].divide(const SizedBox(width: 32.0)),
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  if (loggedIn == false) {
+                                    context.pushNamed('Login');
+                                  } else {
+                                    _model.swipeableStackController
+                                        .swipeRight();
+                                  }
+                                },
+                                child: Container(
+                                  width:
+                                      MediaQuery.sizeOf(context).width * 0.18,
+                                  height:
+                                      MediaQuery.sizeOf(context).width * 0.18,
+                                  clipBehavior: Clip.antiAlias,
+                                  decoration: const BoxDecoration(
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Image.asset(
+                                    'assets/images/ME-GUSTA.png',
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                            ].divide(const SizedBox(width: 30.0)),
+                          ),
                         ),
                       ].divide(const SizedBox(height: 2.0)),
                     ),

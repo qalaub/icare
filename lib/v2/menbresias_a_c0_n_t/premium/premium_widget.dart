@@ -111,7 +111,7 @@ class _PremiumWidgetState extends State<PremiumWidget> {
                 ),
                 Container(
                   width: MediaQuery.sizeOf(context).width * 0.9,
-                  height: MediaQuery.sizeOf(context).height * 0.8,
+                  height: MediaQuery.sizeOf(context).height * 0.835,
                   decoration: const BoxDecoration(),
                   child: SingleChildScrollView(
                     child: Column(

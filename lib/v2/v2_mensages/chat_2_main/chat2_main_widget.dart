@@ -924,7 +924,7 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
                     child: Container(
                       height: 73.0,
                       decoration: const BoxDecoration(
-                        color: Color(0xBEB928B8),
+                        color: Color(0xD5B928B8),
                       ),
                       child: Builder(
                         builder: (context) {

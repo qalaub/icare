@@ -124,7 +124,7 @@ class _MembresiaLogoWidgetState extends State<MembresiaLogoWidget> {
                       'assets/images/EmpresaV2.png',
                       width: widget.width.toDouble(),
                       height: widget.heigth.toDouble(),
-                      fit: BoxFit.cover,
+                      fit: BoxFit.contain,
                     ),
                   ),
                 ),

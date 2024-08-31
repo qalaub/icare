@@ -170,7 +170,7 @@ class _ListofcollaboratorsWidgetState extends State<ListofcollaboratorsWidget> {
                           child: Container(
                             height: 73.0,
                             decoration: const BoxDecoration(
-                              color: Color(0xB3B928B8),
+                              color: Color(0xD5B928B8),
                             ),
                             child: Builder(
                               builder: (context) {

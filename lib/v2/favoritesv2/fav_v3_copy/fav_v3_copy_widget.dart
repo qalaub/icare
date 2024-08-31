@@ -63,7 +63,7 @@ class _FavV3CopyWidgetState extends State<FavV3CopyWidget> {
           style: FlutterFlowTheme.of(context).headlineMedium.override(
                 fontFamily: 'Montserrat',
                 color: const Color(0xFFEFECF3),
-                fontSize: 25.0,
+                fontSize: 24.0,
                 letterSpacing: 0.0,
                 fontWeight: FontWeight.bold,
               ),
@@ -135,7 +135,7 @@ class _FavV3CopyWidgetState extends State<FavV3CopyWidget> {
               child: Container(
                 height: 73.0,
                 decoration: const BoxDecoration(
-                  color: Color(0xBCB928B8),
+                  color: Color(0xD5B928B8),
                 ),
                 child: Builder(
                   builder: (context) {

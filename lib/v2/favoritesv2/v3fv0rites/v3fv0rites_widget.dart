@@ -112,25 +112,15 @@ class _V3fv0ritesWidgetState extends State<V3fv0ritesWidget> {
             child: Material(
               color: Colors.transparent,
               elevation: 10.0,
-              shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(12.0),
-                  bottomRight: Radius.circular(12.0),
-                  topLeft: Radius.circular(12.0),
-                  topRight: Radius.circular(12.0),
-                ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20.0),
               ),
               child: Container(
                 width: 285.0,
                 height: 139.0,
-                decoration: const BoxDecoration(
-                  color: Color(0xFFFFCCF9),
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(12.0),
-                    bottomRight: Radius.circular(12.0),
-                    topLeft: Radius.circular(12.0),
-                    topRight: Radius.circular(12.0),
-                  ),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFFFCCF9),
+                  borderRadius: BorderRadius.circular(20.0),
                 ),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,

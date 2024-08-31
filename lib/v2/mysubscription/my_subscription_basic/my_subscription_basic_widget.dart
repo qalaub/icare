@@ -137,13 +137,13 @@ class _MySubscriptionBasicWidgetState extends State<MySubscriptionBasicWidget> {
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Inter',
-                                      color: const Color(0xFF44D600),
+                                      color: Colors.white,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
                                     ),
                               ),
                               TextSpan(
-                                text: '\$8.99 / monthly',
+                                text: '8.99 / monthly',
                                 style: GoogleFonts.getFont(
                                   'Inter',
                                   color: const Color(0xFFECE7E7),
