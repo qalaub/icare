@@ -1,8 +1,6 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/custom_code/actions/index.dart' as actions;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
@@ -30,14 +28,7 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _model.tokenTemp = await actions.getToken();
-      if (FFAppState().showTutorial) {
-        if (loggedIn) {
-          if (!valueOrDefault<bool>(currentUserDocument?.firtsLogin, false)) {
-            context.goNamed('tinderv2C1');
-          }
-        }
-      } else {
+      if (!FFAppState().showTutorial) {
         context.goNamed('tinderv2C1');
       }
     });

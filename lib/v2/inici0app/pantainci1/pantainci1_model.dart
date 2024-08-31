@@ -6,8 +6,6 @@ class Pantainci1Model extends FlutterFlowModel<Pantainci1Widget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // Stores action output result for [Custom Action - getToken] action in pantainci1 widget.
-  String? tokenTemp;
   // State field(s) for PageView widget.
   PageController? pageViewController;
 
