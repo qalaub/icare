@@ -46,7 +46,7 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
           child: Image.network(
             valueOrDefault<String>(
               _model.uploadedFileUrl,
-              'https://i.ibb.co/2qkDLKb/Frame-74.png',
+              'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
             ),
             width: MediaQuery.sizeOf(context).width * 1.0,
             height: MediaQuery.sizeOf(context).height * 1.0,

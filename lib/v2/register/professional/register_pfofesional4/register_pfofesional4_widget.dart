@@ -574,6 +574,9 @@ class _RegisterPfofesional4WidgetState
                                                     (e) => e
                                                       ..images = FFAppState()
                                                           .imagesUserUpload
+                                                          .where((e) =>
+                                                              e !=
+                                                              'https://i.ibb.co/b7TBHQJ/imagen-defecto.png')
                                                           .toList(),
                                                   );
                                                   setState(() {});

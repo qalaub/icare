@@ -550,6 +550,9 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                   (e) => e
                                                     ..images = FFAppState()
                                                         .imagesUserUpload
+                                                        .where((e) =>
+                                                            e !=
+                                                            'https://i.ibb.co/b7TBHQJ/imagen-defecto.png')
                                                         .toList(),
                                                 );
                                                 setState(() {});
