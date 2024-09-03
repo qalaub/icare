@@ -420,7 +420,7 @@ class _RegisterProfessional2WidgetState
                                                                 alignment:
                                                                     const AlignmentDirectional(
                                                                         -0.62,
-                                                                        1.0),
+                                                                        0.6),
                                                                 child: Text(
                                                                   'Field is required',
                                                                   style: FlutterFlowTheme.of(
@@ -433,6 +433,8 @@ class _RegisterProfessional2WidgetState
                                                                             0xFFFF5963),
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.w600,
                                                                       ),
                                                                 ).animateOnPageLoad(
                                                                     animationsMap[
@@ -946,7 +948,7 @@ class _RegisterProfessional2WidgetState
                                                                 alignment:
                                                                     const AlignmentDirectional(
                                                                         -0.62,
-                                                                        1.0),
+                                                                        0.6),
                                                                 child: Text(
                                                                   'Field is required',
                                                                   style: FlutterFlowTheme.of(
@@ -959,6 +961,8 @@ class _RegisterProfessional2WidgetState
                                                                             0xFFFF5963),
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.w600,
                                                                       ),
                                                                 ).animateOnPageLoad(
                                                                     animationsMap[
@@ -1194,35 +1198,29 @@ class _RegisterProfessional2WidgetState
                                                                   alignment:
                                                                       const AlignmentDirectional(
                                                                           -0.82,
-                                                                          0.7),
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: const EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            10.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                    child: Text(
-                                                                      !FFAppState().verifyForm.same &&
-                                                                              (functions.verifyCorrectPassword(_model.passwordTextController.text) == true)
-                                                                          ? 'Password has to be the same'
-                                                                          : ' ',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Montserrat',
-                                                                            color:
-                                                                                const Color(0xFFFF5963),
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                          ),
-                                                                    ).animateOnPageLoad(
-                                                                        animationsMap[
-                                                                            'textOnPageLoadAnimation3']!),
-                                                                  ),
+                                                                          0.5),
+                                                                  child: Text(
+                                                                    !FFAppState().verifyForm.same &&
+                                                                            (functions.verifyCorrectPassword(_model.passwordTextController.text) ==
+                                                                                true)
+                                                                        ? 'Password has to be the same'
+                                                                        : ' ',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Montserrat',
+                                                                          color:
+                                                                              const Color(0xFFFF5963),
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.w600,
+                                                                        ),
+                                                                  ).animateOnPageLoad(
+                                                                      animationsMap[
+                                                                          'textOnPageLoadAnimation3']!),
                                                                 );
                                                               } else {
                                                                 return Text(
@@ -1255,7 +1253,7 @@ class _RegisterProfessional2WidgetState
                                                     .fromSTEB(
                                                         0.0, 15.0, 0.0, 15.0),
                                                 child: Text(
-                                                  '* Confirm password',
+                                                  '* Password has to be the same',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -1455,35 +1453,29 @@ class _RegisterProfessional2WidgetState
                                                                   alignment:
                                                                       const AlignmentDirectional(
                                                                           -0.82,
-                                                                          0.7),
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: const EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            10.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                    child: Text(
-                                                                      !FFAppState().verifyForm.same &&
-                                                                              (functions.verifyCorrectPassword(_model.confirmPasswordTextController.text) == true)
-                                                                          ? 'Password has to be the same'
-                                                                          : ' ',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Montserrat',
-                                                                            color:
-                                                                                const Color(0xFFFF5963),
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                          ),
-                                                                    ).animateOnPageLoad(
-                                                                        animationsMap[
-                                                                            'textOnPageLoadAnimation4']!),
-                                                                  ),
+                                                                          0.5),
+                                                                  child: Text(
+                                                                    !FFAppState().verifyForm.same &&
+                                                                            (functions.verifyCorrectPassword(_model.confirmPasswordTextController.text) ==
+                                                                                true)
+                                                                        ? 'Password has to be the same'
+                                                                        : ' ',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Montserrat',
+                                                                          color:
+                                                                              const Color(0xFFFF5963),
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.w600,
+                                                                        ),
+                                                                  ).animateOnPageLoad(
+                                                                      animationsMap[
+                                                                          'textOnPageLoadAnimation4']!),
                                                                 );
                                                               } else {
                                                                 return Text(
@@ -1550,7 +1542,7 @@ class _RegisterProfessional2WidgetState
                                                                   'https://icareapp.com.au/privacy-policy');
                                                             },
                                                             child: Text(
-                                                              'I agree to the iCare app\'s privacy policy.',
+                                                              'I agree to the iCare app\'s privacy policy',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
@@ -1560,7 +1552,7 @@ class _RegisterProfessional2WidgetState
                                                                     color: const Color(
                                                                         0xFFB928B8),
                                                                     fontSize:
-                                                                        12.0,
+                                                                        11.5,
                                                                     letterSpacing:
                                                                         0.0,
                                                                     fontWeight:
@@ -1651,6 +1643,23 @@ class _RegisterProfessional2WidgetState
                                                         0.0, 10.0, 0.0, 10.0),
                                                 child: FFButtonWidget(
                                                   onPressed: () async {
+                                                    if (_model.formKey
+                                                                .currentState ==
+                                                            null ||
+                                                        !_model.formKey
+                                                            .currentState!
+                                                            .validate()) {
+                                                      return;
+                                                    }
+                                                    if (_model
+                                                            .serviceTypeValue ==
+                                                        null) {
+                                                      return;
+                                                    }
+                                                    if (_model.ageValue ==
+                                                        null) {
+                                                      return;
+                                                    }
                                                     FFAppState()
                                                         .updateVerifyFormStruct(
                                                       (e) => e
@@ -1685,23 +1694,6 @@ class _RegisterProfessional2WidgetState
                                                                 .text,
                                                     );
                                                     FFAppState().counter = 4;
-                                                    if (_model.formKey
-                                                                .currentState ==
-                                                            null ||
-                                                        !_model.formKey
-                                                            .currentState!
-                                                            .validate()) {
-                                                      return;
-                                                    }
-                                                    if (_model
-                                                            .serviceTypeValue ==
-                                                        null) {
-                                                      return;
-                                                    }
-                                                    if (_model.ageValue ==
-                                                        null) {
-                                                      return;
-                                                    }
                                                     if (FFAppState()
                                                             .verifyForm
                                                             .same ==

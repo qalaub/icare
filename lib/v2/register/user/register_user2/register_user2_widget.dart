@@ -606,7 +606,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                     Align(
                                                       alignment:
                                                           const AlignmentDirectional(
-                                                              0.0, 1.2),
+                                                              0.0, 1.4),
                                                       child: Text(
                                                         'This email already has an account, use another email',
                                                         style:
@@ -622,7 +622,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                                       0.0,
                                                                   fontWeight:
                                                                       FontWeight
-                                                                          .w500,
+                                                                          .w600,
                                                                 ),
                                                       ).animateOnPageLoad(
                                                           animationsMap[
@@ -801,7 +801,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                               alignment:
                                                                   const AlignmentDirectional(
                                                                       -0.62,
-                                                                      1.0),
+                                                                      0.7),
                                                               child: Text(
                                                                 'Field is required',
                                                                 style: FlutterFlowTheme.of(
@@ -816,7 +816,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                                           0.0,
                                                                       fontWeight:
                                                                           FontWeight
-                                                                              .w500,
+                                                                              .w600,
                                                                     ),
                                                               ).animateOnPageLoad(
                                                                   animationsMap[
@@ -1053,7 +1053,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                               alignment:
                                                                   const AlignmentDirectional(
                                                                       -0.82,
-                                                                      1.0),
+                                                                      0.5),
                                                               child: Text(
                                                                 !FFAppState()
                                                                             .verifyForm
@@ -1072,6 +1072,9 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                                           0xFFFF5963),
                                                                       letterSpacing:
                                                                           0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
                                                                     ),
                                                               ).animateOnPageLoad(
                                                                   animationsMap[
@@ -1107,7 +1110,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                   .fromSTEB(
                                                       0.0, 15.0, 0.0, 15.0),
                                               child: Text(
-                                                '* Confirm password',
+                                                '* Password has to be the same',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -1306,7 +1309,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                               alignment:
                                                                   const AlignmentDirectional(
                                                                       -0.82,
-                                                                      1.0),
+                                                                      0.6),
                                                               child: Text(
                                                                 !FFAppState()
                                                                             .verifyForm
@@ -1325,6 +1328,9 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                                           0xFFFF5963),
                                                                       letterSpacing:
                                                                           0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
                                                                     ),
                                                               ).animateOnPageLoad(
                                                                   animationsMap[
@@ -1377,6 +1383,18 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                     0.0, 10.0, 0.0, 10.0),
                                             child: FFButtonWidget(
                                               onPressed: () async {
+                                                if (_model.formKey
+                                                            .currentState ==
+                                                        null ||
+                                                    !_model
+                                                        .formKey.currentState!
+                                                        .validate()) {
+                                                  return;
+                                                }
+                                                if (_model.dropDownValue ==
+                                                    null) {
+                                                  return;
+                                                }
                                                 FFAppState()
                                                     .updateVerifyFormStruct(
                                                   (e) => e
@@ -1396,18 +1414,6 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                             .text,
                                                 );
                                                 FFAppState().counter = 4;
-                                                if (_model.formKey
-                                                            .currentState ==
-                                                        null ||
-                                                    !_model
-                                                        .formKey.currentState!
-                                                        .validate()) {
-                                                  return;
-                                                }
-                                                if (_model.dropDownValue ==
-                                                    null) {
-                                                  return;
-                                                }
                                                 FFAppState()
                                                     .updateRegisterProviderFormStruct(
                                                   (e) => e
