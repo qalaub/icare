@@ -179,8 +179,8 @@ class _RegisterProfessional3WidgetState
                                                           0.5, 0.0, 0.5, 0.0),
                                                   child: FlutterFlowRadioButton(
                                                     options: [
-                                                      'Use existing company code (This option is for employees of an existing company who wish to create their employee profile)',
-                                                      'Register a new business profile\n(This option is for any provider or professional that delivers services under the NDIS umbrella, including sole traders and/or companies.)'
+                                                      'Register a new business profile\n(This option is for any provider or professional that delivers services under the NDIS umbrella, including sole traders and/or companies.)',
+                                                      'Use existing company code (This option is for employees of an existing company who wish to create their employee profile)'
                                                     ].toList(),
                                                     onChanged: (val) =>
                                                         setState(() {}),

@@ -107,7 +107,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                     decoration: const BoxDecoration(
                                       gradient: LinearGradient(
                                         colors: [
-                                          Color(0xFF6F542C),
+                                          Color(0xFFF0B65F),
                                           Color(0xFFB28744)
                                         ],
                                         stops: [0.0, 0.7],

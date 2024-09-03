@@ -420,7 +420,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                   .fromSTEB(
                                                       0.0, 15.0, 0.0, 15.0),
                                               child: Text(
-                                                '*Email Address',
+                                                '* Email Address',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -640,7 +640,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                   .fromSTEB(
                                                       0.0, 15.0, 0.0, 15.0),
                                               child: Text(
-                                                '*Type Of Disability',
+                                                '* Type Of Disability',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -852,7 +852,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                   .fromSTEB(
                                                       0.0, 15.0, 0.0, 15.0),
                                               child: Text(
-                                                '*Password',
+                                                '* Password',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -1085,7 +1085,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                                   .bodyMedium
                                                                   .override(
                                                                     fontFamily:
-                                                                        'Readex Pro',
+                                                                        'Montserrat',
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -1107,7 +1107,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                   .fromSTEB(
                                                       0.0, 15.0, 0.0, 15.0),
                                               child: Text(
-                                                '*Confirm Password',
+                                                '* Confirm Password',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -1338,7 +1338,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                                   .bodyMedium
                                                                   .override(
                                                                     fontFamily:
-                                                                        'Readex Pro',
+                                                                        'Montserrat',
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),

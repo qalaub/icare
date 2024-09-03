@@ -264,7 +264,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                   .fromSTEB(
                                                       0.0, 15.0, 0.0, 15.0),
                                               child: Text(
-                                                '*Firs name',
+                                                '* Firs name',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -422,7 +422,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                   .fromSTEB(
                                                       0.0, 15.0, 0.0, 15.0),
                                               child: Text(
-                                                '*Last name',
+                                                '* Last name',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -580,7 +580,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                   .fromSTEB(
                                                       0.0, 15.0, 0.0, 15.0),
                                               child: Text(
-                                                '*Date Of Birth',
+                                                '* Date Of Birth',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -841,7 +841,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                   .fromSTEB(
                                                       0.0, 15.0, 0.0, 15.0),
                                               child: Text(
-                                                '*Enter Your 10-Digit Mobile Number',
+                                                '* Enter Your 10-Digit Mobile Number',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -897,7 +897,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                             letterSpacing: 0.0,
                                                           ),
                                                   hintText:
-                                                      'Example:  3175345234',
+                                                      'Example:  0400345234',
                                                   hintStyle:
                                                       FlutterFlowTheme.of(
                                                               context)
@@ -997,7 +997,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                   .fromSTEB(
                                                       0.0, 0.0, 0.0, 15.0),
                                               child: Text(
-                                                '*Select your suburb',
+                                                '* Select your suburb',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium

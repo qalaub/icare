@@ -227,7 +227,7 @@ class _RegisterBusiness3WidgetState extends State<RegisterBusiness3Widget>
                                                     .fromSTEB(
                                                         5.0, 15.0, 0.0, 15.0),
                                                 child: Text(
-                                                  '*Years Of Experience',
+                                                  '* Years Of Experience',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -375,7 +375,7 @@ class _RegisterBusiness3WidgetState extends State<RegisterBusiness3Widget>
                                                     .fromSTEB(
                                                         0.0, 15.0, 0.0, 15.0),
                                                 child: Text(
-                                                  '*Gender',
+                                                  '* Gender',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium

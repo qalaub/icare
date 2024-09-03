@@ -51,7 +51,7 @@ class RegisterUser2Model extends FlutterFlowModel<RegisterUser2Widget> {
     if (!RegExp(
             '^(?=.*\\d)(?=.*[\\u0021-\\u002b\\u003c-\\u0040])(?=.*[A-Z])(?=.*[a-z])\\S{8,50}\$')
         .hasMatch(val)) {
-      return 'Password: 8+ chars, e.g., Abc123!@';
+      return 'Password: 8+ charts, e.g., Abc123!@';
     }
     return null;
   }
@@ -75,7 +75,7 @@ class RegisterUser2Model extends FlutterFlowModel<RegisterUser2Widget> {
     if (!RegExp(
             '^(?=.*\\d)(?=.*[\\u0021-\\u002b\\u003c-\\u0040])(?=.*[A-Z])(?=.*[a-z])\\S{8,50}\$')
         .hasMatch(val)) {
-      return 'Password: 8+ chars, e.g., Abc123!@';
+      return 'Password: 8+ charts, e.g., Abc123!@';
     }
     return null;
   }

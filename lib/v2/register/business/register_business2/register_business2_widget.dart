@@ -271,7 +271,7 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
                                                     .fromSTEB(
                                                         5.0, 15.0, 0.0, 15.0),
                                                 child: Text(
-                                                  '*Type Of Service Offered',
+                                                  '* Type Of Service Offered',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -801,7 +801,7 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
                                                     .fromSTEB(
                                                         0.0, 15.0, 0.0, 15.0),
                                                 child: Text(
-                                                  '*Age',
+                                                  '* Age',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -1015,7 +1015,7 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
                                                     .fromSTEB(
                                                         0.0, 15.0, 0.0, 15.0),
                                                 child: Text(
-                                                  '*Password',
+                                                  '* Password',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -1253,7 +1253,7 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
                                                                       .bodyMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            'Readex Pro',
+                                                                            'Montserrat',
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
@@ -1276,7 +1276,7 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
                                                     .fromSTEB(
                                                         0.0, 15.0, 0.0, 15.0),
                                                 child: Text(
-                                                  '*Confirm Password',
+                                                  '* Confirm Password',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -1514,7 +1514,7 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
                                                                       .bodyMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            'Readex Pro',
+                                                                            'Montserrat',
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
@@ -1571,7 +1571,7 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
                                                                   'https://icareapp.com.au/privacy-policy');
                                                             },
                                                             child: Text(
-                                                              'I agree to the iCare App privacy policy',
+                                                              'I agree iCare app`s to the iCare App privacy policy',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium

@@ -175,7 +175,7 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                 const EdgeInsetsDirectional.fromSTEB(
                                                     10.0, 10.0, 10.0, 10.0),
                                             child: Text(
-                                              'You must upload at least one profile photo where your face is visible.',
+                                              'Let’s complete your profile! Upload a photo where your face is clear and visible. Don\'t forget to review before submitting!',
                                               textAlign: TextAlign.center,
                                               style: FlutterFlowTheme.of(
                                                       context)
