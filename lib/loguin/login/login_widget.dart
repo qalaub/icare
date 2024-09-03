@@ -616,7 +616,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                   children: [
                                                     TextSpan(
                                                       text:
-                                                          'Don\'t have an account?',
+                                                          'Don\'t have an account?  ',
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .bodyMedium

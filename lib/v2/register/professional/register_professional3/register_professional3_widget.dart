@@ -135,7 +135,7 @@ class _RegisterProfessional3WidgetState
                                     width:
                                         MediaQuery.sizeOf(context).width * 0.96,
                                     height:
-                                        MediaQuery.sizeOf(context).height * 0.4,
+                                        MediaQuery.sizeOf(context).height * 0.3,
                                     constraints: const BoxConstraints(
                                       minWidth: 320.0,
                                       minHeight: 604.0,
@@ -179,7 +179,7 @@ class _RegisterProfessional3WidgetState
                                                           0.5, 0.0, 0.5, 0.0),
                                                   child: FlutterFlowRadioButton(
                                                     options: [
-                                                      'Register a new business profile\n(This option is for any provider or professional that delivers services under the NDIS umbrella, including sole traders and/or companies.)',
+                                                      'Register a new business profile\n(This option is for any provider or professional that delivers services under the NDIS umbrella, including sole traders and/or companies)',
                                                       'Use existing company code (This option is for employees of an existing company who wish to create their employee profile)'
                                                     ].toList(),
                                                     onChanged: (val) =>
@@ -188,7 +188,7 @@ class _RegisterProfessional3WidgetState
                                                             .questionValueController ??=
                                                         FormFieldController<
                                                                 String>(
-                                                            'Register a new business profile\n(This option is for any provider or professional that delivers services under the NDIS umbrella, including sole traders and/or companies.)'),
+                                                            'Register a new business profile\n(This option is for any provider or professional that delivers services under the NDIS umbrella, including sole traders and/or companies)'),
                                                     optionHeight: 120.0,
                                                     optionWidth:
                                                         MediaQuery.sizeOf(
