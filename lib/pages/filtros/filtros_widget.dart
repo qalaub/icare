@@ -99,7 +99,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                               Align(
                                 alignment: const AlignmentDirectional(-1.0, 0.0),
                                 child: Text(
-                                  'Search Distance:',
+                                  'Search Distance: ',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(

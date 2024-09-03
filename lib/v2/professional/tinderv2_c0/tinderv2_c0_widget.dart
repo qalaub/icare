@@ -282,7 +282,11 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                                             text: TextSpan(
                                               children: [
                                                 TextSpan(
-                                                  text: '2',
+                                                  text: valueOrDefault<String>(
+                                                    widget.professional?.years
+                                                        .toString(),
+                                                    '4',
+                                                  ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .labelSmall
