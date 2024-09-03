@@ -3,6 +3,8 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'barradebusqueda_model.dart';
 export 'barradebusqueda_model.dart';
 
@@ -41,7 +43,7 @@ class _BarradebusquedaWidgetState extends State<BarradebusquedaWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(-0.04, -0.96),
+      alignment: AlignmentDirectional(-0.04, -0.96),
       child: Material(
         color: Colors.transparent,
         elevation: 2.0,
@@ -59,22 +61,22 @@ class _BarradebusquedaWidgetState extends State<BarradebusquedaWidget> {
             ),
           ),
           child: Align(
-            alignment: const AlignmentDirectional(0.0, -0.97),
+            alignment: AlignmentDirectional(0.0, -0.97),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Align(
-                  alignment: const AlignmentDirectional(-0.82, -0.96),
+                  alignment: AlignmentDirectional(-0.82, -0.96),
                   child: Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 0.0, 3.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 0.0, 3.0),
                     child: FlutterFlowIconButton(
                       borderColor: Colors.white,
                       borderRadius: 20.0,
                       borderWidth: 1.0,
                       buttonSize: 40.0,
                       fillColor: Colors.white,
-                      icon: const Icon(
+                      icon: Icon(
                         Icons.arrow_back,
                         color: Color(0xFFDB00FF),
                         size: 24.0,
@@ -87,7 +89,7 @@ class _BarradebusquedaWidgetState extends State<BarradebusquedaWidget> {
                 ),
                 Expanded(
                   child: Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 3.0, 0.0, 3.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 3.0, 0.0, 3.0),
                     child: TextFormField(
                       controller: _model.textController,
                       focusNode: _model.textFieldFocusNode,
@@ -106,14 +108,14 @@ class _BarradebusquedaWidgetState extends State<BarradebusquedaWidget> {
                                   letterSpacing: 0.0,
                                 ),
                         enabledBorder: UnderlineInputBorder(
-                          borderSide: const BorderSide(
+                          borderSide: BorderSide(
                             color: Colors.white,
                             width: 2.0,
                           ),
                           borderRadius: BorderRadius.circular(8.0),
                         ),
                         focusedBorder: UnderlineInputBorder(
-                          borderSide: const BorderSide(
+                          borderSide: BorderSide(
                             color: Colors.white,
                             width: 2.0,
                           ),
@@ -144,7 +146,7 @@ class _BarradebusquedaWidgetState extends State<BarradebusquedaWidget> {
                     ),
                   ),
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 100.0,
                   child: VerticalDivider(
                     width: 5.0,
@@ -155,13 +157,13 @@ class _BarradebusquedaWidgetState extends State<BarradebusquedaWidget> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 8.0, 2.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 8.0, 2.0),
                   child: FFButtonWidget(
                     onPressed: () {
                       print('Button pressed ...');
                     },
                     text: 'Filter',
-                    icon: const Icon(
+                    icon: Icon(
                       Icons.filter_list_alt,
                       color: Color(0xFFDB00FF),
                       size: 15.0,
@@ -169,9 +171,9 @@ class _BarradebusquedaWidgetState extends State<BarradebusquedaWidget> {
                     options: FFButtonOptions(
                       height: 35.0,
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                       iconPadding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: Colors.white,
                       textStyle:
                           FlutterFlowTheme.of(context).titleSmall.override(
@@ -181,7 +183,7 @@ class _BarradebusquedaWidgetState extends State<BarradebusquedaWidget> {
                                 fontWeight: FontWeight.w500,
                               ),
                       elevation: 0.0,
-                      borderSide: const BorderSide(
+                      borderSide: BorderSide(
                         color: Colors.white,
                         width: 1.0,
                       ),

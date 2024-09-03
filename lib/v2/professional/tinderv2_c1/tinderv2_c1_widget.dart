@@ -1,17 +1,23 @@
+import '/auth/base_auth_user_provider.dart';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_swipeable_stack.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
 import '/v2/professional/tinderv2_c0/tinderv2_c0_widget.dart';
 import 'dart:async';
 import '/flutter_flow/random_data_util.dart' as random_data;
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_card_swiper/flutter_card_swiper.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'tinderv2_c1_model.dart';
 export 'tinderv2_c1_model.dart';
 
@@ -43,7 +49,7 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
       if (loggedIn) {
         _model.professionals = _model.professional!
             .where((e) =>
-                (currentUserDocument?.dontShow.toList() ?? [])
+                (currentUserDocument?.dontShow?.toList() ?? [])
                     .contains(e.reference) ==
                 false)
             .toList()
@@ -98,11 +104,11 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                   ),
                 ),
                 Align(
-                  alignment: const AlignmentDirectional(0.0, -1.0),
+                  alignment: AlignmentDirectional(0.0, -1.0),
                   child: Container(
                     width: MediaQuery.sizeOf(context).width * 1.0,
                     height: 60.0,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       color: Color(0xFFFDFDFD),
                       boxShadow: [
                         BoxShadow(
@@ -117,7 +123,7 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                     ),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -144,14 +150,14 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 1.0),
+                              alignment: AlignmentDirectional(0.0, 1.0),
                               child: Text(
                                 'View Profile',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Poppins',
-                                      color: const Color(0xFF8D0684),
+                                      color: Color(0xFF8D0684),
                                       fontSize: 20.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
@@ -165,18 +171,18 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                   ),
                 ),
                 Align(
-                  alignment: const AlignmentDirectional(0.0, 0.0),
+                  alignment: AlignmentDirectional(0.0, 0.0),
                   child: Container(
                     height: MediaQuery.sizeOf(context).height * 0.75,
-                    decoration: const BoxDecoration(),
+                    decoration: BoxDecoration(),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        if (_model.professionals.isNotEmpty)
+                        if (_model.professionals.length > 0)
                           Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Container(
                               constraints: BoxConstraints(
                                 maxWidth:
@@ -184,7 +190,7 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                 maxHeight:
                                     MediaQuery.sizeOf(context).height * 0.65,
                               ),
-                              decoration: const BoxDecoration(),
+                              decoration: BoxDecoration(),
                               child: Builder(
                                 builder: (context) {
                                   final newData = _model.professionals.toList();
@@ -281,7 +287,7 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                                         ?.reference !=
                                                     null
                                                 ? (_model.newChatBusiness?.users
-                                                        .contains(_model
+                                                        ?.contains(_model
                                                             .currentProfessional
                                                             ?.business) ==
                                                     true)
@@ -362,7 +368,7 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                                 .reference);
                                             if (_model.chats?.reference != null
                                                 ? (_model.chats?.users
-                                                        .contains(_model
+                                                        ?.contains(_model
                                                             .currentProfessional
                                                             ?.reference) ==
                                                     true)
@@ -465,7 +471,7 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                       final newDataItem = newData[newDataIndex];
                                       return Align(
                                         alignment:
-                                            const AlignmentDirectional(0.0, 0.0),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Tinderv2C0Widget(
                                           key: Key(
                                               'Key3fl_${newDataIndex}_of_${newData.length}'),
@@ -478,7 +484,7 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                     loop: false,
                                     cardDisplayCount: 2,
                                     scale: 0.9,
-                                    cardPadding: const EdgeInsetsDirectional.fromSTEB(
+                                    cardPadding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
                                     backCardOffset: const Offset(1.0, 1.0),
                                   );
@@ -487,7 +493,7 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                             ),
                           ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 4.0, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -511,7 +517,7 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                   height:
                                       MediaQuery.sizeOf(context).width * 0.18,
                                   clipBehavior: Clip.antiAlias,
-                                  decoration: const BoxDecoration(
+                                  decoration: BoxDecoration(
                                     shape: BoxShape.circle,
                                   ),
                                   child: Image.asset(
@@ -539,7 +545,7 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                   height:
                                       MediaQuery.sizeOf(context).width * 0.18,
                                   clipBehavior: Clip.antiAlias,
-                                  decoration: const BoxDecoration(
+                                  decoration: BoxDecoration(
                                     shape: BoxShape.circle,
                                   ),
                                   child: Image.asset(
@@ -548,18 +554,18 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                   ),
                                 ),
                               ),
-                            ].divide(const SizedBox(width: 30.0)),
+                            ].divide(SizedBox(width: 30.0)),
                           ),
                         ),
-                      ].divide(const SizedBox(height: 2.0)),
+                      ].divide(SizedBox(height: 2.0)),
                     ),
                   ),
                 ),
                 Align(
-                  alignment: const AlignmentDirectional(0.0, 1.0),
+                  alignment: AlignmentDirectional(0.0, 1.0),
                   child: Container(
                     height: 73.0,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       color: Color(0xB3B928B8),
                     ),
                     child: Builder(
@@ -568,13 +574,13 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                           return wrapWithModel(
                             model: _model.navbarModel,
                             updateCallback: () => setState(() {}),
-                            child: const NavbarWidget(),
+                            child: NavbarWidget(),
                           );
                         } else {
                           return wrapWithModel(
                             model: _model.navbarPremiunModel,
                             updateCallback: () => setState(() {}),
-                            child: const NavbarPremiunWidget(),
+                            child: NavbarPremiunWidget(),
                           );
                         }
                       },

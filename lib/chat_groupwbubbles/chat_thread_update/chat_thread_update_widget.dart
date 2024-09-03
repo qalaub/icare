@@ -7,6 +7,8 @@ import '/flutter_flow/flutter_flow_video_player.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'chat_thread_update_model.dart';
 export 'chat_thread_update_model.dart';
 
@@ -50,9 +52,9 @@ class _ChatThreadUpdateWidgetState extends State<ChatThreadUpdateWidget> {
       mainAxisSize: MainAxisSize.max,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if (widget.chatMessagesRef?.user != currentUserReference)
+        if (widget!.chatMessagesRef?.user != currentUserReference)
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
             child: Container(
               width: double.infinity,
               decoration: BoxDecoration(
@@ -60,12 +62,12 @@ class _ChatThreadUpdateWidgetState extends State<ChatThreadUpdateWidget> {
                 borderRadius: BorderRadius.circular(0.0),
               ),
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 0.0),
                 child: FutureBuilder<UsersRecord>(
                   future: _model.chatUser(
-                    uniqueQueryKey: widget.chatMessagesRef?.reference.id,
+                    uniqueQueryKey: widget!.chatMessagesRef?.reference.id,
                     requestFn: () => UsersRecord.getDocumentOnce(
-                        widget.chatMessagesRef!.user!),
+                        widget!.chatMessagesRef!.user!),
                   ),
                   builder: (context, snapshot) {
                     // Customize what your widget looks like when it's loading.
@@ -95,7 +97,7 @@ class _ChatThreadUpdateWidgetState extends State<ChatThreadUpdateWidget> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 8.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -117,7 +119,7 @@ class _ChatThreadUpdateWidgetState extends State<ChatThreadUpdateWidget> {
                                       valueOrDefault<String>(
                                         dateTimeFormat(
                                           "relative",
-                                          widget.chatMessagesRef?.timestamp,
+                                          widget!.chatMessagesRef?.timestamp,
                                           locale: FFLocalizations.of(context)
                                                   .languageShortCode ??
                                               FFLocalizations.of(context)
@@ -132,13 +134,13 @@ class _ChatThreadUpdateWidgetState extends State<ChatThreadUpdateWidget> {
                                             letterSpacing: 0.0,
                                           ),
                                     ),
-                                  ].divide(const SizedBox(width: 4.0)),
+                                  ].divide(SizedBox(width: 4.0)),
                                 ),
                               ),
                               Container(
                                 decoration: BoxDecoration(
-                                  color: const Color(0xFFCE69CE),
-                                  boxShadow: const [
+                                  color: Color(0xFFCE69CE),
+                                  boxShadow: [
                                     BoxShadow(
                                       blurRadius: 3.0,
                                       color: Color(0x33000000),
@@ -148,7 +150,7 @@ class _ChatThreadUpdateWidgetState extends State<ChatThreadUpdateWidget> {
                                       ),
                                     )
                                   ],
-                                  borderRadius: const BorderRadius.only(
+                                  borderRadius: BorderRadius.only(
                                     bottomLeft: Radius.circular(12.0),
                                     bottomRight: Radius.circular(12.0),
                                     topLeft: Radius.circular(0.0),
@@ -161,7 +163,7 @@ class _ChatThreadUpdateWidgetState extends State<ChatThreadUpdateWidget> {
                                   ),
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: EdgeInsets.all(8.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     crossAxisAlignment:
@@ -170,7 +172,7 @@ class _ChatThreadUpdateWidgetState extends State<ChatThreadUpdateWidget> {
                                       SelectionArea(
                                           child: AutoSizeText(
                                         valueOrDefault<String>(
-                                          widget.chatMessagesRef?.text,
+                                          widget!.chatMessagesRef?.text,
                                           '--',
                                         ),
                                         textAlign: TextAlign.start,
@@ -182,12 +184,12 @@ class _ChatThreadUpdateWidgetState extends State<ChatThreadUpdateWidget> {
                                               lineHeight: 1.5,
                                             ),
                                       )),
-                                      if (widget.chatMessagesRef?.image !=
+                                      if (widget!.chatMessagesRef?.image !=
                                               null &&
-                                          widget.chatMessagesRef?.image != '')
+                                          widget!.chatMessagesRef?.image != '')
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 12.0, 0.0, 4.0),
                                           child: InkWell(
                                             splashColor: Colors.transparent,
@@ -199,26 +201,26 @@ class _ChatThreadUpdateWidgetState extends State<ChatThreadUpdateWidget> {
                                                 'image_Details',
                                                 queryParameters: {
                                                   'chatMessage': serializeParam(
-                                                    widget.chatMessagesRef,
+                                                    widget!.chatMessagesRef,
                                                     ParamType.Document,
                                                   ),
                                                 }.withoutNulls,
                                                 extra: <String, dynamic>{
                                                   'chatMessage':
-                                                      widget.chatMessagesRef,
+                                                      widget!.chatMessagesRef,
                                                 },
                                               );
                                             },
                                             child: FlutterFlowMediaDisplay(
-                                              path: widget
+                                              path: widget!
                                                   .chatMessagesRef!.image,
                                               imageBuilder: (path) => ClipRRect(
                                                 borderRadius:
                                                     BorderRadius.circular(8.0),
                                                 child: CachedNetworkImage(
-                                                  fadeInDuration: const Duration(
+                                                  fadeInDuration: Duration(
                                                       milliseconds: 500),
-                                                  fadeOutDuration: const Duration(
+                                                  fadeOutDuration: Duration(
                                                       milliseconds: 500),
                                                   imageUrl: path,
                                                   width: 300.0,
@@ -252,12 +254,12 @@ class _ChatThreadUpdateWidgetState extends State<ChatThreadUpdateWidget> {
               ),
             ),
           ),
-        if (widget.chatMessagesRef?.user == currentUserReference)
+        if (widget!.chatMessagesRef?.user == currentUserReference)
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
             child: Container(
               width: double.infinity,
-              constraints: const BoxConstraints(
+              constraints: BoxConstraints(
                 maxWidth: double.infinity,
               ),
               decoration: BoxDecoration(
@@ -265,19 +267,19 @@ class _ChatThreadUpdateWidgetState extends State<ChatThreadUpdateWidget> {
                 borderRadius: BorderRadius.circular(0.0),
               ),
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 0.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 8.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 8.0),
                       child: Text(
                         valueOrDefault<String>(
                           dateTimeFormat(
                             "relative",
-                            widget.chatMessagesRef?.timestamp,
+                            widget!.chatMessagesRef?.timestamp,
                             locale:
                                 FFLocalizations.of(context).languageShortCode ??
                                     FFLocalizations.of(context).languageCode,
@@ -292,8 +294,8 @@ class _ChatThreadUpdateWidgetState extends State<ChatThreadUpdateWidget> {
                     ),
                     Container(
                       decoration: BoxDecoration(
-                        color: const Color(0xFFCE69CE),
-                        boxShadow: const [
+                        color: Color(0xFFCE69CE),
+                        boxShadow: [
                           BoxShadow(
                             blurRadius: 3.0,
                             color: Color(0x33000000),
@@ -303,7 +305,7 @@ class _ChatThreadUpdateWidgetState extends State<ChatThreadUpdateWidget> {
                             ),
                           )
                         ],
-                        borderRadius: const BorderRadius.only(
+                        borderRadius: BorderRadius.only(
                           bottomLeft: Radius.circular(12.0),
                           bottomRight: Radius.circular(0.0),
                           topLeft: Radius.circular(12.0),
@@ -314,7 +316,7 @@ class _ChatThreadUpdateWidgetState extends State<ChatThreadUpdateWidget> {
                         ),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: EdgeInsets.all(8.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           crossAxisAlignment: CrossAxisAlignment.end,
@@ -322,7 +324,7 @@ class _ChatThreadUpdateWidgetState extends State<ChatThreadUpdateWidget> {
                             SelectionArea(
                                 child: Text(
                               valueOrDefault<String>(
-                                widget.chatMessagesRef?.text,
+                                widget!.chatMessagesRef?.text,
                                 '--',
                               ),
                               style: FlutterFlowTheme.of(context)
@@ -332,10 +334,10 @@ class _ChatThreadUpdateWidgetState extends State<ChatThreadUpdateWidget> {
                                     letterSpacing: 0.0,
                                   ),
                             )),
-                            if (widget.chatMessagesRef?.image != null &&
-                                widget.chatMessagesRef?.image != '')
+                            if (widget!.chatMessagesRef?.image != null &&
+                                widget!.chatMessagesRef?.image != '')
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 12.0, 0.0, 4.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
@@ -347,24 +349,24 @@ class _ChatThreadUpdateWidgetState extends State<ChatThreadUpdateWidget> {
                                       'image_Details',
                                       queryParameters: {
                                         'chatMessage': serializeParam(
-                                          widget.chatMessagesRef,
+                                          widget!.chatMessagesRef,
                                           ParamType.Document,
                                         ),
                                       }.withoutNulls,
                                       extra: <String, dynamic>{
-                                        'chatMessage': widget.chatMessagesRef,
+                                        'chatMessage': widget!.chatMessagesRef,
                                       },
                                     );
                                   },
                                   child: FlutterFlowMediaDisplay(
-                                    path: widget.chatMessagesRef!.image,
+                                    path: widget!.chatMessagesRef!.image,
                                     imageBuilder: (path) => ClipRRect(
                                       borderRadius: BorderRadius.circular(8.0),
                                       child: CachedNetworkImage(
                                         fadeInDuration:
-                                            const Duration(milliseconds: 500),
+                                            Duration(milliseconds: 500),
                                         fadeOutDuration:
-                                            const Duration(milliseconds: 500),
+                                            Duration(milliseconds: 500),
                                         imageUrl: path,
                                         width: 300.0,
                                         fit: BoxFit.cover,

@@ -5,6 +5,8 @@ import '/v2/menbresiav2/membresia_logo/membresia_logo_widget.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'tinderv2_c0_model.dart';
 export 'tinderv2_c0_model.dart';
 
@@ -45,16 +47,16 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(0.0, 0.0),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
           Align(
-            alignment: const AlignmentDirectional(0.0, 0.0),
+            alignment: AlignmentDirectional(0.0, 0.0),
             child: Material(
               color: Colors.transparent,
               elevation: 10.0,
-              shape: const RoundedRectangleBorder(
+              shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(20.0),
                   bottomRight: Radius.circular(20.0),
@@ -68,20 +70,20 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                   maxHeight: MediaQuery.sizeOf(context).height * 0.65,
                 ),
                 decoration: BoxDecoration(
-                  gradient: const LinearGradient(
+                  gradient: LinearGradient(
                     colors: [Color(0xFFA39C9C), Colors.white],
                     stops: [0.0, 0.5],
                     begin: AlignmentDirectional(0.0, -1.0),
                     end: AlignmentDirectional(0, 1.0),
                   ),
-                  borderRadius: const BorderRadius.only(
+                  borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(20.0),
                     bottomRight: Radius.circular(20.0),
                     topLeft: Radius.circular(20.0),
                     topRight: Radius.circular(20.0),
                   ),
                   border: Border.all(
-                    color: const Color(0xFFC45ABE),
+                    color: Color(0xFFC45ABE),
                     width: 3.0,
                   ),
                 ),
@@ -91,14 +93,14 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                     Expanded(
                       child: Builder(
                         builder: (context) {
-                          final imagesProfessional = widget
+                          final imagesProfessional = widget!
                                   .professional?.images
-                                  .map((e) => e)
+                                  ?.map((e) => e)
                                   .toList()
-                                  .toList() ??
+                                  ?.toList() ??
                               [];
 
-                          return SizedBox(
+                          return Container(
                             width: double.infinity,
                             height: 500.0,
                             child: PageView.builder(
@@ -120,12 +122,12 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
                                     await _model.pageViewController?.nextPage(
-                                      duration: const Duration(milliseconds: 300),
+                                      duration: Duration(milliseconds: 300),
                                       curve: Curves.ease,
                                     );
                                   },
                                   child: ClipRRect(
-                                    borderRadius: const BorderRadius.only(
+                                    borderRadius: BorderRadius.only(
                                       bottomLeft: Radius.circular(0.0),
                                       bottomRight: Radius.circular(0.0),
                                       topLeft: Radius.circular(20.0),
@@ -133,9 +135,9 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                                     ),
                                     child: CachedNetworkImage(
                                       fadeInDuration:
-                                          const Duration(milliseconds: 500),
+                                          Duration(milliseconds: 500),
                                       fadeOutDuration:
-                                          const Duration(milliseconds: 500),
+                                          Duration(milliseconds: 500),
                                       imageUrl: valueOrDefault<String>(
                                         imagesProfessionalItem,
                                         'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
@@ -157,7 +159,7 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -169,7 +171,7 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                               maxHeight:
                                   MediaQuery.sizeOf(context).height * 0.12,
                             ),
-                            decoration: const BoxDecoration(),
+                            decoration: BoxDecoration(),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -179,7 +181,7 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                                   children: [
                                     Text(
                                       valueOrDefault<String>(
-                                        widget.professional?.firtsName,
+                                        widget!.professional?.firtsName,
                                         'sandra',
                                       ),
                                       style: FlutterFlowTheme.of(context)
@@ -196,7 +198,7 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                                 Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    const Icon(
+                                    Icon(
                                       Icons.circle,
                                       color: Color(0xFF52FF00),
                                       size: 11.0,
@@ -211,7 +213,7 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                                             letterSpacing: 0.0,
                                           ),
                                     ),
-                                  ].divide(const SizedBox(width: 4.0)),
+                                  ].divide(SizedBox(width: 4.0)),
                                 ),
                                 Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -220,7 +222,7 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                                       width: MediaQuery.sizeOf(context).width *
                                           0.3,
                                       height: 30.0,
-                                      decoration: const BoxDecoration(
+                                      decoration: BoxDecoration(
                                         color: Color(0xFFAC16A4),
                                         borderRadius: BorderRadius.only(
                                           bottomLeft: Radius.circular(30.0),
@@ -231,11 +233,11 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                                       ),
                                       child: Align(
                                         alignment:
-                                            const AlignmentDirectional(0.0, 0.0),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: AutoSizeText(
                                           valueOrDefault<String>(
-                                            widget.professional?.serviceType
-                                                .first,
+                                            widget!.professional?.serviceType
+                                                ?.first,
                                             'service',
                                           ).maybeHandleOverflow(
                                             maxChars: 13,
@@ -258,7 +260,7 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                                       width: MediaQuery.sizeOf(context).width *
                                           0.21,
                                       height: 30.0,
-                                      decoration: const BoxDecoration(
+                                      decoration: BoxDecoration(
                                         color: Color(0xFFAC16A4),
                                         borderRadius: BorderRadius.only(
                                           bottomLeft: Radius.circular(30.0),
@@ -269,11 +271,11 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                                       ),
                                       child: Align(
                                         alignment:
-                                            const AlignmentDirectional(0.0, 0.0),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Text(
                                           valueOrDefault<String>(
-                                            widget.professional?.years
-                                                .toString(),
+                                            widget!.professional?.years
+                                                ?.toString(),
                                             '1',
                                           ),
                                           style: FlutterFlowTheme.of(context)
@@ -288,11 +290,11 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                                         ),
                                       ),
                                     ),
-                                  ].divide(const SizedBox(width: 4.0)),
+                                  ].divide(SizedBox(width: 4.0)),
                                 ),
                               ]
-                                  .divide(const SizedBox(height: 5.0))
-                                  .addToStart(const SizedBox(height: 3.0)),
+                                  .divide(SizedBox(height: 5.0))
+                                  .addToStart(SizedBox(height: 3.0)),
                             ),
                           ),
                           wrapWithModel(
@@ -301,10 +303,10 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                             child: MembresiaLogoWidget(
                               width: 70,
                               heigth: 70,
-                              professional: widget.professional!.reference,
+                              professional: widget!.professional!.reference,
                             ),
                           ),
-                        ].divide(const SizedBox(width: 2.0)),
+                        ].divide(SizedBox(width: 2.0)),
                       ),
                     ),
                   ],
@@ -312,7 +314,7 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
               ),
             ),
           ),
-        ].divide(const SizedBox(height: 16.0)),
+        ].divide(SizedBox(height: 16.0)),
       ),
     );
   }

@@ -4,8 +4,11 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'add_favorites_model.dart';
 export 'add_favorites_model.dart';
 
@@ -46,7 +49,7 @@ class _AddFavoritesWidgetState extends State<AddFavoritesWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(1.0, -1.0),
+      alignment: AlignmentDirectional(1.0, -1.0),
       child: StreamBuilder<List<ChatsRecord>>(
         stream: queryChatsRecord(
           queryBuilder: (chatsRecord) => chatsRecord
@@ -56,7 +59,7 @@ class _AddFavoritesWidgetState extends State<AddFavoritesWidget> {
               )
               .where(
                 'user_b',
-                isEqualTo: widget.professional?.reference,
+                isEqualTo: widget!.professional?.reference,
               ),
           singleRecord: true,
         ),
@@ -83,14 +86,14 @@ class _AddFavoritesWidgetState extends State<AddFavoritesWidget> {
 
           return Builder(
             builder: (context) {
-              if ((currentUserDocument?.favorites.toList() ?? [])
-                  .contains(widget.professional?.reference)) {
+              if ((currentUserDocument?.favorites?.toList() ?? [])
+                  .contains(widget!.professional?.reference)) {
                 return FlutterFlowIconButton(
                   borderColor: Colors.transparent,
                   borderRadius: 20.0,
                   borderWidth: 1.0,
                   buttonSize: 40.0,
-                  icon: const Icon(
+                  icon: Icon(
                     Icons.favorite,
                     color: Color(0xFFFB4F4F),
                     size: 27.0,
@@ -100,7 +103,7 @@ class _AddFavoritesWidgetState extends State<AddFavoritesWidget> {
                       ...mapToFirestore(
                         {
                           'favorites': FieldValue.arrayRemove(
-                              [widget.professional?.reference]),
+                              [widget!.professional?.reference]),
                         },
                       ),
                     });
@@ -114,7 +117,7 @@ class _AddFavoritesWidgetState extends State<AddFavoritesWidget> {
                   borderRadius: 20.0,
                   borderWidth: 1.0,
                   buttonSize: 40.0,
-                  icon: const Icon(
+                  icon: Icon(
                     Icons.favorite_border,
                     color: Color(0xFFFB4F4F),
                     size: 27.0,
@@ -126,12 +129,12 @@ class _AddFavoritesWidgetState extends State<AddFavoritesWidget> {
                         ...mapToFirestore(
                           {
                             'favorites': FieldValue.arrayUnion(
-                                [widget.professional?.reference]),
+                                [widget!.professional?.reference]),
                           },
                         ),
                       });
                       FFAppState().favoritesChange = false;
-                      if (widget.professional?.business != null) {
+                      if (widget!.professional?.business != null) {
                         _model.newChatBusiness = await queryChatsRecordOnce(
                           queryBuilder: (chatsRecord) => chatsRecord
                               .where(
@@ -140,15 +143,15 @@ class _AddFavoritesWidgetState extends State<AddFavoritesWidget> {
                               )
                               .where(
                                 'user_b',
-                                isEqualTo: widget.professional?.business,
+                                isEqualTo: widget!.professional?.business,
                               ),
                           singleRecord: true,
                         ).then((s) => s.firstOrNull);
-                        _model.addToUserToAdd(widget.professional!.business!);
+                        _model.addToUserToAdd(widget!.professional!.business!);
                         _model.addToUserToAdd(currentUserReference!);
                         if (_model.newChatBusiness != null
                             ? (_model.newChatBusiness?.users
-                                    .contains(currentUserReference) ==
+                                    ?.contains(currentUserReference) ==
                                 true)
                             : false) {
                           _model.newRefBusiness = await queryChatsRecordOnce(
@@ -159,7 +162,7 @@ class _AddFavoritesWidgetState extends State<AddFavoritesWidget> {
                                 )
                                 .where(
                                   'user_b',
-                                  isEqualTo: widget.professional?.business,
+                                  isEqualTo: widget!.professional?.business,
                                 ),
                             singleRecord: true,
                           ).then((s) => s.firstOrNull);
@@ -171,7 +174,7 @@ class _AddFavoritesWidgetState extends State<AddFavoritesWidget> {
                           await chatsRecordReference1.set({
                             ...createChatsRecordData(
                               userA: currentUserReference,
-                              userB: widget.professional?.business,
+                              userB: widget!.professional?.business,
                               lastMessage: '',
                               lastMessageTime: getCurrentTimestamp,
                               lastMessageSentBy: currentUserReference,
@@ -188,7 +191,7 @@ class _AddFavoritesWidgetState extends State<AddFavoritesWidget> {
                               ChatsRecord.getDocumentFromData({
                             ...createChatsRecordData(
                               userA: currentUserReference,
-                              userB: widget.professional?.business,
+                              userB: widget!.professional?.business,
                               lastMessage: '',
                               lastMessageTime: getCurrentTimestamp,
                               lastMessageSentBy: currentUserReference,
@@ -206,17 +209,17 @@ class _AddFavoritesWidgetState extends State<AddFavoritesWidget> {
                         await NewsbusinessRecord.collection
                             .doc()
                             .set(createNewsbusinessRecordData(
-                              business: widget.professional?.business,
-                              professional: widget.professional?.reference,
+                              business: widget!.professional?.business,
+                              professional: widget!.professional?.reference,
                               user: currentUserReference,
                               isView: false,
                             ));
                       } else {
-                        _model.addToUserToAdd(widget.professional!.reference);
+                        _model.addToUserToAdd(widget!.professional!.reference);
                         _model.addToUserToAdd(currentUserReference!);
                         if (conditionalBuilderChatsRecord != null
-                            ? (conditionalBuilderChatsRecord.users
-                                    .contains(currentUserReference) ==
+                            ? (conditionalBuilderChatsRecord?.users
+                                    ?.contains(currentUserReference) ==
                                 true)
                             : false) {
                           _model.newRef = await queryChatsRecordOnce(
@@ -227,7 +230,7 @@ class _AddFavoritesWidgetState extends State<AddFavoritesWidget> {
                                 )
                                 .where(
                                   'user_b',
-                                  isEqualTo: widget.professional?.reference,
+                                  isEqualTo: widget!.professional?.reference,
                                 ),
                             singleRecord: true,
                           ).then((s) => s.firstOrNull);
@@ -239,7 +242,7 @@ class _AddFavoritesWidgetState extends State<AddFavoritesWidget> {
                           await chatsRecordReference2.set({
                             ...createChatsRecordData(
                               userA: currentUserReference,
-                              userB: widget.professional?.reference,
+                              userB: widget!.professional?.reference,
                               lastMessage: '',
                               lastMessageTime: getCurrentTimestamp,
                               lastMessageSentBy: currentUserReference,
@@ -256,7 +259,7 @@ class _AddFavoritesWidgetState extends State<AddFavoritesWidget> {
                               ChatsRecord.getDocumentFromData({
                             ...createChatsRecordData(
                               userA: currentUserReference,
-                              userB: widget.professional?.reference,
+                              userB: widget!.professional?.reference,
                               lastMessage: '',
                               lastMessageTime: getCurrentTimestamp,
                               lastMessageSentBy: currentUserReference,
@@ -278,7 +281,7 @@ class _AddFavoritesWidgetState extends State<AddFavoritesWidget> {
                         'profile_info',
                         queryParameters: {
                           'professional': serializeParam(
-                            widget.professional?.reference,
+                            widget!.professional?.reference,
                             ParamType.DocumentReference,
                           ),
                         }.withoutNulls,

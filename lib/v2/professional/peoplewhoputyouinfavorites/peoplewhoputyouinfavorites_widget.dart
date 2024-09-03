@@ -4,11 +4,14 @@ import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/v2/favoritesv2/v3fv0rites/v3fv0rites_widget.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'peoplewhoputyouinfavorites_model.dart';
 export 'peoplewhoputyouinfavorites_model.dart';
 
@@ -47,14 +50,14 @@ class _PeoplewhoputyouinfavoritesWidgetState
         key: scaffoldKey,
         backgroundColor: Colors.white,
         appBar: AppBar(
-          backgroundColor: const Color(0xFFBD39BA),
+          backgroundColor: Color(0xFFBD39BA),
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
             borderColor: Colors.transparent,
             borderRadius: 30.0,
             borderWidth: 1.0,
             buttonSize: 60.0,
-            icon: const FaIcon(
+            icon: FaIcon(
               FontAwesomeIcons.angleLeft,
               color: Colors.white,
               size: 30.0,
@@ -64,19 +67,19 @@ class _PeoplewhoputyouinfavoritesWidgetState
             },
           ),
           title: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
             child: Text(
-              'Favorites',
+              'Likes',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Montserrat',
-                    color: const Color(0xFFEFECF3),
+                    color: Color(0xFFEFECF3),
                     fontSize: 25.0,
                     letterSpacing: 0.0,
                     fontWeight: FontWeight.bold,
                   ),
             ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
@@ -89,15 +92,15 @@ class _PeoplewhoputyouinfavoritesWidgetState
                 child: Container(
                   width: double.infinity,
                   height: double.infinity,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     color: Colors.white,
                   ),
                   child: Align(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: Stack(
                       children: [
                         Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Container(
                             width: 390.0,
                             height: 580.0,
@@ -133,7 +136,7 @@ class _PeoplewhoputyouinfavoritesWidgetState
                                     snapshot.data!;
 
                                 return ListView.separated(
-                                  padding: const EdgeInsets.fromLTRB(
+                                  padding: EdgeInsets.fromLTRB(
                                     0,
                                     26.0,
                                     0,
@@ -143,7 +146,7 @@ class _PeoplewhoputyouinfavoritesWidgetState
                                   scrollDirection: Axis.vertical,
                                   itemCount: listViewUsersRecordList.length,
                                   separatorBuilder: (_, __) =>
-                                      const SizedBox(height: 10.0),
+                                      SizedBox(height: 10.0),
                                   itemBuilder: (context, listViewIndex) {
                                     final listViewUsersRecord =
                                         listViewUsersRecordList[listViewIndex];
@@ -165,10 +168,10 @@ class _PeoplewhoputyouinfavoritesWidgetState
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(0.0, 1.01),
+                alignment: AlignmentDirectional(0.0, 1.01),
                 child: Container(
                   height: 73.0,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     color: Color(0xB3B928B8),
                   ),
                   child: Builder(
@@ -177,13 +180,13 @@ class _PeoplewhoputyouinfavoritesWidgetState
                         return wrapWithModel(
                           model: _model.navbarModel,
                           updateCallback: () => setState(() {}),
-                          child: const NavbarWidget(),
+                          child: NavbarWidget(),
                         );
                       } else {
                         return wrapWithModel(
                           model: _model.navbarPremiunModel,
                           updateCallback: () => setState(() {}),
-                          child: const NavbarPremiunWidget(),
+                          child: NavbarPremiunWidget(),
                         );
                       }
                     },

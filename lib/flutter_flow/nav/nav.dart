@@ -2,15 +2,22 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:go_router/go_router.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/backend/schema/enums/enums.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
 import '/main.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/lat_lng.dart';
+import '/flutter_flow/place.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'serialization_util.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -78,14 +85,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) => _RouteErrorBuilder(
         state: state,
-        child: appStateNotifier.loggedIn ? const NavBarPage() : const Pantainci1Widget(),
+        child: appStateNotifier.loggedIn ? NavBarPage() : Pantainci1Widget(),
       ),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? const NavBarPage() : const Pantainci1Widget(),
+              appStateNotifier.loggedIn ? NavBarPage() : Pantainci1Widget(),
           routes: [
             FFRoute(
               name: 'HomeSearch',
@@ -106,30 +113,30 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'User',
               path: 'user',
               builder: (context, params) => params.isEmpty
-                  ? const NavBarPage(initialPage: 'User')
-                  : const UserWidget(),
+                  ? NavBarPage(initialPage: 'User')
+                  : UserWidget(),
             ),
             FFRoute(
               name: 'Filtros',
               path: 'filtros',
-              builder: (context, params) => const FiltrosWidget(),
+              builder: (context, params) => FiltrosWidget(),
             ),
             FFRoute(
               name: 'Favorites1',
               path: 'favorites1',
               builder: (context, params) => params.isEmpty
-                  ? const NavBarPage(initialPage: 'Favorites1')
-                  : const Favorites1Widget(),
+                  ? NavBarPage(initialPage: 'Favorites1')
+                  : Favorites1Widget(),
             ),
             FFRoute(
               name: 'RegisterUser1',
               path: 'registerUser1',
-              builder: (context, params) => const RegisterUser1Widget(),
+              builder: (context, params) => RegisterUser1Widget(),
             ),
             FFRoute(
               name: 'RegisterUser2',
               path: 'registerUser2',
-              builder: (context, params) => const RegisterUser2Widget(),
+              builder: (context, params) => RegisterUser2Widget(),
             ),
             FFRoute(
               name: 'RegisterProfessional1',
@@ -158,23 +165,23 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'Login',
               path: 'login',
-              builder: (context, params) => const LoginWidget(),
+              builder: (context, params) => LoginWidget(),
             ),
             FFRoute(
               name: 'Escoger_Usuario',
               path: 'escogerUsuario',
-              builder: (context, params) => const EscogerUsuarioWidget(),
+              builder: (context, params) => EscogerUsuarioWidget(),
             ),
             FFRoute(
               name: 'Membresia',
               path: 'membresia',
-              builder: (context, params) => const MembresiaWidget(),
+              builder: (context, params) => MembresiaWidget(),
             ),
             FFRoute(
               name: 'userprofile',
               path: 'userprofile',
               requireAuth: true,
-              builder: (context, params) => const UserprofileWidget(),
+              builder: (context, params) => UserprofileWidget(),
             ),
             FFRoute(
               name: 'chat_2_Details',
@@ -200,7 +207,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'chat_2_main',
               path: 'chat2Main',
               requireAuth: true,
-              builder: (context, params) => const Chat2MainWidget(),
+              builder: (context, params) => Chat2MainWidget(),
             ),
             FFRoute(
               name: 'image_Details',
@@ -219,19 +226,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'professionalprofile',
               path: 'professionalprofile',
-              builder: (context, params) => const ProfessionalprofileWidget(),
+              builder: (context, params) => ProfessionalprofileWidget(),
             ),
             FFRoute(
               name: 'Profilesettings',
               path: 'profilesettings',
               requireAuth: true,
-              builder: (context, params) => const ProfilesettingsWidget(),
+              builder: (context, params) => ProfilesettingsWidget(),
             ),
             FFRoute(
               name: 'listofcollaborators',
               path: 'listofcollaborators',
               requireAuth: true,
-              builder: (context, params) => const ListofcollaboratorsWidget(),
+              builder: (context, params) => ListofcollaboratorsWidget(),
             ),
             FFRoute(
               name: 'profile_info',
@@ -249,36 +256,36 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'MembresiaPerfil_Estandar',
               path: 'membresiaPerfilEstandar',
-              builder: (context, params) => const MembresiaPerfilEstandarWidget(),
+              builder: (context, params) => MembresiaPerfilEstandarWidget(),
             ),
             FFRoute(
               name: 'peoplewhoputyouinfavorites',
               path: 'peoplewhoputyouinfavorites',
               requireAuth: true,
-              builder: (context, params) => const PeoplewhoputyouinfavoritesWidget(),
+              builder: (context, params) => PeoplewhoputyouinfavoritesWidget(),
             ),
             FFRoute(
               name: 'MembresiaPerfil_Basico',
               path: 'membresiaPerfilBasico',
-              builder: (context, params) => const MembresiaPerfilBasicoWidget(),
+              builder: (context, params) => MembresiaPerfilBasicoWidget(),
             ),
             FFRoute(
               name: 'peoplewhoputyouinfavoriteBasic',
               path: 'peoplewhoputyouinfavoriteBasic',
               requireAuth: true,
               builder: (context, params) =>
-                  const PeoplewhoputyouinfavoriteBasicWidget(),
+                  PeoplewhoputyouinfavoriteBasicWidget(),
             ),
             FFRoute(
               name: 'favV2',
               path: 'favV2',
               requireAuth: true,
-              builder: (context, params) => const FavV2Widget(),
+              builder: (context, params) => FavV2Widget(),
             ),
             FFRoute(
               name: 'RegisterProfessional3',
               path: 'registerProfessional3',
-              builder: (context, params) => const RegisterProfessional3Widget(),
+              builder: (context, params) => RegisterProfessional3Widget(),
             ),
             FFRoute(
               name: 'MembresiasV2',
@@ -327,33 +334,33 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'RegisterBusiness3',
               path: 'registerBusiness3',
-              builder: (context, params) => const RegisterBusiness3Widget(),
+              builder: (context, params) => RegisterBusiness3Widget(),
             ),
             FFRoute(
               name: 'RegisterBusiness4',
               path: 'registerBusiness4',
-              builder: (context, params) => const RegisterBusiness4Widget(),
+              builder: (context, params) => RegisterBusiness4Widget(),
             ),
             FFRoute(
               name: 'TinDERv1',
               path: 'tinDERv1',
-              builder: (context, params) => const TinDERv1Widget(),
+              builder: (context, params) => TinDERv1Widget(),
             ),
             FFRoute(
               name: 'tinderv2C1',
               path: 'tinderv2C1',
-              builder: (context, params) => const Tinderv2C1Widget(),
+              builder: (context, params) => Tinderv2C1Widget(),
             ),
             FFRoute(
               name: 'news',
               path: 'news',
               requireAuth: true,
-              builder: (context, params) => const NewsWidget(),
+              builder: (context, params) => NewsWidget(),
             ),
             FFRoute(
               name: 'BlockList',
               path: 'blockList',
-              builder: (context, params) => const BlockListWidget(),
+              builder: (context, params) => BlockListWidget(),
             ),
             FFRoute(
               name: 'STANDAR',
@@ -410,17 +417,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'MySubscriptionStandard',
               path: 'mySubscriptionStandard',
-              builder: (context, params) => const MySubscriptionStandardWidget(),
+              builder: (context, params) => MySubscriptionStandardWidget(),
             ),
             FFRoute(
               name: 'MySubscriptionPremium',
               path: 'mySubscriptionPremium',
-              builder: (context, params) => const MySubscriptionPremiumWidget(),
+              builder: (context, params) => MySubscriptionPremiumWidget(),
             ),
             FFRoute(
               name: 'MySubscriptionBasic',
               path: 'mySubscriptionBasic',
-              builder: (context, params) => const MySubscriptionBasicWidget(),
+              builder: (context, params) => MySubscriptionBasicWidget(),
             ),
             FFRoute(
               name: 'report',
@@ -458,12 +465,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'favV3Copy',
               path: 'favV3Copy',
               requireAuth: true,
-              builder: (context, params) => const FavV3CopyWidget(),
+              builder: (context, params) => FavV3CopyWidget(),
             ),
             FFRoute(
               name: 'pantainci1',
               path: 'pantainci1',
-              builder: (context, params) => const Pantainci1Widget(),
+              builder: (context, params) => Pantainci1Widget(),
             ),
             FFRoute(
               name: 'RegisterPfofesional4',
@@ -480,7 +487,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'cuestionario',
               path: 'cuestionario',
-              builder: (context, params) => const CuestionarioWidget(),
+              builder: (context, params) => CuestionarioWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
@@ -719,14 +726,15 @@ class TransitionInfo {
   final Duration duration;
   final Alignment? alignment;
 
-  static TransitionInfo appDefault() => const TransitionInfo(hasTransition: false);
+  static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
 }
 
 class _RouteErrorBuilder extends StatefulWidget {
   const _RouteErrorBuilder({
+    Key? key,
     required this.state,
     required this.child,
-  });
+  }) : super(key: key);
 
   final GoRouterState state;
   final Widget child;

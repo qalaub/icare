@@ -5,6 +5,8 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'user_tinder_model.dart';
 export 'user_tinder_model.dart';
 
@@ -61,24 +63,24 @@ class _UserTinderWidgetState extends State<UserTinderWidget> {
           color: Colors.white,
           borderRadius: BorderRadius.circular(24.0),
         ),
-        alignment: const AlignmentDirectional(0.0, 0.0),
+        alignment: AlignmentDirectional(0.0, 0.0),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
             Align(
-              alignment: const AlignmentDirectional(0.0, 0.0),
+              alignment: AlignmentDirectional(0.0, 0.0),
               child: ClipRRect(
-                borderRadius: const BorderRadius.only(
+                borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(0.0),
                   bottomRight: Radius.circular(0.0),
                   topLeft: Radius.circular(22.0),
                   topRight: Radius.circular(22.0),
                 ),
                 child: CachedNetworkImage(
-                  fadeInDuration: const Duration(milliseconds: 500),
-                  fadeOutDuration: const Duration(milliseconds: 500),
+                  fadeInDuration: Duration(milliseconds: 500),
+                  fadeOutDuration: Duration(milliseconds: 500),
                   imageUrl: valueOrDefault<String>(
-                    widget.professional?.photoUrl,
+                    widget!.professional?.photoUrl,
                     'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
                   ),
                   height: MediaQuery.sizeOf(context).height * 0.4,
@@ -90,12 +92,12 @@ class _UserTinderWidgetState extends State<UserTinderWidget> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Align(
-                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                  alignment: AlignmentDirectional(-1.0, 0.0),
                   child: Container(
                     width: MediaQuery.sizeOf(context).width * 0.78,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
-                      borderRadius: const BorderRadius.only(
+                      borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(22.0),
                         bottomRight: Radius.circular(0.0),
                         topLeft: Radius.circular(0.0),
@@ -110,7 +112,7 @@ class _UserTinderWidgetState extends State<UserTinderWidget> {
                           children: [
                             Text(
                               valueOrDefault<String>(
-                                widget.professional?.firtsName,
+                                widget!.professional?.firtsName,
                                 'sandra',
                               ),
                               style: FlutterFlowTheme.of(context)
@@ -123,15 +125,15 @@ class _UserTinderWidgetState extends State<UserTinderWidget> {
                                   ),
                             ),
                           ]
-                              .divide(const SizedBox(width: 16.0))
-                              .addToStart(const SizedBox(width: 11.0)),
+                              .divide(SizedBox(width: 16.0))
+                              .addToStart(SizedBox(width: 11.0)),
                         ),
                         Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            const Icon(
+                            Icon(
                               Icons.circle_rounded,
                               color: Color(0xFF52FF00),
                               size: 12.0,
@@ -148,27 +150,27 @@ class _UserTinderWidgetState extends State<UserTinderWidget> {
                                   ),
                             ),
                           ]
-                              .divide(const SizedBox(width: 8.0))
-                              .addToStart(const SizedBox(width: 10.0)),
+                              .divide(SizedBox(width: 8.0))
+                              .addToStart(SizedBox(width: 10.0)),
                         ),
                         Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Align(
-                              alignment: const AlignmentDirectional(-1.0, 0.0),
+                              alignment: AlignmentDirectional(-1.0, 0.0),
                               child: Container(
                                 width: MediaQuery.sizeOf(context).width * 0.28,
                                 height:
                                     MediaQuery.sizeOf(context).height * 0.045,
                                 decoration: BoxDecoration(
-                                  color: const Color(0xCCAC16A4),
+                                  color: Color(0xCCAC16A4),
                                   borderRadius: BorderRadius.circular(16.0),
                                 ),
                                 child: Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: AutoSizeText(
                                     valueOrDefault<String>(
-                                      widget.professional?.serviceType.first,
+                                      widget!.professional?.serviceType?.first,
                                       'Psychology',
                                     ).maybeHandleOverflow(
                                       maxChars: 15,
@@ -180,7 +182,7 @@ class _UserTinderWidgetState extends State<UserTinderWidget> {
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Poppins',
-                                          color: const Color(0xFFFBFBFB),
+                                          color: Color(0xFFFBFBFB),
                                           fontSize: 11.5,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
@@ -190,22 +192,22 @@ class _UserTinderWidgetState extends State<UserTinderWidget> {
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(-1.0, 0.0),
+                              alignment: AlignmentDirectional(-1.0, 0.0),
                               child: Container(
                                 width: MediaQuery.sizeOf(context).width * 0.42,
                                 height:
                                     MediaQuery.sizeOf(context).height * 0.045,
                                 decoration: BoxDecoration(
-                                  color: const Color(0xCCAC16A4),
+                                  color: Color(0xCCAC16A4),
                                   borderRadius: BorderRadius.circular(16.0),
                                 ),
                                 child: Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     valueOrDefault<String>(
                                       functions.concatStrings(
-                                          widget.professional?.years
-                                              .toString(),
+                                          widget!.professional?.years
+                                              ?.toString(),
                                           'years of experience',
                                           ' '),
                                       'years of experience',
@@ -214,7 +216,7 @@ class _UserTinderWidgetState extends State<UserTinderWidget> {
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Poppins',
-                                          color: const Color(0xFFFBFBFB),
+                                          color: Color(0xFFFBFBFB),
                                           fontSize: 12.5,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
@@ -224,13 +226,13 @@ class _UserTinderWidgetState extends State<UserTinderWidget> {
                               ),
                             ),
                           ]
-                              .divide(const SizedBox(width: 6.0))
-                              .addToStart(const SizedBox(width: 10.0)),
+                              .divide(SizedBox(width: 6.0))
+                              .addToStart(SizedBox(width: 10.0)),
                         ),
                       ]
-                          .divide(const SizedBox(height: 10.0))
-                          .addToStart(const SizedBox(height: 10.0))
-                          .addToEnd(const SizedBox(height: 10.0)),
+                          .divide(SizedBox(height: 10.0))
+                          .addToStart(SizedBox(height: 10.0))
+                          .addToEnd(SizedBox(height: 10.0)),
                     ),
                   ),
                 ),

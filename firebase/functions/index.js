@@ -5,10 +5,8 @@ admin.initializeApp();
 const stripeModule = require("stripe");
 
 // Credentials
-const kStripeProdSecretKey =
-  "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";
-const kStripeTestSecretKey =
-  "sk_test_51PdA5dGzfOwZ4GA0bkKepyvrI2JLdJ0S9FQNF7UUsySxnbRKsOTS5xQ5AG7kBfdDNsHY0znyuwdJeyoRTqKK10JJ00DY0PlgU8";
+const kStripeProdSecretKey = "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";
+const kStripeTestSecretKey = "sk_test_51PdA5dGzfOwZ4GA0bkKepyvrI2JLdJ0S9FQNF7UUsySxnbRKsOTS5xQ5AG7kBfdDNsHY0znyuwdJeyoRTqKK10JJ00DY0PlgU8";
 
 const secretKey = (isProd) =>
   isProd ? kStripeProdSecretKey : kStripeTestSecretKey;
@@ -32,7 +30,7 @@ exports.initStripeTestPayment = functions.https.onCall(
       return "Unauthenticated calls are not allowed.";
     }
     return await initPayment(data, false);
-  },
+  }
 );
 
 async function initPayment(data, isProd) {
@@ -55,7 +53,7 @@ async function initPayment(data, isProd) {
 
     const ephemeralKey = await stripe.ephemeralKeys.create(
       { customer: customer.id },
-      { apiVersion: "2020-08-27" },
+      { apiVersion: "2020-08-27" }
     );
     const paymentIntent = await stripe.paymentIntents.create({
       amount: data.amount,
@@ -87,6 +85,6 @@ function userFacingMessage(error) {
 }
 exports.onUserDeleted = functions.auth.user().onDelete(async (user) => {
   let firestore = admin.firestore();
-  let userRef = firestore.doc("users/" + user.uid);
+  let userRef = firestore.doc('users/' + user.uid);
   await firestore.collection("users").doc(user.uid).delete();
 });

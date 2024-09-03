@@ -2,6 +2,7 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
+import '/backend/schema/structs/index.dart';
 import '/components/home_vista_cuidador_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_google_map.dart';
@@ -13,13 +14,16 @@ import '/v2/favoritesv2/perfil_profesional_mapa/perfil_profesional_mapa_widget.d
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
 import '/v2/user/mapbuscar/mapbuscar_widget.dart';
+import 'dart:math';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:pointer_interceptor/pointer_interceptor.dart';
 import 'package:provider/provider.dart';
 import 'home_search_model.dart';
@@ -30,7 +34,7 @@ class HomeSearchWidget extends StatefulWidget {
     super.key,
     this.currentLatLng,
     bool? authUser,
-  }) : authUser = authUser ?? true;
+  }) : this.authUser = authUser ?? true;
 
   final List<LatLng>? currentLatLng;
   final bool authUser;
@@ -60,7 +64,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
         await Future.delayed(const Duration(milliseconds: 1500));
         await requestPermission(locationPermission);
       }
-      if (widget.authUser) {
+      if (widget!.authUser) {
         if (currentUserDocument?.rol != Roles.user) {
           if (valueOrDefault<bool>(currentUserDocument?.freeTrial, false) ==
               true) {
@@ -99,7 +103,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
       }
     });
 
-    getCurrentUserLocation(defaultLocation: const LatLng(0.0, 0.0), cached: true)
+    getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
         .then((loc) => setState(() => currentUserLocationValue = loc));
     _model.queryTextController ??= TextEditingController();
     _model.queryFocusNode ??= FocusNode();
@@ -112,8 +116,8 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
             curve: Curves.easeOut,
             delay: 0.0.ms,
             duration: 780.0.ms,
-            begin: const Offset(0.0, 100.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -160,7 +164,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
             child: Stack(
               children: [
                 Align(
-                  alignment: const AlignmentDirectional(0.0, -1.0),
+                  alignment: AlignmentDirectional(0.0, -1.0),
                   child: Container(
                     width: MediaQuery.sizeOf(context).width * 1.0,
                     height: MediaQuery.sizeOf(context).height * 0.92,
@@ -172,11 +176,11 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                       children: [
                         Container(
                           height: MediaQuery.sizeOf(context).height * 0.6,
-                          decoration: const BoxDecoration(),
+                          decoration: BoxDecoration(),
                           child: Stack(
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(0.0, -0.99),
+                                alignment: AlignmentDirectional(0.0, -0.99),
                                 child: AuthUserStreamWidget(
                                   builder: (context) =>
                                       StreamBuilder<List<UsersRecord>>(
@@ -202,7 +206,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                           mapsAustralianUsersRecordList =
                                           snapshot.data!;
 
-                                      return SizedBox(
+                                      return Container(
                                         width:
                                             MediaQuery.sizeOf(context).width *
                                                 1.0,
@@ -258,7 +262,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                   onCameraIdle: (latLng) =>
                                       _model.googleMapsCenter = latLng,
                                   initialLocation: _model.googleMapsCenter ??=
-                                      const LatLng(13.106061, -59.613158),
+                                      LatLng(13.106061, -59.613158),
                                   markerColor: GoogleMarkerColor.violet,
                                   mapType: MapType.normal,
                                   style: GoogleMapStyle.standard,
@@ -274,7 +278,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                 ),
                               if (currentUserDocument?.rol == Roles.user)
                                 Align(
-                                  alignment: const AlignmentDirectional(-0.04, -0.84),
+                                  alignment: AlignmentDirectional(-0.04, -0.84),
                                   child: PointerInterceptor(
                                     intercepting: isWeb,
                                     child: AuthUserStreamWidget(
@@ -299,7 +303,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                             ),
                                           ),
                                           child: Align(
-                                            alignment: const AlignmentDirectional(
+                                            alignment: AlignmentDirectional(
                                                 0.0, -0.97),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -314,7 +318,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                                         clipBehavior:
                                                             Clip.antiAlias,
                                                         decoration:
-                                                            const BoxDecoration(
+                                                            BoxDecoration(
                                                           shape:
                                                               BoxShape.circle,
                                                         ),
@@ -326,11 +330,11 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                                     } else {
                                                       return Align(
                                                         alignment:
-                                                            const AlignmentDirectional(
+                                                            AlignmentDirectional(
                                                                 -0.82, -0.96),
                                                         child: Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       2.0,
                                                                       2.0,
@@ -345,7 +349,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                                             buttonSize: 40.0,
                                                             fillColor:
                                                                 Colors.white,
-                                                            icon: const Icon(
+                                                            icon: Icon(
                                                               Icons
                                                                   .search_sharp,
                                                               color: Color(
@@ -365,7 +369,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                                 Expanded(
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(8.0, 0.0,
                                                                 8.0, 0.0),
                                                     child: TextFormField(
@@ -376,7 +380,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                                       onChanged: (_) =>
                                                           EasyDebounce.debounce(
                                                         '_model.queryTextController',
-                                                        const Duration(
+                                                        Duration(
                                                             milliseconds: 100),
                                                         () async {
                                                           _model.isLoading =
@@ -484,7 +488,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                                     ),
                                                   ),
                                                 ),
-                                                const SizedBox(
+                                                SizedBox(
                                                   height: 100.0,
                                                   child: VerticalDivider(
                                                     width: 5.0,
@@ -495,7 +499,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 2.0, 0.0, 2.0),
                                                   child: FFButtonWidget(
@@ -505,7 +509,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                                         extra: <String,
                                                             dynamic>{
                                                           kTransitionInfoKey:
-                                                              const TransitionInfo(
+                                                              TransitionInfo(
                                                             hasTransition: true,
                                                             transitionType:
                                                                 PageTransitionType
@@ -515,7 +519,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                                       );
                                                     },
                                                     text: 'Filter',
-                                                    icon: const Icon(
+                                                    icon: Icon(
                                                       Icons.filter_list_alt,
                                                       color: Color(0xAEDB00FF),
                                                       size: 26.0,
@@ -527,14 +531,14 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                                           0.309,
                                                       height: 39.0,
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   14.0,
                                                                   0.0,
                                                                   14.0,
                                                                   0.0),
                                                       iconPadding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -558,7 +562,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                                                         .w500,
                                                               ),
                                                       elevation: 0.0,
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color: Colors.white,
                                                         width: 1.0,
                                                       ),
@@ -576,13 +580,13 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                     ),
                                   ),
                                 ),
-                              if (_model.queryResults.isNotEmpty)
+                              if (_model.queryResults.length > 0)
                                 Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.7),
+                                  alignment: AlignmentDirectional(0.0, 0.7),
                                   child: PointerInterceptor(
                                     intercepting: isWeb,
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 2.0, 0.0, 0.0),
                                       child: Container(
                                         width:
@@ -592,7 +596,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                             MediaQuery.sizeOf(context).height *
                                                 0.47,
                                         decoration: BoxDecoration(
-                                          color: const Color(0x33000000),
+                                          color: Color(0x33000000),
                                           borderRadius:
                                               BorderRadius.circular(0.0),
                                         ),
@@ -601,7 +605,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Align(
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Builder(
                                                   builder: (context) {
@@ -618,7 +622,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                                           newquery.length,
                                                       separatorBuilder: (_,
                                                               __) =>
-                                                          const SizedBox(height: 0.0),
+                                                          SizedBox(height: 0.0),
                                                       itemBuilder: (context,
                                                           newqueryIndex) {
                                                         final newqueryItem =
@@ -653,12 +657,12 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                                                             ''),
                                                                       )
                                                                           ?.lat
-                                                                          .toString(),
+                                                                          ?.toString(),
                                                                       GetPlaceCall
                                                                           .location(
                                                                         (_model.newPlace?.jsonBody ??
                                                                             ''),
-                                                                      )?.lng.toString(),
+                                                                      )?.lng?.toString(),
                                                                       ',');
                                                             }
                                                             _model.queryResults =
@@ -675,7 +679,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                                               MapbuscarWidget(
                                                             key: Key(
                                                                 'Keybzx_${newqueryIndex}_of_${newquery.length}'),
-                                                            icon: const Icon(
+                                                            icon: Icon(
                                                               Icons.location_on,
                                                               color: Color(
                                                                   0xFFD26AD2),
@@ -700,11 +704,11 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                           ),
                         ),
                         Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Container(
                             height: MediaQuery.sizeOf(context).height * 0.32,
-                            decoration: const BoxDecoration(),
-                            alignment: const AlignmentDirectional(0.0, -1.0),
+                            decoration: BoxDecoration(),
+                            alignment: AlignmentDirectional(0.0, -1.0),
                             child: Builder(
                               builder: (context) {
                                 if ((currentUserDocument?.rol !=
@@ -712,7 +716,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                     (currentUserDocument?.rol !=
                                         Roles.business)) {
                                   return Align(
-                                    alignment: const AlignmentDirectional(0.0, -1.0),
+                                    alignment: AlignmentDirectional(0.0, -1.0),
                                     child: FutureBuilder<List<UsersRecord>>(
                                       future: queryUsersRecordOnce(
                                         queryBuilder: (usersRecord) =>
@@ -757,8 +761,8 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                         return Container(
                                           width: double.infinity,
                                           decoration: BoxDecoration(
-                                            color: const Color(0xFFFDFDFD),
-                                            boxShadow: const [
+                                            color: Color(0xFFFDFDFD),
+                                            boxShadow: [
                                               BoxShadow(
                                                 blurRadius: 7.0,
                                                 color: Color(0x33000000),
@@ -768,7 +772,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                                 ),
                                               )
                                             ],
-                                            borderRadius: const BorderRadius.only(
+                                            borderRadius: BorderRadius.only(
                                               bottomLeft: Radius.circular(0.0),
                                               bottomRight: Radius.circular(0.0),
                                               topLeft: Radius.circular(0.0),
@@ -780,7 +784,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                           ),
                                           child: Align(
                                             alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -790,7 +794,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                               children: [
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           0.0, 0.0),
                                                   child: InkWell(
                                                     splashColor:
@@ -817,7 +821,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                                               .width *
                                                           1.0,
                                                       height: 60.0,
-                                                      decoration: const BoxDecoration(
+                                                      decoration: BoxDecoration(
                                                         color:
                                                             Color(0xFFFDFDFD),
                                                         boxShadow: [
@@ -834,7 +838,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                                       ),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     8.0,
@@ -863,7 +867,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                                                   height: 3.0,
                                                                   decoration:
                                                                       BoxDecoration(
-                                                                    color: const Color(
+                                                                    color: Color(
                                                                         0xFFC56AB1),
                                                                     borderRadius:
                                                                         BorderRadius.circular(
@@ -874,7 +878,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                                             ),
                                                             Align(
                                                               alignment:
-                                                                  const AlignmentDirectional(
+                                                                  AlignmentDirectional(
                                                                       0.0, 1.0),
                                                               child: Text(
                                                                 valueOrDefault<
@@ -910,7 +914,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                                   flex: 1,
                                                   child: Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             0.0, -1.0),
                                                     child: Builder(
                                                       builder: (context) {
@@ -918,7 +922,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                                             .where((e) =>
                                                                 (currentUserDocument
                                                                             ?.blockList
-                                                                            .toList() ??
+                                                                            ?.toList() ??
                                                                         [])
                                                                     .contains(e
                                                                         .reference) ==
@@ -927,7 +931,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
 
                                                         return ListView
                                                             .separated(
-                                                          padding: const EdgeInsets
+                                                          padding: EdgeInsets
                                                               .fromLTRB(
                                                             0,
                                                             10.0,
@@ -941,7 +945,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                                                   .length,
                                                           separatorBuilder: (_,
                                                                   __) =>
-                                                              const SizedBox(
+                                                              SizedBox(
                                                                   height: 15.0),
                                                           itemBuilder: (context,
                                                               containerVarIndex) {
@@ -975,7 +979,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                                     ),
                                                   ),
                                                 ),
-                                              ].divide(const SizedBox(height: 5.0)),
+                                              ].divide(SizedBox(height: 5.0)),
                                             ),
                                           ),
                                         );
@@ -984,7 +988,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                   );
                                 } else {
                                   return Align(
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: StreamBuilder<List<UsersRecord>>(
                                       stream: queryUsersRecord(
                                         queryBuilder: (usersRecord) =>
@@ -1027,7 +1031,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Align(
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Container(
                                                   width:
@@ -1035,7 +1039,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                                               .width *
                                                           1.0,
                                                   height: 60.0,
-                                                  decoration: const BoxDecoration(
+                                                  decoration: BoxDecoration(
                                                     color: Color(0xFFFDFDFD),
                                                     boxShadow: [
                                                       BoxShadow(
@@ -1051,7 +1055,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 8.0,
                                                                 0.0, 0.0),
                                                     child: Column(
@@ -1076,7 +1080,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                                               height: 3.0,
                                                               decoration:
                                                                   BoxDecoration(
-                                                                color: const Color(
+                                                                color: Color(
                                                                     0xFFC56AB1),
                                                                 borderRadius:
                                                                     BorderRadius
@@ -1088,7 +1092,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                                         ),
                                                         Align(
                                                           alignment:
-                                                              const AlignmentDirectional(
+                                                              AlignmentDirectional(
                                                                   0.0, 1.0),
                                                           child: Text(
                                                             valueOrDefault<
@@ -1128,7 +1132,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                                     MediaQuery.sizeOf(context)
                                                             .height *
                                                         0.16,
-                                                decoration: const BoxDecoration(),
+                                                decoration: BoxDecoration(),
                                                 child: wrapWithModel(
                                                   model: _model
                                                       .homeVistaCuidadorModel,
@@ -1149,7 +1153,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                                   ),
                                                 ),
                                               ),
-                                            ].divide(const SizedBox(height: 22.0)),
+                                            ].divide(SizedBox(height: 22.0)),
                                           ),
                                         );
                                       },
@@ -1166,31 +1170,31 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                   ),
                 ),
                 Align(
-                  alignment: const AlignmentDirectional(0.0, 1.01),
+                  alignment: AlignmentDirectional(0.0, 1.01),
                   child: Container(
                     height: 73.0,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       color: Color(0xD7B928B8),
                     ),
-                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: Builder(
                       builder: (context) {
                         if (currentUserDocument?.rol != Roles.business) {
                           return Align(
-                            alignment: const AlignmentDirectional(0.0, 1.0),
+                            alignment: AlignmentDirectional(0.0, 1.0),
                             child: wrapWithModel(
                               model: _model.navbarModel,
                               updateCallback: () => setState(() {}),
-                              child: const NavbarWidget(),
+                              child: NavbarWidget(),
                             ),
                           );
                         } else {
                           return Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: wrapWithModel(
                               model: _model.navbarPremiunModel,
                               updateCallback: () => setState(() {}),
-                              child: const NavbarPremiunWidget(),
+                              child: NavbarPremiunWidget(),
                             ),
                           );
                         }

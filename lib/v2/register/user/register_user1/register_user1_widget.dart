@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/v2/user/mapbuscar/mapbuscar_widget.dart';
+import 'dart:math';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:easy_debounce/easy_debounce.dart';
@@ -15,6 +16,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
 import 'register_user1_model.dart';
 export 'register_user1_model.dart';
@@ -79,8 +82,8 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, -11.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, -11.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -91,8 +94,8 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, -11.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, -11.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -116,11 +119,11 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(0.0),
+          preferredSize: Size.fromHeight(0.0),
           child: AppBar(
-            backgroundColor: const Color(0xFFFFFEFE),
+            backgroundColor: Color(0xFFFFFEFE),
             automaticallyImplyLeading: false,
-            actions: const [],
+            actions: [],
             centerTitle: false,
             toolbarHeight: 0.0,
             elevation: 0.0,
@@ -145,7 +148,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                         child: Stack(
                           children: [
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
                                 child: Image.asset(
@@ -157,7 +160,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.0, -1.0),
+                              alignment: AlignmentDirectional(0.0, -1.0),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
                                 child: Image.asset(
@@ -169,12 +172,12 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(-0.91, -0.96),
+                              alignment: AlignmentDirectional(-0.91, -0.96),
                               child: FlutterFlowIconButton(
                                 borderRadius: 20.0,
                                 borderWidth: 1.0,
                                 buttonSize: 40.0,
-                                icon: const Icon(
+                                icon: Icon(
                                   Icons.arrow_back_ios_new,
                                   color: Colors.black,
                                   size: 24.0,
@@ -185,17 +188,17 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 74.0, 0.0, 0.0),
                                 child: Container(
                                   width:
                                       MediaQuery.sizeOf(context).width * 0.96,
                                   height: 604.0,
                                   decoration: BoxDecoration(
-                                    color: const Color(0xFFFFFEFE),
-                                    borderRadius: const BorderRadius.only(
+                                    color: Color(0xFFFFFEFE),
+                                    borderRadius: BorderRadius.only(
                                       bottomLeft: Radius.circular(24.0),
                                       bottomRight: Radius.circular(24.0),
                                       topLeft: Radius.circular(24.0),
@@ -215,9 +218,9 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                         children: [
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(0.0, -1.0),
+                                                AlignmentDirectional(0.0, -1.0),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 10.0, 0.0, 0.0),
                                               child: Text(
@@ -228,7 +231,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                     .bodyMedium
                                                     .override(
                                                       fontFamily: 'Montserrat',
-                                                      color: const Color(0xFF8E058A),
+                                                      color: Color(0xFF8E058A),
                                                       fontSize: 20.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
@@ -239,28 +242,28 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                           ),
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 10.0, 0.0, 0.0),
                                               child: Container(
                                                 width: 327.0,
                                                 height: 1.0,
                                                 decoration: BoxDecoration(
-                                                  color: const Color(0xFFF0DFEF),
+                                                  color: Color(0xFFF0DFEF),
                                                   border: Border.all(
-                                                    color: const Color(0xFFF0DFEF),
+                                                    color: Color(0xFFF0DFEF),
                                                   ),
                                                 ),
                                               ),
                                             ),
                                           ),
                                           Align(
-                                            alignment: const AlignmentDirectional(
+                                            alignment: AlignmentDirectional(
                                                 -0.84, -0.73),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 15.0, 0.0, 15.0),
                                               child: Text(
@@ -281,14 +284,14 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                             ),
                                           ),
                                           Align(
-                                            alignment: const AlignmentDirectional(
+                                            alignment: AlignmentDirectional(
                                                 -0.01, -0.69),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   0.8,
                                               height: 70.0,
-                                              decoration: const BoxDecoration(
+                                              decoration: BoxDecoration(
                                                 color: Color(0xFFFFFEFE),
                                                 borderRadius: BorderRadius.only(
                                                   bottomLeft:
@@ -302,7 +305,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                 ),
                                               ),
                                               child: Align(
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.0, -1.0),
                                                 child: TextFormField(
                                                   controller: _model
@@ -343,7 +346,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                         ),
                                                     enabledBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0xFFBB33B9),
                                                         width: 0.0,
@@ -354,7 +357,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                     ),
                                                     focusedBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0xFF762075),
                                                         width: 0.0,
@@ -415,10 +418,10 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                             ),
                                           ),
                                           Align(
-                                            alignment: const AlignmentDirectional(
+                                            alignment: AlignmentDirectional(
                                                 -0.84, -0.73),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 15.0, 0.0, 15.0),
                                               child: Text(
@@ -439,14 +442,14 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                             ),
                                           ),
                                           Align(
-                                            alignment: const AlignmentDirectional(
+                                            alignment: AlignmentDirectional(
                                                 -0.01, -0.69),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   0.8,
                                               height: 70.0,
-                                              decoration: const BoxDecoration(
+                                              decoration: BoxDecoration(
                                                 color: Color(0xFFFFFEFE),
                                                 borderRadius: BorderRadius.only(
                                                   bottomLeft:
@@ -460,7 +463,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                 ),
                                               ),
                                               child: Align(
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.0, -1.0),
                                                 child: TextFormField(
                                                   controller: _model
@@ -501,7 +504,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                         ),
                                                     enabledBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0xFFBB33B9),
                                                         width: 0.0,
@@ -512,7 +515,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                     ),
                                                     focusedBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0xFF762075),
                                                         width: 0.0,
@@ -573,10 +576,10 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                             ),
                                           ),
                                           Align(
-                                            alignment: const AlignmentDirectional(
+                                            alignment: AlignmentDirectional(
                                                 -0.84, -0.73),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 15.0, 0.0, 15.0),
                                               child: Text(
@@ -598,21 +601,21 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                           ),
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Container(
                                               height: 90.0,
-                                              decoration: const BoxDecoration(),
+                                              decoration: BoxDecoration(),
                                               child: Align(
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.0, -1.0),
                                                 child: Stack(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           0.0, -1.0),
                                                   children: [
                                                     Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               -0.01, -0.69),
                                                       child: Container(
                                                         width:
@@ -621,7 +624,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                     .width *
                                                                 0.8,
                                                         decoration:
-                                                            const BoxDecoration(
+                                                            BoxDecoration(
                                                           color:
                                                               Color(0xFFFFFEFE),
                                                           borderRadius:
@@ -691,7 +694,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                             enabledBorder:
                                                                 OutlineInputBorder(
                                                               borderSide:
-                                                                  const BorderSide(
+                                                                  BorderSide(
                                                                 color: Color(
                                                                     0xFFBB33B9),
                                                                 width: 0.0,
@@ -704,7 +707,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                             focusedBorder:
                                                                 OutlineInputBorder(
                                                               borderSide:
-                                                                  const BorderSide(
+                                                                  BorderSide(
                                                                 color: Color(
                                                                     0xFF762075),
                                                                 width: 0.0,
@@ -770,7 +773,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                     ),
                                                     Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               0.0, 0.0),
                                                       child: Builder(
                                                         builder: (context) {
@@ -782,12 +785,12 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                   2)) {
                                                             return Align(
                                                               alignment:
-                                                                  const AlignmentDirectional(
+                                                                  AlignmentDirectional(
                                                                       -0.62,
                                                                       1.0),
                                                               child: Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             20.0,
@@ -801,7 +804,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                       .override(
                                                                         fontFamily:
                                                                             'Montserrat',
-                                                                        color: const Color(
+                                                                        color: Color(
                                                                             0xFFFF5963),
                                                                         letterSpacing:
                                                                             0.0,
@@ -834,10 +837,10 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                             ),
                                           ),
                                           Align(
-                                            alignment: const AlignmentDirectional(
+                                            alignment: AlignmentDirectional(
                                                 -0.54, -0.73),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 15.0, 0.0, 15.0),
                                               child: Text(
@@ -858,14 +861,14 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                             ),
                                           ),
                                           Align(
-                                            alignment: const AlignmentDirectional(
+                                            alignment: AlignmentDirectional(
                                                 -0.01, -0.69),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   0.8,
                                               height: 80.0,
-                                              decoration: const BoxDecoration(
+                                              decoration: BoxDecoration(
                                                 color: Color(0xFFFFFEFE),
                                                 borderRadius: BorderRadius.only(
                                                   bottomLeft:
@@ -921,7 +924,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                       ),
                                                   enabledBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: const BorderSide(
+                                                    borderSide: BorderSide(
                                                       color: Color(0xFFBB33B9),
                                                       width: 0.0,
                                                     ),
@@ -931,7 +934,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                   ),
                                                   focusedBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: const BorderSide(
+                                                    borderSide: BorderSide(
                                                       color: Color(0xFF762075),
                                                       width: 0.0,
                                                     ),
@@ -990,10 +993,10 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                             ),
                                           ),
                                           Align(
-                                            alignment: const AlignmentDirectional(
+                                            alignment: AlignmentDirectional(
                                                 -0.84, -0.73),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 0.0, 0.0, 15.0),
                                               child: Text(
@@ -1015,21 +1018,21 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                           ),
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Container(
                                               height: 90.0,
-                                              decoration: const BoxDecoration(),
+                                              decoration: BoxDecoration(),
                                               child: Align(
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.0, -1.0),
                                                 child: Stack(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           0.0, -1.0),
                                                   children: [
                                                     Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               0.0, -1.0),
                                                       child: Container(
                                                         width:
@@ -1042,7 +1045,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                             BoxDecoration(
                                                           color: Colors.white,
                                                           borderRadius:
-                                                              const BorderRadius.only(
+                                                              BorderRadius.only(
                                                             bottomLeft:
                                                                 Radius.circular(
                                                                     12.0),
@@ -1064,17 +1067,17 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                           .verifyForm
                                                                           .subur ==
                                                                       true
-                                                                  ? const Color(
+                                                                  ? Color(
                                                                       0xFFBB33B9)
-                                                                  : const Color(
+                                                                  : Color(
                                                                       0xFFFF5963),
-                                                              const Color(0xFFBB33B9),
+                                                              Color(0xFFBB33B9),
                                                             ),
                                                           ),
                                                         ),
                                                         child: Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       8.0,
                                                                       0.0,
@@ -1089,7 +1092,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                 EasyDebounce
                                                                     .debounce(
                                                               '_model.queryTextController',
-                                                              const Duration(
+                                                              Duration(
                                                                   milliseconds:
                                                                       100),
                                                               () async {
@@ -1184,7 +1187,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                     ),
                                                     Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               0.0, 0.0),
                                                       child: Builder(
                                                         builder: (context) {
@@ -1196,7 +1199,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                   2)) {
                                                             return Align(
                                                               alignment:
-                                                                  const AlignmentDirectional(
+                                                                  AlignmentDirectional(
                                                                       -0.62,
                                                                       1.0),
                                                               child: Text(
@@ -1207,7 +1210,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                     .override(
                                                                       fontFamily:
                                                                           'Montserrat',
-                                                                      color: const Color(
+                                                                      color: Color(
                                                                           0xFFFF5963),
                                                                       letterSpacing:
                                                                           0.0,
@@ -1240,18 +1243,18 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                           ),
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 10.0, 0.0, 0.0),
                                               child: Container(
                                                 width: 327.0,
                                                 height: 1.0,
                                                 decoration: BoxDecoration(
-                                                  color: const Color(0xFFF0DFEF),
+                                                  color: Color(0xFFF0DFEF),
                                                   border: Border.all(
-                                                    color: const Color(0xFFF0DFEF),
+                                                    color: Color(0xFFF0DFEF),
                                                   ),
                                                 ),
                                               ),
@@ -1259,11 +1262,11 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                           ),
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(0.0, -1.0),
+                                                AlignmentDirectional(0.0, -1.0),
                                             child: Container(
                                               width: 269.0,
                                               height: 93.0,
-                                              decoration: const BoxDecoration(
+                                              decoration: BoxDecoration(
                                                 borderRadius: BorderRadius.only(
                                                   bottomLeft:
                                                       Radius.circular(12.0),
@@ -1276,10 +1279,10 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                 ),
                                               ),
                                               child: Align(
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 10.0, 0.0, 0.0),
                                                   child: FFButtonWidget(
@@ -1287,13 +1290,20 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                       FFAppState()
                                                           .updateVerifyFormStruct(
                                                         (e) => e
-                                                          ..date = _model.dateTextController
+                                                          ..date = _model
+                                                                      .dateTextController
+                                                                      .text !=
+                                                                  null &&
+                                                              _model.dateTextController
                                                                       .text !=
                                                                   ''
                                                           ..subur =
                                                               valueOrDefault<
                                                                   bool>(
                                                             (_model.queryTextController
+                                                                            .text !=
+                                                                        null &&
+                                                                    _model.queryTextController
                                                                             .text !=
                                                                         '') &&
                                                                 (_model.newUbication !=
@@ -1355,7 +1365,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                           extra: <String,
                                                               dynamic>{
                                                             kTransitionInfoKey:
-                                                                const TransitionInfo(
+                                                                TransitionInfo(
                                                               hasTransition:
                                                                   true,
                                                               transitionType:
@@ -1374,20 +1384,20 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                       width: 275.0,
                                                       height: 45.0,
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   24.0,
                                                                   0.0,
                                                                   24.0,
                                                                   0.0),
                                                       iconPadding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
                                                                   0.0,
                                                                   0.0),
-                                                      color: const Color(0xFFB928B8),
+                                                      color: Color(0xFFB928B8),
                                                       textStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -1402,7 +1412,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                     0.0,
                                                               ),
                                                       elevation: 5.0,
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Colors.transparent,
                                                         width: 1.0,
@@ -1423,16 +1433,16 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                 ),
                               ),
                             ),
-                            if (_model.queryResults.isNotEmpty)
+                            if (_model.queryResults.length > 0)
                               Align(
-                                alignment: const AlignmentDirectional(0.0, -0.9),
+                                alignment: AlignmentDirectional(0.0, -0.9),
                                 child: Container(
                                   width:
                                       MediaQuery.sizeOf(context).width * 0.96,
                                   height:
                                       MediaQuery.sizeOf(context).height * 0.648,
                                   decoration: BoxDecoration(
-                                    color: const Color(0x33000000),
+                                    color: Color(0x33000000),
                                     borderRadius: BorderRadius.circular(0.0),
                                   ),
                                   child: SingleChildScrollView(
@@ -1441,7 +1451,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                       children: [
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Builder(
                                             builder: (context) {
                                               final newquery =
@@ -1453,7 +1463,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                 scrollDirection: Axis.vertical,
                                                 itemCount: newquery.length,
                                                 separatorBuilder: (_, __) =>
-                                                    const SizedBox(height: 0.0),
+                                                    SizedBox(height: 0.0),
                                                 itemBuilder:
                                                     (context, newqueryIndex) {
                                                   final newqueryItem =
@@ -1487,13 +1497,13 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                       ''),
                                                                 )
                                                                     ?.lat
-                                                                    .toString(),
+                                                                    ?.toString(),
                                                                 GetPlaceCall
                                                                     .location(
                                                                   (_model.newPlace
                                                                           ?.jsonBody ??
                                                                       ''),
-                                                                )?.lng.toString(),
+                                                                )?.lng?.toString(),
                                                                 ',');
                                                         setState(() {
                                                           _model.queryTextController
@@ -1519,7 +1529,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                     child: MapbuscarWidget(
                                                       key: Key(
                                                           'Keygju_${newqueryIndex}_of_${newquery.length}'),
-                                                      icon: const Icon(
+                                                      icon: Icon(
                                                         Icons.location_on,
                                                         color:
                                                             Color(0xFFD26AD2),

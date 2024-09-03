@@ -1,5 +1,8 @@
+import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'upload_profile_image_model.dart';
 export 'upload_profile_image_model.dart';
 
@@ -41,32 +44,32 @@ class _UploadProfileImageWidgetState extends State<UploadProfileImageWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(-1.0, -1.0),
+      alignment: AlignmentDirectional(-1.0, -1.0),
       child: Container(
         width: MediaQuery.sizeOf(context).width * 0.9,
         height: 175.0,
         decoration: BoxDecoration(
-          color: const Color(0xFFC9DEFF),
-          borderRadius: const BorderRadius.only(
+          color: Color(0xFFC9DEFF),
+          borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(12.0),
             bottomRight: Radius.circular(12.0),
             topLeft: Radius.circular(12.0),
             topRight: Radius.circular(12.0),
           ),
           border: Border.all(
-            color: const Color(0xFFD9D9D9),
+            color: Color(0xFFD9D9D9),
             width: 1.0,
           ),
         ),
         child: Builder(
           builder: (context) {
-            if (widget.img == ' ') {
+            if (widget!.img == ' ') {
               return Container(
-                decoration: const BoxDecoration(),
+                decoration: BoxDecoration(),
                 child: Stack(
                   children: [
                     Align(
-                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(8.0),
                         child: Image.asset(
@@ -77,7 +80,7 @@ class _UploadProfileImageWidgetState extends State<UploadProfileImageWidget> {
                         ),
                       ),
                     ),
-                    const Align(
+                    Align(
                       alignment: AlignmentDirectional(0.0, 0.0),
                       child: Icon(
                         Icons.camera_alt_outlined,
@@ -86,7 +89,7 @@ class _UploadProfileImageWidgetState extends State<UploadProfileImageWidget> {
                       ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(8.0),
                         child: Image.asset(
@@ -102,16 +105,16 @@ class _UploadProfileImageWidgetState extends State<UploadProfileImageWidget> {
               );
             } else {
               return Container(
-                decoration: const BoxDecoration(),
+                decoration: BoxDecoration(),
                 child: Stack(
                   children: [
                     Align(
-                      alignment: const AlignmentDirectional(-0.02, -0.09),
+                      alignment: AlignmentDirectional(-0.02, -0.09),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(160.0),
                         child: Image.network(
                           valueOrDefault<String>(
-                            widget.img,
+                            widget!.img,
                             'https://i.ibb.co/2qkDLKb/Frame-74.png',
                           ),
                           width: 160.0,

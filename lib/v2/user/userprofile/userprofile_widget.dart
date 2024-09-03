@@ -9,9 +9,12 @@ import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
 import '/v2/user/account_option/account_option_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'userprofile_model.dart';
 export 'userprofile_model.dart';
 
@@ -56,7 +59,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                 child: Container(
                   width: double.infinity,
                   height: double.infinity,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     color: Colors.white,
                   ),
                   child: SingleChildScrollView(
@@ -69,14 +72,14 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                               return Container(
                                 width: double.infinity,
                                 height: 200.0,
-                                decoration: const BoxDecoration(
+                                decoration: BoxDecoration(
                                   color: Color(0xB6E7A2D2),
                                 ),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 15.0, 0.0, 0.0),
                                       child: ClipRRect(
                                         borderRadius:
@@ -90,9 +93,9 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                       ),
                                     ),
                                     Align(
-                                      alignment: const AlignmentDirectional(0.0, 0.0),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 15.0, 0.0, 0.0),
                                         child: Text(
                                           valueOrDefault(
@@ -115,7 +118,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                               return Container(
                                 width: double.infinity,
                                 height: 200.0,
-                                decoration: const BoxDecoration(
+                                decoration: BoxDecoration(
                                   color: Color(0x31FB8CE2),
                                 ),
                                 child: Stack(
@@ -138,7 +141,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                       ),
                                     ),
                                     Container(
-                                      decoration: const BoxDecoration(
+                                      decoration: BoxDecoration(
                                         color: Color(0x59F428EB),
                                       ),
                                       child: Column(
@@ -146,7 +149,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                         children: [
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 15.0, 0.0, 0.0),
                                             child: ClipRRect(
                                               borderRadius:
@@ -161,9 +164,9 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                           ),
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 15.0, 0.0, 0.0),
                                               child: AuthUserStreamWidget(
@@ -179,7 +182,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                                         fontFamily:
                                                             'Montserrat',
                                                         color:
-                                                            const Color(0xFFF9F9F9),
+                                                            Color(0xFFF9F9F9),
                                                         fontSize: 28.0,
                                                         letterSpacing: 0.0,
                                                       ),
@@ -196,15 +199,15 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                             }
                           },
                         ),
-                        if (currentUserPhoto == '')
+                        if (currentUserPhoto == null || currentUserPhoto == '')
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 10.0, 0.0, 0.0),
                             child: AuthUserStreamWidget(
                               builder: (context) => Container(
                                 width: 326.0,
                                 height: 150.0,
-                                decoration: const BoxDecoration(),
+                                decoration: BoxDecoration(),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
@@ -236,7 +239,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                     .secondaryBackground,
                               ),
                               child: Align(
-                                alignment: const AlignmentDirectional(0.0, -1.0),
+                                alignment: AlignmentDirectional(0.0, -1.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
@@ -258,7 +261,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                   child: wrapWithModel(
                                     model: _model.accountOptionModel1,
                                     updateCallback: () => setState(() {}),
-                                    child: const AccountOptionWidget(
+                                    child: AccountOptionWidget(
                                       icon: Icon(
                                         Icons.card_membership_outlined,
                                         size: 30.0,
@@ -274,13 +277,13 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                             (currentUserDocument?.business == null) &&
                             (currentUserDocument?.plan != Plan.premiun))
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 10.0, 0.0, 0.0),
                             child: AuthUserStreamWidget(
                               builder: (context) => Container(
                                 width: 326.0,
                                 height: 56.0,
-                                decoration: const BoxDecoration(),
+                                decoration: BoxDecoration(),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
@@ -321,7 +324,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                         Container(
                           width: 326.0,
                           height: 52.0,
-                          decoration: const BoxDecoration(),
+                          decoration: BoxDecoration(),
                           child: InkWell(
                             splashColor: Colors.transparent,
                             focusColor: Colors.transparent,
@@ -333,7 +336,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                             child: wrapWithModel(
                               model: _model.accountOptionModel2,
                               updateCallback: () => setState(() {}),
-                              child: const AccountOptionWidget(
+                              child: AccountOptionWidget(
                                 icon: Icon(
                                   Icons.location_history,
                                   size: 30.0,
@@ -347,7 +350,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                           AuthUserStreamWidget(
                             builder: (context) => Container(
                               width: 326.0,
-                              decoration: const BoxDecoration(),
+                              decoration: BoxDecoration(),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment:
@@ -400,7 +403,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                     child: wrapWithModel(
                                       model: _model.accountOptionModel3,
                                       updateCallback: () => setState(() {}),
-                                      child: const AccountOptionWidget(
+                                      child: AccountOptionWidget(
                                         icon: Icon(
                                           Icons.password,
                                           size: 30.0,
@@ -436,7 +439,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: SelectionArea(
                                               child: Text(
                                             _model.code!,
@@ -452,14 +455,14 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                         ),
                                       ],
                                     ),
-                                ].divide(const SizedBox(height: 3.0)),
+                                ].divide(SizedBox(height: 3.0)),
                               ),
                             ),
                           ),
                         Container(
                           width: 326.0,
                           height: 52.0,
-                          decoration: const BoxDecoration(),
+                          decoration: BoxDecoration(),
                           child: InkWell(
                             splashColor: Colors.transparent,
                             focusColor: Colors.transparent,
@@ -471,7 +474,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                             child: wrapWithModel(
                               model: _model.accountOptionModel4,
                               updateCallback: () => setState(() {}),
-                              child: const AccountOptionWidget(
+                              child: AccountOptionWidget(
                                 icon: Icon(
                                   Icons.no_accounts,
                                   size: 30.0,
@@ -484,13 +487,13 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                         if ((currentUserDocument?.rol != Roles.user) &&
                             (currentUserDocument?.business == null))
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 64.0),
                             child: AuthUserStreamWidget(
                               builder: (context) => Container(
                                 width: 326.0,
                                 height: 52.0,
-                                decoration: const BoxDecoration(),
+                                decoration: BoxDecoration(),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
@@ -514,7 +517,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                   child: wrapWithModel(
                                     model: _model.accountOptionModel5,
                                     updateCallback: () => setState(() {}),
-                                    child: const AccountOptionWidget(
+                                    child: AccountOptionWidget(
                                       icon: Icon(
                                         Icons.contact_emergency,
                                         size: 30.0,
@@ -527,11 +530,11 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                             ),
                           ),
                         Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Container(
                             width: 326.0,
                             height: 52.0,
-                            decoration: const BoxDecoration(),
+                            decoration: BoxDecoration(),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
@@ -544,7 +547,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                               child: wrapWithModel(
                                 model: _model.accountOptionModel6,
                                 updateCallback: () => setState(() {}),
-                                child: const AccountOptionWidget(
+                                child: AccountOptionWidget(
                                   icon: Icon(
                                     Icons.contact_page_outlined,
                                     size: 30.0,
@@ -556,9 +559,9 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                           ),
                         ),
                         Align(
-                          alignment: const AlignmentDirectional(0.0, 1.0),
+                          alignment: AlignmentDirectional(0.0, 1.0),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 40.0, 0.0, 40.0),
                             child: FFButtonWidget(
                               onPressed: () async {
@@ -570,15 +573,15 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                 context.goNamedAuth('Login', context.mounted);
                               },
                               text: 'Sign out',
-                              icon: const Icon(
+                              icon: Icon(
                                 Icons.login_sharp,
                                 size: 25.0,
                               ),
                               options: FFButtonOptions(
                                 height: 40.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     8.0, 0.0, 16.0, 0.0),
-                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: Colors.white,
                                 textStyle: FlutterFlowTheme.of(context)
@@ -590,7 +593,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                       fontWeight: FontWeight.bold,
                                     ),
                                 elevation: 3.0,
-                                borderSide: const BorderSide(
+                                borderSide: BorderSide(
                                   color: Colors.transparent,
                                   width: 1.0,
                                 ),
@@ -600,17 +603,17 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                           ),
                         ),
                       ]
-                          .divide(const SizedBox(height: 12.0))
-                          .addToStart(const SizedBox(height: 0.0)),
+                          .divide(SizedBox(height: 12.0))
+                          .addToStart(SizedBox(height: 0.0)),
                     ),
                   ),
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(0.0, 1.01),
+                alignment: AlignmentDirectional(0.0, 1.01),
                 child: Container(
                   height: 73.0,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     color: Color(0xBEB928B8),
                   ),
                   child: Builder(
@@ -619,13 +622,13 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                         return wrapWithModel(
                           model: _model.navbarModel,
                           updateCallback: () => setState(() {}),
-                          child: const NavbarWidget(),
+                          child: NavbarWidget(),
                         );
                       } else {
                         return wrapWithModel(
                           model: _model.navbarPremiunModel,
                           updateCallback: () => setState(() {}),
-                          child: const NavbarPremiunWidget(),
+                          child: NavbarPremiunWidget(),
                         );
                       }
                     },

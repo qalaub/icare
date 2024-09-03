@@ -2,7 +2,10 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'user_unlock_confirm_model.dart';
 export 'user_unlock_confirm_model.dart';
 
@@ -44,13 +47,13 @@ class _UserUnlockConfirmWidgetState extends State<UserUnlockConfirmWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(0.0, 0.0),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Container(
         width: 320.0,
         height: 269.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
-          boxShadow: const [
+          boxShadow: [
             BoxShadow(
               blurRadius: 4.0,
               color: Color(0x33000000),
@@ -60,7 +63,7 @@ class _UserUnlockConfirmWidgetState extends State<UserUnlockConfirmWidget> {
               ),
             )
           ],
-          borderRadius: const BorderRadius.only(
+          borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(38.0),
             bottomRight: Radius.circular(38.0),
             topLeft: Radius.circular(38.0),
@@ -76,9 +79,9 @@ class _UserUnlockConfirmWidgetState extends State<UserUnlockConfirmWidget> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Align(
-              alignment: const AlignmentDirectional(0.0, 0.0),
+              alignment: AlignmentDirectional(0.0, 0.0),
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -87,7 +90,7 @@ class _UserUnlockConfirmWidgetState extends State<UserUnlockConfirmWidget> {
                       'Unlock user',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Roboto',
-                            color: const Color(0xFF0F0E0F),
+                            color: Color(0xFF0F0E0F),
                             fontSize: 20.0,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.bold,
@@ -97,20 +100,20 @@ class _UserUnlockConfirmWidgetState extends State<UserUnlockConfirmWidget> {
                 ),
               ),
             ),
-            const Divider(
+            Divider(
               thickness: 0.0,
               color: Color(0x6FBDBDBD),
             ),
             Align(
-              alignment: const AlignmentDirectional(0.0, 0.0),
+              alignment: AlignmentDirectional(0.0, 0.0),
               child: Container(
                 width: MediaQuery.sizeOf(context).width * 0.7,
-                decoration: const BoxDecoration(),
+                decoration: BoxDecoration(),
                 child: Align(
-                  alignment: const AlignmentDirectional(0.0, 0.0),
+                  alignment: AlignmentDirectional(0.0, 0.0),
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 16.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 16.0),
                     child: Text(
                       'Surely you want to unblock USER, he will be able to send messages again and interact with you',
                       textAlign: TextAlign.center,
@@ -123,12 +126,12 @@ class _UserUnlockConfirmWidgetState extends State<UserUnlockConfirmWidget> {
                 ),
               ),
             ),
-            const Divider(
+            Divider(
               thickness: 1.0,
               color: Color(0x46BDBDBD),
             ),
             Align(
-              alignment: const AlignmentDirectional(0.0, 0.0),
+              alignment: AlignmentDirectional(0.0, 0.0),
               child: InkWell(
                 splashColor: Colors.transparent,
                 focusColor: Colors.transparent,
@@ -138,13 +141,13 @@ class _UserUnlockConfirmWidgetState extends State<UserUnlockConfirmWidget> {
                   await currentUserReference!.update({
                     ...mapToFirestore(
                       {
-                        'blockUser': FieldValue.arrayRemove([widget.userRef]),
-                        'blockList': FieldValue.arrayRemove([widget.userRef]),
+                        'blockUser': FieldValue.arrayRemove([widget!.userRef]),
+                        'blockList': FieldValue.arrayRemove([widget!.userRef]),
                       },
                     ),
                   });
 
-                  await widget.userRef!.update({
+                  await widget!.userRef!.update({
                     ...mapToFirestore(
                       {
                         'blockList':
@@ -160,17 +163,17 @@ class _UserUnlockConfirmWidgetState extends State<UserUnlockConfirmWidget> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Align(
-                      alignment: const AlignmentDirectional(-1.0, 0.0),
+                      alignment: AlignmentDirectional(-1.0, 0.0),
                       child: Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                         child: Text(
                           'Unlock',
                           textAlign: TextAlign.center,
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Roboto',
-                                    color: const Color(0xFFC14BBC),
+                                    color: Color(0xFFC14BBC),
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
@@ -182,14 +185,14 @@ class _UserUnlockConfirmWidgetState extends State<UserUnlockConfirmWidget> {
                 ),
               ),
             ),
-            const Divider(
+            Divider(
               thickness: 1.0,
               color: Color(0x46BDBDBD),
             ),
             Align(
-              alignment: const AlignmentDirectional(0.0, 0.0),
+              alignment: AlignmentDirectional(0.0, 0.0),
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -206,7 +209,7 @@ class _UserUnlockConfirmWidgetState extends State<UserUnlockConfirmWidget> {
                         'Cancel',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Roboto',
-                              color: const Color(0xFF0F0E0F),
+                              color: Color(0xFF0F0E0F),
                               fontSize: 16.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.bold,
@@ -217,7 +220,7 @@ class _UserUnlockConfirmWidgetState extends State<UserUnlockConfirmWidget> {
                 ),
               ),
             ),
-          ].addToStart(const SizedBox(height: 16.0)),
+          ].addToStart(SizedBox(height: 16.0)),
         ),
       ),
     );

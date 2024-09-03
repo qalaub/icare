@@ -2,6 +2,7 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/backend/schema/enums/enums.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -13,7 +14,9 @@ import '/flutter_flow/upload_data.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
 import '/v2/user/upload_profile_image/upload_profile_image_widget.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'profilesettings_model.dart';
 export 'profilesettings_model.dart';
@@ -64,13 +67,13 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
         key: scaffoldKey,
         backgroundColor: Colors.white,
         appBar: AppBar(
-          backgroundColor: const Color(0xFFB928B8),
+          backgroundColor: Color(0xFFB928B8),
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
             borderRadius: 20.0,
             borderWidth: 1.0,
             buttonSize: 27.0,
-            icon: const Icon(
+            icon: Icon(
               Icons.arrow_back_ios_new,
               color: Colors.white,
               size: 25.0,
@@ -88,7 +91,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                   letterSpacing: 0.0,
                 ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: false,
           elevation: 0.0,
         ),
@@ -101,7 +104,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                 child: Container(
                   width: double.infinity,
                   height: double.infinity,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     color: Colors.white,
                   ),
                   child: SingleChildScrollView(
@@ -110,7 +113,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                       children: [
                         if (currentUserDocument?.rol != Roles.user)
                           Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: AuthUserStreamWidget(
                               builder: (context) => Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -119,17 +122,17 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Align(
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Stack(
                                       children: [
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
                                                 0.9,
-                                            decoration: const BoxDecoration(),
+                                            decoration: BoxDecoration(),
                                             child: wrapWithModel(
                                               model: _model
                                                   .uploadProfileImageModel,
@@ -138,6 +141,8 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                               child: UploadProfileImageWidget(
                                                 img: valueOrDefault<String>(
                                                   _model.uploadedFileUrl !=
+                                                              null &&
+                                                          _model.uploadedFileUrl !=
                                                               ''
                                                       ? valueOrDefault<String>(
                                                           _model
@@ -146,6 +151,8 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                         )
                                                       : valueOrDefault<String>(
                                                           currentUserPhoto !=
+                                                                      null &&
+                                                                  currentUserPhoto !=
                                                                       ''
                                                               ? currentUserPhoto
                                                               : ' ',
@@ -159,13 +166,13 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-0.01, 1.02),
+                                              AlignmentDirectional(-0.01, 1.02),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
                                                 0.9,
                                             height: 177.0,
-                                            decoration: const BoxDecoration(),
+                                            decoration: BoxDecoration(),
                                             child: FlutterFlowIconButton(
                                               borderColor: Colors.transparent,
                                               borderRadius: 20.0,
@@ -174,7 +181,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                   MediaQuery.sizeOf(context)
                                                           .width *
                                                       1.0,
-                                              icon: const Icon(
+                                              icon: Icon(
                                                 Icons.circle,
                                                 color: Colors.white,
                                                 size: 1.0,
@@ -284,7 +291,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                           ),
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 8.0, 0.0, 8.0),
                                             child: Text(
                                               'Highly recommended',
@@ -294,7 +301,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                   .headlineSmall
                                                   .override(
                                                     fontFamily: 'Montserrat',
-                                                    color: const Color(0xFFA62985),
+                                                    color: Color(0xFFA62985),
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight:
@@ -302,18 +309,18 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                   ),
                                             ),
                                           ),
-                                        ].addToStart(const SizedBox(height: 4.0)),
+                                        ].addToStart(SizedBox(height: 4.0)),
                                       ),
                                     ],
                                   ),
-                                ].addToStart(const SizedBox(height: 11.0)),
+                                ].addToStart(SizedBox(height: 11.0)),
                               ),
                             ),
                           ),
                         Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 0.0, 16.0, 0.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
@@ -329,7 +336,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Montserrat',
-                                            color: const Color(0xFFC14BBC),
+                                            color: Color(0xFFC14BBC),
                                             fontSize: 15.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
@@ -338,7 +345,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                   ],
                                 ),
                                 Align(
-                                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                                  alignment: AlignmentDirectional(-1.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.start,
@@ -354,7 +361,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                         ),
                                         child: Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             'You can modify your username with the one you feel  most comfortable with.',
                                             textAlign: TextAlign.justify,
@@ -373,7 +380,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                                  alignment: AlignmentDirectional(-1.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
@@ -389,30 +396,30 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                             width: double.infinity,
                                             height: 52.0,
                                             decoration: BoxDecoration(
-                                              color: const Color(0xFFF0F0F0),
+                                              color: Color(0xFFF0F0F0),
                                               borderRadius:
                                                   BorderRadius.circular(12.0),
                                               border: Border.all(
-                                                color: const Color(0xFFC14BBC),
+                                                color: Color(0xFFC14BBC),
                                                 width: 3.0,
                                               ),
                                             ),
                                             child: Stack(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   0.0, 0.0),
                                               children: [
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           0.0, 0.0),
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(8.0, 0.0,
                                                                 8.0, 0.0),
                                                     child: AuthUserStreamWidget(
                                                       builder: (context) =>
-                                                          SizedBox(
+                                                          Container(
                                                         width:
                                                             MediaQuery.sizeOf(
                                                                         context)
@@ -456,7 +463,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                             enabledBorder:
                                                                 UnderlineInputBorder(
                                                               borderSide:
-                                                                  const BorderSide(
+                                                                  BorderSide(
                                                                 color: Color(
                                                                     0x00000000),
                                                                 width: 1.0,
@@ -469,7 +476,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                             focusedBorder:
                                                                 UnderlineInputBorder(
                                                               borderSide:
-                                                                  const BorderSide(
+                                                                  BorderSide(
                                                                 color: Color(
                                                                     0x00000000),
                                                                 width: 1.0,
@@ -482,7 +489,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                             errorBorder:
                                                                 UnderlineInputBorder(
                                                               borderSide:
-                                                                  const BorderSide(
+                                                                  BorderSide(
                                                                 color: Color(
                                                                     0x00000000),
                                                                 width: 1.0,
@@ -495,7 +502,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                             focusedErrorBorder:
                                                                 UnderlineInputBorder(
                                                               borderSide:
-                                                                  const BorderSide(
+                                                                  BorderSide(
                                                                 color: Color(
                                                                     0x00000000),
                                                                 width: 1.0,
@@ -530,7 +537,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                     ),
                                                   ),
                                                 ),
-                                                const Align(
+                                                Align(
                                                   alignment:
                                                       AlignmentDirectional(
                                                           0.9, 0.0),
@@ -548,15 +555,15 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                     ],
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 8.0)),
+                              ].divide(SizedBox(height: 8.0)),
                             ),
                           ),
                         ),
                         if (currentUserDocument?.rol != Roles.user)
                           Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 16.0, 0.0),
                               child: AuthUserStreamWidget(
                                 builder: (context) => Column(
@@ -574,7 +581,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Montserrat',
-                                                color: const Color(0xFFC14BBC),
+                                                color: Color(0xFFC14BBC),
                                                 fontSize: 15.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
@@ -584,7 +591,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                     ),
                                     Align(
                                       alignment:
-                                          const AlignmentDirectional(-1.0, 0.0),
+                                          AlignmentDirectional(-1.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -601,7 +608,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                       .secondaryBackground,
                                             ),
                                             child: Align(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Text(
                                                 'You can modify what your service is offered to participants',
@@ -625,7 +632,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                     ),
                                     Align(
                                       alignment:
-                                          const AlignmentDirectional(-1.0, 0.0),
+                                          AlignmentDirectional(-1.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.min,
                                         children: [
@@ -641,12 +648,12 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                 width: double.infinity,
                                                 height: 52.0,
                                                 decoration: BoxDecoration(
-                                                  color: const Color(0xFFF0F0F0),
+                                                  color: Color(0xFFF0F0F0),
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           12.0),
                                                   border: Border.all(
-                                                    color: const Color(0xFFC14BBC),
+                                                    color: Color(0xFFC14BBC),
                                                     width: 3.0,
                                                   ),
                                                 ),
@@ -657,7 +664,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                         Roles.user) {
                                                       return Align(
                                                         alignment:
-                                                            const AlignmentDirectional(
+                                                            AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         child:
                                                             FlutterFlowDropDown<
@@ -671,7 +678,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                                     String>(
                                                               (currentUserDocument
                                                                           ?.serviceType
-                                                                          .toList() ??
+                                                                          ?.toList() ??
                                                                       [])
                                                                   .first,
                                                               'Home Maintence',
@@ -685,7 +692,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                             'Home Maintence',
                                                             'Recovery Coaches'
                                                           ]),
-                                                          optionLabels: const [
+                                                          optionLabels: [
                                                             'Support Worker',
                                                             'Therapeutic Supports',
                                                             ' Coordinator',
@@ -733,7 +740,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                           borderWidth: 0.0,
                                                           borderRadius: 0.0,
                                                           margin:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       16.0,
                                                                       4.0,
@@ -759,7 +766,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                     } else {
                                                       return Align(
                                                         alignment:
-                                                            const AlignmentDirectional(
+                                                            AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         child:
                                                             FlutterFlowDropDown<
@@ -773,7 +780,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                                       String>.from(
                                                             (currentUserDocument
                                                                         ?.serviceType
-                                                                        .toList() ??
+                                                                        ?.toList() ??
                                                                     []) ??
                                                                 [],
                                                           )),
@@ -785,7 +792,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                             'Therapeutic Supports',
                                                             ' Home Maintenance'
                                                           ]),
-                                                          optionLabels: const [
+                                                          optionLabels: [
                                                             'Support Workers',
                                                             'Support Coordinators',
                                                             'Recovery Coaches ',
@@ -829,7 +836,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                           borderWidth: 0.0,
                                                           borderRadius: 0.0,
                                                           margin:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       16.0,
                                                                       4.0,
@@ -866,16 +873,16 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                         ],
                                       ),
                                     ),
-                                  ].divide(const SizedBox(height: 8.0)),
+                                  ].divide(SizedBox(height: 8.0)),
                                 ),
                               ),
                             ),
                           ),
                         if (currentUserDocument?.rol != Roles.user)
                           Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 16.0, 0.0),
                               child: AuthUserStreamWidget(
                                 builder: (context) => Column(
@@ -893,7 +900,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Montserrat',
-                                                color: const Color(0xFFC14BBC),
+                                                color: Color(0xFFC14BBC),
                                                 fontSize: 15.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
@@ -903,7 +910,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                     ),
                                     Align(
                                       alignment:
-                                          const AlignmentDirectional(-1.0, 0.0),
+                                          AlignmentDirectional(-1.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -920,7 +927,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                       .secondaryBackground,
                                             ),
                                             child: Align(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   -1.0, 0.0),
                                               child: Text(
                                                 'Select your age group',
@@ -944,7 +951,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                     ),
                                     Align(
                                       alignment:
-                                          const AlignmentDirectional(-1.0, 0.0),
+                                          AlignmentDirectional(-1.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.min,
                                         children: [
@@ -960,18 +967,18 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                 width: double.infinity,
                                                 height: 52.0,
                                                 decoration: BoxDecoration(
-                                                  color: const Color(0xFFF0F0F0),
+                                                  color: Color(0xFFF0F0F0),
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           12.0),
                                                   border: Border.all(
-                                                    color: const Color(0xFFC14BBC),
+                                                    color: Color(0xFFC14BBC),
                                                     width: 3.0,
                                                   ),
                                                 ),
                                                 child: Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           0.0, 0.0),
                                                   child: FlutterFlowDropDown<
                                                       String>(
@@ -990,7 +997,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                       '25-40 years',
                                                       '40-65+ years'
                                                     ]),
-                                                    optionLabels: const [
+                                                    optionLabels: [
                                                       '18-25 years',
                                                       '25-40 years',
                                                       '40-65+ years'
@@ -1031,7 +1038,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                     borderWidth: 0.0,
                                                     borderRadius: 0.0,
                                                     margin:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(16.0, 4.0,
                                                                 16.0, 4.0),
                                                     hidesUnderline: true,
@@ -1057,7 +1064,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                         ],
                                       ),
                                     ),
-                                  ].divide(const SizedBox(height: 8.0)),
+                                  ].divide(SizedBox(height: 8.0)),
                                 ),
                               ),
                             ),
@@ -1066,9 +1073,9 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Align(
-                              alignment: const AlignmentDirectional(-1.0, 0.0),
+                              alignment: AlignmentDirectional(-1.0, 0.0),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     20.0, 16.0, 0.0, 0.0),
                                 child: Text(
                                   'Description',
@@ -1076,7 +1083,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                       .bodyLarge
                                       .override(
                                         fontFamily: 'Montserrat',
-                                        color: const Color(0xFFC14BBC),
+                                        color: Color(0xFFC14BBC),
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
@@ -1084,9 +1091,9 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     20.0, 10.0, 20.0, 20.0),
                                 child: Material(
                                   color: Colors.transparent,
@@ -1098,14 +1105,14 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                     width: double.infinity,
                                     height: 120.0,
                                     decoration: BoxDecoration(
-                                      color: const Color(0xFFF0F0F0),
+                                      color: Color(0xFFF0F0F0),
                                       borderRadius: BorderRadius.circular(12.0),
                                       border: Border.all(
-                                        color: const Color(0xFFC45ABE),
+                                        color: Color(0xFFC45ABE),
                                         width: 3.0,
                                       ),
                                     ),
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -1114,9 +1121,9 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                         Expanded(
                                           child: Align(
                                             alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(4.0, 0.0, 4.0, 0.0),
                                               child: AuthUserStreamWidget(
                                                 builder: (context) =>
@@ -1150,7 +1157,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                         ),
                                                     enabledBorder:
                                                         UnderlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0x00000000),
                                                         width: 1.0,
@@ -1161,7 +1168,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                     ),
                                                     focusedBorder:
                                                         UnderlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0x00000000),
                                                         width: 1.0,
@@ -1172,7 +1179,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                     ),
                                                     errorBorder:
                                                         UnderlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0x00000000),
                                                         width: 1.0,
@@ -1183,7 +1190,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                     ),
                                                     focusedErrorBorder:
                                                         UnderlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0x00000000),
                                                         width: 1.0,
@@ -1215,13 +1222,13 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                 ),
                               ),
                             ),
-                          ].divide(const SizedBox(height: 8.0)),
+                          ].divide(SizedBox(height: 8.0)),
                         ),
                         if (currentUserDocument?.rol != Roles.user)
                           Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 16.0, 0.0),
                               child: AuthUserStreamWidget(
                                 builder: (context) => Column(
@@ -1239,7 +1246,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Montserrat',
-                                                color: const Color(0xFFC14BBC),
+                                                color: Color(0xFFC14BBC),
                                                 fontSize: 15.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
@@ -1249,7 +1256,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                     ),
                                     Align(
                                       alignment:
-                                          const AlignmentDirectional(-1.0, 0.0),
+                                          AlignmentDirectional(-1.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -1266,7 +1273,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                       .secondaryBackground,
                                             ),
                                             child: Align(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Text(
                                                 'In this video you can make a short presentation of yourself, it will help you meet more participants',
@@ -1288,7 +1295,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                         ],
                                       ),
                                     ),
-                                    const Padding(
+                                    Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 8.0, 0.0, 0.0),
                                       child: FlutterFlowVideoPlayer(
@@ -1302,13 +1309,13 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                         allowPlaybackSpeedMenu: false,
                                       ),
                                     ),
-                                  ].divide(const SizedBox(height: 8.0)),
+                                  ].divide(SizedBox(height: 8.0)),
                                 ),
                               ),
                             ),
                           ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 8.0, 0.0),
                           child: FFButtonWidget(
                             onPressed: () async {
@@ -1324,7 +1331,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                       currentUserDocument?.age, '')
                                   ..serviceType = (currentUserDocument
                                               ?.serviceType
-                                              .toList() ??
+                                              ?.toList() ??
                                           [])
                                       .toList(),
                               );
@@ -1377,7 +1384,8 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                   },
                                 ),
                               });
-                              if (_model.uploadedFileUrl != '') {
+                              if (_model.uploadedFileUrl != null &&
+                                  _model.uploadedFileUrl != '') {
                                 await currentUserReference!
                                     .update(createUsersRecordData(
                                   photoUrl: _model.uploadedFileUrl,
@@ -1395,7 +1403,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                           .primaryText,
                                     ),
                                   ),
-                                  duration: const Duration(milliseconds: 4000),
+                                  duration: Duration(milliseconds: 4000),
                                   backgroundColor:
                                       FlutterFlowTheme.of(context).secondary,
                                 ),
@@ -1405,11 +1413,11 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                             options: FFButtonOptions(
                               width: 167.0,
                               height: 57.0,
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   12.0, 0.0, 12.0, 0.0),
-                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              color: const Color(0xFFFF6FF7),
+                              color: Color(0xFFFF6FF7),
                               textStyle: FlutterFlowTheme.of(context)
                                   .headlineLarge
                                   .override(
@@ -1419,7 +1427,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                     letterSpacing: 0.0,
                                   ),
                               elevation: 3.0,
-                              borderSide: const BorderSide(
+                              borderSide: BorderSide(
                                 color: Colors.transparent,
                                 width: 1.0,
                               ),
@@ -1428,17 +1436,17 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                           ),
                         ),
                       ]
-                          .divide(const SizedBox(height: 16.0))
-                          .addToEnd(const SizedBox(height: 16.0)),
+                          .divide(SizedBox(height: 16.0))
+                          .addToEnd(SizedBox(height: 16.0)),
                     ),
                   ),
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(0.0, 1.0),
+                alignment: AlignmentDirectional(0.0, 1.0),
                 child: Container(
                   height: 73.0,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     color: Color(0xB3B928B8),
                   ),
                   child: Builder(
@@ -1447,13 +1455,13 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                         return wrapWithModel(
                           model: _model.navbarModel,
                           updateCallback: () => setState(() {}),
-                          child: const NavbarWidget(),
+                          child: NavbarWidget(),
                         );
                       } else {
                         return wrapWithModel(
                           model: _model.navbarPremiunModel,
                           updateCallback: () => setState(() {}),
-                          child: const NavbarPremiunWidget(),
+                          child: NavbarPremiunWidget(),
                         );
                       }
                     },

@@ -5,10 +5,14 @@ import '/components/new_notifcations_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'news_model.dart';
 export 'news_model.dart';
 
@@ -43,16 +47,16 @@ class _NewsWidgetState extends State<NewsWidget> {
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: const Color(0xFFE3DEDE),
+        backgroundColor: Color(0xFFE3DEDE),
         appBar: AppBar(
-          backgroundColor: const Color(0xFFBD39BA),
+          backgroundColor: Color(0xFFBD39BA),
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
             borderColor: Colors.transparent,
             borderRadius: 30.0,
             borderWidth: 1.0,
             buttonSize: 60.0,
-            icon: const FaIcon(
+            icon: FaIcon(
               FontAwesomeIcons.angleLeft,
               color: Colors.white,
               size: 30.0,
@@ -62,7 +66,7 @@ class _NewsWidgetState extends State<NewsWidget> {
             },
           ),
           title: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
             child: Text(
               'Notification',
               style: FlutterFlowTheme.of(context).titleMedium.override(
@@ -73,7 +77,7 @@ class _NewsWidgetState extends State<NewsWidget> {
                   ),
             ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
@@ -84,7 +88,7 @@ class _NewsWidgetState extends State<NewsWidget> {
               Container(
                 width: MediaQuery.sizeOf(context).width * 1.0,
                 height: MediaQuery.sizeOf(context).height * 1.0,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   color: Colors.white,
                 ),
               ),
@@ -95,12 +99,12 @@ class _NewsWidgetState extends State<NewsWidget> {
                 children: [
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                     child: Container(
-                      decoration: const BoxDecoration(),
+                      decoration: BoxDecoration(),
                       child: Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                         child: Text(
                           'New ',
                           style:
@@ -145,7 +149,7 @@ class _NewsWidgetState extends State<NewsWidget> {
                           snapshot.data!;
 
                       return ListView.separated(
-                        padding: const EdgeInsets.fromLTRB(
+                        padding: EdgeInsets.fromLTRB(
                           0,
                           7.0,
                           0,
@@ -154,7 +158,7 @@ class _NewsWidgetState extends State<NewsWidget> {
                         shrinkWrap: true,
                         scrollDirection: Axis.vertical,
                         itemCount: listViewNewsbusinessRecordList.length,
-                        separatorBuilder: (_, __) => const SizedBox(height: 1.0),
+                        separatorBuilder: (_, __) => SizedBox(height: 1.0),
                         itemBuilder: (context, listViewIndex) {
                           final listViewNewsbusinessRecord =
                               listViewNewsbusinessRecordList[listViewIndex];
@@ -183,12 +187,12 @@ class _NewsWidgetState extends State<NewsWidget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                     child: Container(
-                      decoration: const BoxDecoration(),
+                      decoration: BoxDecoration(),
                       child: Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                         child: Text(
                           'Previous',
                           style:
@@ -233,7 +237,7 @@ class _NewsWidgetState extends State<NewsWidget> {
                           snapshot.data!;
 
                       return ListView.builder(
-                        padding: const EdgeInsets.fromLTRB(
+                        padding: EdgeInsets.fromLTRB(
                           0,
                           7.0,
                           0,
@@ -259,10 +263,10 @@ class _NewsWidgetState extends State<NewsWidget> {
                 ],
               ),
               Align(
-                alignment: const AlignmentDirectional(0.0, 1.01),
+                alignment: AlignmentDirectional(0.0, 1.01),
                 child: Container(
                   height: 73.0,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     color: Color(0xB3B928B8),
                   ),
                   child: Builder(
@@ -271,13 +275,13 @@ class _NewsWidgetState extends State<NewsWidget> {
                         return wrapWithModel(
                           model: _model.navbarModel,
                           updateCallback: () => setState(() {}),
-                          child: const NavbarWidget(),
+                          child: NavbarWidget(),
                         );
                       } else {
                         return wrapWithModel(
                           model: _model.navbarPremiunModel,
                           updateCallback: () => setState(() {}),
-                          child: const NavbarPremiunWidget(),
+                          child: NavbarPremiunWidget(),
                         );
                       }
                     },

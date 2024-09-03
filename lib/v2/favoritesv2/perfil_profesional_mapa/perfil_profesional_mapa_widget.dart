@@ -4,8 +4,10 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/v2/favoritesv2/add_favorites/add_favorites_widget.dart';
 import '/v2/menbresiav2/membresia_logo/membresia_logo_widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'perfil_profesional_mapa_model.dart';
 export 'perfil_profesional_mapa_model.dart';
@@ -51,7 +53,7 @@ class _PerfilProfesionalMapaWidgetState
     context.watch<FFAppState>();
 
     return Align(
-      alignment: const AlignmentDirectional(0.0, 0.0),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: InkWell(
         splashColor: Colors.transparent,
         focusColor: Colors.transparent,
@@ -65,7 +67,7 @@ class _PerfilProfesionalMapaWidgetState
               'profile_info',
               queryParameters: {
                 'professional': serializeParam(
-                  widget.profesionalId?.reference,
+                  widget!.profesionalId?.reference,
                   ParamType.DocumentReference,
                 ),
               }.withoutNulls,
@@ -75,7 +77,7 @@ class _PerfilProfesionalMapaWidgetState
         child: Material(
           color: Colors.transparent,
           elevation: 10.0,
-          shape: const RoundedRectangleBorder(
+          shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(12.0),
               bottomRight: Radius.circular(12.0),
@@ -86,7 +88,7 @@ class _PerfilProfesionalMapaWidgetState
           child: Container(
             width: 285.0,
             height: 139.0,
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               color: Color(0xFFFFCCF9),
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(12.0),
@@ -96,38 +98,38 @@ class _PerfilProfesionalMapaWidgetState
               ),
             ),
             child: Align(
-              alignment: const AlignmentDirectional(-1.0, -1.0),
+              alignment: AlignmentDirectional(-1.0, -1.0),
               child: Stack(
                 children: [
                   Align(
-                    alignment: const AlignmentDirectional(-1.0, -1.0),
+                    alignment: AlignmentDirectional(-1.0, -1.0),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(10.0, 15.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(10.0, 15.0, 0.0, 0.0),
                       child: Container(
                         width: 61.0,
                         height: 61.0,
                         decoration: BoxDecoration(
-                          color: const Color(0xFFD9D9D9),
-                          borderRadius: const BorderRadius.only(
+                          color: Color(0xFFD9D9D9),
+                          borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(12.0),
                             bottomRight: Radius.circular(12.0),
                             topLeft: Radius.circular(12.0),
                             topRight: Radius.circular(12.0),
                           ),
                           border: Border.all(
-                            color: const Color(0xFFD9D9D9),
+                            color: Color(0xFFD9D9D9),
                           ),
                         ),
                         child: Align(
-                          alignment: const AlignmentDirectional(-1.0, 1.0),
+                          alignment: AlignmentDirectional(-1.0, 1.0),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
                             child: CachedNetworkImage(
-                              fadeInDuration: const Duration(milliseconds: 500),
-                              fadeOutDuration: const Duration(milliseconds: 500),
+                              fadeInDuration: Duration(milliseconds: 500),
+                              fadeOutDuration: Duration(milliseconds: 500),
                               imageUrl: valueOrDefault<String>(
-                                widget.profesionalId?.photoUrl,
+                                widget!.profesionalId?.photoUrl,
                                 'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
                               ),
                               width: double.infinity,
@@ -140,19 +142,19 @@ class _PerfilProfesionalMapaWidgetState
                     ),
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(0.06, -1.23),
+                    alignment: AlignmentDirectional(0.06, -1.23),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                       child: Container(
                         width: 139.0,
                         height: 36.0,
-                        decoration: const BoxDecoration(
+                        decoration: BoxDecoration(
                           color: Color(0xFFFFCCF9),
                         ),
                         child: Text(
                           valueOrDefault<String>(
-                            widget.profesionalId?.firtsName,
+                            widget!.profesionalId?.firtsName,
                             'e',
                           ),
                           style: FlutterFlowTheme.of(context)
@@ -168,41 +170,41 @@ class _PerfilProfesionalMapaWidgetState
                     ),
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(1.0, -1.0),
+                    alignment: AlignmentDirectional(1.0, -1.0),
                     child: wrapWithModel(
                       model: _model.addFavoritesModel,
                       updateCallback: () => setState(() {}),
                       child: AddFavoritesWidget(
-                        professional: widget.profesionalId!,
+                        professional: widget!.profesionalId!,
                       ),
                     ),
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(0.74, -0.19),
+                    alignment: AlignmentDirectional(0.74, -0.19),
                     child: wrapWithModel(
                       model: _model.membresiaLogoModel,
                       updateCallback: () => setState(() {}),
                       child: MembresiaLogoWidget(
-                        professional: widget.profesionalId!.reference,
+                        professional: widget!.profesionalId!.reference,
                         width: 40,
                         heigth: 40,
                       ),
                     ),
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(0.05, -0.19),
+                    alignment: AlignmentDirectional(0.05, -0.19),
                     child: Container(
                       width: 139.0,
                       height: 18.0,
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                         color: Color(0xFFFFCCF9),
                       ),
                       child: Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(3.0, 2.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(3.0, 2.0, 0.0, 0.0),
                         child: Text(
                           valueOrDefault<String>(
-                            widget.profesionalId?.serviceType.first,
+                            widget!.profesionalId?.serviceType?.first,
                             'e',
                           ),
                           style:
@@ -217,35 +219,35 @@ class _PerfilProfesionalMapaWidgetState
                     ),
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(0.09, -0.02),
+                    alignment: AlignmentDirectional(0.09, -0.02),
                     child: Container(
                       width: 150.0,
                       height: 1.0,
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                         color: Colors.white,
                       ),
                     ),
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(0.09, 0.52),
+                    alignment: AlignmentDirectional(0.09, 0.52),
                     child: Container(
                       width: 150.0,
                       height: 50.0,
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                         color: Color(0xFFFFCCF9),
                       ),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Align(
-                            alignment: const AlignmentDirectional(-0.03, 0.18),
+                            alignment: AlignmentDirectional(-0.03, 0.18),
                             child: Container(
                               width: 150.0,
                               height: 16.0,
-                              decoration: const BoxDecoration(),
+                              decoration: BoxDecoration(),
                               child: Stack(
                                 children: [
-                                  const Align(
+                                  Align(
                                     alignment: AlignmentDirectional(-1.0, 0.0),
                                     child: Icon(
                                       Icons.business_center_outlined,
@@ -254,9 +256,9 @@ class _PerfilProfesionalMapaWidgetState
                                     ),
                                   ),
                                   Align(
-                                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                                    alignment: AlignmentDirectional(-1.0, 0.0),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           20.0, 0.0, 0.0, 0.0),
                                       child: Text(
                                         'Experience',
@@ -277,17 +279,17 @@ class _PerfilProfesionalMapaWidgetState
                             ),
                           ),
                           Align(
-                            alignment: const AlignmentDirectional(-0.17, 0.1),
+                            alignment: AlignmentDirectional(-0.17, 0.1),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 10.0, 0.0, 0.0),
                               child: Container(
                                 width: 150.0,
                                 height: 16.0,
-                                decoration: const BoxDecoration(),
+                                decoration: BoxDecoration(),
                                 child: Stack(
                                   children: [
-                                    const Align(
+                                    Align(
                                       alignment:
                                           AlignmentDirectional(-1.0, 0.0),
                                       child: Padding(
@@ -302,9 +304,9 @@ class _PerfilProfesionalMapaWidgetState
                                     ),
                                     Align(
                                       alignment:
-                                          const AlignmentDirectional(-1.0, 0.0),
+                                          AlignmentDirectional(-1.0, 0.0),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             20.0, 0.0, 0.0, 0.0),
                                         child: Text(
                                           'Qualified And Certified \npersonnel',
@@ -326,29 +328,29 @@ class _PerfilProfesionalMapaWidgetState
                             ),
                           ),
                         ]
-                            .divide(const SizedBox(height: 0.0))
-                            .addToStart(const SizedBox(height: 3.0)),
+                            .divide(SizedBox(height: 0.0))
+                            .addToStart(SizedBox(height: 3.0)),
                       ),
                     ),
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(-0.29, 1.05),
+                    alignment: AlignmentDirectional(-0.29, 1.05),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                       child: RatingBar.builder(
                         onRatingUpdate: (newValue) =>
                             setState(() => _model.ratingBarValue = newValue),
-                        itemBuilder: (context, index) => const Icon(
+                        itemBuilder: (context, index) => Icon(
                           Icons.star_rate,
                           color: Color(0xFFF9BF11),
                         ),
                         direction: Axis.horizontal,
                         initialRating: _model.ratingBarValue ??= 3.0,
-                        unratedColor: const Color(0x4D040202),
+                        unratedColor: Color(0x4D040202),
                         itemCount: 5,
                         itemSize: 15.0,
-                        glowColor: const Color(0xFFF9BF11),
+                        glowColor: Color(0xFFF9BF11),
                       ),
                     ),
                   ),

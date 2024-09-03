@@ -1,3 +1,4 @@
+import '/auth/base_auth_user_provider.dart';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -5,6 +6,8 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'navbar_professional_model.dart';
 export 'navbar_professional_model.dart';
 
@@ -41,11 +44,11 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(0.0, 0.0),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Container(
         width: double.infinity,
         height: 67.0,
-        decoration: const BoxDecoration(),
+        decoration: BoxDecoration(),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -57,12 +60,12 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                 Expanded(
                   flex: 1,
                   child: Align(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: FlutterFlowIconButton(
                       borderColor: Colors.transparent,
                       borderRadius: 34.0,
                       buttonSize: 48.0,
-                      icon: const FaIcon(
+                      icon: FaIcon(
                         FontAwesomeIcons.houseUser,
                         color: Colors.white,
                         size: 30.0,
@@ -78,7 +81,7 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                   ),
                 ),
                 Align(
-                  alignment: const AlignmentDirectional(0.29, 0.64),
+                  alignment: AlignmentDirectional(0.29, 0.64),
                   child: Text(
                     'Home',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -91,7 +94,7 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                 ),
                 Container(
                   height: 5.0,
-                  decoration: const BoxDecoration(),
+                  decoration: BoxDecoration(),
                 ),
               ],
             ),
@@ -103,11 +106,11 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                     Expanded(
                       flex: 1,
                       child: Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: FlutterFlowIconButton(
                           borderColor: Colors.transparent,
                           buttonSize: 48.0,
-                          icon: const Icon(
+                          icon: Icon(
                             Icons.favorite_border_rounded,
                             color: Colors.white,
                             size: 34.0,
@@ -135,9 +138,9 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                       ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(-0.33, 0.64),
+                      alignment: AlignmentDirectional(-0.33, 0.64),
                       child: Text(
-                        'Favorite',
+                        'Likes',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Poppins',
                               color: Colors.white,
@@ -148,7 +151,7 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                     ),
                     Container(
                       height: 5.0,
-                      decoration: const BoxDecoration(),
+                      decoration: BoxDecoration(),
                     ),
                   ],
                 ),
@@ -161,11 +164,11 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                     Expanded(
                       flex: 1,
                       child: Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: FlutterFlowIconButton(
                           borderColor: Colors.transparent,
                           buttonSize: 48.0,
-                          icon: const Icon(
+                          icon: Icon(
                             Icons.wechat_rounded,
                             color: Colors.white,
                             size: 34.0,
@@ -181,7 +184,7 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                       ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(0.29, 0.64),
+                      alignment: AlignmentDirectional(0.29, 0.64),
                       child: Text(
                         'Message',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -194,7 +197,7 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                     ),
                     Container(
                       height: 5.0,
-                      decoration: const BoxDecoration(),
+                      decoration: BoxDecoration(),
                     ),
                   ],
                 ),
@@ -205,14 +208,14 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                 Expanded(
                   flex: 1,
                   child: Align(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 6.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 6.0, 0.0),
                       child: FlutterFlowIconButton(
                         borderColor: Colors.transparent,
                         buttonSize: 48.0,
-                        icon: const Icon(
+                        icon: Icon(
                           Icons.person,
                           color: Colors.white,
                           size: 37.0,
@@ -229,7 +232,7 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                   ),
                 ),
                 Align(
-                  alignment: const AlignmentDirectional(0.78, 0.59),
+                  alignment: AlignmentDirectional(0.78, 0.59),
                   child: Text(
                     'Profile',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -242,7 +245,7 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                 ),
                 Container(
                   height: 5.0,
-                  decoration: const BoxDecoration(),
+                  decoration: BoxDecoration(),
                 ),
               ],
             ),

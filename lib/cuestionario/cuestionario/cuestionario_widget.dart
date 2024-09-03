@@ -1,9 +1,13 @@
 import '/backend/schema/enums/enums.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'cuestionario_model.dart';
 export 'cuestionario_model.dart';
 
@@ -48,7 +52,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                 Container(
                   width: MediaQuery.sizeOf(context).width * 1.0,
                   height: 110.0,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     color: Color(0xD5B928B8),
                   ),
                   child: Column(
@@ -57,10 +61,10 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             16.0, 0.0, 16.0, 0.0),
                         child: Container(
-                          decoration: const BoxDecoration(),
+                          decoration: BoxDecoration(),
                           child: Text(
                             'Find Your Membership',
                             style: FlutterFlowTheme.of(context)
@@ -76,12 +80,12 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             16.0, 0.0, 16.0, 0.0),
                         child: Container(
-                          decoration: const BoxDecoration(),
+                          decoration: BoxDecoration(),
                           child: Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Text(
                               'Answer a few questions to determine the right plan for your needs.',
                               style: FlutterFlowTheme.of(context)
@@ -103,7 +107,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                 Container(
                   width: MediaQuery.sizeOf(context).width * 10.0,
                   height: 184.0,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     color: Colors.white,
                   ),
                   child: Column(
@@ -111,12 +115,12 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Align(
-                        alignment: const AlignmentDirectional(-1.0, 0.0),
+                        alignment: AlignmentDirectional(-1.0, 0.0),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               16.0, 16.0, 16.0, 4.0),
                           child: Container(
-                            decoration: const BoxDecoration(),
+                            decoration: BoxDecoration(),
                             child: Text(
                               'Do you need instant messaging for your team?',
                               style: FlutterFlowTheme.of(context)
@@ -145,13 +149,13 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                         options: FFButtonOptions(
                           width: MediaQuery.sizeOf(context).width * 0.96,
                           height: 44.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 24.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: _model.firts
-                              ? const Color(0xB8D41ACF)
-                              : const Color(0xF0FFFFFF),
+                              ? Color(0xB8D41ACF)
+                              : Color(0xF0FFFFFF),
                           textStyle: FlutterFlowTheme.of(context)
                               .titleSmall
                               .override(
@@ -161,7 +165,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                 letterSpacing: 0.0,
                               ),
                           elevation: 2.0,
-                          borderSide: const BorderSide(
+                          borderSide: BorderSide(
                             color: Color(0xFF565454),
                             width: 0.5,
                           ),
@@ -183,13 +187,13 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                         options: FFButtonOptions(
                           width: MediaQuery.sizeOf(context).width * 0.96,
                           height: 44.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 24.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: !_model.firts
-                              ? const Color(0xB8D41ACF)
-                              : const Color(0xF0FFFFFF),
+                              ? Color(0xB8D41ACF)
+                              : Color(0xF0FFFFFF),
                           textStyle: FlutterFlowTheme.of(context)
                               .titleSmall
                               .override(
@@ -199,7 +203,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                 letterSpacing: 0.0,
                               ),
                           elevation: 2.0,
-                          borderSide: const BorderSide(
+                          borderSide: BorderSide(
                             color: Color(0xFF565454),
                             width: 0.5,
                           ),
@@ -207,13 +211,13 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                         ),
                         showLoadingIndicator: false,
                       ),
-                    ].divide(const SizedBox(height: 8.0)),
+                    ].divide(SizedBox(height: 8.0)),
                   ),
                 ),
                 Container(
                   width: MediaQuery.sizeOf(context).width * 10.0,
                   height: 184.0,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     color: Colors.white,
                   ),
                   child: Column(
@@ -221,13 +225,13 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                     children: [
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 4.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 4.0),
                         child: Container(
-                          decoration: const BoxDecoration(),
+                          decoration: BoxDecoration(),
                           child: Align(
-                            alignment: const AlignmentDirectional(-1.0, 0.0),
+                            alignment: AlignmentDirectional(-1.0, 0.0),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 16.0, 0.0),
                               child: Text(
                                 'Do you require detailed map features to locate service providers?',
@@ -258,13 +262,13 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                         options: FFButtonOptions(
                           width: MediaQuery.sizeOf(context).width * 0.96,
                           height: 44.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 24.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: _model.second
-                              ? const Color(0xB8D41ACF)
-                              : const Color(0xF0FFFFFF),
+                              ? Color(0xB8D41ACF)
+                              : Color(0xF0FFFFFF),
                           textStyle: FlutterFlowTheme.of(context)
                               .titleSmall
                               .override(
@@ -274,7 +278,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                 letterSpacing: 0.0,
                               ),
                           elevation: 2.0,
-                          borderSide: const BorderSide(
+                          borderSide: BorderSide(
                             color: Color(0xFF565454),
                             width: 0.5,
                           ),
@@ -296,13 +300,13 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                         options: FFButtonOptions(
                           width: MediaQuery.sizeOf(context).width * 0.96,
                           height: 44.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 24.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: !_model.second
-                              ? const Color(0xB8D41ACF)
-                              : const Color(0xF0FFFFFF),
+                              ? Color(0xB8D41ACF)
+                              : Color(0xF0FFFFFF),
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Montserrat',
@@ -312,7 +316,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                     letterSpacing: 0.0,
                                   ),
                           elevation: 2.0,
-                          borderSide: const BorderSide(
+                          borderSide: BorderSide(
                             color: Color(0xFF565454),
                             width: 0.5,
                           ),
@@ -320,13 +324,13 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                         ),
                         showLoadingIndicator: false,
                       ),
-                    ].divide(const SizedBox(height: 8.0)),
+                    ].divide(SizedBox(height: 8.0)),
                   ),
                 ),
                 Container(
                   width: MediaQuery.sizeOf(context).width * 10.0,
                   height: 184.0,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     color: Colors.white,
                   ),
                   child: Column(
@@ -334,13 +338,13 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                     children: [
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 4.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 4.0),
                         child: Container(
-                          decoration: const BoxDecoration(),
+                          decoration: BoxDecoration(),
                           child: Align(
-                            alignment: const AlignmentDirectional(-1.0, 0.0),
+                            alignment: AlignmentDirectional(-1.0, 0.0),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 16.0, 0.0),
                               child: Text(
                                 'Do you need to create detailed team profiles for your organization?',
@@ -371,13 +375,13 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                         options: FFButtonOptions(
                           width: MediaQuery.sizeOf(context).width * 0.96,
                           height: 44.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 24.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: _model.tree
-                              ? const Color(0xD5B928B8)
-                              : const Color(0xF0FFFFFF),
+                              ? Color(0xD5B928B8)
+                              : Color(0xF0FFFFFF),
                           textStyle: FlutterFlowTheme.of(context)
                               .titleSmall
                               .override(
@@ -387,7 +391,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                 letterSpacing: 0.0,
                               ),
                           elevation: 2.0,
-                          borderSide: const BorderSide(
+                          borderSide: BorderSide(
                             color: Color(0xFF565454),
                             width: 0.5,
                           ),
@@ -409,13 +413,13 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                         options: FFButtonOptions(
                           width: MediaQuery.sizeOf(context).width * 0.96,
                           height: 44.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 24.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: !_model.tree
-                              ? const Color(0xB8D41ACF)
-                              : const Color(0xF0FFFFFF),
+                              ? Color(0xB8D41ACF)
+                              : Color(0xF0FFFFFF),
                           textStyle: FlutterFlowTheme.of(context)
                               .titleSmall
                               .override(
@@ -425,7 +429,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                 letterSpacing: 0.0,
                               ),
                           elevation: 2.0,
-                          borderSide: const BorderSide(
+                          borderSide: BorderSide(
                             color: Color(0xFF565454),
                             width: 0.5,
                           ),
@@ -433,13 +437,13 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                         ),
                         showLoadingIndicator: false,
                       ),
-                    ].divide(const SizedBox(height: 8.0)),
+                    ].divide(SizedBox(height: 8.0)),
                   ),
                 ),
                 Container(
                   width: MediaQuery.sizeOf(context).width * 10.0,
                   height: 184.0,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     color: Colors.white,
                   ),
                   child: Column(
@@ -447,13 +451,13 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                     children: [
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 4.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 4.0),
                         child: Container(
-                          decoration: const BoxDecoration(),
+                          decoration: BoxDecoration(),
                           child: Align(
-                            alignment: const AlignmentDirectional(-1.0, 0.0),
+                            alignment: AlignmentDirectional(-1.0, 0.0),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 16.0, 0.0),
                               child: Text(
                                 'Do you require enhanced search visibility for your services?',
@@ -484,13 +488,13 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                         options: FFButtonOptions(
                           width: MediaQuery.sizeOf(context).width * 0.96,
                           height: 44.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 24.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: _model.four
-                              ? const Color(0xB8D41ACF)
-                              : const Color(0xF0FFFFFF),
+                              ? Color(0xB8D41ACF)
+                              : Color(0xF0FFFFFF),
                           textStyle: FlutterFlowTheme.of(context)
                               .titleSmall
                               .override(
@@ -500,7 +504,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                 letterSpacing: 0.0,
                               ),
                           elevation: 2.0,
-                          borderSide: const BorderSide(
+                          borderSide: BorderSide(
                             color: Color(0xFF565454),
                             width: 0.5,
                           ),
@@ -522,13 +526,13 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                         options: FFButtonOptions(
                           width: MediaQuery.sizeOf(context).width * 0.96,
                           height: 44.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 24.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: !_model.four
-                              ? const Color(0xB8D41ACF)
-                              : const Color(0xF0FFFFFF),
+                              ? Color(0xB8D41ACF)
+                              : Color(0xF0FFFFFF),
                           textStyle: FlutterFlowTheme.of(context)
                               .titleSmall
                               .override(
@@ -538,7 +542,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                 letterSpacing: 0.0,
                               ),
                           elevation: 2.0,
-                          borderSide: const BorderSide(
+                          borderSide: BorderSide(
                             color: Color(0xFF565454),
                             width: 0.5,
                           ),
@@ -546,10 +550,10 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                         ),
                         showLoadingIndicator: false,
                       ),
-                    ].divide(const SizedBox(height: 8.0)),
+                    ].divide(SizedBox(height: 8.0)),
                   ),
                 ),
-                const Divider(
+                Divider(
                   height: 32.0,
                   thickness: 1.0,
                   indent: 12.0,
@@ -563,7 +567,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                         width: MediaQuery.sizeOf(context).width * 0.96,
                         height: 230.0,
                         decoration: BoxDecoration(
-                          color: const Color(0xADFFD8FF),
+                          color: Color(0xADFFD8FF),
                           borderRadius: BorderRadius.circular(18.0),
                         ),
                         child: Column(
@@ -572,10 +576,10 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 16.0, 0.0),
                               child: Container(
-                                decoration: const BoxDecoration(),
+                                decoration: BoxDecoration(),
                                 child: Text(
                                   'Recommended Plan',
                                   style: FlutterFlowTheme.of(context)
@@ -590,10 +594,10 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 16.0, 0.0),
                               child: Container(
-                                decoration: const BoxDecoration(),
+                                decoration: BoxDecoration(),
                                 child: RichText(
                                   textScaler: MediaQuery.of(context).textScaler,
                                   text: TextSpan(
@@ -610,7 +614,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                               fontWeight: FontWeight.normal,
                                             ),
                                       ),
-                                      const TextSpan(
+                                      TextSpan(
                                         text: ' Basic',
                                         style: TextStyle(
                                           color: Color(0xFFF0AE2C),
@@ -618,7 +622,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                           fontSize: 15.0,
                                         ),
                                       ),
-                                      const TextSpan(
+                                      TextSpan(
                                         text: '  plan.',
                                         style: TextStyle(),
                                       )
@@ -636,10 +640,10 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 8.0, 16.0, 8.0),
                               child: Container(
-                                decoration: const BoxDecoration(),
+                                decoration: BoxDecoration(),
                                 child: Text(
                                   'The Premium plan includes:',
                                   style: FlutterFlowTheme.of(context)
@@ -654,10 +658,10 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 16.0, 0.0),
                               child: Container(
-                                decoration: const BoxDecoration(),
+                                decoration: BoxDecoration(),
                                 child: RichText(
                                   textScaler: MediaQuery.of(context).textScaler,
                                   text: TextSpan(
@@ -674,16 +678,16 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                               fontWeight: FontWeight.normal,
                                             ),
                                       ),
-                                      const TextSpan(
+                                      TextSpan(
                                         text:
                                             '\n• Detailed map features to locate service providers',
                                         style: TextStyle(),
                                       ),
-                                      const TextSpan(
+                                      TextSpan(
                                         text: '\n• Customizable team profiles',
                                         style: TextStyle(),
                                       ),
-                                      const TextSpan(
+                                      TextSpan(
                                         text:
                                             '\n• Enhanced search visibility for your services',
                                         style: TextStyle(),
@@ -709,7 +713,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                         width: MediaQuery.sizeOf(context).width * 0.96,
                         height: 230.0,
                         decoration: BoxDecoration(
-                          color: const Color(0xADE3E1E1),
+                          color: Color(0xADE3E1E1),
                           borderRadius: BorderRadius.circular(18.0),
                         ),
                         child: Column(
@@ -718,10 +722,10 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 16.0, 0.0),
                               child: Container(
-                                decoration: const BoxDecoration(),
+                                decoration: BoxDecoration(),
                                 child: Text(
                                   'Recommended Plan',
                                   style: FlutterFlowTheme.of(context)
@@ -736,10 +740,10 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 16.0, 0.0),
                               child: Container(
-                                decoration: const BoxDecoration(),
+                                decoration: BoxDecoration(),
                                 child: RichText(
                                   textScaler: MediaQuery.of(context).textScaler,
                                   text: TextSpan(
@@ -756,7 +760,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                               fontWeight: FontWeight.normal,
                                             ),
                                       ),
-                                      const TextSpan(
+                                      TextSpan(
                                         text: 'Standar',
                                         style: TextStyle(
                                           color: Color(0xFFF0AE2C),
@@ -764,7 +768,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                           fontSize: 15.0,
                                         ),
                                       ),
-                                      const TextSpan(
+                                      TextSpan(
                                         text: ' plan.',
                                         style: TextStyle(),
                                       )
@@ -782,10 +786,10 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 8.0, 16.0, 8.0),
                               child: Container(
-                                decoration: const BoxDecoration(),
+                                decoration: BoxDecoration(),
                                 child: Text(
                                   'The Premium plan includes:',
                                   style: FlutterFlowTheme.of(context)
@@ -800,10 +804,10 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 16.0, 0.0),
                               child: Container(
-                                decoration: const BoxDecoration(),
+                                decoration: BoxDecoration(),
                                 child: RichText(
                                   textScaler: MediaQuery.of(context).textScaler,
                                   text: TextSpan(
@@ -820,16 +824,16 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                               fontWeight: FontWeight.normal,
                                             ),
                                       ),
-                                      const TextSpan(
+                                      TextSpan(
                                         text:
                                             '\n• Detailed map features to locate service providers',
                                         style: TextStyle(),
                                       ),
-                                      const TextSpan(
+                                      TextSpan(
                                         text: '\n• Customizable team profiles',
                                         style: TextStyle(),
                                       ),
-                                      const TextSpan(
+                                      TextSpan(
                                         text:
                                             '\n• Enhanced search visibility for your services',
                                         style: TextStyle(),
@@ -855,7 +859,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                         width: MediaQuery.sizeOf(context).width * 0.96,
                         height: 230.0,
                         decoration: BoxDecoration(
-                          color: const Color(0xADE3E1E1),
+                          color: Color(0xADE3E1E1),
                           borderRadius: BorderRadius.circular(18.0),
                         ),
                         child: Column(
@@ -864,10 +868,10 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 16.0, 0.0),
                               child: Container(
-                                decoration: const BoxDecoration(),
+                                decoration: BoxDecoration(),
                                 child: Text(
                                   'Recommended Plan',
                                   style: FlutterFlowTheme.of(context)
@@ -882,10 +886,10 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 16.0, 0.0),
                               child: Container(
-                                decoration: const BoxDecoration(),
+                                decoration: BoxDecoration(),
                                 child: RichText(
                                   textScaler: MediaQuery.of(context).textScaler,
                                   text: TextSpan(
@@ -902,7 +906,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                               fontWeight: FontWeight.normal,
                                             ),
                                       ),
-                                      const TextSpan(
+                                      TextSpan(
                                         text: ' Premium',
                                         style: TextStyle(
                                           color: Color(0xFFF0AE2C),
@@ -910,7 +914,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                           fontSize: 15.0,
                                         ),
                                       ),
-                                      const TextSpan(
+                                      TextSpan(
                                         text: ' plan.',
                                         style: TextStyle(),
                                       )
@@ -928,10 +932,10 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 8.0, 16.0, 8.0),
                               child: Container(
-                                decoration: const BoxDecoration(),
+                                decoration: BoxDecoration(),
                                 child: Text(
                                   'The Premium plan includes:',
                                   style: FlutterFlowTheme.of(context)
@@ -946,10 +950,10 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 16.0, 0.0),
                               child: Container(
-                                decoration: const BoxDecoration(),
+                                decoration: BoxDecoration(),
                                 child: RichText(
                                   textScaler: MediaQuery.of(context).textScaler,
                                   text: TextSpan(
@@ -966,16 +970,16 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                               fontWeight: FontWeight.normal,
                                             ),
                                       ),
-                                      const TextSpan(
+                                      TextSpan(
                                         text:
                                             '\n• Detailed map features to locate service providers',
                                         style: TextStyle(),
                                       ),
-                                      const TextSpan(
+                                      TextSpan(
                                         text: '\n• Customizable team profiles',
                                         style: TextStyle(),
                                       ),
-                                      const TextSpan(
+                                      TextSpan(
                                         text:
                                             '\n• Enhanced search visibility for your services',
                                         style: TextStyle(),
@@ -1001,7 +1005,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                 ),
                 Padding(
                   padding:
-                      const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
+                      EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1014,9 +1018,9 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                         options: FFButtonOptions(
                           width: 150.0,
                           height: 45.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               12.0, 0.0, 12.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: Colors.white,
                           textStyle:
@@ -1028,7 +1032,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                     fontWeight: FontWeight.w500,
                                   ),
                           elevation: 3.0,
-                          borderSide: const BorderSide(
+                          borderSide: BorderSide(
                             color: Color(0xFF7A7777),
                             width: 1.0,
                           ),
@@ -1068,11 +1072,11 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                         options: FFButtonOptions(
                           width: 150.0,
                           height: 45.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               12.0, 0.0, 12.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
-                          color: const Color(0xB8D41ACF),
+                          color: Color(0xB8D41ACF),
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Inter',
@@ -1082,7 +1086,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                     fontWeight: FontWeight.w600,
                                   ),
                           elevation: 3.0,
-                          borderSide: const BorderSide(
+                          borderSide: BorderSide(
                             color: Colors.transparent,
                             width: 1.0,
                           ),
@@ -1092,7 +1096,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                     ],
                   ),
                 ),
-              ].addToEnd(const SizedBox(height: 32.0)),
+              ].addToEnd(SizedBox(height: 32.0)),
             ),
           ),
         ),

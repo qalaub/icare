@@ -1,13 +1,16 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
+import '/backend/schema/structs/index.dart';
 import '/backend/stripe/payment_manager.dart';
 import '/components/image_upload_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'register_pfofesional4_model.dart';
 export 'register_pfofesional4_model.dart';
@@ -54,7 +57,7 @@ class _RegisterPfofesional4WidgetState
         onWillPop: () async => false,
         child: Scaffold(
           key: scaffoldKey,
-          backgroundColor: const Color(0xFFFFFEFE),
+          backgroundColor: Color(0xFFFFFEFE),
           body: SafeArea(
             top: true,
             child: Column(
@@ -74,7 +77,7 @@ class _RegisterPfofesional4WidgetState
                           child: Stack(
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(8.0),
                                   child: Image.asset(
@@ -86,9 +89,9 @@ class _RegisterPfofesional4WidgetState
                                 ),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(0.0, -1.0),
+                                alignment: AlignmentDirectional(0.0, -1.0),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 10.0, 0.0, 0.0),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(8.0),
@@ -102,13 +105,13 @@ class _RegisterPfofesional4WidgetState
                                 ),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(-0.91, -0.96),
+                                alignment: AlignmentDirectional(-0.91, -0.96),
                                 child: FlutterFlowIconButton(
                                   borderColor: Colors.transparent,
                                   borderRadius: 20.0,
                                   borderWidth: 1.0,
                                   buttonSize: 40.0,
-                                  icon: const Icon(
+                                  icon: Icon(
                                     Icons.arrow_back_ios_new,
                                     color: Colors.black,
                                     size: 24.0,
@@ -119,16 +122,16 @@ class _RegisterPfofesional4WidgetState
                                 ),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 40.0, 0.0, 0.0),
                                   child: Container(
                                     width: 380.0,
                                     height: 526.0,
                                     decoration: BoxDecoration(
-                                      color: const Color(0xFFFFFEFE),
-                                      borderRadius: const BorderRadius.only(
+                                      color: Color(0xFFFFFEFE),
+                                      borderRadius: BorderRadius.only(
                                         bottomLeft: Radius.circular(24.0),
                                         bottomRight: Radius.circular(24.0),
                                         topLeft: Radius.circular(24.0),
@@ -139,626 +142,582 @@ class _RegisterPfofesional4WidgetState
                                         width: 2.0,
                                       ),
                                     ),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Align(
-                                          alignment:
-                                              const AlignmentDirectional(0.0, -1.0),
-                                          child: Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 10.0, 0.0, 0.0),
-                                            child: Text(
-                                              'Add Photos',
-                                              textAlign: TextAlign.center,
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily: 'Montserrat',
-                                                    color: const Color(0xFF8E058A),
-                                                    fontSize: 20.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w600,
-                                                  ),
-                                            ),
-                                          ),
-                                        ),
-                                        if (_model.photosVerify)
+                                    child: SingleChildScrollView(
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(0.0, -1.0),
+                                                AlignmentDirectional(0.0, -1.0),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
-                                                      10.0, 10.0, 10.0, 10.0),
+                                                      0.0, 10.0, 0.0, 0.0),
                                               child: Text(
-                                                'Let’s complete your profile! Upload a photo where your face is clear and visible. Don\'t forget to review before submitting!',
+                                                'Add Photos',
                                                 textAlign: TextAlign.center,
                                                 style: FlutterFlowTheme.of(
                                                         context)
                                                     .bodyMedium
                                                     .override(
                                                       fontFamily: 'Montserrat',
-                                                      color: const Color(0xFF6F6F6F),
-                                                      fontSize: 13.0,
+                                                      color: Color(0xFF8E058A),
+                                                      fontSize: 20.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
-                                                          FontWeight.w500,
+                                                          FontWeight.w600,
                                                     ),
                                               ),
                                             ),
                                           ),
-                                        if (!_model.photosVerify)
+                                          if (_model.photosVerify)
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.0, -1.0),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        10.0, 10.0, 10.0, 10.0),
+                                                child: Text(
+                                                  'Let’s complete your profile! Upload a photo where your face is clear and visible. Don\'t forget to review before submitting!',
+                                                  textAlign: TextAlign.center,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Montserrat',
+                                                        color:
+                                                            Color(0xFF6F6F6F),
+                                                        fontSize: 13.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                ),
+                                              ),
+                                            ),
+                                          if (!_model.photosVerify)
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.0, -1.0),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        10.0, 0.0, 10.0, 0.0),
+                                                child: Text(
+                                                  'Please upload photos to complete your profile. Make sure your face is clear and visible, don’t forget to',
+                                                  textAlign: TextAlign.center,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Montserrat',
+                                                        color:
+                                                            Color(0xFFE90606),
+                                                        fontSize: 13.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                ),
+                                              ),
+                                            ),
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(0.0, -1.0),
-                                            child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      10.0, 0.0, 10.0, 0.0),
-                                              child: Text(
-                                                'Please upload photos to complete your profile. Make sure your face is clear and visible, don’t forget to',
-                                                textAlign: TextAlign.center,
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      fontFamily: 'Montserrat',
-                                                      color: const Color(0xFFE90606),
-                                                      fontSize: 13.0,
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FontWeight.w500,
-                                                    ),
-                                              ),
-                                            ),
-                                          ),
-                                        Align(
-                                          alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
-                                          child: Container(
-                                            width: 380.0,
-                                            height: 1.0,
-                                            decoration: BoxDecoration(
-                                              color: const Color(0xFFF0DFEF),
-                                              border: Border.all(
-                                                color: const Color(0xFFF0DFEF),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 30.0, 0.0, 0.0),
-                                          child: Container(
-                                            width: 350.0,
-                                            height: 300.0,
-                                            decoration: BoxDecoration(
-                                              color: const Color(0xFFFFFEFE),
-                                              borderRadius: const BorderRadius.only(
-                                                bottomLeft:
-                                                    Radius.circular(24.0),
-                                                bottomRight:
-                                                    Radius.circular(24.0),
-                                                topLeft: Radius.circular(24.0),
-                                                topRight: Radius.circular(24.0),
-                                              ),
-                                              border: Border.all(
-                                                color: const Color(0xFFC45ABE),
-                                              ),
-                                            ),
-                                            child: Stack(
-                                              children: [
-                                                Align(
-                                                  alignment:
-                                                      const AlignmentDirectional(
-                                                          -1.0, -1.0),
-                                                  child: Padding(
-                                                    padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(10.0,
-                                                                10.0, 0.0, 0.0),
-                                                    child: Container(
-                                                      width: 100.0,
-                                                      height: 130.0,
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            const Color(0xFFD9D9D9),
-                                                        borderRadius:
-                                                            const BorderRadius.only(
-                                                          bottomLeft:
-                                                              Radius.circular(
-                                                                  12.0),
-                                                          bottomRight:
-                                                              Radius.circular(
-                                                                  12.0),
-                                                          topLeft:
-                                                              Radius.circular(
-                                                                  12.0),
-                                                          topRight:
-                                                              Radius.circular(
-                                                                  12.0),
-                                                        ),
-                                                        border: Border.all(
-                                                          color:
-                                                              const Color(0xFFD9D9D9),
-                                                          width: 1.0,
-                                                        ),
-                                                      ),
-                                                      child: wrapWithModel(
-                                                        model: _model.img1Model,
-                                                        updateCallback: () =>
-                                                            setState(() {}),
-                                                        child:
-                                                            const ImageUploadWidget(),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                                Align(
-                                                  alignment:
-                                                      const AlignmentDirectional(
-                                                          0.0, -1.0),
-                                                  child: Padding(
-                                                    padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 10.0,
-                                                                0.0, 0.0),
-                                                    child: Container(
-                                                      width: 100.0,
-                                                      height: 130.0,
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            const Color(0xFFD9D9D9),
-                                                        borderRadius:
-                                                            const BorderRadius.only(
-                                                          bottomLeft:
-                                                              Radius.circular(
-                                                                  12.0),
-                                                          bottomRight:
-                                                              Radius.circular(
-                                                                  12.0),
-                                                          topLeft:
-                                                              Radius.circular(
-                                                                  12.0),
-                                                          topRight:
-                                                              Radius.circular(
-                                                                  12.0),
-                                                        ),
-                                                        border: Border.all(
-                                                          color:
-                                                              const Color(0xFFD9D9D9),
-                                                          width: 1.0,
-                                                        ),
-                                                      ),
-                                                      child: wrapWithModel(
-                                                        model: _model.img2Model,
-                                                        updateCallback: () =>
-                                                            setState(() {}),
-                                                        child:
-                                                            const ImageUploadWidget(),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                                Align(
-                                                  alignment:
-                                                      const AlignmentDirectional(
-                                                          1.0, -1.0),
-                                                  child: Padding(
-                                                    padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 10.0,
-                                                                10.0, 0.0),
-                                                    child: Container(
-                                                      width: 100.0,
-                                                      height: 130.0,
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            const Color(0xFFD9D9D9),
-                                                        borderRadius:
-                                                            const BorderRadius.only(
-                                                          bottomLeft:
-                                                              Radius.circular(
-                                                                  12.0),
-                                                          bottomRight:
-                                                              Radius.circular(
-                                                                  12.0),
-                                                          topLeft:
-                                                              Radius.circular(
-                                                                  12.0),
-                                                          topRight:
-                                                              Radius.circular(
-                                                                  12.0),
-                                                        ),
-                                                        border: Border.all(
-                                                          color:
-                                                              const Color(0xFFD9D9D9),
-                                                          width: 1.0,
-                                                        ),
-                                                      ),
-                                                      child: wrapWithModel(
-                                                        model: _model.img3Model,
-                                                        updateCallback: () =>
-                                                            setState(() {}),
-                                                        child:
-                                                            const ImageUploadWidget(),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                                Align(
-                                                  alignment:
-                                                      const AlignmentDirectional(
-                                                          -1.0, 1.0),
-                                                  child: Padding(
-                                                    padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                10.0,
-                                                                10.0,
-                                                                0.0,
-                                                                10.0),
-                                                    child: Container(
-                                                      width: 100.0,
-                                                      height: 130.0,
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            const Color(0xFFD9D9D9),
-                                                        borderRadius:
-                                                            const BorderRadius.only(
-                                                          bottomLeft:
-                                                              Radius.circular(
-                                                                  12.0),
-                                                          bottomRight:
-                                                              Radius.circular(
-                                                                  12.0),
-                                                          topLeft:
-                                                              Radius.circular(
-                                                                  12.0),
-                                                          topRight:
-                                                              Radius.circular(
-                                                                  12.0),
-                                                        ),
-                                                        border: Border.all(
-                                                          color:
-                                                              const Color(0xFFD9D9D9),
-                                                          width: 1.0,
-                                                        ),
-                                                      ),
-                                                      child: wrapWithModel(
-                                                        model: _model.img4Model,
-                                                        updateCallback: () =>
-                                                            setState(() {}),
-                                                        child:
-                                                            const ImageUploadWidget(),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                                Align(
-                                                  alignment:
-                                                      const AlignmentDirectional(
-                                                          0.0, 1.0),
-                                                  child: Padding(
-                                                    padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 10.0,
-                                                                0.0, 10.0),
-                                                    child: Container(
-                                                      width: 100.0,
-                                                      height: 130.0,
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            const Color(0xFFD9D9D9),
-                                                        borderRadius:
-                                                            const BorderRadius.only(
-                                                          bottomLeft:
-                                                              Radius.circular(
-                                                                  12.0),
-                                                          bottomRight:
-                                                              Radius.circular(
-                                                                  12.0),
-                                                          topLeft:
-                                                              Radius.circular(
-                                                                  12.0),
-                                                          topRight:
-                                                              Radius.circular(
-                                                                  12.0),
-                                                        ),
-                                                        border: Border.all(
-                                                          color:
-                                                              const Color(0xFFD9D9D9),
-                                                          width: 1.0,
-                                                        ),
-                                                      ),
-                                                      child: wrapWithModel(
-                                                        model: _model.img5Model,
-                                                        updateCallback: () =>
-                                                            setState(() {}),
-                                                        child:
-                                                            const ImageUploadWidget(),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                                Align(
-                                                  alignment:
-                                                      const AlignmentDirectional(
-                                                          1.0, 1.0),
-                                                  child: Padding(
-                                                    padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 10.0,
-                                                                10.0, 10.0),
-                                                    child: Container(
-                                                      width: 100.0,
-                                                      height: 130.0,
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            const Color(0xFFD9D9D9),
-                                                        borderRadius:
-                                                            const BorderRadius.only(
-                                                          bottomLeft:
-                                                              Radius.circular(
-                                                                  12.0),
-                                                          bottomRight:
-                                                              Radius.circular(
-                                                                  12.0),
-                                                          topLeft:
-                                                              Radius.circular(
-                                                                  12.0),
-                                                          topRight:
-                                                              Radius.circular(
-                                                                  12.0),
-                                                        ),
-                                                        border: Border.all(
-                                                          color:
-                                                              const Color(0xFFD9D9D9),
-                                                          width: 1.0,
-                                                        ),
-                                                      ),
-                                                      child: wrapWithModel(
-                                                        model: _model.img6Model,
-                                                        updateCallback: () =>
-                                                            setState(() {}),
-                                                        child:
-                                                            const ImageUploadWidget(),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                        Align(
-                                          alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
-                                          child: Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 10.0, 0.0, 0.0),
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Container(
                                               width: 380.0,
                                               height: 1.0,
                                               decoration: BoxDecoration(
-                                                color: const Color(0xFFF0DFEF),
+                                                color: Color(0xFFF0DFEF),
                                                 border: Border.all(
-                                                  color: const Color(0xFFF0DFEF),
+                                                  color: Color(0xFFF0DFEF),
                                                 ),
                                               ),
                                             ),
                                           ),
-                                        ),
-                                        Align(
-                                          alignment:
-                                              const AlignmentDirectional(0.01, 0.7),
-                                          child: Padding(
+                                          Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 10.0, 0.0, 10.0),
-                                            child: FFButtonWidget(
-                                              onPressed: () async {
-                                                if (FFAppState()
-                                                        .imagesUserUpload
-                                                        .length >
-                                                    1) {
-                                                  _model.photosVerify = true;
-                                                  setState(() {});
-                                                  FFAppState()
-                                                      .updateRegisterProviderFormStruct(
-                                                    (e) => e
-                                                      ..images = FFAppState()
-                                                          .imagesUserUpload
-                                                          .where((e) =>
-                                                              e !=
-                                                              'https://i.ibb.co/b7TBHQJ/imagen-defecto.png')
-                                                          .toList(),
-                                                  );
-                                                  setState(() {});
-                                                  GoRouter.of(context)
-                                                      .prepareAuthEvent();
-
-                                                  final user = await authManager
-                                                      .createAccountWithEmail(
-                                                    context,
-                                                    FFAppState()
-                                                        .registerProviderForm
-                                                        .email,
-                                                    FFAppState()
-                                                        .registerProviderForm
-                                                        .password,
-                                                  );
-                                                  if (user == null) {
-                                                    return;
-                                                  }
-
-                                                  await UsersRecord.collection
-                                                      .doc(user.uid)
-                                                      .update({
-                                                    ...createUsersRecordData(
-                                                      firtsName: FFAppState()
-                                                          .registerProviderForm
-                                                          .firstName,
-                                                      lastName: FFAppState()
-                                                          .registerProviderForm
-                                                          .lastName,
-                                                      birthdate: FFAppState()
-                                                          .registerProviderForm
-                                                          .birthdate,
-                                                      suburb: FFAppState()
-                                                          .registerProviderForm
-                                                          .suburb,
-                                                      ndis: FFAppState()
-                                                          .registerProviderForm
-                                                          .ndis,
-                                                      phoneNumber: FFAppState()
-                                                          .registerProviderForm
-                                                          .phone,
-                                                      email: FFAppState()
-                                                          .registerProviderForm
-                                                          .email,
-                                                      age: FFAppState()
-                                                          .registerProviderForm
-                                                          .age,
-                                                      years: FFAppState()
-                                                          .registerProviderForm
-                                                          .years,
-                                                      gender: FFAppState()
-                                                          .registerProviderForm
-                                                          .gender,
-                                                      description: FFAppState()
-                                                          .registerProviderForm
-                                                          .description,
-                                                      comapny: FFAppState()
-                                                          .registerProviderForm
-                                                          .company,
-                                                      languagues: '',
-                                                      rol: FFAppState()
-                                                          .registerProviderForm
-                                                          .rol,
-                                                      plan: FFAppState()
-                                                          .registerProviderForm
-                                                          .plan,
-                                                      photoUrl: FFAppState()
-                                                                  .registerProviderForm
-                                                                  .images.isNotEmpty
-                                                          ? FFAppState()
-                                                              .registerProviderForm
-                                                              .images
-                                                              .first
-                                                          : ' ',
-                                                      business: FFAppState()
-                                                          .registerProviderForm
-                                                          .business,
-                                                      paymentDate:
-                                                          getCurrentTimestamp,
-                                                      freeTrial: true,
-                                                      displayName: '',
-                                                    ),
-                                                    ...mapToFirestore(
-                                                      {
-                                                        'images': FFAppState()
-                                                            .imagesUserUpload,
-                                                        'serviceType': FFAppState()
-                                                            .registerProviderForm
-                                                            .serviceType,
-                                                        'disabilities': FFAppState()
-                                                            .registerProviderForm
-                                                            .disabilities,
-                                                      },
-                                                    ),
-                                                  });
-
-                                                  if (widget.businessRef !=
-                                                      null) {
-                                                    context.goNamedAuth(
-                                                      'HomeSearch',
-                                                      context.mounted,
-                                                      queryParameters: {
-                                                        'authUser':
-                                                            serializeParam(
-                                                          true,
-                                                          ParamType.bool,
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 30.0, 0.0, 0.0),
+                                            child: Container(
+                                              width: 350.0,
+                                              height: 300.0,
+                                              decoration: BoxDecoration(
+                                                color: Color(0xFFFFFEFE),
+                                                borderRadius: BorderRadius.only(
+                                                  bottomLeft:
+                                                      Radius.circular(24.0),
+                                                  bottomRight:
+                                                      Radius.circular(24.0),
+                                                  topLeft:
+                                                      Radius.circular(24.0),
+                                                  topRight:
+                                                      Radius.circular(24.0),
+                                                ),
+                                                border: Border.all(
+                                                  color: Color(0xFFC45ABE),
+                                                ),
+                                              ),
+                                              child: Stack(
+                                                children: [
+                                                  Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            -1.0, -1.0),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  10.0,
+                                                                  10.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Container(
+                                                        width: 100.0,
+                                                        height: 130.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color:
+                                                              Color(0xFFD9D9D9),
+                                                          borderRadius:
+                                                              BorderRadius.only(
+                                                            bottomLeft:
+                                                                Radius.circular(
+                                                                    12.0),
+                                                            bottomRight:
+                                                                Radius.circular(
+                                                                    12.0),
+                                                            topLeft:
+                                                                Radius.circular(
+                                                                    12.0),
+                                                            topRight:
+                                                                Radius.circular(
+                                                                    12.0),
+                                                          ),
+                                                          border: Border.all(
+                                                            color: Color(
+                                                                0xFFD9D9D9),
+                                                            width: 1.0,
+                                                          ),
                                                         ),
-                                                      }.withoutNulls,
+                                                        child: wrapWithModel(
+                                                          model:
+                                                              _model.img1Model,
+                                                          updateCallback: () =>
+                                                              setState(() {}),
+                                                          child:
+                                                              ImageUploadWidget(),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            0.0, -1.0),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  10.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Container(
+                                                        width: 100.0,
+                                                        height: 130.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color:
+                                                              Color(0xFFD9D9D9),
+                                                          borderRadius:
+                                                              BorderRadius.only(
+                                                            bottomLeft:
+                                                                Radius.circular(
+                                                                    12.0),
+                                                            bottomRight:
+                                                                Radius.circular(
+                                                                    12.0),
+                                                            topLeft:
+                                                                Radius.circular(
+                                                                    12.0),
+                                                            topRight:
+                                                                Radius.circular(
+                                                                    12.0),
+                                                          ),
+                                                          border: Border.all(
+                                                            color: Color(
+                                                                0xFFD9D9D9),
+                                                            width: 1.0,
+                                                          ),
+                                                        ),
+                                                        child: wrapWithModel(
+                                                          model:
+                                                              _model.img2Model,
+                                                          updateCallback: () =>
+                                                              setState(() {}),
+                                                          child:
+                                                              ImageUploadWidget(),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            1.0, -1.0),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  10.0,
+                                                                  10.0,
+                                                                  0.0),
+                                                      child: Container(
+                                                        width: 100.0,
+                                                        height: 130.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color:
+                                                              Color(0xFFD9D9D9),
+                                                          borderRadius:
+                                                              BorderRadius.only(
+                                                            bottomLeft:
+                                                                Radius.circular(
+                                                                    12.0),
+                                                            bottomRight:
+                                                                Radius.circular(
+                                                                    12.0),
+                                                            topLeft:
+                                                                Radius.circular(
+                                                                    12.0),
+                                                            topRight:
+                                                                Radius.circular(
+                                                                    12.0),
+                                                          ),
+                                                          border: Border.all(
+                                                            color: Color(
+                                                                0xFFD9D9D9),
+                                                            width: 1.0,
+                                                          ),
+                                                        ),
+                                                        child: wrapWithModel(
+                                                          model:
+                                                              _model.img3Model,
+                                                          updateCallback: () =>
+                                                              setState(() {}),
+                                                          child:
+                                                              ImageUploadWidget(),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            -1.0, 1.0),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  10.0,
+                                                                  10.0,
+                                                                  0.0,
+                                                                  10.0),
+                                                      child: Container(
+                                                        width: 100.0,
+                                                        height: 130.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color:
+                                                              Color(0xFFD9D9D9),
+                                                          borderRadius:
+                                                              BorderRadius.only(
+                                                            bottomLeft:
+                                                                Radius.circular(
+                                                                    12.0),
+                                                            bottomRight:
+                                                                Radius.circular(
+                                                                    12.0),
+                                                            topLeft:
+                                                                Radius.circular(
+                                                                    12.0),
+                                                            topRight:
+                                                                Radius.circular(
+                                                                    12.0),
+                                                          ),
+                                                          border: Border.all(
+                                                            color: Color(
+                                                                0xFFD9D9D9),
+                                                            width: 1.0,
+                                                          ),
+                                                        ),
+                                                        child: wrapWithModel(
+                                                          model:
+                                                              _model.img4Model,
+                                                          updateCallback: () =>
+                                                              setState(() {}),
+                                                          child:
+                                                              ImageUploadWidget(),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            0.0, 1.0),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  10.0,
+                                                                  0.0,
+                                                                  10.0),
+                                                      child: Container(
+                                                        width: 100.0,
+                                                        height: 130.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color:
+                                                              Color(0xFFD9D9D9),
+                                                          borderRadius:
+                                                              BorderRadius.only(
+                                                            bottomLeft:
+                                                                Radius.circular(
+                                                                    12.0),
+                                                            bottomRight:
+                                                                Radius.circular(
+                                                                    12.0),
+                                                            topLeft:
+                                                                Radius.circular(
+                                                                    12.0),
+                                                            topRight:
+                                                                Radius.circular(
+                                                                    12.0),
+                                                          ),
+                                                          border: Border.all(
+                                                            color: Color(
+                                                                0xFFD9D9D9),
+                                                            width: 1.0,
+                                                          ),
+                                                        ),
+                                                        child: wrapWithModel(
+                                                          model:
+                                                              _model.img5Model,
+                                                          updateCallback: () =>
+                                                              setState(() {}),
+                                                          child:
+                                                              ImageUploadWidget(),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            1.0, 1.0),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  10.0,
+                                                                  10.0,
+                                                                  10.0),
+                                                      child: Container(
+                                                        width: 100.0,
+                                                        height: 130.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color:
+                                                              Color(0xFFD9D9D9),
+                                                          borderRadius:
+                                                              BorderRadius.only(
+                                                            bottomLeft:
+                                                                Radius.circular(
+                                                                    12.0),
+                                                            bottomRight:
+                                                                Radius.circular(
+                                                                    12.0),
+                                                            topLeft:
+                                                                Radius.circular(
+                                                                    12.0),
+                                                            topRight:
+                                                                Radius.circular(
+                                                                    12.0),
+                                                          ),
+                                                          border: Border.all(
+                                                            color: Color(
+                                                                0xFFD9D9D9),
+                                                            width: 1.0,
+                                                          ),
+                                                        ),
+                                                        child: wrapWithModel(
+                                                          model:
+                                                              _model.img6Model,
+                                                          updateCallback: () =>
+                                                              setState(() {}),
+                                                          child:
+                                                              ImageUploadWidget(),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                          Align(
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 10.0, 0.0, 0.0),
+                                              child: Container(
+                                                width: 380.0,
+                                                height: 1.0,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xFFF0DFEF),
+                                                  border: Border.all(
+                                                    color: Color(0xFFF0DFEF),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          Align(
+                                            alignment:
+                                                AlignmentDirectional(0.01, 0.7),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 10.0, 0.0, 10.0),
+                                              child: FFButtonWidget(
+                                                onPressed: () async {
+                                                  if (FFAppState()
+                                                          .imagesUserUpload
+                                                          .length >
+                                                      1) {
+                                                    _model.photosVerify = true;
+                                                    setState(() {});
+                                                    FFAppState()
+                                                        .updateRegisterProviderFormStruct(
+                                                      (e) => e
+                                                        ..images = FFAppState()
+                                                            .imagesUserUpload
+                                                            .where((e) =>
+                                                                e !=
+                                                                'https://i.ibb.co/b7TBHQJ/imagen-defecto.png')
+                                                            .toList(),
                                                     );
-                                                  } else {
-                                                    final paymentResponse =
-                                                        await processStripePayment(
+                                                    setState(() {});
+                                                    GoRouter.of(context)
+                                                        .prepareAuthEvent();
+
+                                                    final user = await authManager
+                                                        .createAccountWithEmail(
                                                       context,
-                                                      amount: () {
-                                                        if (FFAppState()
-                                                                .registerProviderForm
-                                                                .plan ==
-                                                            Plan.basic) {
-                                                          return FFAppConstants
-                                                              .basicPrice;
-                                                        } else if (FFAppState()
-                                                                .registerProviderForm
-                                                                .plan ==
-                                                            Plan.standar) {
-                                                          return FFAppConstants
-                                                              .standarPrice;
-                                                        } else {
-                                                          return FFAppConstants
-                                                              .premiunPrice;
-                                                        }
-                                                      }(),
-                                                      currency: 'AUD',
-                                                      customerEmail: FFAppState()
+                                                      FFAppState()
                                                           .registerProviderForm
                                                           .email,
-                                                      customerName: FFAppState()
-                                                          .registerProviderForm
-                                                          .firstName,
-                                                      description: () {
-                                                        if (FFAppState()
-                                                                .registerProviderForm
-                                                                .plan ==
-                                                            Plan.basic) {
-                                                          return 'Plan Basic';
-                                                        } else if (FFAppState()
-                                                                .registerProviderForm
-                                                                .plan ==
-                                                            Plan.standar) {
-                                                          return 'Plan Standar';
-                                                        } else {
-                                                          return 'Plan Premiun';
-                                                        }
-                                                      }(),
-                                                      allowGooglePay: true,
-                                                      allowApplePay: false,
-                                                    );
-                                                    if (paymentResponse
-                                                                .paymentId ==
-                                                            null &&
-                                                        paymentResponse
-                                                                .errorMessage !=
-                                                            null) {
-                                                      showSnackbar(
-                                                        context,
-                                                        'Error: ${paymentResponse.errorMessage}',
-                                                      );
-                                                    }
-                                                    _model.paymentId =
-                                                        paymentResponse
-                                                                .paymentId ??
-                                                            '';
-
-                                                    if (_model.paymentId !=
-                                                            null &&
-                                                        _model.paymentId !=
-                                                            '') {
                                                       FFAppState()
-                                                              .authUserFireBase =
-                                                          true;
-                                                      setState(() {});
+                                                          .registerProviderForm
+                                                          .password,
+                                                    );
+                                                    if (user == null) {
+                                                      return;
+                                                    }
 
+                                                    await UsersRecord.collection
+                                                        .doc(user.uid)
+                                                        .update({
+                                                      ...createUsersRecordData(
+                                                        firtsName: FFAppState()
+                                                            .registerProviderForm
+                                                            .firstName,
+                                                        lastName: FFAppState()
+                                                            .registerProviderForm
+                                                            .lastName,
+                                                        birthdate: FFAppState()
+                                                            .registerProviderForm
+                                                            .birthdate,
+                                                        suburb: FFAppState()
+                                                            .registerProviderForm
+                                                            .suburb,
+                                                        ndis: FFAppState()
+                                                            .registerProviderForm
+                                                            .ndis,
+                                                        phoneNumber: FFAppState()
+                                                            .registerProviderForm
+                                                            .phone,
+                                                        email: FFAppState()
+                                                            .registerProviderForm
+                                                            .email,
+                                                        age: FFAppState()
+                                                            .registerProviderForm
+                                                            .age,
+                                                        years: FFAppState()
+                                                            .registerProviderForm
+                                                            .years,
+                                                        gender: FFAppState()
+                                                            .registerProviderForm
+                                                            .gender,
+                                                        description: FFAppState()
+                                                            .registerProviderForm
+                                                            .description,
+                                                        comapny: FFAppState()
+                                                            .registerProviderForm
+                                                            .company,
+                                                        languagues: '',
+                                                        rol: FFAppState()
+                                                            .registerProviderForm
+                                                            .rol,
+                                                        plan: FFAppState()
+                                                            .registerProviderForm
+                                                            .plan,
+                                                        photoUrl: FFAppState()
+                                                                    .registerProviderForm
+                                                                    .images
+                                                                    .length >
+                                                                0
+                                                            ? FFAppState()
+                                                                .registerProviderForm
+                                                                .images
+                                                                .first
+                                                            : ' ',
+                                                        business: FFAppState()
+                                                            .registerProviderForm
+                                                            .business,
+                                                        paymentDate:
+                                                            getCurrentTimestamp,
+                                                        freeTrial: true,
+                                                        displayName: '',
+                                                      ),
+                                                      ...mapToFirestore(
+                                                        {
+                                                          'images': FFAppState()
+                                                              .imagesUserUpload,
+                                                          'serviceType':
+                                                              FFAppState()
+                                                                  .registerProviderForm
+                                                                  .serviceType,
+                                                          'disabilities':
+                                                              FFAppState()
+                                                                  .registerProviderForm
+                                                                  .disabilities,
+                                                        },
+                                                      ),
+                                                    });
+
+                                                    if (widget!.businessRef !=
+                                                        null) {
                                                       context.goNamedAuth(
                                                         'HomeSearch',
                                                         context.mounted,
@@ -771,51 +730,138 @@ class _RegisterPfofesional4WidgetState
                                                         }.withoutNulls,
                                                       );
                                                     } else {
-                                                      await authManager
-                                                          .deleteUser(context);
-                                                    }
-                                                  }
-                                                } else {
-                                                  _model.photosVerify = false;
-                                                  setState(() {});
-                                                }
+                                                      final paymentResponse =
+                                                          await processStripePayment(
+                                                        context,
+                                                        amount: () {
+                                                          if (FFAppState()
+                                                                  .registerProviderForm
+                                                                  .plan ==
+                                                              Plan.basic) {
+                                                            return FFAppConstants
+                                                                .basicPrice;
+                                                          } else if (FFAppState()
+                                                                  .registerProviderForm
+                                                                  .plan ==
+                                                              Plan.standar) {
+                                                            return FFAppConstants
+                                                                .standarPrice;
+                                                          } else {
+                                                            return FFAppConstants
+                                                                .premiunPrice;
+                                                          }
+                                                        }(),
+                                                        currency: 'AUD',
+                                                        customerEmail: FFAppState()
+                                                            .registerProviderForm
+                                                            .email,
+                                                        customerName: FFAppState()
+                                                            .registerProviderForm
+                                                            .firstName,
+                                                        description: () {
+                                                          if (FFAppState()
+                                                                  .registerProviderForm
+                                                                  .plan ==
+                                                              Plan.basic) {
+                                                            return 'Plan Basic';
+                                                          } else if (FFAppState()
+                                                                  .registerProviderForm
+                                                                  .plan ==
+                                                              Plan.standar) {
+                                                            return 'Plan Standar';
+                                                          } else {
+                                                            return 'Plan Premiun';
+                                                          }
+                                                        }(),
+                                                        allowGooglePay: true,
+                                                        allowApplePay: false,
+                                                      );
+                                                      if (paymentResponse
+                                                                  .paymentId ==
+                                                              null &&
+                                                          paymentResponse
+                                                                  .errorMessage !=
+                                                              null) {
+                                                        showSnackbar(
+                                                          context,
+                                                          'Error: ${paymentResponse.errorMessage}',
+                                                        );
+                                                      }
+                                                      _model.paymentId =
+                                                          paymentResponse
+                                                                  .paymentId ??
+                                                              '';
 
-                                                setState(() {});
-                                              },
-                                              text: 'Create Profile',
-                                              options: FFButtonOptions(
-                                                width: 275.0,
-                                                height: 45.0,
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        24.0, 0.0, 24.0, 0.0),
-                                                iconPadding:
-                                                    const EdgeInsetsDirectional
-                                                        .fromSTEB(
-                                                            0.0, 0.0, 0.0, 0.0),
-                                                color: const Color(0xFFB928B8),
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleSmall
-                                                        .override(
-                                                          fontFamily:
-                                                              'Montserrat',
-                                                          color: Colors.white,
-                                                          fontSize: 20.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                elevation: 5.0,
-                                                borderSide: const BorderSide(
-                                                  color: Colors.transparent,
-                                                  width: 1.0,
+                                                      if (_model.paymentId !=
+                                                              null &&
+                                                          _model.paymentId !=
+                                                              '') {
+                                                        FFAppState()
+                                                                .authUserFireBase =
+                                                            true;
+                                                        setState(() {});
+
+                                                        context.goNamedAuth(
+                                                          'HomeSearch',
+                                                          context.mounted,
+                                                          queryParameters: {
+                                                            'authUser':
+                                                                serializeParam(
+                                                              true,
+                                                              ParamType.bool,
+                                                            ),
+                                                          }.withoutNulls,
+                                                        );
+                                                      } else {
+                                                        await authManager
+                                                            .deleteUser(
+                                                                context);
+                                                      }
+                                                    }
+                                                  } else {
+                                                    _model.photosVerify = false;
+                                                    setState(() {});
+                                                  }
+
+                                                  setState(() {});
+                                                },
+                                                text: 'Create Profile',
+                                                options: FFButtonOptions(
+                                                  width: 275.0,
+                                                  height: 45.0,
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          24.0, 0.0, 24.0, 0.0),
+                                                  iconPadding:
+                                                      EdgeInsetsDirectional
+                                                          .fromSTEB(0.0, 0.0,
+                                                              0.0, 0.0),
+                                                  color: Color(0xFFB928B8),
+                                                  textStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleSmall
+                                                          .override(
+                                                            fontFamily:
+                                                                'Montserrat',
+                                                            color: Colors.white,
+                                                            fontSize: 20.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                  elevation: 5.0,
+                                                  borderSide: BorderSide(
+                                                    color: Colors.transparent,
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          24.0),
                                                 ),
-                                                borderRadius:
-                                                    BorderRadius.circular(24.0),
                                               ),
                                             ),
                                           ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
