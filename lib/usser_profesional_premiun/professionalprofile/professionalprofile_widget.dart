@@ -6,8 +6,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'professionalprofile_model.dart';
 export 'professionalprofile_model.dart';
 
@@ -53,7 +51,7 @@ class _ProfessionalprofileWidgetState extends State<ProfessionalprofileWidget> {
                 child: Container(
                   width: double.infinity,
                   height: double.infinity,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Colors.white,
                   ),
                   child: SingleChildScrollView(
@@ -63,14 +61,14 @@ class _ProfessionalprofileWidgetState extends State<ProfessionalprofileWidget> {
                         Container(
                           width: double.infinity,
                           height: 200.0,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: Color(0x80FB8CE2),
                           ),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 15.0, 0.0, 0.0),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(8.0),
@@ -83,9 +81,9 @@ class _ProfessionalprofileWidgetState extends State<ProfessionalprofileWidget> {
                                 ),
                               ),
                               Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 15.0, 0.0, 0.0),
                                   child: Text(
                                     'Username',
@@ -103,12 +101,12 @@ class _ProfessionalprofileWidgetState extends State<ProfessionalprofileWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 10.0, 0.0, 0.0),
                           child: Container(
                             width: 326.0,
                             height: 150.0,
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(8.0),
                               child: Image.asset(
@@ -121,12 +119,12 @@ class _ProfessionalprofileWidgetState extends State<ProfessionalprofileWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 10.0, 0.0, 0.0),
                           child: Container(
                             width: 326.0,
                             height: 52.0,
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
@@ -148,12 +146,12 @@ class _ProfessionalprofileWidgetState extends State<ProfessionalprofileWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 10.0, 0.0, 0.0),
                           child: Container(
                             width: 326.0,
                             height: 52.0,
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(8.0),
                               child: Image.asset(
@@ -166,12 +164,12 @@ class _ProfessionalprofileWidgetState extends State<ProfessionalprofileWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 10.0, 0.0, 0.0),
                           child: Container(
                             width: 326.0,
                             height: 52.0,
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(8.0),
                               child: Image.asset(
@@ -184,12 +182,12 @@ class _ProfessionalprofileWidgetState extends State<ProfessionalprofileWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 40.0, 0.0, 0.0),
                           child: Container(
                             width: 326.0,
                             height: 52.0,
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(8.0),
                               child: Image.asset(
@@ -202,12 +200,12 @@ class _ProfessionalprofileWidgetState extends State<ProfessionalprofileWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 10.0, 0.0, 0.0),
                           child: Container(
                             width: 326.0,
                             height: 52.0,
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(8.0),
                               child: Image.asset(
@@ -220,12 +218,12 @@ class _ProfessionalprofileWidgetState extends State<ProfessionalprofileWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 10.0, 0.0, 0.0),
                           child: Container(
                             width: 326.0,
                             height: 52.0,
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(8.0),
                               child: Image.asset(
@@ -238,12 +236,12 @@ class _ProfessionalprofileWidgetState extends State<ProfessionalprofileWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 10.0, 0.0, 0.0),
                           child: Container(
                             width: 326.0,
                             height: 52.0,
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(8.0),
                               child: Image.asset(
@@ -256,12 +254,12 @@ class _ProfessionalprofileWidgetState extends State<ProfessionalprofileWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 10.0, 0.0, 0.0),
                           child: Container(
                             width: 326.0,
                             height: 52.0,
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(8.0),
                               child: Image.asset(
@@ -274,9 +272,9 @@ class _ProfessionalprofileWidgetState extends State<ProfessionalprofileWidget> {
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0.0, 1.0),
+                          alignment: const AlignmentDirectional(0.0, 1.0),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 40.0, 0.0, 40.0),
                             child: FFButtonWidget(
                               onPressed: () async {
@@ -289,15 +287,15 @@ class _ProfessionalprofileWidgetState extends State<ProfessionalprofileWidget> {
                                 context.pushNamedAuth('Login', context.mounted);
                               },
                               text: 'Sign off',
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.login_sharp,
                                 size: 15.0,
                               ),
                               options: FFButtonOptions(
                                 height: 40.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     24.0, 0.0, 24.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: Colors.white,
                                 textStyle: FlutterFlowTheme.of(context)
@@ -308,7 +306,7 @@ class _ProfessionalprofileWidgetState extends State<ProfessionalprofileWidget> {
                                       letterSpacing: 0.0,
                                     ),
                                 elevation: 3.0,
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                   color: Colors.transparent,
                                   width: 1.0,
                                 ),
@@ -323,10 +321,10 @@ class _ProfessionalprofileWidgetState extends State<ProfessionalprofileWidget> {
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(0.0, 1.01),
+                alignment: const AlignmentDirectional(0.0, 1.01),
                 child: Container(
                   height: 69.0,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Color(0xB3B928B8),
                   ),
                   child: Builder(
@@ -335,13 +333,13 @@ class _ProfessionalprofileWidgetState extends State<ProfessionalprofileWidget> {
                         return wrapWithModel(
                           model: _model.navbarModel,
                           updateCallback: () => setState(() {}),
-                          child: NavbarWidget(),
+                          child: const NavbarWidget(),
                         );
                       } else {
                         return wrapWithModel(
                           model: _model.navbarPremiunModel,
                           updateCallback: () => setState(() {}),
-                          child: NavbarPremiunWidget(),
+                          child: const NavbarPremiunWidget(),
                         );
                       }
                     },

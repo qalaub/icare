@@ -5,10 +5,8 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/v2/favoritesv2/add_favorites/add_favorites_widget.dart';
 import '/v2/menbresiav2/membresia_logo/membresia_logo_widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'v3fv0rites_model.dart';
 export 'v3fv0rites_model.dart';
@@ -52,9 +50,9 @@ class _V3fv0ritesWidgetState extends State<V3fv0ritesWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0.0, 0.0),
+      alignment: const AlignmentDirectional(0.0, 0.0),
       child: StreamBuilder<UsersRecord>(
-        stream: UsersRecord.getDocument(widget!.profesionalId!),
+        stream: UsersRecord.getDocument(widget.profesionalId!),
         builder: (context, snapshot) {
           // Customize what your widget looks like when it's loading.
           if (!snapshot.hasData) {
@@ -90,7 +88,7 @@ class _V3fv0ritesWidgetState extends State<V3fv0ritesWidget> {
                       )
                       .where(
                         'user_b',
-                        isEqualTo: widget!.profesionalId,
+                        isEqualTo: widget.profesionalId,
                       ),
                   singleRecord: true,
                 ).then((s) => s.firstOrNull);
@@ -121,7 +119,7 @@ class _V3fv0ritesWidgetState extends State<V3fv0ritesWidget> {
                 width: 285.0,
                 height: 139.0,
                 decoration: BoxDecoration(
-                  color: Color(0xFFFFCCF9),
+                  color: const Color(0xFFFFCCF9),
                   borderRadius: BorderRadius.circular(20.0),
                 ),
                 child: Row(
@@ -133,33 +131,33 @@ class _V3fv0ritesWidgetState extends State<V3fv0ritesWidget> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Align(
-                          alignment: AlignmentDirectional(-1.0, -1.0),
+                          alignment: const AlignmentDirectional(-1.0, -1.0),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 10.0, 15.0, 0.0, 0.0),
                             child: Container(
                               width: 61.0,
                               height: 61.0,
                               decoration: BoxDecoration(
-                                color: Color(0xFFD9D9D9),
-                                borderRadius: BorderRadius.only(
+                                color: const Color(0xFFD9D9D9),
+                                borderRadius: const BorderRadius.only(
                                   bottomLeft: Radius.circular(12.0),
                                   bottomRight: Radius.circular(12.0),
                                   topLeft: Radius.circular(12.0),
                                   topRight: Radius.circular(12.0),
                                 ),
                                 border: Border.all(
-                                  color: Color(0xFFD9D9D9),
+                                  color: const Color(0xFFD9D9D9),
                                 ),
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(-1.0, 1.0),
+                                alignment: const AlignmentDirectional(-1.0, 1.0),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(8.0),
                                   child: CachedNetworkImage(
-                                    fadeInDuration: Duration(milliseconds: 500),
+                                    fadeInDuration: const Duration(milliseconds: 500),
                                     fadeOutDuration:
-                                        Duration(milliseconds: 500),
+                                        const Duration(milliseconds: 500),
                                     imageUrl: valueOrDefault<String>(
                                       containerUsersRecord.photoUrl,
                                       'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
@@ -181,14 +179,14 @@ class _V3fv0ritesWidgetState extends State<V3fv0ritesWidget> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Align(
-                          alignment: AlignmentDirectional(0.06, -1.23),
+                          alignment: const AlignmentDirectional(0.06, -1.23),
                           child: Container(
                             width: 160.0,
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: Align(
-                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              alignment: const AlignmentDirectional(-1.0, 0.0),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     5.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   containerUsersRecord.firtsName,
@@ -206,13 +204,13 @@ class _V3fv0ritesWidgetState extends State<V3fv0ritesWidget> {
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0.05, -0.19),
+                          alignment: const AlignmentDirectional(0.05, -0.19),
                           child: Container(
                             width: 160.0,
                             height: 18.0,
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   5.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 containerUsersRecord.serviceType.first,
@@ -228,7 +226,7 @@ class _V3fv0ritesWidgetState extends State<V3fv0ritesWidget> {
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 160.0,
                           child: Divider(
                             height: 11.0,
@@ -239,23 +237,23 @@ class _V3fv0ritesWidgetState extends State<V3fv0ritesWidget> {
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0.09, 0.52),
+                          alignment: const AlignmentDirectional(0.09, 0.52),
                           child: Container(
                             width: 160.0,
                             height: 50.0,
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Align(
-                                  alignment: AlignmentDirectional(-0.03, 0.18),
+                                  alignment: const AlignmentDirectional(-0.03, 0.18),
                                   child: Container(
                                     width: 150.0,
                                     height: 16.0,
-                                    decoration: BoxDecoration(),
+                                    decoration: const BoxDecoration(),
                                     child: Stack(
                                       children: [
-                                        Align(
+                                        const Align(
                                           alignment:
                                               AlignmentDirectional(-1.0, 0.0),
                                           child: Icon(
@@ -266,10 +264,10 @@ class _V3fv0ritesWidgetState extends State<V3fv0ritesWidget> {
                                         ),
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(-1.0, 0.0),
+                                              const AlignmentDirectional(-1.0, 0.0),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 0.0, 0.0, 0.0),
                                             child: Text(
                                               'Experience',
@@ -293,17 +291,17 @@ class _V3fv0ritesWidgetState extends State<V3fv0ritesWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(-0.17, 0.1),
+                                  alignment: const AlignmentDirectional(-0.17, 0.1),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 10.0, 0.0, 0.0),
                                     child: Container(
                                       width: 150.0,
                                       height: 16.0,
-                                      decoration: BoxDecoration(),
+                                      decoration: const BoxDecoration(),
                                       child: Stack(
                                         children: [
-                                          Align(
+                                          const Align(
                                             alignment:
                                                 AlignmentDirectional(-1.0, 0.0),
                                             child: Padding(
@@ -318,9 +316,9 @@ class _V3fv0ritesWidgetState extends State<V3fv0ritesWidget> {
                                           ),
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(-1.0, 0.0),
+                                                const AlignmentDirectional(-1.0, 0.0),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       20.0, 0.0, 0.0, 0.0),
                                               child: Text(
@@ -346,8 +344,8 @@ class _V3fv0ritesWidgetState extends State<V3fv0ritesWidget> {
                                   ),
                                 ),
                               ]
-                                  .divide(SizedBox(height: 0.0))
-                                  .addToStart(SizedBox(height: 3.0)),
+                                  .divide(const SizedBox(height: 0.0))
+                                  .addToStart(const SizedBox(height: 3.0)),
                             ),
                           ),
                         ),
@@ -358,7 +356,7 @@ class _V3fv0ritesWidgetState extends State<V3fv0ritesWidget> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 16.0),
                           child: InkWell(
                             splashColor: Colors.transparent,
@@ -375,7 +373,7 @@ class _V3fv0ritesWidgetState extends State<V3fv0ritesWidget> {
                                   ),
                                 }.withoutNulls,
                                 extra: <String, dynamic>{
-                                  kTransitionInfoKey: TransitionInfo(
+                                  kTransitionInfoKey: const TransitionInfo(
                                     hasTransition: true,
                                     transitionType: PageTransitionType.fade,
                                     duration: Duration(milliseconds: 300),
@@ -393,9 +391,9 @@ class _V3fv0ritesWidgetState extends State<V3fv0ritesWidget> {
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(1.0, -0.19),
+                          alignment: const AlignmentDirectional(1.0, -0.19),
                           child: Container(
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: wrapWithModel(
                               model: _model.membresiaLogoModel,
                               updateCallback: () => setState(() {}),

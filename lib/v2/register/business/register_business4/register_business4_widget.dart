@@ -1,7 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
-import '/backend/schema/structs/index.dart';
 import '/backend/stripe/payment_manager.dart';
 import '/components/image_upload_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -9,7 +8,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'register_business4_model.dart';
 export 'register_business4_model.dart';
@@ -48,13 +46,13 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Color(0xFFFFFEFE),
+        backgroundColor: const Color(0xFFFFFEFE),
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(0.0),
+          preferredSize: const Size.fromHeight(0.0),
           child: AppBar(
-            backgroundColor: Color(0xFFFFFEFE),
+            backgroundColor: const Color(0xFFFFFEFE),
             automaticallyImplyLeading: false,
-            actions: [],
+            actions: const [],
             centerTitle: false,
             toolbarHeight: 0.0,
             elevation: 0.0,
@@ -79,7 +77,7 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                         child: Stack(
                           children: [
                             Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
                                 child: Image.asset(
@@ -91,9 +89,9 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                               ),
                             ),
                             Align(
-                              alignment: AlignmentDirectional(0.0, -1.0),
+                              alignment: const AlignmentDirectional(0.0, -1.0),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 10.0, 0.0, 0.0),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(8.0),
@@ -107,12 +105,12 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                               ),
                             ),
                             Align(
-                              alignment: AlignmentDirectional(-0.91, -0.96),
+                              alignment: const AlignmentDirectional(-0.91, -0.96),
                               child: FlutterFlowIconButton(
                                 borderRadius: 20.0,
                                 borderWidth: 1.0,
                                 buttonSize: 40.0,
-                                icon: Icon(
+                                icon: const Icon(
                                   Icons.arrow_back_ios_new,
                                   color: Colors.black,
                                   size: 24.0,
@@ -123,16 +121,16 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                               ),
                             ),
                             Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 40.0, 0.0, 0.0),
                                 child: Container(
                                   width: 380.0,
                                   height: 526.0,
                                   decoration: BoxDecoration(
-                                    color: Color(0xFFFFFEFE),
-                                    borderRadius: BorderRadius.only(
+                                    color: const Color(0xFFFFFEFE),
+                                    borderRadius: const BorderRadius.only(
                                       bottomLeft: Radius.circular(24.0),
                                       bottomRight: Radius.circular(24.0),
                                       topLeft: Radius.circular(24.0),
@@ -149,10 +147,10 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                       children: [
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.0, -1.0),
+                                              const AlignmentDirectional(0.0, -1.0),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 10.0, 0.0, 0.0),
                                             child: Text(
                                               'Add Photos',
@@ -162,7 +160,7 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                   .bodyMedium
                                                   .override(
                                                     fontFamily: 'Montserrat',
-                                                    color: Color(0xFF8E058A),
+                                                    color: const Color(0xFF8E058A),
                                                     fontSize: 20.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
@@ -173,9 +171,9 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                         if (_model.photoVerify)
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(0.0, -1.0),
+                                                const AlignmentDirectional(0.0, -1.0),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       10.0, 10.0, 10.0, 10.0),
                                               child: Text(
@@ -186,7 +184,7 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                     .bodyMedium
                                                     .override(
                                                       fontFamily: 'Montserrat',
-                                                      color: Color(0xFF6F6F6F),
+                                                      color: const Color(0xFF6F6F6F),
                                                       fontSize: 13.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
@@ -198,9 +196,9 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                         if (!_model.photoVerify)
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(0.0, -1.0),
+                                                const AlignmentDirectional(0.0, -1.0),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       10.0, 0.0, 10.0, 0.0),
                                               child: Text(
@@ -211,7 +209,7 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                     .bodyMedium
                                                     .override(
                                                       fontFamily: 'Montserrat',
-                                                      color: Color(0xFFE90606),
+                                                      color: const Color(0xFFE90606),
                                                       fontSize: 13.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
@@ -222,28 +220,28 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                           ),
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.0, 0.0),
+                                              const AlignmentDirectional(0.0, 0.0),
                                           child: Container(
                                             width: 380.0,
                                             height: 1.0,
                                             decoration: BoxDecoration(
-                                              color: Color(0xFFF0DFEF),
+                                              color: const Color(0xFFF0DFEF),
                                               border: Border.all(
-                                                color: Color(0xFFF0DFEF),
+                                                color: const Color(0xFFF0DFEF),
                                               ),
                                             ),
                                           ),
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 30.0, 0.0, 0.0),
                                           child: Container(
                                             width: 350.0,
                                             height: 300.0,
                                             decoration: BoxDecoration(
-                                              color: Color(0xFFFFFEFE),
-                                              borderRadius: BorderRadius.only(
+                                              color: const Color(0xFFFFFEFE),
+                                              borderRadius: const BorderRadius.only(
                                                 bottomLeft:
                                                     Radius.circular(24.0),
                                                 bottomRight:
@@ -252,18 +250,18 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                 topRight: Radius.circular(24.0),
                                               ),
                                               border: Border.all(
-                                                color: Color(0xFFC45ABE),
+                                                color: const Color(0xFFC45ABE),
                                               ),
                                             ),
                                             child: Stack(
                                               children: [
                                                 Align(
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           -1.0, -1.0),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(10.0,
                                                                 10.0, 0.0, 0.0),
                                                     child: Container(
@@ -271,9 +269,9 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                       height: 130.0,
                                                       decoration: BoxDecoration(
                                                         color:
-                                                            Color(0xFFD9D9D9),
+                                                            const Color(0xFFD9D9D9),
                                                         borderRadius:
-                                                            BorderRadius.only(
+                                                            const BorderRadius.only(
                                                           bottomLeft:
                                                               Radius.circular(
                                                                   12.0),
@@ -289,7 +287,7 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                         ),
                                                         border: Border.all(
                                                           color:
-                                                              Color(0xFFD9D9D9),
+                                                              const Color(0xFFD9D9D9),
                                                           width: 1.0,
                                                         ),
                                                       ),
@@ -298,18 +296,18 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                         updateCallback: () =>
                                                             setState(() {}),
                                                         child:
-                                                            ImageUploadWidget(),
+                                                            const ImageUploadWidget(),
                                                       ),
                                                     ),
                                                   ),
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           0.0, -1.0),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 10.0,
                                                                 0.0, 0.0),
                                                     child: Container(
@@ -317,9 +315,9 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                       height: 130.0,
                                                       decoration: BoxDecoration(
                                                         color:
-                                                            Color(0xFFD9D9D9),
+                                                            const Color(0xFFD9D9D9),
                                                         borderRadius:
-                                                            BorderRadius.only(
+                                                            const BorderRadius.only(
                                                           bottomLeft:
                                                               Radius.circular(
                                                                   12.0),
@@ -335,7 +333,7 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                         ),
                                                         border: Border.all(
                                                           color:
-                                                              Color(0xFFD9D9D9),
+                                                              const Color(0xFFD9D9D9),
                                                           width: 1.0,
                                                         ),
                                                       ),
@@ -344,18 +342,18 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                         updateCallback: () =>
                                                             setState(() {}),
                                                         child:
-                                                            ImageUploadWidget(),
+                                                            const ImageUploadWidget(),
                                                       ),
                                                     ),
                                                   ),
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           1.0, -1.0),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 10.0,
                                                                 10.0, 0.0),
                                                     child: Container(
@@ -363,9 +361,9 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                       height: 130.0,
                                                       decoration: BoxDecoration(
                                                         color:
-                                                            Color(0xFFD9D9D9),
+                                                            const Color(0xFFD9D9D9),
                                                         borderRadius:
-                                                            BorderRadius.only(
+                                                            const BorderRadius.only(
                                                           bottomLeft:
                                                               Radius.circular(
                                                                   12.0),
@@ -381,7 +379,7 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                         ),
                                                         border: Border.all(
                                                           color:
-                                                              Color(0xFFD9D9D9),
+                                                              const Color(0xFFD9D9D9),
                                                           width: 1.0,
                                                         ),
                                                       ),
@@ -390,18 +388,18 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                         updateCallback: () =>
                                                             setState(() {}),
                                                         child:
-                                                            ImageUploadWidget(),
+                                                            const ImageUploadWidget(),
                                                       ),
                                                     ),
                                                   ),
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           -1.0, 1.0),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 10.0,
                                                                 10.0,
@@ -412,9 +410,9 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                       height: 130.0,
                                                       decoration: BoxDecoration(
                                                         color:
-                                                            Color(0xFFD9D9D9),
+                                                            const Color(0xFFD9D9D9),
                                                         borderRadius:
-                                                            BorderRadius.only(
+                                                            const BorderRadius.only(
                                                           bottomLeft:
                                                               Radius.circular(
                                                                   12.0),
@@ -430,7 +428,7 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                         ),
                                                         border: Border.all(
                                                           color:
-                                                              Color(0xFFD9D9D9),
+                                                              const Color(0xFFD9D9D9),
                                                           width: 1.0,
                                                         ),
                                                       ),
@@ -439,18 +437,18 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                         updateCallback: () =>
                                                             setState(() {}),
                                                         child:
-                                                            ImageUploadWidget(),
+                                                            const ImageUploadWidget(),
                                                       ),
                                                     ),
                                                   ),
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           0.0, 1.0),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 10.0,
                                                                 0.0, 10.0),
                                                     child: Container(
@@ -458,9 +456,9 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                       height: 130.0,
                                                       decoration: BoxDecoration(
                                                         color:
-                                                            Color(0xFFD9D9D9),
+                                                            const Color(0xFFD9D9D9),
                                                         borderRadius:
-                                                            BorderRadius.only(
+                                                            const BorderRadius.only(
                                                           bottomLeft:
                                                               Radius.circular(
                                                                   12.0),
@@ -476,7 +474,7 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                         ),
                                                         border: Border.all(
                                                           color:
-                                                              Color(0xFFD9D9D9),
+                                                              const Color(0xFFD9D9D9),
                                                           width: 1.0,
                                                         ),
                                                       ),
@@ -485,18 +483,18 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                         updateCallback: () =>
                                                             setState(() {}),
                                                         child:
-                                                            ImageUploadWidget(),
+                                                            const ImageUploadWidget(),
                                                       ),
                                                     ),
                                                   ),
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           1.0, 1.0),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 10.0,
                                                                 10.0, 10.0),
                                                     child: Container(
@@ -504,9 +502,9 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                       height: 130.0,
                                                       decoration: BoxDecoration(
                                                         color:
-                                                            Color(0xFFD9D9D9),
+                                                            const Color(0xFFD9D9D9),
                                                         borderRadius:
-                                                            BorderRadius.only(
+                                                            const BorderRadius.only(
                                                           bottomLeft:
                                                               Radius.circular(
                                                                   12.0),
@@ -522,7 +520,7 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                         ),
                                                         border: Border.all(
                                                           color:
-                                                              Color(0xFFD9D9D9),
+                                                              const Color(0xFFD9D9D9),
                                                           width: 1.0,
                                                         ),
                                                       ),
@@ -531,7 +529,7 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                         updateCallback: () =>
                                                             setState(() {}),
                                                         child:
-                                                            ImageUploadWidget(),
+                                                            const ImageUploadWidget(),
                                                       ),
                                                     ),
                                                   ),
@@ -542,18 +540,18 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                         ),
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.0, 0.0),
+                                              const AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 10.0, 0.0, 0.0),
                                             child: Container(
                                               width: 380.0,
                                               height: 1.0,
                                               decoration: BoxDecoration(
-                                                color: Color(0xFFF0DFEF),
+                                                color: const Color(0xFFF0DFEF),
                                                 border: Border.all(
-                                                  color: Color(0xFFF0DFEF),
+                                                  color: const Color(0xFFF0DFEF),
                                                 ),
                                               ),
                                             ),
@@ -561,10 +559,10 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                         ),
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.01, 0.7),
+                                              const AlignmentDirectional(0.01, 0.7),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 10.0, 0.0, 10.0),
                                             child: FFButtonWidget(
                                               onPressed: () async {
@@ -650,9 +648,7 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                           .plan,
                                                       photoUrl: FFAppState()
                                                                   .registerProviderForm
-                                                                  .images
-                                                                  .length >
-                                                              0
+                                                                  .images.isNotEmpty
                                                           ? FFAppState()
                                                               .registerProviderForm
                                                               .images
@@ -776,14 +772,14 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                               options: FFButtonOptions(
                                                 width: 275.0,
                                                 height: 45.0,
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         24.0, 0.0, 24.0, 0.0),
                                                 iconPadding:
-                                                    EdgeInsetsDirectional
+                                                    const EdgeInsetsDirectional
                                                         .fromSTEB(
                                                             0.0, 0.0, 0.0, 0.0),
-                                                color: Color(0xFFB928B8),
+                                                color: const Color(0xFFB928B8),
                                                 textStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .titleSmall
@@ -795,7 +791,7 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                           letterSpacing: 0.0,
                                                         ),
                                                 elevation: 5.0,
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Colors.transparent,
                                                   width: 1.0,
                                                 ),

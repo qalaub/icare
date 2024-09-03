@@ -1,8 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'home_vista_cuidador_model.dart';
 export 'home_vista_cuidador_model.dart';
 
@@ -10,7 +8,7 @@ class HomeVistaCuidadorWidget extends StatefulWidget {
   const HomeVistaCuidadorWidget({
     super.key,
     String? participants,
-  }) : this.participants = participants ?? '35 participants';
+  }) : participants = participants ?? '35 participants';
 
   final String participants;
 
@@ -46,7 +44,7 @@ class _HomeVistaCuidadorWidgetState extends State<HomeVistaCuidadorWidget> {
     return Material(
       color: Colors.transparent,
       elevation: 5.0,
-      shape: RoundedRectangleBorder(
+      shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(0.0),
           bottomRight: Radius.circular(42.0),
@@ -57,7 +55,7 @@ class _HomeVistaCuidadorWidgetState extends State<HomeVistaCuidadorWidget> {
       child: Container(
         width: 285.0,
         height: 120.0,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: Color(0xFFFFCCF9),
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(0.0),
@@ -71,7 +69,7 @@ class _HomeVistaCuidadorWidgetState extends State<HomeVistaCuidadorWidget> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Align(
-              alignment: AlignmentDirectional(0.0, 0.0),
+              alignment: const AlignmentDirectional(0.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -87,10 +85,10 @@ class _HomeVistaCuidadorWidgetState extends State<HomeVistaCuidadorWidget> {
                         ),
                   ),
                   Text(
-                    widget!.participants,
+                    widget.participants,
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Montserrat',
-                          color: Color(0xFFDF00AE),
+                          color: const Color(0xFFDF00AE),
                           fontSize: 17.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.bold,
@@ -100,7 +98,7 @@ class _HomeVistaCuidadorWidgetState extends State<HomeVistaCuidadorWidget> {
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(0.0, 0.0),
+              alignment: const AlignmentDirectional(0.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [

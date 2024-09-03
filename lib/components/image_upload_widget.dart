@@ -5,8 +5,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/upload_data.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'image_upload_model.dart';
 export 'image_upload_model.dart';
 
@@ -57,16 +55,15 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
         ),
         Builder(
           builder: (context) {
-            if (_model.uploadedFileUrl == null ||
-                _model.uploadedFileUrl == '') {
+            if (_model.uploadedFileUrl == '') {
               return Align(
-                alignment: AlignmentDirectional(1.0, 1.0),
+                alignment: const AlignmentDirectional(1.0, 1.0),
                 child: FlutterFlowIconButton(
                   borderRadius: 20.0,
                   borderWidth: 1.0,
                   buttonSize: 40.0,
-                  fillColor: Color(0xFFED2AF1),
-                  icon: Icon(
+                  fillColor: const Color(0xFFED2AF1),
+                  icon: const Icon(
                     Icons.add,
                     color: Color(0xFFFFFEFE),
                     size: 24.0,
@@ -129,14 +126,14 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
               );
             } else {
               return Align(
-                alignment: AlignmentDirectional(1.0, 1.0),
+                alignment: const AlignmentDirectional(1.0, 1.0),
                 child: FlutterFlowIconButton(
                   borderColor: FlutterFlowTheme.of(context).primary,
                   borderRadius: 20.0,
                   borderWidth: 1.0,
                   buttonSize: 40.0,
-                  fillColor: Color(0xFFED2AF1),
-                  icon: Icon(
+                  fillColor: const Color(0xFFED2AF1),
+                  icon: const Icon(
                     Icons.close,
                     color: Color(0xFFFFFEFE),
                     size: 24.0,

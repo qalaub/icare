@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'flutter_flow/request_manager.dart';
 import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
-import '/backend/schema/enums/enums.dart';
-import 'backend/api_requests/api_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 
@@ -125,7 +122,7 @@ class FFAppState extends ChangeNotifier {
     _currentChat = value;
   }
 
-  LatLng? _tempLocation = LatLng(-26.8357181, 152.963113);
+  LatLng? _tempLocation = const LatLng(-26.8357181, 152.963113);
   LatLng? get tempLocation => _tempLocation;
   set tempLocation(LatLng? value) {
     _tempLocation = value;
@@ -137,8 +134,8 @@ class FFAppState extends ChangeNotifier {
     _isMENUvisible = value;
   }
 
-  FiltersStruct _filtersPage = FiltersStruct.fromSerializableMap(
-      jsonDecode('{\"distance\":\"100000\"}'));
+  FiltersStruct _filtersPage = FiltersStruct.fromSerializableMap(jsonDecode(
+      '{\"distance\":\"100000\",\"age\":\"[\\\"40-65+ years\\\",\\\"25-40 years\\\",\\\"18-25 years\\\"]\",\"services\":\"[]\"}'));
   FiltersStruct get filtersPage => _filtersPage;
   set filtersPage(FiltersStruct value) {
     _filtersPage = value;

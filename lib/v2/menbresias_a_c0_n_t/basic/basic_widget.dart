@@ -4,12 +4,8 @@ import '/backend/schema/enums/enums.dart';
 import '/backend/stripe/payment_manager.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'basic_model.dart';
 export 'basic_model.dart';
 
@@ -57,7 +53,7 @@ class _BasicWidgetState extends State<BasicWidget> {
           child: Container(
             width: MediaQuery.sizeOf(context).width * 1.0,
             height: MediaQuery.sizeOf(context).height * 1.0,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               gradient: LinearGradient(
                 colors: [Color(0xFFC8A269), Color(0xFF624F33)],
                 stops: [0.0, 1.0],
@@ -69,10 +65,10 @@ class _BasicWidgetState extends State<BasicWidget> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Align(
-                  alignment: AlignmentDirectional(-1.0, 0.0),
+                  alignment: const AlignmentDirectional(-1.0, 0.0),
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -87,17 +83,17 @@ class _BasicWidgetState extends State<BasicWidget> {
                               'MembresiasV2',
                               queryParameters: {
                                 'professionalUpdate': serializeParam(
-                                  widget!.userRef,
+                                  widget.userRef,
                                   ParamType.DocumentReference,
                                 ),
                                 'currentPlan': serializeParam(
-                                  widget!.currentPlan,
+                                  widget.currentPlan,
                                   ParamType.Enum,
                                 ),
                               }.withoutNulls,
                             );
                           },
-                          child: Icon(
+                          child: const Icon(
                             Icons.close,
                             color: Colors.white,
                             size: 24.0,
@@ -110,7 +106,7 @@ class _BasicWidgetState extends State<BasicWidget> {
                 Container(
                   width: MediaQuery.sizeOf(context).width * 0.9,
                   height: MediaQuery.sizeOf(context).height * 0.835,
-                  decoration: BoxDecoration(),
+                  decoration: const BoxDecoration(),
                   child: SingleChildScrollView(
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
@@ -118,7 +114,7 @@ class _BasicWidgetState extends State<BasicWidget> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Container(
-                          decoration: BoxDecoration(),
+                          decoration: const BoxDecoration(),
                           child: Text(
                             'Get Basic',
                             style: FlutterFlowTheme.of(context)
@@ -133,12 +129,12 @@ class _BasicWidgetState extends State<BasicWidget> {
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Container(
                             width: MediaQuery.sizeOf(context).width * 0.72,
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Text(
                                 'You go out in search of caregivers. You can use the map to navigate.',
                                 textAlign: TextAlign.center,
@@ -158,7 +154,7 @@ class _BasicWidgetState extends State<BasicWidget> {
                         Container(
                           width: MediaQuery.sizeOf(context).width * 0.7,
                           height: MediaQuery.sizeOf(context).height * 0.22,
-                          decoration: BoxDecoration(),
+                          decoration: const BoxDecoration(),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
                             child: SvgPicture.asset(
@@ -170,12 +166,12 @@ class _BasicWidgetState extends State<BasicWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 32.0, 0.0, 0.0),
                           child: Container(
                             width: MediaQuery.sizeOf(context).width * 1.0,
                             height: 90.0,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               color: Color(0x8FDAD7D4),
                               borderRadius: BorderRadius.only(
                                 bottomLeft: Radius.circular(16.0),
@@ -185,12 +181,12 @@ class _BasicWidgetState extends State<BasicWidget> {
                               ),
                             ),
                             child: Stack(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               children: [
                                 Align(
-                                  alignment: AlignmentDirectional(-1.0, 0.0),
+                                  alignment: const AlignmentDirectional(-1.0, 0.0),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         17.0, 0.0, 16.0, 0.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
@@ -200,14 +196,14 @@ class _BasicWidgetState extends State<BasicWidget> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Container(
-                                          decoration: BoxDecoration(),
+                                          decoration: const BoxDecoration(),
                                           child: Text(
                                             'Annual',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Inter',
-                                                  color: Color(0xFF0F0E0E),
+                                                  color: const Color(0xFF0F0E0E),
                                                   fontSize: 18.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
@@ -215,7 +211,7 @@ class _BasicWidgetState extends State<BasicWidget> {
                                           ),
                                         ),
                                         Container(
-                                          decoration: BoxDecoration(),
+                                          decoration: const BoxDecoration(),
                                           child: Text(
                                             'Then \$108/Year',
                                             style: FlutterFlowTheme.of(context)
@@ -234,11 +230,11 @@ class _BasicWidgetState extends State<BasicWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(0.9, -0.5),
+                                  alignment: const AlignmentDirectional(0.9, -0.5),
                                   child: Container(
                                     width: 78.0,
                                     height: 23.0,
-                                    decoration: BoxDecoration(
+                                    decoration: const BoxDecoration(
                                       color: Color(0x9E26CB63),
                                       borderRadius: BorderRadius.only(
                                         bottomLeft: Radius.circular(12.0),
@@ -248,7 +244,7 @@ class _BasicWidgetState extends State<BasicWidget> {
                                       ),
                                     ),
                                     child: Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      alignment: const AlignmentDirectional(0.0, 0.0),
                                       child: Text(
                                         'Best Value',
                                         style: FlutterFlowTheme.of(context)
@@ -269,26 +265,26 @@ class _BasicWidgetState extends State<BasicWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 6.0, 0.0, 0.0),
                           child: Container(
                             width: MediaQuery.sizeOf(context).width * 1.0,
                             height: 90.0,
                             decoration: BoxDecoration(
-                              color: Color(0x7FFFFFFF),
-                              borderRadius: BorderRadius.only(
+                              color: const Color(0x7FFFFFFF),
+                              borderRadius: const BorderRadius.only(
                                 bottomLeft: Radius.circular(16.0),
                                 bottomRight: Radius.circular(16.0),
                                 topLeft: Radius.circular(16.0),
                                 topRight: Radius.circular(16.0),
                               ),
                               border: Border.all(
-                                color: Color(0xFF6F542C),
+                                color: const Color(0xFF6F542C),
                                 width: 3.0,
                               ),
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 16.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -302,7 +298,7 @@ class _BasicWidgetState extends State<BasicWidget> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Container(
-                                        decoration: BoxDecoration(),
+                                        decoration: const BoxDecoration(),
                                         child: Text(
                                           'Monthly',
                                           style: FlutterFlowTheme.of(context)
@@ -317,7 +313,7 @@ class _BasicWidgetState extends State<BasicWidget> {
                                         ),
                                       ),
                                       Container(
-                                        decoration: BoxDecoration(),
+                                        decoration: const BoxDecoration(),
                                         child: Text(
                                           ' \$8.99 / monthly ',
                                           style: FlutterFlowTheme.of(context)
@@ -366,19 +362,19 @@ class _BasicWidgetState extends State<BasicWidget> {
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryText,
                                 ),
-                                activeColor: Color(0xFF8F2BFD),
+                                activeColor: const Color(0xFF8F2BFD),
                                 checkColor: FlutterFlowTheme.of(context).info,
                               ),
                             ),
                             Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 4.0, 0.0, 0.0),
                                 child: Container(
-                                  decoration: BoxDecoration(),
+                                  decoration: const BoxDecoration(),
                                   child: Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: Text(
                                       'Do you accept the terms and conditions?',
                                       textAlign: TextAlign.center,
@@ -396,10 +392,10 @@ class _BasicWidgetState extends State<BasicWidget> {
                                 ),
                               ),
                             ),
-                          ].divide(SizedBox(width: 12.0)),
+                          ].divide(const SizedBox(width: 12.0)),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 19.0, 0.0, 0.0),
                           child: InkWell(
                             splashColor: Colors.transparent,
@@ -431,7 +427,7 @@ class _BasicWidgetState extends State<BasicWidget> {
 
                               if (_model.paymentId != null &&
                                   _model.paymentId != '') {
-                                await widget!.userRef!
+                                await widget.userRef!
                                     .update(createUsersRecordData(
                                   plan: Plan.basic,
                                   rol: Roles.profesional,
@@ -448,7 +444,7 @@ class _BasicWidgetState extends State<BasicWidget> {
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
-                                borderRadius: BorderRadius.only(
+                                borderRadius: const BorderRadius.only(
                                   bottomLeft: Radius.circular(30.0),
                                   bottomRight: Radius.circular(30.0),
                                   topLeft: Radius.circular(30.0),
@@ -456,7 +452,7 @@ class _BasicWidgetState extends State<BasicWidget> {
                                 ),
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: Text(
                                   'Get started Basic',
                                   style: FlutterFlowTheme.of(context)
@@ -474,13 +470,13 @@ class _BasicWidgetState extends State<BasicWidget> {
                           ),
                         ),
                       ]
-                          .divide(SizedBox(height: 8.0))
-                          .addToStart(SizedBox(height: 16.0))
-                          .addToEnd(SizedBox(height: 16.0)),
+                          .divide(const SizedBox(height: 8.0))
+                          .addToStart(const SizedBox(height: 16.0))
+                          .addToEnd(const SizedBox(height: 16.0)),
                     ),
                   ),
                 ),
-              ].addToStart(SizedBox(height: 32.0)),
+              ].addToStart(const SizedBox(height: 32.0)),
             ),
           ),
         ),

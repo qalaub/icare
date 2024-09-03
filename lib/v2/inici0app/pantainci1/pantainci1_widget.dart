@@ -5,7 +5,6 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'pantainci1_model.dart';
 export 'pantainci1_model.dart';
@@ -61,8 +60,8 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
                 child: Stack(
                   children: [
                     Align(
-                      alignment: AlignmentDirectional(0.0, 1.0),
-                      child: Container(
+                      alignment: const AlignmentDirectional(0.0, 1.0),
+                      child: SizedBox(
                         width: MediaQuery.sizeOf(context).width * 1.0,
                         height: MediaQuery.sizeOf(context).height * 1.0,
                         child: Stack(
@@ -102,9 +101,9 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
                               ],
                             ),
                             Align(
-                              alignment: AlignmentDirectional(0.0, 0.8),
+                              alignment: const AlignmentDirectional(0.0, 0.8),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 0.0, 83.0),
                                 child:
                                     smooth_page_indicator.SmoothPageIndicator(
@@ -116,12 +115,12 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
                                     await _model.pageViewController!
                                         .animateToPage(
                                       i,
-                                      duration: Duration(milliseconds: 500),
+                                      duration: const Duration(milliseconds: 500),
                                       curve: Curves.ease,
                                     );
                                     setState(() {});
                                   },
-                                  effect: smooth_page_indicator.SlideEffect(
+                                  effect: const smooth_page_indicator.SlideEffect(
                                     spacing: 8.0,
                                     radius: 1313131.0,
                                     dotWidth: 16.0,
@@ -138,15 +137,15 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.01, 0.9),
+                      alignment: const AlignmentDirectional(0.01, 0.9),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             0.0, 10.0, 0.0, 10.0),
                         child: FFButtonWidget(
                           onPressed: () async {
                             if (_model.pageViewCurrentIndex < 2) {
                               await _model.pageViewController?.nextPage(
-                                duration: Duration(milliseconds: 300),
+                                duration: const Duration(milliseconds: 300),
                                 curve: Curves.ease,
                               );
                             } else {
@@ -163,11 +162,11 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
                           options: FFButtonOptions(
                             width: 275.0,
                             height: 45.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 24.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            color: Color(0xFFB928B8),
+                            color: const Color(0xFFB928B8),
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
@@ -177,7 +176,7 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
                                   letterSpacing: 0.0,
                                 ),
                             elevation: 5.0,
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Colors.transparent,
                               width: 1.0,
                             ),
@@ -187,7 +186,7 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.0, 0.7),
+                      alignment: const AlignmentDirectional(0.0, 0.7),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -202,7 +201,7 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
                                   borderRadius: BorderRadius.circular(4.0),
                                 ),
                               ),
-                              unselectedWidgetColor: Color(0xFF26343E),
+                              unselectedWidgetColor: const Color(0xFF26343E),
                             ),
                             child: Checkbox(
                               value: _model.checkboxValue ??= false,
@@ -210,11 +209,11 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
                                 setState(
                                     () => _model.checkboxValue = newValue!);
                               },
-                              side: BorderSide(
+                              side: const BorderSide(
                                 width: 2,
                                 color: Color(0xFF26343E),
                               ),
-                              activeColor: Color(0xFF8F2BFD),
+                              activeColor: const Color(0xFF8F2BFD),
                               checkColor: FlutterFlowTheme.of(context).info,
                             ),
                           ),

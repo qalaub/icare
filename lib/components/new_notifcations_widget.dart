@@ -2,11 +2,8 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'new_notifcations_model.dart';
 export 'new_notifcations_model.dart';
 
@@ -49,7 +46,7 @@ class _NewNotifcationsWidgetState extends State<NewNotifcationsWidget> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<UsersRecord>(
-      stream: UsersRecord.getDocument(widget!.participant!),
+      stream: UsersRecord.getDocument(widget.participant!),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
@@ -70,13 +67,13 @@ class _NewNotifcationsWidgetState extends State<NewNotifcationsWidget> {
 
         return Container(
           height: 100.0,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: Color(0xB2CB93E5),
           ),
           child: Align(
-            alignment: AlignmentDirectional(-1.0, 0.0),
+            alignment: const AlignmentDirectional(-1.0, 0.0),
             child: StreamBuilder<UsersRecord>(
-              stream: UsersRecord.getDocument(widget!.professional!),
+              stream: UsersRecord.getDocument(widget.professional!),
               builder: (context, snapshot) {
                 // Customize what your widget looks like when it's loading.
                 if (!snapshot.hasData) {
@@ -99,22 +96,22 @@ class _NewNotifcationsWidgetState extends State<NewNotifcationsWidget> {
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Container(
+                    SizedBox(
                       width: MediaQuery.sizeOf(context).width * 0.19,
                       child: Stack(
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
                             child: Container(
                               width: MediaQuery.sizeOf(context).width * 0.16,
                               height: MediaQuery.sizeOf(context).width * 0.16,
                               clipBehavior: Clip.antiAlias,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 shape: BoxShape.circle,
                               ),
                               child: CachedNetworkImage(
-                                fadeInDuration: Duration(milliseconds: 500),
-                                fadeOutDuration: Duration(milliseconds: 500),
+                                fadeInDuration: const Duration(milliseconds: 500),
+                                fadeOutDuration: const Duration(milliseconds: 500),
                                 imageUrl: valueOrDefault<String>(
                                   containerUsersRecord.photoUrl,
                                   'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
@@ -123,7 +120,7 @@ class _NewNotifcationsWidgetState extends State<NewNotifcationsWidget> {
                               ),
                             ),
                           ),
-                          Align(
+                          const Align(
                             alignment: AlignmentDirectional(1.25, 0.7),
                             child: Icon(
                               Icons.favorite_sharp,
@@ -139,13 +136,13 @@ class _NewNotifcationsWidgetState extends State<NewNotifcationsWidget> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Container(
                             width: MediaQuery.sizeOf(context).width * 0.71,
                             height: 50.0,
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: RichText(
                                 textScaler: MediaQuery.of(context).textScaler,
                                 text: TextSpan(
@@ -191,7 +188,7 @@ class _NewNotifcationsWidgetState extends State<NewNotifcationsWidget> {
                         ),
                       ],
                     ),
-                  ].divide(SizedBox(width: 12.0)),
+                  ].divide(const SizedBox(width: 12.0)),
                 );
               },
             ),

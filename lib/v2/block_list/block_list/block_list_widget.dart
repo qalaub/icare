@@ -4,13 +4,10 @@ import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/v2/block_list/user_block/user_block_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'block_list_model.dart';
 export 'block_list_model.dart';
 
@@ -47,14 +44,14 @@ class _BlockListWidgetState extends State<BlockListWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: AppBar(
-          backgroundColor: Color(0xFFBD39BA),
+          backgroundColor: const Color(0xFFBD39BA),
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
             borderColor: Colors.transparent,
             borderRadius: 30.0,
             borderWidth: 1.0,
             buttonSize: 60.0,
-            icon: FaIcon(
+            icon: const FaIcon(
               FontAwesomeIcons.angleLeft,
               color: Colors.white,
               size: 30.0,
@@ -73,7 +70,7 @@ class _BlockListWidgetState extends State<BlockListWidget> {
                   fontWeight: FontWeight.bold,
                 ),
           ),
-          actions: [],
+          actions: const [],
           centerTitle: true,
           elevation: 2.0,
         ),
@@ -81,20 +78,20 @@ class _BlockListWidgetState extends State<BlockListWidget> {
           top: true,
           child: Stack(
             children: [
-              if ((currentUserDocument?.blockUser?.toList() ?? []).length > 0)
+              if ((currentUserDocument?.blockUser.toList() ?? []).isNotEmpty)
                 AuthUserStreamWidget(
                   builder: (context) => StreamBuilder<List<UsersRecord>>(
                     stream: queryUsersRecord(
                       queryBuilder: (usersRecord) => usersRecord.whereIn(
                           'uid',
-                          (currentUserDocument?.blockUser?.toList() ?? [])
+                          (currentUserDocument?.blockUser.toList() ?? [])
                                       .map((e) => valueOrDefault<String>(
                                             e.id,
                                             '#########',
                                           ))
                                       .toList() !=
                                   ''
-                              ? (currentUserDocument?.blockUser?.toList() ?? [])
+                              ? (currentUserDocument?.blockUser.toList() ?? [])
                                   .map((e) => valueOrDefault<String>(
                                         e.id,
                                         '#########',
@@ -123,14 +120,14 @@ class _BlockListWidgetState extends State<BlockListWidget> {
                           .toList();
 
                       return Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: Colors.white,
                         ),
                         child: Builder(
                           builder: (context) {
                             final containerVar = containerUsersRecordList
                                 .where((e) =>
-                                    (currentUserDocument?.blockUser?.toList() ??
+                                    (currentUserDocument?.blockUser.toList() ??
                                             [])
                                         .contains(e.reference) ==
                                     true)
@@ -149,7 +146,7 @@ class _BlockListWidgetState extends State<BlockListWidget> {
                                   background: valueOrDefault<Color>(
                                     functions.isOdd(containerVarIndex) == true
                                         ? Colors.white
-                                        : Color(0xFFDEE8EB),
+                                        : const Color(0xFFDEE8EB),
                                     Colors.white,
                                   ),
                                   username: containerVarItem.firtsName,

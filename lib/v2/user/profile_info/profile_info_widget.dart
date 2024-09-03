@@ -3,17 +3,12 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/v2/favoritesv2/add_favorites/add_favorites_widget.dart';
 import '/v2/menbresiav2/membresia_logo/membresia_logo_widget.dart';
 import '/v2/user/descripcion_profesional/descripcion_profesional_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'profile_info_model.dart';
 export 'profile_info_model.dart';
@@ -54,7 +49,7 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
       stream: queryUsersRecord(
         queryBuilder: (usersRecord) => usersRecord.where(
           'uid',
-          isEqualTo: widget!.professional?.id,
+          isEqualTo: widget.professional?.id,
         ),
         singleRecord: true,
       ),
@@ -91,13 +86,13 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
             key: scaffoldKey,
             backgroundColor: Colors.white,
             appBar: AppBar(
-              backgroundColor: Color(0xFFFEC0FB),
+              backgroundColor: const Color(0xFFFEC0FB),
               automaticallyImplyLeading: false,
               leading: FlutterFlowIconButton(
                 borderRadius: 20.0,
                 borderWidth: 1.0,
                 buttonSize: 40.0,
-                icon: Icon(
+                icon: const Icon(
                   Icons.arrow_back_ios_new,
                   color: Colors.black,
                   size: 24.0,
@@ -146,17 +141,17 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(0.0, 0.0),
+                  alignment: const AlignmentDirectional(0.0, 0.0),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                     child: Container(
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          if ((currentUserDocument?.favorites?.toList() ?? [])
-                                  .contains(widget!.professional) ==
+                          if ((currentUserDocument?.favorites.toList() ?? [])
+                                  .contains(widget.professional) ==
                               true)
                             AuthUserStreamWidget(
                               builder: (context) => InkWell(
@@ -180,12 +175,12 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                         _model.chatRef
                                             ?.where((e) =>
                                                 (e.users.contains(
-                                                        widget!.professional) ==
+                                                        widget.professional) ==
                                                     true) &&
                                                 e.users.contains(
                                                     currentUserReference))
                                             .toList()
-                                            ?.first,
+                                            .first,
                                         ParamType.Document,
                                       ),
                                     }.withoutNulls,
@@ -193,18 +188,18 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                       'chatRef': _model.chatRef
                                           ?.where((e) =>
                                               (e.users.contains(
-                                                      widget!.professional) ==
+                                                      widget.professional) ==
                                                   true) &&
                                               e.users.contains(
                                                   currentUserReference))
                                           .toList()
-                                          ?.first,
+                                          .first,
                                     },
                                   );
 
                                   setState(() {});
                                 },
-                                child: Icon(
+                                child: const Icon(
                                   FFIcons.kmessage,
                                   color: Colors.black,
                                   size: 33.0,
@@ -212,9 +207,9 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                               ),
                             ),
                           Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 6.0, 0.0, 0.0),
                               child: wrapWithModel(
                                 model: _model.addFavoritesModel,
@@ -239,7 +234,7 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
               child: Container(
                 width: double.infinity,
                 height: double.infinity,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(0.0),
@@ -255,13 +250,13 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                       Container(
                         width: double.infinity,
                         height: 250.0,
-                        decoration: BoxDecoration(),
+                        decoration: const BoxDecoration(),
                         child: Stack(
                           children: [
                             Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Container(
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                   color: Color(0xDFF428EB),
                                 ),
                                 child: Opacity(
@@ -270,11 +265,11 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                     borderRadius: BorderRadius.circular(8.0),
                                     child: CachedNetworkImage(
                                       fadeInDuration:
-                                          Duration(milliseconds: 500),
+                                          const Duration(milliseconds: 500),
                                       fadeOutDuration:
-                                          Duration(milliseconds: 500),
+                                          const Duration(milliseconds: 500),
                                       imageUrl: valueOrDefault<String>(
-                                        profileInfoUsersRecord?.photoUrl,
+                                        profileInfoUsersRecord.photoUrl,
                                         'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
                                       ),
                                       width: double.infinity,
@@ -286,7 +281,7 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                               ),
                             ),
                             Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment:
@@ -294,11 +289,11 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(-1.0, 0.0),
+                                    alignment: const AlignmentDirectional(-1.0, 0.0),
                                     child: Container(
                                       width: 100.0,
                                       height: 100.0,
-                                      decoration: BoxDecoration(
+                                      decoration: const BoxDecoration(
                                         borderRadius: BorderRadius.only(
                                           bottomLeft: Radius.circular(22.0),
                                           bottomRight: Radius.circular(22.0),
@@ -307,7 +302,7 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                         ),
                                       ),
                                       child: ClipRRect(
-                                        borderRadius: BorderRadius.only(
+                                        borderRadius: const BorderRadius.only(
                                           bottomLeft: Radius.circular(32.0),
                                           bottomRight: Radius.circular(32.0),
                                           topLeft: Radius.circular(32.0),
@@ -315,11 +310,11 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                         ),
                                         child: CachedNetworkImage(
                                           fadeInDuration:
-                                              Duration(milliseconds: 500),
+                                              const Duration(milliseconds: 500),
                                           fadeOutDuration:
-                                              Duration(milliseconds: 500),
+                                              const Duration(milliseconds: 500),
                                           imageUrl: valueOrDefault<String>(
-                                            profileInfoUsersRecord?.photoUrl,
+                                            profileInfoUsersRecord.photoUrl,
                                             'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
                                           ),
                                           width: double.infinity,
@@ -330,28 +325,28 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(0.5, 0.0),
+                                    alignment: const AlignmentDirectional(0.5, 0.0),
                                     child: Container(
                                       width: 170.0,
                                       height: 120.0,
-                                      decoration: BoxDecoration(),
+                                      decoration: const BoxDecoration(),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Align(
-                                            alignment: AlignmentDirectional(
+                                            alignment: const AlignmentDirectional(
                                                 -1.0, -1.0),
                                             child: Container(
                                               width: 161.0,
                                               height: 36.0,
-                                              decoration: BoxDecoration(),
+                                              decoration: const BoxDecoration(),
                                               child: Text(
                                                 valueOrDefault<String>(
                                                   functions.concatStrings(
                                                       profileInfoUsersRecord
-                                                          ?.firtsName,
+                                                          .firtsName,
                                                       profileInfoUsersRecord
-                                                          ?.lastName,
+                                                          .lastName,
                                                       ' '),
                                                   'last name',
                                                 ),
@@ -370,15 +365,15 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                           ),
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(-1.0, 0.0),
+                                                const AlignmentDirectional(-1.0, 0.0),
                                             child: Container(
                                               width: 161.0,
                                               height: 24.0,
-                                              decoration: BoxDecoration(),
+                                              decoration: const BoxDecoration(),
                                               child: Text(
                                                 valueOrDefault<String>(
                                                   profileInfoUsersRecord
-                                                      ?.serviceType?.first,
+                                                      .serviceType.first,
                                                   'telfer psychologist',
                                                 ),
                                                 style:
@@ -396,14 +391,14 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                           ),
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(-1.0, 1.0),
+                                                const AlignmentDirectional(-1.0, 1.0),
                                             child: Container(
                                               width: 161.0,
                                               height: 19.0,
-                                              decoration: BoxDecoration(),
+                                              decoration: const BoxDecoration(),
                                               child: Text(
                                                 valueOrDefault<String>(
-                                                  profileInfoUsersRecord?.age,
+                                                  profileInfoUsersRecord.age,
                                                   '32 years',
                                                 ),
                                                 style:
@@ -420,24 +415,24 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                             ),
                                           ),
                                         ]
-                                            .divide(SizedBox(height: 5.0))
-                                            .addToStart(SizedBox(height: 16.0)),
+                                            .divide(const SizedBox(height: 5.0))
+                                            .addToStart(const SizedBox(height: 16.0)),
                                       ),
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, -0.3),
+                                    alignment: const AlignmentDirectional(0.0, -0.3),
                                     child: wrapWithModel(
                                       model: _model.membresiaLogoModel,
                                       updateCallback: () => setState(() {}),
                                       child: MembresiaLogoWidget(
                                         width: 70,
                                         heigth: 70,
-                                        professional: widget!.professional!,
+                                        professional: widget.professional!,
                                       ),
                                     ),
                                   ),
-                                ].divide(SizedBox(width: 6.0)),
+                                ].divide(const SizedBox(width: 6.0)),
                               ),
                             ),
                           ],
@@ -448,12 +443,12 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                         updateCallback: () => setState(() {}),
                         child: DescripcionProfesionalWidget(
                           parameter1: valueOrDefault<String>(
-                            profileInfoUsersRecord?.description,
+                            profileInfoUsersRecord.description,
                             'I have worked for 5 years as a mental health nurse and care for people with attention deficit and more related disorders, I am kind and protective, I like  to help',
                           ),
                           parameter2: valueOrDefault<String>(
                             formatNumber(
-                              profileInfoUsersRecord?.years,
+                              profileInfoUsersRecord.years,
                               formatType: FormatType.custom,
                               format: '> # years',
                               locale: '',

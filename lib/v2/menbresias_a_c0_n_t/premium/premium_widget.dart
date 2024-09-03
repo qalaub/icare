@@ -4,12 +4,8 @@ import '/backend/schema/enums/enums.dart';
 import '/backend/stripe/payment_manager.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'premium_model.dart';
 export 'premium_model.dart';
 
@@ -59,7 +55,7 @@ class _PremiumWidgetState extends State<PremiumWidget> {
           child: Container(
             width: MediaQuery.sizeOf(context).width * 1.0,
             height: MediaQuery.sizeOf(context).height * 1.0,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               gradient: LinearGradient(
                 colors: [Color(0xFFEFB810), Color(0xFF896909)],
                 stops: [0.0, 1.0],
@@ -71,10 +67,10 @@ class _PremiumWidgetState extends State<PremiumWidget> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Align(
-                  alignment: AlignmentDirectional(-1.0, 0.0),
+                  alignment: const AlignmentDirectional(-1.0, 0.0),
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -85,25 +81,25 @@ class _PremiumWidgetState extends State<PremiumWidget> {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-                            if (widget!.isUpdatePremiun == true) {
+                            if (widget.isUpdatePremiun == true) {
                               context.safePop();
                             } else {
                               context.pushNamed(
                                 'MembresiasV2',
                                 queryParameters: {
                                   'professionalUpdate': serializeParam(
-                                    widget!.userRef,
+                                    widget.userRef,
                                     ParamType.DocumentReference,
                                   ),
                                   'currentPlan': serializeParam(
-                                    widget!.currentPlan,
+                                    widget.currentPlan,
                                     ParamType.Enum,
                                   ),
                                 }.withoutNulls,
                               );
                             }
                           },
-                          child: Icon(
+                          child: const Icon(
                             Icons.close,
                             color: Colors.white,
                             size: 24.0,
@@ -116,7 +112,7 @@ class _PremiumWidgetState extends State<PremiumWidget> {
                 Container(
                   width: MediaQuery.sizeOf(context).width * 0.9,
                   height: MediaQuery.sizeOf(context).height * 0.835,
-                  decoration: BoxDecoration(),
+                  decoration: const BoxDecoration(),
                   child: SingleChildScrollView(
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
@@ -124,7 +120,7 @@ class _PremiumWidgetState extends State<PremiumWidget> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Container(
-                          decoration: BoxDecoration(),
+                          decoration: const BoxDecoration(),
                           child: Text(
                             'Get Premium',
                             style: FlutterFlowTheme.of(context)
@@ -139,11 +135,11 @@ class _PremiumWidgetState extends State<PremiumWidget> {
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Container(
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Text(
                                 'Business profile suitable for companies. Your collaborators will be better positioned.',
                                 textAlign: TextAlign.center,
@@ -163,7 +159,7 @@ class _PremiumWidgetState extends State<PremiumWidget> {
                         Container(
                           width: MediaQuery.sizeOf(context).width * 0.7,
                           height: MediaQuery.sizeOf(context).height * 0.22,
-                          decoration: BoxDecoration(),
+                          decoration: const BoxDecoration(),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
                             child: SvgPicture.asset(
@@ -175,12 +171,12 @@ class _PremiumWidgetState extends State<PremiumWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 32.0, 0.0, 0.0),
                           child: Container(
                             width: MediaQuery.sizeOf(context).width * 1.0,
                             height: 90.0,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               color: Color(0x84583D56),
                               borderRadius: BorderRadius.only(
                                 bottomLeft: Radius.circular(16.0),
@@ -190,12 +186,12 @@ class _PremiumWidgetState extends State<PremiumWidget> {
                               ),
                             ),
                             child: Stack(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               children: [
                                 Align(
-                                  alignment: AlignmentDirectional(-1.0, 0.0),
+                                  alignment: const AlignmentDirectional(-1.0, 0.0),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         17.0, 0.0, 16.0, 0.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
@@ -205,7 +201,7 @@ class _PremiumWidgetState extends State<PremiumWidget> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Container(
-                                          decoration: BoxDecoration(),
+                                          decoration: const BoxDecoration(),
                                           child: Text(
                                             'Annual',
                                             style: FlutterFlowTheme.of(context)
@@ -220,7 +216,7 @@ class _PremiumWidgetState extends State<PremiumWidget> {
                                           ),
                                         ),
                                         Container(
-                                          decoration: BoxDecoration(),
+                                          decoration: const BoxDecoration(),
                                           child: Text(
                                             'Then \$288/Year',
                                             style: FlutterFlowTheme.of(context)
@@ -239,11 +235,11 @@ class _PremiumWidgetState extends State<PremiumWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(0.9, -0.5),
+                                  alignment: const AlignmentDirectional(0.9, -0.5),
                                   child: Container(
                                     width: 78.0,
                                     height: 23.0,
-                                    decoration: BoxDecoration(
+                                    decoration: const BoxDecoration(
                                       color: Color(0xD026CB63),
                                       borderRadius: BorderRadius.only(
                                         bottomLeft: Radius.circular(12.0),
@@ -253,7 +249,7 @@ class _PremiumWidgetState extends State<PremiumWidget> {
                                       ),
                                     ),
                                     child: Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      alignment: const AlignmentDirectional(0.0, 0.0),
                                       child: Text(
                                         'Best Value',
                                         style: FlutterFlowTheme.of(context)
@@ -274,14 +270,14 @@ class _PremiumWidgetState extends State<PremiumWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 6.0, 0.0, 0.0),
                           child: Container(
                             width: MediaQuery.sizeOf(context).width * 1.0,
                             height: 90.0,
                             decoration: BoxDecoration(
-                              color: Color(0x35FFFFFF),
-                              borderRadius: BorderRadius.only(
+                              color: const Color(0x35FFFFFF),
+                              borderRadius: const BorderRadius.only(
                                 bottomLeft: Radius.circular(16.0),
                                 bottomRight: Radius.circular(16.0),
                                 topLeft: Radius.circular(16.0),
@@ -293,7 +289,7 @@ class _PremiumWidgetState extends State<PremiumWidget> {
                               ),
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 16.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -307,7 +303,7 @@ class _PremiumWidgetState extends State<PremiumWidget> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Container(
-                                        decoration: BoxDecoration(),
+                                        decoration: const BoxDecoration(),
                                         child: Text(
                                           'Monthly',
                                           style: FlutterFlowTheme.of(context)
@@ -322,7 +318,7 @@ class _PremiumWidgetState extends State<PremiumWidget> {
                                         ),
                                       ),
                                       Container(
-                                        decoration: BoxDecoration(),
+                                        decoration: const BoxDecoration(),
                                         child: Text(
                                           '\$28.99 / monthly ',
                                           style: FlutterFlowTheme.of(context)
@@ -377,14 +373,14 @@ class _PremiumWidgetState extends State<PremiumWidget> {
                               ),
                             ),
                             Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 4.0, 0.0, 0.0),
                                 child: Container(
-                                  decoration: BoxDecoration(),
+                                  decoration: const BoxDecoration(),
                                   child: Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: Text(
                                       'Do you accept the terms and conditions?',
                                       textAlign: TextAlign.center,
@@ -402,10 +398,10 @@ class _PremiumWidgetState extends State<PremiumWidget> {
                                 ),
                               ),
                             ),
-                          ].divide(SizedBox(width: 12.0)),
+                          ].divide(const SizedBox(width: 12.0)),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 19.0, 0.0, 0.0),
                           child: InkWell(
                             splashColor: Colors.transparent,
@@ -437,7 +433,7 @@ class _PremiumWidgetState extends State<PremiumWidget> {
 
                               if (_model.paymentId != null &&
                                   _model.paymentId != '') {
-                                await widget!.userRef!
+                                await widget.userRef!
                                     .update(createUsersRecordData(
                                   plan: Plan.premiun,
                                   rol: Roles.business,
@@ -454,7 +450,7 @@ class _PremiumWidgetState extends State<PremiumWidget> {
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
-                                borderRadius: BorderRadius.only(
+                                borderRadius: const BorderRadius.only(
                                   bottomLeft: Radius.circular(30.0),
                                   bottomRight: Radius.circular(30.0),
                                   topLeft: Radius.circular(30.0),
@@ -462,14 +458,14 @@ class _PremiumWidgetState extends State<PremiumWidget> {
                                 ),
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: Text(
                                   'Get started Premium',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Inter',
-                                        color: Color(0xFFA17B0D),
+                                        color: const Color(0xFFA17B0D),
                                         fontSize: 18.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.bold,
@@ -480,13 +476,13 @@ class _PremiumWidgetState extends State<PremiumWidget> {
                           ),
                         ),
                       ]
-                          .divide(SizedBox(height: 8.0))
-                          .addToStart(SizedBox(height: 16.0))
-                          .addToEnd(SizedBox(height: 32.0)),
+                          .divide(const SizedBox(height: 8.0))
+                          .addToStart(const SizedBox(height: 16.0))
+                          .addToEnd(const SizedBox(height: 32.0)),
                     ),
                   ),
                 ),
-              ].addToStart(SizedBox(height: 32.0)),
+              ].addToStart(const SizedBox(height: 32.0)),
             ),
           ),
         ),

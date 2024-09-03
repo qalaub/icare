@@ -4,15 +4,11 @@ import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_swipeable_stack.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
 import '/v2/professional/user_tinder/user_tinder_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:flutter_card_swiper/flutter_card_swiper.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'tin_d_e_rv1_model.dart';
 export 'tin_d_e_rv1_model.dart';
 
@@ -78,7 +74,7 @@ class _TinDERv1WidgetState extends State<TinDERv1Widget> {
               child: Stack(
                 children: [
                   Align(
-                    alignment: AlignmentDirectional(0.0, 0.0),
+                    alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Container(
                       width: MediaQuery.sizeOf(context).width * 1.0,
                       height: MediaQuery.sizeOf(context).height * 1.0,
@@ -91,7 +87,7 @@ class _TinDERv1WidgetState extends State<TinDERv1Widget> {
                         ),
                       ),
                       child: Align(
-                        alignment: AlignmentDirectional(0.0, 0.0),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Container(
                           width: MediaQuery.sizeOf(context).width * 1.0,
                           height: MediaQuery.sizeOf(context).height * 0.8,
@@ -100,16 +96,16 @@ class _TinDERv1WidgetState extends State<TinDERv1Widget> {
                             maxWidth: MediaQuery.sizeOf(context).width * 0.9,
                             maxHeight: 680.0,
                           ),
-                          decoration: BoxDecoration(),
+                          decoration: const BoxDecoration(),
                           child: Visibility(
-                            visible: tinDERv1UsersRecordList.length > 0,
+                            visible: tinDERv1UsersRecordList.isNotEmpty,
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Expanded(
                                   child: Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: Builder(
                                       builder: (context) {
                                         final containerVar =
@@ -147,7 +143,7 @@ class _TinDERv1WidgetState extends State<TinDERv1Widget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 40.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -166,7 +162,7 @@ class _TinDERv1WidgetState extends State<TinDERv1Widget> {
                                           width: 80.0,
                                           height: 80.0,
                                           clipBehavior: Clip.antiAlias,
-                                          decoration: BoxDecoration(
+                                          decoration: const BoxDecoration(
                                             shape: BoxShape.circle,
                                           ),
                                           child: Image.asset(
@@ -188,7 +184,7 @@ class _TinDERv1WidgetState extends State<TinDERv1Widget> {
                                           width: 80.0,
                                           height: 80.0,
                                           clipBehavior: Clip.antiAlias,
-                                          decoration: BoxDecoration(
+                                          decoration: const BoxDecoration(
                                             shape: BoxShape.circle,
                                           ),
                                           child: Image.asset(
@@ -197,7 +193,7 @@ class _TinDERv1WidgetState extends State<TinDERv1Widget> {
                                           ),
                                         ),
                                       ),
-                                    ].divide(SizedBox(width: 29.0)),
+                                    ].divide(const SizedBox(width: 29.0)),
                                   ),
                                 ),
                               ],
@@ -208,10 +204,10 @@ class _TinDERv1WidgetState extends State<TinDERv1Widget> {
                     ),
                   ),
                   Align(
-                    alignment: AlignmentDirectional(0.0, 1.0),
+                    alignment: const AlignmentDirectional(0.0, 1.0),
                     child: Container(
                       height: 70.0,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Color(0xB3B928B8),
                       ),
                       child: Builder(
@@ -220,13 +216,13 @@ class _TinDERv1WidgetState extends State<TinDERv1Widget> {
                             return wrapWithModel(
                               model: _model.navbarModel,
                               updateCallback: () => setState(() {}),
-                              child: NavbarWidget(),
+                              child: const NavbarWidget(),
                             );
                           } else {
                             return wrapWithModel(
                               model: _model.navbarPremiunModel,
                               updateCallback: () => setState(() {}),
-                              child: NavbarPremiunWidget(),
+                              child: const NavbarPremiunWidget(),
                             );
                           }
                         },
@@ -234,11 +230,11 @@ class _TinDERv1WidgetState extends State<TinDERv1Widget> {
                     ),
                   ),
                   Align(
-                    alignment: AlignmentDirectional(0.0, -1.0),
+                    alignment: const AlignmentDirectional(0.0, -1.0),
                     child: Container(
                       width: MediaQuery.sizeOf(context).width * 1.0,
                       height: 60.0,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Color(0xFFFDFDFD),
                         boxShadow: [
                           BoxShadow(
@@ -253,7 +249,7 @@ class _TinDERv1WidgetState extends State<TinDERv1Widget> {
                       ),
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -267,14 +263,14 @@ class _TinDERv1WidgetState extends State<TinDERv1Widget> {
                                   width: 60.0,
                                   height: 3.0,
                                   decoration: BoxDecoration(
-                                    color: Color(0xFFC56AB1),
+                                    color: const Color(0xFFC56AB1),
                                     borderRadius: BorderRadius.circular(4.0),
                                   ),
                                 ),
                               ],
                             ),
                             Align(
-                              alignment: AlignmentDirectional(0.0, 1.0),
+                              alignment: const AlignmentDirectional(0.0, 1.0),
                               child: Text(
                                 valueOrDefault<String>(
                                   functions.concatStrings(

@@ -7,13 +7,9 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import 'dart:math';
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'register_professional2_model.dart';
 export 'register_professional2_model.dart';
@@ -61,8 +57,8 @@ class _RegisterProfessional2WidgetState
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(0.0, -11.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(0.0, -11.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -73,8 +69,8 @@ class _RegisterProfessional2WidgetState
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(0.0, -11.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(0.0, -11.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -85,8 +81,8 @@ class _RegisterProfessional2WidgetState
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(0.0, -11.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(0.0, -11.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -97,8 +93,8 @@ class _RegisterProfessional2WidgetState
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(0.0, -11.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(0.0, -11.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -122,11 +118,11 @@ class _RegisterProfessional2WidgetState
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(0.0),
+          preferredSize: const Size.fromHeight(0.0),
           child: AppBar(
-            backgroundColor: Color(0xFFFFFEFE),
+            backgroundColor: const Color(0xFFFFFEFE),
             automaticallyImplyLeading: false,
-            actions: [],
+            actions: const [],
             centerTitle: false,
             toolbarHeight: 0.0,
             elevation: 0.0,
@@ -151,7 +147,7 @@ class _RegisterProfessional2WidgetState
                         child: Stack(
                           children: [
                             Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
                                 child: Image.asset(
@@ -163,12 +159,12 @@ class _RegisterProfessional2WidgetState
                               ),
                             ),
                             Align(
-                              alignment: AlignmentDirectional(-0.91, -0.96),
+                              alignment: const AlignmentDirectional(-0.91, -0.96),
                               child: FlutterFlowIconButton(
                                 borderRadius: 20.0,
                                 borderWidth: 1.0,
                                 buttonSize: 40.0,
-                                icon: Icon(
+                                icon: const Icon(
                                   Icons.arrow_back_ios_new,
                                   color: Colors.black,
                                   size: 24.0,
@@ -179,17 +175,17 @@ class _RegisterProfessional2WidgetState
                               ),
                             ),
                             Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 90.0, 0.0, 0.0),
                                 child: Container(
                                   width:
                                       MediaQuery.sizeOf(context).width * 0.96,
                                   height: 604.0,
                                   decoration: BoxDecoration(
-                                    color: Color(0xFFFFFEFE),
-                                    borderRadius: BorderRadius.only(
+                                    color: const Color(0xFFFFFEFE),
+                                    borderRadius: const BorderRadius.only(
                                       bottomLeft: Radius.circular(24.0),
                                       bottomRight: Radius.circular(24.0),
                                       topLeft: Radius.circular(24.0),
@@ -212,10 +208,10 @@ class _RegisterProfessional2WidgetState
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Align(
-                                              alignment: AlignmentDirectional(
+                                              alignment: const AlignmentDirectional(
                                                   0.0, -1.0),
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 10.0, 0.0, 0.0),
                                                 child: Text(
@@ -228,7 +224,7 @@ class _RegisterProfessional2WidgetState
                                                         fontFamily:
                                                             'Montserrat',
                                                         color:
-                                                            Color(0xFF8E058A),
+                                                            const Color(0xFF8E058A),
                                                         fontSize: 20.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -238,30 +234,30 @@ class _RegisterProfessional2WidgetState
                                               ),
                                             ),
                                             Align(
-                                              alignment: AlignmentDirectional(
+                                              alignment: const AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Container(
                                                 width: 327.0,
                                                 height: 1.0,
                                                 decoration: BoxDecoration(
-                                                  color: Color(0xFFF0DFEF),
+                                                  color: const Color(0xFFF0DFEF),
                                                   border: Border.all(
-                                                    color: Color(0xFFF0DFEF),
+                                                    color: const Color(0xFFF0DFEF),
                                                   ),
                                                 ),
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     0.0, 0.0),
                                               ),
                                             ),
                                             Align(
-                                              alignment: AlignmentDirectional(
+                                              alignment: const AlignmentDirectional(
                                                   -0.84, -0.73),
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         5.0, 15.0, 0.0, 15.0),
                                                 child: Text(
-                                                  '* Type Of Service Offered',
+                                                  '* Type of service offered',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -278,23 +274,23 @@ class _RegisterProfessional2WidgetState
                                               ),
                                             ),
                                             Align(
-                                              alignment: AlignmentDirectional(
+                                              alignment: const AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Container(
                                                 height: 90.0,
-                                                decoration: BoxDecoration(),
+                                                decoration: const BoxDecoration(),
                                                 child: Align(
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           0.0, -1.0),
                                                   child: Stack(
                                                     alignment:
-                                                        AlignmentDirectional(
+                                                        const AlignmentDirectional(
                                                             0.0, -1.0),
                                                     children: [
                                                       Align(
                                                         alignment:
-                                                            AlignmentDirectional(
+                                                            const AlignmentDirectional(
                                                                 0.0, -1.0),
                                                         child: Container(
                                                           width:
@@ -307,7 +303,7 @@ class _RegisterProfessional2WidgetState
                                                               BoxDecoration(
                                                             color: Colors.white,
                                                             borderRadius:
-                                                                BorderRadius
+                                                                const BorderRadius
                                                                     .only(
                                                               bottomLeft: Radius
                                                                   .circular(
@@ -331,18 +327,18 @@ class _RegisterProfessional2WidgetState
                                                                             .verifyForm
                                                                             .dropdown ==
                                                                         true
-                                                                    ? Color(
+                                                                    ? const Color(
                                                                         0xFFBB33B9)
-                                                                    : Color(
+                                                                    : const Color(
                                                                         0xFFFF5963),
-                                                                Color(
+                                                                const Color(
                                                                     0xFFBB33B9),
                                                               ),
                                                             ),
                                                           ),
                                                           child: Align(
                                                             alignment:
-                                                                AlignmentDirectional(
+                                                                const AlignmentDirectional(
                                                                     0.0, 0.0),
                                                             child:
                                                                 FlutterFlowDropDown<
@@ -352,7 +348,7 @@ class _RegisterProfessional2WidgetState
                                                                   FormListFieldController<
                                                                           String>(
                                                                       null),
-                                                              options: [
+                                                              options: const [
                                                                 'Support Workers',
                                                                 'Support  Coordinators',
                                                                 'Recovery Coaches',
@@ -375,7 +371,7 @@ class _RegisterProfessional2WidgetState
                                                                       ),
                                                               hintText:
                                                                   'Type of service offered',
-                                                              icon: Icon(
+                                                              icon: const Icon(
                                                                 Icons
                                                                     .keyboard_arrow_down_rounded,
                                                                 color: Colors
@@ -389,7 +385,7 @@ class _RegisterProfessional2WidgetState
                                                                   .transparent,
                                                               borderWidth: 0.0,
                                                               borderRadius: 8.0,
-                                                              margin: EdgeInsets
+                                                              margin: const EdgeInsets
                                                                   .all(0.0),
                                                               hidesUnderline:
                                                                   true,
@@ -410,7 +406,7 @@ class _RegisterProfessional2WidgetState
                                                       ),
                                                       Align(
                                                         alignment:
-                                                            AlignmentDirectional(
+                                                            const AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         child: Builder(
                                                           builder: (context) {
@@ -422,7 +418,7 @@ class _RegisterProfessional2WidgetState
                                                                     2)) {
                                                               return Align(
                                                                 alignment:
-                                                                    AlignmentDirectional(
+                                                                    const AlignmentDirectional(
                                                                         -0.62,
                                                                         1.0),
                                                                 child: Text(
@@ -433,7 +429,7 @@ class _RegisterProfessional2WidgetState
                                                                       .override(
                                                                         fontFamily:
                                                                             'Montserrat',
-                                                                        color: Color(
+                                                                        color: const Color(
                                                                             0xFFFF5963),
                                                                         letterSpacing:
                                                                             0.0,
@@ -465,10 +461,10 @@ class _RegisterProfessional2WidgetState
                                               ),
                                             ),
                                             Align(
-                                              alignment: AlignmentDirectional(
+                                              alignment: const AlignmentDirectional(
                                                   -0.84, -0.73),
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         5.0, 15.0, 0.0, 15.0),
                                                 child: Text(
@@ -493,7 +489,7 @@ class _RegisterProfessional2WidgetState
                                               children: [
                                                 Align(
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           0.0, -1.0),
                                                   child: Container(
                                                     width: MediaQuery.sizeOf(
@@ -504,7 +500,7 @@ class _RegisterProfessional2WidgetState
                                                     decoration: BoxDecoration(
                                                       color: Colors.white,
                                                       borderRadius:
-                                                          BorderRadius.only(
+                                                          const BorderRadius.only(
                                                         bottomLeft:
                                                             Radius.circular(
                                                                 12.0),
@@ -525,17 +521,17 @@ class _RegisterProfessional2WidgetState
                                                                       .verifyForm
                                                                       .dropdown ==
                                                                   true
-                                                              ? Color(
+                                                              ? const Color(
                                                                   0xFFBB33B9)
-                                                              : Color(
+                                                              : const Color(
                                                                   0xFFFF5963),
-                                                          Color(0xFFBB33B9),
+                                                          const Color(0xFFBB33B9),
                                                         ),
                                                       ),
                                                     ),
                                                     child: Align(
                                                       alignment:
-                                                          AlignmentDirectional(
+                                                          const AlignmentDirectional(
                                                               0.0, 0.0),
                                                       child:
                                                           FlutterFlowDropDown<
@@ -544,7 +540,7 @@ class _RegisterProfessional2WidgetState
                                                                 .ndisselectValueController ??=
                                                             FormFieldController<
                                                                 String>(null),
-                                                        options: [
+                                                        options: const [
                                                           'Unregistered',
                                                           'Registered'
                                                         ],
@@ -580,7 +576,7 @@ class _RegisterProfessional2WidgetState
                                                                 ),
                                                         hintText:
                                                             'Registered or Unregistered ',
-                                                        icon: Icon(
+                                                        icon: const Icon(
                                                           Icons
                                                               .keyboard_arrow_down_rounded,
                                                           color: Colors.black,
@@ -593,7 +589,7 @@ class _RegisterProfessional2WidgetState
                                                         borderWidth: 0.0,
                                                         borderRadius: 8.0,
                                                         margin:
-                                                            EdgeInsets.all(0.0),
+                                                            const EdgeInsets.all(0.0),
                                                         hidesUnderline: true,
                                                         isOverButton: true,
                                                         isSearchable: false,
@@ -607,7 +603,7 @@ class _RegisterProfessional2WidgetState
                                                     if (_model.isNDIS == true) {
                                                       return Align(
                                                         alignment:
-                                                            AlignmentDirectional(
+                                                            const AlignmentDirectional(
                                                                 -0.01, -0.69),
                                                         child: Container(
                                                           width:
@@ -616,7 +612,7 @@ class _RegisterProfessional2WidgetState
                                                                       .width *
                                                                   0.8,
                                                           decoration:
-                                                              BoxDecoration(
+                                                              const BoxDecoration(
                                                             color: Color(
                                                                 0xFFFFFEFE),
                                                             borderRadius:
@@ -684,7 +680,7 @@ class _RegisterProfessional2WidgetState
                                                               enabledBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
-                                                                    BorderSide(
+                                                                    const BorderSide(
                                                                   color: Color(
                                                                       0xFFBB33B9),
                                                                   width: 0.0,
@@ -697,7 +693,7 @@ class _RegisterProfessional2WidgetState
                                                               focusedBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
-                                                                    BorderSide(
+                                                                    const BorderSide(
                                                                   color: Color(
                                                                       0xFF762075),
                                                                   width: 0.0,
@@ -776,13 +772,13 @@ class _RegisterProfessional2WidgetState
                                                     }
                                                   },
                                                 ),
-                                              ].divide(SizedBox(height: 5.0)),
+                                              ].divide(const SizedBox(height: 5.0)),
                                             ),
                                             Align(
-                                              alignment: AlignmentDirectional(
+                                              alignment: const AlignmentDirectional(
                                                   -0.84, -0.73),
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 15.0, 0.0, 15.0),
                                                 child: Text(
@@ -803,23 +799,23 @@ class _RegisterProfessional2WidgetState
                                               ),
                                             ),
                                             Align(
-                                              alignment: AlignmentDirectional(
+                                              alignment: const AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Container(
                                                 height: 90.0,
-                                                decoration: BoxDecoration(),
+                                                decoration: const BoxDecoration(),
                                                 child: Align(
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           0.0, -1.0),
                                                   child: Stack(
                                                     alignment:
-                                                        AlignmentDirectional(
+                                                        const AlignmentDirectional(
                                                             0.0, -1.0),
                                                     children: [
                                                       Align(
                                                         alignment:
-                                                            AlignmentDirectional(
+                                                            const AlignmentDirectional(
                                                                 0.0, -1.0),
                                                         child: Container(
                                                           width:
@@ -832,7 +828,7 @@ class _RegisterProfessional2WidgetState
                                                               BoxDecoration(
                                                             color: Colors.white,
                                                             borderRadius:
-                                                                BorderRadius
+                                                                const BorderRadius
                                                                     .only(
                                                               bottomLeft: Radius
                                                                   .circular(
@@ -856,18 +852,18 @@ class _RegisterProfessional2WidgetState
                                                                             .verifyForm
                                                                             .dropdown2 ==
                                                                         true
-                                                                    ? Color(
+                                                                    ? const Color(
                                                                         0xFFBB33B9)
-                                                                    : Color(
+                                                                    : const Color(
                                                                         0xFFFF5963),
-                                                                Color(
+                                                                const Color(
                                                                     0xFFBB33B9),
                                                               ),
                                                             ),
                                                           ),
                                                           child: Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         10.0,
                                                                         0.0,
@@ -881,7 +877,7 @@ class _RegisterProfessional2WidgetState
                                                                   FormFieldController<
                                                                           String>(
                                                                       null),
-                                                              options: [
+                                                              options: const [
                                                                 '18-25 years',
                                                                 '25-40 years',
                                                                 '40-65+ years'
@@ -906,7 +902,7 @@ class _RegisterProfessional2WidgetState
                                                                       ),
                                                               hintText:
                                                                   'Please select...',
-                                                              icon: Icon(
+                                                              icon: const Icon(
                                                                 Icons
                                                                     .keyboard_arrow_down_rounded,
                                                                 color: Colors
@@ -920,7 +916,7 @@ class _RegisterProfessional2WidgetState
                                                                   .transparent,
                                                               borderWidth: 2.0,
                                                               borderRadius: 8.0,
-                                                              margin: EdgeInsets
+                                                              margin: const EdgeInsets
                                                                   .all(0.0),
                                                               hidesUnderline:
                                                                   true,
@@ -936,7 +932,7 @@ class _RegisterProfessional2WidgetState
                                                       ),
                                                       Align(
                                                         alignment:
-                                                            AlignmentDirectional(
+                                                            const AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         child: Builder(
                                                           builder: (context) {
@@ -948,7 +944,7 @@ class _RegisterProfessional2WidgetState
                                                                     2)) {
                                                               return Align(
                                                                 alignment:
-                                                                    AlignmentDirectional(
+                                                                    const AlignmentDirectional(
                                                                         -0.62,
                                                                         1.0),
                                                                 child: Text(
@@ -959,7 +955,7 @@ class _RegisterProfessional2WidgetState
                                                                       .override(
                                                                         fontFamily:
                                                                             'Montserrat',
-                                                                        color: Color(
+                                                                        color: const Color(
                                                                             0xFFFF5963),
                                                                         letterSpacing:
                                                                             0.0,
@@ -991,10 +987,10 @@ class _RegisterProfessional2WidgetState
                                               ),
                                             ),
                                             Align(
-                                              alignment: AlignmentDirectional(
+                                              alignment: const AlignmentDirectional(
                                                   -0.84, -0.73),
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 15.0, 0.0, 15.0),
                                                 child: Text(
@@ -1015,28 +1011,28 @@ class _RegisterProfessional2WidgetState
                                               ),
                                             ),
                                             Align(
-                                              alignment: AlignmentDirectional(
+                                              alignment: const AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Container(
                                                 height: 90.0,
-                                                decoration: BoxDecoration(),
+                                                decoration: const BoxDecoration(),
                                                 child: Align(
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           0.0, 0.0),
-                                                  child: Container(
+                                                  child: SizedBox(
                                                     width: MediaQuery.sizeOf(
                                                                 context)
                                                             .width *
                                                         0.8,
                                                     child: Stack(
                                                       alignment:
-                                                          AlignmentDirectional(
+                                                          const AlignmentDirectional(
                                                               0.0, -1.0),
                                                       children: [
                                                         Align(
                                                           alignment:
-                                                              AlignmentDirectional(
+                                                              const AlignmentDirectional(
                                                                   0.0, -1.0),
                                                           child: TextFormField(
                                                             controller: _model
@@ -1090,7 +1086,7 @@ class _RegisterProfessional2WidgetState
                                                               enabledBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
-                                                                    BorderSide(
+                                                                    const BorderSide(
                                                                   color: Color(
                                                                       0xFFBB33B9),
                                                                   width: 0.0,
@@ -1103,7 +1099,7 @@ class _RegisterProfessional2WidgetState
                                                               focusedBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
-                                                                    BorderSide(
+                                                                    const BorderSide(
                                                                   color: Color(
                                                                       0xFF762075),
                                                                   width: 0.0,
@@ -1159,7 +1155,7 @@ class _RegisterProfessional2WidgetState
                                                                           .visibility_outlined
                                                                       : Icons
                                                                           .visibility_off_outlined,
-                                                                  color: Color(
+                                                                  color: const Color(
                                                                       0xFF6D6D6D),
                                                                   size: 18.0,
                                                                 ),
@@ -1184,7 +1180,7 @@ class _RegisterProfessional2WidgetState
                                                         ),
                                                         Align(
                                                           alignment:
-                                                              AlignmentDirectional(
+                                                              const AlignmentDirectional(
                                                                   0.0, 0.0),
                                                           child: Builder(
                                                             builder: (context) {
@@ -1196,12 +1192,12 @@ class _RegisterProfessional2WidgetState
                                                                       2)) {
                                                                 return Align(
                                                                   alignment:
-                                                                      AlignmentDirectional(
+                                                                      const AlignmentDirectional(
                                                                           -0.82,
                                                                           0.7),
                                                                   child:
                                                                       Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             10.0,
@@ -1219,7 +1215,7 @@ class _RegisterProfessional2WidgetState
                                                                             fontFamily:
                                                                                 'Montserrat',
                                                                             color:
-                                                                                Color(0xFFFF5963),
+                                                                                const Color(0xFFFF5963),
                                                                             letterSpacing:
                                                                                 0.0,
                                                                           ),
@@ -1252,14 +1248,14 @@ class _RegisterProfessional2WidgetState
                                               ),
                                             ),
                                             Align(
-                                              alignment: AlignmentDirectional(
+                                              alignment: const AlignmentDirectional(
                                                   -0.84, -0.73),
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 15.0, 0.0, 15.0),
                                                 child: Text(
-                                                  '* Confirm Password',
+                                                  '* Confirm password',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -1276,28 +1272,28 @@ class _RegisterProfessional2WidgetState
                                               ),
                                             ),
                                             Align(
-                                              alignment: AlignmentDirectional(
+                                              alignment: const AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Container(
                                                 height: 90.0,
-                                                decoration: BoxDecoration(),
+                                                decoration: const BoxDecoration(),
                                                 child: Align(
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           0.0, 0.0),
-                                                  child: Container(
+                                                  child: SizedBox(
                                                     width: MediaQuery.sizeOf(
                                                                 context)
                                                             .width *
                                                         0.8,
                                                     child: Stack(
                                                       alignment:
-                                                          AlignmentDirectional(
+                                                          const AlignmentDirectional(
                                                               0.0, -1.0),
                                                       children: [
                                                         Align(
                                                           alignment:
-                                                              AlignmentDirectional(
+                                                              const AlignmentDirectional(
                                                                   0.0, -1.0),
                                                           child: TextFormField(
                                                             controller: _model
@@ -1351,7 +1347,7 @@ class _RegisterProfessional2WidgetState
                                                               enabledBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
-                                                                    BorderSide(
+                                                                    const BorderSide(
                                                                   color: Color(
                                                                       0xFFBB33B9),
                                                                   width: 0.0,
@@ -1364,7 +1360,7 @@ class _RegisterProfessional2WidgetState
                                                               focusedBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
-                                                                    BorderSide(
+                                                                    const BorderSide(
                                                                   color: Color(
                                                                       0xFF762075),
                                                                   width: 0.0,
@@ -1420,7 +1416,7 @@ class _RegisterProfessional2WidgetState
                                                                           .visibility_outlined
                                                                       : Icons
                                                                           .visibility_off_outlined,
-                                                                  color: Color(
+                                                                  color: const Color(
                                                                       0xFF6D6D6D),
                                                                   size: 18.0,
                                                                 ),
@@ -1445,7 +1441,7 @@ class _RegisterProfessional2WidgetState
                                                         ),
                                                         Align(
                                                           alignment:
-                                                              AlignmentDirectional(
+                                                              const AlignmentDirectional(
                                                                   0.0, 0.0),
                                                           child: Builder(
                                                             builder: (context) {
@@ -1457,12 +1453,12 @@ class _RegisterProfessional2WidgetState
                                                                       2)) {
                                                                 return Align(
                                                                   alignment:
-                                                                      AlignmentDirectional(
+                                                                      const AlignmentDirectional(
                                                                           -0.82,
                                                                           0.7),
                                                                   child:
                                                                       Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             10.0,
@@ -1480,7 +1476,7 @@ class _RegisterProfessional2WidgetState
                                                                             fontFamily:
                                                                                 'Montserrat',
                                                                             color:
-                                                                                Color(0xFFFF5963),
+                                                                                const Color(0xFFFF5963),
                                                                             letterSpacing:
                                                                                 0.0,
                                                                           ),
@@ -1513,27 +1509,27 @@ class _RegisterProfessional2WidgetState
                                               ),
                                             ),
                                             Align(
-                                              alignment: AlignmentDirectional(
+                                              alignment: const AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 15.0, 0.0, 15.0),
                                                 child: Container(
                                                   width: 276.0,
                                                   height: 74.0,
-                                                  decoration: BoxDecoration(
+                                                  decoration: const BoxDecoration(
                                                     color: Color(0x80D9D9D9),
                                                   ),
                                                   child: Stack(
                                                     children: [
                                                       Align(
                                                         alignment:
-                                                            AlignmentDirectional(
+                                                            const AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       30.0,
                                                                       0.0,
@@ -1554,14 +1550,14 @@ class _RegisterProfessional2WidgetState
                                                                   'https://icareapp.com.au/privacy-policy');
                                                             },
                                                             child: Text(
-                                                              'I agree iCare app`s to the iCare App privacy policy',
+                                                              'I agree to the iCare app\'s privacy policy.',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
                                                                     fontFamily:
                                                                         'Montserrat',
-                                                                    color: Color(
+                                                                    color: const Color(
                                                                         0xFFB928B8),
                                                                     fontSize:
                                                                         12.0,
@@ -1577,7 +1573,7 @@ class _RegisterProfessional2WidgetState
                                                       ),
                                                       Align(
                                                         alignment:
-                                                            AlignmentDirectional(
+                                                            const AlignmentDirectional(
                                                                 -0.98, -0.03),
                                                         child: Theme(
                                                           data: ThemeData(
@@ -1618,7 +1614,7 @@ class _RegisterProfessional2WidgetState
                                                                       .of(context)
                                                                   .secondaryText,
                                                             ),
-                                                            activeColor: Color(
+                                                            activeColor: const Color(
                                                                 0xFFB928B8),
                                                             checkColor:
                                                                 FlutterFlowTheme.of(
@@ -1633,24 +1629,24 @@ class _RegisterProfessional2WidgetState
                                               ),
                                             ),
                                             Align(
-                                              alignment: AlignmentDirectional(
+                                              alignment: const AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Container(
                                                 width: 327.0,
                                                 height: 1.0,
                                                 decoration: BoxDecoration(
-                                                  color: Color(0xFFF0DFEF),
+                                                  color: const Color(0xFFF0DFEF),
                                                   border: Border.all(
-                                                    color: Color(0xFFF0DFEF),
+                                                    color: const Color(0xFFF0DFEF),
                                                   ),
                                                 ),
                                               ),
                                             ),
                                             Align(
-                                              alignment: AlignmentDirectional(
+                                              alignment: const AlignmentDirectional(
                                                   0.01, 0.7),
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 10.0, 0.0, 10.0),
                                                 child: FFButtonWidget(
@@ -1675,18 +1671,10 @@ class _RegisterProfessional2WidgetState
                                                                   '',
                                                           false,
                                                         )
-                                                        ..confirm1 = _model
-                                                                    .passwordTextController
-                                                                    .text !=
-                                                                null &&
-                                                            _model.passwordTextController
+                                                        ..confirm1 = _model.passwordTextController
                                                                     .text !=
                                                                 ''
-                                                        ..confirm2 = _model
-                                                                    .confirmPasswordTextController
-                                                                    .text !=
-                                                                null &&
-                                                            _model.confirmPasswordTextController
+                                                        ..confirm2 = _model.confirmPasswordTextController
                                                                     .text !=
                                                                 ''
                                                         ..same = _model
@@ -1734,7 +1722,7 @@ class _RegisterProfessional2WidgetState
                                                           ..serviceType = _model
                                                               .serviceTypeValue!
                                                               .toList()
-                                                          ..business = widget!
+                                                          ..business = widget
                                                               .businessRef,
                                                       );
                                                       FFAppState().verifyForm =
@@ -1746,7 +1734,7 @@ class _RegisterProfessional2WidgetState
                                                         queryParameters: {
                                                           'businessRef':
                                                               serializeParam(
-                                                            widget!.businessRef,
+                                                            widget.businessRef,
                                                             ParamType
                                                                 .DocumentReference,
                                                           ),
@@ -1759,14 +1747,14 @@ class _RegisterProfessional2WidgetState
                                                     width: 275.0,
                                                     height: 45.0,
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(24.0, 0.0,
                                                                 24.0, 0.0),
                                                     iconPadding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 0.0),
-                                                    color: Color(0xFFB928B8),
+                                                    color: const Color(0xFFB928B8),
                                                     textStyle: FlutterFlowTheme
                                                             .of(context)
                                                         .titleSmall
@@ -1778,7 +1766,7 @@ class _RegisterProfessional2WidgetState
                                                           letterSpacing: 0.0,
                                                         ),
                                                     elevation: 5.0,
-                                                    borderSide: BorderSide(
+                                                    borderSide: const BorderSide(
                                                       color: Colors.transparent,
                                                       width: 1.0,
                                                     ),
@@ -1798,9 +1786,9 @@ class _RegisterProfessional2WidgetState
                               ),
                             ),
                             Align(
-                              alignment: AlignmentDirectional(0.0, -1.0),
+                              alignment: const AlignmentDirectional(0.0, -1.0),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 6.0, 0.0, 0.0),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(8.0),

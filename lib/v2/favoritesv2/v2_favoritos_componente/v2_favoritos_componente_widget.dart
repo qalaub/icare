@@ -7,10 +7,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/v2/favoritesv2/add_favorites/add_favorites_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'v2_favoritos_componente_model.dart';
 export 'v2_favoritos_componente_model.dart';
 
@@ -53,12 +50,12 @@ class _V2FavoritosComponenteWidgetState
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: AlignmentDirectional(0.0, -0.9),
+      alignment: const AlignmentDirectional(0.0, -0.9),
       child: StreamBuilder<List<UsersRecord>>(
         stream: queryUsersRecord(
           queryBuilder: (usersRecord) => usersRecord.where(
             'uid',
-            isEqualTo: widget!.professionalRef?.id,
+            isEqualTo: widget.professionalRef?.id,
           ),
           singleRecord: true,
         ),
@@ -97,7 +94,7 @@ class _V2FavoritosComponenteWidgetState
             child: Stack(
               children: [
                 Align(
-                  alignment: AlignmentDirectional(0.0, 0.0),
+                  alignment: const AlignmentDirectional(0.0, 0.0),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(22.0),
                     child: Image.asset(
@@ -105,7 +102,7 @@ class _V2FavoritosComponenteWidgetState
                       width: MediaQuery.sizeOf(context).width * 0.95,
                       height: 105.0,
                       fit: BoxFit.none,
-                      alignment: Alignment(0.0, 0.0),
+                      alignment: const Alignment(0.0, 0.0),
                     ),
                   ),
                 ),
@@ -113,15 +110,15 @@ class _V2FavoritosComponenteWidgetState
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
+                      alignment: const AlignmentDirectional(0.0, 0.0),
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8.0),
                           child: CachedNetworkImage(
-                            fadeInDuration: Duration(milliseconds: 500),
-                            fadeOutDuration: Duration(milliseconds: 500),
+                            fadeInDuration: const Duration(milliseconds: 500),
+                            fadeOutDuration: const Duration(milliseconds: 500),
                             imageUrl: valueOrDefault<String>(
                               containerUsersRecord?.photoUrl,
                               'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
@@ -135,15 +132,15 @@ class _V2FavoritosComponenteWidgetState
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                       child: Container(
                         width: MediaQuery.sizeOf(context).width * 0.5,
                         height: 100.0,
-                        decoration: BoxDecoration(),
+                        decoration: const BoxDecoration(),
                         child: Stack(
                           children: [
                             Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment:
@@ -151,7 +148,7 @@ class _V2FavoritosComponenteWidgetState
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, -0.4),
+                                    alignment: const AlignmentDirectional(0.0, -0.4),
                                     child: Text(
                                       valueOrDefault<String>(
                                         functions.concatStrings(
@@ -174,10 +171,10 @@ class _V2FavoritosComponenteWidgetState
                               ),
                             ),
                             Align(
-                              alignment: AlignmentDirectional(-0.95, 0.52),
+                              alignment: const AlignmentDirectional(-0.95, 0.52),
                               child: Text(
                                 valueOrDefault<String>(
-                                  containerUsersRecord?.serviceType?.first,
+                                  containerUsersRecord?.serviceType.first,
                                   'service',
                                 ),
                                 style: FlutterFlowTheme.of(context)
@@ -191,15 +188,15 @@ class _V2FavoritosComponenteWidgetState
                               ),
                             ),
                             Align(
-                              alignment: AlignmentDirectional(0.17, 1.02),
+                              alignment: const AlignmentDirectional(0.17, 1.02),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 16.0),
                                 child: Container(
                                   width:
                                       MediaQuery.sizeOf(context).width * 0.46,
                                   height: 1.0,
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                     color: Colors.white,
                                   ),
                                 ),
@@ -210,12 +207,12 @@ class _V2FavoritosComponenteWidgetState
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.81, -0.05),
+                      alignment: const AlignmentDirectional(0.81, -0.05),
                       child: Container(
-                        decoration: BoxDecoration(),
-                        alignment: AlignmentDirectional(0.0, 0.0),
+                        decoration: const BoxDecoration(),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 5.0, 5.0, 5.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
@@ -238,7 +235,7 @@ class _V2FavoritosComponenteWidgetState
                                 borderWidth: 1.0,
                                 buttonSize:
                                     MediaQuery.sizeOf(context).width * 0.106,
-                                icon: Icon(
+                                icon: const Icon(
                                   Icons.arrow_forward_ios_rounded,
                                   color: Colors.white,
                                   size: 29.0,
@@ -248,7 +245,7 @@ class _V2FavoritosComponenteWidgetState
                                     'profile_info',
                                     queryParameters: {
                                       'professional': serializeParam(
-                                        widget!.professionalRef,
+                                        widget.professionalRef,
                                         ParamType.DocumentReference,
                                       ),
                                     }.withoutNulls,

@@ -2,10 +2,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/v2/block_list/user_block_options/user_block_options_widget.dart';
 import 'package:aligned_dialog/aligned_dialog.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'user_block_model.dart';
 export 'user_block_model.dart';
 
@@ -17,7 +14,7 @@ class UserBlockWidget extends StatefulWidget {
     required this.username,
     this.service,
     required this.image,
-  }) : this.background = background ?? Colors.white;
+  }) : background = background ?? Colors.white;
 
   final Color background;
   final DocumentReference? userRef;
@@ -57,8 +54,8 @@ class _UserBlockWidgetState extends State<UserBlockWidget> {
       width: MediaQuery.sizeOf(context).width * 1.0,
       height: 90.0,
       decoration: BoxDecoration(
-        color: widget!.background,
-        borderRadius: BorderRadius.only(
+        color: widget.background,
+        borderRadius: const BorderRadius.only(
           bottomLeft: Radius.circular(16.0),
           bottomRight: Radius.circular(16.0),
           topLeft: Radius.circular(16.0),
@@ -66,7 +63,7 @@ class _UserBlockWidgetState extends State<UserBlockWidget> {
         ),
       ),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+        padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
         child: Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -78,31 +75,31 @@ class _UserBlockWidgetState extends State<UserBlockWidget> {
                   width: 75.0,
                   height: 75.0,
                   clipBehavior: Clip.antiAlias,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                   ),
                   child: Image.network(
                     valueOrDefault<String>(
-                      widget!.image,
+                      widget.image,
                       'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
                     ),
                     fit: BoxFit.cover,
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(-1.0, 0.0),
+                  alignment: const AlignmentDirectional(-1.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Align(
-                        alignment: AlignmentDirectional(0.0, 0.0),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Container(
-                          decoration: BoxDecoration(),
+                          decoration: const BoxDecoration(),
                           child: Text(
                             valueOrDefault<String>(
-                              widget!.username,
+                              widget.username,
                               'Arlene McCoy',
                             ),
                             style: FlutterFlowTheme.of(context)
@@ -116,11 +113,11 @@ class _UserBlockWidgetState extends State<UserBlockWidget> {
                         ),
                       ),
                       Align(
-                        alignment: AlignmentDirectional(0.0, 0.0),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Container(
-                          decoration: BoxDecoration(),
+                          decoration: const BoxDecoration(),
                           child: Text(
-                            widget!.service!,
+                            widget.service!,
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
@@ -131,10 +128,10 @@ class _UserBlockWidgetState extends State<UserBlockWidget> {
                           ),
                         ),
                       ),
-                    ].divide(SizedBox(height: 8.0)),
+                    ].divide(const SizedBox(height: 8.0)),
                   ),
                 ),
-              ].divide(SizedBox(width: 12.0)),
+              ].divide(const SizedBox(width: 12.0)),
             ),
             Builder(
               builder: (context) => InkWell(
@@ -148,25 +145,25 @@ class _UserBlockWidgetState extends State<UserBlockWidget> {
                     context: context,
                     isGlobal: false,
                     avoidOverflow: false,
-                    targetAnchor: AlignmentDirectional(-1.0, 0.0)
+                    targetAnchor: const AlignmentDirectional(-1.0, 0.0)
                         .resolve(Directionality.of(context)),
-                    followerAnchor: AlignmentDirectional(0.8, -1.2)
+                    followerAnchor: const AlignmentDirectional(0.8, -1.2)
                         .resolve(Directionality.of(context)),
                     builder: (dialogContext) {
                       return Material(
                         color: Colors.transparent,
-                        child: Container(
+                        child: SizedBox(
                           height: MediaQuery.sizeOf(context).height * 0.2,
                           width: MediaQuery.sizeOf(context).width * 0.4,
                           child: UserBlockOptionsWidget(
-                            userRef: widget!.userRef!,
+                            userRef: widget.userRef!,
                           ),
                         ),
                       );
                     },
                   );
                 },
-                child: Icon(
+                child: const Icon(
                   Icons.more_vert,
                   color: Colors.black,
                   size: 24.0,
