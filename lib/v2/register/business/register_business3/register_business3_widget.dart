@@ -115,22 +115,6 @@ class _RegisterBusiness3WidgetState extends State<RegisterBusiness3Widget>
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.0, -1.0),
-                              child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 10.0, 0.0, 0.0),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  child: Image.asset(
-                                    'assets/images/logo-1.png',
-                                    width: 100.0,
-                                    height: 106.0,
-                                    fit: BoxFit.fitWidth,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Align(
                               alignment: const AlignmentDirectional(-0.91, -0.96),
                               child: FlutterFlowIconButton(
                                 borderRadius: 20.0,
@@ -539,7 +523,7 @@ class _RegisterBusiness3WidgetState extends State<RegisterBusiness3Widget>
                                                                 alignment:
                                                                     const AlignmentDirectional(
                                                                         -0.62,
-                                                                        1.0),
+                                                                        0.6),
                                                                 child: Text(
                                                                   'Field is required',
                                                                   style: FlutterFlowTheme.of(
@@ -552,6 +536,8 @@ class _RegisterBusiness3WidgetState extends State<RegisterBusiness3Widget>
                                                                             0xFFFF5963),
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.w600,
                                                                       ),
                                                                 ).animateOnPageLoad(
                                                                     animationsMap[
@@ -850,6 +836,22 @@ class _RegisterBusiness3WidgetState extends State<RegisterBusiness3Widget>
                                         ),
                                       ),
                                     ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: const AlignmentDirectional(0.0, -1.0),
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 10.0, 0.0, 0.0),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  child: Image.asset(
+                                    'assets/images/logo-1.png',
+                                    width: 100.0,
+                                    height: 106.0,
+                                    fit: BoxFit.fitWidth,
                                   ),
                                 ),
                               ),

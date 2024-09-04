@@ -144,22 +144,6 @@ class _RegisterProfessional1WidgetState
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.0, -1.0),
-                              child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 10.0, 0.0, 0.0),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  child: Image.asset(
-                                    'assets/images/logo-1.png',
-                                    width: 110.0,
-                                    height: 110.0,
-                                    fit: BoxFit.fitWidth,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Align(
                               alignment: const AlignmentDirectional(-0.91, -0.96),
                               child: FlutterFlowIconButton(
                                 borderRadius: 20.0,
@@ -898,7 +882,7 @@ class _RegisterProfessional1WidgetState
                                                   Align(
                                                     alignment:
                                                         const AlignmentDirectional(
-                                                            0.0, 1.2),
+                                                            0.0, 1.3),
                                                     child: Text(
                                                       'This email already has an account, use another email',
                                                       style: FlutterFlowTheme
@@ -911,7 +895,7 @@ class _RegisterProfessional1WidgetState
                                                                 0xFFFF5963),
                                                             letterSpacing: 0.0,
                                                             fontWeight:
-                                                                FontWeight.w500,
+                                                                FontWeight.w600,
                                                           ),
                                                     ).animateOnPageLoad(
                                                         animationsMap[
@@ -1266,35 +1250,26 @@ class _RegisterProfessional1WidgetState
                                                           return Align(
                                                             alignment:
                                                                 const AlignmentDirectional(
-                                                                    -0.62, 1.0),
-                                                            child: Padding(
-                                                              padding:
-                                                                  const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          10.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                              child: Text(
-                                                                'Invalid suburb',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Montserrat',
-                                                                      color: const Color(
-                                                                          0xFFFF5963),
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w500,
-                                                                    ),
-                                                              ).animateOnPageLoad(
-                                                                  animationsMap[
-                                                                      'textOnPageLoadAnimation2']!),
-                                                            ),
+                                                                    -0.62, 0.6),
+                                                            child: Text(
+                                                              'Invalid suburb',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Montserrat',
+                                                                    color: const Color(
+                                                                        0xFFFF5963),
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                  ),
+                                                            ).animateOnPageLoad(
+                                                                animationsMap[
+                                                                    'textOnPageLoadAnimation2']!),
                                                           );
                                                         } else {
                                                           return Text(
@@ -1591,6 +1566,22 @@ class _RegisterProfessional1WidgetState
                                   ),
                                 ),
                               ),
+                            Align(
+                              alignment: const AlignmentDirectional(0.0, -1.0),
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 10.0, 0.0, 0.0),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  child: Image.asset(
+                                    'assets/images/logo-1.png',
+                                    width: 110.0,
+                                    height: 110.0,
+                                    fit: BoxFit.fitWidth,
+                                  ),
+                                ),
+                              ),
+                            ),
                           ],
                         ),
                       ),

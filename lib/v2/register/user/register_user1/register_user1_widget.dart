@@ -157,18 +157,6 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.0, -1.0),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.asset(
-                                  'assets/images/logo-1.png',
-                                  width: 110.0,
-                                  height: 106.0,
-                                  fit: BoxFit.fitWidth,
-                                ),
-                              ),
-                            ),
-                            Align(
                               alignment: const AlignmentDirectional(-0.91, -0.96),
                               child: FlutterFlowIconButton(
                                 borderRadius: 20.0,
@@ -784,32 +772,26 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                               alignment:
                                                                   const AlignmentDirectional(
                                                                       -0.62,
-                                                                      1.0),
-                                                              child: Padding(
-                                                                padding:
-                                                                    const EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            20.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                child: Text(
-                                                                  'Field is required',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Montserrat',
-                                                                        color: const Color(
-                                                                            0xFFFF5963),
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                      ),
-                                                                ).animateOnPageLoad(
-                                                                    animationsMap[
-                                                                        'textOnPageLoadAnimation1']!),
-                                                              ),
+                                                                      0.6),
+                                                              child: Text(
+                                                                'Field is required',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Montserrat',
+                                                                      color: const Color(
+                                                                          0xFFFF5963),
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
+                                                                    ),
+                                                              ).animateOnPageLoad(
+                                                                  animationsMap[
+                                                                      'textOnPageLoadAnimation1']!),
                                                             );
                                                           } else {
                                                             return Text(
@@ -1198,7 +1180,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                               alignment:
                                                                   const AlignmentDirectional(
                                                                       -0.62,
-                                                                      1.0),
+                                                                      0.7),
                                                               child: Text(
                                                                 'Invalid suburb',
                                                                 style: FlutterFlowTheme.of(
@@ -1211,6 +1193,9 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                           0xFFFF5963),
                                                                       letterSpacing:
                                                                           0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
                                                                     ),
                                                               ).animateOnPageLoad(
                                                                   animationsMap[
@@ -1538,6 +1523,18 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                   ),
                                 ),
                               ),
+                            Align(
+                              alignment: const AlignmentDirectional(0.0, -1.0),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(8.0),
+                                child: Image.asset(
+                                  'assets/images/logo-1.png',
+                                  width: 110.0,
+                                  height: 106.0,
+                                  fit: BoxFit.fitWidth,
+                                ),
+                              ),
+                            ),
                           ],
                         ),
                       ),

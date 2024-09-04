@@ -135,7 +135,7 @@ class FFAppState extends ChangeNotifier {
   }
 
   FiltersStruct _filtersPage = FiltersStruct.fromSerializableMap(jsonDecode(
-      '{\"distance\":\"100000\",\"age\":\"[\\\"40-65+ years\\\",\\\"25-40 years\\\",\\\"18-25 years\\\"]\",\"services\":\"[]\"}'));
+      '{\"distance\":\"100000\",\"age\":\"[\\\"40-65+ years\\\",\\\"25-40 years\\\",\\\"18-25 years\\\"]\",\"services\":\"[\\\"Support Worker\\\",\\\" Support Coordinators\\\",\\\"Therapeutic Supports\\\",\\\"Home Maintence\\\",\\\"Recovery Coaches\\\"]\"}'));
   FiltersStruct get filtersPage => _filtersPage;
   set filtersPage(FiltersStruct value) {
     _filtersPage = value;

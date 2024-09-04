@@ -587,7 +587,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                           onPressed: () async {
                             FFAppState().filtersPage =
                                 FiltersStruct.fromSerializableMap(jsonDecode(
-                                    '{\"distance\":\"100000\",\"age\":\"[\\\"40-65+ years\\\",\\\"25-40 years\\\",\\\"18-25 years\\\"]\",\"services\":\"[]\"}'));
+                                    '{\"distance\":\"100000\",\"age\":\"[\\\"40-65+ years\\\",\\\"25-40 years\\\",\\\"18-25 years\\\"]\",\"services\":\"[\\\"Support Worker\\\",\\\" Support Coordinators\\\",\\\"Therapeutic Supports\\\",\\\"Home Maintence\\\",\\\"Recovery Coaches\\\"]\"}'));
 
                             context.pushNamed(
                               'HomeSearch',
