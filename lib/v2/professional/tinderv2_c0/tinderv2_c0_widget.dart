@@ -169,7 +169,7 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                             child: Container(
                               constraints: BoxConstraints(
                                 maxWidth:
-                                    MediaQuery.sizeOf(context).width * 0.68,
+                                    MediaQuery.sizeOf(context).width * 0.7,
                                 maxHeight:
                                     MediaQuery.sizeOf(context).height * 0.12,
                               ),
@@ -223,7 +223,7 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                                       Container(
                                         width:
                                             MediaQuery.sizeOf(context).width *
-                                                0.38,
+                                                0.4,
                                         height: 30.0,
                                         decoration: const BoxDecoration(
                                           color: Color(0xFFAC16A4),
@@ -242,10 +242,7 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                                               widget.professional?.serviceType
                                                   .first,
                                               'service',
-                                            ).maybeHandleOverflow(
-                                              maxChars: 13,
-                                              replacement: '…',
-                                            ),
+                                            ).maybeHandleOverflow(maxChars: 24),
                                             minFontSize: 11.0,
                                             style: FlutterFlowTheme.of(context)
                                                 .labelSmall
