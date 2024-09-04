@@ -551,9 +551,7 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                             child: FFButtonWidget(
                                               onPressed: () async {
                                                 if (FFAppState()
-                                                        .imagesUserUpload
-                                                        .length >
-                                                    1) {
+                                                        .imagesUserUpload.isNotEmpty) {
                                                   _model.photoVerify = true;
                                                   setState(() {});
                                                   FFAppState()
@@ -562,8 +560,9 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                       ..images = FFAppState()
                                                           .imagesUserUpload
                                                           .where((e) =>
-                                                              e !=
-                                                              'https://i.ibb.co/b7TBHQJ/imagen-defecto.png')
+                                                              (e !=
+                                                                  'https://i.ibb.co/b7TBHQJ/imagen-defecto.png') &&
+                                                              (e != ''))
                                                           .toList(),
                                                   );
                                                   GoRouter.of(context)

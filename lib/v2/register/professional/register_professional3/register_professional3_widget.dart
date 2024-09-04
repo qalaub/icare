@@ -118,13 +118,14 @@ class _RegisterProfessional3WidgetState
                                   child: Container(
                                     width:
                                         MediaQuery.sizeOf(context).width * 0.96,
-                                    height:
-                                        MediaQuery.sizeOf(context).height * 0.3,
-                                    constraints: const BoxConstraints(
+                                    constraints: BoxConstraints(
                                       minWidth: 320.0,
-                                      minHeight: 604.0,
-                                      maxWidth: 640.0,
-                                      maxHeight: 1208.0,
+                                      minHeight:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.45,
+                                      maxHeight:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.7,
                                     ),
                                     decoration: BoxDecoration(
                                       color: const Color(0xFFFFFEFE),
@@ -144,6 +145,7 @@ class _RegisterProfessional3WidgetState
                                       autovalidateMode:
                                           AutovalidateMode.disabled,
                                       child: SingleChildScrollView(
+                                        primary: false,
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -397,6 +399,26 @@ class _RegisterProfessional3WidgetState
                                                                             val),
                                                                 width: 261.0,
                                                                 height: 56.0,
+                                                                searchHintTextStyle:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Readex Pro',
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                        ),
+                                                                searchTextStyle:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Readex Pro',
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                        ),
                                                                 textStyle: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -413,6 +435,8 @@ class _RegisterProfessional3WidgetState
                                                                     ),
                                                                 hintText:
                                                                     'Company name',
+                                                                searchHintText:
+                                                                    'Search for a business...',
                                                                 icon: const Icon(
                                                                   Icons
                                                                       .keyboard_arrow_down_rounded,
@@ -439,7 +463,7 @@ class _RegisterProfessional3WidgetState
                                                                 isOverButton:
                                                                     true,
                                                                 isSearchable:
-                                                                    false,
+                                                                    true,
                                                                 isMultiSelect:
                                                                     false,
                                                               );

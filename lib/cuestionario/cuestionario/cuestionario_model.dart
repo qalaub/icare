@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class CuestionarioModel extends FlutterFlowModel<CuestionarioWidget> {
   ///  Local state fields for this page.
 
-  String? suguestion;
+  String suguestion = 'Premiun';
 
   bool firts = false;
 

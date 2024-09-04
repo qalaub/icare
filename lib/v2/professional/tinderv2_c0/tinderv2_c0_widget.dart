@@ -95,6 +95,8 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                                   .professional?.images
                                   .map((e) => e)
                                   .toList()
+                                  .where((e) => e != '')
+                                  .toList()
                                   .toList() ??
                               [];
 

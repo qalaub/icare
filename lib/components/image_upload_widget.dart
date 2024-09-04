@@ -73,6 +73,7 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
                     final selectedMedia =
                         await selectMediaWithSourceBottomSheet(
                       context: context,
+                      imageQuality: 70,
                       allowPhoto: true,
                     );
                     if (selectedMedia != null &&

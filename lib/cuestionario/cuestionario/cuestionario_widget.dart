@@ -1058,7 +1058,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                           }
                         },
                         text:
-                            _model.suguestion != null && _model.suguestion != ''
+                            _model.suguestion != ''
                                 ? functions.concatStrings(
                                     'Select',
                                     functions.concatStrings(

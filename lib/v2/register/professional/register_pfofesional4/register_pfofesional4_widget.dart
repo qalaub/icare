@@ -583,9 +583,7 @@ class _RegisterPfofesional4WidgetState
                                               child: FFButtonWidget(
                                                 onPressed: () async {
                                                   if (FFAppState()
-                                                          .imagesUserUpload
-                                                          .length >
-                                                      1) {
+                                                          .imagesUserUpload.isNotEmpty) {
                                                     _model.photosVerify = true;
                                                     setState(() {});
                                                     FFAppState()
@@ -594,8 +592,9 @@ class _RegisterPfofesional4WidgetState
                                                         ..images = FFAppState()
                                                             .imagesUserUpload
                                                             .where((e) =>
-                                                                e !=
-                                                                'https://i.ibb.co/b7TBHQJ/imagen-defecto.png')
+                                                                (e !=
+                                                                    'https://i.ibb.co/b7TBHQJ/imagen-defecto.png') &&
+                                                                (e != ''))
                                                             .toList(),
                                                     );
                                                     setState(() {});
@@ -697,6 +696,19 @@ class _RegisterPfofesional4WidgetState
 
                                                     if (widget.businessRef !=
                                                         null) {
+                                                      await widget.businessRef!
+                                                          .update({
+                                                        ...mapToFirestore(
+                                                          {
+                                                            'professionals':
+                                                                FieldValue
+                                                                    .arrayUnion([
+                                                              currentUserReference
+                                                            ]),
+                                                          },
+                                                        ),
+                                                      });
+
                                                       context.goNamedAuth(
                                                         'HomeSearch',
                                                         context.mounted,
