@@ -56,14 +56,14 @@ class _ListofcollaboratorsWidgetState extends State<ListofcollaboratorsWidget> {
                     color: Colors.white,
                   ),
                   child: Align(
-                    alignment: const AlignmentDirectional(0.0, 1.0),
+                    alignment: const AlignmentDirectional(0, 1),
                     child: Stack(
                       children: [
                         Align(
-                          alignment: const AlignmentDirectional(0.0, -1.0),
+                          alignment: const AlignmentDirectional(0, -1),
                           child: Container(
-                            width: 399.0,
-                            height: 100.0,
+                            width: 399,
+                            height: 100,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
@@ -71,9 +71,9 @@ class _ListofcollaboratorsWidgetState extends State<ListofcollaboratorsWidget> {
                             child: Stack(
                               children: [
                                 Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0, 0),
                                   child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(8.0),
+                                    borderRadius: BorderRadius.circular(8),
                                     child: Image.asset(
                                       'assets/images/Rectangle_7.png',
                                       width: double.infinity,
@@ -83,7 +83,7 @@ class _ListofcollaboratorsWidgetState extends State<ListofcollaboratorsWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0, 0),
                                   child: Text(
                                     'list of collaborators',
                                     style: FlutterFlowTheme.of(context)
@@ -91,7 +91,7 @@ class _ListofcollaboratorsWidgetState extends State<ListofcollaboratorsWidget> {
                                         .override(
                                           fontFamily: 'Montserrat',
                                           color: Colors.white,
-                                          fontSize: 20.0,
+                                          fontSize: 20,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
                                         ),
@@ -127,10 +127,10 @@ class _ListofcollaboratorsWidgetState extends State<ListofcollaboratorsWidget> {
                           ),
                         ),
                         Align(
-                          alignment: const AlignmentDirectional(0.0, 0.2),
+                          alignment: const AlignmentDirectional(0, 0.2),
                           child: Container(
-                            width: 300.0,
-                            height: 480.0,
+                            width: 300,
+                            height: 480,
                             decoration: const BoxDecoration(),
                             child: AuthUserStreamWidget(
                               builder: (context) => Builder(
@@ -150,8 +150,7 @@ class _ListofcollaboratorsWidgetState extends State<ListofcollaboratorsWidget> {
                                       final colaboratorsItem =
                                           colaborators[colaboratorsIndex];
                                       return Align(
-                                        alignment:
-                                            const AlignmentDirectional(0.0, 0.0),
+                                        alignment: const AlignmentDirectional(0, 0),
                                         child: ListofcollaboratorsPERFILWidget(
                                           key: Key(
                                               'Keymd2_${colaboratorsIndex}_of_${colaborators.length}'),
@@ -166,9 +165,9 @@ class _ListofcollaboratorsWidgetState extends State<ListofcollaboratorsWidget> {
                           ),
                         ),
                         Align(
-                          alignment: const AlignmentDirectional(0.0, 1.01),
+                          alignment: const AlignmentDirectional(0, 1.01),
                           child: Container(
-                            height: 73.0,
+                            height: 73,
                             decoration: const BoxDecoration(
                               color: Color(0xD5B928B8),
                             ),
@@ -178,13 +177,13 @@ class _ListofcollaboratorsWidgetState extends State<ListofcollaboratorsWidget> {
                                     Roles.business) {
                                   return wrapWithModel(
                                     model: _model.navbarModel,
-                                    updateCallback: () => setState(() {}),
+                                    updateCallback: () => safeSetState(() {}),
                                     child: const NavbarWidget(),
                                   );
                                 } else {
                                   return wrapWithModel(
                                     model: _model.navbarPremiunModel,
-                                    updateCallback: () => setState(() {}),
+                                    updateCallback: () => safeSetState(() {}),
                                     child: const NavbarPremiunWidget(),
                                   );
                                 }

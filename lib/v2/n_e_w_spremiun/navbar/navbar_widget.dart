@@ -43,13 +43,13 @@ class _NavbarWidgetState extends State<NavbarWidget> {
         if (currentUserDocument?.rol == Roles.user) {
           return wrapWithModel(
             model: _model.navbarUserModel,
-            updateCallback: () => setState(() {}),
+            updateCallback: () => safeSetState(() {}),
             child: const NavbarUserWidget(),
           );
         } else {
           return wrapWithModel(
             model: _model.navbarProfessionalModel,
-            updateCallback: () => setState(() {}),
+            updateCallback: () => safeSetState(() {}),
             child: const NavbarProfessionalWidget(),
           );
         }

@@ -57,14 +57,14 @@ class _LoginWidgetState extends State<LoginWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(0.0),
+          preferredSize: const Size.fromHeight(0),
           child: AppBar(
             backgroundColor: const Color(0xFFFFFEFE),
             automaticallyImplyLeading: false,
             actions: const [],
             centerTitle: false,
-            toolbarHeight: 0.0,
-            elevation: 0.0,
+            toolbarHeight: 0,
+            elevation: 0,
           ),
         ),
         body: SafeArea(
@@ -75,7 +75,7 @@ class _LoginWidgetState extends State<LoginWidget> {
               Expanded(
                 child: Container(
                   width: double.infinity,
-                  height: 100.0,
+                  height: 100,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
                   ),
@@ -86,9 +86,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                         child: Stack(
                           children: [
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0, 0),
                               child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
+                                borderRadius: BorderRadius.circular(8),
                                 child: Image.asset(
                                   'assets/images/escoger-users.png',
                                   width: double.infinity,
@@ -98,41 +98,41 @@ class _LoginWidgetState extends State<LoginWidget> {
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.0, -1.0),
+                              alignment: const AlignmentDirectional(0, -1),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 6.0, 0.0, 0.0),
+                                padding:
+                                    const EdgeInsetsDirectional.fromSTEB(0, 6, 0, 0),
                                 child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(8),
                                   child: Image.asset(
                                     'assets/images/logo-1.png',
-                                    width: 123.0,
-                                    height: 113.0,
+                                    width: 123,
+                                    height: 113,
                                     fit: BoxFit.cover,
                                   ),
                                 ),
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0, 0),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 40.0, 0.0, 0.0),
+                                padding:
+                                    const EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
                                 child: Container(
                                   width:
                                       MediaQuery.sizeOf(context).width * 0.96,
-                                  height: 468.0,
+                                  height: 468,
                                   decoration: BoxDecoration(
                                     color: const Color(0xFFFFFEFE),
                                     borderRadius: const BorderRadius.only(
-                                      bottomLeft: Radius.circular(24.0),
-                                      bottomRight: Radius.circular(24.0),
-                                      topLeft: Radius.circular(24.0),
-                                      topRight: Radius.circular(24.0),
+                                      bottomLeft: Radius.circular(24),
+                                      bottomRight: Radius.circular(24),
+                                      topLeft: Radius.circular(24),
+                                      topRight: Radius.circular(24),
                                     ),
                                     border: Border.all(
                                       color: Colors.black,
-                                      width: 2.0,
+                                      width: 2,
                                     ),
                                   ),
                                   child: Form(
@@ -143,11 +143,11 @@ class _LoginWidgetState extends State<LoginWidget> {
                                       children: [
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, -1.0),
+                                              const AlignmentDirectional(0, -1),
                                           child: Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 10.0, 0.0, 0.0),
+                                                    0, 10, 0, 0),
                                             child: Text(
                                               'Log in to your iCare account',
                                               textAlign: TextAlign.center,
@@ -157,7 +157,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                   .override(
                                                     fontFamily: 'Montserrat',
                                                     color: Colors.black,
-                                                    fontSize: 19.0,
+                                                    fontSize: 19,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
@@ -165,15 +165,14 @@ class _LoginWidgetState extends State<LoginWidget> {
                                           ),
                                         ),
                                         Align(
-                                          alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                          alignment: const AlignmentDirectional(0, 0),
                                           child: Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 15.0, 0.0, 0.0),
+                                                    0, 15, 0, 0),
                                             child: Container(
-                                              width: 350.0,
-                                              height: 1.0,
+                                              width: 350,
+                                              height: 1,
                                               decoration: BoxDecoration(
                                                 color: const Color(0xFFF0DFEF),
                                                 border: Border.all(
@@ -189,7 +188,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                           child: Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 15.0, 0.0, 15.0),
+                                                    0, 15, 0, 15),
                                             child: Container(
                                               decoration: const BoxDecoration(),
                                               child: Text(
@@ -201,7 +200,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                           fontFamily:
                                                               'Montserrat',
                                                           color: Colors.black,
-                                                          fontSize: 15.0,
+                                                          fontSize: 15,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -214,22 +213,21 @@ class _LoginWidgetState extends State<LoginWidget> {
                                           alignment: const AlignmentDirectional(
                                               -0.01, -0.69),
                                           child: Container(
-                                            width: 295.0,
-                                            height: 70.0,
+                                            width: 295,
+                                            height: 70,
                                             decoration: const BoxDecoration(
                                               color: Color(0xFFFFFEFE),
                                               borderRadius: BorderRadius.only(
-                                                bottomLeft:
-                                                    Radius.circular(12.0),
+                                                bottomLeft: Radius.circular(12),
                                                 bottomRight:
-                                                    Radius.circular(12.0),
-                                                topLeft: Radius.circular(12.0),
-                                                topRight: Radius.circular(12.0),
+                                                    Radius.circular(12),
+                                                topLeft: Radius.circular(12),
+                                                topRight: Radius.circular(12),
                                               ),
                                             ),
                                             child: Align(
-                                              alignment: const AlignmentDirectional(
-                                                  0.0, -1.0),
+                                              alignment:
+                                                  const AlignmentDirectional(0, -1),
                                               child: TextFormField(
                                                 controller:
                                                     _model.emailTextController,
@@ -268,27 +266,27 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                                     context)
                                                                 .error,
                                                         letterSpacing: 0.0,
-                                                        lineHeight: 1.0,
+                                                        lineHeight: 1,
                                                       ),
                                                   enabledBorder:
                                                       OutlineInputBorder(
                                                     borderSide: const BorderSide(
                                                       color: Color(0xFFBB33B9),
-                                                      width: 0.0,
+                                                      width: 0,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            12.0),
+                                                            12),
                                                   ),
                                                   focusedBorder:
                                                       OutlineInputBorder(
                                                     borderSide: const BorderSide(
                                                       color: Color(0xFF762075),
-                                                      width: 0.0,
+                                                      width: 0,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            12.0),
+                                                            12),
                                                   ),
                                                   errorBorder:
                                                       OutlineInputBorder(
@@ -297,11 +295,11 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .error,
-                                                      width: 0.0,
+                                                      width: 0,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            12.0),
+                                                            12),
                                                   ),
                                                   focusedErrorBorder:
                                                       OutlineInputBorder(
@@ -310,11 +308,11 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .error,
-                                                      width: 0.0,
+                                                      width: 0,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            12.0),
+                                                            12),
                                                   ),
                                                 ),
                                                 style:
@@ -340,7 +338,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                           child: Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 15.0, 0.0, 15.0),
+                                                    0, 15, 0, 15),
                                             child: Text(
                                               'Password',
                                               style: FlutterFlowTheme.of(
@@ -349,7 +347,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                   .override(
                                                     fontFamily: 'Montserrat',
                                                     color: Colors.black,
-                                                    fontSize: 15.0,
+                                                    fontSize: 15,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
@@ -360,22 +358,21 @@ class _LoginWidgetState extends State<LoginWidget> {
                                           alignment: const AlignmentDirectional(
                                               -0.01, -0.69),
                                           child: Container(
-                                            width: 295.0,
-                                            height: 70.0,
+                                            width: 295,
+                                            height: 70,
                                             decoration: const BoxDecoration(
                                               color: Color(0xFFFFFEFE),
                                               borderRadius: BorderRadius.only(
-                                                bottomLeft:
-                                                    Radius.circular(12.0),
+                                                bottomLeft: Radius.circular(12),
                                                 bottomRight:
-                                                    Radius.circular(12.0),
-                                                topLeft: Radius.circular(12.0),
-                                                topRight: Radius.circular(12.0),
+                                                    Radius.circular(12),
+                                                topLeft: Radius.circular(12),
+                                                topRight: Radius.circular(12),
                                               ),
                                             ),
                                             child: Align(
-                                              alignment: const AlignmentDirectional(
-                                                  0.0, -1.0),
+                                              alignment:
+                                                  const AlignmentDirectional(0, -1),
                                               child: TextFormField(
                                                 controller: _model
                                                     .passwordTextController,
@@ -415,27 +412,27 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                                     context)
                                                                 .error,
                                                         letterSpacing: 0.0,
-                                                        lineHeight: 1.0,
+                                                        lineHeight: 1,
                                                       ),
                                                   enabledBorder:
                                                       OutlineInputBorder(
                                                     borderSide: const BorderSide(
                                                       color: Color(0xFFBB33B9),
-                                                      width: 0.0,
+                                                      width: 0,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            12.0),
+                                                            12),
                                                   ),
                                                   focusedBorder:
                                                       OutlineInputBorder(
                                                     borderSide: const BorderSide(
                                                       color: Color(0xFF762075),
-                                                      width: 0.0,
+                                                      width: 0,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            12.0),
+                                                            12),
                                                   ),
                                                   errorBorder:
                                                       OutlineInputBorder(
@@ -444,11 +441,11 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .error,
-                                                      width: 0.0,
+                                                      width: 0,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            12.0),
+                                                            12),
                                                   ),
                                                   focusedErrorBorder:
                                                       OutlineInputBorder(
@@ -457,14 +454,14 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .error,
-                                                      width: 0.0,
+                                                      width: 0,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            12.0),
+                                                            12),
                                                   ),
                                                   suffixIcon: InkWell(
-                                                    onTap: () => setState(
+                                                    onTap: () => safeSetState(
                                                       () => _model
                                                               .passwordVisibility =
                                                           !_model
@@ -479,7 +476,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                           : Icons
                                                               .visibility_off_outlined,
                                                       color: const Color(0xFF6D6D6D),
-                                                      size: 18.0,
+                                                      size: 18,
                                                     ),
                                                   ),
                                                 ),
@@ -500,15 +497,14 @@ class _LoginWidgetState extends State<LoginWidget> {
                                           ),
                                         ),
                                         Align(
-                                          alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                          alignment: const AlignmentDirectional(0, 0),
                                           child: Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 15.0, 0.0, 0.0),
+                                                    0, 15, 0, 0),
                                             child: Container(
-                                              width: 350.0,
-                                              height: 1.0,
+                                              width: 350,
+                                              height: 1,
                                               decoration: BoxDecoration(
                                                 color: const Color(0xFFF0DFEF),
                                                 border: Border.all(
@@ -524,7 +520,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                           child: Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 15.0, 0.0, 15.0),
+                                                    0, 15, 0, 15),
                                             child: FFButtonWidget(
                                               onPressed: () async {
                                                 if (_model.formKey
@@ -553,7 +549,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                 if (loggedIn) {
                                                   FFAppState()
                                                       .authUserFireBase = true;
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   await actions.saveToken(
                                                     currentJwtToken,
                                                   );
@@ -572,15 +568,13 @@ class _LoginWidgetState extends State<LoginWidget> {
                                               },
                                               text: 'Access My Account',
                                               options: FFButtonOptions(
-                                                width: 279.0,
-                                                height: 45.0,
+                                                width: 279,
+                                                height: 45,
                                                 padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 0.0, 0.0),
+                                                    .fromSTEB(0, 0, 0, 0),
                                                 iconPadding:
                                                     const EdgeInsetsDirectional
-                                                        .fromSTEB(
-                                                            0.0, 0.0, 0.0, 0.0),
+                                                        .fromSTEB(0, 0, 0, 0),
                                                 color: const Color(0xFFB928B8),
                                                 textStyle:
                                                     FlutterFlowTheme.of(context)
@@ -588,16 +582,16 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                         .override(
                                                           fontFamily:
                                                               'Montserrat',
-                                                          fontSize: 19.0,
+                                                          fontSize: 19,
                                                           letterSpacing: 0.0,
                                                         ),
-                                                elevation: 3.0,
+                                                elevation: 3,
                                                 borderSide: const BorderSide(
                                                   color: Colors.transparent,
-                                                  width: 1.0,
+                                                  width: 1,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(24.0),
+                                                    BorderRadius.circular(24),
                                               ),
                                             ),
                                           ),
@@ -605,7 +599,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                         Flexible(
                                           child: Align(
                                             alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
+                                                const AlignmentDirectional(0, 0),
                                             child: Container(
                                               decoration: const BoxDecoration(),
                                               child: RichText(
@@ -624,7 +618,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                             fontFamily:
                                                                 'Montserrat',
                                                             color: Colors.black,
-                                                            fontSize: 13.0,
+                                                            fontSize: 13,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w500,
@@ -638,7 +632,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                         color: Colors.black,
                                                         fontWeight:
                                                             FontWeight.w600,
-                                                        fontSize: 16.0,
+                                                        fontSize: 16,
                                                         decoration:
                                                             TextDecoration
                                                                 .underline,

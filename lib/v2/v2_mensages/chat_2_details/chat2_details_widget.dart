@@ -74,8 +74,8 @@ class _Chat2DetailsWidgetState extends State<Chat2DetailsWidget> {
             backgroundColor: const Color(0xFFC047BB),
             body: Center(
               child: SizedBox(
-                width: 50.0,
-                height: 50.0,
+                width: 50,
+                height: 50,
                 child: CircularProgressIndicator(
                   valueColor: AlwaysStoppedAnimation<Color>(
                     FlutterFlowTheme.of(context).primary,
@@ -99,14 +99,14 @@ class _Chat2DetailsWidgetState extends State<Chat2DetailsWidget> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Container(
-                  width: MediaQuery.sizeOf(context).width * 1.0,
-                  height: 110.0,
+                  width: MediaQuery.sizeOf(context).width,
+                  height: 110,
                   decoration: const BoxDecoration(
                     gradient: LinearGradient(
                       colors: [Color(0xFFC047BB), Color(0xFFCB77C1)],
-                      stops: [0.0, 1.0],
-                      begin: AlignmentDirectional(-1.0, 0.0),
-                      end: AlignmentDirectional(1.0, 0),
+                      stops: [0, 1],
+                      begin: AlignmentDirectional(-1, 0),
+                      end: AlignmentDirectional(1, 0),
                     ),
                   ),
                   child: Row(
@@ -118,13 +118,13 @@ class _Chat2DetailsWidgetState extends State<Chat2DetailsWidget> {
                         alignment: const AlignmentDirectional(-1.05, 0.2),
                         child: FlutterFlowIconButton(
                           borderColor: Colors.transparent,
-                          borderRadius: 20.0,
-                          borderWidth: 1.0,
-                          buttonSize: 56.0,
+                          borderRadius: 20,
+                          borderWidth: 1,
+                          buttonSize: 56,
                           icon: const Icon(
                             Icons.arrow_back_ios,
                             color: Colors.white,
-                            size: 38.0,
+                            size: 38,
                           ),
                           onPressed: () async {
                             context.safePop();
@@ -132,18 +132,17 @@ class _Chat2DetailsWidgetState extends State<Chat2DetailsWidget> {
                         ),
                       ),
                       Align(
-                        alignment: const AlignmentDirectional(0.0, 0.42),
+                        alignment: const AlignmentDirectional(0, 0.42),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              20.0, 0.0, 0.0, 0.0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                alignment: const AlignmentDirectional(0, 0),
                                 child: Container(
-                                  width: 62.0,
-                                  height: 62.0,
+                                  width: 62,
+                                  height: 62,
                                   clipBehavior: Clip.antiAlias,
                                   decoration: const BoxDecoration(
                                     shape: BoxShape.circle,
@@ -181,8 +180,8 @@ class _Chat2DetailsWidgetState extends State<Chat2DetailsWidget> {
                         alignment: const AlignmentDirectional(1.02, 0.29),
                         child: FlutterFlowIconButton(
                           borderColor: Colors.transparent,
-                          borderRadius: 20.0,
-                          borderWidth: 1.0,
+                          borderRadius: 20,
+                          borderWidth: 1,
                           buttonSize: 64.25,
                           icon: const Icon(
                             Icons.more_vert,
@@ -191,7 +190,7 @@ class _Chat2DetailsWidgetState extends State<Chat2DetailsWidget> {
                           ),
                           onPressed: () async {
                             _model.showMenu = !_model.showMenu;
-                            setState(() {});
+                            safeSetState(() {});
                           },
                         ),
                       ),
@@ -206,7 +205,7 @@ class _Chat2DetailsWidgetState extends State<Chat2DetailsWidget> {
                     highlightColor: Colors.transparent,
                     onTap: () async {
                       FFAppState().isMENUvisible = false;
-                      setState(() {});
+                      safeSetState(() {});
                     },
                     child: Stack(
                       children: [
@@ -216,7 +215,7 @@ class _Chat2DetailsWidgetState extends State<Chat2DetailsWidget> {
                           ),
                           child: wrapWithModel(
                             model: _model.chatThreadComponentModel,
-                            updateCallback: () => setState(() {}),
+                            updateCallback: () => safeSetState(() {}),
                             updateOnChange: true,
                             child: ChatThreadComponentWidget(
                               chatRef: widget.chatRef,
@@ -226,7 +225,7 @@ class _Chat2DetailsWidgetState extends State<Chat2DetailsWidget> {
                           ),
                         ),
                         Align(
-                          alignment: const AlignmentDirectional(1.0, -1.0),
+                          alignment: const AlignmentDirectional(1, -1),
                           child: Container(
                             width: MediaQuery.sizeOf(context).width * 0.4,
                             decoration: const BoxDecoration(),
@@ -234,7 +233,7 @@ class _Chat2DetailsWidgetState extends State<Chat2DetailsWidget> {
                               visible: _model.showMenu,
                               child: wrapWithModel(
                                 model: _model.optionsMessageModel,
-                                updateCallback: () => setState(() {}),
+                                updateCallback: () => safeSetState(() {}),
                                 child: OptionsMessageWidget(
                                   userRef: chat2DetailsUsersRecord,
                                 ),

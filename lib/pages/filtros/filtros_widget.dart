@@ -1,4 +1,3 @@
-import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -25,7 +24,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
     super.initState();
     _model = createModel(context, () => FiltrosModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -48,13 +47,13 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
           backgroundColor: const Color(0xFFC047BB),
           automaticallyImplyLeading: true,
           title: Align(
-            alignment: const AlignmentDirectional(-1.0, 0.0),
+            alignment: const AlignmentDirectional(-1, 0),
             child: Text(
               'Filters',
               style: FlutterFlowTheme.of(context).bodyMedium.override(
                     fontFamily: 'Montserrat',
                     color: const Color(0xFFF7F9F9),
-                    fontSize: 24.0,
+                    fontSize: 24,
                     letterSpacing: 0.0,
                     fontWeight: FontWeight.bold,
                   ),
@@ -62,7 +61,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
           ),
           actions: const [],
           centerTitle: true,
-          elevation: 4.0,
+          elevation: 4,
         ),
         body: SafeArea(
           top: true,
@@ -72,22 +71,22 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        alignment: const AlignmentDirectional(0, 0),
                         child: Container(
-                          width: 346.0,
-                          height: 30.0,
+                          width: 346,
+                          height: 30,
                           decoration: BoxDecoration(
                             color: const Color(0xFFEEEAEA),
                             borderRadius: const BorderRadius.only(
-                              bottomLeft: Radius.circular(12.0),
-                              bottomRight: Radius.circular(12.0),
-                              topLeft: Radius.circular(12.0),
-                              topRight: Radius.circular(12.0),
+                              bottomLeft: Radius.circular(12),
+                              bottomRight: Radius.circular(12),
+                              topLeft: Radius.circular(12),
+                              topRight: Radius.circular(12),
                             ),
                             border: Border.all(
                               color: const Color(0xFFEEEAEA),
@@ -97,7 +96,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(-1.0, 0.0),
+                                alignment: const AlignmentDirectional(-1, 0),
                                 child: Text(
                                   'Search Distance: ',
                                   style: FlutterFlowTheme.of(context)
@@ -111,7 +110,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                 ),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(1.0, 0.0),
+                                alignment: const AlignmentDirectional(1, 0),
                                 child: Text(
                                   valueOrDefault<String>(
                                     functions.concatStrings(
@@ -135,29 +134,29 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                         ),
                       ),
                       Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        alignment: const AlignmentDirectional(0, 0),
                         child: Container(
-                          width: 346.0,
-                          height: 61.0,
+                          width: 346,
+                          height: 61,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: const BorderRadius.only(
-                              bottomLeft: Radius.circular(12.0),
-                              bottomRight: Radius.circular(12.0),
-                              topLeft: Radius.circular(12.0),
-                              topRight: Radius.circular(12.0),
+                              bottomLeft: Radius.circular(12),
+                              bottomRight: Radius.circular(12),
+                              topLeft: Radius.circular(12),
+                              topRight: Radius.circular(12),
                             ),
                             border: Border.all(
                               color: Colors.white,
                             ),
                           ),
                           child: Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: const AlignmentDirectional(0, 0),
                             child: Slider(
                               activeColor: const Color(0xFFFF09BA),
                               inactiveColor: const Color(0xFFE4E4E4),
-                              min: 10.0,
-                              max: 1000.0,
+                              min: 10,
+                              max: 1000,
                               value: _model.distanceValue ??=
                                   (FFAppState().filtersPage.distance >= 10.0) &&
                                           (FFAppState().filtersPage.distance <=
@@ -169,32 +168,33 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                       : 1000.0,
                               divisions: 10,
                               onChanged: (newValue) {
-                                setState(() => _model.distanceValue = newValue);
+                                safeSetState(
+                                    () => _model.distanceValue = newValue);
                               },
                             ),
                           ),
                         ),
                       ),
-                    ].divide(const SizedBox(height: 12.0)),
+                    ].divide(const SizedBox(height: 12)),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        alignment: const AlignmentDirectional(0, 0),
                         child: Container(
-                          width: 346.0,
-                          height: 30.0,
+                          width: 346,
+                          height: 30,
                           decoration: BoxDecoration(
                             color: const Color(0xFFEEEAEA),
                             borderRadius: const BorderRadius.only(
-                              bottomLeft: Radius.circular(12.0),
-                              bottomRight: Radius.circular(12.0),
-                              topLeft: Radius.circular(12.0),
-                              topRight: Radius.circular(12.0),
+                              bottomLeft: Radius.circular(12),
+                              bottomRight: Radius.circular(12),
+                              topLeft: Radius.circular(12),
+                              topRight: Radius.circular(12),
                             ),
                             border: Border.all(
                               color: const Color(0xFFEEEAEA),
@@ -205,7 +205,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(-1.0, 0.0),
+                                alignment: const AlignmentDirectional(-1, 0),
                                 child: Text(
                                   'Show Ages:',
                                   style: FlutterFlowTheme.of(context)
@@ -225,14 +225,14 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                       Align(
                         alignment: const AlignmentDirectional(-0.03, -0.86),
                         child: Container(
-                          width: 347.0,
+                          width: 347,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: const BorderRadius.only(
-                              bottomLeft: Radius.circular(12.0),
-                              bottomRight: Radius.circular(12.0),
-                              topLeft: Radius.circular(12.0),
-                              topRight: Radius.circular(12.0),
+                              bottomLeft: Radius.circular(12),
+                              bottomRight: Radius.circular(12),
+                              topLeft: Radius.circular(12),
+                              topRight: Radius.circular(12),
                             ),
                             border: Border.all(
                               color: Colors.white,
@@ -242,7 +242,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(0.0, 0.77),
+                                alignment: const AlignmentDirectional(0, 0.77),
                                 child: CheckboxListTile(
                                   value: _model.age1Value ??= FFAppState()
                                           .filtersPage
@@ -251,7 +251,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                               FFAppConstants.agesType[2]) ==
                                       true,
                                   onChanged: (newValue) async {
-                                    setState(
+                                    safeSetState(
                                         () => _model.age1Value = newValue!);
                                   },
                                   title: Text(
@@ -261,7 +261,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                         .override(
                                           fontFamily: 'Montserrat',
                                           color: Colors.black,
-                                          fontSize: 14.0,
+                                          fontSize: 14,
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -273,7 +273,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                 ),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(0.0, 0.13),
+                                alignment: const AlignmentDirectional(0, 0.13),
                                 child: CheckboxListTile(
                                   value: _model.age2Value ??= FFAppState()
                                           .filtersPage
@@ -282,7 +282,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                               FFAppConstants.agesType[1]) ==
                                       true,
                                   onChanged: (newValue) async {
-                                    setState(
+                                    safeSetState(
                                         () => _model.age2Value = newValue!);
                                   },
                                   title: Text(
@@ -292,7 +292,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                         .override(
                                           fontFamily: 'Montserrat',
                                           color: Colors.black,
-                                          fontSize: 14.0,
+                                          fontSize: 14,
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -304,7 +304,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                 ),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(0.0, -0.46),
+                                alignment: const AlignmentDirectional(0, -0.46),
                                 child: CheckboxListTile(
                                   value: _model.age3Value ??= FFAppState()
                                           .filtersPage
@@ -313,7 +313,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                               FFAppConstants.agesType[0]) ==
                                       true,
                                   onChanged: (newValue) async {
-                                    setState(
+                                    safeSetState(
                                         () => _model.age3Value = newValue!);
                                   },
                                   title: Text(
@@ -323,7 +323,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                         .override(
                                           fontFamily: 'Montserrat',
                                           color: Colors.black,
-                                          fontSize: 14.0,
+                                          fontSize: 14,
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -342,31 +342,31 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        alignment: const AlignmentDirectional(0, 0),
                         child: Container(
-                          width: 346.0,
-                          height: 30.0,
+                          width: 346,
+                          height: 30,
                           decoration: BoxDecoration(
                             color: const Color(0xFFEEEAEA),
                             borderRadius: const BorderRadius.only(
-                              bottomLeft: Radius.circular(12.0),
-                              bottomRight: Radius.circular(12.0),
-                              topLeft: Radius.circular(12.0),
-                              topRight: Radius.circular(12.0),
+                              bottomLeft: Radius.circular(12),
+                              bottomRight: Radius.circular(12),
+                              topLeft: Radius.circular(12),
+                              topRight: Radius.circular(12),
                             ),
                             border: Border.all(
                               color: const Color(0xFFEEEAEA),
                             ),
                           ),
                           child: Align(
-                            alignment: const AlignmentDirectional(-1.0, 0.0),
+                            alignment: const AlignmentDirectional(-1, 0),
                             child: Text(
                               'Type of service:',
                               style: FlutterFlowTheme.of(context)
@@ -384,14 +384,14 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                       Align(
                         alignment: const AlignmentDirectional(-0.03, -0.86),
                         child: Container(
-                          width: 347.0,
+                          width: 347,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: const BorderRadius.only(
-                              bottomLeft: Radius.circular(12.0),
-                              bottomRight: Radius.circular(12.0),
-                              topLeft: Radius.circular(12.0),
-                              topRight: Radius.circular(12.0),
+                              bottomLeft: Radius.circular(12),
+                              bottomRight: Radius.circular(12),
+                              topLeft: Radius.circular(12),
+                              topRight: Radius.circular(12),
                             ),
                             border: Border.all(
                               color: Colors.white,
@@ -401,7 +401,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(0.0, -0.98),
+                                alignment: const AlignmentDirectional(0, -0.98),
                                 child: CheckboxListTile(
                                   value: _model.supportValue ??= FFAppState()
                                           .filtersPage
@@ -410,7 +410,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                               FFAppConstants.servicesType[0]) ==
                                       true,
                                   onChanged: (newValue) async {
-                                    setState(
+                                    safeSetState(
                                         () => _model.supportValue = newValue!);
                                   },
                                   title: Text(
@@ -420,7 +420,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                         .override(
                                           fontFamily: 'Montserrat',
                                           color: Colors.black,
-                                          fontSize: 14.0,
+                                          fontSize: 14,
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -432,7 +432,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                 ),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(0.0, -0.46),
+                                alignment: const AlignmentDirectional(0, -0.46),
                                 child: CheckboxListTile(
                                   value: _model
                                       .coordinatorsValue ??= FFAppState()
@@ -442,7 +442,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                               FFAppConstants.servicesType[1]) ==
                                       true,
                                   onChanged: (newValue) async {
-                                    setState(() =>
+                                    safeSetState(() =>
                                         _model.coordinatorsValue = newValue!);
                                   },
                                   title: Text(
@@ -452,7 +452,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                         .override(
                                           fontFamily: 'Montserrat',
                                           color: Colors.black,
-                                          fontSize: 14.0,
+                                          fontSize: 14,
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -464,7 +464,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                 ),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(0.0, -0.98),
+                                alignment: const AlignmentDirectional(0, -0.98),
                                 child: CheckboxListTile(
                                   value: _model.recoveryValue ??= FFAppState()
                                           .filtersPage
@@ -473,7 +473,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                               FFAppConstants.servicesType[4]) ==
                                       true,
                                   onChanged: (newValue) async {
-                                    setState(
+                                    safeSetState(
                                         () => _model.recoveryValue = newValue!);
                                   },
                                   title: Text(
@@ -483,7 +483,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                         .override(
                                           fontFamily: 'Montserrat',
                                           color: Colors.black,
-                                          fontSize: 14.0,
+                                          fontSize: 14,
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -495,7 +495,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                 ),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(0.0, 0.13),
+                                alignment: const AlignmentDirectional(0, 0.13),
                                 child: CheckboxListTile(
                                   value: _model
                                       .therapeuticValue ??= FFAppState()
@@ -505,7 +505,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                               FFAppConstants.servicesType[2]) ==
                                       true,
                                   onChanged: (newValue) async {
-                                    setState(() =>
+                                    safeSetState(() =>
                                         _model.therapeuticValue = newValue!);
                                   },
                                   title: Text(
@@ -515,7 +515,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                         .override(
                                           fontFamily: 'Montserrat',
                                           color: Colors.black,
-                                          fontSize: 14.0,
+                                          fontSize: 14,
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -527,7 +527,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                 ),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(0.0, 0.77),
+                                alignment: const AlignmentDirectional(0, 0.77),
                                 child: CheckboxListTile(
                                   value: _model.homeValue ??= FFAppState()
                                           .filtersPage
@@ -536,7 +536,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                               FFAppConstants.servicesType[3]) ==
                                       true,
                                   onChanged: (newValue) async {
-                                    setState(
+                                    safeSetState(
                                         () => _model.homeValue = newValue!);
                                   },
                                   title: Text(
@@ -546,7 +546,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                         .override(
                                           fontFamily: 'Montserrat',
                                           color: Colors.black,
-                                          fontSize: 14.0,
+                                          fontSize: 14,
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -561,82 +561,81 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                           ),
                         ),
                       ),
-                    ].divide(const SizedBox(height: 12.0)),
+                    ].divide(const SizedBox(height: 12)),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
                         width: MediaQuery.sizeOf(context).width * 0.43,
-                        height: 54.0,
+                        height: 54,
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
                           borderRadius: const BorderRadius.only(
-                            bottomLeft: Radius.circular(24.0),
-                            bottomRight: Radius.circular(24.0),
-                            topLeft: Radius.circular(24.0),
-                            topRight: Radius.circular(24.0),
+                            bottomLeft: Radius.circular(24),
+                            bottomRight: Radius.circular(24),
+                            topLeft: Radius.circular(24),
+                            topRight: Radius.circular(24),
                           ),
                         ),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            FFAppState().filtersPage =
-                                FiltersStruct.fromSerializableMap(jsonDecode(
-                                    '{\"distance\":\"100000\",\"age\":\"[\\\"40-65+ years\\\",\\\"25-40 years\\\",\\\"18-25 years\\\"]\",\"services\":\"[\\\"Support Worker\\\",\\\" Support Coordinators\\\",\\\"Therapeutic Supports\\\",\\\"Home Maintence\\\",\\\"Recovery Coaches\\\"]\"}'));
-
-                            context.pushNamed(
-                              'HomeSearch',
-                              extra: <String, dynamic>{
-                                kTransitionInfoKey: const TransitionInfo(
-                                  hasTransition: true,
-                                  transitionType:
-                                      PageTransitionType.topToBottom,
-                                ),
-                              },
+                            safeSetState(() {
+                              _model.distanceValue = 10.0;
+                            });
+                            FFAppState().updateFiltersPageStruct(
+                              (e) => e
+                                ..distance = 10.0
+                                ..age = FFAppConstants.clearService.toList()
+                                ..services =
+                                    FFAppConstants.clearService.toList(),
                             );
+                            FFAppState().update(() {});
+
+                            context.pushNamed('HomeSearch');
                           },
                           text: 'Clear filters',
                           options: FFButtonOptions(
-                            height: 37.0,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                24.0, 0.0, 24.0, 0.0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
+                            height: 37,
+                            padding:
+                                const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                            iconPadding:
+                                const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                             color: const Color(0xFFE3E2E2),
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
                                   fontFamily: 'Montserrat',
                                   color: const Color(0xFF0F0E0F),
-                                  fontSize: 25.0,
+                                  fontSize: 25,
                                   letterSpacing: 0.0,
                                 ),
-                            elevation: 3.0,
+                            elevation: 3,
                             borderSide: const BorderSide(
                               color: Colors.transparent,
-                              width: 1.0,
+                              width: 1,
                             ),
-                            borderRadius: BorderRadius.circular(24.0),
+                            borderRadius: BorderRadius.circular(24),
                           ),
                         ),
                       ),
                       Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        alignment: const AlignmentDirectional(0, 0),
                         child: Container(
                           width: MediaQuery.sizeOf(context).width * 0.43,
-                          height: 54.0,
+                          height: 54,
                           decoration: const BoxDecoration(
                             color: Color(0xFFC56AB1),
                             borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(24.0),
-                              bottomRight: Radius.circular(24.0),
-                              topLeft: Radius.circular(24.0),
-                              topRight: Radius.circular(24.0),
+                              bottomLeft: Radius.circular(24),
+                              bottomRight: Radius.circular(24),
+                              topLeft: Radius.circular(24),
+                              topRight: Radius.circular(24),
                             ),
                             shape: BoxShape.rectangle,
                           ),
@@ -718,38 +717,38 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                             },
                             text: 'Search',
                             options: FFButtonOptions(
-                              height: 37.0,
+                              height: 37,
                               padding: const EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 12.0, 24.0, 12.0),
-                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
+                                  24, 12, 24, 12),
+                              iconPadding:
+                                  const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                               color: const Color(0xB3FF09BA),
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
                                     fontFamily: 'Montserrat',
                                     color: Colors.white,
-                                    fontSize: 25.0,
+                                    fontSize: 25,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
                                   ),
-                              elevation: 3.0,
+                              elevation: 3,
                               borderSide: const BorderSide(
                                 color: Colors.transparent,
-                                width: 1.0,
+                                width: 1,
                               ),
-                              borderRadius: BorderRadius.circular(24.0),
+                              borderRadius: BorderRadius.circular(24),
                             ),
                           ),
                         ),
                       ),
-                    ].divide(const SizedBox(width: 16.0)),
+                    ].divide(const SizedBox(width: 16)),
                   ),
                 ),
               ]
-                  .divide(const SizedBox(height: 13.0))
-                  .addToStart(const SizedBox(height: 20.0))
-                  .addToEnd(const SizedBox(height: 20.0)),
+                  .divide(const SizedBox(height: 13))
+                  .addToStart(const SizedBox(height: 20))
+                  .addToEnd(const SizedBox(height: 20)),
             ),
           ),
         ),

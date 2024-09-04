@@ -37,16 +37,16 @@ class _MenjsaDeAlertaWidgetState extends State<MenjsaDeAlertaWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(0.0, -1.0),
+      alignment: const AlignmentDirectional(0, -1),
       child: Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+        padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
         child: Text(
           'Please upload photos to complete your profile. Make sure your face is clear and visible, don’t forget to',
           textAlign: TextAlign.center,
           style: FlutterFlowTheme.of(context).bodyMedium.override(
                 fontFamily: 'Montserrat',
                 color: const Color(0xFFE90606),
-                fontSize: 13.0,
+                fontSize: 13,
                 letterSpacing: 0.0,
                 fontWeight: FontWeight.w500,
               ),

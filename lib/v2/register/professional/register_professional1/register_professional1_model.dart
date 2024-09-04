@@ -24,7 +24,6 @@ class RegisterProfessional1Model
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // State field(s) for firstName widget.
   FocusNode? firstNameFocusNode;
@@ -75,7 +74,7 @@ class RegisterProfessional1Model
     }
 
     if (!RegExp(kTextValidatorEmailRegex).hasMatch(val)) {
-      return 'Has to be a valid email address.';
+      return 'Please enter a valid e-mail addres';
     }
     return null;
   }

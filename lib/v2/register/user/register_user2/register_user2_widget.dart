@@ -117,14 +117,14 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(0.0),
+          preferredSize: const Size.fromHeight(0),
           child: AppBar(
             backgroundColor: const Color(0xFFFFFEFE),
             automaticallyImplyLeading: false,
             actions: const [],
             centerTitle: false,
-            toolbarHeight: 0.0,
-            elevation: 0.0,
+            toolbarHeight: 0,
+            elevation: 0,
           ),
         ),
         body: SafeArea(
@@ -135,7 +135,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
               Expanded(
                 child: Container(
                   width: double.infinity,
-                  height: MediaQuery.sizeOf(context).height * 1.0,
+                  height: MediaQuery.sizeOf(context).height * 1,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
                   ),
@@ -146,9 +146,9 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                         child: Stack(
                           children: [
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0, 0),
                               child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
+                                borderRadius: BorderRadius.circular(8),
                                 child: Image.asset(
                                   'assets/images/escoger-users.png',
                                   width: double.infinity,
@@ -158,27 +158,15 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.0, -1.0),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.asset(
-                                  'assets/images/logo-1.png',
-                                  width: 110.0,
-                                  height: 106.0,
-                                  fit: BoxFit.fitWidth,
-                                ),
-                              ),
-                            ),
-                            Align(
                               alignment: const AlignmentDirectional(-0.91, -0.96),
                               child: FlutterFlowIconButton(
-                                borderRadius: 20.0,
-                                borderWidth: 1.0,
-                                buttonSize: 40.0,
+                                borderRadius: 20,
+                                borderWidth: 1,
+                                buttonSize: 40,
                                 icon: const Icon(
                                   Icons.arrow_back_ios_new,
                                   color: Colors.black,
-                                  size: 24.0,
+                                  size: 24,
                                 ),
                                 onPressed: () async {
                                   context.safePop();
@@ -186,25 +174,37 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0, -1),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(8),
+                                child: Image.asset(
+                                  'assets/images/logo-1.png',
+                                  width: 110,
+                                  height: 106,
+                                  fit: BoxFit.fitWidth,
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: const AlignmentDirectional(0, 0),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 74.0, 0.0, 0.0),
+                                padding:
+                                    const EdgeInsetsDirectional.fromSTEB(0, 74, 0, 0),
                                 child: Container(
                                   width:
                                       MediaQuery.sizeOf(context).width * 0.96,
-                                  height: 604.0,
+                                  height: 604,
                                   decoration: BoxDecoration(
                                     color: const Color(0xFFFFFEFE),
                                     borderRadius: const BorderRadius.only(
-                                      bottomLeft: Radius.circular(24.0),
-                                      bottomRight: Radius.circular(24.0),
-                                      topLeft: Radius.circular(24.0),
-                                      topRight: Radius.circular(24.0),
+                                      bottomLeft: Radius.circular(24),
+                                      bottomRight: Radius.circular(24),
+                                      topLeft: Radius.circular(24),
+                                      topRight: Radius.circular(24),
                                     ),
                                     border: Border.all(
                                       color: Colors.black,
-                                      width: 2.0,
+                                      width: 2,
                                     ),
                                   ),
                                   child: Form(
@@ -220,11 +220,10 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                         children: [
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(0.0, -1.0),
+                                                const AlignmentDirectional(0, -1),
                                             child: Padding(
                                               padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 10.0, 0.0, 0.0),
+                                                  .fromSTEB(0, 10, 0, 0),
                                               child: Text(
                                                 'Create Account',
                                                 textAlign: TextAlign.center,
@@ -234,7 +233,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                     .override(
                                                       fontFamily: 'Montserrat',
                                                       color: const Color(0xFF8E058A),
-                                                      fontSize: 20.0,
+                                                      fontSize: 20,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.w600,
@@ -244,10 +243,10 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                           ),
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
+                                                const AlignmentDirectional(0, 0),
                                             child: Container(
-                                              width: 327.0,
-                                              height: 1.0,
+                                              width: 327,
+                                              height: 1,
                                               decoration: BoxDecoration(
                                                 color: const Color(0xFFF0DFEF),
                                                 border: Border.all(
@@ -261,8 +260,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                 -0.84, -0.73),
                                             child: Padding(
                                               padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      10.0, 15.0, 0.0, 15.0),
+                                                  .fromSTEB(10, 15, 0, 15),
                                               child: Text(
                                                 'NDIS participant number',
                                                 style:
@@ -272,7 +270,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                           fontFamily:
                                                               'Montserrat',
                                                           color: Colors.black,
-                                                          fontSize: 15.0,
+                                                          fontSize: 15,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -287,23 +285,21 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   0.8,
-                                              height: 70.0,
+                                              height: 70,
                                               decoration: const BoxDecoration(
                                                 color: Color(0xFFFFFEFE),
                                                 borderRadius: BorderRadius.only(
                                                   bottomLeft:
-                                                      Radius.circular(12.0),
+                                                      Radius.circular(12),
                                                   bottomRight:
-                                                      Radius.circular(12.0),
-                                                  topLeft:
-                                                      Radius.circular(12.0),
-                                                  topRight:
-                                                      Radius.circular(12.0),
+                                                      Radius.circular(12),
+                                                  topLeft: Radius.circular(12),
+                                                  topRight: Radius.circular(12),
                                                 ),
                                               ),
                                               child: Align(
-                                                alignment: const AlignmentDirectional(
-                                                    0.0, -1.0),
+                                                alignment:
+                                                    const AlignmentDirectional(0, -1),
                                                 child: TextFormField(
                                                   controller:
                                                       _model.ndisTextController,
@@ -341,29 +337,29 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                                   .of(context)
                                                               .error,
                                                           letterSpacing: 0.0,
-                                                          lineHeight: 1.0,
+                                                          lineHeight: 1,
                                                         ),
                                                     enabledBorder:
                                                         OutlineInputBorder(
                                                       borderSide: const BorderSide(
                                                         color:
                                                             Color(0xFFBB33B9),
-                                                        width: 0.0,
+                                                        width: 0,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              12.0),
+                                                              12),
                                                     ),
                                                     focusedBorder:
                                                         OutlineInputBorder(
                                                       borderSide: const BorderSide(
                                                         color:
                                                             Color(0xFF762075),
-                                                        width: 0.0,
+                                                        width: 0,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              12.0),
+                                                              12),
                                                     ),
                                                     errorBorder:
                                                         OutlineInputBorder(
@@ -372,11 +368,11 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .error,
-                                                        width: 0.0,
+                                                        width: 0,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              12.0),
+                                                              12),
                                                     ),
                                                     focusedErrorBorder:
                                                         OutlineInputBorder(
@@ -385,11 +381,11 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .error,
-                                                        width: 0.0,
+                                                        width: 0,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              12.0),
+                                                              12),
                                                     ),
                                                   ),
                                                   style: FlutterFlowTheme.of(
@@ -417,8 +413,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                 -0.84, -0.73),
                                             child: Padding(
                                               padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 15.0, 0.0, 15.0),
+                                                  .fromSTEB(0, 15, 0, 15),
                                               child: Text(
                                                 '* Email address',
                                                 style:
@@ -428,7 +423,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                           fontFamily:
                                                               'Montserrat',
                                                           color: Colors.black,
-                                                          fontSize: 15.0,
+                                                          fontSize: 15,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -443,18 +438,16 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   0.8,
-                                              height: 70.0,
+                                              height: 70,
                                               decoration: const BoxDecoration(
                                                 color: Color(0xFFFFFEFE),
                                                 borderRadius: BorderRadius.only(
                                                   bottomLeft:
-                                                      Radius.circular(12.0),
+                                                      Radius.circular(12),
                                                   bottomRight:
-                                                      Radius.circular(12.0),
-                                                  topLeft:
-                                                      Radius.circular(12.0),
-                                                  topRight:
-                                                      Radius.circular(12.0),
+                                                      Radius.circular(12),
+                                                  topLeft: Radius.circular(12),
+                                                  topRight: Radius.circular(12),
                                                 ),
                                               ),
                                               child: Stack(
@@ -462,7 +455,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                   Align(
                                                     alignment:
                                                         const AlignmentDirectional(
-                                                            0.0, -1.0),
+                                                            0, -1),
                                                     child: TextFormField(
                                                       controller: _model
                                                           .emailTextController,
@@ -487,7 +480,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                             ),
                                                           );
 
-                                                          setState(() {});
+                                                          safeSetState(() {});
                                                         },
                                                       ),
                                                       autofocus: true,
@@ -527,8 +520,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                                       .error,
                                                                   letterSpacing:
                                                                       0.0,
-                                                                  lineHeight:
-                                                                      1.0,
+                                                                  lineHeight: 1,
                                                                 ),
                                                         enabledBorder:
                                                             OutlineInputBorder(
@@ -536,12 +528,11 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                               const BorderSide(
                                                             color: Color(
                                                                 0xFFBB33B9),
-                                                            width: 0.0,
+                                                            width: 0,
                                                           ),
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(
-                                                                      12.0),
+                                                                  .circular(12),
                                                         ),
                                                         focusedBorder:
                                                             OutlineInputBorder(
@@ -549,12 +540,11 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                               const BorderSide(
                                                             color: Color(
                                                                 0xFF762075),
-                                                            width: 0.0,
+                                                            width: 0,
                                                           ),
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(
-                                                                      12.0),
+                                                                  .circular(12),
                                                         ),
                                                         errorBorder:
                                                             OutlineInputBorder(
@@ -563,12 +553,11 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .error,
-                                                            width: 0.0,
+                                                            width: 0,
                                                           ),
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(
-                                                                      12.0),
+                                                                  .circular(12),
                                                         ),
                                                         focusedErrorBorder:
                                                             OutlineInputBorder(
@@ -577,12 +566,11 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .error,
-                                                            width: 0.0,
+                                                            width: 0,
                                                           ),
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(
-                                                                      12.0),
+                                                                  .circular(12),
                                                         ),
                                                       ),
                                                       style: FlutterFlowTheme
@@ -606,7 +594,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                     Align(
                                                       alignment:
                                                           const AlignmentDirectional(
-                                                              0.0, 1.4),
+                                                              0, 1.4),
                                                       child: Text(
                                                         'This email already has an account, use another email',
                                                         style:
@@ -637,8 +625,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                 -0.84, -0.73),
                                             child: Padding(
                                               padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 15.0, 0.0, 15.0),
+                                                  .fromSTEB(0, 15, 0, 15),
                                               child: Text(
                                                 '* Type of disability',
                                                 style:
@@ -648,7 +635,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                           fontFamily:
                                                               'Montserrat',
                                                           color: Colors.black,
-                                                          fontSize: 15.0,
+                                                          fontSize: 15,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -658,29 +645,29 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                           ),
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
+                                                const AlignmentDirectional(0, 0),
                                             child: Container(
-                                              height: 90.0,
+                                              height: 90,
                                               decoration: const BoxDecoration(),
                                               child: Align(
-                                                alignment: const AlignmentDirectional(
-                                                    0.0, -1.0),
+                                                alignment:
+                                                    const AlignmentDirectional(0, -1),
                                                 child: Stack(
                                                   alignment:
                                                       const AlignmentDirectional(
-                                                          0.0, -1.0),
+                                                          0, -1),
                                                   children: [
                                                     Align(
                                                       alignment:
                                                           const AlignmentDirectional(
-                                                              0.0, -1.0),
+                                                              0, -1),
                                                       child: Container(
                                                         width:
                                                             MediaQuery.sizeOf(
                                                                         context)
                                                                     .width *
                                                                 0.8,
-                                                        height: 45.0,
+                                                        height: 45,
                                                         decoration:
                                                             BoxDecoration(
                                                           color: Colors.white,
@@ -688,16 +675,16 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                               const BorderRadius.only(
                                                             bottomLeft:
                                                                 Radius.circular(
-                                                                    12.0),
+                                                                    12),
                                                             bottomRight:
                                                                 Radius.circular(
-                                                                    12.0),
+                                                                    12),
                                                             topLeft:
                                                                 Radius.circular(
-                                                                    12.0),
+                                                                    12),
                                                             topRight:
                                                                 Radius.circular(
-                                                                    12.0),
+                                                                    12),
                                                           ),
                                                           border: Border.all(
                                                             color:
@@ -718,7 +705,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                         child: Align(
                                                           alignment:
                                                               const AlignmentDirectional(
-                                                                  0.0, 0.0),
+                                                                  0, 0),
                                                           child:
                                                               FlutterFlowDropDown<
                                                                   String>(
@@ -738,8 +725,8 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                               'Psychosocial/Mental Health',
                                                               'Vision Impairment '
                                                             ],
-                                                            width: 261.0,
-                                                            height: 56.0,
+                                                            width: 261,
+                                                            height: 56,
                                                             textStyle:
                                                                 FlutterFlowTheme.of(
                                                                         context)
@@ -759,25 +746,25 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                                   .keyboard_arrow_down_rounded,
                                                               color:
                                                                   Colors.black,
-                                                              size: 24.0,
+                                                              size: 24,
                                                             ),
                                                             fillColor:
                                                                 Colors.white,
-                                                            elevation: 2.0,
+                                                            elevation: 2,
                                                             borderColor: Colors
                                                                 .transparent,
-                                                            borderWidth: 0.0,
-                                                            borderRadius: 8.0,
+                                                            borderWidth: 0,
+                                                            borderRadius: 8,
                                                             margin:
                                                                 const EdgeInsets.all(
-                                                                    0.0),
+                                                                    0),
                                                             hidesUnderline:
                                                                 true,
                                                             isOverButton: true,
                                                             isSearchable: false,
                                                             isMultiSelect: true,
                                                             onMultiSelectChanged:
-                                                                (val) => setState(
+                                                                (val) => safeSetState(
                                                                     () => _model
                                                                             .dropDownValue =
                                                                         val),
@@ -788,7 +775,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                     Align(
                                                       alignment:
                                                           const AlignmentDirectional(
-                                                              0.0, 0.0),
+                                                              0, 0),
                                                       child: Builder(
                                                         builder: (context) {
                                                           if (!FFAppState()
@@ -849,8 +836,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                 -0.84, -0.73),
                                             child: Padding(
                                               padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 15.0, 0.0, 15.0),
+                                                  .fromSTEB(0, 15, 0, 15),
                                               child: Text(
                                                 '* Password',
                                                 style:
@@ -860,7 +846,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                           fontFamily:
                                                               'Montserrat',
                                                           color: Colors.black,
-                                                          fontSize: 15.0,
+                                                          fontSize: 15,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -870,25 +856,25 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                           ),
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
+                                                const AlignmentDirectional(0, 0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   0.8,
-                                              height: 90.0,
+                                              height: 90,
                                               decoration: const BoxDecoration(),
                                               child: Align(
-                                                alignment: const AlignmentDirectional(
-                                                    0.0, 0.0),
+                                                alignment:
+                                                    const AlignmentDirectional(0, 0),
                                                 child: Stack(
                                                   alignment:
                                                       const AlignmentDirectional(
-                                                          0.0, -1.0),
+                                                          0, -1),
                                                   children: [
                                                     Align(
                                                       alignment:
                                                           const AlignmentDirectional(
-                                                              0.0, -1.0),
+                                                              0, -1),
                                                       child: TextFormField(
                                                         controller: _model
                                                             .passwordTextController,
@@ -908,7 +894,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                                     fontFamily:
                                                                         'Readex Pro',
                                                                     fontSize:
-                                                                        14.0,
+                                                                        14,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -937,7 +923,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                                     letterSpacing:
                                                                         0.0,
                                                                     lineHeight:
-                                                                        1.0,
+                                                                        1,
                                                                   ),
                                                           enabledBorder:
                                                               OutlineInputBorder(
@@ -945,12 +931,12 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                                 const BorderSide(
                                                               color: Color(
                                                                   0xFFBB33B9),
-                                                              width: 0.0,
+                                                              width: 0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        12.0),
+                                                                        12),
                                                           ),
                                                           focusedBorder:
                                                               OutlineInputBorder(
@@ -958,12 +944,12 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                                 const BorderSide(
                                                               color: Color(
                                                                   0xFF762075),
-                                                              width: 0.0,
+                                                              width: 0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        12.0),
+                                                                        12),
                                                           ),
                                                           errorBorder:
                                                               OutlineInputBorder(
@@ -972,12 +958,12 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .error,
-                                                              width: 0.0,
+                                                              width: 0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        12.0),
+                                                                        12),
                                                           ),
                                                           focusedErrorBorder:
                                                               OutlineInputBorder(
@@ -986,16 +972,16 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .error,
-                                                              width: 0.0,
+                                                              width: 0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        12.0),
+                                                                        12),
                                                           ),
                                                           suffixIcon: InkWell(
                                                             onTap: () =>
-                                                                setState(
+                                                                safeSetState(
                                                               () => _model
                                                                       .passwordVisibility =
                                                                   !_model
@@ -1012,7 +998,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                                       .visibility_off_outlined,
                                                               color: const Color(
                                                                   0xFF6D6D6D),
-                                                              size: 18.0,
+                                                              size: 18,
                                                             ),
                                                           ),
                                                         ),
@@ -1036,7 +1022,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                     Align(
                                                       alignment:
                                                           const AlignmentDirectional(
-                                                              0.0, 0.0),
+                                                              0, 0),
                                                       child: Builder(
                                                         builder: (context) {
                                                           if (!valueOrDefault<
@@ -1107,8 +1093,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                 -0.84, -0.73),
                                             child: Padding(
                                               padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 15.0, 0.0, 15.0),
+                                                  .fromSTEB(0, 15, 0, 15),
                                               child: Text(
                                                 '* Password has to be the same',
                                                 style:
@@ -1118,7 +1103,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                           fontFamily:
                                                               'Montserrat',
                                                           color: Colors.black,
-                                                          fontSize: 15.0,
+                                                          fontSize: 15,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -1128,25 +1113,25 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                           ),
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
+                                                const AlignmentDirectional(0, 0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   0.8,
-                                              height: 90.0,
+                                              height: 90,
                                               decoration: const BoxDecoration(),
                                               child: Align(
-                                                alignment: const AlignmentDirectional(
-                                                    0.0, -1.0),
+                                                alignment:
+                                                    const AlignmentDirectional(0, -1),
                                                 child: Stack(
                                                   alignment:
                                                       const AlignmentDirectional(
-                                                          0.0, -1.0),
+                                                          0, -1),
                                                   children: [
                                                     Align(
                                                       alignment:
                                                           const AlignmentDirectional(
-                                                              0.0, -1.0),
+                                                              0, -1),
                                                       child: TextFormField(
                                                         controller: _model
                                                             .confirmPasswordTextController,
@@ -1193,7 +1178,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                                     letterSpacing:
                                                                         0.0,
                                                                     lineHeight:
-                                                                        1.0,
+                                                                        1,
                                                                   ),
                                                           enabledBorder:
                                                               OutlineInputBorder(
@@ -1201,12 +1186,12 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                                 const BorderSide(
                                                               color: Color(
                                                                   0xFFBB33B9),
-                                                              width: 0.0,
+                                                              width: 0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        12.0),
+                                                                        12),
                                                           ),
                                                           focusedBorder:
                                                               OutlineInputBorder(
@@ -1214,12 +1199,12 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                                 const BorderSide(
                                                               color: Color(
                                                                   0xFF762075),
-                                                              width: 0.0,
+                                                              width: 0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        12.0),
+                                                                        12),
                                                           ),
                                                           errorBorder:
                                                               OutlineInputBorder(
@@ -1228,12 +1213,12 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .error,
-                                                              width: 0.0,
+                                                              width: 0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        12.0),
+                                                                        12),
                                                           ),
                                                           focusedErrorBorder:
                                                               OutlineInputBorder(
@@ -1242,16 +1227,16 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .error,
-                                                              width: 0.0,
+                                                              width: 0,
                                                             ),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        12.0),
+                                                                        12),
                                                           ),
                                                           suffixIcon: InkWell(
                                                             onTap: () =>
-                                                                setState(
+                                                                safeSetState(
                                                               () => _model
                                                                       .confirmPasswordVisibility =
                                                                   !_model
@@ -1268,7 +1253,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                                       .visibility_off_outlined,
                                                               color: const Color(
                                                                   0xFF6D6D6D),
-                                                              size: 18.0,
+                                                              size: 18,
                                                             ),
                                                           ),
                                                         ),
@@ -1292,7 +1277,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                     Align(
                                                       alignment:
                                                           const AlignmentDirectional(
-                                                              0.0, 0.0),
+                                                              0, 0),
                                                       child: Builder(
                                                         builder: (context) {
                                                           if (!valueOrDefault<
@@ -1360,14 +1345,13 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                           ),
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
+                                                const AlignmentDirectional(0, 0),
                                             child: Padding(
                                               padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 10.0, 0.0, 10.0),
+                                                  .fromSTEB(0, 10, 0, 10),
                                               child: Container(
-                                                width: 327.0,
-                                                height: 1.0,
+                                                width: 327,
+                                                height: 1,
                                                 decoration: BoxDecoration(
                                                   color: const Color(0xFFF0DFEF),
                                                   border: Border.all(
@@ -1380,7 +1364,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 10.0, 0.0, 10.0),
+                                                    0, 10, 0, 10),
                                             child: FFButtonWidget(
                                               onPressed: () async {
                                                 if (_model.formKey
@@ -1560,15 +1544,13 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                               },
                                               text: 'Create',
                                               options: FFButtonOptions(
-                                                width: 275.0,
-                                                height: 45.0,
+                                                width: 275,
+                                                height: 45,
                                                 padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        24.0, 0.0, 24.0, 0.0),
+                                                    .fromSTEB(24, 0, 24, 0),
                                                 iconPadding:
                                                     const EdgeInsetsDirectional
-                                                        .fromSTEB(
-                                                            0.0, 0.0, 0.0, 0.0),
+                                                        .fromSTEB(0, 0, 0, 0),
                                                 color: const Color(0xFFB928B8),
                                                 textStyle:
                                                     FlutterFlowTheme.of(context)
@@ -1577,16 +1559,16 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                           fontFamily:
                                                               'Montserrat',
                                                           color: Colors.white,
-                                                          fontSize: 20.0,
+                                                          fontSize: 20,
                                                           letterSpacing: 0.0,
                                                         ),
-                                                elevation: 3.0,
+                                                elevation: 3,
                                                 borderSide: const BorderSide(
                                                   color: Colors.transparent,
-                                                  width: 1.0,
+                                                  width: 1,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(24.0),
+                                                    BorderRadius.circular(24),
                                               ),
                                             ),
                                           ),

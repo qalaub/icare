@@ -46,7 +46,7 @@ class _AddFavoritesWidgetState extends State<AddFavoritesWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(1.0, -1.0),
+      alignment: const AlignmentDirectional(1, -1),
       child: StreamBuilder<List<ChatsRecord>>(
         stream: queryChatsRecord(
           queryBuilder: (chatsRecord) => chatsRecord
@@ -65,8 +65,8 @@ class _AddFavoritesWidgetState extends State<AddFavoritesWidget> {
           if (!snapshot.hasData) {
             return Center(
               child: SizedBox(
-                width: 50.0,
-                height: 50.0,
+                width: 50,
+                height: 50,
                 child: CircularProgressIndicator(
                   valueColor: AlwaysStoppedAnimation<Color>(
                     FlutterFlowTheme.of(context).primary,
@@ -87,13 +87,13 @@ class _AddFavoritesWidgetState extends State<AddFavoritesWidget> {
                   .contains(widget.professional?.reference)) {
                 return FlutterFlowIconButton(
                   borderColor: Colors.transparent,
-                  borderRadius: 20.0,
-                  borderWidth: 1.0,
-                  buttonSize: 40.0,
+                  borderRadius: 20,
+                  borderWidth: 1,
+                  buttonSize: 40,
                   icon: const Icon(
                     Icons.favorite,
                     color: Color(0xFFFB4F4F),
-                    size: 27.0,
+                    size: 27,
                   ),
                   onPressed: () async {
                     await currentUserReference!.update({
@@ -105,19 +105,19 @@ class _AddFavoritesWidgetState extends State<AddFavoritesWidget> {
                       ),
                     });
                     FFAppState().favoritesChange = true;
-                    setState(() {});
+                    safeSetState(() {});
                   },
                 );
               } else {
                 return FlutterFlowIconButton(
                   borderColor: Colors.transparent,
-                  borderRadius: 20.0,
-                  borderWidth: 1.0,
-                  buttonSize: 40.0,
+                  borderRadius: 20,
+                  borderWidth: 1,
+                  buttonSize: 40,
                   icon: const Icon(
                     Icons.favorite_border,
                     color: Color(0xFFFB4F4F),
-                    size: 27.0,
+                    size: 27,
                   ),
                   showLoadingIndicator: true,
                   onPressed: () async {
@@ -287,7 +287,7 @@ class _AddFavoritesWidgetState extends State<AddFavoritesWidget> {
                       context.pushNamed('Login');
                     }
 
-                    setState(() {});
+                    safeSetState(() {});
                   },
                 );
               }

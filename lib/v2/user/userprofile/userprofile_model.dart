@@ -13,7 +13,6 @@ class UserprofileModel extends FlutterFlowModel<UserprofileWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Model for AccountOption component.
   late AccountOptionModel accountOptionModel1;
   // Model for AccountOption component.

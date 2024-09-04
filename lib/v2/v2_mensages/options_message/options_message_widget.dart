@@ -43,27 +43,27 @@ class _OptionsMessageWidgetState extends State<OptionsMessageWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(1.0, -1.0),
+      alignment: const AlignmentDirectional(1, -1),
       child: Container(
         width: MediaQuery.sizeOf(context).width * 0.55,
-        height: 137.0,
+        height: 137,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
           boxShadow: const [
             BoxShadow(
-              blurRadius: 4.0,
+              blurRadius: 4,
               color: Color(0x33000000),
               offset: Offset(
-                0.0,
-                2.0,
+                0,
+                2,
               ),
             )
           ],
           borderRadius: const BorderRadius.only(
-            bottomLeft: Radius.circular(0.0),
-            bottomRight: Radius.circular(0.0),
-            topLeft: Radius.circular(0.0),
-            topRight: Radius.circular(0.0),
+            bottomLeft: Radius.circular(0),
+            bottomRight: Radius.circular(0),
+            topLeft: Radius.circular(0),
+            topRight: Radius.circular(0),
           ),
         ),
         child: Column(
@@ -108,16 +108,16 @@ class _OptionsMessageWidgetState extends State<OptionsMessageWidget> {
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Montserrat',
                           color: const Color(0xFF0F0E0F),
-                          fontSize: 18.0,
+                          fontSize: 18,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w500,
                         ),
                   ),
-                ].addToStart(const SizedBox(width: 16.0)),
+                ].addToStart(const SizedBox(width: 16)),
               ),
             ),
             const Divider(
-              thickness: 1.0,
+              thickness: 1,
               color: Color(0xFFBDBDBD),
             ),
             InkWell(
@@ -146,16 +146,16 @@ class _OptionsMessageWidgetState extends State<OptionsMessageWidget> {
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Montserrat',
                           color: const Color(0xFF0F0E0F),
-                          fontSize: 18.0,
+                          fontSize: 18,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w500,
                         ),
                   ),
-                ].addToStart(const SizedBox(width: 16.0)),
+                ].addToStart(const SizedBox(width: 16)),
               ),
             ),
             const Divider(
-              thickness: 1.0,
+              thickness: 1,
               color: Color(0xFFBDBDBD),
             ),
             InkWell(
@@ -186,7 +186,7 @@ class _OptionsMessageWidgetState extends State<OptionsMessageWidget> {
                     'Report User',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Montserrat',
-                          fontSize: 18.0,
+                          fontSize: 18,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w500,
                         ),
@@ -194,7 +194,7 @@ class _OptionsMessageWidgetState extends State<OptionsMessageWidget> {
                 ],
               ),
             ),
-          ].addToStart(const SizedBox(height: 16.0)),
+          ].addToStart(const SizedBox(height: 16)),
         ),
       ),
     );

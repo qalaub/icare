@@ -46,8 +46,8 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Container(
-                  width: MediaQuery.sizeOf(context).width * 1.0,
-                  height: 110.0,
+                  width: MediaQuery.sizeOf(context).width,
+                  height: 110,
                   decoration: const BoxDecoration(
                     color: Color(0xD5B928B8),
                   ),
@@ -57,8 +57,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            16.0, 0.0, 16.0, 0.0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                         child: Container(
                           decoration: const BoxDecoration(),
                           child: Text(
@@ -76,12 +75,11 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            16.0, 0.0, 16.0, 0.0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                         child: Container(
                           decoration: const BoxDecoration(),
                           child: Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: const AlignmentDirectional(0, 0),
                             child: Text(
                               'Answer a few questions to determine the right plan for your needs.',
                               style: FlutterFlowTheme.of(context)
@@ -89,7 +87,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                   .override(
                                     fontFamily: 'Readex Pro',
                                     color: Colors.white,
-                                    fontSize: 12.0,
+                                    fontSize: 12,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                   ),
@@ -101,8 +99,8 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                   ),
                 ),
                 Container(
-                  width: MediaQuery.sizeOf(context).width * 10.0,
-                  height: 184.0,
+                  width: MediaQuery.sizeOf(context).width * 10,
+                  height: 184,
                   decoration: const BoxDecoration(
                     color: Colors.white,
                   ),
@@ -111,10 +109,10 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Align(
-                        alignment: const AlignmentDirectional(-1.0, 0.0),
+                        alignment: const AlignmentDirectional(-1, 0),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              16.0, 16.0, 16.0, 4.0),
+                          padding:
+                              const EdgeInsetsDirectional.fromSTEB(16, 16, 16, 4),
                           child: Container(
                             decoration: const BoxDecoration(),
                             child: Text(
@@ -123,7 +121,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Inter',
-                                    fontSize: 14.0,
+                                    fontSize: 14,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
@@ -139,16 +137,15 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                               _model.second,
                               _model.tree,
                               _model.four);
-                          setState(() {});
+                          safeSetState(() {});
                         },
                         text: 'Yes',
                         options: FFButtonOptions(
                           width: MediaQuery.sizeOf(context).width * 0.96,
-                          height: 44.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              24.0, 0.0, 24.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
+                          height: 44,
+                          padding: const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                          iconPadding:
+                              const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                           color: _model.firts
                               ? const Color(0xB8D41ACF)
                               : const Color(0xF0FFFFFF),
@@ -160,12 +157,12 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                     _model.firts ? Colors.white : Colors.black,
                                 letterSpacing: 0.0,
                               ),
-                          elevation: 2.0,
+                          elevation: 2,
                           borderSide: const BorderSide(
                             color: Color(0xFF565454),
                             width: 0.5,
                           ),
-                          borderRadius: BorderRadius.circular(8.0),
+                          borderRadius: BorderRadius.circular(8),
                         ),
                         showLoadingIndicator: false,
                       ),
@@ -177,16 +174,15 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                               _model.second,
                               _model.tree,
                               _model.four);
-                          setState(() {});
+                          safeSetState(() {});
                         },
                         text: 'No',
                         options: FFButtonOptions(
                           width: MediaQuery.sizeOf(context).width * 0.96,
-                          height: 44.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              24.0, 0.0, 24.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
+                          height: 44,
+                          padding: const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                          iconPadding:
+                              const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                           color: !_model.firts
                               ? const Color(0xB8D41ACF)
                               : const Color(0xF0FFFFFF),
@@ -198,21 +194,21 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                     !_model.firts ? Colors.white : Colors.black,
                                 letterSpacing: 0.0,
                               ),
-                          elevation: 2.0,
+                          elevation: 2,
                           borderSide: const BorderSide(
                             color: Color(0xFF565454),
                             width: 0.5,
                           ),
-                          borderRadius: BorderRadius.circular(8.0),
+                          borderRadius: BorderRadius.circular(8),
                         ),
                         showLoadingIndicator: false,
                       ),
-                    ].divide(const SizedBox(height: 8.0)),
+                    ].divide(const SizedBox(height: 8)),
                   ),
                 ),
                 Container(
-                  width: MediaQuery.sizeOf(context).width * 10.0,
-                  height: 184.0,
+                  width: MediaQuery.sizeOf(context).width * 10,
+                  height: 184,
                   decoration: const BoxDecoration(
                     color: Colors.white,
                   ),
@@ -220,22 +216,21 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 4.0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(0, 16, 0, 4),
                         child: Container(
                           decoration: const BoxDecoration(),
                           child: Align(
-                            alignment: const AlignmentDirectional(-1.0, 0.0),
+                            alignment: const AlignmentDirectional(-1, 0),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 16.0, 0.0),
+                              padding:
+                                  const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                               child: Text(
                                 'Do you require detailed map features to locate service providers?',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Inter',
-                                      fontSize: 14.0,
+                                      fontSize: 14,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
                                     ),
@@ -252,16 +247,15 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                               _model.second,
                               _model.tree,
                               _model.four);
-                          setState(() {});
+                          safeSetState(() {});
                         },
                         text: 'Yes',
                         options: FFButtonOptions(
                           width: MediaQuery.sizeOf(context).width * 0.96,
-                          height: 44.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              24.0, 0.0, 24.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
+                          height: 44,
+                          padding: const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                          iconPadding:
+                              const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                           color: _model.second
                               ? const Color(0xB8D41ACF)
                               : const Color(0xF0FFFFFF),
@@ -273,12 +267,12 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                     _model.second ? Colors.white : Colors.black,
                                 letterSpacing: 0.0,
                               ),
-                          elevation: 2.0,
+                          elevation: 2,
                           borderSide: const BorderSide(
                             color: Color(0xFF565454),
                             width: 0.5,
                           ),
-                          borderRadius: BorderRadius.circular(8.0),
+                          borderRadius: BorderRadius.circular(8),
                         ),
                         showLoadingIndicator: false,
                       ),
@@ -290,16 +284,15 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                               _model.second,
                               _model.tree,
                               _model.four);
-                          setState(() {});
+                          safeSetState(() {});
                         },
                         text: 'No',
                         options: FFButtonOptions(
                           width: MediaQuery.sizeOf(context).width * 0.96,
-                          height: 44.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              24.0, 0.0, 24.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
+                          height: 44,
+                          padding: const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                          iconPadding:
+                              const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                           color: !_model.second
                               ? const Color(0xB8D41ACF)
                               : const Color(0xF0FFFFFF),
@@ -311,21 +304,21 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                         : Colors.black,
                                     letterSpacing: 0.0,
                                   ),
-                          elevation: 2.0,
+                          elevation: 2,
                           borderSide: const BorderSide(
                             color: Color(0xFF565454),
                             width: 0.5,
                           ),
-                          borderRadius: BorderRadius.circular(8.0),
+                          borderRadius: BorderRadius.circular(8),
                         ),
                         showLoadingIndicator: false,
                       ),
-                    ].divide(const SizedBox(height: 8.0)),
+                    ].divide(const SizedBox(height: 8)),
                   ),
                 ),
                 Container(
-                  width: MediaQuery.sizeOf(context).width * 10.0,
-                  height: 184.0,
+                  width: MediaQuery.sizeOf(context).width * 10,
+                  height: 184,
                   decoration: const BoxDecoration(
                     color: Colors.white,
                   ),
@@ -333,22 +326,21 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 4.0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(0, 16, 0, 4),
                         child: Container(
                           decoration: const BoxDecoration(),
                           child: Align(
-                            alignment: const AlignmentDirectional(-1.0, 0.0),
+                            alignment: const AlignmentDirectional(-1, 0),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 16.0, 0.0),
+                              padding:
+                                  const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                               child: Text(
                                 'Do you need to create detailed team profiles for your organization?',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Inter',
-                                      fontSize: 14.0,
+                                      fontSize: 14,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
                                     ),
@@ -365,16 +357,15 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                               _model.second,
                               _model.tree,
                               _model.four);
-                          setState(() {});
+                          safeSetState(() {});
                         },
                         text: 'Yes',
                         options: FFButtonOptions(
                           width: MediaQuery.sizeOf(context).width * 0.96,
-                          height: 44.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              24.0, 0.0, 24.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
+                          height: 44,
+                          padding: const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                          iconPadding:
+                              const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                           color: _model.tree
                               ? const Color(0xD5B928B8)
                               : const Color(0xF0FFFFFF),
@@ -386,12 +377,12 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                     _model.tree ? Colors.white : Colors.black,
                                 letterSpacing: 0.0,
                               ),
-                          elevation: 2.0,
+                          elevation: 2,
                           borderSide: const BorderSide(
                             color: Color(0xFF565454),
                             width: 0.5,
                           ),
-                          borderRadius: BorderRadius.circular(8.0),
+                          borderRadius: BorderRadius.circular(8),
                         ),
                         showLoadingIndicator: false,
                       ),
@@ -403,16 +394,15 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                               _model.second,
                               _model.tree,
                               _model.four);
-                          setState(() {});
+                          safeSetState(() {});
                         },
                         text: 'No',
                         options: FFButtonOptions(
                           width: MediaQuery.sizeOf(context).width * 0.96,
-                          height: 44.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              24.0, 0.0, 24.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
+                          height: 44,
+                          padding: const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                          iconPadding:
+                              const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                           color: !_model.tree
                               ? const Color(0xB8D41ACF)
                               : const Color(0xF0FFFFFF),
@@ -424,21 +414,21 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                     !_model.tree ? Colors.white : Colors.black,
                                 letterSpacing: 0.0,
                               ),
-                          elevation: 2.0,
+                          elevation: 2,
                           borderSide: const BorderSide(
                             color: Color(0xFF565454),
                             width: 0.5,
                           ),
-                          borderRadius: BorderRadius.circular(8.0),
+                          borderRadius: BorderRadius.circular(8),
                         ),
                         showLoadingIndicator: false,
                       ),
-                    ].divide(const SizedBox(height: 8.0)),
+                    ].divide(const SizedBox(height: 8)),
                   ),
                 ),
                 Container(
-                  width: MediaQuery.sizeOf(context).width * 10.0,
-                  height: 184.0,
+                  width: MediaQuery.sizeOf(context).width * 10,
+                  height: 184,
                   decoration: const BoxDecoration(
                     color: Colors.white,
                   ),
@@ -446,22 +436,21 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 4.0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(0, 16, 0, 4),
                         child: Container(
                           decoration: const BoxDecoration(),
                           child: Align(
-                            alignment: const AlignmentDirectional(-1.0, 0.0),
+                            alignment: const AlignmentDirectional(-1, 0),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 16.0, 0.0),
+                              padding:
+                                  const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                               child: Text(
                                 'Do you require enhanced search visibility for your services?',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Inter',
-                                      fontSize: 14.0,
+                                      fontSize: 14,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
                                     ),
@@ -478,16 +467,15 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                               _model.second,
                               _model.tree,
                               _model.four);
-                          setState(() {});
+                          safeSetState(() {});
                         },
                         text: 'Yes',
                         options: FFButtonOptions(
                           width: MediaQuery.sizeOf(context).width * 0.96,
-                          height: 44.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              24.0, 0.0, 24.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
+                          height: 44,
+                          padding: const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                          iconPadding:
+                              const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                           color: _model.four
                               ? const Color(0xB8D41ACF)
                               : const Color(0xF0FFFFFF),
@@ -499,12 +487,12 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                     _model.four ? Colors.white : Colors.black,
                                 letterSpacing: 0.0,
                               ),
-                          elevation: 2.0,
+                          elevation: 2,
                           borderSide: const BorderSide(
                             color: Color(0xFF565454),
                             width: 0.5,
                           ),
-                          borderRadius: BorderRadius.circular(8.0),
+                          borderRadius: BorderRadius.circular(8),
                         ),
                         showLoadingIndicator: false,
                       ),
@@ -516,16 +504,15 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                               _model.second,
                               _model.tree,
                               _model.four);
-                          setState(() {});
+                          safeSetState(() {});
                         },
                         text: 'No',
                         options: FFButtonOptions(
                           width: MediaQuery.sizeOf(context).width * 0.96,
-                          height: 44.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              24.0, 0.0, 24.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
+                          height: 44,
+                          padding: const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                          iconPadding:
+                              const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                           color: !_model.four
                               ? const Color(0xB8D41ACF)
                               : const Color(0xF0FFFFFF),
@@ -537,23 +524,23 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                     !_model.four ? Colors.white : Colors.black,
                                 letterSpacing: 0.0,
                               ),
-                          elevation: 2.0,
+                          elevation: 2,
                           borderSide: const BorderSide(
                             color: Color(0xFF565454),
                             width: 0.5,
                           ),
-                          borderRadius: BorderRadius.circular(8.0),
+                          borderRadius: BorderRadius.circular(8),
                         ),
                         showLoadingIndicator: false,
                       ),
-                    ].divide(const SizedBox(height: 8.0)),
+                    ].divide(const SizedBox(height: 8)),
                   ),
                 ),
                 const Divider(
-                  height: 32.0,
-                  thickness: 1.0,
-                  indent: 12.0,
-                  endIndent: 12.0,
+                  height: 32,
+                  thickness: 1,
+                  indent: 12,
+                  endIndent: 12,
                   color: Color(0xD8BDB8B8),
                 ),
                 Builder(
@@ -561,10 +548,10 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                     if (_model.suguestion == 'Basic') {
                       return Container(
                         width: MediaQuery.sizeOf(context).width * 0.96,
-                        height: 230.0,
+                        height: 230,
                         decoration: BoxDecoration(
                           color: const Color(0xADFFD8FF),
-                          borderRadius: BorderRadius.circular(18.0),
+                          borderRadius: BorderRadius.circular(18),
                         ),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -572,8 +559,8 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 16.0, 0.0),
+                              padding:
+                                  const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                               child: Container(
                                 decoration: const BoxDecoration(),
                                 child: Text(
@@ -582,7 +569,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Inter',
-                                        fontSize: 18.0,
+                                        fontSize: 18,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.bold,
                                       ),
@@ -590,8 +577,8 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 16.0, 0.0),
+                              padding:
+                                  const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                               child: Container(
                                 decoration: const BoxDecoration(),
                                 child: RichText(
@@ -605,7 +592,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Inter',
-                                              fontSize: 14.0,
+                                              fontSize: 14,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                             ),
@@ -615,7 +602,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                         style: TextStyle(
                                           color: Color(0xFFF0AE2C),
                                           fontWeight: FontWeight.w600,
-                                          fontSize: 15.0,
+                                          fontSize: 15,
                                         ),
                                       ),
                                       const TextSpan(
@@ -627,7 +614,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Inter',
-                                          fontSize: 14.0,
+                                          fontSize: 14,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
                                         ),
@@ -636,8 +623,8 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 8.0, 16.0, 8.0),
+                              padding:
+                                  const EdgeInsetsDirectional.fromSTEB(16, 8, 16, 8),
                               child: Container(
                                 decoration: const BoxDecoration(),
                                 child: Text(
@@ -646,7 +633,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Inter',
-                                        fontSize: 14.0,
+                                        fontSize: 14,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
@@ -654,8 +641,8 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 16.0, 0.0),
+                              padding:
+                                  const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                               child: Container(
                                 decoration: const BoxDecoration(),
                                 child: RichText(
@@ -669,7 +656,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Inter',
-                                              fontSize: 14.0,
+                                              fontSize: 14,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                             ),
@@ -693,7 +680,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Inter',
-                                          fontSize: 14.0,
+                                          fontSize: 14,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
                                         ),
@@ -707,10 +694,10 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                     } else if (_model.suguestion == 'Standar') {
                       return Container(
                         width: MediaQuery.sizeOf(context).width * 0.96,
-                        height: 230.0,
+                        height: 230,
                         decoration: BoxDecoration(
                           color: const Color(0xADE3E1E1),
-                          borderRadius: BorderRadius.circular(18.0),
+                          borderRadius: BorderRadius.circular(18),
                         ),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -718,8 +705,8 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 16.0, 0.0),
+                              padding:
+                                  const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                               child: Container(
                                 decoration: const BoxDecoration(),
                                 child: Text(
@@ -728,7 +715,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Inter',
-                                        fontSize: 18.0,
+                                        fontSize: 18,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.bold,
                                       ),
@@ -736,8 +723,8 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 16.0, 0.0),
+                              padding:
+                                  const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                               child: Container(
                                 decoration: const BoxDecoration(),
                                 child: RichText(
@@ -751,7 +738,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Inter',
-                                              fontSize: 14.0,
+                                              fontSize: 14,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                             ),
@@ -761,7 +748,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                         style: TextStyle(
                                           color: Color(0xFFF0AE2C),
                                           fontWeight: FontWeight.w600,
-                                          fontSize: 15.0,
+                                          fontSize: 15,
                                         ),
                                       ),
                                       const TextSpan(
@@ -773,7 +760,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Inter',
-                                          fontSize: 14.0,
+                                          fontSize: 14,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
                                         ),
@@ -782,8 +769,8 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 8.0, 16.0, 8.0),
+                              padding:
+                                  const EdgeInsetsDirectional.fromSTEB(16, 8, 16, 8),
                               child: Container(
                                 decoration: const BoxDecoration(),
                                 child: Text(
@@ -792,7 +779,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Inter',
-                                        fontSize: 14.0,
+                                        fontSize: 14,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
@@ -800,8 +787,8 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 16.0, 0.0),
+                              padding:
+                                  const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                               child: Container(
                                 decoration: const BoxDecoration(),
                                 child: RichText(
@@ -815,7 +802,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Inter',
-                                              fontSize: 14.0,
+                                              fontSize: 14,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                             ),
@@ -839,7 +826,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Inter',
-                                          fontSize: 14.0,
+                                          fontSize: 14,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
                                         ),
@@ -853,10 +840,10 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                     } else {
                       return Container(
                         width: MediaQuery.sizeOf(context).width * 0.96,
-                        height: 230.0,
+                        height: 230,
                         decoration: BoxDecoration(
                           color: const Color(0xADE3E1E1),
-                          borderRadius: BorderRadius.circular(18.0),
+                          borderRadius: BorderRadius.circular(18),
                         ),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -864,8 +851,8 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 16.0, 0.0),
+                              padding:
+                                  const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                               child: Container(
                                 decoration: const BoxDecoration(),
                                 child: Text(
@@ -874,7 +861,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Inter',
-                                        fontSize: 18.0,
+                                        fontSize: 18,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.bold,
                                       ),
@@ -882,8 +869,8 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 16.0, 0.0),
+                              padding:
+                                  const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                               child: Container(
                                 decoration: const BoxDecoration(),
                                 child: RichText(
@@ -897,7 +884,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Inter',
-                                              fontSize: 14.0,
+                                              fontSize: 14,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                             ),
@@ -907,7 +894,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                         style: TextStyle(
                                           color: Color(0xFFF0AE2C),
                                           fontWeight: FontWeight.w600,
-                                          fontSize: 15.0,
+                                          fontSize: 15,
                                         ),
                                       ),
                                       const TextSpan(
@@ -919,7 +906,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Inter',
-                                          fontSize: 14.0,
+                                          fontSize: 14,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
                                         ),
@@ -928,8 +915,8 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 8.0, 16.0, 8.0),
+                              padding:
+                                  const EdgeInsetsDirectional.fromSTEB(16, 8, 16, 8),
                               child: Container(
                                 decoration: const BoxDecoration(),
                                 child: Text(
@@ -938,7 +925,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Inter',
-                                        fontSize: 14.0,
+                                        fontSize: 14,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
@@ -946,8 +933,8 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 16.0, 0.0),
+                              padding:
+                                  const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                               child: Container(
                                 decoration: const BoxDecoration(),
                                 child: RichText(
@@ -961,7 +948,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Inter',
-                                              fontSize: 14.0,
+                                              fontSize: 14,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                             ),
@@ -985,7 +972,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Inter',
-                                          fontSize: 14.0,
+                                          fontSize: 14,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
                                         ),
@@ -1000,8 +987,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                   },
                 ),
                 Padding(
-                  padding:
-                      const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(16, 16, 16, 0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1012,27 +998,26 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                         },
                         text: 'Choose Membership',
                         options: FFButtonOptions(
-                          width: 150.0,
-                          height: 45.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              12.0, 0.0, 12.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
+                          width: 150,
+                          height: 45,
+                          padding: const EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
+                          iconPadding:
+                              const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                           color: Colors.white,
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Inter',
                                     color: Colors.black,
-                                    fontSize: 14.0,
+                                    fontSize: 14,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
                                   ),
-                          elevation: 3.0,
+                          elevation: 3,
                           borderSide: const BorderSide(
                             color: Color(0xFF7A7777),
-                            width: 1.0,
+                            width: 1,
                           ),
-                          borderRadius: BorderRadius.circular(8.0),
+                          borderRadius: BorderRadius.circular(8),
                         ),
                       ),
                       FFButtonWidget(
@@ -1066,33 +1051,32 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                     ' ')!
                                 : 'Select Premium Plan',
                         options: FFButtonOptions(
-                          width: 150.0,
-                          height: 45.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              12.0, 0.0, 12.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
+                          width: 150,
+                          height: 45,
+                          padding: const EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
+                          iconPadding:
+                              const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                           color: const Color(0xB8D41ACF),
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Inter',
                                     color: Colors.white,
-                                    fontSize: 14.0,
+                                    fontSize: 14,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
-                          elevation: 3.0,
+                          elevation: 3,
                           borderSide: const BorderSide(
                             color: Colors.transparent,
-                            width: 1.0,
+                            width: 1,
                           ),
-                          borderRadius: BorderRadius.circular(8.0),
+                          borderRadius: BorderRadius.circular(8),
                         ),
                       ),
                     ],
                   ),
                 ),
-              ].addToEnd(const SizedBox(height: 32.0)),
+              ].addToEnd(const SizedBox(height: 32)),
             ),
           ),
         ),

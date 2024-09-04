@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 class RegisterBusiness3Model extends FlutterFlowModel<RegisterBusiness3Widget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // State field(s) for years widget.
   FocusNode? yearsFocusNode;

@@ -60,7 +60,7 @@ class _ProfessionalprofileWidgetState extends State<ProfessionalprofileWidget> {
                       children: [
                         Container(
                           width: double.infinity,
-                          height: 200.0,
+                          height: 200,
                           decoration: const BoxDecoration(
                             color: Color(0x80FB8CE2),
                           ),
@@ -68,30 +68,30 @@ class _ProfessionalprofileWidgetState extends State<ProfessionalprofileWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 15.0, 0.0, 0.0),
+                                padding:
+                                    const EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
                                 child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(8),
                                   child: Image.asset(
                                     'assets/images/Diseo_sin_ttulo_(6)_4.png',
-                                    width: 67.0,
-                                    height: 101.0,
+                                    width: 67,
+                                    height: 101,
                                     fit: BoxFit.cover,
                                   ),
                                 ),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                alignment: const AlignmentDirectional(0, 0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 15.0, 0.0, 0.0),
+                                      0, 15, 0, 0),
                                   child: Text(
                                     'Username',
                                     style: FlutterFlowTheme.of(context)
                                         .titleLarge
                                         .override(
                                           fontFamily: 'Montserrat',
-                                          fontSize: 28.0,
+                                          fontSize: 28,
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -101,29 +101,27 @@ class _ProfessionalprofileWidgetState extends State<ProfessionalprofileWidget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 10.0, 0.0, 0.0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                           child: Container(
-                            width: 326.0,
-                            height: 150.0,
+                            width: 326,
+                            height: 150,
                             decoration: const BoxDecoration(),
                             child: ClipRRect(
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(8),
                               child: Image.asset(
                                 'assets/images/Group_41.png',
-                                width: 300.0,
-                                height: 200.0,
+                                width: 300,
+                                height: 200,
                                 fit: BoxFit.cover,
                               ),
                             ),
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 10.0, 0.0, 0.0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                           child: Container(
-                            width: 326.0,
-                            height: 52.0,
+                            width: 326,
+                            height: 52,
                             decoration: const BoxDecoration(),
                             child: InkWell(
                               splashColor: Colors.transparent,
@@ -134,7 +132,7 @@ class _ProfessionalprofileWidgetState extends State<ProfessionalprofileWidget> {
                                 context.pushNamed('Profilesettings');
                               },
                               child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
+                                borderRadius: BorderRadius.circular(8),
                                 child: Image.asset(
                                   'assets/images/Group_43.jpg',
                                   width: double.infinity,
@@ -146,14 +144,13 @@ class _ProfessionalprofileWidgetState extends State<ProfessionalprofileWidget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 10.0, 0.0, 0.0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                           child: Container(
-                            width: 326.0,
-                            height: 52.0,
+                            width: 326,
+                            height: 52,
                             decoration: const BoxDecoration(),
                             child: ClipRRect(
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(8),
                               child: Image.asset(
                                 'assets/images/Group_44.png',
                                 width: double.infinity,
@@ -164,14 +161,13 @@ class _ProfessionalprofileWidgetState extends State<ProfessionalprofileWidget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 10.0, 0.0, 0.0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                           child: Container(
-                            width: 326.0,
-                            height: 52.0,
+                            width: 326,
+                            height: 52,
                             decoration: const BoxDecoration(),
                             child: ClipRRect(
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(8),
                               child: Image.asset(
                                 'assets/images/Group_45.png',
                                 width: double.infinity,
@@ -182,14 +178,13 @@ class _ProfessionalprofileWidgetState extends State<ProfessionalprofileWidget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 40.0, 0.0, 0.0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
                           child: Container(
-                            width: 326.0,
-                            height: 52.0,
+                            width: 326,
+                            height: 52,
                             decoration: const BoxDecoration(),
                             child: ClipRRect(
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(8),
                               child: Image.asset(
                                 'assets/images/Group_46.png',
                                 width: double.infinity,
@@ -200,14 +195,13 @@ class _ProfessionalprofileWidgetState extends State<ProfessionalprofileWidget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 10.0, 0.0, 0.0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                           child: Container(
-                            width: 326.0,
-                            height: 52.0,
+                            width: 326,
+                            height: 52,
                             decoration: const BoxDecoration(),
                             child: ClipRRect(
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(8),
                               child: Image.asset(
                                 'assets/images/Group_47.png',
                                 width: double.infinity,
@@ -218,14 +212,13 @@ class _ProfessionalprofileWidgetState extends State<ProfessionalprofileWidget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 10.0, 0.0, 0.0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                           child: Container(
-                            width: 326.0,
-                            height: 52.0,
+                            width: 326,
+                            height: 52,
                             decoration: const BoxDecoration(),
                             child: ClipRRect(
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(8),
                               child: Image.asset(
                                 'assets/images/Group_48.png',
                                 width: double.infinity,
@@ -236,14 +229,13 @@ class _ProfessionalprofileWidgetState extends State<ProfessionalprofileWidget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 10.0, 0.0, 0.0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                           child: Container(
-                            width: 326.0,
-                            height: 52.0,
+                            width: 326,
+                            height: 52,
                             decoration: const BoxDecoration(),
                             child: ClipRRect(
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(8),
                               child: Image.asset(
                                 'assets/images/Group_49.png',
                                 width: double.infinity,
@@ -254,14 +246,13 @@ class _ProfessionalprofileWidgetState extends State<ProfessionalprofileWidget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 10.0, 0.0, 0.0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                           child: Container(
-                            width: 326.0,
-                            height: 52.0,
+                            width: 326,
+                            height: 52,
                             decoration: const BoxDecoration(),
                             child: ClipRRect(
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(8),
                               child: Image.asset(
                                 'assets/images/Group_50.png',
                                 width: double.infinity,
@@ -272,14 +263,14 @@ class _ProfessionalprofileWidgetState extends State<ProfessionalprofileWidget> {
                           ),
                         ),
                         Align(
-                          alignment: const AlignmentDirectional(0.0, 1.0),
+                          alignment: const AlignmentDirectional(0, 1),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 40.0, 0.0, 40.0),
+                            padding:
+                                const EdgeInsetsDirectional.fromSTEB(0, 40, 0, 40),
                             child: FFButtonWidget(
                               onPressed: () async {
                                 FFAppState().authUserFireBase = false;
-                                setState(() {});
+                                safeSetState(() {});
                                 GoRouter.of(context).prepareAuthEvent();
                                 await authManager.signOut();
                                 GoRouter.of(context).clearRedirectLocation();
@@ -289,14 +280,14 @@ class _ProfessionalprofileWidgetState extends State<ProfessionalprofileWidget> {
                               text: 'Sign off',
                               icon: const Icon(
                                 Icons.login_sharp,
-                                size: 15.0,
+                                size: 15,
                               ),
                               options: FFButtonOptions(
-                                height: 40.0,
+                                height: 40,
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    24.0, 0.0, 24.0, 0.0),
-                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
+                                    24, 0, 24, 0),
+                                iconPadding:
+                                    const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                                 color: Colors.white,
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
@@ -305,12 +296,12 @@ class _ProfessionalprofileWidgetState extends State<ProfessionalprofileWidget> {
                                       color: Colors.black,
                                       letterSpacing: 0.0,
                                     ),
-                                elevation: 3.0,
+                                elevation: 3,
                                 borderSide: const BorderSide(
                                   color: Colors.transparent,
-                                  width: 1.0,
+                                  width: 1,
                                 ),
-                                borderRadius: BorderRadius.circular(8.0),
+                                borderRadius: BorderRadius.circular(8),
                               ),
                             ),
                           ),
@@ -321,9 +312,9 @@ class _ProfessionalprofileWidgetState extends State<ProfessionalprofileWidget> {
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(0.0, 1.01),
+                alignment: const AlignmentDirectional(0, 1.01),
                 child: Container(
-                  height: 69.0,
+                  height: 69,
                   decoration: const BoxDecoration(
                     color: Color(0xB3B928B8),
                   ),
@@ -332,13 +323,13 @@ class _ProfessionalprofileWidgetState extends State<ProfessionalprofileWidget> {
                       if (currentUserDocument?.rol != Roles.business) {
                         return wrapWithModel(
                           model: _model.navbarModel,
-                          updateCallback: () => setState(() {}),
+                          updateCallback: () => safeSetState(() {}),
                           child: const NavbarWidget(),
                         );
                       } else {
                         return wrapWithModel(
                           model: _model.navbarPremiunModel,
-                          updateCallback: () => setState(() {}),
+                          updateCallback: () => safeSetState(() {}),
                           child: const NavbarPremiunWidget(),
                         );
                       }

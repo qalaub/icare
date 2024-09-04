@@ -51,26 +51,26 @@ class _PeoplewhoputyouinfavoritesWidgetState
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
             borderColor: Colors.transparent,
-            borderRadius: 30.0,
-            borderWidth: 1.0,
-            buttonSize: 60.0,
+            borderRadius: 30,
+            borderWidth: 1,
+            buttonSize: 60,
             icon: const FaIcon(
               FontAwesomeIcons.angleLeft,
               color: Colors.white,
-              size: 30.0,
+              size: 30,
             ),
             onPressed: () async {
               context.pop();
             },
           ),
           title: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(24, 0, 0, 0),
             child: Text(
               'Likes',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Montserrat',
                     color: const Color(0xFFEFECF3),
-                    fontSize: 25.0,
+                    fontSize: 25,
                     letterSpacing: 0.0,
                     fontWeight: FontWeight.bold,
                   ),
@@ -78,7 +78,7 @@ class _PeoplewhoputyouinfavoritesWidgetState
           ),
           actions: const [],
           centerTitle: true,
-          elevation: 2.0,
+          elevation: 2,
         ),
         body: SafeArea(
           top: true,
@@ -93,14 +93,14 @@ class _PeoplewhoputyouinfavoritesWidgetState
                     color: Colors.white,
                   ),
                   child: Align(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    alignment: const AlignmentDirectional(0, 0),
                     child: Stack(
                       children: [
                         Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          alignment: const AlignmentDirectional(0, 0),
                           child: Container(
-                            width: 390.0,
-                            height: 580.0,
+                            width: 390,
+                            height: 580,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
@@ -118,8 +118,8 @@ class _PeoplewhoputyouinfavoritesWidgetState
                                 if (!snapshot.hasData) {
                                   return Center(
                                     child: SizedBox(
-                                      width: 50.0,
-                                      height: 50.0,
+                                      width: 50,
+                                      height: 50,
                                       child: CircularProgressIndicator(
                                         valueColor:
                                             AlwaysStoppedAnimation<Color>(
@@ -135,7 +135,7 @@ class _PeoplewhoputyouinfavoritesWidgetState
                                 return ListView.separated(
                                   padding: const EdgeInsets.fromLTRB(
                                     0,
-                                    26.0,
+                                    26,
                                     0,
                                     0,
                                   ),
@@ -143,7 +143,7 @@ class _PeoplewhoputyouinfavoritesWidgetState
                                   scrollDirection: Axis.vertical,
                                   itemCount: listViewUsersRecordList.length,
                                   separatorBuilder: (_, __) =>
-                                      const SizedBox(height: 10.0),
+                                      const SizedBox(height: 10),
                                   itemBuilder: (context, listViewIndex) {
                                     final listViewUsersRecord =
                                         listViewUsersRecordList[listViewIndex];
@@ -165,9 +165,9 @@ class _PeoplewhoputyouinfavoritesWidgetState
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(0.0, 1.01),
+                alignment: const AlignmentDirectional(0, 1.01),
                 child: Container(
-                  height: 73.0,
+                  height: 73,
                   decoration: const BoxDecoration(
                     color: Color(0xB3B928B8),
                   ),
@@ -176,13 +176,13 @@ class _PeoplewhoputyouinfavoritesWidgetState
                       if (currentUserDocument?.rol != Roles.business) {
                         return wrapWithModel(
                           model: _model.navbarModel,
-                          updateCallback: () => setState(() {}),
+                          updateCallback: () => safeSetState(() {}),
                           child: const NavbarWidget(),
                         );
                       } else {
                         return wrapWithModel(
                           model: _model.navbarPremiunModel,
-                          updateCallback: () => setState(() {}),
+                          updateCallback: () => safeSetState(() {}),
                           child: const NavbarPremiunWidget(),
                         );
                       }

@@ -58,8 +58,8 @@ class _MembresiaLogoWidgetState extends State<MembresiaLogoWidget> {
           if (!snapshot.hasData) {
             return Center(
               child: SizedBox(
-                width: 50.0,
-                height: 50.0,
+                width: 50,
+                height: 50,
                 child: CircularProgressIndicator(
                   valueColor: AlwaysStoppedAnimation<Color>(
                     FlutterFlowTheme.of(context).primary,
@@ -78,7 +78,7 @@ class _MembresiaLogoWidgetState extends State<MembresiaLogoWidget> {
                 Align(
                   alignment: const AlignmentDirectional(0.67, -0.63),
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(8.0),
+                    borderRadius: BorderRadius.circular(8),
                     child: Image.asset(
                       'assets/images/basicV2.png',
                       width: widget.width.toDouble(),
@@ -91,7 +91,7 @@ class _MembresiaLogoWidgetState extends State<MembresiaLogoWidget> {
                 Align(
                   alignment: const AlignmentDirectional(0.67, -0.63),
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(8.0),
+                    borderRadius: BorderRadius.circular(8),
                     child: Image.asset(
                       'assets/images/EstandarV2.png',
                       width: widget.width.toDouble(),
@@ -105,7 +105,7 @@ class _MembresiaLogoWidgetState extends State<MembresiaLogoWidget> {
                 Align(
                   alignment: const AlignmentDirectional(0.67, -0.63),
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(8.0),
+                    borderRadius: BorderRadius.circular(8),
                     child: Image.asset(
                       'assets/images/UserEmpresaV2.png',
                       width: widget.width.toDouble(),
@@ -119,7 +119,7 @@ class _MembresiaLogoWidgetState extends State<MembresiaLogoWidget> {
                 Align(
                   alignment: const AlignmentDirectional(0.67, -0.63),
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(8.0),
+                    borderRadius: BorderRadius.circular(8),
                     child: Image.asset(
                       'assets/images/EmpresaV2.png',
                       width: widget.width.toDouble(),

@@ -43,24 +43,24 @@ class _MapbuscarWidgetState extends State<MapbuscarWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 70.0,
+      height: 70,
       decoration: const BoxDecoration(
         color: Color(0xDAFFFFFF),
         boxShadow: [
           BoxShadow(
-            blurRadius: 4.0,
+            blurRadius: 4,
             color: Color(0x33000000),
             offset: Offset(
-              0.0,
-              2.0,
+              0,
+              2,
             ),
           )
         ],
         borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(0.0),
-          bottomRight: Radius.circular(0.0),
-          topLeft: Radius.circular(0.0),
-          topRight: Radius.circular(0.0),
+          bottomLeft: Radius.circular(0),
+          bottomRight: Radius.circular(0),
+          topLeft: Radius.circular(0),
+          topRight: Radius.circular(0),
         ),
       ),
       child: Row(
@@ -70,7 +70,7 @@ class _MapbuscarWidgetState extends State<MapbuscarWidget> {
           const Icon(
             Icons.location_on,
             color: Color(0xFFD26AD2),
-            size: 32.0,
+            size: 32,
           ),
           Container(
             width: MediaQuery.sizeOf(context).width * 0.5,
@@ -82,7 +82,7 @@ class _MapbuscarWidgetState extends State<MapbuscarWidget> {
               ),
               style: FlutterFlowTheme.of(context).bodyMedium.override(
                     fontFamily: 'Poppins',
-                    fontSize: 16.0,
+                    fontSize: 16,
                     letterSpacing: 0.0,
                     fontWeight: FontWeight.w500,
                   ),
@@ -91,7 +91,7 @@ class _MapbuscarWidgetState extends State<MapbuscarWidget> {
           Icon(
             Icons.arrow_outward,
             color: FlutterFlowTheme.of(context).secondaryText,
-            size: 24.0,
+            size: 24,
           ),
         ],
       ),

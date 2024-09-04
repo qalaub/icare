@@ -60,10 +60,10 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
                 child: Stack(
                   children: [
                     Align(
-                      alignment: const AlignmentDirectional(0.0, 1.0),
+                      alignment: const AlignmentDirectional(0, 1),
                       child: SizedBox(
-                        width: MediaQuery.sizeOf(context).width * 1.0,
-                        height: MediaQuery.sizeOf(context).height * 1.0,
+                        width: MediaQuery.sizeOf(context).width,
+                        height: MediaQuery.sizeOf(context).height * 1,
                         child: Stack(
                           children: [
                             PageView(
@@ -72,39 +72,39 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
                               scrollDirection: Axis.horizontal,
                               children: [
                                 ClipRRect(
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(8),
                                   child: Image.asset(
                                     'assets/images/inicio_1-1.png',
-                                    width: 300.0,
-                                    height: 239.0,
+                                    width: 300,
+                                    height: 239,
                                     fit: BoxFit.cover,
                                   ),
                                 ),
                                 ClipRRect(
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(8),
                                   child: Image.asset(
                                     'assets/images/inicio_1-3.png',
-                                    width: 300.0,
-                                    height: 200.0,
+                                    width: 300,
+                                    height: 200,
                                     fit: BoxFit.cover,
                                   ),
                                 ),
                                 ClipRRect(
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(8),
                                   child: Image.asset(
                                     'assets/images/ments.png',
-                                    width: 300.0,
-                                    height: 200.0,
+                                    width: 300,
+                                    height: 200,
                                     fit: BoxFit.cover,
                                   ),
                                 ),
                               ],
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 0.8),
+                              alignment: const AlignmentDirectional(0, 0.8),
                               child: Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 0.0, 83.0),
+                                    16, 0, 0, 83),
                                 child:
                                     smooth_page_indicator.SmoothPageIndicator(
                                   controller: _model.pageViewController ??=
@@ -118,13 +118,13 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
                                       duration: const Duration(milliseconds: 500),
                                       curve: Curves.ease,
                                     );
-                                    setState(() {});
+                                    safeSetState(() {});
                                   },
                                   effect: const smooth_page_indicator.SlideEffect(
-                                    spacing: 8.0,
-                                    radius: 1313131.0,
-                                    dotWidth: 16.0,
-                                    dotHeight: 16.0,
+                                    spacing: 8,
+                                    radius: 1313131,
+                                    dotWidth: 16,
+                                    dotHeight: 16,
                                     dotColor: Color(0x4CFFFFFF),
                                     activeDotColor: Color(0xFFFD00A7),
                                     paintStyle: PaintingStyle.fill,
@@ -139,8 +139,7 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
                     Align(
                       alignment: const AlignmentDirectional(0.01, 0.9),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            0.0, 10.0, 0.0, 10.0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
                         child: FFButtonWidget(
                           onPressed: () async {
                             if (_model.pageViewCurrentIndex < 2) {
@@ -160,33 +159,33 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
                           },
                           text: 'Continue',
                           options: FFButtonOptions(
-                            width: 275.0,
-                            height: 45.0,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                24.0, 0.0, 24.0, 0.0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
+                            width: 275,
+                            height: 45,
+                            padding:
+                                const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                            iconPadding:
+                                const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                             color: const Color(0xFFB928B8),
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
                                   fontFamily: 'Montserrat',
                                   color: Colors.white,
-                                  fontSize: 20.0,
+                                  fontSize: 20,
                                   letterSpacing: 0.0,
                                 ),
-                            elevation: 5.0,
+                            elevation: 5,
                             borderSide: const BorderSide(
                               color: Colors.transparent,
-                              width: 1.0,
+                              width: 1,
                             ),
-                            borderRadius: BorderRadius.circular(24.0),
+                            borderRadius: BorderRadius.circular(24),
                           ),
                         ),
                       ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(0.0, 0.7),
+                      alignment: const AlignmentDirectional(0, 0.7),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -198,7 +197,7 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
                                 materialTapTargetSize:
                                     MaterialTapTargetSize.shrinkWrap,
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(4.0),
+                                  borderRadius: BorderRadius.circular(4),
                                 ),
                               ),
                               unselectedWidgetColor: const Color(0xFF26343E),
@@ -206,7 +205,7 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
                             child: Checkbox(
                               value: _model.checkboxValue ??= false,
                               onChanged: (newValue) async {
-                                setState(
+                                safeSetState(
                                     () => _model.checkboxValue = newValue!);
                               },
                               side: const BorderSide(

@@ -67,13 +67,13 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
           backgroundColor: const Color(0xFFB928B8),
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
-            borderRadius: 20.0,
-            borderWidth: 1.0,
-            buttonSize: 27.0,
+            borderRadius: 20,
+            borderWidth: 1,
+            buttonSize: 27,
             icon: const Icon(
               Icons.arrow_back_ios_new,
               color: Colors.white,
-              size: 25.0,
+              size: 25,
             ),
             onPressed: () async {
               context.safePop();
@@ -84,13 +84,13 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
             style: FlutterFlowTheme.of(context).headlineLarge.override(
                   fontFamily: 'Montserrat',
                   color: Colors.white,
-                  fontSize: 22.0,
+                  fontSize: 22,
                   letterSpacing: 0.0,
                 ),
           ),
           actions: const [],
           centerTitle: false,
-          elevation: 0.0,
+          elevation: 0,
         ),
         body: SafeArea(
           top: true,
@@ -110,7 +110,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                       children: [
                         if (currentUserDocument?.rol != Roles.user)
                           Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: const AlignmentDirectional(0, 0),
                             child: AuthUserStreamWidget(
                               builder: (context) => Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -119,12 +119,11 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Align(
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    alignment: const AlignmentDirectional(0, 0),
                                     child: Stack(
                                       children: [
                                         Align(
-                                          alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                          alignment: const AlignmentDirectional(0, 0),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
@@ -134,7 +133,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                               model: _model
                                                   .uploadProfileImageModel,
                                               updateCallback: () =>
-                                                  setState(() {}),
+                                                  safeSetState(() {}),
                                               child: UploadProfileImageWidget(
                                                 img: valueOrDefault<String>(
                                                   _model.uploadedFileUrl !=
@@ -164,20 +163,20 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
                                                 0.9,
-                                            height: 177.0,
+                                            height: 177,
                                             decoration: const BoxDecoration(),
                                             child: FlutterFlowIconButton(
                                               borderColor: Colors.transparent,
-                                              borderRadius: 20.0,
-                                              borderWidth: 1.0,
+                                              borderRadius: 20,
+                                              borderWidth: 1,
                                               buttonSize:
                                                   MediaQuery.sizeOf(context)
                                                           .width *
-                                                      1.0,
+                                                      1,
                                               icon: const Icon(
                                                 Icons.circle,
                                                 color: Colors.white,
-                                                size: 1.0,
+                                                size: 1,
                                               ),
                                               showLoadingIndicator: true,
                                               onPressed: () async {
@@ -191,7 +190,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                         validateFileFormat(
                                                             m.storagePath,
                                                             context))) {
-                                                  setState(() => _model
+                                                  safeSetState(() => _model
                                                       .isDataUploading = true);
                                                   var selectedUploadedFiles =
                                                       <FFUploadedFile>[];
@@ -243,7 +242,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                       downloadUrls.length ==
                                                           selectedMedia
                                                               .length) {
-                                                    setState(() {
+                                                    safeSetState(() {
                                                       _model.uploadedLocalFile =
                                                           selectedUploadedFiles
                                                               .first;
@@ -251,7 +250,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                           downloadUrls.first;
                                                     });
                                                   } else {
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                     return;
                                                   }
                                                 }
@@ -277,7 +276,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                 .headlineLarge
                                                 .override(
                                                   fontFamily: 'Montserrat',
-                                                  fontSize: 16.0,
+                                                  fontSize: 16,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.bold,
                                                 ),
@@ -285,7 +284,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 8.0, 0.0, 8.0),
+                                                    0, 8, 0, 8),
                                             child: Text(
                                               'Highly recommended',
                                               textAlign: TextAlign.center,
@@ -295,26 +294,26 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                   .override(
                                                     fontFamily: 'Montserrat',
                                                     color: const Color(0xFFA62985),
-                                                    fontSize: 14.0,
+                                                    fontSize: 14,
                                                     letterSpacing: 0.0,
                                                     fontWeight:
                                                         FontWeight.normal,
                                                   ),
                                             ),
                                           ),
-                                        ].addToStart(const SizedBox(height: 4.0)),
+                                        ].addToStart(const SizedBox(height: 4)),
                                       ),
                                     ],
                                   ),
-                                ].addToStart(const SizedBox(height: 11.0)),
+                                ].addToStart(const SizedBox(height: 11)),
                               ),
                             ),
                           ),
                         Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          alignment: const AlignmentDirectional(0, 0),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                16.0, 0.0, 16.0, 0.0),
+                            padding:
+                                const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -330,7 +329,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                           .override(
                                             fontFamily: 'Montserrat',
                                             color: const Color(0xFFC14BBC),
-                                            fontSize: 15.0,
+                                            fontSize: 15,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
@@ -338,7 +337,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                   ],
                                 ),
                                 Align(
-                                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                                  alignment: const AlignmentDirectional(-1, 0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.start,
@@ -347,14 +346,13 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                         width:
                                             MediaQuery.sizeOf(context).width *
                                                 0.9,
-                                        height: 39.0,
+                                        height: 39,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                         ),
                                         child: Align(
-                                          alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                          alignment: const AlignmentDirectional(0, 0),
                                           child: Text(
                                             'You can modify your username with the one you feel  most comfortable with.',
                                             textAlign: TextAlign.justify,
@@ -362,7 +360,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Montserrat',
-                                                  fontSize: 12.0,
+                                                  fontSize: 12,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.normal,
                                                 ),
@@ -373,43 +371,43 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                                  alignment: const AlignmentDirectional(-1, 0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
                                       Expanded(
                                         child: Material(
                                           color: Colors.transparent,
-                                          elevation: 2.0,
+                                          elevation: 2,
                                           shape: RoundedRectangleBorder(
                                             borderRadius:
-                                                BorderRadius.circular(12.0),
+                                                BorderRadius.circular(12),
                                           ),
                                           child: Container(
                                             width: double.infinity,
-                                            height: 52.0,
+                                            height: 52,
                                             decoration: BoxDecoration(
                                               color: const Color(0xFFF0F0F0),
                                               borderRadius:
-                                                  BorderRadius.circular(12.0),
+                                                  BorderRadius.circular(12),
                                               border: Border.all(
                                                 color: const Color(0xFFC14BBC),
-                                                width: 3.0,
+                                                width: 3,
                                               ),
                                             ),
                                             child: Stack(
-                                              alignment: const AlignmentDirectional(
-                                                  0.0, 0.0),
+                                              alignment:
+                                                  const AlignmentDirectional(0, 0),
                                               children: [
                                                 Align(
                                                   alignment:
                                                       const AlignmentDirectional(
-                                                          0.0, 0.0),
+                                                          0, 0),
                                                   child: Padding(
                                                     padding:
                                                         const EdgeInsetsDirectional
-                                                            .fromSTEB(8.0, 0.0,
-                                                                8.0, 0.0),
+                                                            .fromSTEB(
+                                                                8, 0, 8, 0),
                                                     child: AuthUserStreamWidget(
                                                       builder: (context) =>
                                                           SizedBox(
@@ -435,7 +433,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                                       fontFamily:
                                                                           'Montserrat',
                                                                       fontSize:
-                                                                          15.0,
+                                                                          15,
                                                                       letterSpacing:
                                                                           0.0,
                                                                       fontWeight:
@@ -464,7 +462,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          8.0),
+                                                                          8),
                                                             ),
                                                             focusedBorder:
                                                                 UnderlineInputBorder(
@@ -477,7 +475,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          8.0),
+                                                                          8),
                                                             ),
                                                             errorBorder:
                                                                 UnderlineInputBorder(
@@ -490,7 +488,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          8.0),
+                                                                          8),
                                                             ),
                                                             focusedErrorBorder:
                                                                 UnderlineInputBorder(
@@ -503,7 +501,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          8.0),
+                                                                          8),
                                                             ),
                                                           ),
                                                           style: FlutterFlowTheme
@@ -512,7 +510,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Montserrat',
-                                                                fontSize: 15.0,
+                                                                fontSize: 15,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -533,11 +531,11 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                 const Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0.9, 0.0),
+                                                          0.9, 0),
                                                   child: Icon(
                                                     Icons.verified,
                                                     color: Color(0xFFFF34E7),
-                                                    size: 24.0,
+                                                    size: 24,
                                                   ),
                                                 ),
                                               ],
@@ -548,16 +546,16 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                     ],
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 8.0)),
+                              ].divide(const SizedBox(height: 8)),
                             ),
                           ),
                         ),
                         if (currentUserDocument?.rol != Roles.user)
                           Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: const AlignmentDirectional(0, 0),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 16.0, 0.0),
+                              padding:
+                                  const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                               child: AuthUserStreamWidget(
                                 builder: (context) => Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -575,7 +573,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                               .override(
                                                 fontFamily: 'Montserrat',
                                                 color: const Color(0xFFC14BBC),
-                                                fontSize: 15.0,
+                                                fontSize: 15,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
@@ -583,8 +581,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                       ],
                                     ),
                                     Align(
-                                      alignment:
-                                          const AlignmentDirectional(-1.0, 0.0),
+                                      alignment: const AlignmentDirectional(-1, 0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -594,15 +591,15 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
                                                 0.9,
-                                            height: 39.0,
+                                            height: 39,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
                                             ),
                                             child: Align(
-                                              alignment: const AlignmentDirectional(
-                                                  0.0, 0.0),
+                                              alignment:
+                                                  const AlignmentDirectional(0, 0),
                                               child: Text(
                                                 'You can modify what your service is offered to participants',
                                                 textAlign: TextAlign.justify,
@@ -612,7 +609,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                         .override(
                                                           fontFamily:
                                                               'Montserrat',
-                                                          fontSize: 12.0,
+                                                          fontSize: 12,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
@@ -624,30 +621,28 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                       ),
                                     ),
                                     Align(
-                                      alignment:
-                                          const AlignmentDirectional(-1.0, 0.0),
+                                      alignment: const AlignmentDirectional(-1, 0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.min,
                                         children: [
                                           Expanded(
                                             child: Material(
                                               color: Colors.transparent,
-                                              elevation: 2.0,
+                                              elevation: 2,
                                               shape: RoundedRectangleBorder(
                                                 borderRadius:
-                                                    BorderRadius.circular(12.0),
+                                                    BorderRadius.circular(12),
                                               ),
                                               child: Container(
                                                 width: double.infinity,
-                                                height: 52.0,
+                                                height: 52,
                                                 decoration: BoxDecoration(
                                                   color: const Color(0xFFF0F0F0),
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          12.0),
+                                                      BorderRadius.circular(12),
                                                   border: Border.all(
                                                     color: const Color(0xFFC14BBC),
-                                                    width: 3.0,
+                                                    width: 3,
                                                   ),
                                                 ),
                                                 child: Builder(
@@ -658,7 +653,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                       return Align(
                                                         alignment:
                                                             const AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                                0, 0),
                                                         child:
                                                             FlutterFlowDropDown<
                                                                 String>(
@@ -693,15 +688,14 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                             'Recovery Coaches'
                                                           ],
                                                           onChanged: (val) =>
-                                                              setState(() =>
+                                                              safeSetState(() =>
                                                                   _model.servicesValue =
                                                                       val),
                                                           width:
                                                               MediaQuery.sizeOf(
-                                                                          context)
-                                                                      .width *
-                                                                  1.0,
-                                                          height: 56.0,
+                                                                      context)
+                                                                  .width,
+                                                          height: 56,
                                                           textStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
@@ -710,7 +704,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                                     fontFamily:
                                                                         'Montserrat',
                                                                     fontSize:
-                                                                        13.0,
+                                                                        13,
                                                                     letterSpacing:
                                                                         0.0,
                                                                     fontWeight:
@@ -725,20 +719,17 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .secondaryText,
-                                                            size: 24.0,
+                                                            size: 24,
                                                           ),
-                                                          elevation: 0.0,
+                                                          elevation: 0,
                                                           borderColor: Colors
                                                               .transparent,
-                                                          borderWidth: 0.0,
-                                                          borderRadius: 0.0,
+                                                          borderWidth: 0,
+                                                          borderRadius: 0,
                                                           margin:
                                                               const EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      16.0,
-                                                                      4.0,
-                                                                      16.0,
-                                                                      4.0),
+                                                                  .fromSTEB(16,
+                                                                      4, 16, 4),
                                                           hidesUnderline: true,
                                                           isOverButton: true,
                                                           isSearchable: false,
@@ -760,7 +751,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                       return Align(
                                                         alignment:
                                                             const AlignmentDirectional(
-                                                                0.0, 0.0),
+                                                                0, 0),
                                                         child:
                                                             FlutterFlowDropDown<
                                                                 String>(
@@ -794,10 +785,9 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                           ],
                                                           width:
                                                               MediaQuery.sizeOf(
-                                                                          context)
-                                                                      .width *
-                                                                  1.0,
-                                                          height: 56.0,
+                                                                      context)
+                                                                  .width,
+                                                          height: 56,
                                                           textStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
@@ -806,7 +796,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                                     fontFamily:
                                                                         'Montserrat',
                                                                     fontSize:
-                                                                        13.0,
+                                                                        13,
                                                                     letterSpacing:
                                                                         0.0,
                                                                     fontWeight:
@@ -821,26 +811,23 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .secondaryText,
-                                                            size: 24.0,
+                                                            size: 24,
                                                           ),
-                                                          elevation: 0.0,
+                                                          elevation: 0,
                                                           borderColor: Colors
                                                               .transparent,
-                                                          borderWidth: 0.0,
-                                                          borderRadius: 0.0,
+                                                          borderWidth: 0,
+                                                          borderRadius: 0,
                                                           margin:
                                                               const EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      16.0,
-                                                                      4.0,
-                                                                      16.0,
-                                                                      4.0),
+                                                                  .fromSTEB(16,
+                                                                      4, 16, 4),
                                                           hidesUnderline: true,
                                                           isOverButton: true,
                                                           isSearchable: false,
                                                           isMultiSelect: true,
                                                           onMultiSelectChanged:
-                                                              (val) => setState(
+                                                              (val) => safeSetState(
                                                                   () => _model
                                                                           .servicesPremiunValue =
                                                                       val),
@@ -866,17 +853,17 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                         ],
                                       ),
                                     ),
-                                  ].divide(const SizedBox(height: 8.0)),
+                                  ].divide(const SizedBox(height: 8)),
                                 ),
                               ),
                             ),
                           ),
                         if (currentUserDocument?.rol != Roles.user)
                           Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: const AlignmentDirectional(0, 0),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 16.0, 0.0),
+                              padding:
+                                  const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                               child: AuthUserStreamWidget(
                                 builder: (context) => Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -894,7 +881,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                               .override(
                                                 fontFamily: 'Montserrat',
                                                 color: const Color(0xFFC14BBC),
-                                                fontSize: 15.0,
+                                                fontSize: 15,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
@@ -902,8 +889,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                       ],
                                     ),
                                     Align(
-                                      alignment:
-                                          const AlignmentDirectional(-1.0, 0.0),
+                                      alignment: const AlignmentDirectional(-1, 0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -913,15 +899,15 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
                                                 0.9,
-                                            height: 39.0,
+                                            height: 39,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
                                             ),
                                             child: Align(
-                                              alignment: const AlignmentDirectional(
-                                                  -1.0, 0.0),
+                                              alignment:
+                                                  const AlignmentDirectional(-1, 0),
                                               child: Text(
                                                 'Select your age group',
                                                 textAlign: TextAlign.justify,
@@ -931,7 +917,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                         .override(
                                                           fontFamily:
                                                               'Montserrat',
-                                                          fontSize: 12.0,
+                                                          fontSize: 12,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
@@ -943,36 +929,34 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                       ),
                                     ),
                                     Align(
-                                      alignment:
-                                          const AlignmentDirectional(-1.0, 0.0),
+                                      alignment: const AlignmentDirectional(-1, 0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.min,
                                         children: [
                                           Expanded(
                                             child: Material(
                                               color: Colors.transparent,
-                                              elevation: 2.0,
+                                              elevation: 2,
                                               shape: RoundedRectangleBorder(
                                                 borderRadius:
-                                                    BorderRadius.circular(12.0),
+                                                    BorderRadius.circular(12),
                                               ),
                                               child: Container(
                                                 width: double.infinity,
-                                                height: 52.0,
+                                                height: 52,
                                                 decoration: BoxDecoration(
                                                   color: const Color(0xFFF0F0F0),
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          12.0),
+                                                      BorderRadius.circular(12),
                                                   border: Border.all(
                                                     color: const Color(0xFFC14BBC),
-                                                    width: 3.0,
+                                                    width: 3,
                                                   ),
                                                 ),
                                                 child: Align(
                                                   alignment:
                                                       const AlignmentDirectional(
-                                                          0.0, 0.0),
+                                                          0, 0),
                                                   child: FlutterFlowDropDown<
                                                       String>(
                                                     controller: _model
@@ -996,20 +980,20 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                       '40-65+ years'
                                                     ],
                                                     onChanged: (val) =>
-                                                        setState(() => _model
-                                                            .ageValue = val),
+                                                        safeSetState(() =>
+                                                            _model.ageValue =
+                                                                val),
                                                     width: MediaQuery.sizeOf(
-                                                                context)
-                                                            .width *
-                                                        1.0,
-                                                    height: 56.0,
+                                                            context)
+                                                        .width,
+                                                    height: 56,
                                                     textStyle: FlutterFlowTheme
                                                             .of(context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
                                                               'Montserrat',
-                                                          fontSize: 13.0,
+                                                          fontSize: 13,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -1023,17 +1007,17 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .secondaryText,
-                                                      size: 24.0,
+                                                      size: 24,
                                                     ),
-                                                    elevation: 0.0,
+                                                    elevation: 0,
                                                     borderColor:
                                                         Colors.transparent,
-                                                    borderWidth: 0.0,
-                                                    borderRadius: 0.0,
+                                                    borderWidth: 0,
+                                                    borderRadius: 0,
                                                     margin:
                                                         const EdgeInsetsDirectional
-                                                            .fromSTEB(16.0, 4.0,
-                                                                16.0, 4.0),
+                                                            .fromSTEB(
+                                                                16, 4, 16, 4),
                                                     hidesUnderline: true,
                                                     isOverButton: true,
                                                     isSearchable: false,
@@ -1057,7 +1041,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                         ],
                                       ),
                                     ),
-                                  ].divide(const SizedBox(height: 8.0)),
+                                  ].divide(const SizedBox(height: 8)),
                                 ),
                               ),
                             ),
@@ -1066,10 +1050,10 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Align(
-                              alignment: const AlignmentDirectional(-1.0, 0.0),
+                              alignment: const AlignmentDirectional(-1, 0),
                               child: Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    20.0, 16.0, 0.0, 0.0),
+                                    20, 16, 0, 0),
                                 child: Text(
                                   'Description',
                                   style: FlutterFlowTheme.of(context)
@@ -1084,28 +1068,28 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0, 0),
                               child: Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    20.0, 10.0, 20.0, 20.0),
+                                    20, 10, 20, 20),
                                 child: Material(
                                   color: Colors.transparent,
-                                  elevation: 2.0,
+                                  elevation: 2,
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(12.0),
+                                    borderRadius: BorderRadius.circular(12),
                                   ),
                                   child: Container(
                                     width: double.infinity,
-                                    height: 120.0,
+                                    height: 120,
                                     decoration: BoxDecoration(
                                       color: const Color(0xFFF0F0F0),
-                                      borderRadius: BorderRadius.circular(12.0),
+                                      borderRadius: BorderRadius.circular(12),
                                       border: Border.all(
                                         color: const Color(0xFFC45ABE),
-                                        width: 3.0,
+                                        width: 3,
                                       ),
                                     ),
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    alignment: const AlignmentDirectional(0, 0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -1114,10 +1098,10 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                         Expanded(
                                           child: Align(
                                             alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
+                                                const AlignmentDirectional(0, 0),
                                             child: Padding(
                                               padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(4.0, 0.0, 4.0, 0.0),
+                                                  .fromSTEB(4, 0, 4, 0),
                                               child: AuthUserStreamWidget(
                                                 builder: (context) =>
                                                     TextFormField(
@@ -1157,7 +1141,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              0.0),
+                                                              0),
                                                     ),
                                                     focusedBorder:
                                                         UnderlineInputBorder(
@@ -1168,7 +1152,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              0.0),
+                                                              0),
                                                     ),
                                                     errorBorder:
                                                         UnderlineInputBorder(
@@ -1179,7 +1163,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              0.0),
+                                                              0),
                                                     ),
                                                     focusedErrorBorder:
                                                         UnderlineInputBorder(
@@ -1190,7 +1174,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              0.0),
+                                                              0),
                                                     ),
                                                   ),
                                                   style: FlutterFlowTheme.of(
@@ -1215,14 +1199,14 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                 ),
                               ),
                             ),
-                          ].divide(const SizedBox(height: 8.0)),
+                          ].divide(const SizedBox(height: 8)),
                         ),
                         if (currentUserDocument?.rol != Roles.user)
                           Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: const AlignmentDirectional(0, 0),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 16.0, 0.0),
+                              padding:
+                                  const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                               child: AuthUserStreamWidget(
                                 builder: (context) => Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -1240,7 +1224,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                               .override(
                                                 fontFamily: 'Montserrat',
                                                 color: const Color(0xFFC14BBC),
-                                                fontSize: 15.0,
+                                                fontSize: 15,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
@@ -1248,8 +1232,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                       ],
                                     ),
                                     Align(
-                                      alignment:
-                                          const AlignmentDirectional(-1.0, 0.0),
+                                      alignment: const AlignmentDirectional(-1, 0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -1259,15 +1242,15 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
                                                 0.9,
-                                            height: 56.0,
+                                            height: 56,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
                                             ),
                                             child: Align(
-                                              alignment: const AlignmentDirectional(
-                                                  0.0, 0.0),
+                                              alignment:
+                                                  const AlignmentDirectional(0, 0),
                                               child: Text(
                                                 'In this video you can make a short presentation of yourself, it will help you meet more participants',
                                                 textAlign: TextAlign.start,
@@ -1277,7 +1260,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                         .override(
                                                           fontFamily:
                                                               'Montserrat',
-                                                          fontSize: 12.0,
+                                                          fontSize: 12,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
@@ -1290,7 +1273,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                     ),
                                     const Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 8.0, 0.0, 0.0),
+                                          0, 8, 0, 0),
                                       child: FlutterFlowVideoPlayer(
                                         path:
                                             'https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.mp4',
@@ -1302,14 +1285,13 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                         allowPlaybackSpeedMenu: false,
                                       ),
                                     ),
-                                  ].divide(const SizedBox(height: 8.0)),
+                                  ].divide(const SizedBox(height: 8)),
                                 ),
                               ),
                             ),
                           ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 8.0, 0.0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
                           child: FFButtonWidget(
                             onPressed: () async {
                               FFAppState().updateRegisterProviderFormStruct(
@@ -1385,7 +1367,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                               }
                               FFAppState().registerProviderForm =
                                   RegisterProviderTypeStruct();
-                              setState(() {});
+                              safeSetState(() {});
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
                                   content: Text(
@@ -1403,41 +1385,41 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                             },
                             text: 'save changes',
                             options: FFButtonOptions(
-                              width: 167.0,
-                              height: 57.0,
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 0.0, 12.0, 0.0),
-                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
+                              width: 167,
+                              height: 57,
+                              padding:
+                                  const EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
+                              iconPadding:
+                                  const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                               color: const Color(0xFFFF6FF7),
                               textStyle: FlutterFlowTheme.of(context)
                                   .headlineLarge
                                   .override(
                                     fontFamily: 'Montserrat',
                                     color: Colors.white,
-                                    fontSize: 24.0,
+                                    fontSize: 24,
                                     letterSpacing: 0.0,
                                   ),
-                              elevation: 3.0,
+                              elevation: 3,
                               borderSide: const BorderSide(
                                 color: Colors.transparent,
-                                width: 1.0,
+                                width: 1,
                               ),
-                              borderRadius: BorderRadius.circular(16.0),
+                              borderRadius: BorderRadius.circular(16),
                             ),
                           ),
                         ),
                       ]
-                          .divide(const SizedBox(height: 16.0))
-                          .addToEnd(const SizedBox(height: 16.0)),
+                          .divide(const SizedBox(height: 16))
+                          .addToEnd(const SizedBox(height: 16)),
                     ),
                   ),
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(0.0, 1.0),
+                alignment: const AlignmentDirectional(0, 1),
                 child: Container(
-                  height: 73.0,
+                  height: 73,
                   decoration: const BoxDecoration(
                     color: Color(0xB3B928B8),
                   ),
@@ -1446,13 +1428,13 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                       if (currentUserDocument?.rol != Roles.business) {
                         return wrapWithModel(
                           model: _model.navbarModel,
-                          updateCallback: () => setState(() {}),
+                          updateCallback: () => safeSetState(() {}),
                           child: const NavbarWidget(),
                         );
                       } else {
                         return wrapWithModel(
                           model: _model.navbarPremiunModel,
-                          updateCallback: () => setState(() {}),
+                          updateCallback: () => safeSetState(() {}),
                           child: const NavbarPremiunWidget(),
                         );
                       }

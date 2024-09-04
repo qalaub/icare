@@ -48,13 +48,13 @@ class _MySubscriptionBasicWidgetState extends State<MySubscriptionBasicWidget> {
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
             borderColor: Colors.transparent,
-            borderRadius: 30.0,
-            borderWidth: 1.0,
-            buttonSize: 60.0,
+            borderRadius: 30,
+            borderWidth: 1,
+            buttonSize: 60,
             icon: const FaIcon(
               FontAwesomeIcons.angleLeft,
               color: Colors.white,
-              size: 30.0,
+              size: 30,
             ),
             onPressed: () async {
               context.pop();
@@ -65,14 +65,14 @@ class _MySubscriptionBasicWidgetState extends State<MySubscriptionBasicWidget> {
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Inter',
                   color: Colors.white,
-                  fontSize: 24.0,
+                  fontSize: 24,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.w600,
                 ),
           ),
           actions: const [],
           centerTitle: false,
-          elevation: 2.0,
+          elevation: 2,
         ),
         body: SafeArea(
           top: true,
@@ -81,7 +81,7 @@ class _MySubscriptionBasicWidgetState extends State<MySubscriptionBasicWidget> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Container(
-                  width: MediaQuery.sizeOf(context).width * 1.0,
+                  width: MediaQuery.sizeOf(context).width,
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       fit: BoxFit.cover,
@@ -94,8 +94,7 @@ class _MySubscriptionBasicWidgetState extends State<MySubscriptionBasicWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
                         child: Container(
                           decoration: const BoxDecoration(),
                           child: Text(
@@ -105,7 +104,7 @@ class _MySubscriptionBasicWidgetState extends State<MySubscriptionBasicWidget> {
                                 .override(
                                   fontFamily: 'Inter',
                                   color: Colors.white,
-                                  fontSize: 28.0,
+                                  fontSize: 28,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -163,7 +162,7 @@ class _MySubscriptionBasicWidgetState extends State<MySubscriptionBasicWidget> {
                         ),
                       ),
                       SizedBox(
-                        height: 110.0,
+                        height: 110,
                         child: Stack(
                           children: [
                             Align(
@@ -180,7 +179,7 @@ class _MySubscriptionBasicWidgetState extends State<MySubscriptionBasicWidget> {
                                           .override(
                                             fontFamily: 'Inter',
                                             color: const Color(0xFFF9C532),
-                                            fontSize: 16.0,
+                                            fontSize: 16,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.bold,
                                           ),
@@ -198,7 +197,7 @@ class _MySubscriptionBasicWidgetState extends State<MySubscriptionBasicWidget> {
                                             .override(
                                               fontFamily: 'Inter',
                                               color: Colors.white,
-                                              fontSize: 12.0,
+                                              fontSize: 12,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.bold,
                                             ),
@@ -209,7 +208,7 @@ class _MySubscriptionBasicWidgetState extends State<MySubscriptionBasicWidget> {
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 0.6),
+                              alignment: const AlignmentDirectional(0, 0.6),
                               child: Container(
                                 decoration: const BoxDecoration(),
                                 child: Column(
@@ -222,7 +221,7 @@ class _MySubscriptionBasicWidgetState extends State<MySubscriptionBasicWidget> {
                                           .override(
                                             fontFamily: 'Inter',
                                             color: Colors.white,
-                                            fontSize: 14.0,
+                                            fontSize: 14,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.bold,
                                           ),
@@ -244,7 +243,7 @@ class _MySubscriptionBasicWidgetState extends State<MySubscriptionBasicWidget> {
                                             .override(
                                               fontFamily: 'Inter',
                                               color: const Color(0xFFF9C532),
-                                              fontSize: 21.0,
+                                              fontSize: 21,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.bold,
                                             ),
@@ -268,7 +267,7 @@ class _MySubscriptionBasicWidgetState extends State<MySubscriptionBasicWidget> {
                                           .override(
                                             fontFamily: 'Inter',
                                             color: const Color(0xFFF9C532),
-                                            fontSize: 16.0,
+                                            fontSize: 16,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.bold,
                                           ),
@@ -291,7 +290,7 @@ class _MySubscriptionBasicWidgetState extends State<MySubscriptionBasicWidget> {
                                             .override(
                                               fontFamily: 'Inter',
                                               color: Colors.white,
-                                              fontSize: 12.0,
+                                              fontSize: 12,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.bold,
                                             ),
@@ -305,17 +304,16 @@ class _MySubscriptionBasicWidgetState extends State<MySubscriptionBasicWidget> {
                         ),
                       ),
                     ]
-                        .divide(const SizedBox(height: 8.0))
-                        .addToStart(const SizedBox(height: 16.0)),
+                        .divide(const SizedBox(height: 8))
+                        .addToStart(const SizedBox(height: 16)),
                   ),
                 ),
                 Align(
-                  alignment: const AlignmentDirectional(0.0, 0.0),
+                  alignment: const AlignmentDirectional(0, 0),
                   child: Container(
                     decoration: const BoxDecoration(),
                     child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -331,7 +329,7 @@ class _MySubscriptionBasicWidgetState extends State<MySubscriptionBasicWidget> {
                                     .override(
                                       fontFamily: 'Montserrat',
                                       color: const Color(0xFFC14BBC),
-                                      fontSize: 15.0,
+                                      fontSize: 15,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -339,20 +337,20 @@ class _MySubscriptionBasicWidgetState extends State<MySubscriptionBasicWidget> {
                             ],
                           ),
                           Align(
-                            alignment: const AlignmentDirectional(-1.0, 0.0),
+                            alignment: const AlignmentDirectional(-1, 0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Container(
                                   width: MediaQuery.sizeOf(context).width * 0.9,
-                                  height: 39.0,
+                                  height: 39,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
                                   ),
                                   child: Align(
-                                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                                    alignment: const AlignmentDirectional(-1, 0),
                                     child: Text(
                                       'Connect with a wide range of NDIS participants ',
                                       textAlign: TextAlign.start,
@@ -361,7 +359,7 @@ class _MySubscriptionBasicWidgetState extends State<MySubscriptionBasicWidget> {
                                           .override(
                                             fontFamily: 'Montserrat',
                                             color: Colors.black,
-                                            fontSize: 14.0,
+                                            fontSize: 14,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
                                           ),
@@ -371,18 +369,17 @@ class _MySubscriptionBasicWidgetState extends State<MySubscriptionBasicWidget> {
                               ],
                             ),
                           ),
-                        ].divide(const SizedBox(height: 8.0)),
+                        ].divide(const SizedBox(height: 8)),
                       ),
                     ),
                   ),
                 ),
                 Align(
-                  alignment: const AlignmentDirectional(0.0, 0.0),
+                  alignment: const AlignmentDirectional(0, 0),
                   child: Container(
                     decoration: const BoxDecoration(),
                     child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -398,7 +395,7 @@ class _MySubscriptionBasicWidgetState extends State<MySubscriptionBasicWidget> {
                                     .override(
                                       fontFamily: 'Montserrat',
                                       color: const Color(0xFFC14BBC),
-                                      fontSize: 15.0,
+                                      fontSize: 15,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -406,20 +403,20 @@ class _MySubscriptionBasicWidgetState extends State<MySubscriptionBasicWidget> {
                             ],
                           ),
                           Align(
-                            alignment: const AlignmentDirectional(-1.0, 0.0),
+                            alignment: const AlignmentDirectional(-1, 0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Container(
                                   width: MediaQuery.sizeOf(context).width * 0.9,
-                                  height: 39.0,
+                                  height: 39,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
                                   ),
                                   child: Align(
-                                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                                    alignment: const AlignmentDirectional(-1, 0),
                                     child: Text(
                                       'Customise your own profile, including BIO, photos and videos',
                                       textAlign: TextAlign.start,
@@ -428,7 +425,7 @@ class _MySubscriptionBasicWidgetState extends State<MySubscriptionBasicWidget> {
                                           .override(
                                             fontFamily: 'Montserrat',
                                             color: Colors.black,
-                                            fontSize: 14.0,
+                                            fontSize: 14,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
                                           ),
@@ -438,18 +435,17 @@ class _MySubscriptionBasicWidgetState extends State<MySubscriptionBasicWidget> {
                               ],
                             ),
                           ),
-                        ].divide(const SizedBox(height: 8.0)),
+                        ].divide(const SizedBox(height: 8)),
                       ),
                     ),
                   ),
                 ),
                 Align(
-                  alignment: const AlignmentDirectional(0.0, 0.0),
+                  alignment: const AlignmentDirectional(0, 0),
                   child: Container(
                     decoration: const BoxDecoration(),
                     child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -465,7 +461,7 @@ class _MySubscriptionBasicWidgetState extends State<MySubscriptionBasicWidget> {
                                     .override(
                                       fontFamily: 'Montserrat',
                                       color: const Color(0xFFC14BBC),
-                                      fontSize: 15.0,
+                                      fontSize: 15,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -473,20 +469,20 @@ class _MySubscriptionBasicWidgetState extends State<MySubscriptionBasicWidget> {
                             ],
                           ),
                           Align(
-                            alignment: const AlignmentDirectional(-1.0, 0.0),
+                            alignment: const AlignmentDirectional(-1, 0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Container(
                                   width: MediaQuery.sizeOf(context).width * 0.9,
-                                  height: 39.0,
+                                  height: 39,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
                                   ),
                                   child: Align(
-                                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                                    alignment: const AlignmentDirectional(-1, 0),
                                     child: Text(
                                       'Get notified when participants like your profile, commence service right away ',
                                       textAlign: TextAlign.start,
@@ -495,7 +491,7 @@ class _MySubscriptionBasicWidgetState extends State<MySubscriptionBasicWidget> {
                                           .override(
                                             fontFamily: 'Montserrat',
                                             color: Colors.black,
-                                            fontSize: 14.0,
+                                            fontSize: 14,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
                                           ),
@@ -505,18 +501,17 @@ class _MySubscriptionBasicWidgetState extends State<MySubscriptionBasicWidget> {
                               ],
                             ),
                           ),
-                        ].divide(const SizedBox(height: 8.0)),
+                        ].divide(const SizedBox(height: 8)),
                       ),
                     ),
                   ),
                 ),
                 Align(
-                  alignment: const AlignmentDirectional(0.0, 0.0),
+                  alignment: const AlignmentDirectional(0, 0),
                   child: Container(
                     decoration: const BoxDecoration(),
                     child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -532,7 +527,7 @@ class _MySubscriptionBasicWidgetState extends State<MySubscriptionBasicWidget> {
                                     .override(
                                       fontFamily: 'Montserrat',
                                       color: const Color(0xFFC14BBC),
-                                      fontSize: 15.0,
+                                      fontSize: 15,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -540,20 +535,20 @@ class _MySubscriptionBasicWidgetState extends State<MySubscriptionBasicWidget> {
                             ],
                           ),
                           Align(
-                            alignment: const AlignmentDirectional(-1.0, 0.0),
+                            alignment: const AlignmentDirectional(-1, 0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Container(
                                   width: MediaQuery.sizeOf(context).width * 0.9,
-                                  height: 39.0,
+                                  height: 39,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
                                   ),
                                   child: Align(
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    alignment: const AlignmentDirectional(0, 0),
                                     child: Text(
                                       'You can attach standard and basiccaregivers as your collaborators',
                                       textAlign: TextAlign.start,
@@ -562,7 +557,7 @@ class _MySubscriptionBasicWidgetState extends State<MySubscriptionBasicWidget> {
                                           .override(
                                             fontFamily: 'Montserrat',
                                             color: Colors.black,
-                                            fontSize: 14.0,
+                                            fontSize: 14,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
                                           ),
@@ -572,7 +567,7 @@ class _MySubscriptionBasicWidgetState extends State<MySubscriptionBasicWidget> {
                               ],
                             ),
                           ),
-                        ].divide(const SizedBox(height: 8.0)),
+                        ].divide(const SizedBox(height: 8)),
                       ),
                     ),
                   ),
@@ -580,39 +575,36 @@ class _MySubscriptionBasicWidgetState extends State<MySubscriptionBasicWidget> {
                 Align(
                   alignment: const AlignmentDirectional(0.01, 0.7),
                   child: Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
                     child: FFButtonWidget(
                       onPressed: () async {
                         context.pushNamed('userprofile');
                       },
                       text: 'return',
                       options: FFButtonOptions(
-                        width: 275.0,
-                        height: 45.0,
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            24.0, 0.0, 24.0, 0.0),
-                        iconPadding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        width: 275,
+                        height: 45,
+                        padding: const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                        iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                         color: const Color(0xFFB928B8),
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Montserrat',
                                   color: Colors.white,
-                                  fontSize: 20.0,
+                                  fontSize: 20,
                                   letterSpacing: 0.0,
                                 ),
-                        elevation: 5.0,
+                        elevation: 5,
                         borderSide: const BorderSide(
                           color: Colors.transparent,
-                          width: 1.0,
+                          width: 1,
                         ),
-                        borderRadius: BorderRadius.circular(24.0),
+                        borderRadius: BorderRadius.circular(24),
                       ),
                     ),
                   ),
                 ),
-              ].divide(const SizedBox(height: 26.0)).addToEnd(const SizedBox(height: 32.0)),
+              ].divide(const SizedBox(height: 26)).addToEnd(const SizedBox(height: 32)),
             ),
           ),
         ),

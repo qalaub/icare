@@ -46,13 +46,13 @@ class _Favorites1WidgetState extends State<Favorites1Widget> {
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
             borderColor: Colors.transparent,
-            borderRadius: 30.0,
-            borderWidth: 1.0,
-            buttonSize: 60.0,
+            borderRadius: 30,
+            borderWidth: 1,
+            buttonSize: 60,
             icon: const FaIcon(
               FontAwesomeIcons.angleLeft,
               color: Colors.white,
-              size: 30.0,
+              size: 30,
             ),
             onPressed: () async {
               context.pop();
@@ -63,14 +63,14 @@ class _Favorites1WidgetState extends State<Favorites1Widget> {
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Montserrat',
                   color: const Color(0xFFEFECF3),
-                  fontSize: 25.0,
+                  fontSize: 25,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.bold,
                 ),
           ),
           actions: const [],
           centerTitle: true,
-          elevation: 2.0,
+          elevation: 2,
         ),
         body: SafeArea(
           top: true,
@@ -79,7 +79,7 @@ class _Favorites1WidgetState extends State<Favorites1Widget> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Align(
-                alignment: const AlignmentDirectional(0.0, 0.0),
+                alignment: const AlignmentDirectional(0, 0),
                 child: AuthUserStreamWidget(
                   builder: (context) => Builder(
                     builder: (context) {
@@ -90,14 +90,14 @@ class _Favorites1WidgetState extends State<Favorites1Widget> {
                       return ListView.separated(
                         padding: const EdgeInsets.fromLTRB(
                           0,
-                          35.0,
+                          35,
                           0,
                           0,
                         ),
                         shrinkWrap: true,
                         scrollDirection: Axis.vertical,
                         itemCount: userList.length,
-                        separatorBuilder: (_, __) => const SizedBox(height: 15.0),
+                        separatorBuilder: (_, __) => const SizedBox(height: 15),
                         itemBuilder: (context, userListIndex) {
                           final userListItem = userList[userListIndex];
                           return FavoritesWidget(
@@ -112,10 +112,10 @@ class _Favorites1WidgetState extends State<Favorites1Widget> {
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(0.0, 0.8),
+                alignment: const AlignmentDirectional(0, 0.8),
                 child: wrapWithModel(
                   model: _model.navbarModel,
-                  updateCallback: () => setState(() {}),
+                  updateCallback: () => safeSetState(() {}),
                   child: const NavbarWidget(),
                 ),
               ),

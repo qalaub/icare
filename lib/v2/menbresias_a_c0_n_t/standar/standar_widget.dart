@@ -51,24 +51,23 @@ class _StandarWidgetState extends State<StandarWidget> {
         body: SafeArea(
           top: true,
           child: Container(
-            width: MediaQuery.sizeOf(context).width * 1.0,
-            height: MediaQuery.sizeOf(context).height * 1.0,
+            width: MediaQuery.sizeOf(context).width,
+            height: MediaQuery.sizeOf(context).height * 1,
             decoration: const BoxDecoration(
               gradient: LinearGradient(
                 colors: [Color(0xFF758195), Color(0xFF25292F)],
-                stops: [0.0, 1.0],
-                begin: AlignmentDirectional(0.0, -1.0),
-                end: AlignmentDirectional(0, 1.0),
+                stops: [0, 1],
+                begin: AlignmentDirectional(0, -1),
+                end: AlignmentDirectional(0, 1),
               ),
             ),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
                 Align(
-                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                  alignment: const AlignmentDirectional(-1, 0),
                   child: Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -96,7 +95,7 @@ class _StandarWidgetState extends State<StandarWidget> {
                           child: const Icon(
                             Icons.close,
                             color: Colors.white,
-                            size: 24.0,
+                            size: 24,
                           ),
                         ),
                       ],
@@ -129,11 +128,11 @@ class _StandarWidgetState extends State<StandarWidget> {
                           ),
                         ),
                         Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          alignment: const AlignmentDirectional(0, 0),
                           child: Container(
                             decoration: const BoxDecoration(),
                             child: Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0, 0),
                               child: Text(
                                 'Unlock all the power of this mobile tool and enjoy a digital experience like never before!',
                                 textAlign: TextAlign.center,
@@ -142,7 +141,7 @@ class _StandarWidgetState extends State<StandarWidget> {
                                     .override(
                                       fontFamily: 'Inter',
                                       color: Colors.white,
-                                      fontSize: 13.0,
+                                      fontSize: 13,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w300,
                                     ),
@@ -155,38 +154,37 @@ class _StandarWidgetState extends State<StandarWidget> {
                           height: MediaQuery.sizeOf(context).height * 0.22,
                           decoration: const BoxDecoration(),
                           child: ClipRRect(
-                            borderRadius: BorderRadius.circular(8.0),
+                            borderRadius: BorderRadius.circular(8),
                             child: SvgPicture.asset(
                               'assets/images/Surprise.svg',
-                              width: 150.0,
-                              height: 92.0,
+                              width: 150,
+                              height: 92,
                               fit: BoxFit.cover,
                             ),
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 32.0, 0.0, 0.0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(0, 32, 0, 0),
                           child: Container(
-                            width: MediaQuery.sizeOf(context).width * 1.0,
-                            height: 90.0,
+                            width: MediaQuery.sizeOf(context).width,
+                            height: 90,
                             decoration: const BoxDecoration(
                               color: Color(0x84FFFFFF),
                               borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(16.0),
-                                bottomRight: Radius.circular(16.0),
-                                topLeft: Radius.circular(16.0),
-                                topRight: Radius.circular(16.0),
+                                bottomLeft: Radius.circular(16),
+                                bottomRight: Radius.circular(16),
+                                topLeft: Radius.circular(16),
+                                topRight: Radius.circular(16),
                               ),
                             ),
                             child: Stack(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0, 0),
                               children: [
                                 Align(
-                                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                                  alignment: const AlignmentDirectional(-1, 0),
                                   child: Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        17.0, 0.0, 16.0, 0.0),
+                                        17, 0, 16, 0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -203,7 +201,7 @@ class _StandarWidgetState extends State<StandarWidget> {
                                                 .override(
                                                   fontFamily: 'Inter',
                                                   color: Colors.white,
-                                                  fontSize: 18.0,
+                                                  fontSize: 18,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -218,7 +216,7 @@ class _StandarWidgetState extends State<StandarWidget> {
                                                 .override(
                                                   fontFamily: 'Inter',
                                                   color: Colors.white,
-                                                  fontSize: 18.0,
+                                                  fontSize: 18,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
                                                 ),
@@ -231,19 +229,19 @@ class _StandarWidgetState extends State<StandarWidget> {
                                 Align(
                                   alignment: const AlignmentDirectional(0.9, -0.5),
                                   child: Container(
-                                    width: 78.0,
-                                    height: 23.0,
+                                    width: 78,
+                                    height: 23,
                                     decoration: const BoxDecoration(
                                       color: Color(0xD026CB63),
                                       borderRadius: BorderRadius.only(
-                                        bottomLeft: Radius.circular(12.0),
-                                        bottomRight: Radius.circular(12.0),
-                                        topLeft: Radius.circular(12.0),
-                                        topRight: Radius.circular(12.0),
+                                        bottomLeft: Radius.circular(12),
+                                        bottomRight: Radius.circular(12),
+                                        topLeft: Radius.circular(12),
+                                        topRight: Radius.circular(12),
                                       ),
                                     ),
                                     child: Align(
-                                      alignment: const AlignmentDirectional(0.0, 0.0),
+                                      alignment: const AlignmentDirectional(0, 0),
                                       child: Text(
                                         'Best Value',
                                         style: FlutterFlowTheme.of(context)
@@ -251,7 +249,7 @@ class _StandarWidgetState extends State<StandarWidget> {
                                             .override(
                                               fontFamily: 'Inter',
                                               color: Colors.white,
-                                              fontSize: 10.0,
+                                              fontSize: 10,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
@@ -264,27 +262,26 @@ class _StandarWidgetState extends State<StandarWidget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 6.0, 0.0, 0.0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(0, 6, 0, 0),
                           child: Container(
-                            width: MediaQuery.sizeOf(context).width * 1.0,
-                            height: 90.0,
+                            width: MediaQuery.sizeOf(context).width,
+                            height: 90,
                             decoration: BoxDecoration(
                               color: const Color(0x35FFFFFF),
                               borderRadius: const BorderRadius.only(
-                                bottomLeft: Radius.circular(16.0),
-                                bottomRight: Radius.circular(16.0),
-                                topLeft: Radius.circular(16.0),
-                                topRight: Radius.circular(16.0),
+                                bottomLeft: Radius.circular(16),
+                                bottomRight: Radius.circular(16),
+                                topLeft: Radius.circular(16),
+                                topRight: Radius.circular(16),
                               ),
                               border: Border.all(
                                 color: Colors.white,
-                                width: 3.0,
+                                width: 3,
                               ),
                             ),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 16.0, 0.0),
+                              padding:
+                                  const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.start,
@@ -305,7 +302,7 @@ class _StandarWidgetState extends State<StandarWidget> {
                                               .override(
                                                 fontFamily: 'Inter',
                                                 color: Colors.white,
-                                                fontSize: 18.0,
+                                                fontSize: 18,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
@@ -320,7 +317,7 @@ class _StandarWidgetState extends State<StandarWidget> {
                                               .override(
                                                 fontFamily: 'Inter',
                                                 color: Colors.white,
-                                                fontSize: 18.0,
+                                                fontSize: 18,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w300,
                                               ),
@@ -344,7 +341,7 @@ class _StandarWidgetState extends State<StandarWidget> {
                                   materialTapTargetSize:
                                       MaterialTapTargetSize.shrinkWrap,
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(4.0),
+                                    borderRadius: BorderRadius.circular(4),
                                   ),
                                 ),
                                 unselectedWidgetColor:
@@ -353,7 +350,7 @@ class _StandarWidgetState extends State<StandarWidget> {
                               child: Checkbox(
                                 value: _model.checkboxValue ??= true,
                                 onChanged: (newValue) async {
-                                  setState(
+                                  safeSetState(
                                       () => _model.checkboxValue = newValue!);
                                 },
                                 side: BorderSide(
@@ -367,14 +364,14 @@ class _StandarWidgetState extends State<StandarWidget> {
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0, 0),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 4.0, 0.0, 0.0),
+                                padding:
+                                    const EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
                                 child: Container(
                                   decoration: const BoxDecoration(),
                                   child: Align(
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    alignment: const AlignmentDirectional(0, 0),
                                     child: Text(
                                       'Do you accept the terms and conditions?',
                                       textAlign: TextAlign.center,
@@ -383,7 +380,7 @@ class _StandarWidgetState extends State<StandarWidget> {
                                           .override(
                                             fontFamily: 'Inter',
                                             color: const Color(0xFFFFD400),
-                                            fontSize: 13.0,
+                                            fontSize: 13,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                           ),
@@ -392,11 +389,10 @@ class _StandarWidgetState extends State<StandarWidget> {
                                 ),
                               ),
                             ),
-                          ].divide(const SizedBox(width: 12.0)),
+                          ].divide(const SizedBox(width: 12)),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 19.0, 0.0, 0.0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(0, 19, 0, 0),
                           child: InkWell(
                             splashColor: Colors.transparent,
                             focusColor: Colors.transparent,
@@ -436,23 +432,23 @@ class _StandarWidgetState extends State<StandarWidget> {
                                 context.pushNamed('userprofile');
                               }
 
-                              setState(() {});
+                              safeSetState(() {});
                             },
                             child: Container(
-                              width: MediaQuery.sizeOf(context).width * 1.0,
-                              height: 55.0,
+                              width: MediaQuery.sizeOf(context).width,
+                              height: 55,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
                                 borderRadius: const BorderRadius.only(
-                                  bottomLeft: Radius.circular(30.0),
-                                  bottomRight: Radius.circular(30.0),
-                                  topLeft: Radius.circular(30.0),
-                                  topRight: Radius.circular(30.0),
+                                  bottomLeft: Radius.circular(30),
+                                  bottomRight: Radius.circular(30),
+                                  topLeft: Radius.circular(30),
+                                  topRight: Radius.circular(30),
                                 ),
                               ),
                               child: Align(
-                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                alignment: const AlignmentDirectional(0, 0),
                                 child: Text(
                                   'Get started Standard',
                                   style: FlutterFlowTheme.of(context)
@@ -460,7 +456,7 @@ class _StandarWidgetState extends State<StandarWidget> {
                                       .override(
                                         fontFamily: 'Inter',
                                         color: const Color(0xFF25292F),
-                                        fontSize: 18.0,
+                                        fontSize: 18,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.bold,
                                       ),
@@ -470,13 +466,13 @@ class _StandarWidgetState extends State<StandarWidget> {
                           ),
                         ),
                       ]
-                          .divide(const SizedBox(height: 8.0))
-                          .addToStart(const SizedBox(height: 16.0))
-                          .addToEnd(const SizedBox(height: 16.0)),
+                          .divide(const SizedBox(height: 8))
+                          .addToStart(const SizedBox(height: 16))
+                          .addToEnd(const SizedBox(height: 16)),
                     ),
                   ),
                 ),
-              ].addToStart(const SizedBox(height: 32.0)),
+              ].addToStart(const SizedBox(height: 32)),
             ),
           ),
         ),

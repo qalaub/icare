@@ -16,4 +16,5 @@ abstract class FFAppConstants {
   static const int basicPrice = 899;
   static const int standarPrice = 1799;
   static const int premiunPrice = 2899;
+  static const List<String> clearService = ['Hello World'];
 }

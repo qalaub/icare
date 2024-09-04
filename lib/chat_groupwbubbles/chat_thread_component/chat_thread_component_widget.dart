@@ -54,7 +54,7 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
       if ((currentUserDocument?.plan == Plan.basic) &&
           (currentUserDocument?.rol == Roles.profesional)) {
         _model.isStandar = false;
-        setState(() {});
+        safeSetState(() {});
         _model.thereChat = await queryChatMessagesRecordOnce(
           queryBuilder: (chatMessagesRecord) => chatMessagesRecord.where(
             'chat',
@@ -64,7 +64,7 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
         ).then((s) => s.firstOrNull);
         if (_model.thereChat?.reference != null) {
           _model.isStandar = true;
-          setState(() {});
+          safeSetState(() {});
         }
       } else {
         _model.isStandar = true;
@@ -128,7 +128,7 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                             });
                           }
 
-                          setState(() {});
+                          safeSetState(() {});
                         }();
                       }
                       _model.listViewPreviousSnapshot = snapshot;
@@ -138,10 +138,10 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                     if (!snapshot.hasData) {
                       return Center(
                         child: Padding(
-                          padding: const EdgeInsets.all(16.0),
+                          padding: const EdgeInsets.all(16),
                           child: SizedBox(
-                            width: 50.0,
-                            height: 50.0,
+                            width: 50,
+                            height: 50,
                             child: CircularProgressIndicator(
                               valueColor: AlwaysStoppedAnimation<Color>(
                                 FlutterFlowTheme.of(context).primary,
@@ -158,7 +158,7 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                         icon: Icon(
                           Icons.forum_outlined,
                           color: FlutterFlowTheme.of(context).primary,
-                          size: 90.0,
+                          size: 90,
                         ),
                         title: 'No Messages',
                         body:
@@ -169,9 +169,9 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                     return ListView.builder(
                       padding: const EdgeInsets.fromLTRB(
                         0,
-                        12.0,
+                        12,
                         0,
-                        24.0,
+                        24,
                       ),
                       reverse: true,
                       scrollDirection: Axis.vertical,
@@ -188,7 +188,7 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                               listViewChatMessagesRecord.reference.id,
                               listViewIndex,
                             ),
-                            updateCallback: () => setState(() {}),
+                            updateCallback: () => safeSetState(() {}),
                             updateOnChange: true,
                             child: ChatThreadUpdateWidget(
                               key: Key(
@@ -208,11 +208,11 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                   color: FlutterFlowTheme.of(context).secondaryBackground,
                   boxShadow: const [
                     BoxShadow(
-                      blurRadius: 3.0,
+                      blurRadius: 3,
                       color: Color(0x33000000),
                       offset: Offset(
-                        0.0,
-                        -2.0,
+                        0,
+                        -2,
                       ),
                     )
                   ],
@@ -226,8 +226,8 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                         children: [
                           Expanded(
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 12.0, 0.0, 0.0),
+                              padding:
+                                  const EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
                               child: SingleChildScrollView(
                                 scrollDirection: Axis.horizontal,
                                 child: Row(
@@ -237,23 +237,22 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                                     FlutterFlowMediaDisplay(
                                       path: _model.uploadedFileUrl,
                                       imageBuilder: (path) => ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
+                                        borderRadius: BorderRadius.circular(8),
                                         child: CachedNetworkImage(
                                           fadeInDuration:
                                               const Duration(milliseconds: 500),
                                           fadeOutDuration:
                                               const Duration(milliseconds: 500),
                                           imageUrl: path,
-                                          width: 120.0,
-                                          height: 100.0,
+                                          width: 120,
+                                          height: 100,
                                           fit: BoxFit.cover,
                                         ),
                                       ),
                                       videoPlayerBuilder: (path) =>
                                           FlutterFlowVideoPlayer(
                                         path: path,
-                                        width: 300.0,
+                                        width: 300,
                                         autoPlay: false,
                                         looping: true,
                                         showControls: true,
@@ -262,24 +261,23 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                                       ),
                                     ),
                                     Align(
-                                      alignment:
-                                          const AlignmentDirectional(-1.0, -1.0),
+                                      alignment: const AlignmentDirectional(-1, -1),
                                       child: FlutterFlowIconButton(
                                         borderColor:
                                             FlutterFlowTheme.of(context).error,
-                                        borderRadius: 20.0,
-                                        borderWidth: 2.0,
-                                        buttonSize: 40.0,
+                                        borderRadius: 20,
+                                        borderWidth: 2,
+                                        buttonSize: 40,
                                         fillColor: FlutterFlowTheme.of(context)
                                             .primaryBackground,
                                         icon: Icon(
                                           Icons.delete_outline_rounded,
                                           color: FlutterFlowTheme.of(context)
                                               .error,
-                                          size: 24.0,
+                                          size: 24,
                                         ),
                                         onPressed: () async {
-                                          setState(() {
+                                          safeSetState(() {
                                             _model.isDataUploading = false;
                                             _model.uploadedLocalFile =
                                                 FFUploadedFile(
@@ -291,9 +289,9 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                                       ),
                                     ),
                                   ]
-                                      .divide(const SizedBox(width: 8.0))
-                                      .addToStart(const SizedBox(width: 16.0))
-                                      .addToEnd(const SizedBox(width: 16.0)),
+                                      .divide(const SizedBox(width: 8))
+                                      .addToStart(const SizedBox(width: 16))
+                                      .addToEnd(const SizedBox(width: 16)),
                                 ),
                               ),
                             ),
@@ -304,7 +302,7 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                       key: _model.formKey,
                       autovalidateMode: AutovalidateMode.disabled,
                       child: Padding(
-                        padding: const EdgeInsets.all(12.0),
+                        padding: const EdgeInsets.all(12),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.start,
@@ -313,16 +311,16 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                             FlutterFlowIconButton(
                               borderColor:
                                   FlutterFlowTheme.of(context).alternate,
-                              borderRadius: 60.0,
-                              borderWidth: 1.0,
-                              buttonSize: 40.0,
+                              borderRadius: 60,
+                              borderWidth: 1,
+                              buttonSize: 40,
                               fillColor: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
                               icon: Icon(
                                 Icons.add_rounded,
                                 color:
                                     FlutterFlowTheme.of(context).secondaryText,
-                                size: 24.0,
+                                size: 24,
                               ),
                               onPressed: () async {
                                 final selectedMedia =
@@ -340,7 +338,8 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                                     selectedMedia.every((m) =>
                                         validateFileFormat(
                                             m.storagePath, context))) {
-                                  setState(() => _model.isDataUploading = true);
+                                  safeSetState(
+                                      () => _model.isDataUploading = true);
                                   var selectedUploadedFiles =
                                       <FFUploadedFile>[];
 
@@ -380,7 +379,7 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                                           selectedMedia.length &&
                                       downloadUrls.length ==
                                           selectedMedia.length) {
-                                    setState(() {
+                                    safeSetState(() {
                                       _model.uploadedLocalFile =
                                           selectedUploadedFiles.first;
                                       _model.uploadedFileUrl =
@@ -388,7 +387,7 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                                     });
                                     showUploadMessage(context, 'Success!');
                                   } else {
-                                    setState(() {});
+                                    safeSetState(() {});
                                     showUploadMessage(
                                         context, 'Failed to upload data');
                                     return;
@@ -398,7 +397,7 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                                 if (_model.uploadedFileUrl != '') {
                                   _model.addToImagesUploaded(
                                       _model.uploadedFileUrl);
-                                  setState(() {});
+                                  safeSetState(() {});
                                 }
                               },
                             ),
@@ -407,7 +406,7 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                                 children: [
                                   Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        8.0, 0.0, 0.0, 0.0),
+                                        8, 0, 0, 0),
                                     child: SizedBox(
                                       width: double.infinity,
                                       child: TextFormField(
@@ -457,10 +456,10 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                                               currentUserReference!);
                                           // clearUsers
                                           _model.lastSeenBy = [];
-                                          setState(() {
+                                          safeSetState(() {
                                             _model.textController?.clear();
                                           });
-                                          setState(() {
+                                          safeSetState(() {
                                             _model.isDataUploading = false;
                                             _model.uploadedLocalFile =
                                                 FFUploadedFile(
@@ -470,9 +469,9 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                                           });
 
                                           _model.imagesUploaded = [];
-                                          setState(() {});
+                                          safeSetState(() {});
 
-                                          setState(() {});
+                                          safeSetState(() {});
                                         },
                                         autofocus: true,
                                         textCapitalization:
@@ -505,7 +504,7 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .error,
-                                                fontSize: 12.0,
+                                                fontSize: 12,
                                                 letterSpacing: 0.0,
                                               ),
                                           enabledBorder: OutlineInputBorder(
@@ -513,30 +512,30 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .alternate,
-                                              width: 1.0,
+                                              width: 1,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(24.0),
+                                                BorderRadius.circular(24),
                                           ),
                                           focusedBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
-                                              width: 1.0,
+                                              width: 1,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(24.0),
+                                                BorderRadius.circular(24),
                                           ),
                                           errorBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .error,
-                                              width: 1.0,
+                                              width: 1,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(24.0),
+                                                BorderRadius.circular(24),
                                           ),
                                           focusedErrorBorder:
                                               OutlineInputBorder(
@@ -544,14 +543,14 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .error,
-                                              width: 1.0,
+                                              width: 1,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(24.0),
+                                                BorderRadius.circular(24),
                                           ),
                                           contentPadding:
                                               const EdgeInsetsDirectional.fromSTEB(
-                                                  16.0, 16.0, 56.0, 16.0),
+                                                  16, 16, 56, 16),
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
@@ -571,22 +570,22 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: const AlignmentDirectional(1.0, 0.0),
+                                    alignment: const AlignmentDirectional(1, 0),
                                     child: Padding(
                                       padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 4.0, 6.0, 4.0),
+                                          0, 4, 6, 4),
                                       child: FlutterFlowIconButton(
                                         borderColor:
                                             FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
-                                        borderRadius: 20.0,
-                                        borderWidth: 1.0,
-                                        buttonSize: 40.0,
+                                        borderRadius: 20,
+                                        borderWidth: 1,
+                                        buttonSize: 40,
                                         fillColor: const Color(0x54CE69CE),
                                         icon: const Icon(
                                           Icons.send_rounded,
                                           color: Color(0xFF432C43),
-                                          size: 20.0,
+                                          size: 20,
                                         ),
                                         onPressed: () async {
                                           final firestoreBatch =
@@ -674,10 +673,10 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                                             }
                                             // clearUsers
                                             _model.lastSeenBy = [];
-                                            setState(() {
+                                            safeSetState(() {
                                               _model.textController?.clear();
                                             });
-                                            setState(() {
+                                            safeSetState(() {
                                               _model.isDataUploading = false;
                                               _model.uploadedLocalFile =
                                                   FFUploadedFile(
@@ -687,12 +686,12 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                                             });
 
                                             _model.imagesUploaded = [];
-                                            setState(() {});
+                                            safeSetState(() {});
                                           } finally {
                                             await firestoreBatch.commit();
                                           }
 
-                                          setState(() {});
+                                          safeSetState(() {});
                                         },
                                       ),
                                     ),
@@ -711,23 +710,22 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
           ),
           if (!_model.isStandar!)
             Container(
-              width: MediaQuery.sizeOf(context).width * 1.0,
-              height: MediaQuery.sizeOf(context).height * 1.0,
+              width: MediaQuery.sizeOf(context).width,
+              height: MediaQuery.sizeOf(context).height * 1,
               decoration: const BoxDecoration(
                 color: Color(0x5DFFFFFF),
               ),
               child: SizedBox(
-                height: MediaQuery.sizeOf(context).height * 1.0,
+                height: MediaQuery.sizeOf(context).height * 1,
                 child: Stack(
                   children: [
                     Align(
-                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      alignment: const AlignmentDirectional(0, 0),
                       child: Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                         child: Container(
-                          width: 250.0,
-                          height: 100.0,
+                          width: 250,
+                          height: 100,
                           decoration: const BoxDecoration(),
                           child: InkWell(
                             splashColor: Colors.transparent,
@@ -750,7 +748,7 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                               );
                             },
                             child: ClipRRect(
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(8),
                               child: Image.asset(
                                 'assets/images/Group_42_(1).png',
                                 width: double.infinity,

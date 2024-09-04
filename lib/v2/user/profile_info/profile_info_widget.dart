@@ -60,8 +60,8 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
             backgroundColor: Colors.white,
             body: Center(
               child: SizedBox(
-                width: 50.0,
-                height: 50.0,
+                width: 50,
+                height: 50,
                 child: CircularProgressIndicator(
                   valueColor: AlwaysStoppedAnimation<Color>(
                     FlutterFlowTheme.of(context).primary,
@@ -89,13 +89,13 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
               backgroundColor: const Color(0xFFFEC0FB),
               automaticallyImplyLeading: false,
               leading: FlutterFlowIconButton(
-                borderRadius: 20.0,
-                borderWidth: 1.0,
-                buttonSize: 40.0,
+                borderRadius: 20,
+                borderWidth: 1,
+                buttonSize: 40,
                 icon: const Icon(
                   Icons.arrow_back_ios_new,
                   color: Colors.black,
-                  size: 24.0,
+                  size: 24,
                 ),
                 onPressed: () async {
                   context.safePop();
@@ -106,20 +106,20 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                 style: FlutterFlowTheme.of(context).headlineLarge.override(
                       fontFamily: 'Montserrat',
                       color: Colors.black,
-                      fontSize: 24.0,
+                      fontSize: 24,
                       letterSpacing: 0.0,
                     ),
               ),
               actions: [
                 Builder(
                   builder: (context) => FlutterFlowIconButton(
-                    borderRadius: 24.0,
-                    borderWidth: 1.0,
-                    buttonSize: 40.0,
+                    borderRadius: 24,
+                    borderWidth: 1,
+                    buttonSize: 40,
                     icon: Icon(
                       Icons.share_rounded,
                       color: FlutterFlowTheme.of(context).primaryText,
-                      size: 24.0,
+                      size: 24,
                     ),
                     onPressed: () async {
                       _model.currentPageLink = await generateCurrentPageLink(
@@ -141,9 +141,9 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                   ),
                 ),
                 Align(
-                  alignment: const AlignmentDirectional(0.0, 0.0),
+                  alignment: const AlignmentDirectional(0, 0),
                   child: Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
                     child: Container(
                       decoration: const BoxDecoration(),
                       child: Row(
@@ -197,23 +197,23 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                     },
                                   );
 
-                                  setState(() {});
+                                  safeSetState(() {});
                                 },
                                 child: const Icon(
                                   FFIcons.kmessage,
                                   color: Colors.black,
-                                  size: 33.0,
+                                  size: 33,
                                 ),
                               ),
                             ),
                           Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: const AlignmentDirectional(0, 0),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 6.0, 0.0, 0.0),
+                              padding:
+                                  const EdgeInsetsDirectional.fromSTEB(0, 6, 0, 0),
                               child: wrapWithModel(
                                 model: _model.addFavoritesModel,
-                                updateCallback: () => setState(() {}),
+                                updateCallback: () => safeSetState(() {}),
                                 child: AddFavoritesWidget(
                                   professional: profileInfoUsersRecord!,
                                 ),
@@ -227,7 +227,7 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                 ),
               ],
               centerTitle: false,
-              elevation: 0.0,
+              elevation: 0,
             ),
             body: SafeArea(
               top: true,
@@ -237,10 +237,10 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                 decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(0.0),
-                    bottomRight: Radius.circular(0.0),
-                    topLeft: Radius.circular(0.0),
-                    topRight: Radius.circular(0.0),
+                    bottomLeft: Radius.circular(0),
+                    bottomRight: Radius.circular(0),
+                    topLeft: Radius.circular(0),
+                    topRight: Radius.circular(0),
                   ),
                 ),
                 child: SingleChildScrollView(
@@ -249,12 +249,12 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                     children: [
                       Container(
                         width: double.infinity,
-                        height: 250.0,
+                        height: 250,
                         decoration: const BoxDecoration(),
                         child: Stack(
                           children: [
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0, 0),
                               child: Container(
                                 decoration: const BoxDecoration(
                                   color: Color(0xDFF428EB),
@@ -262,7 +262,7 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                 child: Opacity(
                                   opacity: 0.5,
                                   child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(8.0),
+                                    borderRadius: BorderRadius.circular(8),
                                     child: CachedNetworkImage(
                                       fadeInDuration:
                                           const Duration(milliseconds: 500),
@@ -281,7 +281,7 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0, 0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment:
@@ -289,24 +289,24 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Align(
-                                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                                    alignment: const AlignmentDirectional(-1, 0),
                                     child: Container(
-                                      width: 100.0,
-                                      height: 100.0,
+                                      width: 100,
+                                      height: 100,
                                       decoration: const BoxDecoration(
                                         borderRadius: BorderRadius.only(
-                                          bottomLeft: Radius.circular(22.0),
-                                          bottomRight: Radius.circular(22.0),
-                                          topLeft: Radius.circular(22.0),
-                                          topRight: Radius.circular(22.0),
+                                          bottomLeft: Radius.circular(22),
+                                          bottomRight: Radius.circular(22),
+                                          topLeft: Radius.circular(22),
+                                          topRight: Radius.circular(22),
                                         ),
                                       ),
                                       child: ClipRRect(
                                         borderRadius: const BorderRadius.only(
-                                          bottomLeft: Radius.circular(32.0),
-                                          bottomRight: Radius.circular(32.0),
-                                          topLeft: Radius.circular(32.0),
-                                          topRight: Radius.circular(32.0),
+                                          bottomLeft: Radius.circular(32),
+                                          bottomRight: Radius.circular(32),
+                                          topLeft: Radius.circular(32),
+                                          topRight: Radius.circular(32),
                                         ),
                                         child: CachedNetworkImage(
                                           fadeInDuration:
@@ -325,20 +325,20 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: const AlignmentDirectional(0.5, 0.0),
+                                    alignment: const AlignmentDirectional(0.5, 0),
                                     child: Container(
-                                      width: 170.0,
-                                      height: 120.0,
+                                      width: 170,
+                                      height: 120,
                                       decoration: const BoxDecoration(),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Align(
-                                            alignment: const AlignmentDirectional(
-                                                -1.0, -1.0),
+                                            alignment:
+                                                const AlignmentDirectional(-1, -1),
                                             child: Container(
-                                              width: 161.0,
-                                              height: 36.0,
+                                              width: 161,
+                                              height: 36,
                                               decoration: const BoxDecoration(),
                                               child: Text(
                                                 valueOrDefault<String>(
@@ -357,7 +357,7 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                                           fontFamily:
                                                               'Montserrat',
                                                           color: Colors.white,
-                                                          fontSize: 18.0,
+                                                          fontSize: 18,
                                                           letterSpacing: 0.0,
                                                         ),
                                               ),
@@ -365,10 +365,10 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                           ),
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(-1.0, 0.0),
+                                                const AlignmentDirectional(-1, 0),
                                             child: Container(
-                                              width: 161.0,
-                                              height: 24.0,
+                                              width: 161,
+                                              height: 24,
                                               decoration: const BoxDecoration(),
                                               child: Text(
                                                 valueOrDefault<String>(
@@ -383,7 +383,7 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                                           fontFamily:
                                                               'Montserrat',
                                                           color: Colors.white,
-                                                          fontSize: 13.0,
+                                                          fontSize: 13,
                                                           letterSpacing: 0.0,
                                                         ),
                                               ),
@@ -391,10 +391,10 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                           ),
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(-1.0, 1.0),
+                                                const AlignmentDirectional(-1, 1),
                                             child: Container(
-                                              width: 161.0,
-                                              height: 19.0,
+                                              width: 161,
+                                              height: 19,
                                               decoration: const BoxDecoration(),
                                               child: Text(
                                                 valueOrDefault<String>(
@@ -408,23 +408,23 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                                           fontFamily:
                                                               'Montserrat',
                                                           color: Colors.white,
-                                                          fontSize: 13.0,
+                                                          fontSize: 13,
                                                           letterSpacing: 0.0,
                                                         ),
                                               ),
                                             ),
                                           ),
                                         ]
-                                            .divide(const SizedBox(height: 5.0))
-                                            .addToStart(const SizedBox(height: 16.0)),
+                                            .divide(const SizedBox(height: 5))
+                                            .addToStart(const SizedBox(height: 16)),
                                       ),
                                     ),
                                   ),
                                   Align(
-                                    alignment: const AlignmentDirectional(0.0, -0.3),
+                                    alignment: const AlignmentDirectional(0, -0.3),
                                     child: wrapWithModel(
                                       model: _model.membresiaLogoModel,
-                                      updateCallback: () => setState(() {}),
+                                      updateCallback: () => safeSetState(() {}),
                                       child: MembresiaLogoWidget(
                                         width: 70,
                                         heigth: 70,
@@ -432,7 +432,7 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                       ),
                                     ),
                                   ),
-                                ].divide(const SizedBox(width: 6.0)),
+                                ].divide(const SizedBox(width: 6)),
                               ),
                             ),
                           ],
@@ -440,7 +440,7 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                       ),
                       wrapWithModel(
                         model: _model.descripcionProfesionalModel,
-                        updateCallback: () => setState(() {}),
+                        updateCallback: () => safeSetState(() {}),
                         child: DescripcionProfesionalWidget(
                           parameter1: valueOrDefault<String>(
                             profileInfoUsersRecord.description,

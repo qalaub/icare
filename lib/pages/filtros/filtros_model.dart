@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 class FiltrosModel extends FlutterFlowModel<FiltrosWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for distance widget.
   double? distanceValue;
   // State field(s) for age1 widget.

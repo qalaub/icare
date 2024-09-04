@@ -42,14 +42,14 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
     return Stack(
       children: [
         ClipRRect(
-          borderRadius: BorderRadius.circular(8.0),
+          borderRadius: BorderRadius.circular(8),
           child: Image.network(
             valueOrDefault<String>(
               _model.uploadedFileUrl,
               'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
             ),
-            width: MediaQuery.sizeOf(context).width * 1.0,
-            height: MediaQuery.sizeOf(context).height * 1.0,
+            width: MediaQuery.sizeOf(context).width,
+            height: MediaQuery.sizeOf(context).height * 1,
             fit: BoxFit.cover,
           ),
         ),
@@ -57,16 +57,16 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
           builder: (context) {
             if (_model.uploadedFileUrl == '') {
               return Align(
-                alignment: const AlignmentDirectional(1.0, 1.0),
+                alignment: const AlignmentDirectional(1, 1),
                 child: FlutterFlowIconButton(
-                  borderRadius: 20.0,
-                  borderWidth: 1.0,
-                  buttonSize: 40.0,
+                  borderRadius: 20,
+                  borderWidth: 1,
+                  buttonSize: 40,
                   fillColor: const Color(0xFFED2AF1),
                   icon: const Icon(
                     Icons.add,
                     color: Color(0xFFFFFEFE),
-                    size: 24.0,
+                    size: 24,
                   ),
                   showLoadingIndicator: true,
                   onPressed: () async {
@@ -79,7 +79,7 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
                     if (selectedMedia != null &&
                         selectedMedia.every((m) =>
                             validateFileFormat(m.storagePath, context))) {
-                      setState(() => _model.isDataUploading = true);
+                      safeSetState(() => _model.isDataUploading = true);
                       var selectedUploadedFiles = <FFUploadedFile>[];
 
                       var downloadUrls = <String>[];
@@ -109,44 +109,44 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
                       if (selectedUploadedFiles.length ==
                               selectedMedia.length &&
                           downloadUrls.length == selectedMedia.length) {
-                        setState(() {
+                        safeSetState(() {
                           _model.uploadedLocalFile =
                               selectedUploadedFiles.first;
                           _model.uploadedFileUrl = downloadUrls.first;
                         });
                       } else {
-                        setState(() {});
+                        safeSetState(() {});
                         return;
                       }
                     }
 
                     FFAppState().addToImagesUserUpload(_model.uploadedFileUrl);
-                    setState(() {});
+                    safeSetState(() {});
                   },
                 ),
               );
             } else {
               return Align(
-                alignment: const AlignmentDirectional(1.0, 1.0),
+                alignment: const AlignmentDirectional(1, 1),
                 child: FlutterFlowIconButton(
                   borderColor: FlutterFlowTheme.of(context).primary,
-                  borderRadius: 20.0,
-                  borderWidth: 1.0,
-                  buttonSize: 40.0,
+                  borderRadius: 20,
+                  borderWidth: 1,
+                  buttonSize: 40,
                   fillColor: const Color(0xFFED2AF1),
                   icon: const Icon(
                     Icons.close,
                     color: Color(0xFFFFFEFE),
-                    size: 24.0,
+                    size: 24,
                   ),
                   onPressed: () async {
                     FFAppState()
                         .removeFromImagesUserUpload(_model.uploadedFileUrl);
-                    setState(() {});
+                    safeSetState(() {});
                     await FirebaseStorage.instance
                         .refFromURL(_model.uploadedFileUrl)
                         .delete();
-                    setState(() {
+                    safeSetState(() {
                       _model.isDataUploading = false;
                       _model.uploadedLocalFile =
                           FFUploadedFile(bytes: Uint8List.fromList([]));

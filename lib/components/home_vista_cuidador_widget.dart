@@ -43,25 +43,25 @@ class _HomeVistaCuidadorWidgetState extends State<HomeVistaCuidadorWidget> {
   Widget build(BuildContext context) {
     return Material(
       color: Colors.transparent,
-      elevation: 5.0,
+      elevation: 5,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(0.0),
-          bottomRight: Radius.circular(42.0),
-          topLeft: Radius.circular(42.0),
-          topRight: Radius.circular(42.0),
+          bottomLeft: Radius.circular(0),
+          bottomRight: Radius.circular(42),
+          topLeft: Radius.circular(42),
+          topRight: Radius.circular(42),
         ),
       ),
       child: Container(
-        width: 285.0,
-        height: 120.0,
+        width: 285,
+        height: 120,
         decoration: const BoxDecoration(
           color: Color(0xFFFFCCF9),
           borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(0.0),
-            bottomRight: Radius.circular(42.0),
-            topLeft: Radius.circular(42.0),
-            topRight: Radius.circular(42.0),
+            bottomLeft: Radius.circular(0),
+            bottomRight: Radius.circular(42),
+            topLeft: Radius.circular(42),
+            topRight: Radius.circular(42),
           ),
         ),
         child: Column(
@@ -69,7 +69,7 @@ class _HomeVistaCuidadorWidgetState extends State<HomeVistaCuidadorWidget> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Align(
-              alignment: const AlignmentDirectional(0.0, 0.0),
+              alignment: const AlignmentDirectional(0, 0),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -79,7 +79,7 @@ class _HomeVistaCuidadorWidgetState extends State<HomeVistaCuidadorWidget> {
                     textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Montserrat',
-                          fontSize: 17.0,
+                          fontSize: 17,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w500,
                         ),
@@ -89,7 +89,7 @@ class _HomeVistaCuidadorWidgetState extends State<HomeVistaCuidadorWidget> {
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Montserrat',
                           color: const Color(0xFFDF00AE),
-                          fontSize: 17.0,
+                          fontSize: 17,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.bold,
                         ),
@@ -98,7 +98,7 @@ class _HomeVistaCuidadorWidgetState extends State<HomeVistaCuidadorWidget> {
               ),
             ),
             Align(
-              alignment: const AlignmentDirectional(0.0, 0.0),
+              alignment: const AlignmentDirectional(0, 0),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -106,7 +106,7 @@ class _HomeVistaCuidadorWidgetState extends State<HomeVistaCuidadorWidget> {
                     'ready to meet you near you',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Montserrat',
-                          fontSize: 17.0,
+                          fontSize: 17,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w500,
                         ),

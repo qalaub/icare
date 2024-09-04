@@ -10,7 +10,6 @@ class RegisterBusiness4Model extends FlutterFlowModel<RegisterBusiness4Widget> {
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Model for img1.
   late ImageUploadModel img1Model;
   // Model for img2.

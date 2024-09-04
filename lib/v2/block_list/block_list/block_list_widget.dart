@@ -48,13 +48,13 @@ class _BlockListWidgetState extends State<BlockListWidget> {
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
             borderColor: Colors.transparent,
-            borderRadius: 30.0,
-            borderWidth: 1.0,
-            buttonSize: 60.0,
+            borderRadius: 30,
+            borderWidth: 1,
+            buttonSize: 60,
             icon: const FaIcon(
               FontAwesomeIcons.angleLeft,
               color: Colors.white,
-              size: 30.0,
+              size: 30,
             ),
             onPressed: () async {
               context.pop();
@@ -65,14 +65,14 @@ class _BlockListWidgetState extends State<BlockListWidget> {
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Montserrat',
                   color: Colors.white,
-                  fontSize: 25.0,
+                  fontSize: 25,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.bold,
                 ),
           ),
           actions: const [],
           centerTitle: true,
-          elevation: 2.0,
+          elevation: 2,
         ),
         body: SafeArea(
           top: true,
@@ -104,8 +104,8 @@ class _BlockListWidgetState extends State<BlockListWidget> {
                       if (!snapshot.hasData) {
                         return Center(
                           child: SizedBox(
-                            width: 50.0,
-                            height: 50.0,
+                            width: 50,
+                            height: 50,
                             child: CircularProgressIndicator(
                               valueColor: AlwaysStoppedAnimation<Color>(
                                 FlutterFlowTheme.of(context).primary,

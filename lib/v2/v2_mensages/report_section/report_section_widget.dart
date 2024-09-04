@@ -58,7 +58,7 @@ class _ReportSectionWidgetState extends State<ReportSectionWidget> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Container(
-                  width: MediaQuery.sizeOf(context).width * 1.0,
+                  width: MediaQuery.sizeOf(context).width,
                   height: MediaQuery.sizeOf(context).height * 0.3,
                   decoration: BoxDecoration(
                     image: DecorationImage(
@@ -69,10 +69,9 @@ class _ReportSectionWidgetState extends State<ReportSectionWidget> {
                     ),
                   ),
                   child: Align(
-                    alignment: const AlignmentDirectional(-1.0, -1.0),
+                    alignment: const AlignmentDirectional(-1, -1),
                     child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 0.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(8, 8, 0, 0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -84,7 +83,7 @@ class _ReportSectionWidgetState extends State<ReportSectionWidget> {
                         child: const Icon(
                           Icons.arrow_back,
                           color: Colors.black,
-                          size: 31.0,
+                          size: 31,
                         ),
                       ),
                     ),
@@ -97,8 +96,7 @@ class _ReportSectionWidgetState extends State<ReportSectionWidget> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.start,
@@ -110,7 +108,7 @@ class _ReportSectionWidgetState extends State<ReportSectionWidget> {
                                   .override(
                                     fontFamily: 'Montserrat',
                                     color: Colors.white,
-                                    fontSize: 24.0,
+                                    fontSize: 24,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -119,8 +117,7 @@ class _ReportSectionWidgetState extends State<ReportSectionWidget> {
                         ),
                       ),
                       Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.start,
@@ -134,7 +131,7 @@ class _ReportSectionWidgetState extends State<ReportSectionWidget> {
                                     .override(
                                       fontFamily: 'Montserrat',
                                       color: const Color(0xFFC6C6C6),
-                                      fontSize: 20.0,
+                                      fontSize: 20,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w300,
                                     ),
@@ -143,14 +140,13 @@ class _ReportSectionWidgetState extends State<ReportSectionWidget> {
                           ],
                         ),
                       ),
-                    ].divide(const SizedBox(height: 8.0)),
+                    ].divide(const SizedBox(height: 8)),
                   ),
                 ),
                 Align(
                   alignment: const AlignmentDirectional(0.01, 0.7),
                   child: Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 168.0, 0.0, 10.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(0, 168, 0, 10),
                     child: FFButtonWidget(
                       onPressed: () async {
                         await launchUrl(Uri(
@@ -170,32 +166,30 @@ class _ReportSectionWidgetState extends State<ReportSectionWidget> {
                       },
                       text: 'Send report',
                       options: FFButtonOptions(
-                        width: 275.0,
-                        height: 45.0,
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            24.0, 0.0, 24.0, 0.0),
-                        iconPadding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        width: 275,
+                        height: 45,
+                        padding: const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                        iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                         color: const Color(0xFFB928B8),
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Montserrat',
                                   color: Colors.white,
-                                  fontSize: 20.0,
+                                  fontSize: 20,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
                                 ),
-                        elevation: 5.0,
+                        elevation: 5,
                         borderSide: const BorderSide(
                           color: Colors.transparent,
-                          width: 1.0,
+                          width: 1,
                         ),
-                        borderRadius: BorderRadius.circular(24.0),
+                        borderRadius: BorderRadius.circular(24),
                       ),
                     ),
                   ),
                 ),
-              ].divide(const SizedBox(height: 32.0)),
+              ].divide(const SizedBox(height: 32)),
             ),
           ),
         ),

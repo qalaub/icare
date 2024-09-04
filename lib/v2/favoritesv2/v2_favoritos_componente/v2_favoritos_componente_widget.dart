@@ -50,7 +50,7 @@ class _V2FavoritosComponenteWidgetState
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(0.0, -0.9),
+      alignment: const AlignmentDirectional(0, -0.9),
       child: StreamBuilder<List<UsersRecord>>(
         stream: queryUsersRecord(
           queryBuilder: (usersRecord) => usersRecord.where(
@@ -64,8 +64,8 @@ class _V2FavoritosComponenteWidgetState
           if (!snapshot.hasData) {
             return Center(
               child: SizedBox(
-                width: 50.0,
-                height: 50.0,
+                width: 50,
+                height: 50,
                 child: CircularProgressIndicator(
                   valueColor: AlwaysStoppedAnimation<Color>(
                     FlutterFlowTheme.of(context).primary,
@@ -85,24 +85,24 @@ class _V2FavoritosComponenteWidgetState
 
           return Container(
             width: MediaQuery.sizeOf(context).width * 0.92,
-            height: 96.0,
+            height: 96,
             decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.circular(22.0),
+              borderRadius: BorderRadius.circular(22),
               shape: BoxShape.rectangle,
             ),
             child: Stack(
               children: [
                 Align(
-                  alignment: const AlignmentDirectional(0.0, 0.0),
+                  alignment: const AlignmentDirectional(0, 0),
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(22.0),
+                    borderRadius: BorderRadius.circular(22),
                     child: Image.asset(
                       'assets/images/Rectangle_5.png',
                       width: MediaQuery.sizeOf(context).width * 0.95,
-                      height: 105.0,
+                      height: 105,
                       fit: BoxFit.none,
-                      alignment: const Alignment(0.0, 0.0),
+                      alignment: const Alignment(0, 0),
                     ),
                   ),
                 ),
@@ -110,12 +110,11 @@ class _V2FavoritosComponenteWidgetState
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Align(
-                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      alignment: const AlignmentDirectional(0, 0),
                       child: Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                         child: ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
+                          borderRadius: BorderRadius.circular(8),
                           child: CachedNetworkImage(
                             fadeInDuration: const Duration(milliseconds: 500),
                             fadeOutDuration: const Duration(milliseconds: 500),
@@ -124,23 +123,22 @@ class _V2FavoritosComponenteWidgetState
                               'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
                             ),
                             width: MediaQuery.sizeOf(context).width * 0.17,
-                            height: 63.0,
+                            height: 63,
                             fit: BoxFit.fitWidth,
                           ),
                         ),
                       ),
                     ),
                     Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
                       child: Container(
                         width: MediaQuery.sizeOf(context).width * 0.5,
-                        height: 100.0,
+                        height: 100,
                         decoration: const BoxDecoration(),
                         child: Stack(
                           children: [
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0, 0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment:
@@ -148,7 +146,7 @@ class _V2FavoritosComponenteWidgetState
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Align(
-                                    alignment: const AlignmentDirectional(0.0, -0.4),
+                                    alignment: const AlignmentDirectional(0, -0.4),
                                     child: Text(
                                       valueOrDefault<String>(
                                         functions.concatStrings(
@@ -161,7 +159,7 @@ class _V2FavoritosComponenteWidgetState
                                           .headlineLarge
                                           .override(
                                             fontFamily: 'Montserrat',
-                                            fontSize: 14.0,
+                                            fontSize: 14,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
@@ -181,7 +179,7 @@ class _V2FavoritosComponenteWidgetState
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Montserrat',
-                                      fontSize: 12.0,
+                                      fontSize: 12,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
                                     ),
@@ -190,12 +188,12 @@ class _V2FavoritosComponenteWidgetState
                             Align(
                               alignment: const AlignmentDirectional(0.17, 1.02),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 16.0),
+                                padding:
+                                    const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 16),
                                 child: Container(
                                   width:
                                       MediaQuery.sizeOf(context).width * 0.46,
-                                  height: 1.0,
+                                  height: 1,
                                   decoration: const BoxDecoration(
                                     color: Colors.white,
                                   ),
@@ -210,10 +208,9 @@ class _V2FavoritosComponenteWidgetState
                       alignment: const AlignmentDirectional(0.81, -0.05),
                       child: Container(
                         decoration: const BoxDecoration(),
-                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        alignment: const AlignmentDirectional(0, 0),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 5.0, 5.0, 5.0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(0, 5, 5, 5),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -223,7 +220,7 @@ class _V2FavoritosComponenteWidgetState
                                 AuthUserStreamWidget(
                                   builder: (context) => wrapWithModel(
                                     model: _model.addFavoritesModel,
-                                    updateCallback: () => setState(() {}),
+                                    updateCallback: () => safeSetState(() {}),
                                     child: AddFavoritesWidget(
                                       professional: containerUsersRecord!,
                                     ),
@@ -231,14 +228,14 @@ class _V2FavoritosComponenteWidgetState
                                 ),
                               FlutterFlowIconButton(
                                 borderColor: Colors.transparent,
-                                borderRadius: 24.0,
-                                borderWidth: 1.0,
+                                borderRadius: 24,
+                                borderWidth: 1,
                                 buttonSize:
                                     MediaQuery.sizeOf(context).width * 0.106,
                                 icon: const Icon(
                                   Icons.arrow_forward_ios_rounded,
                                   color: Colors.white,
-                                  size: 29.0,
+                                  size: 29,
                                 ),
                                 onPressed: () async {
                                   context.pushNamed(

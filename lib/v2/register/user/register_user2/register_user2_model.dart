@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 class RegisterUser2Model extends FlutterFlowModel<RegisterUser2Widget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // State field(s) for ndis widget.
   FocusNode? ndisFocusNode;
@@ -22,7 +21,7 @@ class RegisterUser2Model extends FlutterFlowModel<RegisterUser2Widget> {
     }
 
     if (!RegExp(kTextValidatorEmailRegex).hasMatch(val)) {
-      return 'Has to be a valid email address.';
+      return 'Please enter a valid e-mail addres';
     }
     return null;
   }

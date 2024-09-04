@@ -53,7 +53,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                     false,
                   )).toList(),
       );
-      setState(() {});
+      safeSetState(() {});
     });
 
     _model.firstNameTextController ??= TextEditingController();
@@ -116,14 +116,14 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(0.0),
+          preferredSize: const Size.fromHeight(0),
           child: AppBar(
             backgroundColor: const Color(0xFFFFFEFE),
             automaticallyImplyLeading: false,
             actions: const [],
             centerTitle: false,
-            toolbarHeight: 0.0,
-            elevation: 0.0,
+            toolbarHeight: 0,
+            elevation: 0,
           ),
         ),
         body: SafeArea(
@@ -134,7 +134,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
               Expanded(
                 child: Container(
                   width: double.infinity,
-                  height: MediaQuery.sizeOf(context).height * 1.0,
+                  height: MediaQuery.sizeOf(context).height * 1,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
                   ),
@@ -145,9 +145,9 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                         child: Stack(
                           children: [
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0, 0),
                               child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
+                                borderRadius: BorderRadius.circular(8),
                                 child: Image.asset(
                                   'assets/images/escoger-users.png',
                                   width: double.infinity,
@@ -159,13 +159,13 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                             Align(
                               alignment: const AlignmentDirectional(-0.91, -0.96),
                               child: FlutterFlowIconButton(
-                                borderRadius: 20.0,
-                                borderWidth: 1.0,
-                                buttonSize: 40.0,
+                                borderRadius: 20,
+                                borderWidth: 1,
+                                buttonSize: 40,
                                 icon: const Icon(
                                   Icons.arrow_back_ios_new,
                                   color: Colors.black,
-                                  size: 24.0,
+                                  size: 24,
                                 ),
                                 onPressed: () async {
                                   context.safePop();
@@ -173,25 +173,38 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0, -1),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(8),
+                                child: Image.asset(
+                                  'assets/images/logo-1.png',
+                                  width: 110,
+                                  height: 106,
+                                  fit: BoxFit.fitWidth,
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: const AlignmentDirectional(0, 0),
                               child: Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 74.0, 0.0, 0.0),
+                                    0, 100, 0, 0),
                                 child: Container(
                                   width:
                                       MediaQuery.sizeOf(context).width * 0.96,
-                                  height: 604.0,
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.65,
                                   decoration: BoxDecoration(
                                     color: const Color(0xFFFFFEFE),
                                     borderRadius: const BorderRadius.only(
-                                      bottomLeft: Radius.circular(24.0),
-                                      bottomRight: Radius.circular(24.0),
-                                      topLeft: Radius.circular(24.0),
-                                      topRight: Radius.circular(24.0),
+                                      bottomLeft: Radius.circular(24),
+                                      bottomRight: Radius.circular(24),
+                                      topLeft: Radius.circular(24),
+                                      topRight: Radius.circular(24),
                                     ),
                                     border: Border.all(
                                       color: Colors.black,
-                                      width: 2.0,
+                                      width: 2,
                                     ),
                                   ),
                                   child: Form(
@@ -203,11 +216,10 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                         children: [
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(0.0, -1.0),
+                                                const AlignmentDirectional(0, -1),
                                             child: Padding(
                                               padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 10.0, 0.0, 0.0),
+                                                  .fromSTEB(0, 10, 0, 0),
                                               child: Text(
                                                 'Create Account',
                                                 textAlign: TextAlign.center,
@@ -217,7 +229,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                     .override(
                                                       fontFamily: 'Montserrat',
                                                       color: const Color(0xFF8E058A),
-                                                      fontSize: 20.0,
+                                                      fontSize: 20,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.w600,
@@ -227,14 +239,13 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                           ),
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
+                                                const AlignmentDirectional(0, 0),
                                             child: Padding(
                                               padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 10.0, 0.0, 0.0),
+                                                  .fromSTEB(0, 10, 0, 0),
                                               child: Container(
-                                                width: 327.0,
-                                                height: 1.0,
+                                                width: 327,
+                                                height: 1,
                                                 decoration: BoxDecoration(
                                                   color: const Color(0xFFF0DFEF),
                                                   border: Border.all(
@@ -249,8 +260,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                 -0.84, -0.73),
                                             child: Padding(
                                               padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 15.0, 0.0, 15.0),
+                                                  .fromSTEB(0, 15, 0, 15),
                                               child: Text(
                                                 '* First name',
                                                 style:
@@ -260,7 +270,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                           fontFamily:
                                                               'Montserrat',
                                                           color: Colors.black,
-                                                          fontSize: 15.0,
+                                                          fontSize: 15,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -275,23 +285,21 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   0.8,
-                                              height: 70.0,
+                                              height: 70,
                                               decoration: const BoxDecoration(
                                                 color: Color(0xFFFFFEFE),
                                                 borderRadius: BorderRadius.only(
                                                   bottomLeft:
-                                                      Radius.circular(12.0),
+                                                      Radius.circular(12),
                                                   bottomRight:
-                                                      Radius.circular(12.0),
-                                                  topLeft:
-                                                      Radius.circular(12.0),
-                                                  topRight:
-                                                      Radius.circular(12.0),
+                                                      Radius.circular(12),
+                                                  topLeft: Radius.circular(12),
+                                                  topRight: Radius.circular(12),
                                                 ),
                                               ),
                                               child: Align(
-                                                alignment: const AlignmentDirectional(
-                                                    0.0, -1.0),
+                                                alignment:
+                                                    const AlignmentDirectional(0, -1),
                                                 child: TextFormField(
                                                   controller: _model
                                                       .firstNameTextController,
@@ -327,29 +335,29 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                   .of(context)
                                                               .error,
                                                           letterSpacing: 0.0,
-                                                          lineHeight: 1.0,
+                                                          lineHeight: 1,
                                                         ),
                                                     enabledBorder:
                                                         OutlineInputBorder(
                                                       borderSide: const BorderSide(
                                                         color:
                                                             Color(0xFFBB33B9),
-                                                        width: 0.0,
+                                                        width: 0,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              12.0),
+                                                              12),
                                                     ),
                                                     focusedBorder:
                                                         OutlineInputBorder(
                                                       borderSide: const BorderSide(
                                                         color:
                                                             Color(0xFF762075),
-                                                        width: 0.0,
+                                                        width: 0,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              12.0),
+                                                              12),
                                                     ),
                                                     errorBorder:
                                                         OutlineInputBorder(
@@ -358,11 +366,11 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .error,
-                                                        width: 0.0,
+                                                        width: 0,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              12.0),
+                                                              12),
                                                     ),
                                                     focusedErrorBorder:
                                                         OutlineInputBorder(
@@ -371,11 +379,11 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .error,
-                                                        width: 0.0,
+                                                        width: 0,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              12.0),
+                                                              12),
                                                     ),
                                                   ),
                                                   style: FlutterFlowTheme.of(
@@ -407,8 +415,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                 -0.84, -0.73),
                                             child: Padding(
                                               padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 15.0, 0.0, 15.0),
+                                                  .fromSTEB(0, 15, 0, 15),
                                               child: Text(
                                                 '* Last name',
                                                 style:
@@ -418,7 +425,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                           fontFamily:
                                                               'Montserrat',
                                                           color: Colors.black,
-                                                          fontSize: 15.0,
+                                                          fontSize: 15,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -433,23 +440,21 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   0.8,
-                                              height: 70.0,
+                                              height: 70,
                                               decoration: const BoxDecoration(
                                                 color: Color(0xFFFFFEFE),
                                                 borderRadius: BorderRadius.only(
                                                   bottomLeft:
-                                                      Radius.circular(12.0),
+                                                      Radius.circular(12),
                                                   bottomRight:
-                                                      Radius.circular(12.0),
-                                                  topLeft:
-                                                      Radius.circular(12.0),
-                                                  topRight:
-                                                      Radius.circular(12.0),
+                                                      Radius.circular(12),
+                                                  topLeft: Radius.circular(12),
+                                                  topRight: Radius.circular(12),
                                                 ),
                                               ),
                                               child: Align(
-                                                alignment: const AlignmentDirectional(
-                                                    0.0, -1.0),
+                                                alignment:
+                                                    const AlignmentDirectional(0, -1),
                                                 child: TextFormField(
                                                   controller: _model
                                                       .lastnameTextController,
@@ -485,29 +490,29 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                   .of(context)
                                                               .error,
                                                           letterSpacing: 0.0,
-                                                          lineHeight: 1.0,
+                                                          lineHeight: 1,
                                                         ),
                                                     enabledBorder:
                                                         OutlineInputBorder(
                                                       borderSide: const BorderSide(
                                                         color:
                                                             Color(0xFFBB33B9),
-                                                        width: 0.0,
+                                                        width: 0,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              12.0),
+                                                              12),
                                                     ),
                                                     focusedBorder:
                                                         OutlineInputBorder(
                                                       borderSide: const BorderSide(
                                                         color:
                                                             Color(0xFF762075),
-                                                        width: 0.0,
+                                                        width: 0,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              12.0),
+                                                              12),
                                                     ),
                                                     errorBorder:
                                                         OutlineInputBorder(
@@ -516,11 +521,11 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .error,
-                                                        width: 0.0,
+                                                        width: 0,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              12.0),
+                                                              12),
                                                     ),
                                                     focusedErrorBorder:
                                                         OutlineInputBorder(
@@ -529,11 +534,11 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .error,
-                                                        width: 0.0,
+                                                        width: 0,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              12.0),
+                                                              12),
                                                     ),
                                                   ),
                                                   style: FlutterFlowTheme.of(
@@ -565,8 +570,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                 -0.84, -0.73),
                                             child: Padding(
                                               padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 15.0, 0.0, 15.0),
+                                                  .fromSTEB(0, 15, 0, 15),
                                               child: Text(
                                                 '* Date of birth',
                                                 style:
@@ -576,7 +580,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                           fontFamily:
                                                               'Montserrat',
                                                           color: Colors.black,
-                                                          fontSize: 15.0,
+                                                          fontSize: 15,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -586,17 +590,17 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                           ),
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
+                                                const AlignmentDirectional(0, 0),
                                             child: Container(
-                                              height: 90.0,
+                                              height: 90,
                                               decoration: const BoxDecoration(),
                                               child: Align(
-                                                alignment: const AlignmentDirectional(
-                                                    0.0, -1.0),
+                                                alignment:
+                                                    const AlignmentDirectional(0, -1),
                                                 child: Stack(
                                                   alignment:
                                                       const AlignmentDirectional(
-                                                          0.0, -1.0),
+                                                          0, -1),
                                                   children: [
                                                     Align(
                                                       alignment:
@@ -616,16 +620,16 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                               BorderRadius.only(
                                                             bottomLeft:
                                                                 Radius.circular(
-                                                                    12.0),
+                                                                    12),
                                                             bottomRight:
                                                                 Radius.circular(
-                                                                    12.0),
+                                                                    12),
                                                             topLeft:
                                                                 Radius.circular(
-                                                                    12.0),
+                                                                    12),
                                                             topRight:
                                                                 Radius.circular(
-                                                                    12.0),
+                                                                    12),
                                                           ),
                                                         ),
                                                         child: TextFormField(
@@ -682,12 +686,12 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                   const BorderSide(
                                                                 color: Color(
                                                                     0xFFBB33B9),
-                                                                width: 0.0,
+                                                                width: 0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          12.0),
+                                                                          12),
                                                             ),
                                                             focusedBorder:
                                                                 OutlineInputBorder(
@@ -695,12 +699,12 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                   const BorderSide(
                                                                 color: Color(
                                                                     0xFF762075),
-                                                                width: 0.0,
+                                                                width: 0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          12.0),
+                                                                          12),
                                                             ),
                                                             errorBorder:
                                                                 OutlineInputBorder(
@@ -709,12 +713,12 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 0.0,
+                                                                width: 0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          12.0),
+                                                                          12),
                                                             ),
                                                             focusedErrorBorder:
                                                                 OutlineInputBorder(
@@ -723,12 +727,12 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 0.0,
+                                                                width: 0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          12.0),
+                                                                          12),
                                                             ),
                                                           ),
                                                           style: FlutterFlowTheme
@@ -759,7 +763,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                     Align(
                                                       alignment:
                                                           const AlignmentDirectional(
-                                                              0.0, 0.0),
+                                                              0, 0),
                                                       child: Builder(
                                                         builder: (context) {
                                                           if (!FFAppState()
@@ -820,8 +824,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                 -0.54, -0.73),
                                             child: Padding(
                                               padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 15.0, 0.0, 15.0),
+                                                  .fromSTEB(0, 15, 0, 15),
                                               child: Text(
                                                 '* Enter your 10-digit mobile number',
                                                 style:
@@ -831,7 +834,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                           fontFamily:
                                                               'Montserrat',
                                                           color: Colors.black,
-                                                          fontSize: 15.0,
+                                                          fontSize: 15,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -846,18 +849,16 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   0.8,
-                                              height: 80.0,
+                                              height: 80,
                                               decoration: const BoxDecoration(
                                                 color: Color(0xFFFFFEFE),
                                                 borderRadius: BorderRadius.only(
                                                   bottomLeft:
-                                                      Radius.circular(12.0),
+                                                      Radius.circular(12),
                                                   bottomRight:
-                                                      Radius.circular(12.0),
-                                                  topLeft:
-                                                      Radius.circular(12.0),
-                                                  topRight:
-                                                      Radius.circular(12.0),
+                                                      Radius.circular(12),
+                                                  topLeft: Radius.circular(12),
+                                                  topRight: Radius.circular(12),
                                                 ),
                                               ),
                                               child: TextFormField(
@@ -905,21 +906,21 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                       OutlineInputBorder(
                                                     borderSide: const BorderSide(
                                                       color: Color(0xFFBB33B9),
-                                                      width: 0.0,
+                                                      width: 0,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            12.0),
+                                                            12),
                                                   ),
                                                   focusedBorder:
                                                       OutlineInputBorder(
                                                     borderSide: const BorderSide(
                                                       color: Color(0xFF762075),
-                                                      width: 0.0,
+                                                      width: 0,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            12.0),
+                                                            12),
                                                   ),
                                                   errorBorder:
                                                       OutlineInputBorder(
@@ -928,11 +929,11 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .error,
-                                                      width: 0.0,
+                                                      width: 0,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            12.0),
+                                                            12),
                                                   ),
                                                   focusedErrorBorder:
                                                       OutlineInputBorder(
@@ -941,11 +942,11 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .error,
-                                                      width: 0.0,
+                                                      width: 0,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            12.0),
+                                                            12),
                                                   ),
                                                 ),
                                                 style:
@@ -976,8 +977,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                 -0.84, -0.73),
                                             child: Padding(
                                               padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 0.0, 0.0, 15.0),
+                                                  .fromSTEB(0, 0, 0, 15),
                                               child: Text(
                                                 '* Select your suburb',
                                                 style:
@@ -987,7 +987,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                           fontFamily:
                                                               'Montserrat',
                                                           color: Colors.black,
-                                                          fontSize: 15.0,
+                                                          fontSize: 15,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -997,29 +997,29 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                           ),
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
+                                                const AlignmentDirectional(0, 0),
                                             child: Container(
-                                              height: 90.0,
+                                              height: 90,
                                               decoration: const BoxDecoration(),
                                               child: Align(
-                                                alignment: const AlignmentDirectional(
-                                                    0.0, -1.0),
+                                                alignment:
+                                                    const AlignmentDirectional(0, -1),
                                                 child: Stack(
                                                   alignment:
                                                       const AlignmentDirectional(
-                                                          0.0, -1.0),
+                                                          0, -1),
                                                   children: [
                                                     Align(
                                                       alignment:
                                                           const AlignmentDirectional(
-                                                              0.0, -1.0),
+                                                              0, -1),
                                                       child: Container(
                                                         width:
                                                             MediaQuery.sizeOf(
                                                                         context)
                                                                     .width *
                                                                 0.8,
-                                                        height: 45.0,
+                                                        height: 45,
                                                         decoration:
                                                             BoxDecoration(
                                                           color: Colors.white,
@@ -1027,16 +1027,16 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                               const BorderRadius.only(
                                                             bottomLeft:
                                                                 Radius.circular(
-                                                                    12.0),
+                                                                    12),
                                                             bottomRight:
                                                                 Radius.circular(
-                                                                    12.0),
+                                                                    12),
                                                             topLeft:
                                                                 Radius.circular(
-                                                                    12.0),
+                                                                    12),
                                                             topRight:
                                                                 Radius.circular(
-                                                                    12.0),
+                                                                    12),
                                                           ),
                                                           border: Border.all(
                                                             color:
@@ -1057,11 +1057,8 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                         child: Padding(
                                                           padding:
                                                               const EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      8.0,
-                                                                      0.0,
-                                                                      8.0,
-                                                                      0.0),
+                                                                  .fromSTEB(8,
+                                                                      0, 8, 0),
                                                           child: TextFormField(
                                                             controller: _model
                                                                 .queryTextController,
@@ -1099,7 +1096,8 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                           QueryResultsStruct>();
                                                                 }
 
-                                                                setState(() {});
+                                                                safeSetState(
+                                                                    () {});
                                                               },
                                                             ),
                                                             autofocus: false,
@@ -1114,7 +1112,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                         fontFamily:
                                                                             'Montserrat',
                                                                         fontSize:
-                                                                            20.0,
+                                                                            14,
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
@@ -1128,7 +1126,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                         fontFamily:
                                                                             'Montserrat',
                                                                         fontSize:
-                                                                            16.0,
+                                                                            14,
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
@@ -1151,8 +1149,9 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Montserrat',
-                                                                  fontSize:
-                                                                      20.0,
+                                                                  color: Colors
+                                                                      .black,
+                                                                  fontSize: 14,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -1167,7 +1166,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                     Align(
                                                       alignment:
                                                           const AlignmentDirectional(
-                                                              0.0, 0.0),
+                                                              0, 0),
                                                       child: Builder(
                                                         builder: (context) {
                                                           if (!FFAppState()
@@ -1225,14 +1224,13 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                           ),
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
+                                                const AlignmentDirectional(0, 0),
                                             child: Padding(
                                               padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 10.0, 0.0, 0.0),
+                                                  .fromSTEB(0, 10, 0, 0),
                                               child: Container(
-                                                width: 327.0,
-                                                height: 1.0,
+                                                width: 327,
+                                                height: 1,
                                                 decoration: BoxDecoration(
                                                   color: const Color(0xFFF0DFEF),
                                                   border: Border.all(
@@ -1244,29 +1242,26 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                           ),
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(0.0, -1.0),
+                                                const AlignmentDirectional(0, -1),
                                             child: Container(
-                                              width: 269.0,
-                                              height: 93.0,
+                                              width: 269,
+                                              height: 93,
                                               decoration: const BoxDecoration(
                                                 borderRadius: BorderRadius.only(
                                                   bottomLeft:
-                                                      Radius.circular(12.0),
+                                                      Radius.circular(12),
                                                   bottomRight:
-                                                      Radius.circular(12.0),
-                                                  topLeft:
-                                                      Radius.circular(12.0),
-                                                  topRight:
-                                                      Radius.circular(12.0),
+                                                      Radius.circular(12),
+                                                  topLeft: Radius.circular(12),
+                                                  topRight: Radius.circular(12),
                                                 ),
                                               ),
                                               child: Align(
-                                                alignment: const AlignmentDirectional(
-                                                    0.0, 0.0),
+                                                alignment:
+                                                    const AlignmentDirectional(0, 0),
                                                 child: Padding(
                                                   padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 10.0, 0.0, 0.0),
+                                                      .fromSTEB(0, 10, 0, 0),
                                                   child: FFButtonWidget(
                                                     onPressed: () async {
                                                       FFAppState()
@@ -1289,7 +1284,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                           ),
                                                       );
                                                       FFAppState().counter = 4;
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                       if (_model.formKey
                                                                   .currentState ==
                                                               null ||
@@ -1356,22 +1351,16 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                     },
                                                     text: 'Continue',
                                                     options: FFButtonOptions(
-                                                      width: 275.0,
-                                                      height: 45.0,
+                                                      width: 275,
+                                                      height: 45,
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  24.0,
-                                                                  0.0,
-                                                                  24.0,
-                                                                  0.0),
+                                                                  24, 0, 24, 0),
                                                       iconPadding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                                  0, 0, 0, 0),
                                                       color: const Color(0xFFB928B8),
                                                       textStyle:
                                                           FlutterFlowTheme.of(
@@ -1382,19 +1371,19 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                     'Montserrat',
                                                                 color: Colors
                                                                     .white,
-                                                                fontSize: 20.0,
+                                                                fontSize: 20,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
-                                                      elevation: 5.0,
+                                                      elevation: 5,
                                                       borderSide: const BorderSide(
                                                         color:
                                                             Colors.transparent,
-                                                        width: 1.0,
+                                                        width: 1,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              24.0),
+                                                              24),
                                                     ),
                                                   ),
                                                 ),
@@ -1410,7 +1399,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                             ),
                             if (_model.queryResults.isNotEmpty)
                               Align(
-                                alignment: const AlignmentDirectional(0.0, -0.9),
+                                alignment: const AlignmentDirectional(0, -0.9),
                                 child: Container(
                                   width:
                                       MediaQuery.sizeOf(context).width * 0.96,
@@ -1418,15 +1407,14 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                       MediaQuery.sizeOf(context).height * 0.648,
                                   decoration: BoxDecoration(
                                     color: const Color(0x33000000),
-                                    borderRadius: BorderRadius.circular(0.0),
+                                    borderRadius: BorderRadius.circular(0),
                                   ),
                                   child: SingleChildScrollView(
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Align(
-                                          alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                          alignment: const AlignmentDirectional(0, 0),
                                           child: Builder(
                                             builder: (context) {
                                               final newquery =
@@ -1438,7 +1426,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                 scrollDirection: Axis.vertical,
                                                 itemCount: newquery.length,
                                                 separatorBuilder: (_, __) =>
-                                                    const SizedBox(height: 0.0),
+                                                    const SizedBox(height: 0),
                                                 itemBuilder:
                                                     (context, newqueryIndex) {
                                                   final newqueryItem =
@@ -1480,7 +1468,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                       ''),
                                                                 )?.lng.toString(),
                                                                 ',');
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.queryTextController
                                                                   ?.text =
                                                               GetPlaceCall.name(
@@ -1499,7 +1487,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                       }
                                                       _model.queryResults = [];
 
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     },
                                                     child: MapbuscarWidget(
                                                       key: Key(
@@ -1523,18 +1511,6 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                   ),
                                 ),
                               ),
-                            Align(
-                              alignment: const AlignmentDirectional(0.0, -1.0),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.asset(
-                                  'assets/images/logo-1.png',
-                                  width: 110.0,
-                                  height: 106.0,
-                                  fit: BoxFit.fitWidth,
-                                ),
-                              ),
-                            ),
                           ],
                         ),
                       ),

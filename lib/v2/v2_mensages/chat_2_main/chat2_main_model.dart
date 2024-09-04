@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 class Chat2MainModel extends FlutterFlowModel<Chat2MainWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Model for Navbar component.
   late NavbarModel navbarModel;
   // Model for NavbarPremiun component.

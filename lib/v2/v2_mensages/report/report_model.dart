@@ -7,10 +7,6 @@ class ReportModel extends FlutterFlowModel<ReportWidget> {
 
   String? currentReport;
 
-  ///  State fields for stateful widgets in this page.
-
-  final unfocusNode = FocusNode();
-
   @override
   void initState(BuildContext context) {}
 

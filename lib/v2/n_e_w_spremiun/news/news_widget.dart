@@ -49,25 +49,25 @@ class _NewsWidgetState extends State<NewsWidget> {
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
             borderColor: Colors.transparent,
-            borderRadius: 30.0,
-            borderWidth: 1.0,
-            buttonSize: 60.0,
+            borderRadius: 30,
+            borderWidth: 1,
+            buttonSize: 60,
             icon: const FaIcon(
               FontAwesomeIcons.angleLeft,
               color: Colors.white,
-              size: 30.0,
+              size: 30,
             ),
             onPressed: () async {
               context.pop();
             },
           ),
           title: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
             child: Text(
               'Notification',
               style: FlutterFlowTheme.of(context).titleMedium.override(
                     fontFamily: 'Montserrat',
-                    fontSize: 23.0,
+                    fontSize: 23,
                     letterSpacing: 0.0,
                     fontWeight: FontWeight.bold,
                   ),
@@ -75,15 +75,15 @@ class _NewsWidgetState extends State<NewsWidget> {
           ),
           actions: const [],
           centerTitle: true,
-          elevation: 2.0,
+          elevation: 2,
         ),
         body: SafeArea(
           top: true,
           child: Stack(
             children: [
               Container(
-                width: MediaQuery.sizeOf(context).width * 1.0,
-                height: MediaQuery.sizeOf(context).height * 1.0,
+                width: MediaQuery.sizeOf(context).width,
+                height: MediaQuery.sizeOf(context).height * 1,
                 decoration: const BoxDecoration(
                   color: Colors.white,
                 ),
@@ -94,19 +94,17 @@ class _NewsWidgetState extends State<NewsWidget> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
                     child: Container(
                       decoration: const BoxDecoration(),
                       child: Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
                         child: Text(
                           'New ',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Poppins',
-                                    fontSize: 20.0,
+                                    fontSize: 20,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
@@ -131,8 +129,8 @@ class _NewsWidgetState extends State<NewsWidget> {
                       if (!snapshot.hasData) {
                         return Center(
                           child: SizedBox(
-                            width: 50.0,
-                            height: 50.0,
+                            width: 50,
+                            height: 50,
                             child: CircularProgressIndicator(
                               valueColor: AlwaysStoppedAnimation<Color>(
                                 FlutterFlowTheme.of(context).primary,
@@ -147,14 +145,14 @@ class _NewsWidgetState extends State<NewsWidget> {
                       return ListView.separated(
                         padding: const EdgeInsets.fromLTRB(
                           0,
-                          7.0,
+                          7,
                           0,
                           0,
                         ),
                         shrinkWrap: true,
                         scrollDirection: Axis.vertical,
                         itemCount: listViewNewsbusinessRecordList.length,
-                        separatorBuilder: (_, __) => const SizedBox(height: 1.0),
+                        separatorBuilder: (_, __) => const SizedBox(height: 1),
                         itemBuilder: (context, listViewIndex) {
                           final listViewNewsbusinessRecord =
                               listViewNewsbusinessRecordList[listViewIndex];
@@ -182,19 +180,17 @@ class _NewsWidgetState extends State<NewsWidget> {
                     },
                   ),
                   Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
                     child: Container(
                       decoration: const BoxDecoration(),
                       child: Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
                         child: Text(
                           'Previous',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Poppins',
-                                    fontSize: 20.0,
+                                    fontSize: 20,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
@@ -219,8 +215,8 @@ class _NewsWidgetState extends State<NewsWidget> {
                       if (!snapshot.hasData) {
                         return Center(
                           child: SizedBox(
-                            width: 50.0,
-                            height: 50.0,
+                            width: 50,
+                            height: 50,
                             child: CircularProgressIndicator(
                               valueColor: AlwaysStoppedAnimation<Color>(
                                 FlutterFlowTheme.of(context).primary,
@@ -235,7 +231,7 @@ class _NewsWidgetState extends State<NewsWidget> {
                       return ListView.builder(
                         padding: const EdgeInsets.fromLTRB(
                           0,
-                          7.0,
+                          7,
                           0,
                           0,
                         ),
@@ -259,9 +255,9 @@ class _NewsWidgetState extends State<NewsWidget> {
                 ],
               ),
               Align(
-                alignment: const AlignmentDirectional(0.0, 1.01),
+                alignment: const AlignmentDirectional(0, 1.01),
                 child: Container(
-                  height: 73.0,
+                  height: 73,
                   decoration: const BoxDecoration(
                     color: Color(0xB3B928B8),
                   ),
@@ -270,13 +266,13 @@ class _NewsWidgetState extends State<NewsWidget> {
                       if (currentUserDocument?.rol != Roles.business) {
                         return wrapWithModel(
                           model: _model.navbarModel,
-                          updateCallback: () => setState(() {}),
+                          updateCallback: () => safeSetState(() {}),
                           child: const NavbarWidget(),
                         );
                       } else {
                         return wrapWithModel(
                           model: _model.navbarPremiunModel,
-                          updateCallback: () => setState(() {}),
+                          updateCallback: () => safeSetState(() {}),
                           child: const NavbarPremiunWidget(),
                         );
                       }

@@ -112,13 +112,13 @@ class _ImageDetailsWidgetState extends State<ImageDetailsWidget>
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
             borderColor: Colors.transparent,
-            borderRadius: 30.0,
-            borderWidth: 1.0,
-            buttonSize: 60.0,
+            borderRadius: 30,
+            borderWidth: 1,
+            buttonSize: 60,
             icon: Icon(
               Icons.arrow_back_rounded,
               color: FlutterFlowTheme.of(context).primaryText,
-              size: 30.0,
+              size: 30,
             ),
             onPressed: () async {
               context.pop();
@@ -126,7 +126,7 @@ class _ImageDetailsWidgetState extends State<ImageDetailsWidget>
           ),
           actions: const [],
           centerTitle: false,
-          elevation: 0.0,
+          elevation: 0,
         ),
         body: SafeArea(
           top: true,
@@ -135,12 +135,12 @@ class _ImageDetailsWidgetState extends State<ImageDetailsWidget>
             children: [
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.all(12.0),
+                  padding: const EdgeInsets.all(12),
                   child: Hero(
                     tag: widget.chatMessage!.image,
                     transitionOnUserGestures: true,
                     child: ClipRRect(
-                      borderRadius: BorderRadius.circular(8.0),
+                      borderRadius: BorderRadius.circular(8),
                       child: CachedNetworkImage(
                         fadeInDuration: const Duration(milliseconds: 500),
                         fadeOutDuration: const Duration(milliseconds: 500),
@@ -156,7 +156,7 @@ class _ImageDetailsWidgetState extends State<ImageDetailsWidget>
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 32.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(12, 12, 12, 32),
                 child: FutureBuilder<UsersRecord>(
                   future: FFAppState().userDocQuery(
                     uniqueQueryKey: widget.chatMessage?.reference.id,
@@ -168,8 +168,8 @@ class _ImageDetailsWidgetState extends State<ImageDetailsWidget>
                     if (!snapshot.hasData) {
                       return Center(
                         child: SizedBox(
-                          width: 50.0,
-                          height: 50.0,
+                          width: 50,
+                          height: 50,
                           child: CircularProgressIndicator(
                             valueColor: AlwaysStoppedAnimation<Color>(
                               FlutterFlowTheme.of(context).primary,
@@ -186,30 +186,29 @@ class _ImageDetailsWidgetState extends State<ImageDetailsWidget>
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 4.0, 8.0, 16.0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(0, 4, 8, 16),
                           child: Container(
-                            width: 36.0,
-                            height: 36.0,
+                            width: 36,
+                            height: 36,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context).accent1,
-                              borderRadius: BorderRadius.circular(12.0),
+                              borderRadius: BorderRadius.circular(12),
                               shape: BoxShape.rectangle,
                               border: Border.all(
                                 color: FlutterFlowTheme.of(context).primary,
-                                width: 2.0,
+                                width: 2,
                               ),
                             ),
                             child: Padding(
-                              padding: const EdgeInsets.all(2.0),
+                              padding: const EdgeInsets.all(2),
                               child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
+                                borderRadius: BorderRadius.circular(8),
                                 child: CachedNetworkImage(
                                   fadeInDuration: const Duration(milliseconds: 200),
                                   fadeOutDuration: const Duration(milliseconds: 200),
                                   imageUrl: otherUserUsersRecord.photoUrl,
-                                  width: 44.0,
-                                  height: 44.0,
+                                  width: 44,
+                                  height: 44,
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -218,8 +217,7 @@ class _ImageDetailsWidgetState extends State<ImageDetailsWidget>
                         ),
                         Flexible(
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 8.0),
+                            padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -242,7 +240,7 @@ class _ImageDetailsWidgetState extends State<ImageDetailsWidget>
                                     )),
                                     Padding(
                                       padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 4.0, 0.0, 0.0),
+                                          0, 4, 0, 0),
                                       child: Text(
                                         dateTimeFormat(
                                           "relative",
@@ -260,11 +258,11 @@ class _ImageDetailsWidgetState extends State<ImageDetailsWidget>
                                             ),
                                       ),
                                     ),
-                                  ].divide(const SizedBox(width: 4.0)),
+                                  ].divide(const SizedBox(width: 4)),
                                 ),
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 4.0, 0.0, 0.0),
+                                      0, 4, 0, 0),
                                   child: SelectionArea(
                                       child: AutoSizeText(
                                     valueOrDefault<String>(

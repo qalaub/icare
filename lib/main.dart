@@ -81,10 +81,10 @@ class _MyAppState extends State<MyApp> {
   }
 
   void setLocale(String language) {
-    setState(() => _locale = createLocale(language));
+    safeSetState(() => _locale = createLocale(language));
   }
 
-  void setThemeMode(ThemeMode mode) => setState(() {
+  void setThemeMode(ThemeMode mode) => safeSetState(() {
         _themeMode = mode;
       });
 
@@ -156,7 +156,7 @@ class _NavBarPageState extends State<NavBarPage> {
       extendBody: true,
       bottomNavigationBar: FloatingNavbar(
         currentIndex: currentIndex,
-        onTap: (i) => setState(() {
+        onTap: (i) => safeSetState(() {
           _currentPage = null;
           _currentPageName = tabs.keys.toList()[i];
         }),
@@ -164,12 +164,12 @@ class _NavBarPageState extends State<NavBarPage> {
         selectedItemColor: Colors.white,
         unselectedItemColor: const Color(0xFFEFECF3),
         selectedBackgroundColor: const Color(0x00000000),
-        borderRadius: 8.0,
-        itemBorderRadius: 8.0,
-        margin: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+        borderRadius: 8,
+        itemBorderRadius: 8,
+        margin: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+        padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
         width: double.infinity,
-        elevation: 0.0,
+        elevation: 0,
         items: [
           FloatingNavbarItem(
             customWidget: Column(
@@ -178,7 +178,7 @@ class _NavBarPageState extends State<NavBarPage> {
                 Icon(
                   Icons.person_outline,
                   color: currentIndex == 0 ? Colors.white : const Color(0xFFEFECF3),
-                  size: 35.0,
+                  size: 35,
                 ),
                 Text(
                   'User',
@@ -198,7 +198,7 @@ class _NavBarPageState extends State<NavBarPage> {
                 Icon(
                   Icons.favorite_border,
                   color: currentIndex == 1 ? Colors.white : const Color(0xFFEFECF3),
-                  size: 35.0,
+                  size: 35,
                 ),
                 Text(
                   'Favorites',

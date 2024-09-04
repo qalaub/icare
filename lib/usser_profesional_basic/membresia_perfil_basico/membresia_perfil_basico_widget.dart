@@ -42,14 +42,14 @@ class _MembresiaPerfilBasicoWidgetState
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(0.0),
+          preferredSize: const Size.fromHeight(0),
           child: AppBar(
             backgroundColor: const Color(0xFFFFFEFE),
             automaticallyImplyLeading: false,
             actions: const [],
             centerTitle: false,
-            toolbarHeight: 0.0,
-            elevation: 0.0,
+            toolbarHeight: 0,
+            elevation: 0,
           ),
         ),
         body: SafeArea(
@@ -60,7 +60,7 @@ class _MembresiaPerfilBasicoWidgetState
               Expanded(
                 child: Container(
                   width: double.infinity,
-                  height: 100.0,
+                  height: 100,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
                   ),
@@ -71,9 +71,9 @@ class _MembresiaPerfilBasicoWidgetState
                         child: Stack(
                           children: [
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0, 0),
                               child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
+                                borderRadius: BorderRadius.circular(8),
                                 child: Image.asset(
                                   'assets/images/der_(1).png',
                                   width: double.infinity,
@@ -85,13 +85,13 @@ class _MembresiaPerfilBasicoWidgetState
                             Align(
                               alignment: const AlignmentDirectional(-0.91, -0.96),
                               child: FlutterFlowIconButton(
-                                borderRadius: 20.0,
-                                borderWidth: 1.0,
-                                buttonSize: 40.0,
+                                borderRadius: 20,
+                                borderWidth: 1,
+                                buttonSize: 40,
                                 icon: const Icon(
                                   Icons.arrow_back_ios_new,
                                   color: Colors.black,
-                                  size: 24.0,
+                                  size: 24,
                                 ),
                                 onPressed: () async {
                                   context.safePop();
@@ -99,22 +99,22 @@ class _MembresiaPerfilBasicoWidgetState
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0, 0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Align(
-                                    alignment: const AlignmentDirectional(0.0, -1.0),
+                                    alignment: const AlignmentDirectional(0, -1),
                                     child: Padding(
                                       padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 5.0, 0.0, 0.0),
+                                          0, 5, 0, 0),
                                       child: GradientText(
                                         'Start Standard',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Montserrat',
-                                              fontSize: 24.0,
+                                              fontSize: 24,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.bold,
                                             ),
@@ -130,38 +130,38 @@ class _MembresiaPerfilBasicoWidgetState
                                   ),
                                   Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 30.0, 0.0, 0.0),
+                                        0, 30, 0, 0),
                                     child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(8.0),
+                                      borderRadius: BorderRadius.circular(8),
                                       child: Image.asset(
                                         'assets/images/Valentines_Day.png',
-                                        width: 184.0,
-                                        height: 178.0,
+                                        width: 184,
+                                        height: 178,
                                         fit: BoxFit.cover,
                                       ),
                                     ),
                                   ),
                                   Align(
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    alignment: const AlignmentDirectional(0, 0),
                                     child: Padding(
                                       padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 40.0, 0.0, 0.0),
+                                          0, 40, 0, 0),
                                       child: Container(
                                         width:
                                             MediaQuery.sizeOf(context).width *
                                                 0.96,
-                                        height: 323.0,
+                                        height: 323,
                                         decoration: BoxDecoration(
                                           color: const Color(0xFFFFFEFE),
                                           borderRadius: const BorderRadius.only(
-                                            bottomLeft: Radius.circular(24.0),
-                                            bottomRight: Radius.circular(24.0),
-                                            topLeft: Radius.circular(24.0),
-                                            topRight: Radius.circular(24.0),
+                                            bottomLeft: Radius.circular(24),
+                                            bottomRight: Radius.circular(24),
+                                            topLeft: Radius.circular(24),
+                                            topRight: Radius.circular(24),
                                           ),
                                           border: Border.all(
                                             color: const Color(0xFF565656),
-                                            width: 2.0,
+                                            width: 2,
                                           ),
                                         ),
                                         child: Column(
@@ -175,7 +175,7 @@ class _MembresiaPerfilBasicoWidgetState
                                                   .bodyMedium
                                                   .override(
                                                     fontFamily: 'Montserrat',
-                                                    fontSize: 16.0,
+                                                    fontSize: 16,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.bold,
                                                   ),
@@ -194,8 +194,7 @@ class _MembresiaPerfilBasicoWidgetState
                                               children: [
                                                 Padding(
                                                   padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          14.0, 0.0, 8.0, 0.0),
+                                                      .fromSTEB(14, 0, 8, 0),
                                                   child: Container(
                                                     width: MediaQuery.sizeOf(
                                                                 context)
@@ -234,7 +233,7 @@ class _MembresiaPerfilBasicoWidgetState
                                                         .override(
                                                           fontFamily:
                                                               'Montserrat',
-                                                          fontSize: 13.0,
+                                                          fontSize: 13,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -250,8 +249,7 @@ class _MembresiaPerfilBasicoWidgetState
                                               children: [
                                                 Padding(
                                                   padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          14.0, 0.0, 8.0, 0.0),
+                                                      .fromSTEB(14, 0, 8, 0),
                                                   child: Container(
                                                     width: MediaQuery.sizeOf(
                                                                 context)
@@ -290,7 +288,7 @@ class _MembresiaPerfilBasicoWidgetState
                                                         .override(
                                                           fontFamily:
                                                               'Montserrat',
-                                                          fontSize: 13.0,
+                                                          fontSize: 13,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -306,8 +304,7 @@ class _MembresiaPerfilBasicoWidgetState
                                               children: [
                                                 Padding(
                                                   padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          14.0, 0.0, 8.0, 0.0),
+                                                      .fromSTEB(14, 0, 8, 0),
                                                   child: Container(
                                                     width: MediaQuery.sizeOf(
                                                                 context)
@@ -346,7 +343,7 @@ class _MembresiaPerfilBasicoWidgetState
                                                         .override(
                                                           fontFamily:
                                                               'Montserrat',
-                                                          fontSize: 13.0,
+                                                          fontSize: 13,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -363,22 +360,21 @@ class _MembresiaPerfilBasicoWidgetState
                                                   .override(
                                                     fontFamily: 'Montserrat',
                                                     color: const Color(0xFFB928B8),
-                                                    fontSize: 24.0,
+                                                    fontSize: 24,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.bold,
                                                   ),
                                             ),
                                           ]
-                                              .divide(const SizedBox(height: 24.0))
-                                              .addToStart(
-                                                  const SizedBox(height: 27.0)),
+                                              .divide(const SizedBox(height: 24))
+                                              .addToStart(const SizedBox(height: 27)),
                                         ),
                                       ),
                                     ),
                                   ),
                                   Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 30.0, 0.0, 0.0),
+                                        0, 30, 0, 0),
                                     child: FFButtonWidget(
                                       onPressed: () {
                                         print('Button pressed ...');
@@ -388,12 +384,12 @@ class _MembresiaPerfilBasicoWidgetState
                                         width:
                                             MediaQuery.sizeOf(context).width *
                                                 0.92,
-                                        height: 40.0,
+                                        height: 40,
                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                            24.0, 0.0, 24.0, 0.0),
+                                            24, 0, 24, 0),
                                         iconPadding:
                                             const EdgeInsetsDirectional.fromSTEB(
-                                                0.0, 0.0, 0.0, 0.0),
+                                                0, 0, 0, 0),
                                         color: const Color(0xFFB928B8),
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleMedium
@@ -402,16 +398,15 @@ class _MembresiaPerfilBasicoWidgetState
                                               fontSize: 23.6,
                                               letterSpacing: 0.0,
                                             ),
-                                        elevation: 3.0,
+                                        elevation: 3,
                                         borderSide: const BorderSide(
-                                          width: 1.0,
+                                          width: 1,
                                         ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
+                                        borderRadius: BorderRadius.circular(8),
                                       ),
                                     ),
                                   ),
-                                ].addToStart(const SizedBox(height: 17.0)),
+                                ].addToStart(const SizedBox(height: 17)),
                               ),
                             ),
                           ],
