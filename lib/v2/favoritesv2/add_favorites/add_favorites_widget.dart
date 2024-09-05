@@ -121,18 +121,36 @@ class _AddFavoritesWidgetState extends State<AddFavoritesWidget> {
                   ),
                   showLoadingIndicator: true,
                   onPressed: () async {
-                    if (currentUserReference != null) {
-                      await currentUserReference!.update({
-                        ...mapToFirestore(
-                          {
-                            'favorites': FieldValue.arrayUnion(
-                                [widget.professional?.reference]),
-                          },
-                        ),
-                      });
-                      FFAppState().favoritesChange = false;
-                      if (widget.professional?.business != null) {
-                        _model.newChatBusiness = await queryChatsRecordOnce(
+                    await currentUserReference!.update({
+                      ...mapToFirestore(
+                        {
+                          'favorites': FieldValue.arrayUnion(
+                              [widget.professional?.reference]),
+                        },
+                      ),
+                    });
+                    FFAppState().favoritesChange = false;
+                    if (widget.professional?.business != null) {
+                      _model.newChatBusiness = await queryChatsRecordOnce(
+                        queryBuilder: (chatsRecord) => chatsRecord
+                            .where(
+                              'user_a',
+                              isEqualTo: currentUserReference,
+                            )
+                            .where(
+                              'user_b',
+                              isEqualTo: widget.professional?.business,
+                            ),
+                        singleRecord: true,
+                      ).then((s) => s.firstOrNull);
+                      _model.addToUserToAdd(widget.professional!.business!);
+                      _model.addToUserToAdd(currentUserReference!);
+                      if (_model.newChatBusiness != null
+                          ? (_model.newChatBusiness?.users
+                                  .contains(currentUserReference) ==
+                              true)
+                          : false) {
+                        _model.newRefBusiness = await queryChatsRecordOnce(
                           queryBuilder: (chatsRecord) => chatsRecord
                               .where(
                                 'user_a',
@@ -144,149 +162,127 @@ class _AddFavoritesWidgetState extends State<AddFavoritesWidget> {
                               ),
                           singleRecord: true,
                         ).then((s) => s.firstOrNull);
-                        _model.addToUserToAdd(widget.professional!.business!);
-                        _model.addToUserToAdd(currentUserReference!);
-                        if (_model.newChatBusiness != null
-                            ? (_model.newChatBusiness?.users
-                                    .contains(currentUserReference) ==
-                                true)
-                            : false) {
-                          _model.newRefBusiness = await queryChatsRecordOnce(
-                            queryBuilder: (chatsRecord) => chatsRecord
-                                .where(
-                                  'user_a',
-                                  isEqualTo: currentUserReference,
-                                )
-                                .where(
-                                  'user_b',
-                                  isEqualTo: widget.professional?.business,
-                                ),
-                            singleRecord: true,
-                          ).then((s) => s.firstOrNull);
-                        } else {
-                          // newChat
-
-                          var chatsRecordReference1 =
-                              ChatsRecord.collection.doc();
-                          await chatsRecordReference1.set({
-                            ...createChatsRecordData(
-                              userA: currentUserReference,
-                              userB: widget.professional?.business,
-                              lastMessage: '',
-                              lastMessageTime: getCurrentTimestamp,
-                              lastMessageSentBy: currentUserReference,
-                              groupChatId:
-                                  random_data.randomInteger(1000000, 9999999),
-                            ),
-                            ...mapToFirestore(
-                              {
-                                'users': _model.userToAdd,
-                              },
-                            ),
-                          });
-                          _model.newChatThreadBusiness =
-                              ChatsRecord.getDocumentFromData({
-                            ...createChatsRecordData(
-                              userA: currentUserReference,
-                              userB: widget.professional?.business,
-                              lastMessage: '',
-                              lastMessageTime: getCurrentTimestamp,
-                              lastMessageSentBy: currentUserReference,
-                              groupChatId:
-                                  random_data.randomInteger(1000000, 9999999),
-                            ),
-                            ...mapToFirestore(
-                              {
-                                'users': _model.userToAdd,
-                              },
-                            ),
-                          }, chatsRecordReference1);
-                        }
-
-                        await NewsbusinessRecord.collection
-                            .doc()
-                            .set(createNewsbusinessRecordData(
-                              business: widget.professional?.business,
-                              professional: widget.professional?.reference,
-                              user: currentUserReference,
-                              isView: false,
-                            ));
                       } else {
-                        _model.addToUserToAdd(widget.professional!.reference);
-                        _model.addToUserToAdd(currentUserReference!);
-                        if (conditionalBuilderChatsRecord != null
-                            ? (conditionalBuilderChatsRecord.users
-                                    .contains(currentUserReference) ==
-                                true)
-                            : false) {
-                          _model.newRef = await queryChatsRecordOnce(
-                            queryBuilder: (chatsRecord) => chatsRecord
-                                .where(
-                                  'user_a',
-                                  isEqualTo: currentUserReference,
-                                )
-                                .where(
-                                  'user_b',
-                                  isEqualTo: widget.professional?.reference,
-                                ),
-                            singleRecord: true,
-                          ).then((s) => s.firstOrNull);
-                        } else {
-                          // newChat
+                        // newChat
 
-                          var chatsRecordReference2 =
-                              ChatsRecord.collection.doc();
-                          await chatsRecordReference2.set({
-                            ...createChatsRecordData(
-                              userA: currentUserReference,
-                              userB: widget.professional?.reference,
-                              lastMessage: '',
-                              lastMessageTime: getCurrentTimestamp,
-                              lastMessageSentBy: currentUserReference,
-                              groupChatId:
-                                  random_data.randomInteger(1000000, 9999999),
-                            ),
-                            ...mapToFirestore(
-                              {
-                                'users': _model.userToAdd,
-                              },
-                            ),
-                          });
-                          _model.newChatThread =
-                              ChatsRecord.getDocumentFromData({
-                            ...createChatsRecordData(
-                              userA: currentUserReference,
-                              userB: widget.professional?.reference,
-                              lastMessage: '',
-                              lastMessageTime: getCurrentTimestamp,
-                              lastMessageSentBy: currentUserReference,
-                              groupChatId:
-                                  random_data.randomInteger(1000000, 9999999),
-                            ),
-                            ...mapToFirestore(
-                              {
-                                'users': _model.userToAdd,
-                              },
-                            ),
-                          }, chatsRecordReference2);
-                        }
+                        var chatsRecordReference1 =
+                            ChatsRecord.collection.doc();
+                        await chatsRecordReference1.set({
+                          ...createChatsRecordData(
+                            userA: currentUserReference,
+                            userB: widget.professional?.business,
+                            lastMessage: '',
+                            lastMessageTime: getCurrentTimestamp,
+                            lastMessageSentBy: currentUserReference,
+                            groupChatId:
+                                random_data.randomInteger(1000000, 9999999),
+                          ),
+                          ...mapToFirestore(
+                            {
+                              'users': _model.userToAdd,
+                            },
+                          ),
+                        });
+                        _model.newChatThreadBusiness =
+                            ChatsRecord.getDocumentFromData({
+                          ...createChatsRecordData(
+                            userA: currentUserReference,
+                            userB: widget.professional?.business,
+                            lastMessage: '',
+                            lastMessageTime: getCurrentTimestamp,
+                            lastMessageSentBy: currentUserReference,
+                            groupChatId:
+                                random_data.randomInteger(1000000, 9999999),
+                          ),
+                          ...mapToFirestore(
+                            {
+                              'users': _model.userToAdd,
+                            },
+                          ),
+                        }, chatsRecordReference1);
                       }
 
-                      _model.userToAdd = [];
-
-                      context.pushNamed(
-                        'profile_info',
-                        queryParameters: {
-                          'professional': serializeParam(
-                            widget.professional?.reference,
-                            ParamType.DocumentReference,
-                          ),
-                        }.withoutNulls,
-                      );
+                      await NewsbusinessRecord.collection
+                          .doc()
+                          .set(createNewsbusinessRecordData(
+                            business: widget.professional?.business,
+                            professional: widget.professional?.reference,
+                            user: currentUserReference,
+                            isView: false,
+                          ));
                     } else {
-                      context.pushNamed('Login');
+                      _model.addToUserToAdd(widget.professional!.reference);
+                      _model.addToUserToAdd(currentUserReference!);
+                      if (conditionalBuilderChatsRecord != null
+                          ? (conditionalBuilderChatsRecord.users
+                                  .contains(currentUserReference) ==
+                              true)
+                          : false) {
+                        _model.newRef = await queryChatsRecordOnce(
+                          queryBuilder: (chatsRecord) => chatsRecord
+                              .where(
+                                'user_a',
+                                isEqualTo: currentUserReference,
+                              )
+                              .where(
+                                'user_b',
+                                isEqualTo: widget.professional?.reference,
+                              ),
+                          singleRecord: true,
+                        ).then((s) => s.firstOrNull);
+                      } else {
+                        // newChat
+
+                        var chatsRecordReference2 =
+                            ChatsRecord.collection.doc();
+                        await chatsRecordReference2.set({
+                          ...createChatsRecordData(
+                            userA: currentUserReference,
+                            userB: widget.professional?.reference,
+                            lastMessage: '',
+                            lastMessageTime: getCurrentTimestamp,
+                            lastMessageSentBy: currentUserReference,
+                            groupChatId:
+                                random_data.randomInteger(1000000, 9999999),
+                          ),
+                          ...mapToFirestore(
+                            {
+                              'users': _model.userToAdd,
+                            },
+                          ),
+                        });
+                        _model.newChatThread =
+                            ChatsRecord.getDocumentFromData({
+                          ...createChatsRecordData(
+                            userA: currentUserReference,
+                            userB: widget.professional?.reference,
+                            lastMessage: '',
+                            lastMessageTime: getCurrentTimestamp,
+                            lastMessageSentBy: currentUserReference,
+                            groupChatId:
+                                random_data.randomInteger(1000000, 9999999),
+                          ),
+                          ...mapToFirestore(
+                            {
+                              'users': _model.userToAdd,
+                            },
+                          ),
+                        }, chatsRecordReference2);
+                      }
                     }
 
+                    _model.userToAdd = [];
+
+                    context.pushNamed(
+                      'profile_info',
+                      queryParameters: {
+                        'professional': serializeParam(
+                          widget.professional?.reference,
+                          ParamType.DocumentReference,
+                        ),
+                      }.withoutNulls,
+                    );
+                  
                     safeSetState(() {});
                   },
                 );

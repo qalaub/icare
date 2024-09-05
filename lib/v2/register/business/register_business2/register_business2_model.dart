@@ -8,6 +8,8 @@ class RegisterBusiness2Model extends FlutterFlowModel<RegisterBusiness2Widget> {
 
   bool isNDIS = false;
 
+  bool termsAccept = true;
+
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
@@ -70,8 +72,8 @@ class RegisterBusiness2Model extends FlutterFlowModel<RegisterBusiness2Widget> {
     return null;
   }
 
-  // State field(s) for Checkbox widget.
-  bool? checkboxValue;
+  // State field(s) for terms widget.
+  bool? termsValue;
 
   @override
   void initState(BuildContext context) {

@@ -9,6 +9,8 @@ class RegisterProfessional2Model
 
   bool isNDIS = false;
 
+  bool termsAccept = true;
+
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
@@ -71,8 +73,8 @@ class RegisterProfessional2Model
     return null;
   }
 
-  // State field(s) for Checkbox widget.
-  bool? checkboxValue;
+  // State field(s) for terms widget.
+  bool? termsValue;
 
   @override
   void initState(BuildContext context) {

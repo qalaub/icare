@@ -7,7 +7,6 @@ import '/v2/menbresiav2/membresia_logo/membresia_logo_widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'v3fv0rites_model.dart';
 export 'v3fv0rites_model.dart';
 
@@ -47,8 +46,6 @@ class _V3fv0ritesWidgetState extends State<V3fv0ritesWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Align(
       alignment: const AlignmentDirectional(0, 0),
       child: StreamBuilder<UsersRecord>(
@@ -77,7 +74,7 @@ class _V3fv0ritesWidgetState extends State<V3fv0ritesWidget> {
             hoverColor: Colors.transparent,
             highlightColor: Colors.transparent,
             onTap: () async {
-              if (!FFAppState().authUserFireBase) {
+              if (!loggedIn) {
                 context.pushNamed('Login');
               } else {
                 _model.chat = await queryChatsRecordOnce(

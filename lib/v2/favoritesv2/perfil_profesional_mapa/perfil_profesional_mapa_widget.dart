@@ -1,3 +1,4 @@
+import '/auth/base_auth_user_provider.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -6,7 +7,6 @@ import '/v2/menbresiav2/membresia_logo/membresia_logo_widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:provider/provider.dart';
 import 'perfil_profesional_mapa_model.dart';
 export 'perfil_profesional_mapa_model.dart';
 
@@ -48,8 +48,6 @@ class _PerfilProfesionalMapaWidgetState
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Align(
       alignment: const AlignmentDirectional(0, 0),
       child: InkWell(
@@ -58,7 +56,7 @@ class _PerfilProfesionalMapaWidgetState
         hoverColor: Colors.transparent,
         highlightColor: Colors.transparent,
         onTap: () async {
-          if (!FFAppState().authUserFireBase) {
+          if (!loggedIn) {
             context.pushNamed('Login');
           } else {
             context.pushNamed(

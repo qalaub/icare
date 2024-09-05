@@ -1,7 +1,6 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
-import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -65,6 +64,9 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
     _model.dateTextController ??= TextEditingController();
     _model.dateFocusNode ??= FocusNode();
 
+    _model.emailTextController ??= TextEditingController();
+    _model.emailFocusNode ??= FocusNode();
+
     _model.phoneTextController ??= TextEditingController();
     _model.phoneFocusNode ??= FocusNode();
 
@@ -85,6 +87,18 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
         ],
       ),
       'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(0.0, -11.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation3': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           MoveEffect(
@@ -821,6 +835,218 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                           ),
                                           Align(
                                             alignment: const AlignmentDirectional(
+                                                -0.84, -0.73),
+                                            child: Padding(
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(0, 15, 0, 15),
+                                              child: Text(
+                                                '* Email address',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Montserrat',
+                                                          color: Colors.black,
+                                                          fontSize: 15,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                              ),
+                                            ),
+                                          ),
+                                          Align(
+                                            alignment: const AlignmentDirectional(
+                                                -0.01, -0.69),
+                                            child: Container(
+                                              width: MediaQuery.sizeOf(context)
+                                                      .width *
+                                                  0.8,
+                                              height: 70,
+                                              decoration: const BoxDecoration(
+                                                color: Color(0xFFFFFEFE),
+                                                borderRadius: BorderRadius.only(
+                                                  bottomLeft:
+                                                      Radius.circular(12),
+                                                  bottomRight:
+                                                      Radius.circular(12),
+                                                  topLeft: Radius.circular(12),
+                                                  topRight: Radius.circular(12),
+                                                ),
+                                              ),
+                                              child: Stack(
+                                                children: [
+                                                  Align(
+                                                    alignment:
+                                                        const AlignmentDirectional(
+                                                            0, -1),
+                                                    child: TextFormField(
+                                                      controller: _model
+                                                          .emailTextController,
+                                                      focusNode:
+                                                          _model.emailFocusNode,
+                                                      onChanged: (_) =>
+                                                          EasyDebounce.debounce(
+                                                        '_model.emailTextController',
+                                                        const Duration(
+                                                            milliseconds: 10),
+                                                        () async {
+                                                          _model.emailExists =
+                                                              await queryUsersRecordCount(
+                                                            queryBuilder:
+                                                                (usersRecord) =>
+                                                                    usersRecord
+                                                                        .where(
+                                                              'email',
+                                                              isEqualTo: _model
+                                                                  .emailTextController
+                                                                  .text,
+                                                            ),
+                                                          );
+
+                                                          safeSetState(() {});
+                                                        },
+                                                      ),
+                                                      autofocus: true,
+                                                      obscureText: false,
+                                                      decoration:
+                                                          InputDecoration(
+                                                        isDense: true,
+                                                        labelStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Readex Pro',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                        hintStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Readex Pro',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                        errorStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Readex Pro',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .error,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  lineHeight: 1,
+                                                                ),
+                                                        enabledBorder:
+                                                            OutlineInputBorder(
+                                                          borderSide:
+                                                              const BorderSide(
+                                                            color: Color(
+                                                                0xFFBB33B9),
+                                                            width: 0,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(12),
+                                                        ),
+                                                        focusedBorder:
+                                                            OutlineInputBorder(
+                                                          borderSide:
+                                                              const BorderSide(
+                                                            color: Color(
+                                                                0xFF762075),
+                                                            width: 0,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(12),
+                                                        ),
+                                                        errorBorder:
+                                                            OutlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .error,
+                                                            width: 0,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(12),
+                                                        ),
+                                                        focusedErrorBorder:
+                                                            OutlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .error,
+                                                            width: 0,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(12),
+                                                        ),
+                                                      ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Montserrat',
+                                                            color: Colors.black,
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                      maxLines: null,
+                                                      validator: _model
+                                                          .emailTextControllerValidator
+                                                          .asValidator(context),
+                                                    ),
+                                                  ),
+                                                  if ((_model.emailExists !=
+                                                          null) &&
+                                                      (_model.emailExists! > 0))
+                                                    Align(
+                                                      alignment:
+                                                          const AlignmentDirectional(
+                                                              0, 1.4),
+                                                      child: Text(
+                                                        'This email already has an account, use another email',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Montserrat',
+                                                                  color: const Color(
+                                                                      0xFFFF5963),
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                ),
+                                                      ).animateOnPageLoad(
+                                                          animationsMap[
+                                                              'textOnPageLoadAnimation2']!),
+                                                    ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                          Align(
+                                            alignment: const AlignmentDirectional(
                                                 -0.54, -0.73),
                                             child: Padding(
                                               padding: const EdgeInsetsDirectional
@@ -1198,7 +1424,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                     ),
                                                               ).animateOnPageLoad(
                                                                   animationsMap[
-                                                                      'textOnPageLoadAnimation2']!),
+                                                                      'textOnPageLoadAnimation3']!),
                                                             );
                                                           } else {
                                                             return Text(
@@ -1327,6 +1553,9 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                 Plan.standar
                                                             ..lastName = _model
                                                                 .lastnameTextController
+                                                                .text
+                                                            ..email = _model
+                                                                .emailTextController
                                                                 .text,
                                                         );
 

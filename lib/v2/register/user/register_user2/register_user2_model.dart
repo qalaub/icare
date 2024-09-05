@@ -11,23 +11,6 @@ class RegisterUser2Model extends FlutterFlowModel<RegisterUser2Widget> {
   FocusNode? ndisFocusNode;
   TextEditingController? ndisTextController;
   String? Function(BuildContext, String?)? ndisTextControllerValidator;
-  // State field(s) for email widget.
-  FocusNode? emailFocusNode;
-  TextEditingController? emailTextController;
-  String? Function(BuildContext, String?)? emailTextControllerValidator;
-  String? _emailTextControllerValidator(BuildContext context, String? val) {
-    if (val == null || val.isEmpty) {
-      return 'Field is required';
-    }
-
-    if (!RegExp(kTextValidatorEmailRegex).hasMatch(val)) {
-      return 'Please enter a valid e-mail addres';
-    }
-    return null;
-  }
-
-  // Stores action output result for [Firestore Query - Query a collection] action in email widget.
-  int? emailExists;
   // State field(s) for DropDown widget.
   List<String>? dropDownValue;
   FormFieldController<List<String>>? dropDownValueController;
@@ -81,7 +64,6 @@ class RegisterUser2Model extends FlutterFlowModel<RegisterUser2Widget> {
 
   @override
   void initState(BuildContext context) {
-    emailTextControllerValidator = _emailTextControllerValidator;
     passwordVisibility = false;
     passwordTextControllerValidator = _passwordTextControllerValidator;
     confirmPasswordVisibility = false;
@@ -93,9 +75,6 @@ class RegisterUser2Model extends FlutterFlowModel<RegisterUser2Widget> {
   void dispose() {
     ndisFocusNode?.dispose();
     ndisTextController?.dispose();
-
-    emailFocusNode?.dispose();
-    emailTextController?.dispose();
 
     passwordFocusNode?.dispose();
     passwordTextController?.dispose();

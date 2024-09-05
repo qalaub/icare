@@ -57,6 +57,12 @@ class RegisterUser1Model extends FlutterFlowModel<RegisterUser1Widget> {
   TextEditingController? dateTextController;
   final dateMask = MaskTextInputFormatter(mask: '##/##/####');
   String? Function(BuildContext, String?)? dateTextControllerValidator;
+  // State field(s) for email widget.
+  FocusNode? emailFocusNode;
+  TextEditingController? emailTextController;
+  String? Function(BuildContext, String?)? emailTextControllerValidator;
+  // Stores action output result for [Firestore Query - Query a collection] action in email widget.
+  int? emailExists;
   // State field(s) for phone widget.
   FocusNode? phoneFocusNode;
   TextEditingController? phoneTextController;
@@ -102,6 +108,9 @@ class RegisterUser1Model extends FlutterFlowModel<RegisterUser1Widget> {
 
     dateFocusNode?.dispose();
     dateTextController?.dispose();
+
+    emailFocusNode?.dispose();
+    emailTextController?.dispose();
 
     phoneFocusNode?.dispose();
     phoneTextController?.dispose();

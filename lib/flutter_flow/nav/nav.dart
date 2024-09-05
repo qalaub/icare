@@ -673,8 +673,8 @@ class FFRoute {
               ? Container(
                   color: Colors.white,
                   child: Image.asset(
-                    'assets/images/logo.png',
-                    fit: BoxFit.cover,
+                    'assets/images/Frame_427320847.png',
+                    fit: BoxFit.contain,
                   ),
                 )
               : page;

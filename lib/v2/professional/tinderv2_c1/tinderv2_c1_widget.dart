@@ -212,7 +212,7 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                     final firestoreBatch =
                                         FirebaseFirestore.instance.batch();
                                     try {
-                                      if (loggedIn == false) {
+                                      if (!loggedIn) {
                                         context.pushNamed('Login');
                                       } else {
                                         firestoreBatch

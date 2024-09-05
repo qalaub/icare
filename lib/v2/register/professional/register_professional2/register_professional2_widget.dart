@@ -1566,12 +1566,12 @@ class _RegisterProfessional2WidgetState
                                                         ),
                                                         child: Checkbox(
                                                           value: _model
-                                                                  .checkboxValue ??=
+                                                                  .termsValue ??=
                                                               false,
                                                           onChanged:
                                                               (newValue) async {
                                                             safeSetState(() =>
-                                                                _model.checkboxValue =
+                                                                _model.termsValue =
                                                                     newValue!);
                                                           },
                                                           side: BorderSide(
@@ -1589,6 +1589,36 @@ class _RegisterProfessional2WidgetState
                                                         ),
                                                       ),
                                                     ),
+                                                    if (!_model.termsAccept)
+                                                      Align(
+                                                        alignment:
+                                                            const AlignmentDirectional(
+                                                                0, 0.8),
+                                                        child: Padding(
+                                                          padding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(20,
+                                                                      0, 0, 0),
+                                                          child: Text(
+                                                            'Please accept T&Cs to create your account',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Montserrat',
+                                                                  color: const Color(
+                                                                      0xFFFF5963),
+                                                                  fontSize: 11,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                      ),
                                                   ],
                                                 ),
                                               ),
@@ -1663,10 +1693,14 @@ class _RegisterProfessional2WidgetState
                                                               .text,
                                                   );
                                                   FFAppState().counter = 4;
-                                                  if (FFAppState()
-                                                          .verifyForm
-                                                          .same ==
-                                                      true) {
+                                                  _model.termsAccept =
+                                                      _model.termsValue!;
+                                                  safeSetState(() {});
+                                                  if ((FFAppState()
+                                                              .verifyForm
+                                                              .same ==
+                                                          true) &&
+                                                      _model.termsAccept) {
                                                     FFAppState()
                                                         .updateRegisterProviderFormStruct(
                                                       (e) => e

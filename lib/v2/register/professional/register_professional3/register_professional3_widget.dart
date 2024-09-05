@@ -344,7 +344,7 @@ class _RegisterProfessional3WidgetState
                                                         child: Align(
                                                           alignment:
                                                               const AlignmentDirectional(
-                                                                  0, 0),
+                                                                  0, 1),
                                                           child: StreamBuilder<
                                                               List<
                                                                   UsersRecord>>(
@@ -408,7 +408,10 @@ class _RegisterProfessional3WidgetState
                                                                     safeSetState(() =>
                                                                         _model.companyValue =
                                                                             val),
-                                                                width: 261,
+                                                                width: MediaQuery.sizeOf(
+                                                                            context)
+                                                                        .width *
+                                                                    0.9,
                                                                 height: 56,
                                                                 searchHintTextStyle:
                                                                     FlutterFlowTheme.of(
@@ -458,14 +461,19 @@ class _RegisterProfessional3WidgetState
                                                                 fillColor:
                                                                     Colors
                                                                         .white,
-                                                                elevation: 2,
+                                                                elevation: 0,
                                                                 borderColor: Colors
                                                                     .transparent,
                                                                 borderWidth: 0,
-                                                                borderRadius: 8,
+                                                                borderRadius:
+                                                                    40,
                                                                 margin:
-                                                                    const EdgeInsets
-                                                                        .all(0),
+                                                                    const EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            16,
+                                                                            4,
+                                                                            16,
+                                                                            4),
                                                                 hidesUnderline:
                                                                     true,
                                                                 isOverButton:
