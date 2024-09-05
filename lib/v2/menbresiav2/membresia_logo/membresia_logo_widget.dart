@@ -93,7 +93,7 @@ class _MembresiaLogoWidgetState extends State<MembresiaLogoWidget> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
                     child: Image.asset(
-                      'assets/images/estandar.png',
+                      'assets/images/Badge.png',
                       width: widget.width.toDouble(),
                       height: widget.heigth.toDouble(),
                       fit: BoxFit.cover,
@@ -107,7 +107,7 @@ class _MembresiaLogoWidgetState extends State<MembresiaLogoWidget> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
                     child: Image.asset(
-                      'assets/images/UserEmpresaV2.png',
+                      'assets/images/ic-empIead.png',
                       width: widget.width.toDouble(),
                       height: widget.heigth.toDouble(),
                       fit: BoxFit.cover,
@@ -121,7 +121,7 @@ class _MembresiaLogoWidgetState extends State<MembresiaLogoWidget> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
                     child: Image.asset(
-                      'assets/images/EmpresaV2.png',
+                      'assets/images/ic-empresa.png',
                       width: widget.width.toDouble(),
                       height: widget.heigth.toDouble(),
                       fit: BoxFit.contain,

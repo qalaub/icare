@@ -100,8 +100,8 @@ class _PeoplewhoputyouinfavoriteBasicWidgetState
                           child: ClipRect(
                             child: ImageFiltered(
                               imageFilter: ImageFilter.blur(
-                                sigmaX: 4.0,
-                                sigmaY: 4.0,
+                                sigmaX: 5.0,
+                                sigmaY: 5.0,
                               ),
                               child: Container(
                                 width: 390.0,
@@ -160,9 +160,7 @@ class _PeoplewhoputyouinfavoriteBasicWidgetState
                                                 listViewIndex];
                                         return V2FavoritosComponenteWidget(
                                           key: Key(
-                                              'Keyj0b_${listViewIndex}_of_${listViewUsersRecordList.length}'),
-                                          professionalRef:
-                                              listViewUsersRecord.reference,
+                                              'Keyr1k_${listViewIndex}_of_${listViewUsersRecordList.length}'),
                                         );
                                       },
                                     );
@@ -192,15 +190,19 @@ class _PeoplewhoputyouinfavoriteBasicWidgetState
                               highlightColor: Colors.transparent,
                               onTap: () async {
                                 context.pushNamed(
-                                  'STANDAR',
+                                  'MembresiasV2',
                                   queryParameters: {
-                                    'userRef': serializeParam(
+                                    'professionalUpdate': serializeParam(
                                       currentUserReference,
                                       ParamType.DocumentReference,
                                     ),
                                     'currentPlan': serializeParam(
-                                      currentUserDocument?.plan,
+                                      Plan.basic,
                                       ParamType.Enum,
+                                    ),
+                                    'isUpdate': serializeParam(
+                                      true,
+                                      ParamType.bool,
                                     ),
                                   }.withoutNulls,
                                 );
@@ -255,8 +257,24 @@ class _PeoplewhoputyouinfavoriteBasicWidgetState
                         Align(
                           alignment: const AlignmentDirectional(0.0, 0.7),
                           child: FFButtonWidget(
-                            onPressed: () {
-                              print('Button pressed ...');
+                            onPressed: () async {
+                              context.pushNamed(
+                                'MembresiasV2',
+                                queryParameters: {
+                                  'professionalUpdate': serializeParam(
+                                    currentUserReference,
+                                    ParamType.DocumentReference,
+                                  ),
+                                  'currentPlan': serializeParam(
+                                    Plan.basic,
+                                    ParamType.Enum,
+                                  ),
+                                  'isUpdate': serializeParam(
+                                    true,
+                                    ParamType.bool,
+                                  ),
+                                }.withoutNulls,
+                              );
                             },
                             text: 'Upgrade Now',
                             options: FFButtonOptions(

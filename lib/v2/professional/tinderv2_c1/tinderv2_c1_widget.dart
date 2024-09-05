@@ -344,6 +344,17 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                                 },
                                                     chatsRecordReference1);
                                           }
+
+                                          firestoreBatch.set(
+                                              NewsbusinessRecord.collection
+                                                  .doc(),
+                                              createNewsbusinessRecordData(
+                                                business: newDataItem.business,
+                                                professional:
+                                                    newDataItem.reference,
+                                                user: currentUserReference,
+                                                isView: false,
+                                              ));
                                         } else {
                                           _model.addToUserToAdd(
                                               currentUserReference!);

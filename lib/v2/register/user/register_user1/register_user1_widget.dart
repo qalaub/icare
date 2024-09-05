@@ -1036,7 +1036,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                     Align(
                                                       alignment:
                                                           const AlignmentDirectional(
-                                                              0.0, 1.4),
+                                                              0.0, 1.8),
                                                       child: Text(
                                                         'This email already has an account, use another email',
                                                         style:

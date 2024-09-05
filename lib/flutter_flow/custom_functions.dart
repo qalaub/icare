@@ -17,7 +17,7 @@ import '/auth/firebase_auth/auth_util.dart';
 LatLng? changeUbication(LatLng ubication) {
   // Radio de la Tierra en metros
   const double earthRadius = 6371000;
-  const int meters = 100;
+  const int meters = 10;
   // Calcular el cambi  o en latitud
   double deltaLatitude = meters / earthRadius;
   // Convertir de radianes a grados

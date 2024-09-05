@@ -833,7 +833,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                   Align(
                                                     alignment:
                                                         const AlignmentDirectional(
-                                                            0.0, 1.2),
+                                                            0.0, 1.3),
                                                     child: Text(
                                                       'This email already has an account, use another email',
                                                       style: FlutterFlowTheme

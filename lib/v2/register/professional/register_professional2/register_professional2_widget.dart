@@ -1895,10 +1895,13 @@ class _RegisterProfessional2WidgetState
                                                             .toList()
                                                         ..business =
                                                             widget.businessRef
-                                                        ..years = int.tryParse(
-                                                            _model
-                                                                .yearsTextController
-                                                                .text),
+                                                        ..years =
+                                                            valueOrDefault<int>(
+                                                          int.tryParse(_model
+                                                              .yearsTextController
+                                                              .text),
+                                                          1,
+                                                        ),
                                                     );
                                                     FFAppState().verifyForm =
                                                         FormVerifyStruct();

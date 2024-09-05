@@ -1,10 +1,7 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/v2/favoritesv2/add_favorites/add_favorites_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -171,23 +168,6 @@ class _V2FavoritosComponenteWidgetState
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(-0.95, 0.52),
-                              child: Text(
-                                valueOrDefault<String>(
-                                  containerUsersRecord?.serviceType.first,
-                                  'service',
-                                ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Montserrat',
-                                      fontSize: 12.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.normal,
-                                    ),
-                              ),
-                            ),
-                            Align(
                               alignment: const AlignmentDirectional(0.17, 1.02),
                               child: Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
@@ -219,16 +199,6 @@ class _V2FavoritosComponenteWidgetState
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              if (currentUserDocument?.rol == Roles.user)
-                                AuthUserStreamWidget(
-                                  builder: (context) => wrapWithModel(
-                                    model: _model.addFavoritesModel,
-                                    updateCallback: () => safeSetState(() {}),
-                                    child: AddFavoritesWidget(
-                                      professional: containerUsersRecord!,
-                                    ),
-                                  ),
-                                ),
                               FlutterFlowIconButton(
                                 borderColor: Colors.transparent,
                                 borderRadius: 24.0,
