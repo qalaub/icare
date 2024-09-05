@@ -42,14 +42,14 @@ class _MembresiaWidgetState extends State<MembresiaWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(0),
+          preferredSize: const Size.fromHeight(0.0),
           child: AppBar(
             backgroundColor: const Color(0xFFFFFEFE),
             automaticallyImplyLeading: false,
             actions: const [],
             centerTitle: false,
-            toolbarHeight: 0,
-            elevation: 0,
+            toolbarHeight: 0.0,
+            elevation: 0.0,
           ),
         ),
         body: SafeArea(
@@ -60,7 +60,7 @@ class _MembresiaWidgetState extends State<MembresiaWidget> {
               Expanded(
                 child: Container(
                   width: double.infinity,
-                  height: 100,
+                  height: 100.0,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
                   ),
@@ -71,9 +71,9 @@ class _MembresiaWidgetState extends State<MembresiaWidget> {
                         child: Stack(
                           children: [
                             Align(
-                              alignment: const AlignmentDirectional(0, 0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(8.0),
                                 child: Image.asset(
                                   'assets/images/fondo-de-membresia.png',
                                   width: double.infinity,
@@ -83,24 +83,24 @@ class _MembresiaWidgetState extends State<MembresiaWidget> {
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0, 0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Padding(
-                                padding:
-                                    const EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 40.0, 0.0, 0.0),
                                 child: Container(
-                                  width: 332,
-                                  height: 610,
+                                  width: 332.0,
+                                  height: 610.0,
                                   decoration: BoxDecoration(
                                     color: const Color(0xFFFFFEFE),
                                     borderRadius: const BorderRadius.only(
-                                      bottomLeft: Radius.circular(24),
-                                      bottomRight: Radius.circular(24),
-                                      topLeft: Radius.circular(24),
-                                      topRight: Radius.circular(24),
+                                      bottomLeft: Radius.circular(24.0),
+                                      bottomRight: Radius.circular(24.0),
+                                      topLeft: Radius.circular(24.0),
+                                      topRight: Radius.circular(24.0),
                                     ),
                                     border: Border.all(
                                       color: const Color(0xFF565656),
-                                      width: 2,
+                                      width: 2.0,
                                     ),
                                   ),
                                   child: Column(
@@ -109,12 +109,13 @@ class _MembresiaWidgetState extends State<MembresiaWidget> {
                                       Expanded(
                                         child: SizedBox(
                                           width: double.infinity,
-                                          height: 500,
+                                          height: 500.0,
                                           child: Stack(
                                             children: [
                                               Padding(
                                                 padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(0, 0, 0, 40),
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 0.0, 40.0),
                                                 child: PageView(
                                                   controller: _model
                                                           .pageViewController ??=
@@ -130,17 +131,20 @@ class _MembresiaWidgetState extends State<MembresiaWidget> {
                                                         Padding(
                                                           padding:
                                                               const EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      20, 0, 0),
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      20.0,
+                                                                      0.0,
+                                                                      0.0),
                                                           child: ClipRRect(
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        8),
+                                                                        8.0),
                                                             child: Image.asset(
                                                               'assets/images/VIP_luxury_lifestyle_(2).png',
-                                                              width: 269,
-                                                              height: 144,
+                                                              width: 269.0,
+                                                              height: 144.0,
                                                               fit: BoxFit.cover,
                                                             ),
                                                           ),
@@ -148,25 +152,25 @@ class _MembresiaWidgetState extends State<MembresiaWidget> {
                                                         Align(
                                                           alignment:
                                                               const AlignmentDirectional(
-                                                                  0, 0),
+                                                                  0.0, 0.0),
                                                           child: Padding(
                                                             padding:
                                                                 const EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0,
-                                                                        15,
-                                                                        0,
-                                                                        0),
+                                                                        0.0,
+                                                                        15.0,
+                                                                        0.0,
+                                                                        0.0),
                                                             child: ClipRRect(
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          8),
+                                                                          8.0),
                                                               child:
                                                                   Image.asset(
                                                                 'assets/images/basic_(2).png',
-                                                                width: 94,
-                                                                height: 35,
+                                                                width: 94.0,
+                                                                height: 35.0,
                                                                 fit: BoxFit
                                                                     .cover,
                                                               ),
@@ -176,25 +180,25 @@ class _MembresiaWidgetState extends State<MembresiaWidget> {
                                                         Align(
                                                           alignment:
                                                               const AlignmentDirectional(
-                                                                  0, 0),
+                                                                  0.0, 0.0),
                                                           child: Padding(
                                                             padding:
                                                                 const EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0,
-                                                                        25,
-                                                                        0,
-                                                                        0),
+                                                                        0.0,
+                                                                        25.0,
+                                                                        0.0,
+                                                                        0.0),
                                                             child: ClipRRect(
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          8),
+                                                                          8.0),
                                                               child:
                                                                   Image.asset(
                                                                 'assets/images/1,45A_(2).png',
-                                                                width: 197,
-                                                                height: 63,
+                                                                width: 197.0,
+                                                                height: 63.0,
                                                                 fit: BoxFit
                                                                     .cover,
                                                               ),
@@ -204,17 +208,20 @@ class _MembresiaWidgetState extends State<MembresiaWidget> {
                                                         Padding(
                                                           padding:
                                                               const EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      15, 0, 0),
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      15.0,
+                                                                      0.0,
+                                                                      0.0),
                                                           child: ClipRRect(
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        8),
+                                                                        8.0),
                                                             child: Image.asset(
                                                               'assets/images/ser_(1).png',
-                                                              width: 300,
-                                                              height: 32,
+                                                              width: 300.0,
+                                                              height: 32.0,
                                                               fit: BoxFit.cover,
                                                             ),
                                                           ),
@@ -222,17 +229,20 @@ class _MembresiaWidgetState extends State<MembresiaWidget> {
                                                         Padding(
                                                           padding:
                                                               const EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      15, 0, 0),
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      15.0,
+                                                                      0.0,
+                                                                      0.0),
                                                           child: ClipRRect(
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        8),
+                                                                        8.0),
                                                             child: Image.asset(
                                                               'assets/images/ser_(2).png',
-                                                              width: 299,
-                                                              height: 38,
+                                                              width: 299.0,
+                                                              height: 38.0,
                                                               fit: BoxFit.cover,
                                                             ),
                                                           ),
@@ -240,17 +250,20 @@ class _MembresiaWidgetState extends State<MembresiaWidget> {
                                                         Padding(
                                                           padding:
                                                               const EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      15, 0, 0),
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      15.0,
+                                                                      0.0,
+                                                                      0.0),
                                                           child: ClipRRect(
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        8),
+                                                                        8.0),
                                                             child: Image.asset(
                                                               'assets/images/ser_(3).png',
-                                                              width: 300,
-                                                              height: 41,
+                                                              width: 300.0,
+                                                              height: 41.0,
                                                               fit: BoxFit.cover,
                                                             ),
                                                           ),
@@ -258,15 +271,15 @@ class _MembresiaWidgetState extends State<MembresiaWidget> {
                                                         Align(
                                                           alignment:
                                                               const AlignmentDirectional(
-                                                                  0, 0),
+                                                                  0.0, 0.0),
                                                           child: Padding(
                                                             padding:
                                                                 const EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0,
-                                                                        25,
-                                                                        0,
-                                                                        0),
+                                                                        0.0,
+                                                                        25.0,
+                                                                        0.0,
+                                                                        0.0),
                                                             child:
                                                                 FFButtonWidget(
                                                               onPressed:
@@ -286,22 +299,21 @@ class _MembresiaWidgetState extends State<MembresiaWidget> {
                                                               text: 'Buy Now\n',
                                                               options:
                                                                   FFButtonOptions(
-                                                                width: 246,
-                                                                height: 45,
-                                                                padding:
-                                                                    const EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            24,
-                                                                            0,
-                                                                            24,
-                                                                            0),
+                                                                width: 246.0,
+                                                                height: 45.0,
+                                                                padding: const EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        24.0,
+                                                                        0.0,
+                                                                        24.0,
+                                                                        0.0),
                                                                 iconPadding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                 color: const Color(
                                                                     0xFFB928B8),
                                                                 textStyle: FlutterFlowTheme.of(
@@ -313,21 +325,21 @@ class _MembresiaWidgetState extends State<MembresiaWidget> {
                                                                       color: Colors
                                                                           .white,
                                                                       fontSize:
-                                                                          30,
+                                                                          30.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
-                                                                elevation: 5,
+                                                                elevation: 5.0,
                                                                 borderSide:
                                                                     const BorderSide(
                                                                   color: Colors
                                                                       .transparent,
-                                                                  width: 1,
+                                                                  width: 1.0,
                                                                 ),
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            24),
+                                                                            24.0),
                                                               ),
                                                             ),
                                                           ),
@@ -341,17 +353,20 @@ class _MembresiaWidgetState extends State<MembresiaWidget> {
                                                         Padding(
                                                           padding:
                                                               const EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      20, 0, 0),
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      20.0,
+                                                                      0.0,
+                                                                      0.0),
                                                           child: ClipRRect(
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        8),
+                                                                        8.0),
                                                             child: Image.asset(
                                                               'assets/images/VIP_luxury_lifestyle_(3).png',
-                                                              width: 269,
-                                                              height: 144,
+                                                              width: 269.0,
+                                                              height: 144.0,
                                                               fit: BoxFit.cover,
                                                             ),
                                                           ),
@@ -359,25 +374,25 @@ class _MembresiaWidgetState extends State<MembresiaWidget> {
                                                         Align(
                                                           alignment:
                                                               const AlignmentDirectional(
-                                                                  0, 0),
+                                                                  0.0, 0.0),
                                                           child: Padding(
                                                             padding:
                                                                 const EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0,
-                                                                        15,
-                                                                        0,
-                                                                        0),
+                                                                        0.0,
+                                                                        15.0,
+                                                                        0.0,
+                                                                        0.0),
                                                             child: ClipRRect(
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          8),
+                                                                          8.0),
                                                               child:
                                                                   Image.asset(
                                                                 'assets/images/Standard.png',
-                                                                width: 150,
-                                                                height: 35,
+                                                                width: 150.0,
+                                                                height: 35.0,
                                                                 fit: BoxFit
                                                                     .cover,
                                                               ),
@@ -387,25 +402,25 @@ class _MembresiaWidgetState extends State<MembresiaWidget> {
                                                         Align(
                                                           alignment:
                                                               const AlignmentDirectional(
-                                                                  0, 0),
+                                                                  0.0, 0.0),
                                                           child: Padding(
                                                             padding:
                                                                 const EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0,
-                                                                        25,
-                                                                        0,
-                                                                        0),
+                                                                        0.0,
+                                                                        25.0,
+                                                                        0.0,
+                                                                        0.0),
                                                             child: ClipRRect(
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          8),
+                                                                          8.0),
                                                               child:
                                                                   Image.asset(
                                                                 'assets/images/9,45A.png',
-                                                                width: 197,
-                                                                height: 63,
+                                                                width: 197.0,
+                                                                height: 63.0,
                                                                 fit: BoxFit
                                                                     .cover,
                                                               ),
@@ -415,17 +430,20 @@ class _MembresiaWidgetState extends State<MembresiaWidget> {
                                                         Padding(
                                                           padding:
                                                               const EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      15, 0, 0),
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      15.0,
+                                                                      0.0,
+                                                                      0.0),
                                                           child: ClipRRect(
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        8),
+                                                                        8.0),
                                                             child: Image.asset(
                                                               'assets/images/ser_(7).png',
-                                                              width: 300,
-                                                              height: 38,
+                                                              width: 300.0,
+                                                              height: 38.0,
                                                               fit: BoxFit.cover,
                                                             ),
                                                           ),
@@ -433,17 +451,20 @@ class _MembresiaWidgetState extends State<MembresiaWidget> {
                                                         Padding(
                                                           padding:
                                                               const EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      15, 0, 0),
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      15.0,
+                                                                      0.0,
+                                                                      0.0),
                                                           child: ClipRRect(
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        8),
+                                                                        8.0),
                                                             child: Image.asset(
                                                               'assets/images/ser_(8).png',
-                                                              width: 299,
-                                                              height: 38,
+                                                              width: 299.0,
+                                                              height: 38.0,
                                                               fit: BoxFit.cover,
                                                             ),
                                                           ),
@@ -451,17 +472,20 @@ class _MembresiaWidgetState extends State<MembresiaWidget> {
                                                         Padding(
                                                           padding:
                                                               const EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      15, 0, 0),
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      15.0,
+                                                                      0.0,
+                                                                      0.0),
                                                           child: ClipRRect(
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        8),
+                                                                        8.0),
                                                             child: Image.asset(
                                                               'assets/images/ser_(9).png',
-                                                              width: 300,
-                                                              height: 38,
+                                                              width: 300.0,
+                                                              height: 38.0,
                                                               fit: BoxFit.cover,
                                                             ),
                                                           ),
@@ -469,15 +493,15 @@ class _MembresiaWidgetState extends State<MembresiaWidget> {
                                                         Align(
                                                           alignment:
                                                               const AlignmentDirectional(
-                                                                  0, 0),
+                                                                  0.0, 0.0),
                                                           child: Padding(
                                                             padding:
                                                                 const EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0,
-                                                                        25,
-                                                                        0,
-                                                                        0),
+                                                                        0.0,
+                                                                        25.0,
+                                                                        0.0,
+                                                                        0.0),
                                                             child:
                                                                 FFButtonWidget(
                                                               onPressed:
@@ -497,22 +521,21 @@ class _MembresiaWidgetState extends State<MembresiaWidget> {
                                                               text: 'Buy Now\n',
                                                               options:
                                                                   FFButtonOptions(
-                                                                width: 246,
-                                                                height: 45,
-                                                                padding:
-                                                                    const EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            24,
-                                                                            0,
-                                                                            24,
-                                                                            0),
+                                                                width: 246.0,
+                                                                height: 45.0,
+                                                                padding: const EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        24.0,
+                                                                        0.0,
+                                                                        24.0,
+                                                                        0.0),
                                                                 iconPadding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0,
-                                                                            0,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                 color: const Color(
                                                                     0xFFB928B8),
                                                                 textStyle: FlutterFlowTheme.of(
@@ -524,21 +547,21 @@ class _MembresiaWidgetState extends State<MembresiaWidget> {
                                                                       color: Colors
                                                                           .white,
                                                                       fontSize:
-                                                                          30,
+                                                                          30.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
-                                                                elevation: 5,
+                                                                elevation: 5.0,
                                                                 borderSide:
                                                                     const BorderSide(
                                                                   color: Colors
                                                                       .transparent,
-                                                                  width: 1,
+                                                                  width: 1.0,
                                                                 ),
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            24),
+                                                                            24.0),
                                                               ),
                                                             ),
                                                           ),
@@ -549,11 +572,12 @@ class _MembresiaWidgetState extends State<MembresiaWidget> {
                                                 ),
                                               ),
                                               Align(
-                                                alignment:
-                                                    const AlignmentDirectional(0, 1),
+                                                alignment: const AlignmentDirectional(
+                                                    0.0, 1.0),
                                                 child: Padding(
                                                   padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(16, 0, 0, 16),
+                                                      .fromSTEB(
+                                                          16.0, 0.0, 0.0, 16.0),
                                                   child: smooth_page_indicator
                                                       .SmoothPageIndicator(
                                                     controller: _model
@@ -577,10 +601,10 @@ class _MembresiaWidgetState extends State<MembresiaWidget> {
                                                     effect:
                                                         const smooth_page_indicator
                                                             .SlideEffect(
-                                                      spacing: 9,
-                                                      radius: 30,
-                                                      dotWidth: 16,
-                                                      dotHeight: 8,
+                                                      spacing: 9.0,
+                                                      radius: 30.0,
+                                                      dotWidth: 16.0,
+                                                      dotHeight: 8.0,
                                                       dotColor:
                                                           Color(0xFFDDD0D0),
                                                       activeDotColor:
@@ -603,13 +627,13 @@ class _MembresiaWidgetState extends State<MembresiaWidget> {
                             Align(
                               alignment: const AlignmentDirectional(-0.91, -0.96),
                               child: FlutterFlowIconButton(
-                                borderRadius: 20,
-                                borderWidth: 1,
-                                buttonSize: 40,
+                                borderRadius: 20.0,
+                                borderWidth: 1.0,
+                                buttonSize: 40.0,
                                 icon: const Icon(
                                   Icons.arrow_back_ios_new,
                                   color: Colors.black,
-                                  size: 24,
+                                  size: 24.0,
                                 ),
                                 onPressed: () async {
                                   context.pushNamed('Escoger_Usuario');

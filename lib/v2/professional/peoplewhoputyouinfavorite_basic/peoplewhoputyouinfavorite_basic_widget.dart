@@ -4,6 +4,7 @@ import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/v2/favoritesv2/v2_favoritos_componente/v2_favoritos_componente_widget.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
@@ -52,13 +53,13 @@ class _PeoplewhoputyouinfavoriteBasicWidgetState
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
             borderColor: Colors.transparent,
-            borderRadius: 30,
-            borderWidth: 1,
-            buttonSize: 60,
+            borderRadius: 30.0,
+            borderWidth: 1.0,
+            buttonSize: 60.0,
             icon: const FaIcon(
               FontAwesomeIcons.angleLeft,
               color: Colors.white,
-              size: 30,
+              size: 30.0,
             ),
             onPressed: () async {
               context.pop();
@@ -69,14 +70,14 @@ class _PeoplewhoputyouinfavoriteBasicWidgetState
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Montserrat',
                   color: const Color(0xFFEFECF3),
-                  fontSize: 25,
+                  fontSize: 25.0,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.bold,
                 ),
           ),
           actions: const [],
           centerTitle: true,
-          elevation: 2,
+          elevation: 2.0,
         ),
         body: SafeArea(
           top: true,
@@ -91,20 +92,20 @@ class _PeoplewhoputyouinfavoriteBasicWidgetState
                     color: Colors.white,
                   ),
                   child: Align(
-                    alignment: const AlignmentDirectional(0, 0),
+                    alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Stack(
                       children: [
                         Align(
-                          alignment: const AlignmentDirectional(0, 0),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
                           child: ClipRect(
                             child: ImageFiltered(
                               imageFilter: ImageFilter.blur(
-                                sigmaX: 4,
-                                sigmaY: 4,
+                                sigmaX: 4.0,
+                                sigmaY: 4.0,
                               ),
                               child: Container(
-                                width: 390,
-                                height: 580,
+                                width: 390.0,
+                                height: 580.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -123,8 +124,8 @@ class _PeoplewhoputyouinfavoriteBasicWidgetState
                                     if (!snapshot.hasData) {
                                       return Center(
                                         child: SizedBox(
-                                          width: 50,
-                                          height: 50,
+                                          width: 50.0,
+                                          height: 50.0,
                                           child: CircularProgressIndicator(
                                             valueColor:
                                                 AlwaysStoppedAnimation<Color>(
@@ -144,7 +145,7 @@ class _PeoplewhoputyouinfavoriteBasicWidgetState
                                     return ListView.separated(
                                       padding: const EdgeInsets.fromLTRB(
                                         0,
-                                        26,
+                                        26.0,
                                         0,
                                         0,
                                       ),
@@ -152,7 +153,7 @@ class _PeoplewhoputyouinfavoriteBasicWidgetState
                                       scrollDirection: Axis.vertical,
                                       itemCount: listViewUsersRecordList.length,
                                       separatorBuilder: (_, __) =>
-                                          const SizedBox(height: 10),
+                                          const SizedBox(height: 10.0),
                                       itemBuilder: (context, listViewIndex) {
                                         final listViewUsersRecord =
                                             listViewUsersRecordList[
@@ -179,10 +180,10 @@ class _PeoplewhoputyouinfavoriteBasicWidgetState
                           ),
                         ),
                         Align(
-                          alignment: const AlignmentDirectional(0, 0),
+                          alignment: const AlignmentDirectional(0.0, -0.5),
                           child: Container(
-                            width: 250,
-                            height: 100,
+                            width: 250.0,
+                            height: 190.0,
                             decoration: const BoxDecoration(),
                             child: InkWell(
                               splashColor: Colors.transparent,
@@ -205,14 +206,79 @@ class _PeoplewhoputyouinfavoriteBasicWidgetState
                                 );
                               },
                               child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(8.0),
                                 child: Image.asset(
-                                  'assets/images/Group_42_(1).png',
+                                  'assets/images/lms-revenue-attribute-report-cta-kick-things-off-illus-dsk-v01.png.original.png',
                                   width: double.infinity,
                                   height: double.infinity,
                                   fit: BoxFit.contain,
                                 ),
                               ),
+                            ),
+                          ),
+                        ),
+                        Align(
+                          alignment: const AlignmentDirectional(0.0, 0.15),
+                          child: Container(
+                            decoration: const BoxDecoration(),
+                            child: Text(
+                              'No new likes',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    color: const Color(0xFFDB4B9C),
+                                    fontSize: 25.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                            ),
+                          ),
+                        ),
+                        Align(
+                          alignment: const AlignmentDirectional(0.0, 0.4),
+                          child: Container(
+                            decoration: const BoxDecoration(),
+                            child: Text(
+                              'When someone likes your profile,\n a notification will appear here.\nUdgrade to standard',
+                              textAlign: TextAlign.center,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 16.0,
+                                    letterSpacing: 0.0,
+                                  ),
+                            ),
+                          ),
+                        ),
+                        Align(
+                          alignment: const AlignmentDirectional(0.0, 0.7),
+                          child: FFButtonWidget(
+                            onPressed: () {
+                              print('Button pressed ...');
+                            },
+                            text: 'Upgrade Now',
+                            options: FFButtonOptions(
+                              width: 150.0,
+                              height: 45.0,
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 0.0, 16.0, 0.0),
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: const Color(0xFBDD92DD),
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    color: Colors.white,
+                                    letterSpacing: 0.0,
+                                  ),
+                              elevation: 5.0,
+                              borderSide: const BorderSide(
+                                color: Colors.white,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
                             ),
                           ),
                         ),
@@ -222,9 +288,9 @@ class _PeoplewhoputyouinfavoriteBasicWidgetState
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(0, 1.01),
+                alignment: const AlignmentDirectional(0.0, 1.01),
                 child: Container(
-                  height: 73,
+                  height: 73.0,
                   decoration: const BoxDecoration(
                     color: Color(0xB3B928B8),
                   ),

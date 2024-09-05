@@ -68,7 +68,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                             if (currentUserDocument?.rol == Roles.user) {
                               return Container(
                                 width: double.infinity,
-                                height: 200,
+                                height: 200.0,
                                 decoration: const BoxDecoration(
                                   color: Color(0xB6E7A2D2),
                                 ),
@@ -77,22 +77,23 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                   children: [
                                     Padding(
                                       padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0, 15, 0, 0),
+                                          0.0, 15.0, 0.0, 0.0),
                                       child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(8),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
                                         child: Image.asset(
                                           'assets/images/Diseo_sin_ttulo_(6)_4.png',
-                                          width: 67,
-                                          height: 101,
+                                          width: 67.0,
+                                          height: 101.0,
                                           fit: BoxFit.cover,
                                         ),
                                       ),
                                     ),
                                     Align(
-                                      alignment: const AlignmentDirectional(0, 0),
+                                      alignment: const AlignmentDirectional(0.0, 0.0),
                                       child: Padding(
                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0, 15, 0, 0),
+                                            0.0, 15.0, 0.0, 0.0),
                                         child: Text(
                                           valueOrDefault(
                                               currentUserDocument?.firtsName,
@@ -101,7 +102,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                               .titleLarge
                                               .override(
                                                 fontFamily: 'Montserrat',
-                                                fontSize: 28,
+                                                fontSize: 28.0,
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -113,7 +114,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                             } else {
                               return Container(
                                 width: double.infinity,
-                                height: 200,
+                                height: 200.0,
                                 decoration: const BoxDecoration(
                                   color: Color(0x31FB8CE2),
                                 ),
@@ -121,15 +122,17 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                   children: [
                                     AuthUserStreamWidget(
                                       builder: (context) => ClipRRect(
-                                        borderRadius: BorderRadius.circular(8),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
                                         child: Image.network(
                                           valueOrDefault<String>(
                                             currentUserPhoto,
                                             'https://i.ibb.co/2qkDLKb/Frame-74.png',
                                           ),
                                           width:
-                                              MediaQuery.sizeOf(context).width,
-                                          height: 200,
+                                              MediaQuery.sizeOf(context).width *
+                                                  1.0,
+                                          height: 200.0,
                                           fit: BoxFit.cover,
                                         ),
                                       ),
@@ -144,24 +147,25 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    0, 15, 0, 0),
+                                                    0.0, 15.0, 0.0, 0.0),
                                             child: ClipRRect(
                                               borderRadius:
-                                                  BorderRadius.circular(8),
+                                                  BorderRadius.circular(8.0),
                                               child: Image.asset(
                                                 'assets/images/Diseo_sin_ttulo_(6)_4.png',
-                                                width: 67,
-                                                height: 101,
+                                                width: 67.0,
+                                                height: 101.0,
                                                 fit: BoxFit.cover,
                                               ),
                                             ),
                                           ),
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(0, 0),
+                                                const AlignmentDirectional(0.0, 0.0),
                                             child: Padding(
                                               padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(0, 15, 0, 0),
+                                                  .fromSTEB(
+                                                      0.0, 15.0, 0.0, 0.0),
                                               child: AuthUserStreamWidget(
                                                 builder: (context) => Text(
                                                   valueOrDefault(
@@ -176,7 +180,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                                             'Montserrat',
                                                         color:
                                                             const Color(0xFFF9F9F9),
-                                                        fontSize: 28,
+                                                        fontSize: 28.0,
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -194,12 +198,12 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                         ),
                         if (currentUserPhoto == '')
                           Padding(
-                            padding:
-                                const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 10.0, 0.0, 0.0),
                             child: AuthUserStreamWidget(
                               builder: (context) => Container(
-                                width: 326,
-                                height: 150,
+                                width: 326.0,
+                                height: 150.0,
                                 decoration: const BoxDecoration(),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
@@ -210,11 +214,11 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                     context.pushNamed('Profilesettings');
                                   },
                                   child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(8.0),
                                     child: Image.asset(
                                       'assets/images/Group_41.png',
-                                      width: 300,
-                                      height: 200,
+                                      width: 300.0,
+                                      height: 200.0,
                                       fit: BoxFit.cover,
                                     ),
                                   ),
@@ -225,14 +229,14 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                         if (currentUserDocument?.rol != Roles.user)
                           AuthUserStreamWidget(
                             builder: (context) => Container(
-                              width: 326,
-                              height: 52,
+                              width: 326.0,
+                              height: 52.0,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
                               ),
                               child: Align(
-                                alignment: const AlignmentDirectional(0, -1),
+                                alignment: const AlignmentDirectional(0.0, -1.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
@@ -257,7 +261,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                     child: const AccountOptionWidget(
                                       icon: Icon(
                                         Icons.card_membership_outlined,
-                                        size: 30,
+                                        size: 30.0,
                                       ),
                                       text: 'My subscription',
                                     ),
@@ -270,12 +274,12 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                             (currentUserDocument?.business == null) &&
                             (currentUserDocument?.plan != Plan.premiun))
                           Padding(
-                            padding:
-                                const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 10.0, 0.0, 0.0),
                             child: AuthUserStreamWidget(
                               builder: (context) => Container(
-                                width: 326,
-                                height: 56,
+                                width: 326.0,
+                                height: 56.0,
                                 decoration: const BoxDecoration(),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
@@ -302,7 +306,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                     );
                                   },
                                   child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(8.0),
                                     child: Image.asset(
                                       'assets/images/Group_42.png',
                                       width: double.infinity,
@@ -315,8 +319,8 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                             ),
                           ),
                         Container(
-                          width: 326,
-                          height: 52,
+                          width: 326.0,
+                          height: 52.0,
                           decoration: const BoxDecoration(),
                           child: InkWell(
                             splashColor: Colors.transparent,
@@ -332,7 +336,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                               child: const AccountOptionWidget(
                                 icon: Icon(
                                   Icons.location_history,
-                                  size: 30,
+                                  size: 30.0,
                                 ),
                                 text: 'My profile',
                               ),
@@ -342,7 +346,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                         if (currentUserDocument?.rol == Roles.business)
                           AuthUserStreamWidget(
                             builder: (context) => Container(
-                              width: 326,
+                              width: 326.0,
                               decoration: const BoxDecoration(),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -399,7 +403,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                       child: const AccountOptionWidget(
                                         icon: Icon(
                                           Icons.password,
-                                          size: 30,
+                                          size: 30.0,
                                         ),
                                         text: 'See my code',
                                       ),
@@ -415,14 +419,14 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                       children: [
                                         FlutterFlowIconButton(
                                           borderColor: Colors.transparent,
-                                          borderRadius: 20,
-                                          borderWidth: 1,
-                                          buttonSize: 40,
+                                          borderRadius: 20.0,
+                                          borderWidth: 1.0,
+                                          buttonSize: 40.0,
                                           icon: Icon(
                                             Icons.content_copy,
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryText,
-                                            size: 23,
+                                            size: 23.0,
                                           ),
                                           onPressed: () async {
                                             await Clipboard.setData(
@@ -431,7 +435,8 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                           },
                                         ),
                                         Align(
-                                          alignment: const AlignmentDirectional(0, 0),
+                                          alignment:
+                                              const AlignmentDirectional(0.0, 0.0),
                                           child: SelectionArea(
                                               child: Text(
                                             _model.code!,
@@ -439,7 +444,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Montserrat',
-                                                  fontSize: 17,
+                                                  fontSize: 17.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
@@ -447,13 +452,13 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                         ),
                                       ],
                                     ),
-                                ].divide(const SizedBox(height: 3)),
+                                ].divide(const SizedBox(height: 3.0)),
                               ),
                             ),
                           ),
                         Container(
-                          width: 326,
-                          height: 52,
+                          width: 326.0,
+                          height: 52.0,
                           decoration: const BoxDecoration(),
                           child: InkWell(
                             splashColor: Colors.transparent,
@@ -469,7 +474,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                               child: const AccountOptionWidget(
                                 icon: Icon(
                                   Icons.no_accounts,
-                                  size: 30,
+                                  size: 30.0,
                                 ),
                                 text: 'Blocked list',
                               ),
@@ -479,12 +484,12 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                         if ((currentUserDocument?.rol != Roles.user) &&
                             (currentUserDocument?.business == null))
                           Padding(
-                            padding:
-                                const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 64),
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 64.0),
                             child: AuthUserStreamWidget(
                               builder: (context) => Container(
-                                width: 326,
-                                height: 52,
+                                width: 326.0,
+                                height: 52.0,
                                 decoration: const BoxDecoration(),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
@@ -512,7 +517,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                     child: const AccountOptionWidget(
                                       icon: Icon(
                                         Icons.contact_emergency,
-                                        size: 30,
+                                        size: 30.0,
                                       ),
                                       text: 'Change subscription',
                                     ),
@@ -522,10 +527,10 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                             ),
                           ),
                         Align(
-                          alignment: const AlignmentDirectional(0, 0),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Container(
-                            width: 326,
-                            height: 52,
+                            width: 326.0,
+                            height: 52.0,
                             decoration: const BoxDecoration(),
                             child: InkWell(
                               splashColor: Colors.transparent,
@@ -542,7 +547,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                 child: const AccountOptionWidget(
                                   icon: Icon(
                                     Icons.contact_page_outlined,
-                                    size: 30,
+                                    size: 30.0,
                                   ),
                                   text: 'Terms and conditions',
                                 ),
@@ -551,10 +556,10 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                           ),
                         ),
                         Align(
-                          alignment: const AlignmentDirectional(0, 1),
+                          alignment: const AlignmentDirectional(0.0, 1.0),
                           child: Padding(
-                            padding:
-                                const EdgeInsetsDirectional.fromSTEB(0, 40, 0, 40),
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 40.0, 0.0, 40.0),
                             child: FFButtonWidget(
                               onPressed: () async {
                                 FFAppState().authUserFireBase = false;
@@ -567,14 +572,14 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                               text: 'Sign out',
                               icon: const Icon(
                                 Icons.login_sharp,
-                                size: 25,
+                                size: 25.0,
                               ),
                               options: FFButtonOptions(
-                                height: 40,
-                                padding:
-                                    const EdgeInsetsDirectional.fromSTEB(8, 0, 16, 0),
-                                iconPadding:
-                                    const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                height: 40.0,
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 0.0, 16.0, 0.0),
+                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
                                 color: Colors.white,
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
@@ -584,27 +589,27 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
                                     ),
-                                elevation: 3,
+                                elevation: 3.0,
                                 borderSide: const BorderSide(
                                   color: Colors.transparent,
-                                  width: 1,
+                                  width: 1.0,
                                 ),
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(8.0),
                               ),
                             ),
                           ),
                         ),
                       ]
-                          .divide(const SizedBox(height: 12))
-                          .addToStart(const SizedBox(height: 0)),
+                          .divide(const SizedBox(height: 12.0))
+                          .addToStart(const SizedBox(height: 0.0)),
                     ),
                   ),
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(0, 1.01),
+                alignment: const AlignmentDirectional(0.0, 1.01),
                 child: Container(
-                  height: 73,
+                  height: 73.0,
                   decoration: const BoxDecoration(
                     color: Color(0xBEB928B8),
                   ),

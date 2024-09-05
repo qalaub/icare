@@ -51,19 +51,19 @@ class _UserBlockWidgetState extends State<UserBlockWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.sizeOf(context).width,
-      height: 90,
+      width: MediaQuery.sizeOf(context).width * 1.0,
+      height: 90.0,
       decoration: BoxDecoration(
         color: widget.background,
         borderRadius: const BorderRadius.only(
-          bottomLeft: Radius.circular(16),
-          bottomRight: Radius.circular(16),
-          topLeft: Radius.circular(16),
-          topRight: Radius.circular(16),
+          bottomLeft: Radius.circular(16.0),
+          bottomRight: Radius.circular(16.0),
+          topLeft: Radius.circular(16.0),
+          topRight: Radius.circular(16.0),
         ),
       ),
       child: Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
+        padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
         child: Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -72,8 +72,8 @@ class _UserBlockWidgetState extends State<UserBlockWidget> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Container(
-                  width: 75,
-                  height: 75,
+                  width: 75.0,
+                  height: 75.0,
                   clipBehavior: Clip.antiAlias,
                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
@@ -87,14 +87,14 @@ class _UserBlockWidgetState extends State<UserBlockWidget> {
                   ),
                 ),
                 Align(
-                  alignment: const AlignmentDirectional(-1, 0),
+                  alignment: const AlignmentDirectional(-1.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Align(
-                        alignment: const AlignmentDirectional(0, 0),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Container(
                           decoration: const BoxDecoration(),
                           child: Text(
@@ -113,7 +113,7 @@ class _UserBlockWidgetState extends State<UserBlockWidget> {
                         ),
                       ),
                       Align(
-                        alignment: const AlignmentDirectional(0, 0),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Container(
                           decoration: const BoxDecoration(),
                           child: Text(
@@ -128,10 +128,10 @@ class _UserBlockWidgetState extends State<UserBlockWidget> {
                           ),
                         ),
                       ),
-                    ].divide(const SizedBox(height: 8)),
+                    ].divide(const SizedBox(height: 8.0)),
                   ),
                 ),
-              ].divide(const SizedBox(width: 12)),
+              ].divide(const SizedBox(width: 12.0)),
             ),
             Builder(
               builder: (context) => InkWell(
@@ -145,7 +145,7 @@ class _UserBlockWidgetState extends State<UserBlockWidget> {
                     context: context,
                     isGlobal: false,
                     avoidOverflow: false,
-                    targetAnchor: const AlignmentDirectional(-1, 0)
+                    targetAnchor: const AlignmentDirectional(-1.0, 0.0)
                         .resolve(Directionality.of(context)),
                     followerAnchor: const AlignmentDirectional(0.8, -1.2)
                         .resolve(Directionality.of(context)),
@@ -166,7 +166,7 @@ class _UserBlockWidgetState extends State<UserBlockWidget> {
                 child: const Icon(
                   Icons.more_vert,
                   color: Colors.black,
-                  size: 24,
+                  size: 24.0,
                 ),
               ),
             ),

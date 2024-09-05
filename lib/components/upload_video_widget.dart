@@ -35,45 +35,45 @@ class _UploadVideoWidgetState extends State<UploadVideoWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(1, -1),
+      alignment: const AlignmentDirectional(1.0, -1.0),
       child: Container(
-        width: 150,
-        height: 150,
+        width: 150.0,
+        height: 150.0,
         decoration: BoxDecoration(
           color: const Color(0xFFA49D9D),
           borderRadius: const BorderRadius.only(
-            bottomLeft: Radius.circular(12),
-            bottomRight: Radius.circular(12),
-            topLeft: Radius.circular(12),
-            topRight: Radius.circular(12),
+            bottomLeft: Radius.circular(12.0),
+            bottomRight: Radius.circular(12.0),
+            topLeft: Radius.circular(12.0),
+            topRight: Radius.circular(12.0),
           ),
           border: Border.all(
             color: const Color(0xFFA49D9D),
-            width: 1,
+            width: 1.0,
           ),
         ),
         child: Stack(
           children: [
             Align(
-              alignment: const AlignmentDirectional(0, 0),
+              alignment: const AlignmentDirectional(0.0, 0.0),
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(8.0),
                 child: Image.asset(
                   'assets/images/camera_(1).png',
-                  width: 100,
-                  height: 100,
+                  width: 100.0,
+                  height: 100.0,
                   fit: BoxFit.cover,
                 ),
               ),
             ),
             Align(
-              alignment: const AlignmentDirectional(0, 0),
+              alignment: const AlignmentDirectional(0.0, 0.0),
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(8.0),
                 child: Image.network(
                   'https://picsum.photos/seed/48/600',
-                  width: 300,
-                  height: 200,
+                  width: 300.0,
+                  height: 200.0,
                   fit: BoxFit.cover,
                 ),
               ),

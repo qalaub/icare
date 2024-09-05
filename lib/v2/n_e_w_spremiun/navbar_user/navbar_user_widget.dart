@@ -40,10 +40,10 @@ class _NavbarUserWidgetState extends State<NavbarUserWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(0, 0),
+      alignment: const AlignmentDirectional(0.0, 0.0),
       child: Container(
         width: double.infinity,
-        height: 67,
+        height: 67.0,
         decoration: const BoxDecoration(),
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -52,7 +52,7 @@ class _NavbarUserWidgetState extends State<NavbarUserWidget> {
           children: [
             if (currentUserDocument?.rol == Roles.user)
               Align(
-                alignment: const AlignmentDirectional(0, 0),
+                alignment: const AlignmentDirectional(0.0, 0.0),
                 child: AuthUserStreamWidget(
                   builder: (context) => Column(
                     mainAxisSize: MainAxisSize.min,
@@ -62,14 +62,14 @@ class _NavbarUserWidgetState extends State<NavbarUserWidget> {
                       Expanded(
                         flex: 1,
                         child: Align(
-                          alignment: const AlignmentDirectional(0, 0),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
                           child: FlutterFlowIconButton(
                             borderColor: Colors.transparent,
                             buttonSize: MediaQuery.sizeOf(context).width * 0.12,
                             icon: const FaIcon(
                               FontAwesomeIcons.houseUser,
                               color: Colors.white,
-                              size: 33,
+                              size: 33.0,
                             ),
                             onPressed: () async {
                               if (loggedIn) {
@@ -82,7 +82,7 @@ class _NavbarUserWidgetState extends State<NavbarUserWidget> {
                         ),
                       ),
                       Align(
-                        alignment: const AlignmentDirectional(0, 0),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Text(
                           'Home',
                           style:
@@ -95,7 +95,7 @@ class _NavbarUserWidgetState extends State<NavbarUserWidget> {
                         ),
                       ),
                       Container(
-                        height: 5,
+                        height: 5.0,
                         decoration: const BoxDecoration(),
                       ),
                     ],
@@ -110,14 +110,14 @@ class _NavbarUserWidgetState extends State<NavbarUserWidget> {
                     Expanded(
                       flex: 1,
                       child: Align(
-                        alignment: const AlignmentDirectional(0, 0),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: FlutterFlowIconButton(
                           borderColor: Colors.transparent,
-                          buttonSize: 48,
+                          buttonSize: 48.0,
                           icon: const Icon(
                             Icons.favorite_border_rounded,
                             color: Colors.white,
-                            size: 34,
+                            size: 34.0,
                           ),
                           onPressed: () async {
                             if (loggedIn) {
@@ -154,7 +154,7 @@ class _NavbarUserWidgetState extends State<NavbarUserWidget> {
                       ),
                     ),
                     Container(
-                      height: 5,
+                      height: 5.0,
                       decoration: const BoxDecoration(),
                     ),
                   ],
@@ -168,14 +168,14 @@ class _NavbarUserWidgetState extends State<NavbarUserWidget> {
                     Expanded(
                       flex: 1,
                       child: Align(
-                        alignment: const AlignmentDirectional(0, 0),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: FlutterFlowIconButton(
                           borderColor: Colors.transparent,
-                          buttonSize: 48,
+                          buttonSize: 48.0,
                           icon: const Icon(
                             Icons.wechat_rounded,
                             color: Colors.white,
-                            size: 34,
+                            size: 34.0,
                           ),
                           onPressed: () async {
                             if (loggedIn) {
@@ -200,7 +200,7 @@ class _NavbarUserWidgetState extends State<NavbarUserWidget> {
                       ),
                     ),
                     Container(
-                      height: 5,
+                      height: 5.0,
                       decoration: const BoxDecoration(),
                     ),
                   ],
@@ -214,15 +214,15 @@ class _NavbarUserWidgetState extends State<NavbarUserWidget> {
                     Expanded(
                       flex: 1,
                       child: Align(
-                        alignment: const AlignmentDirectional(0, 0),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: FlutterFlowIconButton(
                           borderColor: Colors.transparent,
-                          borderRadius: 34,
-                          buttonSize: 48,
+                          borderRadius: 34.0,
+                          buttonSize: 48.0,
                           icon: const FaIcon(
                             FontAwesomeIcons.mapMarkedAlt,
                             color: Colors.white,
-                            size: 30,
+                            size: 30.0,
                           ),
                           onPressed: () async {
                             if (loggedIn) {
@@ -247,7 +247,7 @@ class _NavbarUserWidgetState extends State<NavbarUserWidget> {
                       ),
                     ),
                     Container(
-                      height: 5,
+                      height: 5.0,
                       decoration: const BoxDecoration(),
                     ),
                   ],
@@ -259,16 +259,17 @@ class _NavbarUserWidgetState extends State<NavbarUserWidget> {
                 Expanded(
                   flex: 1,
                   child: Align(
-                    alignment: const AlignmentDirectional(0, 0),
+                    alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 6, 0),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 6.0, 0.0),
                       child: FlutterFlowIconButton(
                         borderColor: Colors.transparent,
-                        buttonSize: 48,
+                        buttonSize: 48.0,
                         icon: const Icon(
                           Icons.person,
                           color: Colors.white,
-                          size: 34,
+                          size: 34.0,
                         ),
                         onPressed: () async {
                           if (loggedIn) {
@@ -294,7 +295,7 @@ class _NavbarUserWidgetState extends State<NavbarUserWidget> {
                   ),
                 ),
                 Container(
-                  height: 5,
+                  height: 5.0,
                   decoration: const BoxDecoration(),
                 ),
               ],

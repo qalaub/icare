@@ -103,14 +103,14 @@ class _RegisterProfessional1WidgetState
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(0),
+          preferredSize: const Size.fromHeight(0.0),
           child: AppBar(
             backgroundColor: const Color(0xFFFFFEFE),
             automaticallyImplyLeading: false,
             actions: const [],
             centerTitle: false,
-            toolbarHeight: 0,
-            elevation: 0,
+            toolbarHeight: 0.0,
+            elevation: 0.0,
           ),
         ),
         body: SafeArea(
@@ -121,7 +121,7 @@ class _RegisterProfessional1WidgetState
               Expanded(
                 child: Container(
                   width: double.infinity,
-                  height: MediaQuery.sizeOf(context).height * 1,
+                  height: MediaQuery.sizeOf(context).height * 1.0,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
                   ),
@@ -132,9 +132,9 @@ class _RegisterProfessional1WidgetState
                         child: Stack(
                           children: [
                             Align(
-                              alignment: const AlignmentDirectional(0, 0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(8.0),
                                 child: Image.asset(
                                   'assets/images/escoger-users.png',
                                   width: double.infinity,
@@ -146,13 +146,13 @@ class _RegisterProfessional1WidgetState
                             Align(
                               alignment: const AlignmentDirectional(-0.91, -0.96),
                               child: FlutterFlowIconButton(
-                                borderRadius: 20,
-                                borderWidth: 1,
-                                buttonSize: 40,
+                                borderRadius: 20.0,
+                                borderWidth: 1.0,
+                                buttonSize: 40.0,
                                 icon: const Icon(
                                   Icons.arrow_back_ios_new,
                                   color: Colors.black,
-                                  size: 24,
+                                  size: 24.0,
                                 ),
                                 onPressed: () async {
                                   context.safePop();
@@ -160,37 +160,37 @@ class _RegisterProfessional1WidgetState
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0, -1),
+                              alignment: const AlignmentDirectional(0.0, -1.0),
                               child: Padding(
-                                padding:
-                                    const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 10.0, 0.0, 0.0),
                                 child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                   child: Image.asset(
                                     'assets/images/logo-1.png',
-                                    width: 110,
-                                    height: 110,
+                                    width: 110.0,
+                                    height: 110.0,
                                     fit: BoxFit.fitWidth,
                                   ),
                                 ),
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0, 0.3),
+                              alignment: const AlignmentDirectional(0.0, 0.3),
                               child: Container(
                                 width: MediaQuery.sizeOf(context).width * 0.96,
                                 height: MediaQuery.sizeOf(context).height * 0.7,
                                 decoration: BoxDecoration(
                                   color: const Color(0xFFFFFEFE),
                                   borderRadius: const BorderRadius.only(
-                                    bottomLeft: Radius.circular(24),
-                                    bottomRight: Radius.circular(24),
-                                    topLeft: Radius.circular(24),
-                                    topRight: Radius.circular(24),
+                                    bottomLeft: Radius.circular(24.0),
+                                    bottomRight: Radius.circular(24.0),
+                                    topLeft: Radius.circular(24.0),
+                                    topRight: Radius.circular(24.0),
                                   ),
                                   border: Border.all(
                                     color: Colors.black,
-                                    width: 2,
+                                    width: 2.0,
                                   ),
                                 ),
                                 child: Form(
@@ -202,11 +202,11 @@ class _RegisterProfessional1WidgetState
                                       children: [
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0, -1),
+                                              const AlignmentDirectional(0.0, -1.0),
                                           child: Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    0, 10, 0, 0),
+                                                    0.0, 10.0, 0.0, 0.0),
                                             child: Text(
                                               'Create Account',
                                               textAlign: TextAlign.center,
@@ -216,7 +216,7 @@ class _RegisterProfessional1WidgetState
                                                   .override(
                                                     fontFamily: 'Montserrat',
                                                     color: const Color(0xFF8E058A),
-                                                    fontSize: 20,
+                                                    fontSize: 20.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
@@ -224,10 +224,11 @@ class _RegisterProfessional1WidgetState
                                           ),
                                         ),
                                         Align(
-                                          alignment: const AlignmentDirectional(0, 0),
+                                          alignment:
+                                              const AlignmentDirectional(0.0, 0.0),
                                           child: Container(
-                                            width: 327,
-                                            height: 1,
+                                            width: 327.0,
+                                            height: 1.0,
                                             decoration: BoxDecoration(
                                               color: const Color(0xFFF0DFEF),
                                               border: Border.all(
@@ -242,7 +243,7 @@ class _RegisterProfessional1WidgetState
                                           child: Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    0, 15, 0, 15),
+                                                    0.0, 15.0, 0.0, 15.0),
                                             child: Text(
                                               '* First name',
                                               style: FlutterFlowTheme.of(
@@ -251,7 +252,7 @@ class _RegisterProfessional1WidgetState
                                                   .override(
                                                     fontFamily: 'Montserrat',
                                                     color: Colors.black,
-                                                    fontSize: 15,
+                                                    fontSize: 15.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
@@ -265,15 +266,16 @@ class _RegisterProfessional1WidgetState
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
                                                 0.8,
-                                            height: 73,
+                                            height: 73.0,
                                             decoration: const BoxDecoration(
                                               color: Color(0xFFFFFEFE),
                                               borderRadius: BorderRadius.only(
-                                                bottomLeft: Radius.circular(12),
+                                                bottomLeft:
+                                                    Radius.circular(12.0),
                                                 bottomRight:
-                                                    Radius.circular(12),
-                                                topLeft: Radius.circular(12),
-                                                topRight: Radius.circular(12),
+                                                    Radius.circular(12.0),
+                                                topLeft: Radius.circular(12.0),
+                                                topRight: Radius.circular(12.0),
                                               ),
                                             ),
                                             child: TextFormField(
@@ -316,29 +318,32 @@ class _RegisterProfessional1WidgetState
                                                     OutlineInputBorder(
                                                   borderSide: const BorderSide(
                                                     color: Color(0xFFBB33B9),
-                                                    width: 0,
+                                                    width: 0.0,
                                                   ),
                                                   borderRadius:
-                                                      BorderRadius.circular(12),
+                                                      BorderRadius.circular(
+                                                          12.0),
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
                                                   borderSide: const BorderSide(
                                                     color: Color(0xFF762075),
-                                                    width: 0,
+                                                    width: 0.0,
                                                   ),
                                                   borderRadius:
-                                                      BorderRadius.circular(12),
+                                                      BorderRadius.circular(
+                                                          12.0),
                                                 ),
                                                 errorBorder: OutlineInputBorder(
                                                   borderSide: BorderSide(
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .error,
-                                                    width: 0,
+                                                    width: 0.0,
                                                   ),
                                                   borderRadius:
-                                                      BorderRadius.circular(12),
+                                                      BorderRadius.circular(
+                                                          12.0),
                                                 ),
                                                 focusedErrorBorder:
                                                     OutlineInputBorder(
@@ -346,10 +351,11 @@ class _RegisterProfessional1WidgetState
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .error,
-                                                    width: 0,
+                                                    width: 0.0,
                                                   ),
                                                   borderRadius:
-                                                      BorderRadius.circular(12),
+                                                      BorderRadius.circular(
+                                                          12.0),
                                                 ),
                                               ),
                                               style:
@@ -375,7 +381,7 @@ class _RegisterProfessional1WidgetState
                                           child: Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    0, 15, 0, 15),
+                                                    0.0, 15.0, 0.0, 15.0),
                                             child: Text(
                                               '* Last name',
                                               style: FlutterFlowTheme.of(
@@ -384,7 +390,7 @@ class _RegisterProfessional1WidgetState
                                                   .override(
                                                     fontFamily: 'Montserrat',
                                                     color: Colors.black,
-                                                    fontSize: 15,
+                                                    fontSize: 15.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
@@ -398,15 +404,16 @@ class _RegisterProfessional1WidgetState
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
                                                 0.8,
-                                            height: 73,
+                                            height: 73.0,
                                             decoration: const BoxDecoration(
                                               color: Color(0xFFFFFEFE),
                                               borderRadius: BorderRadius.only(
-                                                bottomLeft: Radius.circular(12),
+                                                bottomLeft:
+                                                    Radius.circular(12.0),
                                                 bottomRight:
-                                                    Radius.circular(12),
-                                                topLeft: Radius.circular(12),
-                                                topRight: Radius.circular(12),
+                                                    Radius.circular(12.0),
+                                                topLeft: Radius.circular(12.0),
+                                                topRight: Radius.circular(12.0),
                                               ),
                                             ),
                                             child: TextFormField(
@@ -449,29 +456,32 @@ class _RegisterProfessional1WidgetState
                                                     OutlineInputBorder(
                                                   borderSide: const BorderSide(
                                                     color: Color(0xFFBB33B9),
-                                                    width: 0,
+                                                    width: 0.0,
                                                   ),
                                                   borderRadius:
-                                                      BorderRadius.circular(12),
+                                                      BorderRadius.circular(
+                                                          12.0),
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
                                                   borderSide: const BorderSide(
                                                     color: Color(0xFF762075),
-                                                    width: 0,
+                                                    width: 0.0,
                                                   ),
                                                   borderRadius:
-                                                      BorderRadius.circular(12),
+                                                      BorderRadius.circular(
+                                                          12.0),
                                                 ),
                                                 errorBorder: OutlineInputBorder(
                                                   borderSide: BorderSide(
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .error,
-                                                    width: 0,
+                                                    width: 0.0,
                                                   ),
                                                   borderRadius:
-                                                      BorderRadius.circular(12),
+                                                      BorderRadius.circular(
+                                                          12.0),
                                                 ),
                                                 focusedErrorBorder:
                                                     OutlineInputBorder(
@@ -479,10 +489,11 @@ class _RegisterProfessional1WidgetState
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .error,
-                                                    width: 0,
+                                                    width: 0.0,
                                                   ),
                                                   borderRadius:
-                                                      BorderRadius.circular(12),
+                                                      BorderRadius.circular(
+                                                          12.0),
                                                 ),
                                               ),
                                               style:
@@ -508,7 +519,7 @@ class _RegisterProfessional1WidgetState
                                           child: Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    0, 15, 0, 15),
+                                                    0.0, 15.0, 0.0, 15.0),
                                             child: Text(
                                               '* Company name',
                                               style: FlutterFlowTheme.of(
@@ -517,7 +528,7 @@ class _RegisterProfessional1WidgetState
                                                   .override(
                                                     fontFamily: 'Montserrat',
                                                     color: Colors.black,
-                                                    fontSize: 15,
+                                                    fontSize: 15.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
@@ -531,15 +542,16 @@ class _RegisterProfessional1WidgetState
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
                                                 0.8,
-                                            height: 70,
+                                            height: 70.0,
                                             decoration: const BoxDecoration(
                                               color: Color(0xFFFFFEFE),
                                               borderRadius: BorderRadius.only(
-                                                bottomLeft: Radius.circular(12),
+                                                bottomLeft:
+                                                    Radius.circular(12.0),
                                                 bottomRight:
-                                                    Radius.circular(12),
-                                                topLeft: Radius.circular(12),
-                                                topRight: Radius.circular(12),
+                                                    Radius.circular(12.0),
+                                                topLeft: Radius.circular(12.0),
+                                                topRight: Radius.circular(12.0),
                                               ),
                                             ),
                                             child: StreamBuilder<
@@ -561,8 +573,8 @@ class _RegisterProfessional1WidgetState
                                                 if (!snapshot.hasData) {
                                                   return Center(
                                                     child: SizedBox(
-                                                      width: 50,
-                                                      height: 50,
+                                                      width: 50.0,
+                                                      height: 50.0,
                                                       child:
                                                           CircularProgressIndicator(
                                                         valueColor:
@@ -639,22 +651,22 @@ class _RegisterProfessional1WidgetState
                                                       borderSide: const BorderSide(
                                                         color:
                                                             Color(0xFFBB33B9),
-                                                        width: 0,
+                                                        width: 0.0,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              12),
+                                                              12.0),
                                                     ),
                                                     focusedBorder:
                                                         OutlineInputBorder(
                                                       borderSide: const BorderSide(
                                                         color:
                                                             Color(0xFF762075),
-                                                        width: 0,
+                                                        width: 0.0,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              12),
+                                                              12.0),
                                                     ),
                                                     errorBorder:
                                                         OutlineInputBorder(
@@ -663,11 +675,11 @@ class _RegisterProfessional1WidgetState
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .error,
-                                                        width: 0,
+                                                        width: 0.0,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              12),
+                                                              12.0),
                                                     ),
                                                     focusedErrorBorder:
                                                         OutlineInputBorder(
@@ -676,11 +688,11 @@ class _RegisterProfessional1WidgetState
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .error,
-                                                        width: 0,
+                                                        width: 0.0,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              12),
+                                                              12.0),
                                                     ),
                                                   ),
                                                   style: FlutterFlowTheme.of(
@@ -707,7 +719,7 @@ class _RegisterProfessional1WidgetState
                                           child: Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    0, 15, 0, 15),
+                                                    0.0, 15.0, 0.0, 15.0),
                                             child: Text(
                                               '* Email address',
                                               style: FlutterFlowTheme.of(
@@ -716,7 +728,7 @@ class _RegisterProfessional1WidgetState
                                                   .override(
                                                     fontFamily: 'Montserrat',
                                                     color: Colors.black,
-                                                    fontSize: 15,
+                                                    fontSize: 15.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
@@ -730,15 +742,16 @@ class _RegisterProfessional1WidgetState
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
                                                 0.8,
-                                            height: 69,
+                                            height: 69.0,
                                             decoration: const BoxDecoration(
                                               color: Color(0xFFFFFEFE),
                                               borderRadius: BorderRadius.only(
-                                                bottomLeft: Radius.circular(12),
+                                                bottomLeft:
+                                                    Radius.circular(12.0),
                                                 bottomRight:
-                                                    Radius.circular(12),
-                                                topLeft: Radius.circular(12),
-                                                topRight: Radius.circular(12),
+                                                    Radius.circular(12.0),
+                                                topLeft: Radius.circular(12.0),
+                                                topRight: Radius.circular(12.0),
                                               ),
                                             ),
                                             child: Stack(
@@ -746,7 +759,7 @@ class _RegisterProfessional1WidgetState
                                                 Align(
                                                   alignment:
                                                       const AlignmentDirectional(
-                                                          0, -1),
+                                                          0.0, -1.0),
                                                   child: TextFormField(
                                                     controller: _model
                                                         .emailTextController,
@@ -813,29 +826,29 @@ class _RegisterProfessional1WidgetState
                                                                     .error,
                                                                 letterSpacing:
                                                                     0.0,
-                                                                lineHeight: 1,
+                                                                lineHeight: 1.0,
                                                               ),
                                                       enabledBorder:
                                                           OutlineInputBorder(
                                                         borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFFBB33B9),
-                                                          width: 0,
+                                                          width: 0.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(12),
+                                                                .circular(12.0),
                                                       ),
                                                       focusedBorder:
                                                           OutlineInputBorder(
                                                         borderSide: const BorderSide(
                                                           color:
                                                               Color(0xFF762075),
-                                                          width: 0,
+                                                          width: 0.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(12),
+                                                                .circular(12.0),
                                                       ),
                                                       errorBorder:
                                                           OutlineInputBorder(
@@ -843,11 +856,11 @@ class _RegisterProfessional1WidgetState
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .error,
-                                                          width: 0,
+                                                          width: 0.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(12),
+                                                                .circular(12.0),
                                                       ),
                                                       focusedErrorBorder:
                                                           OutlineInputBorder(
@@ -855,11 +868,11 @@ class _RegisterProfessional1WidgetState
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .error,
-                                                          width: 0,
+                                                          width: 0.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(12),
+                                                                .circular(12.0),
                                                       ),
                                                     ),
                                                     style: FlutterFlowTheme.of(
@@ -885,7 +898,7 @@ class _RegisterProfessional1WidgetState
                                                   Align(
                                                     alignment:
                                                         const AlignmentDirectional(
-                                                            0, 1.3),
+                                                            0.0, 1.3),
                                                     child: Text(
                                                       'This email already has an account, use another email',
                                                       style: FlutterFlowTheme
@@ -914,7 +927,7 @@ class _RegisterProfessional1WidgetState
                                           child: Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    0, 15, 0, 15),
+                                                    0.0, 15.0, 0.0, 15.0),
                                             child: Text(
                                               '* Enter your 10-digit mobile number',
                                               style: FlutterFlowTheme.of(
@@ -923,7 +936,7 @@ class _RegisterProfessional1WidgetState
                                                   .override(
                                                     fontFamily: 'Montserrat',
                                                     color: Colors.black,
-                                                    fontSize: 15,
+                                                    fontSize: 15.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
@@ -937,15 +950,16 @@ class _RegisterProfessional1WidgetState
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
                                                 0.8,
-                                            height: 77,
+                                            height: 77.0,
                                             decoration: const BoxDecoration(
                                               color: Color(0xFFFFFEFE),
                                               borderRadius: BorderRadius.only(
-                                                bottomLeft: Radius.circular(12),
+                                                bottomLeft:
+                                                    Radius.circular(12.0),
                                                 bottomRight:
-                                                    Radius.circular(12),
-                                                topLeft: Radius.circular(12),
-                                                topRight: Radius.circular(12),
+                                                    Radius.circular(12.0),
+                                                topLeft: Radius.circular(12.0),
+                                                topRight: Radius.circular(12.0),
                                               ),
                                             ),
                                             child: TextFormField(
@@ -983,29 +997,32 @@ class _RegisterProfessional1WidgetState
                                                     OutlineInputBorder(
                                                   borderSide: const BorderSide(
                                                     color: Color(0xFFBB33B9),
-                                                    width: 0,
+                                                    width: 0.0,
                                                   ),
                                                   borderRadius:
-                                                      BorderRadius.circular(12),
+                                                      BorderRadius.circular(
+                                                          12.0),
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
                                                   borderSide: const BorderSide(
                                                     color: Color(0xFF762075),
-                                                    width: 0,
+                                                    width: 0.0,
                                                   ),
                                                   borderRadius:
-                                                      BorderRadius.circular(12),
+                                                      BorderRadius.circular(
+                                                          12.0),
                                                 ),
                                                 errorBorder: OutlineInputBorder(
                                                   borderSide: BorderSide(
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .error,
-                                                    width: 0,
+                                                    width: 0.0,
                                                   ),
                                                   borderRadius:
-                                                      BorderRadius.circular(12),
+                                                      BorderRadius.circular(
+                                                          12.0),
                                                 ),
                                                 focusedErrorBorder:
                                                     OutlineInputBorder(
@@ -1013,10 +1030,11 @@ class _RegisterProfessional1WidgetState
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .error,
-                                                    width: 0,
+                                                    width: 0.0,
                                                   ),
                                                   borderRadius:
-                                                      BorderRadius.circular(12),
+                                                      BorderRadius.circular(
+                                                          12.0),
                                                 ),
                                               ),
                                               style: FlutterFlowTheme.of(
@@ -1047,7 +1065,7 @@ class _RegisterProfessional1WidgetState
                                           child: Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    0, 15, 0, 15),
+                                                    0.0, 15.0, 0.0, 15.0),
                                             child: Text(
                                               '* Select your suburb',
                                               style: FlutterFlowTheme.of(
@@ -1056,7 +1074,7 @@ class _RegisterProfessional1WidgetState
                                                   .override(
                                                     fontFamily: 'Montserrat',
                                                     color: Colors.black,
-                                                    fontSize: 15,
+                                                    fontSize: 15.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
@@ -1064,43 +1082,44 @@ class _RegisterProfessional1WidgetState
                                           ),
                                         ),
                                         Align(
-                                          alignment: const AlignmentDirectional(0, 0),
+                                          alignment:
+                                              const AlignmentDirectional(0.0, 0.0),
                                           child: Container(
-                                            height: 90,
+                                            height: 90.0,
                                             decoration: const BoxDecoration(),
                                             child: Align(
-                                              alignment:
-                                                  const AlignmentDirectional(0, -1),
+                                              alignment: const AlignmentDirectional(
+                                                  0.0, -1.0),
                                               child: Stack(
-                                                alignment:
-                                                    const AlignmentDirectional(0, -1),
+                                                alignment: const AlignmentDirectional(
+                                                    0.0, -1.0),
                                                 children: [
                                                   Align(
                                                     alignment:
                                                         const AlignmentDirectional(
-                                                            0, -1),
+                                                            0.0, -1.0),
                                                     child: Container(
                                                       width: MediaQuery.sizeOf(
                                                                   context)
                                                               .width *
                                                           0.8,
-                                                      height: 45,
+                                                      height: 45.0,
                                                       decoration: BoxDecoration(
                                                         color: Colors.white,
                                                         borderRadius:
                                                             const BorderRadius.only(
                                                           bottomLeft:
                                                               Radius.circular(
-                                                                  12),
+                                                                  12.0),
                                                           bottomRight:
                                                               Radius.circular(
-                                                                  12),
+                                                                  12.0),
                                                           topLeft:
                                                               Radius.circular(
-                                                                  12),
+                                                                  12.0),
                                                           topRight:
                                                               Radius.circular(
-                                                                  12),
+                                                                  12.0),
                                                         ),
                                                         border: Border.all(
                                                           color: valueOrDefault<
@@ -1121,7 +1140,10 @@ class _RegisterProfessional1WidgetState
                                                         padding:
                                                             const EdgeInsetsDirectional
                                                                 .fromSTEB(
-                                                                    8, 0, 8, 0),
+                                                                    8.0,
+                                                                    0.0,
+                                                                    8.0,
+                                                                    0.0),
                                                         child: TextFormField(
                                                           controller: _model
                                                               .queryTextController,
@@ -1175,7 +1197,7 @@ class _RegisterProfessional1WidgetState
                                                                       fontFamily:
                                                                           'Montserrat',
                                                                       fontSize:
-                                                                          14,
+                                                                          14.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -1189,7 +1211,7 @@ class _RegisterProfessional1WidgetState
                                                                       fontFamily:
                                                                           'Montserrat',
                                                                       fontSize:
-                                                                          14,
+                                                                          14.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -1212,7 +1234,7 @@ class _RegisterProfessional1WidgetState
                                                               .override(
                                                                 fontFamily:
                                                                     'Montserrat',
-                                                                fontSize: 14,
+                                                                fontSize: 14.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
@@ -1227,7 +1249,7 @@ class _RegisterProfessional1WidgetState
                                                   Align(
                                                     alignment:
                                                         const AlignmentDirectional(
-                                                            0, 0),
+                                                            0.0, 0.0),
                                                     child: Builder(
                                                       builder: (context) {
                                                         if (!FFAppState()
@@ -1283,14 +1305,15 @@ class _RegisterProfessional1WidgetState
                                           ),
                                         ),
                                         Align(
-                                          alignment: const AlignmentDirectional(0, 0),
+                                          alignment:
+                                              const AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    0, 10, 0, 0),
+                                                    0.0, 10.0, 0.0, 0.0),
                                             child: Container(
-                                              width: 327,
-                                              height: 1,
+                                              width: 327.0,
+                                              height: 1.0,
                                               decoration: BoxDecoration(
                                                 color: const Color(0xFFF0DFEF),
                                                 border: Border.all(
@@ -1306,7 +1329,7 @@ class _RegisterProfessional1WidgetState
                                           child: Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    0, 10, 0, 10),
+                                                    0.0, 10.0, 0.0, 10.0),
                                             child: FFButtonWidget(
                                               onPressed: () async {
                                                 FFAppState()
@@ -1400,13 +1423,15 @@ class _RegisterProfessional1WidgetState
                                               },
                                               text: 'Continue',
                                               options: FFButtonOptions(
-                                                width: 275,
-                                                height: 45,
+                                                width: 275.0,
+                                                height: 45.0,
                                                 padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(24, 0, 24, 0),
+                                                    .fromSTEB(
+                                                        24.0, 0.0, 24.0, 0.0),
                                                 iconPadding:
                                                     const EdgeInsetsDirectional
-                                                        .fromSTEB(0, 0, 0, 0),
+                                                        .fromSTEB(
+                                                            0.0, 0.0, 0.0, 0.0),
                                                 color: const Color(0xFFB928B8),
                                                 textStyle:
                                                     FlutterFlowTheme.of(context)
@@ -1415,18 +1440,18 @@ class _RegisterProfessional1WidgetState
                                                           fontFamily:
                                                               'Montserrat',
                                                           color: Colors.white,
-                                                          fontSize: 20,
+                                                          fontSize: 20.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
-                                                elevation: 5,
+                                                elevation: 5.0,
                                                 borderSide: const BorderSide(
                                                   color: Colors.transparent,
-                                                  width: 1,
+                                                  width: 1.0,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(24),
+                                                    BorderRadius.circular(24.0),
                                               ),
                                             ),
                                           ),
@@ -1439,7 +1464,7 @@ class _RegisterProfessional1WidgetState
                             ),
                             if (_model.queryResults.isNotEmpty)
                               Align(
-                                alignment: const AlignmentDirectional(0, -1.1),
+                                alignment: const AlignmentDirectional(0.0, -1.1),
                                 child: Container(
                                   width:
                                       MediaQuery.sizeOf(context).width * 0.96,
@@ -1447,14 +1472,15 @@ class _RegisterProfessional1WidgetState
                                       MediaQuery.sizeOf(context).height * 0.648,
                                   decoration: BoxDecoration(
                                     color: const Color(0x33000000),
-                                    borderRadius: BorderRadius.circular(0),
+                                    borderRadius: BorderRadius.circular(0.0),
                                   ),
                                   child: SingleChildScrollView(
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Align(
-                                          alignment: const AlignmentDirectional(0, 0),
+                                          alignment:
+                                              const AlignmentDirectional(0.0, 0.0),
                                           child: Builder(
                                             builder: (context) {
                                               final newquery =
@@ -1466,7 +1492,7 @@ class _RegisterProfessional1WidgetState
                                                 scrollDirection: Axis.vertical,
                                                 itemCount: newquery.length,
                                                 separatorBuilder: (_, __) =>
-                                                    const SizedBox(height: 0),
+                                                    const SizedBox(height: 0.0),
                                                 itemBuilder:
                                                     (context, newqueryIndex) {
                                                   final newqueryItem =

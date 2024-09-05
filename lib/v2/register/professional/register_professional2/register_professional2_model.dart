@@ -24,6 +24,18 @@ class RegisterProfessional2Model
   FocusNode? ndisFocusNode;
   TextEditingController? ndisTextController;
   String? Function(BuildContext, String?)? ndisTextControllerValidator;
+  // State field(s) for years widget.
+  FocusNode? yearsFocusNode;
+  TextEditingController? yearsTextController;
+  String? Function(BuildContext, String?)? yearsTextControllerValidator;
+  String? _yearsTextControllerValidator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Field is required';
+    }
+
+    return null;
+  }
+
   // State field(s) for age widget.
   String? ageValue;
   FormFieldController<String>? ageValueController;
@@ -78,6 +90,7 @@ class RegisterProfessional2Model
 
   @override
   void initState(BuildContext context) {
+    yearsTextControllerValidator = _yearsTextControllerValidator;
     passwordVisibility = false;
     passwordTextControllerValidator = _passwordTextControllerValidator;
     confirmPasswordVisibility = false;
@@ -89,6 +102,9 @@ class RegisterProfessional2Model
   void dispose() {
     ndisFocusNode?.dispose();
     ndisTextController?.dispose();
+
+    yearsFocusNode?.dispose();
+    yearsTextController?.dispose();
 
     passwordFocusNode?.dispose();
     passwordTextController?.dispose();

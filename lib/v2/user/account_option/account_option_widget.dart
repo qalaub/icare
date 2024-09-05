@@ -44,20 +44,20 @@ class _AccountOptionWidgetState extends State<AccountOptionWidget> {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.sizeOf(context).width * 0.9,
-      height: 52,
+      height: 52.0,
       decoration: BoxDecoration(
         color: const Color(0xFFF3F3F3),
         boxShadow: const [
           BoxShadow(
-            blurRadius: 4,
+            blurRadius: 4.0,
             color: Color(0x33000000),
             offset: Offset(
-              0,
-              2,
+              0.0,
+              2.0,
             ),
           )
         ],
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(12.0),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.max,
@@ -74,7 +74,7 @@ class _AccountOptionWidgetState extends State<AccountOptionWidget> {
               ),
               style: FlutterFlowTheme.of(context).bodyMedium.override(
                     fontFamily: 'Montserrat',
-                    fontSize: 16,
+                    fontSize: 16.0,
                     letterSpacing: 0.0,
                     fontWeight: FontWeight.w500,
                   ),
@@ -83,7 +83,7 @@ class _AccountOptionWidgetState extends State<AccountOptionWidget> {
           Icon(
             Icons.arrow_forward_ios,
             color: FlutterFlowTheme.of(context).secondaryText,
-            size: 24,
+            size: 24.0,
           ),
         ],
       ),

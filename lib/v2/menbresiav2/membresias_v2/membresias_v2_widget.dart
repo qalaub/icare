@@ -71,11 +71,11 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
           child: Stack(
             children: [
               ClipRRect(
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(8.0),
                 child: Image.asset(
                   'assets/images/preci-basic.png',
                   width: double.infinity,
-                  height: MediaQuery.sizeOf(context).height * 1,
+                  height: MediaQuery.sizeOf(context).height * 1.0,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -83,10 +83,10 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                 alignment: const AlignmentDirectional(-0.08, -0.79),
                 child: Container(
                   width: double.infinity,
-                  height: MediaQuery.sizeOf(context).height * 1,
+                  height: MediaQuery.sizeOf(context).height * 1.0,
                   decoration: const BoxDecoration(),
                   child: Align(
-                    alignment: const AlignmentDirectional(0, 0),
+                    alignment: const AlignmentDirectional(0.0, 0.0),
                     child: SingleChildScrollView(
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -103,22 +103,22 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                   Container(
                                     width:
                                         MediaQuery.sizeOf(context).width * 0.84,
-                                    height: 46,
+                                    height: 46.0,
                                     decoration: const BoxDecoration(
                                       gradient: LinearGradient(
                                         colors: [
                                           Color(0xFFF0B65F),
                                           Color(0xFF8D6B36)
                                         ],
-                                        stops: [0, 0.7],
-                                        begin: AlignmentDirectional(0, 1),
-                                        end: AlignmentDirectional(0, -1),
+                                        stops: [0.0, 0.7],
+                                        begin: AlignmentDirectional(0.0, 1.0),
+                                        end: AlignmentDirectional(0, -1.0),
                                       ),
                                       borderRadius: BorderRadius.only(
-                                        bottomLeft: Radius.circular(0),
-                                        bottomRight: Radius.circular(0),
-                                        topLeft: Radius.circular(10),
-                                        topRight: Radius.circular(10),
+                                        bottomLeft: Radius.circular(0.0),
+                                        bottomRight: Radius.circular(0.0),
+                                        topLeft: Radius.circular(10.0),
+                                        topRight: Radius.circular(10.0),
                                       ),
                                     ),
                                     child: Row(
@@ -129,7 +129,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                         Padding(
                                           padding:
                                               const EdgeInsetsDirectional.fromSTEB(
-                                                  12, 0, 0, 0),
+                                                  12.0, 0.0, 0.0, 0.0),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
@@ -143,7 +143,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                   .override(
                                                     fontFamily: 'Inter',
                                                     color: const Color(0xFFFFFCFC),
-                                                    fontSize: 16,
+                                                    fontSize: 16.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
@@ -151,7 +151,8 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                           ),
                                         ),
                                         Align(
-                                          alignment: const AlignmentDirectional(0, 0),
+                                          alignment:
+                                              const AlignmentDirectional(0.0, 0.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -174,7 +175,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                         fontFamily:
                                                             'Montserrat',
                                                         color: Colors.white,
-                                                        fontSize: 13,
+                                                        fontSize: 13.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
@@ -196,7 +197,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                         fontFamily:
                                                             'Readex Pro',
                                                         color: Colors.white,
-                                                        fontSize: 9,
+                                                        fontSize: 9.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -211,26 +212,26 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                   ),
                                   Material(
                                     color: Colors.transparent,
-                                    elevation: 15,
+                                    elevation: 15.0,
                                     shape: const RoundedRectangleBorder(
                                       borderRadius: BorderRadius.only(
-                                        bottomLeft: Radius.circular(10),
-                                        bottomRight: Radius.circular(10),
-                                        topLeft: Radius.circular(0),
-                                        topRight: Radius.circular(0),
+                                        bottomLeft: Radius.circular(10.0),
+                                        bottomRight: Radius.circular(10.0),
+                                        topLeft: Radius.circular(0.0),
+                                        topRight: Radius.circular(0.0),
                                       ),
                                     ),
                                     child: Container(
                                       width: MediaQuery.sizeOf(context).width *
                                           0.84,
-                                      height: 173,
+                                      height: 173.0,
                                       decoration: const BoxDecoration(
                                         color: Colors.white,
                                         borderRadius: BorderRadius.only(
-                                          bottomLeft: Radius.circular(10),
-                                          bottomRight: Radius.circular(10),
-                                          topLeft: Radius.circular(0),
-                                          topRight: Radius.circular(0),
+                                          bottomLeft: Radius.circular(10.0),
+                                          bottomRight: Radius.circular(10.0),
+                                          topLeft: Radius.circular(0.0),
+                                          topRight: Radius.circular(0.0),
                                         ),
                                       ),
                                       child: Column(
@@ -243,7 +244,8 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                             children: [
                                               Padding(
                                                 padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(14, 0, 8, 0),
+                                                    .fromSTEB(
+                                                        14.0, 0.0, 8.0, 0.0),
                                                 child: Container(
                                                   width:
                                                       MediaQuery.sizeOf(context)
@@ -277,7 +279,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                       .override(
                                                         fontFamily:
                                                             'Montserrat',
-                                                        fontSize: 12,
+                                                        fontSize: 12.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -298,8 +300,8 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                   Padding(
                                                     padding:
                                                         const EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                14, 0, 8, 0),
+                                                            .fromSTEB(14.0, 0.0,
+                                                                8.0, 0.0),
                                                     child: Container(
                                                       width: MediaQuery.sizeOf(
                                                                   context)
@@ -334,7 +336,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                           .override(
                                                             fontFamily:
                                                                 'Montserrat',
-                                                            fontSize: 12,
+                                                            fontSize: 12.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w500,
@@ -347,7 +349,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                 child: Align(
                                                   alignment:
                                                       const AlignmentDirectional(
-                                                          -1, 0),
+                                                          -1.0, 0.0),
                                                   child: Container(
                                                     width: MediaQuery.sizeOf(
                                                                 context)
@@ -377,7 +379,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primary,
-                                                        size: 25,
+                                                        size: 25.0,
                                                       ),
                                                       offIcon: Icon(
                                                         Icons.radio_button_off,
@@ -385,7 +387,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .secondaryText,
-                                                        size: 25,
+                                                        size: 25.0,
                                                       ),
                                                     ),
                                                   ),
@@ -400,7 +402,8 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                             children: [
                                               Padding(
                                                 padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(14, 0, 8, 0),
+                                                    .fromSTEB(
+                                                        14.0, 0.0, 8.0, 0.0),
                                                 child: Container(
                                                   width:
                                                       MediaQuery.sizeOf(context)
@@ -434,7 +437,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                       .override(
                                                         fontFamily:
                                                             'Montserrat',
-                                                        fontSize: 12,
+                                                        fontSize: 12.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -444,8 +447,8 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                             ],
                                           ),
                                         ]
-                                            .divide(const SizedBox(height: 13))
-                                            .addToStart(const SizedBox(height: 6)),
+                                            .divide(const SizedBox(height: 13.0))
+                                            .addToStart(const SizedBox(height: 6.0)),
                                       ),
                                     ),
                                   ),
@@ -460,22 +463,22 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                 Container(
                                   width:
                                       MediaQuery.sizeOf(context).width * 0.84,
-                                  height: 46,
+                                  height: 46.0,
                                   decoration: const BoxDecoration(
                                     gradient: LinearGradient(
                                       colors: [
                                         Color(0xFF758195),
                                         Color(0xFFA9A9A9)
                                       ],
-                                      stops: [0, 0.99],
-                                      begin: AlignmentDirectional(0, -1),
-                                      end: AlignmentDirectional(0, 1),
+                                      stops: [0.0, 0.99],
+                                      begin: AlignmentDirectional(0.0, -1.0),
+                                      end: AlignmentDirectional(0, 1.0),
                                     ),
                                     borderRadius: BorderRadius.only(
-                                      bottomLeft: Radius.circular(0),
-                                      bottomRight: Radius.circular(0),
-                                      topLeft: Radius.circular(10),
-                                      topRight: Radius.circular(10),
+                                      bottomLeft: Radius.circular(0.0),
+                                      bottomRight: Radius.circular(0.0),
+                                      topLeft: Radius.circular(10.0),
+                                      topRight: Radius.circular(10.0),
                                     ),
                                   ),
                                   child: Row(
@@ -485,7 +488,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                     children: [
                                       Padding(
                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                            12, 0, 0, 0),
+                                            12.0, 0.0, 0.0, 0.0),
                                         child: Container(
                                           width:
                                               MediaQuery.sizeOf(context).width *
@@ -498,7 +501,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                 .override(
                                                   fontFamily: 'Inter',
                                                   color: Colors.white,
-                                                  fontSize: 16,
+                                                  fontSize: 16.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
@@ -506,7 +509,8 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                         ),
                                       ),
                                       Align(
-                                        alignment: const AlignmentDirectional(0, 0),
+                                        alignment:
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -528,7 +532,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                           fontFamily:
                                                               'Montserrat',
                                                           color: Colors.white,
-                                                          fontSize: 13,
+                                                          fontSize: 13.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
@@ -548,7 +552,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                     .override(
                                                       fontFamily: 'Readex Pro',
                                                       color: const Color(0xFFEEEFF0),
-                                                      fontSize: 9,
+                                                      fontSize: 9.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.w500,
@@ -563,27 +567,27 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                 ),
                                 Material(
                                   color: Colors.transparent,
-                                  elevation: 15,
+                                  elevation: 15.0,
                                   shape: const RoundedRectangleBorder(
                                     borderRadius: BorderRadius.only(
-                                      bottomLeft: Radius.circular(10),
-                                      bottomRight: Radius.circular(10),
-                                      topLeft: Radius.circular(0),
-                                      topRight: Radius.circular(0),
+                                      bottomLeft: Radius.circular(10.0),
+                                      bottomRight: Radius.circular(10.0),
+                                      topLeft: Radius.circular(0.0),
+                                      topRight: Radius.circular(0.0),
                                     ),
                                   ),
                                   child: Container(
                                     width:
                                         MediaQuery.sizeOf(context).width * 0.84,
-                                    height: 227,
+                                    height: 227.0,
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
                                       borderRadius: const BorderRadius.only(
-                                        bottomLeft: Radius.circular(10),
-                                        bottomRight: Radius.circular(10),
-                                        topLeft: Radius.circular(0),
-                                        topRight: Radius.circular(0),
+                                        bottomLeft: Radius.circular(10.0),
+                                        bottomRight: Radius.circular(10.0),
+                                        topLeft: Radius.circular(0.0),
+                                        topRight: Radius.circular(0.0),
                                       ),
                                     ),
                                     child: Column(
@@ -596,7 +600,8 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                           children: [
                                             Padding(
                                               padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(14, 0, 8, 0),
+                                                  .fromSTEB(
+                                                      14.0, 0.0, 8.0, 0.0),
                                               child: Container(
                                                 width:
                                                     MediaQuery.sizeOf(context)
@@ -629,7 +634,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                         .override(
                                                           fontFamily:
                                                               'Montserrat',
-                                                          fontSize: 12,
+                                                          fontSize: 12.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -649,7 +654,8 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                               children: [
                                                 Padding(
                                                   padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(14, 0, 8, 0),
+                                                      .fromSTEB(
+                                                          14.0, 0.0, 8.0, 0.0),
                                                   child: Container(
                                                     width: MediaQuery.sizeOf(
                                                                 context)
@@ -684,7 +690,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                         .override(
                                                           fontFamily:
                                                               'Montserrat',
-                                                          fontSize: 12,
+                                                          fontSize: 12.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -694,7 +700,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                 Align(
                                                   alignment:
                                                       const AlignmentDirectional(
-                                                          -1, 0),
+                                                          -1.0, 0.0),
                                                   child: Container(
                                                     width: MediaQuery.sizeOf(
                                                                 context)
@@ -703,11 +709,11 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                     decoration: const BoxDecoration(),
                                                     alignment:
                                                         const AlignmentDirectional(
-                                                            -1, 0),
+                                                            -1.0, 0.0),
                                                     child: Align(
                                                       alignment:
                                                           const AlignmentDirectional(
-                                                              -1, 0),
+                                                              -1.0, 0.0),
                                                       child: ToggleIcon(
                                                         onPressed: () async {
                                                           safeSetState(() =>
@@ -733,7 +739,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primary,
-                                                          size: 25,
+                                                          size: 25.0,
                                                         ),
                                                         offIcon: Icon(
                                                           Icons
@@ -741,7 +747,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .secondaryText,
-                                                          size: 25,
+                                                          size: 25.0,
                                                         ),
                                                       ),
                                                     ),
@@ -758,7 +764,8 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                           children: [
                                             Padding(
                                               padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(14, 0, 8, 0),
+                                                  .fromSTEB(
+                                                      14.0, 0.0, 8.0, 0.0),
                                               child: Container(
                                                 width:
                                                     MediaQuery.sizeOf(context)
@@ -791,7 +798,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                         .override(
                                                           fontFamily:
                                                               'Montserrat',
-                                                          fontSize: 12,
+                                                          fontSize: 12.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -801,8 +808,8 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                           ],
                                         ),
                                       ]
-                                          .divide(const SizedBox(height: 11))
-                                          .addToStart(const SizedBox(height: 4)),
+                                          .divide(const SizedBox(height: 11.0))
+                                          .addToStart(const SizedBox(height: 4.0)),
                                     ),
                                   ),
                                 ),
@@ -816,22 +823,22 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                 Container(
                                   width:
                                       MediaQuery.sizeOf(context).width * 0.84,
-                                  height: 46,
+                                  height: 46.0,
                                   decoration: const BoxDecoration(
                                     gradient: LinearGradient(
                                       colors: [
                                         Color(0xFFFFD700),
                                         Color(0xFFDAA520)
                                       ],
-                                      stops: [0, 0.88],
-                                      begin: AlignmentDirectional(0, 1),
-                                      end: AlignmentDirectional(0, -1),
+                                      stops: [0.0, 0.88],
+                                      begin: AlignmentDirectional(0.0, 1.0),
+                                      end: AlignmentDirectional(0, -1.0),
                                     ),
                                     borderRadius: BorderRadius.only(
-                                      bottomLeft: Radius.circular(0),
-                                      bottomRight: Radius.circular(0),
-                                      topLeft: Radius.circular(10),
-                                      topRight: Radius.circular(10),
+                                      bottomLeft: Radius.circular(0.0),
+                                      bottomRight: Radius.circular(0.0),
+                                      topLeft: Radius.circular(10.0),
+                                      topRight: Radius.circular(10.0),
                                     ),
                                   ),
                                   child: Row(
@@ -841,7 +848,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                     children: [
                                       Padding(
                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                            12, 0, 0, 0),
+                                            12.0, 0.0, 0.0, 0.0),
                                         child: Container(
                                           width:
                                               MediaQuery.sizeOf(context).width *
@@ -854,7 +861,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                 .override(
                                                   fontFamily: 'Inter',
                                                   color: Colors.white,
-                                                  fontSize: 16,
+                                                  fontSize: 16.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
@@ -862,7 +869,8 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                         ),
                                       ),
                                       Align(
-                                        alignment: const AlignmentDirectional(0, 0),
+                                        alignment:
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -883,7 +891,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                     .override(
                                                       fontFamily: 'Montserrat',
                                                       color: const Color(0xFFF4F7F9),
-                                                      fontSize: 13,
+                                                      fontSize: 13.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.w600,
@@ -903,7 +911,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                     .override(
                                                       fontFamily: 'Readex Pro',
                                                       color: const Color(0xFFF7F9F9),
-                                                      fontSize: 9,
+                                                      fontSize: 9.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.w500,
@@ -918,27 +926,27 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                 ),
                                 Material(
                                   color: Colors.transparent,
-                                  elevation: 15,
+                                  elevation: 15.0,
                                   shape: const RoundedRectangleBorder(
                                     borderRadius: BorderRadius.only(
-                                      bottomLeft: Radius.circular(10),
-                                      bottomRight: Radius.circular(10),
-                                      topLeft: Radius.circular(0),
-                                      topRight: Radius.circular(0),
+                                      bottomLeft: Radius.circular(10.0),
+                                      bottomRight: Radius.circular(10.0),
+                                      topLeft: Radius.circular(0.0),
+                                      topRight: Radius.circular(0.0),
                                     ),
                                   ),
                                   child: Container(
                                     width:
                                         MediaQuery.sizeOf(context).width * 0.84,
-                                    height: 313,
+                                    height: 313.0,
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
                                       borderRadius: const BorderRadius.only(
-                                        bottomLeft: Radius.circular(10),
-                                        bottomRight: Radius.circular(10),
-                                        topLeft: Radius.circular(0),
-                                        topRight: Radius.circular(0),
+                                        bottomLeft: Radius.circular(10.0),
+                                        bottomRight: Radius.circular(10.0),
+                                        topLeft: Radius.circular(0.0),
+                                        topRight: Radius.circular(0.0),
                                       ),
                                     ),
                                     child: Column(
@@ -951,7 +959,8 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                           children: [
                                             Padding(
                                               padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(14, 0, 8, 0),
+                                                  .fromSTEB(
+                                                      14.0, 0.0, 8.0, 0.0),
                                               child: Container(
                                                 width:
                                                     MediaQuery.sizeOf(context)
@@ -984,7 +993,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                         .override(
                                                           fontFamily:
                                                               'Montserrat',
-                                                          fontSize: 12,
+                                                          fontSize: 12.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -1004,7 +1013,8 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                               children: [
                                                 Padding(
                                                   padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(14, 0, 8, 0),
+                                                      .fromSTEB(
+                                                          14.0, 0.0, 8.0, 0.0),
                                                   child: Container(
                                                     width: MediaQuery.sizeOf(
                                                                 context)
@@ -1039,7 +1049,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                         .override(
                                                           fontFamily:
                                                               'Montserrat',
-                                                          fontSize: 12,
+                                                          fontSize: 12.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -1075,7 +1085,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .primary,
-                                                      size: 25,
+                                                      size: 25.0,
                                                     ),
                                                     offIcon: Icon(
                                                       Icons.radio_button_off,
@@ -1083,7 +1093,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .secondaryText,
-                                                      size: 25,
+                                                      size: 25.0,
                                                     ),
                                                   ),
                                                 ),
@@ -1098,7 +1108,8 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                           children: [
                                             Padding(
                                               padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(14, 0, 8, 0),
+                                                  .fromSTEB(
+                                                      14.0, 0.0, 8.0, 0.0),
                                               child: Container(
                                                 width:
                                                     MediaQuery.sizeOf(context)
@@ -1131,7 +1142,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                         .override(
                                                           fontFamily:
                                                               'Montserrat',
-                                                          fontSize: 12,
+                                                          fontSize: 12.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -1141,8 +1152,8 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                           ],
                                         ),
                                       ]
-                                          .divide(const SizedBox(height: 13))
-                                          .addToStart(const SizedBox(height: 4)),
+                                          .divide(const SizedBox(height: 13.0))
+                                          .addToStart(const SizedBox(height: 4.0)),
                                     ),
                                   ),
                                 ),
@@ -1151,8 +1162,8 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                           Align(
                             alignment: const AlignmentDirectional(0.01, 0.7),
                             child: Padding(
-                              padding:
-                                  const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 10.0, 0.0, 10.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
                                   if (widget.professionalUpdate != null) {
@@ -1219,35 +1230,35 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                 },
                                 text: 'Continue',
                                 options: FFButtonOptions(
-                                  width: 275,
-                                  height: 45,
+                                  width: 275.0,
+                                  height: 45.0,
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      24, 0, 24, 0),
+                                      24.0, 0.0, 24.0, 0.0),
                                   iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 0, 0),
+                                      0.0, 0.0, 0.0, 0.0),
                                   color: const Color(0xFFB928B8),
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
                                         fontFamily: 'Montserrat',
                                         color: Colors.white,
-                                        fontSize: 18,
+                                        fontSize: 18.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.bold,
                                       ),
-                                  elevation: 5,
+                                  elevation: 5.0,
                                   borderSide: const BorderSide(
                                     color: Colors.transparent,
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(24),
+                                  borderRadius: BorderRadius.circular(24.0),
                                 ),
                               ),
                             ),
                           ),
                         ]
-                            .divide(const SizedBox(height: 12))
-                            .addToStart(const SizedBox(height: 20)),
+                            .divide(const SizedBox(height: 12.0))
+                            .addToStart(const SizedBox(height: 20.0)),
                       ),
                     ),
                   ),
@@ -1256,8 +1267,8 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
               Align(
                 alignment: const AlignmentDirectional(-0.9, -0.95),
                 child: Container(
-                  width: 50,
-                  height: 50,
+                  width: 50.0,
+                  height: 50.0,
                   decoration: const BoxDecoration(),
                   child: Align(
                     alignment: const AlignmentDirectional(-5.1, -0.98),
@@ -1276,7 +1287,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                       child: const Icon(
                         Icons.chevron_left_outlined,
                         color: Colors.white,
-                        size: 40,
+                        size: 40.0,
                       ),
                     ),
                   ),

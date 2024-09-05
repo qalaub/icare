@@ -52,8 +52,8 @@ class _NewNotifcationsWidgetState extends State<NewNotifcationsWidget> {
         if (!snapshot.hasData) {
           return Center(
             child: SizedBox(
-              width: 50,
-              height: 50,
+              width: 50.0,
+              height: 50.0,
               child: CircularProgressIndicator(
                 valueColor: AlwaysStoppedAnimation<Color>(
                   FlutterFlowTheme.of(context).primary,
@@ -66,12 +66,12 @@ class _NewNotifcationsWidgetState extends State<NewNotifcationsWidget> {
         final containerUsersRecord = snapshot.data!;
 
         return Container(
-          height: 100,
+          height: 100.0,
           decoration: const BoxDecoration(
             color: Color(0xB2CB93E5),
           ),
           child: Align(
-            alignment: const AlignmentDirectional(-1, 0),
+            alignment: const AlignmentDirectional(-1.0, 0.0),
             child: StreamBuilder<UsersRecord>(
               stream: UsersRecord.getDocument(widget.professional!),
               builder: (context, snapshot) {
@@ -79,8 +79,8 @@ class _NewNotifcationsWidgetState extends State<NewNotifcationsWidget> {
                 if (!snapshot.hasData) {
                   return Center(
                     child: SizedBox(
-                      width: 50,
-                      height: 50,
+                      width: 50.0,
+                      height: 50.0,
                       child: CircularProgressIndicator(
                         valueColor: AlwaysStoppedAnimation<Color>(
                           FlutterFlowTheme.of(context).primary,
@@ -101,7 +101,7 @@ class _NewNotifcationsWidgetState extends State<NewNotifcationsWidget> {
                       child: Stack(
                         children: [
                           Align(
-                            alignment: const AlignmentDirectional(0, 0),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
                             child: Container(
                               width: MediaQuery.sizeOf(context).width * 0.16,
                               height: MediaQuery.sizeOf(context).width * 0.16,
@@ -125,7 +125,7 @@ class _NewNotifcationsWidgetState extends State<NewNotifcationsWidget> {
                             child: Icon(
                               Icons.favorite_sharp,
                               color: Color(0xFFE31042),
-                              size: 37,
+                              size: 37.0,
                             ),
                           ),
                         ],
@@ -136,13 +136,13 @@ class _NewNotifcationsWidgetState extends State<NewNotifcationsWidget> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Align(
-                          alignment: const AlignmentDirectional(0, 0),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Container(
                             width: MediaQuery.sizeOf(context).width * 0.71,
-                            height: 50,
+                            height: 50.0,
                             decoration: const BoxDecoration(),
                             child: Align(
-                              alignment: const AlignmentDirectional(0, 0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: RichText(
                                 textScaler: MediaQuery.of(context).textScaler,
                                 text: TextSpan(
@@ -177,8 +177,8 @@ class _NewNotifcationsWidgetState extends State<NewNotifcationsWidget> {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Montserrat',
-                                        fontSize: 15,
-                                        letterSpacing: 0,
+                                        fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                                 textAlign: TextAlign.start,
@@ -188,7 +188,7 @@ class _NewNotifcationsWidgetState extends State<NewNotifcationsWidget> {
                         ),
                       ],
                     ),
-                  ].divide(const SizedBox(width: 12)),
+                  ].divide(const SizedBox(width: 12.0)),
                 );
               },
             ),

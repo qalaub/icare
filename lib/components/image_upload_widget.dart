@@ -42,14 +42,14 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
     return Stack(
       children: [
         ClipRRect(
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(8.0),
           child: Image.network(
             valueOrDefault<String>(
               _model.uploadedFileUrl,
               'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
             ),
-            width: MediaQuery.sizeOf(context).width,
-            height: MediaQuery.sizeOf(context).height * 1,
+            width: MediaQuery.sizeOf(context).width * 1.0,
+            height: MediaQuery.sizeOf(context).height * 1.0,
             fit: BoxFit.cover,
           ),
         ),
@@ -57,16 +57,16 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
           builder: (context) {
             if (_model.uploadedFileUrl == '') {
               return Align(
-                alignment: const AlignmentDirectional(1, 1),
+                alignment: const AlignmentDirectional(1.0, 1.0),
                 child: FlutterFlowIconButton(
-                  borderRadius: 20,
-                  borderWidth: 1,
-                  buttonSize: 40,
+                  borderRadius: 20.0,
+                  borderWidth: 1.0,
+                  buttonSize: 40.0,
                   fillColor: const Color(0xFFED2AF1),
                   icon: const Icon(
                     Icons.add,
                     color: Color(0xFFFFFEFE),
-                    size: 24,
+                    size: 24.0,
                   ),
                   showLoadingIndicator: true,
                   onPressed: () async {
@@ -127,17 +127,17 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
               );
             } else {
               return Align(
-                alignment: const AlignmentDirectional(1, 1),
+                alignment: const AlignmentDirectional(1.0, 1.0),
                 child: FlutterFlowIconButton(
                   borderColor: FlutterFlowTheme.of(context).primary,
-                  borderRadius: 20,
-                  borderWidth: 1,
-                  buttonSize: 40,
+                  borderRadius: 20.0,
+                  borderWidth: 1.0,
+                  buttonSize: 40.0,
                   fillColor: const Color(0xFFED2AF1),
                   icon: const Icon(
                     Icons.close,
                     color: Color(0xFFFFFEFE),
-                    size: 24,
+                    size: 24.0,
                   ),
                   onPressed: () async {
                     FFAppState()

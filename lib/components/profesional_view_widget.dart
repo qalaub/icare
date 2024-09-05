@@ -36,59 +36,60 @@ class _ProfesionalViewWidgetState extends State<ProfesionalViewWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(0, 0),
+      alignment: const AlignmentDirectional(0.0, 0.0),
       child: Material(
         color: Colors.transparent,
-        elevation: 10,
+        elevation: 10.0,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(12),
-            bottomRight: Radius.circular(12),
-            topLeft: Radius.circular(12),
-            topRight: Radius.circular(12),
+            bottomLeft: Radius.circular(12.0),
+            bottomRight: Radius.circular(12.0),
+            topLeft: Radius.circular(12.0),
+            topRight: Radius.circular(12.0),
           ),
         ),
         child: Container(
-          width: 321,
-          height: 210,
+          width: 321.0,
+          height: 210.0,
           decoration: const BoxDecoration(
             color: Color(0xFFFFCCF9),
             borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(12),
-              bottomRight: Radius.circular(12),
-              topLeft: Radius.circular(12),
-              topRight: Radius.circular(12),
+              bottomLeft: Radius.circular(12.0),
+              bottomRight: Radius.circular(12.0),
+              topLeft: Radius.circular(12.0),
+              topRight: Radius.circular(12.0),
             ),
           ),
           child: Align(
-            alignment: const AlignmentDirectional(-1, -1),
+            alignment: const AlignmentDirectional(-1.0, -1.0),
             child: Stack(
               children: [
                 Align(
-                  alignment: const AlignmentDirectional(-1, -1),
+                  alignment: const AlignmentDirectional(-1.0, -1.0),
                   child: Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(10, 15, 0, 0),
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(10.0, 15.0, 0.0, 0.0),
                     child: Container(
-                      width: 61,
-                      height: 61,
+                      width: 61.0,
+                      height: 61.0,
                       decoration: BoxDecoration(
                         color: const Color(0xFFD9D9D9),
                         borderRadius: const BorderRadius.only(
-                          bottomLeft: Radius.circular(12),
-                          bottomRight: Radius.circular(12),
-                          topLeft: Radius.circular(12),
-                          topRight: Radius.circular(12),
+                          bottomLeft: Radius.circular(12.0),
+                          bottomRight: Radius.circular(12.0),
+                          topLeft: Radius.circular(12.0),
+                          topRight: Radius.circular(12.0),
                         ),
                         border: Border.all(
                           color: const Color(0xFFD9D9D9),
                         ),
                       ),
                       child: ClipRRect(
-                        borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(8.0),
                         child: Image.network(
                           'https://picsum.photos/seed/909/600',
-                          width: 300,
-                          height: 200,
+                          width: 300.0,
+                          height: 200.0,
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -98,10 +99,11 @@ class _ProfesionalViewWidgetState extends State<ProfesionalViewWidget> {
                 Align(
                   alignment: const AlignmentDirectional(0.06, -1.23),
                   child: Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                     child: Container(
-                      width: 139,
-                      height: 30,
+                      width: 139.0,
+                      height: 30.0,
                       decoration: const BoxDecoration(
                         color: Color(0xFFFFCCF9),
                       ),
@@ -110,7 +112,7 @@ class _ProfesionalViewWidgetState extends State<ProfesionalViewWidget> {
                         style:
                             FlutterFlowTheme.of(context).headlineLarge.override(
                                   fontFamily: 'Montserrat',
-                                  fontSize: 13,
+                                  fontSize: 13.0,
                                   letterSpacing: 0.0,
                                 ),
                       ),
@@ -120,18 +122,19 @@ class _ProfesionalViewWidgetState extends State<ProfesionalViewWidget> {
                 Align(
                   alignment: const AlignmentDirectional(0.06, -0.32),
                   child: Container(
-                    width: 139,
-                    height: 18,
+                    width: 139.0,
+                    height: 18.0,
                     decoration: const BoxDecoration(
                       color: Color(0xFFFFCCF9),
                     ),
                     child: Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(0, 2, 0, 0),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
                       child: Text(
                         '32 years',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Readex Pro',
-                              fontSize: 11,
+                              fontSize: 11.0,
                               letterSpacing: 0.0,
                             ),
                       ),
@@ -139,12 +142,13 @@ class _ProfesionalViewWidgetState extends State<ProfesionalViewWidget> {
                   ),
                 ),
                 Align(
-                  alignment: const AlignmentDirectional(0, 0.6),
+                  alignment: const AlignmentDirectional(0.0, 0.6),
                   child: Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
                     child: Container(
                       width: double.infinity,
-                      height: 90,
+                      height: 90.0,
                       decoration: const BoxDecoration(
                         color: Color(0xFFFFCCF9),
                       ),
@@ -153,14 +157,14 @@ class _ProfesionalViewWidgetState extends State<ProfesionalViewWidget> {
                         children: [
                           Expanded(
                             child: Align(
-                              alignment: const AlignmentDirectional(-1, -1),
+                              alignment: const AlignmentDirectional(-1.0, -1.0),
                               child: Text(
                                 'I met Dylan and I understood the meaning of understanding. He is a very protective and kind person who helped me socialize more with the people around me and the conversations are comfortable.',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Readex Pro',
-                                      fontSize: 12,
+                                      fontSize: 12.0,
                                       letterSpacing: 0.0,
                                     ),
                               ),
@@ -174,8 +178,8 @@ class _ProfesionalViewWidgetState extends State<ProfesionalViewWidget> {
                 Align(
                   alignment: const AlignmentDirectional(0.06, -0.52),
                   child: Container(
-                    width: 139,
-                    height: 18,
+                    width: 139.0,
+                    height: 18.0,
                     decoration: const BoxDecoration(
                       color: Color(0xFFFFCCF9),
                     ),
@@ -183,7 +187,7 @@ class _ProfesionalViewWidgetState extends State<ProfesionalViewWidget> {
                       'telfer psychologist',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Readex Pro',
-                            fontSize: 11,
+                            fontSize: 11.0,
                             letterSpacing: 0.0,
                           ),
                     ),
@@ -192,18 +196,19 @@ class _ProfesionalViewWidgetState extends State<ProfesionalViewWidget> {
                 Align(
                   alignment: const AlignmentDirectional(-0.88, 0.85),
                   child: Container(
-                    width: 139,
-                    height: 18,
+                    width: 139.0,
+                    height: 18.0,
                     decoration: const BoxDecoration(
                       color: Color(0xFFFFCCF9),
                     ),
                     child: Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(0, 2, 0, 0),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
                       child: Text(
                         'MARCH 1, 2024',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Readex Pro',
-                              fontSize: 11,
+                              fontSize: 11.0,
                               letterSpacing: 0.0,
                             ),
                       ),

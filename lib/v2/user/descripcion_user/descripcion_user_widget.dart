@@ -46,11 +46,11 @@ class _DescripcionUserWidgetState extends State<DescripcionUserWidget> {
       mainAxisSize: MainAxisSize.max,
       children: [
         Align(
-          alignment: const AlignmentDirectional(0, 0),
+          alignment: const AlignmentDirectional(0.0, 0.0),
           child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(16, 16, 16, 16),
+            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
             child: Container(
-              width: MediaQuery.sizeOf(context).width,
+              width: MediaQuery.sizeOf(context).width * 1.0,
               decoration: const BoxDecoration(),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
@@ -58,13 +58,13 @@ class _DescripcionUserWidgetState extends State<DescripcionUserWidget> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Align(
-                    alignment: const AlignmentDirectional(-1, -1),
+                    alignment: const AlignmentDirectional(-1.0, -1.0),
                     child: Text(
                       'Description',
                       style: FlutterFlowTheme.of(context).displaySmall.override(
                             fontFamily: 'Montserrat',
                             color: const Color(0xFFC14BBC),
-                            fontSize: 16,
+                            fontSize: 16.0,
                             letterSpacing: 0.0,
                           ),
                     ),
@@ -73,14 +73,14 @@ class _DescripcionUserWidgetState extends State<DescripcionUserWidget> {
                     alignment: const AlignmentDirectional(-0.01, -0.69),
                     child: Container(
                       width: double.infinity,
-                      height: 100,
+                      height: 100.0,
                       decoration: const BoxDecoration(
                         color: Color(0xFFFFFEFE),
                         borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(0),
-                          bottomRight: Radius.circular(0),
-                          topLeft: Radius.circular(0),
-                          topRight: Radius.circular(0),
+                          bottomLeft: Radius.circular(0.0),
+                          bottomRight: Radius.circular(0.0),
+                          topLeft: Radius.circular(0.0),
+                          topRight: Radius.circular(0.0),
                         ),
                       ),
                       child: Column(
@@ -88,10 +88,10 @@ class _DescripcionUserWidgetState extends State<DescripcionUserWidget> {
                         children: [
                           Expanded(
                             child: Align(
-                              alignment: const AlignmentDirectional(-1, -1),
+                              alignment: const AlignmentDirectional(-1.0, -1.0),
                               child: Padding(
-                                padding:
-                                    const EdgeInsetsDirectional.fromSTEB(2, 2, 0, 0),
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    2.0, 2.0, 0.0, 0.0),
                                 child: Text(
                                   widget.parameter1!,
                                   textAlign: TextAlign.start,
@@ -100,7 +100,7 @@ class _DescripcionUserWidgetState extends State<DescripcionUserWidget> {
                                       .override(
                                         fontFamily: 'Montserrat',
                                         color: Colors.black,
-                                        fontSize: 16,
+                                        fontSize: 16.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -112,34 +112,34 @@ class _DescripcionUserWidgetState extends State<DescripcionUserWidget> {
                       ),
                     ),
                   ),
-                ].divide(const SizedBox(height: 16)),
+                ].divide(const SizedBox(height: 16.0)),
               ),
             ),
           ),
         ),
         const SizedBox(
-          width: 353,
+          width: 353.0,
           child: Divider(
-            thickness: 1,
+            thickness: 1.0,
             color: Color(0xDEBAB7B7),
           ),
         ),
         Align(
-          alignment: const AlignmentDirectional(-1, -1),
+          alignment: const AlignmentDirectional(-1.0, -1.0),
           child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(16, 0, 16, 16),
+            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 16.0),
             child: Container(
               width: double.infinity,
-              height: 486,
+              height: 486.0,
               decoration: const BoxDecoration(
                 color: Colors.white,
               ),
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(8.0),
                 child: Image.asset(
                   'assets/images/Conversation.png',
-                  width: 300,
-                  height: 200,
+                  width: 300.0,
+                  height: 200.0,
                   fit: BoxFit.contain,
                 ),
               ),

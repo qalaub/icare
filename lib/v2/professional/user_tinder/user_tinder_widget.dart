@@ -46,12 +46,12 @@ class _UserTinderWidgetState extends State<UserTinderWidget> {
   Widget build(BuildContext context) {
     return Material(
       color: Colors.transparent,
-      elevation: 5,
+      elevation: 5.0,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(24),
+        borderRadius: BorderRadius.circular(24.0),
       ),
       child: Container(
-        width: MediaQuery.sizeOf(context).width,
+        width: MediaQuery.sizeOf(context).width * 1.0,
         height: MediaQuery.sizeOf(context).height * 0.6,
         constraints: BoxConstraints(
           maxWidth: MediaQuery.sizeOf(context).width * 0.96,
@@ -59,20 +59,20 @@ class _UserTinderWidgetState extends State<UserTinderWidget> {
         ),
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(24),
+          borderRadius: BorderRadius.circular(24.0),
         ),
-        alignment: const AlignmentDirectional(0, 0),
+        alignment: const AlignmentDirectional(0.0, 0.0),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
             Align(
-              alignment: const AlignmentDirectional(0, 0),
+              alignment: const AlignmentDirectional(0.0, 0.0),
               child: ClipRRect(
                 borderRadius: const BorderRadius.only(
-                  bottomLeft: Radius.circular(0),
-                  bottomRight: Radius.circular(0),
-                  topLeft: Radius.circular(22),
-                  topRight: Radius.circular(22),
+                  bottomLeft: Radius.circular(0.0),
+                  bottomRight: Radius.circular(0.0),
+                  topLeft: Radius.circular(22.0),
+                  topRight: Radius.circular(22.0),
                 ),
                 child: CachedNetworkImage(
                   fadeInDuration: const Duration(milliseconds: 500),
@@ -90,16 +90,16 @@ class _UserTinderWidgetState extends State<UserTinderWidget> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Align(
-                  alignment: const AlignmentDirectional(-1, 0),
+                  alignment: const AlignmentDirectional(-1.0, 0.0),
                   child: Container(
                     width: MediaQuery.sizeOf(context).width * 0.78,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                       borderRadius: const BorderRadius.only(
-                        bottomLeft: Radius.circular(22),
-                        bottomRight: Radius.circular(0),
-                        topLeft: Radius.circular(0),
-                        topRight: Radius.circular(0),
+                        bottomLeft: Radius.circular(22.0),
+                        bottomRight: Radius.circular(0.0),
+                        topLeft: Radius.circular(0.0),
+                        topRight: Radius.circular(0.0),
                       ),
                     ),
                     child: Column(
@@ -117,14 +117,14 @@ class _UserTinderWidgetState extends State<UserTinderWidget> {
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Poppins',
-                                    fontSize: 26,
+                                    fontSize: 26.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w800,
                                   ),
                             ),
                           ]
-                              .divide(const SizedBox(width: 16))
-                              .addToStart(const SizedBox(width: 11)),
+                              .divide(const SizedBox(width: 16.0))
+                              .addToStart(const SizedBox(width: 11.0)),
                         ),
                         Row(
                           mainAxisSize: MainAxisSize.max,
@@ -134,7 +134,7 @@ class _UserTinderWidgetState extends State<UserTinderWidget> {
                             const Icon(
                               Icons.circle_rounded,
                               color: Color(0xFF52FF00),
-                              size: 12,
+                              size: 12.0,
                             ),
                             Text(
                               'recent activity',
@@ -142,30 +142,30 @@ class _UserTinderWidgetState extends State<UserTinderWidget> {
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Poppins',
-                                    fontSize: 15,
+                                    fontSize: 15.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
                                   ),
                             ),
                           ]
-                              .divide(const SizedBox(width: 8))
-                              .addToStart(const SizedBox(width: 10)),
+                              .divide(const SizedBox(width: 8.0))
+                              .addToStart(const SizedBox(width: 10.0)),
                         ),
                         Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Align(
-                              alignment: const AlignmentDirectional(-1, 0),
+                              alignment: const AlignmentDirectional(-1.0, 0.0),
                               child: Container(
                                 width: MediaQuery.sizeOf(context).width * 0.28,
                                 height:
                                     MediaQuery.sizeOf(context).height * 0.045,
                                 decoration: BoxDecoration(
                                   color: const Color(0xCCAC16A4),
-                                  borderRadius: BorderRadius.circular(16),
+                                  borderRadius: BorderRadius.circular(16.0),
                                 ),
                                 child: Align(
-                                  alignment: const AlignmentDirectional(0, 0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: AutoSizeText(
                                     valueOrDefault<String>(
                                       widget.professional?.serviceType.first,
@@ -175,7 +175,7 @@ class _UserTinderWidgetState extends State<UserTinderWidget> {
                                       replacement: '…',
                                     ),
                                     textAlign: TextAlign.center,
-                                    minFontSize: 10,
+                                    minFontSize: 10.0,
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -190,17 +190,17 @@ class _UserTinderWidgetState extends State<UserTinderWidget> {
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(-1, 0),
+                              alignment: const AlignmentDirectional(-1.0, 0.0),
                               child: Container(
                                 width: MediaQuery.sizeOf(context).width * 0.42,
                                 height:
                                     MediaQuery.sizeOf(context).height * 0.045,
                                 decoration: BoxDecoration(
                                   color: const Color(0xCCAC16A4),
-                                  borderRadius: BorderRadius.circular(16),
+                                  borderRadius: BorderRadius.circular(16.0),
                                 ),
                                 child: Align(
-                                  alignment: const AlignmentDirectional(0, 0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     valueOrDefault<String>(
                                       functions.concatStrings(
@@ -224,18 +224,18 @@ class _UserTinderWidgetState extends State<UserTinderWidget> {
                               ),
                             ),
                           ]
-                              .divide(const SizedBox(width: 6))
-                              .addToStart(const SizedBox(width: 10)),
+                              .divide(const SizedBox(width: 6.0))
+                              .addToStart(const SizedBox(width: 10.0)),
                         ),
                       ]
-                          .divide(const SizedBox(height: 10))
-                          .addToStart(const SizedBox(height: 10))
-                          .addToEnd(const SizedBox(height: 10)),
+                          .divide(const SizedBox(height: 10.0))
+                          .addToStart(const SizedBox(height: 10.0))
+                          .addToEnd(const SizedBox(height: 10.0)),
                     ),
                   ),
                 ),
                 ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(8.0),
                   child: Image.asset(
                     'assets/images/basicV2.png',
                     width: MediaQuery.sizeOf(context).width * 0.11,

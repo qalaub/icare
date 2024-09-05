@@ -46,19 +46,20 @@ class _ReportWidgetState extends State<ReportWidget> {
         body: SafeArea(
           top: true,
           child: Align(
-            alignment: const AlignmentDirectional(-1, 0),
+            alignment: const AlignmentDirectional(-1.0, 0.0),
             child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(1, 0, 0, 0),
+              padding: const EdgeInsetsDirectional.fromSTEB(1.0, 0.0, 0.0, 0.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Container(
-                    width: MediaQuery.sizeOf(context).width,
+                    width: MediaQuery.sizeOf(context).width * 1.0,
                     decoration: const BoxDecoration(),
                     child: Align(
-                      alignment: const AlignmentDirectional(-1, 0),
+                      alignment: const AlignmentDirectional(-1.0, 0.0),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -70,14 +71,14 @@ class _ReportWidgetState extends State<ReportWidget> {
                           child: const Icon(
                             Icons.clear,
                             color: Colors.white,
-                            size: 28,
+                            size: 28.0,
                           ),
                         ),
                       ),
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                     child: Container(
                       decoration: const BoxDecoration(),
                       child: Row(
@@ -98,7 +99,7 @@ class _ReportWidgetState extends State<ReportWidget> {
                                       .override(
                                         fontFamily: 'Montserrat',
                                         color: Colors.white,
-                                        fontSize: 24,
+                                        fontSize: 24.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.bold,
                                       ),
@@ -113,20 +114,21 @@ class _ReportWidgetState extends State<ReportWidget> {
                                       .override(
                                         fontFamily: 'Montserrat',
                                         color: const Color(0xFFC6C6C6),
-                                        fontSize: 20,
+                                        fontSize: 20.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w300,
                                       ),
                                 ),
                               ),
-                            ].divide(const SizedBox(height: 8)),
+                            ].divide(const SizedBox(height: 8.0)),
                           ),
                         ],
                       ),
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(16, 32, 16, 0),
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(16.0, 32.0, 16.0, 0.0),
                     child: SingleChildScrollView(
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -170,7 +172,7 @@ class _ReportWidgetState extends State<ReportWidget> {
                                       .override(
                                         fontFamily: 'Montserrat',
                                         color: Colors.white,
-                                        fontSize: 19,
+                                        fontSize: 19.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
@@ -178,18 +180,19 @@ class _ReportWidgetState extends State<ReportWidget> {
                                 const Icon(
                                   Icons.arrow_forward_ios,
                                   color: Colors.white,
-                                  size: 24,
+                                  size: 24.0,
                                 ),
                               ],
                             ),
                           ),
                           const Divider(
-                            height: 43,
-                            thickness: 1,
+                            height: 43.0,
+                            thickness: 1.0,
                             color: Color(0xFFBDBDBD),
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 4.0, 0.0, 0.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
@@ -229,7 +232,7 @@ class _ReportWidgetState extends State<ReportWidget> {
                                         .override(
                                           fontFamily: 'Montserrat',
                                           color: Colors.white,
-                                          fontSize: 18,
+                                          fontSize: 18.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                         ),
@@ -237,15 +240,15 @@ class _ReportWidgetState extends State<ReportWidget> {
                                   const Icon(
                                     Icons.arrow_forward_ios,
                                     color: Colors.white,
-                                    size: 24,
+                                    size: 24.0,
                                   ),
                                 ],
                               ),
                             ),
                           ),
                           const Divider(
-                            height: 43,
-                            thickness: 1,
+                            height: 43.0,
+                            thickness: 1.0,
                             color: Color(0xFFBDBDBD),
                           ),
                           InkWell(
@@ -286,7 +289,7 @@ class _ReportWidgetState extends State<ReportWidget> {
                                       .override(
                                         fontFamily: 'Montserrat',
                                         color: Colors.white,
-                                        fontSize: 19,
+                                        fontSize: 19.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
@@ -294,14 +297,14 @@ class _ReportWidgetState extends State<ReportWidget> {
                                 const Icon(
                                   Icons.arrow_forward_ios,
                                   color: Colors.white,
-                                  size: 24,
+                                  size: 24.0,
                                 ),
                               ],
                             ),
                           ),
                           const Divider(
-                            height: 43,
-                            thickness: 1,
+                            height: 43.0,
+                            thickness: 1.0,
                             color: Color(0xFFBDBDBD),
                           ),
                           InkWell(
@@ -342,7 +345,7 @@ class _ReportWidgetState extends State<ReportWidget> {
                                       .override(
                                         fontFamily: 'Montserrat',
                                         color: Colors.white,
-                                        fontSize: 19,
+                                        fontSize: 19.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
@@ -350,14 +353,14 @@ class _ReportWidgetState extends State<ReportWidget> {
                                 const Icon(
                                   Icons.arrow_forward_ios,
                                   color: Colors.white,
-                                  size: 24,
+                                  size: 24.0,
                                 ),
                               ],
                             ),
                           ),
                           const Divider(
-                            height: 43,
-                            thickness: 1,
+                            height: 43.0,
+                            thickness: 1.0,
                             color: Color(0xFFBDBDBD),
                           ),
                           InkWell(
@@ -397,7 +400,7 @@ class _ReportWidgetState extends State<ReportWidget> {
                                       .override(
                                         fontFamily: 'Montserrat',
                                         color: Colors.white,
-                                        fontSize: 19,
+                                        fontSize: 19.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
@@ -405,14 +408,14 @@ class _ReportWidgetState extends State<ReportWidget> {
                                 const Icon(
                                   Icons.arrow_forward_ios,
                                   color: Colors.white,
-                                  size: 24,
+                                  size: 24.0,
                                 ),
                               ],
                             ),
                           ),
                           const Divider(
-                            height: 43,
-                            thickness: 1,
+                            height: 43.0,
+                            thickness: 1.0,
                             color: Color(0xFFBDBDBD),
                           ),
                           InkWell(
@@ -452,7 +455,7 @@ class _ReportWidgetState extends State<ReportWidget> {
                                       .override(
                                         fontFamily: 'Montserrat',
                                         color: Colors.white,
-                                        fontSize: 19,
+                                        fontSize: 19.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
@@ -460,14 +463,14 @@ class _ReportWidgetState extends State<ReportWidget> {
                                 const Icon(
                                   Icons.arrow_forward_ios,
                                   color: Colors.white,
-                                  size: 24,
+                                  size: 24.0,
                                 ),
                               ],
                             ),
                           ),
                           const Divider(
-                            height: 43,
-                            thickness: 1,
+                            height: 43.0,
+                            thickness: 1.0,
                             color: Color(0xFFBDBDBD),
                           ),
                           InkWell(
@@ -507,7 +510,7 @@ class _ReportWidgetState extends State<ReportWidget> {
                                       .override(
                                         fontFamily: 'Montserrat',
                                         color: Colors.white,
-                                        fontSize: 19,
+                                        fontSize: 19.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
@@ -515,18 +518,18 @@ class _ReportWidgetState extends State<ReportWidget> {
                                 const Icon(
                                   Icons.arrow_forward_ios,
                                   color: Colors.white,
-                                  size: 24,
+                                  size: 24.0,
                                 ),
                               ],
                             ),
                           ),
                         ]
-                            .addToStart(const SizedBox(height: 8))
-                            .addToEnd(const SizedBox(height: 43)),
+                            .addToStart(const SizedBox(height: 8.0))
+                            .addToEnd(const SizedBox(height: 43.0)),
                       ),
                     ),
                   ),
-                ].divide(const SizedBox(height: 16)),
+                ].divide(const SizedBox(height: 16.0)),
               ),
             ),
           ),

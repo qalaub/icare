@@ -46,13 +46,13 @@ class _FavV2WidgetState extends State<FavV2Widget> {
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
           borderColor: Colors.transparent,
-          borderRadius: 30,
-          borderWidth: 1,
-          buttonSize: 60,
+          borderRadius: 30.0,
+          borderWidth: 1.0,
+          buttonSize: 60.0,
           icon: const FaIcon(
             FontAwesomeIcons.angleLeft,
             color: Colors.white,
-            size: 30,
+            size: 30.0,
           ),
           onPressed: () async {
             context.pop();
@@ -63,14 +63,14 @@ class _FavV2WidgetState extends State<FavV2Widget> {
           style: FlutterFlowTheme.of(context).headlineMedium.override(
                 fontFamily: 'Montserrat',
                 color: const Color(0xFFEFECF3),
-                fontSize: 25,
+                fontSize: 25.0,
                 letterSpacing: 0.0,
                 fontWeight: FontWeight.bold,
               ),
         ),
         actions: const [],
         centerTitle: true,
-        elevation: 2,
+        elevation: 2.0,
       ),
       body: SafeArea(
         top: true,
@@ -105,7 +105,7 @@ class _FavV2WidgetState extends State<FavV2Widget> {
                           return ListView.separated(
                             padding: const EdgeInsets.fromLTRB(
                               0,
-                              16,
+                              16.0,
                               0,
                               0,
                             ),
@@ -113,7 +113,7 @@ class _FavV2WidgetState extends State<FavV2Widget> {
                             shrinkWrap: true,
                             scrollDirection: Axis.vertical,
                             itemCount: userList.length,
-                            separatorBuilder: (_, __) => const SizedBox(height: 16),
+                            separatorBuilder: (_, __) => const SizedBox(height: 16.0),
                             itemBuilder: (context, userListIndex) {
                               final userListItem = userList[userListIndex];
                               return V2FavoritosComponenteWidget(
@@ -131,9 +131,9 @@ class _FavV2WidgetState extends State<FavV2Widget> {
               ),
             ),
             Align(
-              alignment: const AlignmentDirectional(0, 1),
+              alignment: const AlignmentDirectional(0.0, 1.0),
               child: Container(
-                height: 69,
+                height: 69.0,
                 decoration: const BoxDecoration(
                   color: Color(0xB3B928B8),
                 ),

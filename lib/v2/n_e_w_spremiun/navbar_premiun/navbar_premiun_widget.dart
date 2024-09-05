@@ -39,10 +39,10 @@ class _NavbarPremiunWidgetState extends State<NavbarPremiunWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(0, 0),
+      alignment: const AlignmentDirectional(0.0, 0.0),
       child: Container(
         width: double.infinity,
-        height: 67,
+        height: 67.0,
         decoration: const BoxDecoration(),
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -50,7 +50,7 @@ class _NavbarPremiunWidgetState extends State<NavbarPremiunWidget> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Align(
-              alignment: const AlignmentDirectional(0, 0),
+              alignment: const AlignmentDirectional(0.0, 0.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -59,15 +59,15 @@ class _NavbarPremiunWidgetState extends State<NavbarPremiunWidget> {
                   Expanded(
                     flex: 1,
                     child: Align(
-                      alignment: const AlignmentDirectional(0, 0),
+                      alignment: const AlignmentDirectional(0.0, 0.0),
                       child: FlutterFlowIconButton(
                         borderColor: Colors.transparent,
-                        borderRadius: 34,
-                        buttonSize: 52,
+                        borderRadius: 34.0,
+                        buttonSize: 52.0,
                         icon: const FaIcon(
                           FontAwesomeIcons.houseUser,
                           color: Colors.white,
-                          size: 32,
+                          size: 32.0,
                         ),
                         onPressed: () async {
                           if (loggedIn) {
@@ -80,7 +80,7 @@ class _NavbarPremiunWidgetState extends State<NavbarPremiunWidget> {
                     ),
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(0, 0),
+                    alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Text(
                       'Home',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -92,7 +92,7 @@ class _NavbarPremiunWidgetState extends State<NavbarPremiunWidget> {
                     ),
                   ),
                   Container(
-                    height: 5,
+                    height: 5.0,
                     decoration: const BoxDecoration(),
                   ),
                 ],
@@ -104,15 +104,15 @@ class _NavbarPremiunWidgetState extends State<NavbarPremiunWidget> {
                 Expanded(
                   flex: 1,
                   child: Align(
-                    alignment: const AlignmentDirectional(0, 0),
+                    alignment: const AlignmentDirectional(0.0, 0.0),
                     child: FlutterFlowIconButton(
                       borderColor: Colors.transparent,
-                      borderRadius: 34,
-                      buttonSize: 52,
+                      borderRadius: 34.0,
+                      buttonSize: 52.0,
                       icon: const Icon(
                         Icons.playlist_add_check_sharp,
                         color: Colors.white,
-                        size: 34,
+                        size: 34.0,
                       ),
                       onPressed: () async {
                         if (loggedIn) {
@@ -137,7 +137,7 @@ class _NavbarPremiunWidgetState extends State<NavbarPremiunWidget> {
                   ),
                 ),
                 Container(
-                  height: 5,
+                  height: 5.0,
                   decoration: const BoxDecoration(),
                 ),
               ],
@@ -148,15 +148,15 @@ class _NavbarPremiunWidgetState extends State<NavbarPremiunWidget> {
                 Expanded(
                   flex: 1,
                   child: Align(
-                    alignment: const AlignmentDirectional(0, 0),
+                    alignment: const AlignmentDirectional(0.0, 0.0),
                     child: FlutterFlowIconButton(
                       borderColor: Colors.transparent,
-                      borderRadius: 34,
-                      buttonSize: 52,
+                      borderRadius: 34.0,
+                      buttonSize: 52.0,
                       icon: const Icon(
                         Icons.wechat_rounded,
                         color: Colors.white,
-                        size: 34,
+                        size: 34.0,
                       ),
                       onPressed: () async {
                         if (loggedIn) {
@@ -181,7 +181,7 @@ class _NavbarPremiunWidgetState extends State<NavbarPremiunWidget> {
                   ),
                 ),
                 Container(
-                  height: 5,
+                  height: 5.0,
                   decoration: const BoxDecoration(),
                 ),
               ],
@@ -194,17 +194,18 @@ class _NavbarPremiunWidgetState extends State<NavbarPremiunWidget> {
                 Expanded(
                   flex: 1,
                   child: Align(
-                    alignment: const AlignmentDirectional(0, 0),
+                    alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(3, 0, 0, 0),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(3.0, 0.0, 0.0, 0.0),
                       child: FlutterFlowIconButton(
                         borderColor: Colors.transparent,
-                        borderRadius: 34,
-                        buttonSize: 52,
+                        borderRadius: 34.0,
+                        buttonSize: 52.0,
                         icon: const Icon(
                           Icons.notifications_sharp,
                           color: Colors.white,
-                          size: 34,
+                          size: 34.0,
                         ),
                         onPressed: () async {
                           if (loggedIn) {
@@ -230,7 +231,7 @@ class _NavbarPremiunWidgetState extends State<NavbarPremiunWidget> {
                   ),
                 ),
                 Container(
-                  height: 5,
+                  height: 5.0,
                   decoration: const BoxDecoration(),
                 ),
               ],
@@ -243,17 +244,18 @@ class _NavbarPremiunWidgetState extends State<NavbarPremiunWidget> {
                 Expanded(
                   flex: 1,
                   child: Align(
-                    alignment: const AlignmentDirectional(0, 0),
+                    alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 3, 0),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 3.0, 0.0),
                       child: FlutterFlowIconButton(
                         borderColor: Colors.transparent,
-                        borderRadius: 31,
-                        buttonSize: 52,
+                        borderRadius: 31.0,
+                        buttonSize: 52.0,
                         icon: const Icon(
                           Icons.person,
                           color: Colors.white,
-                          size: 35,
+                          size: 35.0,
                         ),
                         onPressed: () async {
                           if (loggedIn) {
@@ -279,7 +281,7 @@ class _NavbarPremiunWidgetState extends State<NavbarPremiunWidget> {
                   ),
                 ),
                 Container(
-                  height: 5,
+                  height: 5.0,
                   decoration: const BoxDecoration(),
                 ),
               ],

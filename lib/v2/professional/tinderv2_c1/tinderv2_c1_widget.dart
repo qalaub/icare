@@ -79,34 +79,34 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
           child: Stack(
             children: [
               ClipRRect(
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(8.0),
                 child: Image.asset(
                   'assets/images/werwee.png',
-                  width: MediaQuery.sizeOf(context).width,
-                  height: MediaQuery.sizeOf(context).height * 1,
+                  width: MediaQuery.sizeOf(context).width * 1.0,
+                  height: MediaQuery.sizeOf(context).height * 1.0,
                   fit: BoxFit.cover,
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(0, -1),
+                alignment: const AlignmentDirectional(0.0, -1.0),
                 child: Container(
-                  width: MediaQuery.sizeOf(context).width,
-                  height: 60,
+                  width: MediaQuery.sizeOf(context).width * 1.0,
+                  height: 60.0,
                   decoration: const BoxDecoration(
                     color: Color(0xFFFDFDFD),
                     boxShadow: [
                       BoxShadow(
-                        blurRadius: 0,
+                        blurRadius: 0.0,
                         color: Color(0x33000000),
                         offset: Offset(
-                          0,
-                          3,
+                          0.0,
+                          3.0,
                         ),
                       )
                     ],
                   ),
                   child: Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
@@ -133,7 +133,7 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Align(
-                            alignment: const AlignmentDirectional(0, 1),
+                            alignment: const AlignmentDirectional(0.0, 1.0),
                             child: Text(
                               'View Profile',
                               style: FlutterFlowTheme.of(context)
@@ -141,7 +141,7 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                   .override(
                                     fontFamily: 'Poppins',
                                     color: const Color(0xFF8D0684),
-                                    fontSize: 20,
+                                    fontSize: 20.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
@@ -154,7 +154,7 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(0, 0),
+                alignment: const AlignmentDirectional(0.0, 0.0),
                 child: Container(
                   height: MediaQuery.sizeOf(context).height * 0.75,
                   decoration: const BoxDecoration(),
@@ -165,7 +165,7 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                     children: [
                       if (_model.professionals.isNotEmpty)
                         Align(
-                          alignment: const AlignmentDirectional(0, 0),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Container(
                             constraints: BoxConstraints(
                               maxWidth: MediaQuery.sizeOf(context).width * 0.96,
@@ -452,7 +452,7 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                   itemBuilder: (context, newDataIndex) {
                                     final newDataItem = newData[newDataIndex];
                                     return Align(
-                                      alignment: const AlignmentDirectional(0, 0),
+                                      alignment: const AlignmentDirectional(0.0, 0.0),
                                       child: Tinderv2C0Widget(
                                         key: Key(
                                             'Key3fl_${newDataIndex}_of_${newData.length}'),
@@ -466,15 +466,16 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                   cardDisplayCount: 2,
                                   scale: 0.9,
                                   cardPadding: const EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 0, 0),
-                                  backCardOffset: const Offset(1, 1),
+                                      0.0, 0.0, 0.0, 0.0),
+                                  backCardOffset: const Offset(1.0, 1.0),
                                 );
                               },
                             ),
                           ),
                         ),
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -525,17 +526,17 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                 ),
                               ),
                             ),
-                          ].divide(const SizedBox(width: 30)),
+                          ].divide(const SizedBox(width: 30.0)),
                         ),
                       ),
-                    ].divide(const SizedBox(height: 2)),
+                    ].divide(const SizedBox(height: 2.0)),
                   ),
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(0, 1),
+                alignment: const AlignmentDirectional(0.0, 1.0),
                 child: Container(
-                  height: 73,
+                  height: 73.0,
                   decoration: const BoxDecoration(
                     color: Color(0xB3B928B8),
                   ),

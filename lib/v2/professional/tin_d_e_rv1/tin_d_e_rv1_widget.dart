@@ -52,8 +52,8 @@ class _TinDERv1WidgetState extends State<TinDERv1Widget> {
           return Scaffold(
             body: Center(
               child: SizedBox(
-                width: 50,
-                height: 50,
+                width: 50.0,
+                height: 50.0,
                 child: CircularProgressIndicator(
                   valueColor: AlwaysStoppedAnimation<Color>(
                     FlutterFlowTheme.of(context).primary,
@@ -74,10 +74,10 @@ class _TinDERv1WidgetState extends State<TinDERv1Widget> {
               child: Stack(
                 children: [
                   Align(
-                    alignment: const AlignmentDirectional(0, 0),
+                    alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Container(
-                      width: MediaQuery.sizeOf(context).width,
-                      height: MediaQuery.sizeOf(context).height * 1,
+                      width: MediaQuery.sizeOf(context).width * 1.0,
+                      height: MediaQuery.sizeOf(context).height * 1.0,
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           fit: BoxFit.cover,
@@ -87,14 +87,14 @@ class _TinDERv1WidgetState extends State<TinDERv1Widget> {
                         ),
                       ),
                       child: Align(
-                        alignment: const AlignmentDirectional(0, 0),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Container(
-                          width: MediaQuery.sizeOf(context).width,
+                          width: MediaQuery.sizeOf(context).width * 1.0,
                           height: MediaQuery.sizeOf(context).height * 0.8,
                           constraints: BoxConstraints(
                             minHeight: MediaQuery.sizeOf(context).height * 0.8,
                             maxWidth: MediaQuery.sizeOf(context).width * 0.9,
-                            maxHeight: 680,
+                            maxHeight: 680.0,
                           ),
                           decoration: const BoxDecoration(),
                           child: Visibility(
@@ -105,7 +105,7 @@ class _TinDERv1WidgetState extends State<TinDERv1Widget> {
                               children: [
                                 Expanded(
                                   child: Align(
-                                    alignment: const AlignmentDirectional(0, 0),
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: Builder(
                                       builder: (context) {
                                         final containerVar =
@@ -132,10 +132,11 @@ class _TinDERv1WidgetState extends State<TinDERv1Widget> {
                                               _model.swipeableStackController,
                                           loop: false,
                                           cardDisplayCount: 2,
-                                          scale: 1,
-                                          threshold: 1,
-                                          maxAngle: 25,
-                                          backCardOffset: const Offset(1, 0),
+                                          scale: 1.0,
+                                          threshold: 1.0,
+                                          maxAngle: 25.0,
+                                          backCardOffset:
+                                              const Offset(1.0, 0.0),
                                         );
                                       },
                                     ),
@@ -143,7 +144,7 @@ class _TinDERv1WidgetState extends State<TinDERv1Widget> {
                                 ),
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 0, 40),
+                                      0.0, 0.0, 0.0, 40.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -158,8 +159,8 @@ class _TinDERv1WidgetState extends State<TinDERv1Widget> {
                                               .swipeLeft();
                                         },
                                         child: Container(
-                                          width: 80,
-                                          height: 80,
+                                          width: 80.0,
+                                          height: 80.0,
                                           clipBehavior: Clip.antiAlias,
                                           decoration: const BoxDecoration(
                                             shape: BoxShape.circle,
@@ -180,8 +181,8 @@ class _TinDERv1WidgetState extends State<TinDERv1Widget> {
                                               .swipeRight();
                                         },
                                         child: Container(
-                                          width: 80,
-                                          height: 80,
+                                          width: 80.0,
+                                          height: 80.0,
                                           clipBehavior: Clip.antiAlias,
                                           decoration: const BoxDecoration(
                                             shape: BoxShape.circle,
@@ -192,7 +193,7 @@ class _TinDERv1WidgetState extends State<TinDERv1Widget> {
                                           ),
                                         ),
                                       ),
-                                    ].divide(const SizedBox(width: 29)),
+                                    ].divide(const SizedBox(width: 29.0)),
                                   ),
                                 ),
                               ],
@@ -203,9 +204,9 @@ class _TinDERv1WidgetState extends State<TinDERv1Widget> {
                     ),
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(0, 1),
+                    alignment: const AlignmentDirectional(0.0, 1.0),
                     child: Container(
-                      height: 70,
+                      height: 70.0,
                       decoration: const BoxDecoration(
                         color: Color(0xB3B928B8),
                       ),
@@ -229,25 +230,26 @@ class _TinDERv1WidgetState extends State<TinDERv1Widget> {
                     ),
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(0, -1),
+                    alignment: const AlignmentDirectional(0.0, -1.0),
                     child: Container(
-                      width: MediaQuery.sizeOf(context).width,
-                      height: 60,
+                      width: MediaQuery.sizeOf(context).width * 1.0,
+                      height: 60.0,
                       decoration: const BoxDecoration(
                         color: Color(0xFFFDFDFD),
                         boxShadow: [
                           BoxShadow(
-                            blurRadius: 0,
+                            blurRadius: 0.0,
                             color: Color(0x33000000),
                             offset: Offset(
-                              0,
-                              3,
+                              0.0,
+                              3.0,
                             ),
                           )
                         ],
                       ),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -258,17 +260,17 @@ class _TinDERv1WidgetState extends State<TinDERv1Widget> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Container(
-                                  width: 60,
-                                  height: 3,
+                                  width: 60.0,
+                                  height: 3.0,
                                   decoration: BoxDecoration(
                                     color: const Color(0xFFC56AB1),
-                                    borderRadius: BorderRadius.circular(4),
+                                    borderRadius: BorderRadius.circular(4.0),
                                   ),
                                 ),
                               ],
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0, 1),
+                              alignment: const AlignmentDirectional(0.0, 1.0),
                               child: Text(
                                 valueOrDefault<String>(
                                   functions.concatStrings(

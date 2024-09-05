@@ -49,9 +49,9 @@ class _ListofcollaboratorsPERFILWidgetState
     context.watch<FFAppState>();
 
     return Align(
-      alignment: const AlignmentDirectional(0, 0),
+      alignment: const AlignmentDirectional(0.0, 0.0),
       child: Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
+        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
         child: StreamBuilder<UsersRecord>(
           stream: UsersRecord.getDocument(widget.professional!),
           builder: (context, snapshot) {
@@ -59,8 +59,8 @@ class _ListofcollaboratorsPERFILWidgetState
             if (!snapshot.hasData) {
               return Center(
                 child: SizedBox(
-                  width: 50,
-                  height: 50,
+                  width: 50.0,
+                  height: 50.0,
                   child: CircularProgressIndicator(
                     valueColor: AlwaysStoppedAnimation<Color>(
                       FlutterFlowTheme.of(context).primary,
@@ -94,55 +94,55 @@ class _ListofcollaboratorsPERFILWidgetState
               },
               child: Material(
                 color: Colors.transparent,
-                elevation: 10,
+                elevation: 10.0,
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(12),
-                    bottomRight: Radius.circular(12),
-                    topLeft: Radius.circular(12),
-                    topRight: Radius.circular(12),
+                    bottomLeft: Radius.circular(12.0),
+                    bottomRight: Radius.circular(12.0),
+                    topLeft: Radius.circular(12.0),
+                    topRight: Radius.circular(12.0),
                   ),
                 ),
                 child: Container(
-                  width: 285,
-                  height: 160,
+                  width: 285.0,
+                  height: 160.0,
                   decoration: const BoxDecoration(
                     color: Color(0xFFFFCCF9),
                     borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(12),
-                      bottomRight: Radius.circular(12),
-                      topLeft: Radius.circular(12),
-                      topRight: Radius.circular(12),
+                      bottomLeft: Radius.circular(12.0),
+                      bottomRight: Radius.circular(12.0),
+                      topLeft: Radius.circular(12.0),
+                      topRight: Radius.circular(12.0),
                     ),
                   ),
                   child: Align(
-                    alignment: const AlignmentDirectional(-1, -1),
+                    alignment: const AlignmentDirectional(-1.0, -1.0),
                     child: Stack(
                       children: [
                         Align(
-                          alignment: const AlignmentDirectional(-1, -1),
+                          alignment: const AlignmentDirectional(-1.0, -1.0),
                           child: Padding(
-                            padding:
-                                const EdgeInsetsDirectional.fromSTEB(10, 15, 0, 0),
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                10.0, 15.0, 0.0, 0.0),
                             child: Container(
-                              width: 61,
-                              height: 61,
+                              width: 61.0,
+                              height: 61.0,
                               decoration: BoxDecoration(
                                 color: const Color(0xFFD9D9D9),
                                 borderRadius: const BorderRadius.only(
-                                  bottomLeft: Radius.circular(12),
-                                  bottomRight: Radius.circular(12),
-                                  topLeft: Radius.circular(12),
-                                  topRight: Radius.circular(12),
+                                  bottomLeft: Radius.circular(12.0),
+                                  bottomRight: Radius.circular(12.0),
+                                  topLeft: Radius.circular(12.0),
+                                  topRight: Radius.circular(12.0),
                                 ),
                                 border: Border.all(
                                   color: const Color(0xFFD9D9D9),
                                 ),
                               ),
                               child: Align(
-                                alignment: const AlignmentDirectional(-1, 1),
+                                alignment: const AlignmentDirectional(-1.0, 1.0),
                                 child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                   child: CachedNetworkImage(
                                     fadeInDuration: const Duration(milliseconds: 500),
                                     fadeOutDuration:
@@ -163,11 +163,11 @@ class _ListofcollaboratorsPERFILWidgetState
                         Align(
                           alignment: const AlignmentDirectional(0.06, -1.23),
                           child: Padding(
-                            padding:
-                                const EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 30.0, 0.0, 0.0),
                             child: Container(
-                              width: 139,
-                              height: 36,
+                              width: 139.0,
+                              height: 36.0,
                               decoration: const BoxDecoration(
                                 color: Color(0xFFFFCCF9),
                               ),
@@ -177,7 +177,7 @@ class _ListofcollaboratorsPERFILWidgetState
                                     .headlineLarge
                                     .override(
                                       fontFamily: 'Montserrat',
-                                      fontSize: 16,
+                                      fontSize: 16.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
                                     ),
@@ -188,7 +188,8 @@ class _ListofcollaboratorsPERFILWidgetState
                         Align(
                           alignment: const AlignmentDirectional(0.64, -0.57),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(2, 0, 0, 0),
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                2.0, 0.0, 0.0, 0.0),
                             child: StreamBuilder<List<UsersRecord>>(
                               stream: queryUsersRecord(
                                 queryBuilder: (usersRecord) =>
@@ -203,8 +204,8 @@ class _ListofcollaboratorsPERFILWidgetState
                                 if (!snapshot.hasData) {
                                   return Center(
                                     child: SizedBox(
-                                      width: 50,
-                                      height: 50,
+                                      width: 50.0,
+                                      height: 50.0,
                                       child: CircularProgressIndicator(
                                         valueColor:
                                             AlwaysStoppedAnimation<Color>(
@@ -233,7 +234,7 @@ class _ListofcollaboratorsPERFILWidgetState
                                                   Plan.premiun)
                                           ? const Color(0xFFC325DD)
                                           : Colors.white,
-                                  size: 16,
+                                  size: 16.0,
                                 );
                               },
                             ),
@@ -242,21 +243,21 @@ class _ListofcollaboratorsPERFILWidgetState
                         Align(
                           alignment: const AlignmentDirectional(0.05, -0.19),
                           child: Container(
-                            width: 139,
-                            height: 18,
+                            width: 139.0,
+                            height: 18.0,
                             decoration: const BoxDecoration(
                               color: Color(0xFFFFCCF9),
                             ),
                             child: Padding(
-                              padding:
-                                  const EdgeInsetsDirectional.fromSTEB(3, 2, 0, 0),
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  3.0, 2.0, 0.0, 0.0),
                               child: Text(
                                 containerUsersRecord.serviceType.first,
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Montserrat',
-                                      fontSize: 11,
+                                      fontSize: 11.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
@@ -267,8 +268,8 @@ class _ListofcollaboratorsPERFILWidgetState
                         Align(
                           alignment: const AlignmentDirectional(0.09, -0.02),
                           child: Container(
-                            width: 150,
-                            height: 1,
+                            width: 150.0,
+                            height: 1.0,
                             decoration: const BoxDecoration(
                               color: Colors.white,
                             ),
@@ -277,8 +278,8 @@ class _ListofcollaboratorsPERFILWidgetState
                         Align(
                           alignment: const AlignmentDirectional(0.09, 0.52),
                           child: Container(
-                            width: 150,
-                            height: 50,
+                            width: 150.0,
+                            height: 50.0,
                             decoration: const BoxDecoration(
                               color: Color(0xFFFFCCF9),
                             ),
@@ -287,29 +288,29 @@ class _ListofcollaboratorsPERFILWidgetState
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Align(
-                                  alignment: const AlignmentDirectional(0, 0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Container(
-                                    width: 150,
-                                    height: 16,
+                                    width: 150.0,
+                                    height: 16.0,
                                     decoration: const BoxDecoration(),
                                     child: Stack(
                                       children: [
                                         const Align(
                                           alignment:
-                                              AlignmentDirectional(-1, 0),
+                                              AlignmentDirectional(-1.0, 0.0),
                                           child: Icon(
                                             Icons.business_center_outlined,
                                             color: Color(0xFF0E70DF),
-                                            size: 14,
+                                            size: 14.0,
                                           ),
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-1, 0),
+                                              const AlignmentDirectional(-1.0, 0.0),
                                           child: Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    20, 0, 0, 0),
+                                                    20.0, 0.0, 0.0, 0.0),
                                             child: Text(
                                               'Experience',
                                               style:
@@ -319,7 +320,7 @@ class _ListofcollaboratorsPERFILWidgetState
                                                         fontFamily:
                                                             'Montserrat',
                                                         color: Colors.black,
-                                                        fontSize: 11,
+                                                        fontSize: 11.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
@@ -332,12 +333,12 @@ class _ListofcollaboratorsPERFILWidgetState
                                   ),
                                 ),
                                 Align(
-                                  alignment: const AlignmentDirectional(0, 0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0, 10, 0, 0),
+                                        0.0, 10.0, 0.0, 0.0),
                                     child: Container(
-                                      width: 150,
+                                      width: 150.0,
                                       decoration: const BoxDecoration(),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -348,21 +349,22 @@ class _ListofcollaboratorsPERFILWidgetState
                                         children: [
                                           const Align(
                                             alignment:
-                                                AlignmentDirectional(-1, 0),
+                                                AlignmentDirectional(-1.0, 0.0),
                                             child: Icon(
                                               Icons.edit_document,
                                               color: Color(0xFF0E70DF),
-                                              size: 13,
+                                              size: 13.0,
                                             ),
                                           ),
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(0, 0),
+                                                const AlignmentDirectional(0.0, 0.0),
                                             child: Container(
                                               decoration: const BoxDecoration(),
                                               child: Padding(
                                                 padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(7, 0, 0, 0),
+                                                    .fromSTEB(
+                                                        7.0, 0.0, 0.0, 0.0),
                                                 child: Text(
                                                   'Qualified And Certified',
                                                   style: FlutterFlowTheme.of(
@@ -372,7 +374,7 @@ class _ListofcollaboratorsPERFILWidgetState
                                                         fontFamily:
                                                             'Montserrat',
                                                         color: Colors.black,
-                                                        fontSize: 10,
+                                                        fontSize: 10.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
@@ -386,7 +388,7 @@ class _ListofcollaboratorsPERFILWidgetState
                                     ),
                                   ),
                                 ),
-                              ].addToStart(const SizedBox(height: 7)),
+                              ].addToStart(const SizedBox(height: 7.0)),
                             ),
                           ),
                         ),
