@@ -1,15 +1,12 @@
 import '/backend/backend.dart';
-import '/components/home_vista_cuidador_widget.dart';
-import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/v2/favoritesv2/perfil_profesional_mapa/perfil_profesional_mapa_widget.dart';
 import '/v2/h0me/map_button/map_button_widget.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
-import 'home_search_widget.dart' show HomeSearchWidget;
+import 'map_aument_widget.dart' show MapAumentWidget;
 import 'package:flutter/material.dart';
 
-class HomeSearchModel extends FlutterFlowModel<HomeSearchWidget> {
+class MapAumentModel extends FlutterFlowModel<MapAumentWidget> {
   ///  Local state fields for this page.
 
   DocumentReference? currentProfesionalMap;
@@ -33,16 +30,8 @@ class HomeSearchModel extends FlutterFlowModel<HomeSearchWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  // Models for PerfilProfesionalMapa dynamic component.
-  late FlutterFlowDynamicModels<PerfilProfesionalMapaModel>
-      perfilProfesionalMapaModels;
-  // State field(s) for GoogleMap widget.
-  LatLng? googleMapsCenter;
-  final googleMapsController = Completer<GoogleMapController>();
   // Model for MapButton component.
   late MapButtonModel mapButtonModel;
-  // Model for HomeVistaCuidador component.
-  late HomeVistaCuidadorModel homeVistaCuidadorModel;
   // Model for Navbar component.
   late NavbarModel navbarModel;
   // Model for NavbarPremiun component.
@@ -50,20 +39,14 @@ class HomeSearchModel extends FlutterFlowModel<HomeSearchWidget> {
 
   @override
   void initState(BuildContext context) {
-    perfilProfesionalMapaModels =
-        FlutterFlowDynamicModels(() => PerfilProfesionalMapaModel());
     mapButtonModel = createModel(context, () => MapButtonModel());
-    homeVistaCuidadorModel =
-        createModel(context, () => HomeVistaCuidadorModel());
     navbarModel = createModel(context, () => NavbarModel());
     navbarPremiunModel = createModel(context, () => NavbarPremiunModel());
   }
 
   @override
   void dispose() {
-    perfilProfesionalMapaModels.dispose();
     mapButtonModel.dispose();
-    homeVistaCuidadorModel.dispose();
     navbarModel.dispose();
     navbarPremiunModel.dispose();
   }

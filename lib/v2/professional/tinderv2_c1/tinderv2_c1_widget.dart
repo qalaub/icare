@@ -43,9 +43,12 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
       if (loggedIn) {
         _model.professionals = _model.professional!
             .where((e) =>
-                (currentUserDocument?.dontShow.toList() ?? [])
-                    .contains(e.reference) ==
-                false)
+                ((currentUserDocument?.dontShow.toList() ?? [])
+                        .contains(e.reference) ==
+                    false) &&
+                ((currentUserDocument?.favorites.toList() ?? [])
+                        .contains(e.reference) ==
+                    false))
             .toList()
             .toList()
             .cast<UsersRecord>();
@@ -189,6 +192,23 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                     } else {
                                       _model.currentIndex =
                                           _model.currentIndex + 1;
+                                      if (_model.currentIndex >=
+                                          newData.length) {
+                                        unawaited(
+                                          () async {
+                                            await currentUserReference!.update({
+                                              ...mapToFirestore(
+                                                {
+                                                  'dontShow':
+                                                      FieldValue.arrayUnion([
+                                                    newDataItem.reference
+                                                  ]),
+                                                },
+                                              ),
+                                            });
+                                          }(),
+                                        );
+                                      }
                                       _model.currentProfessional =
                                           newData[_model.currentIndex];
                                       unawaited(
@@ -372,7 +392,7 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                   itemCount: newData.length,
                                   controller: _model.swipeableStackController,
                                   loop: false,
-                                  cardDisplayCount: 2,
+                                  cardDisplayCount: 1,
                                   scale: 0.9,
                                   cardPadding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),

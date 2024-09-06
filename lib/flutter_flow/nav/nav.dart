@@ -481,6 +481,21 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'cuestionario',
               path: 'cuestionario',
               builder: (context, params) => const CuestionarioWidget(),
+            ),
+            FFRoute(
+              name: 'MapAument',
+              path: 'mapAument',
+              builder: (context, params) => MapAumentWidget(
+                currentLatLng: params.getParam<LatLng>(
+                  'currentLatLng',
+                  ParamType.LatLng,
+                  isList: true,
+                ),
+                authUser: params.getParam(
+                  'authUser',
+                  ParamType.bool,
+                ),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

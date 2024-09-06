@@ -92,7 +92,7 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
                                 ClipRRect(
                                   borderRadius: BorderRadius.circular(8.0),
                                   child: Image.asset(
-                                    'assets/images/ments.png',
+                                    'assets/images/pantalla_grande_para_pleystore.png',
                                     width: 300.0,
                                     height: 200.0,
                                     fit: BoxFit.cover,

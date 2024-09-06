@@ -4,9 +4,11 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/v2/favoritesv2/add_favorites/add_favorites_widget.dart';
 import '/v2/menbresiav2/membresia_logo/membresia_logo_widget.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'v3fv0rites_model.dart';
 export 'v3fv0rites_model.dart';
 
@@ -131,7 +133,7 @@ class _V3fv0ritesWidgetState extends State<V3fv0ritesWidget> {
                           alignment: const AlignmentDirectional(-1.0, -1.0),
                           child: Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
-                                10.0, 15.0, 0.0, 0.0),
+                                10.0, 10.0, 0.0, 0.0),
                             child: Container(
                               width: 61.0,
                               height: 61.0,
@@ -266,20 +268,50 @@ class _V3fv0ritesWidgetState extends State<V3fv0ritesWidget> {
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 0.0, 0.0, 0.0),
-                                            child: Text(
-                                              'Experience',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Montserrat',
-                                                        color: Colors.black,
-                                                        fontSize: 11.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                      ),
+                                            child: RichText(
+                                              textScaler: MediaQuery.of(context)
+                                                  .textScaler,
+                                              text: TextSpan(
+                                                children: [
+                                                  TextSpan(
+                                                    text: 'Experience  ',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Montserrat',
+                                                          color: Colors.black,
+                                                          fontSize: 11.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
+                                                  ),
+                                                  TextSpan(
+                                                    text: containerUsersRecord
+                                                        .years
+                                                        .toString(),
+                                                    style: const TextStyle(),
+                                                  ),
+                                                  const TextSpan(
+                                                    text: ' years',
+                                                    style: TextStyle(),
+                                                  )
+                                                ],
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Montserrat',
+                                                          color: Colors.black,
+                                                          fontSize: 11.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -344,6 +376,97 @@ class _V3fv0ritesWidgetState extends State<V3fv0ritesWidget> {
                                   .divide(const SizedBox(height: 0.0))
                                   .addToStart(const SizedBox(height: 3.0)),
                             ),
+                          ),
+                        ),
+                        Align(
+                          alignment: const AlignmentDirectional(-1.0, 0.0),
+                          child: StreamBuilder<List<ReviewsRecord>>(
+                            stream: queryReviewsRecord(
+                              queryBuilder: (reviewsRecord) =>
+                                  reviewsRecord.where(
+                                'professional',
+                                isEqualTo: widget.profesionalId,
+                              ),
+                            ),
+                            builder: (context, snapshot) {
+                              // Customize what your widget looks like when it's loading.
+                              if (!snapshot.hasData) {
+                                return Center(
+                                  child: SizedBox(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    child: CircularProgressIndicator(
+                                      valueColor: AlwaysStoppedAnimation<Color>(
+                                        FlutterFlowTheme.of(context).primary,
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              }
+                              List<ReviewsRecord> ratingBarReviewsRecordList =
+                                  snapshot.data!;
+
+                              return InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                child: RatingBar.builder(
+                                  onRatingUpdate: (newValue) async {
+                                    safeSetState(
+                                        () => _model.ratingBarValue = newValue);
+                                    _model.reviewsC =
+                                        await queryReviewsRecordOnce(
+                                      queryBuilder: (reviewsRecord) =>
+                                          reviewsRecord
+                                              .where(
+                                                'participant',
+                                                isEqualTo: currentUserReference,
+                                              )
+                                              .where(
+                                                'professional',
+                                                isEqualTo:
+                                                    widget.profesionalId,
+                                              ),
+                                      singleRecord: true,
+                                    ).then((s) => s.firstOrNull);
+                                    if (_model.reviewsC?.reference != null) {
+                                      await _model.reviewsC!.reference
+                                          .update(createReviewsRecordData(
+                                        num: _model.ratingBarValue?.round(),
+                                      ));
+                                    } else {
+                                      await ReviewsRecord.collection
+                                          .doc()
+                                          .set(createReviewsRecordData(
+                                            num: _model.ratingBarValue?.round(),
+                                            professional: widget.profesionalId,
+                                            participant: currentUserReference,
+                                          ));
+                                    }
+
+                                    safeSetState(() {});
+                                  },
+                                  itemBuilder: (context, index) => const Icon(
+                                    Icons.star_rate,
+                                    color: Color(0xFFF9BF11),
+                                  ),
+                                  direction: Axis.horizontal,
+                                  initialRating: _model.ratingBarValue ??=
+                                      valueOrDefault<double>(
+                                    functions
+                                        .averagueReviews(
+                                            ratingBarReviewsRecordList.toList())
+                                        .toDouble(),
+                                    3.0,
+                                  ),
+                                  unratedColor: const Color(0x4D040202),
+                                  itemCount: 5,
+                                  itemSize: 15.0,
+                                  glowColor: const Color(0xFFF9BF11),
+                                ),
+                              );
+                            },
                           ),
                         ),
                       ],

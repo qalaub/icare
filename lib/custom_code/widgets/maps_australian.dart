@@ -33,6 +33,7 @@ class MapsAustralian extends StatefulWidget {
     this.age,
     this.service,
     this.language,
+    this.isProfessional,
   });
 
   final double? width;
@@ -45,6 +46,7 @@ class MapsAustralian extends StatefulWidget {
   final List<String>? age;
   final List<String>? service;
   final String? language;
+  final bool? isProfessional;
 
   @override
   State<MapsAustralian> createState() => _MapsAustralianState();
@@ -297,7 +299,7 @@ class _MapsAustralianState extends State<MapsAustralian> {
         widget.language!.isEmpty ||
         (user.languagues != null &&
             user.languagues!.contains(widget.language!));
-
+    if (widget.isProfessional == true) return true;
     return ageMatch && serviceMatch && languageMatch;
   }
 }

@@ -334,7 +334,9 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                       ListTileControlAffinity.trailing,
                                 ),
                               ),
-                            ],
+                            ]
+                                .addToStart(const SizedBox(height: 8.0))
+                                .addToEnd(const SizedBox(height: 8.0)),
                           ),
                         ),
                       ),

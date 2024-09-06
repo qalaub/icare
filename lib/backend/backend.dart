@@ -10,6 +10,7 @@ import 'schema/chat_messages_record.dart';
 import 'schema/chats_record.dart';
 import 'schema/codes_record.dart';
 import 'schema/newsbusiness_record.dart';
+import 'schema/reviews_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order;
@@ -23,6 +24,7 @@ export 'schema/chat_messages_record.dart';
 export 'schema/chats_record.dart';
 export 'schema/codes_record.dart';
 export 'schema/newsbusiness_record.dart';
+export 'schema/reviews_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -204,6 +206,43 @@ Future<List<NewsbusinessRecord>> queryNewsbusinessRecordOnce({
     queryCollectionOnce(
       NewsbusinessRecord.collection,
       NewsbusinessRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query ReviewsRecords (as a Stream and as a Future).
+Future<int> queryReviewsRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      ReviewsRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<ReviewsRecord>> queryReviewsRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      ReviewsRecord.collection,
+      ReviewsRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<ReviewsRecord>> queryReviewsRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      ReviewsRecord.collection,
+      ReviewsRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,

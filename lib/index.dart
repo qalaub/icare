@@ -76,3 +76,4 @@ export '/v2/register/professional/register_pfofesional4/register_pfofesional4_wi
     show RegisterPfofesional4Widget;
 export '/cuestionario/cuestionario/cuestionario_widget.dart'
     show CuestionarioWidget;
+export '/v2/h0me/map_aument/map_aument_widget.dart' show MapAumentWidget;

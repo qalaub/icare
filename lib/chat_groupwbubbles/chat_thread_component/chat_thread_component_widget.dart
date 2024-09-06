@@ -15,6 +15,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'chat_thread_component_model.dart';
 export 'chat_thread_component_model.dart';
 
@@ -329,7 +330,6 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                                     await selectMediaWithSourceBottomSheet(
                                   context: context,
                                   allowPhoto: true,
-                                  allowVideo: true,
                                   backgroundColor: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
                                   textColor:
@@ -475,7 +475,7 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
 
                                           safeSetState(() {});
                                         },
-                                        autofocus: true,
+                                        autofocus: false,
                                         textCapitalization:
                                             TextCapitalization.sentences,
                                         textInputAction: TextInputAction.send,
@@ -562,6 +562,14 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                                             ),
                                         maxLines: 12,
                                         minLines: 1,
+                                        maxLength: 150,
+                                        maxLengthEnforcement:
+                                            MaxLengthEnforcement.enforced,
+                                        buildCounter: (context,
+                                                {required currentLength,
+                                                required isFocused,
+                                                maxLength}) =>
+                                            null,
                                         cursorColor:
                                             FlutterFlowTheme.of(context)
                                                 .primary,

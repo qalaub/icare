@@ -167,3 +167,19 @@ String suguestionPlan(
 String emptyString() {
   return "";
 }
+
+int restOne(int index) {
+  return index - 1;
+}
+
+int averagueReviews(List<ReviewsRecord> reviews) {
+  // averague of Reviews from colletion reviews
+  if (reviews.isEmpty) {
+    return 4;
+  }
+  int sum = 0;
+  for (final review in reviews) {
+    sum += review.num;
+  }
+  return (sum / reviews.length).round();
+}

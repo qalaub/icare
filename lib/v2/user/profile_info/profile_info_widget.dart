@@ -333,12 +333,11 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
-                                          Align(
-                                            alignment: const AlignmentDirectional(
-                                                -1.0, -1.0),
+                                          Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 4.0),
                                             child: Container(
-                                              width: 161.0,
-                                              height: 36.0,
                                               decoration: const BoxDecoration(),
                                               child: Text(
                                                 valueOrDefault<String>(
@@ -357,7 +356,7 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                                           fontFamily:
                                                               'Montserrat',
                                                           color: Colors.white,
-                                                          fontSize: 18.0,
+                                                          fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                         ),
                                               ),

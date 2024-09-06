@@ -107,12 +107,12 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                     decoration: const BoxDecoration(
                                       gradient: LinearGradient(
                                         colors: [
-                                          Color(0xFFF0B65F),
-                                          Color(0xFF8D6B36)
+                                          Color(0xFFFFAE34),
+                                          Color(0xFF8C6239)
                                         ],
-                                        stops: [0.0, 0.7],
-                                        begin: AlignmentDirectional(0.0, 1.0),
-                                        end: AlignmentDirectional(0, -1.0),
+                                        stops: [0.0, 1.0],
+                                        begin: AlignmentDirectional(0.0, -1.0),
+                                        end: AlignmentDirectional(0, 1.0),
                                       ),
                                       borderRadius: BorderRadius.only(
                                         bottomLeft: Radius.circular(0.0),

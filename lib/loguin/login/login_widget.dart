@@ -570,7 +570,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                   }
                                                 }
                                               },
-                                              text: 'Access My Account',
+                                              text: 'Log in',
                                               options: FFButtonOptions(
                                                 width: 279.0,
                                                 height: 45.0,
@@ -624,21 +624,21 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                             fontFamily:
                                                                 'Montserrat',
                                                             color: Colors.black,
-                                                            fontSize: 13.0,
+                                                            fontSize: 14.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w500,
                                                           ),
                                                     ),
                                                     TextSpan(
-                                                      text: 'Create one here',
+                                                      text: 'sign up for iCare',
                                                       style:
                                                           GoogleFonts.getFont(
                                                         'Montserrat',
                                                         color: Colors.black,
                                                         fontWeight:
                                                             FontWeight.w600,
-                                                        fontSize: 16.0,
+                                                        fontSize: 15.0,
                                                         decoration:
                                                             TextDecoration
                                                                 .underline,

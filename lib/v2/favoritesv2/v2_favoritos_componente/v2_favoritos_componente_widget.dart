@@ -81,7 +81,7 @@ class _V2FavoritosComponenteWidgetState
 
           return Container(
             width: MediaQuery.sizeOf(context).width * 0.92,
-            height: 96.0,
+            height: 105.0,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(22.0),
@@ -119,7 +119,7 @@ class _V2FavoritosComponenteWidgetState
                               containerUsersRecord?.photoUrl,
                               'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
                             ),
-                            width: MediaQuery.sizeOf(context).width * 0.17,
+                            width: MediaQuery.sizeOf(context).width * 0.18,
                             height: 63.0,
                             fit: BoxFit.fitWidth,
                           ),
@@ -144,7 +144,7 @@ class _V2FavoritosComponenteWidgetState
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Align(
-                                    alignment: const AlignmentDirectional(0.0, -0.4),
+                                    alignment: const AlignmentDirectional(0.0, -0.1),
                                     child: Text(
                                       valueOrDefault<String>(
                                         functions.concatStrings(
@@ -157,7 +157,7 @@ class _V2FavoritosComponenteWidgetState
                                           .headlineLarge
                                           .override(
                                             fontFamily: 'Montserrat',
-                                            fontSize: 14.0,
+                                            fontSize: 15.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
@@ -167,13 +167,13 @@ class _V2FavoritosComponenteWidgetState
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.17, 1.02),
+                              alignment: const AlignmentDirectional(-1.0, 1.0),
                               child: Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 16.0),
+                                    0.0, 0.0, 0.0, 32.0),
                                 child: Container(
                                   width:
-                                      MediaQuery.sizeOf(context).width * 0.46,
+                                      MediaQuery.sizeOf(context).width * 0.56,
                                   height: 1.0,
                                   decoration: const BoxDecoration(
                                     color: Colors.white,

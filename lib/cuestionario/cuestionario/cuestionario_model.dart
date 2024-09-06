@@ -15,6 +15,10 @@ class CuestionarioModel extends FlutterFlowModel<CuestionarioWidget> {
 
   bool four = false;
 
+  ///  State fields for stateful widgets in this page.
+
+  final formKey = GlobalKey<FormState>();
+
   @override
   void initState(BuildContext context) {}
 
