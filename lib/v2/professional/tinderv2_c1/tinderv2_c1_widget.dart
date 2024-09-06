@@ -244,8 +244,17 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                                   ),
                                           singleRecord: true,
                                         ).then((s) => s.firstOrNull);
-                                        if (newDataItem.business != null) {
-                                          _model.newChatBusiness =
+                                        _model.addToUserToAdd(
+                                            currentUserReference!);
+                                        _model.addToUserToAdd(_model
+                                            .currentProfessional!.reference);
+                                        if (_model.chats?.reference != null
+                                            ? (_model.chats?.users.contains(
+                                                    _model.currentProfessional
+                                                        ?.reference) ==
+                                                true)
+                                            : false) {
+                                          _model.newRef =
                                               await queryChatsRecordOnce(
                                             queryBuilder: (chatsRecord) =>
                                                 chatsRecord
@@ -258,93 +267,60 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                                       'user_b',
                                                       isEqualTo: _model
                                                           .currentProfessional
-                                                          ?.business,
+                                                          ?.reference,
                                                     ),
                                             singleRecord: true,
                                           ).then((s) => s.firstOrNull);
-                                          _model.addToUserToAdd(
-                                              currentUserReference!);
-                                          _model.addToUserToAdd(_model
-                                              .currentProfessional!.business!);
-                                          if (_model.newChatBusiness
-                                                      ?.reference !=
-                                                  null
-                                              ? (_model.newChatBusiness?.users
-                                                      .contains(_model
-                                                          .currentProfessional
-                                                          ?.business) ==
-                                                  true)
-                                              : false) {
-                                            _model.newRefBusiness =
-                                                await queryChatsRecordOnce(
-                                              queryBuilder: (chatsRecord) =>
-                                                  chatsRecord
-                                                      .where(
-                                                        'user_a',
-                                                        isEqualTo:
-                                                            currentUserReference,
-                                                      )
-                                                      .where(
-                                                        'user_b',
-                                                        isEqualTo: _model
-                                                            .currentProfessional
-                                                            ?.business,
-                                                      ),
-                                              singleRecord: true,
-                                            ).then((s) => s.firstOrNull);
-                                          } else {
-                                            // newChat
+                                        } else {
+                                          // newChat
 
-                                            var chatsRecordReference1 =
-                                                ChatsRecord.collection.doc();
-                                            firestoreBatch
-                                                .set(chatsRecordReference1, {
-                                              ...createChatsRecordData(
-                                                userA: currentUserReference,
-                                                userB: _model
-                                                    .currentProfessional
-                                                    ?.business,
-                                                lastMessage: '',
-                                                lastMessageTime:
-                                                    getCurrentTimestamp,
-                                                lastMessageSentBy:
-                                                    currentUserReference,
-                                                groupChatId:
-                                                    random_data.randomInteger(
-                                                        1000000, 9999999),
-                                              ),
-                                              ...mapToFirestore(
-                                                {
-                                                  'users': _model.userToAdd,
-                                                },
-                                              ),
-                                            });
-                                            _model.newChatThreadBusiness =
-                                                ChatsRecord.getDocumentFromData(
-                                                    {
-                                                  ...createChatsRecordData(
-                                                    userA: currentUserReference,
-                                                    userB: _model
-                                                        .currentProfessional
-                                                        ?.business,
-                                                    lastMessage: '',
-                                                    lastMessageTime:
-                                                        getCurrentTimestamp,
-                                                    lastMessageSentBy:
-                                                        currentUserReference,
-                                                    groupChatId: random_data
-                                                        .randomInteger(
-                                                            1000000, 9999999),
-                                                  ),
-                                                  ...mapToFirestore(
-                                                    {
-                                                      'users': _model.userToAdd,
-                                                    },
-                                                  ),
-                                                },
-                                                    chatsRecordReference1);
-                                          }
+                                          var chatsRecordReference =
+                                              ChatsRecord.collection.doc();
+                                          firestoreBatch
+                                              .set(chatsRecordReference, {
+                                            ...createChatsRecordData(
+                                              userA: currentUserReference,
+                                              userB: _model.currentProfessional
+                                                  ?.reference,
+                                              lastMessage: '',
+                                              lastMessageTime:
+                                                  getCurrentTimestamp,
+                                              lastMessageSentBy:
+                                                  currentUserReference,
+                                              groupChatId:
+                                                  random_data.randomInteger(
+                                                      1000000, 9999999),
+                                            ),
+                                            ...mapToFirestore(
+                                              {
+                                                'users': _model.userToAdd,
+                                              },
+                                            ),
+                                          });
+                                          _model.newChatThread =
+                                              ChatsRecord.getDocumentFromData({
+                                            ...createChatsRecordData(
+                                              userA: currentUserReference,
+                                              userB: _model.currentProfessional
+                                                  ?.reference,
+                                              lastMessage: '',
+                                              lastMessageTime:
+                                                  getCurrentTimestamp,
+                                              lastMessageSentBy:
+                                                  currentUserReference,
+                                              groupChatId:
+                                                  random_data.randomInteger(
+                                                      1000000, 9999999),
+                                            ),
+                                            ...mapToFirestore(
+                                              {
+                                                'users': _model.userToAdd,
+                                              },
+                                            ),
+                                          }, chatsRecordReference);
+                                        }
 
+                                        if (newDataItem.business != null) {
                                           firestoreBatch.set(
                                               NewsbusinessRecord.collection
                                                   .doc(),
@@ -355,84 +331,6 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                                 user: currentUserReference,
                                                 isView: false,
                                               ));
-                                        } else {
-                                          _model.addToUserToAdd(
-                                              currentUserReference!);
-                                          _model.addToUserToAdd(_model
-                                              .currentProfessional!.reference);
-                                          if (_model.chats?.reference != null
-                                              ? (_model.chats?.users.contains(
-                                                      _model.currentProfessional
-                                                          ?.reference) ==
-                                                  true)
-                                              : false) {
-                                            _model.newRef =
-                                                await queryChatsRecordOnce(
-                                              queryBuilder: (chatsRecord) =>
-                                                  chatsRecord
-                                                      .where(
-                                                        'user_a',
-                                                        isEqualTo:
-                                                            currentUserReference,
-                                                      )
-                                                      .where(
-                                                        'user_b',
-                                                        isEqualTo: _model
-                                                            .currentProfessional
-                                                            ?.reference,
-                                                      ),
-                                              singleRecord: true,
-                                            ).then((s) => s.firstOrNull);
-                                          } else {
-                                            // newChat
-
-                                            var chatsRecordReference2 =
-                                                ChatsRecord.collection.doc();
-                                            firestoreBatch
-                                                .set(chatsRecordReference2, {
-                                              ...createChatsRecordData(
-                                                userA: currentUserReference,
-                                                userB: _model
-                                                    .currentProfessional
-                                                    ?.reference,
-                                                lastMessage: '',
-                                                lastMessageTime:
-                                                    getCurrentTimestamp,
-                                                lastMessageSentBy:
-                                                    currentUserReference,
-                                                groupChatId:
-                                                    random_data.randomInteger(
-                                                        1000000, 9999999),
-                                              ),
-                                              ...mapToFirestore(
-                                                {
-                                                  'users': _model.userToAdd,
-                                                },
-                                              ),
-                                            });
-                                            _model.newChatThread = ChatsRecord
-                                                .getDocumentFromData({
-                                              ...createChatsRecordData(
-                                                userA: currentUserReference,
-                                                userB: _model
-                                                    .currentProfessional
-                                                    ?.reference,
-                                                lastMessage: '',
-                                                lastMessageTime:
-                                                    getCurrentTimestamp,
-                                                lastMessageSentBy:
-                                                    currentUserReference,
-                                                groupChatId:
-                                                    random_data.randomInteger(
-                                                        1000000, 9999999),
-                                              ),
-                                              ...mapToFirestore(
-                                                {
-                                                  'users': _model.userToAdd,
-                                                },
-                                              ),
-                                            }, chatsRecordReference2);
-                                          }
                                         }
 
                                         context.pushNamed(

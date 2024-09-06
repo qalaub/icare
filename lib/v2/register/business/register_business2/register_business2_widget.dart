@@ -1608,40 +1608,6 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
                                                         ),
                                                       ),
                                                     ),
-                                                    if (!_model.termsAccept)
-                                                      Align(
-                                                        alignment:
-                                                            const AlignmentDirectional(
-                                                                0.0, 0.8),
-                                                        child: Padding(
-                                                          padding:
-                                                              const EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      20.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            'Please accept T&Cs to create your account',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Montserrat',
-                                                                  color: const Color(
-                                                                      0xFFFF5963),
-                                                                  fontSize:
-                                                                      11.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ),
                                                   ],
                                                 ),
                                               ),
@@ -1661,6 +1627,33 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
                                               ),
                                             ),
                                           ),
+                                          if (!_model.termsAccept)
+                                            Align(
+                                              alignment: const AlignmentDirectional(
+                                                  0.0, -1.0),
+                                              child: Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        20.0, 0.0, 0.0, 0.0),
+                                                child: Text(
+                                                  'Please accept T&Cs to create your account',
+                                                  textAlign: TextAlign.center,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Montserrat',
+                                                        color:
+                                                            const Color(0xFFFF5963),
+                                                        fontSize: 11.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                      ),
+                                                ),
+                                              ),
+                                            ),
                                           Align(
                                             alignment:
                                                 const AlignmentDirectional(0.01, 0.7),

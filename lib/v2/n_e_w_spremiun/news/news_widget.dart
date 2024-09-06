@@ -83,180 +83,186 @@ class _NewsWidgetState extends State<NewsWidget> {
             children: [
               Container(
                 width: MediaQuery.sizeOf(context).width * 1.0,
-                height: MediaQuery.sizeOf(context).height * 1.0,
+                height: MediaQuery.sizeOf(context).height * 0.84,
                 decoration: const BoxDecoration(
                   color: Colors.white,
                 ),
-              ),
-              Column(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
-                    child: Container(
-                      decoration: const BoxDecoration(),
-                      child: Padding(
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
-                        child: Text(
-                          'New ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
+                            const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                        child: Container(
+                          decoration: const BoxDecoration(),
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 12.0, 0.0, 0.0),
+                            child: Text(
+                              'New ',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
                                     fontFamily: 'Poppins',
                                     fontSize: 20.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  StreamBuilder<List<NewsbusinessRecord>>(
-                    stream: queryNewsbusinessRecord(
-                      queryBuilder: (newsbusinessRecord) => newsbusinessRecord
-                          .where(
-                            'business',
-                            isEqualTo: currentUserReference,
-                          )
-                          .where(
-                            'isView',
-                            isEqualTo: false,
-                          ),
-                    ),
-                    builder: (context, snapshot) {
-                      // Customize what your widget looks like when it's loading.
-                      if (!snapshot.hasData) {
-                        return Center(
-                          child: SizedBox(
-                            width: 50.0,
-                            height: 50.0,
-                            child: CircularProgressIndicator(
-                              valueColor: AlwaysStoppedAnimation<Color>(
-                                FlutterFlowTheme.of(context).primary,
-                              ),
                             ),
                           ),
-                        );
-                      }
-                      List<NewsbusinessRecord> listViewNewsbusinessRecordList =
-                          snapshot.data!;
-
-                      return ListView.separated(
-                        padding: const EdgeInsets.fromLTRB(
-                          0,
-                          7.0,
-                          0,
-                          0,
                         ),
-                        shrinkWrap: true,
-                        scrollDirection: Axis.vertical,
-                        itemCount: listViewNewsbusinessRecordList.length,
-                        separatorBuilder: (_, __) => const SizedBox(height: 1.0),
-                        itemBuilder: (context, listViewIndex) {
-                          final listViewNewsbusinessRecord =
-                              listViewNewsbusinessRecordList[listViewIndex];
-                          return InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              await listViewNewsbusinessRecord.reference
-                                  .update(createNewsbusinessRecordData(
-                                isView: true,
-                              ));
+                      ),
+                      StreamBuilder<List<NewsbusinessRecord>>(
+                        stream: queryNewsbusinessRecord(
+                          queryBuilder: (newsbusinessRecord) =>
+                              newsbusinessRecord
+                                  .where(
+                                    'business',
+                                    isEqualTo: currentUserReference,
+                                  )
+                                  .where(
+                                    'isView',
+                                    isEqualTo: false,
+                                  ),
+                        ),
+                        builder: (context, snapshot) {
+                          // Customize what your widget looks like when it's loading.
+                          if (!snapshot.hasData) {
+                            return Center(
+                              child: SizedBox(
+                                width: 50.0,
+                                height: 50.0,
+                                child: CircularProgressIndicator(
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                    FlutterFlowTheme.of(context).primary,
+                                  ),
+                                ),
+                              ),
+                            );
+                          }
+                          List<NewsbusinessRecord>
+                              listViewNewsbusinessRecordList = snapshot.data!;
+
+                          return ListView.separated(
+                            padding: const EdgeInsets.fromLTRB(
+                              0,
+                              7.0,
+                              0,
+                              0,
+                            ),
+                            shrinkWrap: true,
+                            scrollDirection: Axis.vertical,
+                            itemCount: listViewNewsbusinessRecordList.length,
+                            separatorBuilder: (_, __) => const SizedBox(height: 1.0),
+                            itemBuilder: (context, listViewIndex) {
+                              final listViewNewsbusinessRecord =
+                                  listViewNewsbusinessRecordList[listViewIndex];
+                              return InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  await listViewNewsbusinessRecord.reference
+                                      .update(createNewsbusinessRecordData(
+                                    isView: true,
+                                  ));
+                                },
+                                child: NewNotifcationsWidget(
+                                  key: Key(
+                                      'Keybx2_${listViewIndex}_of_${listViewNewsbusinessRecordList.length}'),
+                                  participant: listViewNewsbusinessRecord.user!,
+                                  professional:
+                                      listViewNewsbusinessRecord.professional!,
+                                ),
+                              );
                             },
-                            child: NewNotifcationsWidget(
-                              key: Key(
-                                  'Keybx2_${listViewIndex}_of_${listViewNewsbusinessRecordList.length}'),
-                              participant: listViewNewsbusinessRecord.user!,
-                              professional:
-                                  listViewNewsbusinessRecord.professional!,
-                            ),
                           );
                         },
-                      );
-                    },
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
-                    child: Container(
-                      decoration: const BoxDecoration(),
-                      child: Padding(
+                      ),
+                      Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
-                        child: Text(
-                          'Previous',
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
+                            const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                        child: Container(
+                          decoration: const BoxDecoration(),
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 12.0, 0.0, 0.0),
+                            child: Text(
+                              'Previous',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
                                     fontFamily: 'Poppins',
                                     fontSize: 20.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  StreamBuilder<List<NewsbusinessRecord>>(
-                    stream: queryNewsbusinessRecord(
-                      queryBuilder: (newsbusinessRecord) => newsbusinessRecord
-                          .where(
-                            'business',
-                            isEqualTo: currentUserReference,
-                          )
-                          .where(
-                            'isView',
-                            isEqualTo: true,
-                          ),
-                    ),
-                    builder: (context, snapshot) {
-                      // Customize what your widget looks like when it's loading.
-                      if (!snapshot.hasData) {
-                        return Center(
-                          child: SizedBox(
-                            width: 50.0,
-                            height: 50.0,
-                            child: CircularProgressIndicator(
-                              valueColor: AlwaysStoppedAnimation<Color>(
-                                FlutterFlowTheme.of(context).primary,
-                              ),
                             ),
                           ),
-                        );
-                      }
-                      List<NewsbusinessRecord> listViewNewsbusinessRecordList =
-                          snapshot.data!;
-
-                      return ListView.builder(
-                        padding: const EdgeInsets.fromLTRB(
-                          0,
-                          7.0,
-                          0,
-                          0,
                         ),
-                        shrinkWrap: true,
-                        scrollDirection: Axis.vertical,
-                        itemCount: listViewNewsbusinessRecordList.length,
-                        itemBuilder: (context, listViewIndex) {
-                          final listViewNewsbusinessRecord =
-                              listViewNewsbusinessRecordList[listViewIndex];
-                          return NewNotifcationsWidget(
-                            key: Key(
-                                'Keynx3_${listViewIndex}_of_${listViewNewsbusinessRecordList.length}'),
-                            participant: listViewNewsbusinessRecord.user!,
-                            professional:
-                                listViewNewsbusinessRecord.professional!,
+                      ),
+                      StreamBuilder<List<NewsbusinessRecord>>(
+                        stream: queryNewsbusinessRecord(
+                          queryBuilder: (newsbusinessRecord) =>
+                              newsbusinessRecord
+                                  .where(
+                                    'business',
+                                    isEqualTo: currentUserReference,
+                                  )
+                                  .where(
+                                    'isView',
+                                    isEqualTo: true,
+                                  ),
+                        ),
+                        builder: (context, snapshot) {
+                          // Customize what your widget looks like when it's loading.
+                          if (!snapshot.hasData) {
+                            return Center(
+                              child: SizedBox(
+                                width: 50.0,
+                                height: 50.0,
+                                child: CircularProgressIndicator(
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                    FlutterFlowTheme.of(context).primary,
+                                  ),
+                                ),
+                              ),
+                            );
+                          }
+                          List<NewsbusinessRecord>
+                              listViewNewsbusinessRecordList = snapshot.data!;
+
+                          return ListView.builder(
+                            padding: const EdgeInsets.fromLTRB(
+                              0,
+                              7.0,
+                              0,
+                              0,
+                            ),
+                            shrinkWrap: true,
+                            scrollDirection: Axis.vertical,
+                            itemCount: listViewNewsbusinessRecordList.length,
+                            itemBuilder: (context, listViewIndex) {
+                              final listViewNewsbusinessRecord =
+                                  listViewNewsbusinessRecordList[listViewIndex];
+                              return NewNotifcationsWidget(
+                                key: Key(
+                                    'Keynx3_${listViewIndex}_of_${listViewNewsbusinessRecordList.length}'),
+                                participant: listViewNewsbusinessRecord.user!,
+                                professional:
+                                    listViewNewsbusinessRecord.professional!,
+                              );
+                            },
                           );
                         },
-                      );
-                    },
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
               Align(
                 alignment: const AlignmentDirectional(0.0, 1.01),

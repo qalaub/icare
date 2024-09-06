@@ -142,8 +142,10 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                                 if (currentUserDocument?.rol == Roles.user) {
                                   context.pushNamed('favV3Copy');
                                 } else {
-                                  if (currentUserDocument?.plan ==
-                                      Plan.standar) {
+                                  if ((currentUserDocument?.plan ==
+                                          Plan.standar) ||
+                                      (currentUserDocument?.plan ==
+                                          Plan.premiun)) {
                                     context.pushNamed(
                                         'peoplewhoputyouinfavorites');
                                   } else {

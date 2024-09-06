@@ -348,7 +348,7 @@ class _RegisterProfessional3WidgetState
                                                         child: Align(
                                                           alignment:
                                                               const AlignmentDirectional(
-                                                                  0.0, 1.0),
+                                                                  0.0, -1.0),
                                                           child: StreamBuilder<
                                                               List<
                                                                   UsersRecord>>(
@@ -421,10 +421,12 @@ class _RegisterProfessional3WidgetState
                                                                 searchHintTextStyle:
                                                                     FlutterFlowTheme.of(
                                                                             context)
-                                                                        .labelMedium
+                                                                        .bodyMedium
                                                                         .override(
                                                                           fontFamily:
                                                                               'Readex Pro',
+                                                                          color:
+                                                                              Colors.black,
                                                                           letterSpacing:
                                                                               0.0,
                                                                         ),
@@ -482,7 +484,7 @@ class _RegisterProfessional3WidgetState
                                                                 hidesUnderline:
                                                                     true,
                                                                 isOverButton:
-                                                                    true,
+                                                                    false,
                                                                 isSearchable:
                                                                     true,
                                                                 isMultiSelect:

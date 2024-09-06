@@ -42,12 +42,6 @@ class Tinderv2C1Model extends FlutterFlowModel<Tinderv2C1Widget> {
   // Stores action output result for [Firestore Query - Query a collection] action in SwipeableStack widget.
   ChatsRecord? chats;
   // Stores action output result for [Firestore Query - Query a collection] action in SwipeableStack widget.
-  ChatsRecord? newChatBusiness;
-  // Stores action output result for [Firestore Query - Query a collection] action in SwipeableStack widget.
-  ChatsRecord? newRefBusiness;
-  // Stores action output result for [Backend Call - Create Document] action in SwipeableStack widget.
-  ChatsRecord? newChatThreadBusiness;
-  // Stores action output result for [Firestore Query - Query a collection] action in SwipeableStack widget.
   ChatsRecord? newRef;
   // Stores action output result for [Backend Call - Create Document] action in SwipeableStack widget.
   ChatsRecord? newChatThread;

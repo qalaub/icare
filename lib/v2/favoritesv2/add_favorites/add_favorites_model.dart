@@ -19,12 +19,6 @@ class AddFavoritesModel extends FlutterFlowModel<AddFavoritesWidget> {
   ///  State fields for stateful widgets in this component.
 
   // Stores action output result for [Firestore Query - Query a collection] action in IconButton widget.
-  ChatsRecord? newChatBusiness;
-  // Stores action output result for [Firestore Query - Query a collection] action in IconButton widget.
-  ChatsRecord? newRefBusiness;
-  // Stores action output result for [Backend Call - Create Document] action in IconButton widget.
-  ChatsRecord? newChatThreadBusiness;
-  // Stores action output result for [Firestore Query - Query a collection] action in IconButton widget.
   ChatsRecord? newRef;
   // Stores action output result for [Backend Call - Create Document] action in IconButton widget.
   ChatsRecord? newChatThread;

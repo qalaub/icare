@@ -1,5 +1,4 @@
 import '/backend/backend.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -191,40 +190,6 @@ class _V2FavoritosComponenteWidgetState
                       child: Container(
                         decoration: const BoxDecoration(),
                         alignment: const AlignmentDirectional(0.0, 0.0),
-                        child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 5.0, 5.0, 5.0),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              FlutterFlowIconButton(
-                                borderColor: Colors.transparent,
-                                borderRadius: 24.0,
-                                borderWidth: 1.0,
-                                buttonSize:
-                                    MediaQuery.sizeOf(context).width * 0.106,
-                                icon: const Icon(
-                                  Icons.arrow_forward_ios_rounded,
-                                  color: Colors.white,
-                                  size: 29.0,
-                                ),
-                                onPressed: () async {
-                                  context.pushNamed(
-                                    'profile_info',
-                                    queryParameters: {
-                                      'professional': serializeParam(
-                                        widget.professionalRef,
-                                        ParamType.DocumentReference,
-                                      ),
-                                    }.withoutNulls,
-                                  );
-                                },
-                              ),
-                            ],
-                          ),
-                        ),
                       ),
                     ),
                   ],

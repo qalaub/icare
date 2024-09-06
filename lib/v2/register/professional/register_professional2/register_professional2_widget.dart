@@ -222,6 +222,8 @@ class _RegisterProfessional2WidgetState
                                           AutovalidateMode.disabled,
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
                                         children: [
                                           Align(
                                             alignment:
@@ -1761,40 +1763,6 @@ class _RegisterProfessional2WidgetState
                                                         ),
                                                       ),
                                                     ),
-                                                    if (!_model.termsAccept)
-                                                      Align(
-                                                        alignment:
-                                                            const AlignmentDirectional(
-                                                                0.0, 0.8),
-                                                        child: Padding(
-                                                          padding:
-                                                              const EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      20.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            'Please accept T&Cs to create your account',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Montserrat',
-                                                                  color: const Color(
-                                                                      0xFFFF5963),
-                                                                  fontSize:
-                                                                      11.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ),
                                                   ],
                                                 ),
                                               ),
@@ -1814,6 +1782,32 @@ class _RegisterProfessional2WidgetState
                                               ),
                                             ),
                                           ),
+                                          if (!_model.termsAccept)
+                                            Align(
+                                              alignment: const AlignmentDirectional(
+                                                  0.0, 0.8),
+                                              child: Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        20.0, 0.0, 0.0, 0.0),
+                                                child: Text(
+                                                  'Please accept T&Cs to create your account',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Montserrat',
+                                                        color:
+                                                            const Color(0xFFFF5963),
+                                                        fontSize: 11.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                      ),
+                                                ),
+                                              ),
+                                            ),
                                           Align(
                                             alignment:
                                                 const AlignmentDirectional(0.01, 0.7),

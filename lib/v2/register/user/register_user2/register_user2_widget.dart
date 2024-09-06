@@ -1201,9 +1201,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                   FFAppState().counter = 0;
                                                   FFAppState()
                                                       .updateRegisterProviderFormStruct(
-                                                    (e) => e
-                                                      ..rol = Roles.user
-                                                      ..plan = Plan.basic,
+                                                    (e) => e..rol = Roles.user,
                                                   );
                                                   GoRouter.of(context)
                                                       .prepareAuthEvent();

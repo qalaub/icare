@@ -60,7 +60,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
         await Future.delayed(const Duration(milliseconds: 1500));
         await requestPermission(locationPermission);
       }
-      if (widget.authUser) {
+      if (loggedIn) {
         if (currentUserDocument?.rol != Roles.user) {
           if (valueOrDefault<bool>(currentUserDocument?.freeTrial, false) ==
               true) {
@@ -217,19 +217,17 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                                   .height *
                                               1.0,
                                           current: currentUserLocationValue,
-                                          markers: (currentUserDocument?.rol !=
-                                                      Roles.profesional) &&
-                                                  (currentUserDocument?.rol !=
-                                                      Roles.business)
+                                          markers: currentUserDocument?.rol !=
+                                                  Roles.user
                                               ? mapsAustralianUsersRecordList
+                                                  .where((e) =>
+                                                      e.rol == Roles.user)
+                                                  .toList()
+                                              : mapsAustralianUsersRecordList
                                                   .where((e) =>
                                                       (e.rol ==
                                                           Roles.profesional) ||
                                                       (e.rol == Roles.business))
-                                                  .toList()
-                                              : mapsAustralianUsersRecordList
-                                                  .where((e) =>
-                                                      e.rol == Roles.user)
                                                   .toList(),
                                           distance: valueOrDefault<double>(
                                             FFAppState().filtersPage.distance,
