@@ -1331,7 +1331,8 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                                   .newUbication!))
                                                       ..lastName = _model
                                                           .lastNameTextController
-                                                          .text,
+                                                          .text
+                                                      ..images = [],
                                                   );
                                                   FFAppState().verifyForm =
                                                       FormVerifyStruct();

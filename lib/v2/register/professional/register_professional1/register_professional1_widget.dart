@@ -1382,7 +1382,8 @@ class _RegisterProfessional1WidgetState
                                                                   .newUbication!))
                                                       ..lastName = _model
                                                           .lastNameTextController
-                                                          .text,
+                                                          .text
+                                                      ..images = [],
                                                   );
                                                   FFAppState().verifyForm =
                                                       FormVerifyStruct();
