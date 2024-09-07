@@ -898,7 +898,7 @@ class _RegisterProfessional1WidgetState
                                                   Align(
                                                     alignment:
                                                         const AlignmentDirectional(
-                                                            0.0, 1.7),
+                                                            0.0, 1.9),
                                                     child: Text(
                                                       'This email already has an account, use another email',
                                                       style: FlutterFlowTheme

@@ -407,7 +407,13 @@ class _RegisterProfessional3WidgetState
                                                                     .toList()
                                                                     .where((e) =>
                                                                         e != '')
-                                                                    .toList()),
+                                                                    .toList()
+                                                                    .sortedList(
+                                                                        keyOf:
+                                                                            (e) =>
+                                                                                e,
+                                                                        desc:
+                                                                            false)),
                                                                 optionLabels: const <String>[],
                                                                 onChanged: (val) =>
                                                                     safeSetState(() =>
