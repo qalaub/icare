@@ -201,6 +201,11 @@ class UsersRecord extends FirestoreRecord {
   List<String> get disabilities => _disabilities ?? const [];
   bool hasDisabilities() => _disabilities != null;
 
+  // "video" field.
+  String? _video;
+  String get video => _video ?? '';
+  bool hasVideo() => _video != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -239,6 +244,7 @@ class UsersRecord extends FirestoreRecord {
     _isFreeTrialFInish = snapshotData['isFreeTrialFInish'] as bool?;
     _firtsLogin = snapshotData['firtsLogin'] as bool?;
     _disabilities = getDataList(snapshotData['disabilities']);
+    _video = snapshotData['video'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -304,6 +310,7 @@ Map<String, dynamic> createUsersRecordData({
   DateTime? paymentDate,
   bool? isFreeTrialFInish,
   bool? firtsLogin,
+  String? video,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -336,6 +343,7 @@ Map<String, dynamic> createUsersRecordData({
       'paymentDate': paymentDate,
       'isFreeTrialFInish': isFreeTrialFInish,
       'firtsLogin': firtsLogin,
+      'video': video,
     }.withoutNulls,
   );
 
@@ -384,7 +392,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.paymentDate == e2?.paymentDate &&
         e1?.isFreeTrialFInish == e2?.isFreeTrialFInish &&
         e1?.firtsLogin == e2?.firtsLogin &&
-        listEquality.equals(e1?.disabilities, e2?.disabilities);
+        listEquality.equals(e1?.disabilities, e2?.disabilities) &&
+        e1?.video == e2?.video;
   }
 
   @override
@@ -425,7 +434,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.paymentDate,
         e?.isFreeTrialFInish,
         e?.firtsLogin,
-        e?.disabilities
+        e?.disabilities,
+        e?.video
       ]);
 
   @override

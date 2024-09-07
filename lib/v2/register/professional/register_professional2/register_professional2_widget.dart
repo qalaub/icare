@@ -186,7 +186,7 @@ class _RegisterProfessional2WidgetState
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(8.0),
                                   child: Image.asset(
-                                    'assets/images/logo-1.png',
+                                    'assets/images/logoapp.png',
                                     width: 113.0,
                                     height: 106.0,
                                     fit: BoxFit.fitWidth,
