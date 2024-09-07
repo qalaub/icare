@@ -191,6 +191,8 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                       _model.currentProfessional =
                                           newData[_model.currentIndex];
                                     } else {
+                                      _model.showMessage = false;
+                                      safeSetState(() {});
                                       _model.currentIndex =
                                           _model.currentIndex + 1;
                                       if (_model.currentIndex >=
@@ -209,6 +211,8 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                             });
                                           }(),
                                         );
+                                        _model.showMessage = true;
+                                        safeSetState(() {});
                                       }
                                       _model.currentProfessional =
                                           newData[_model.currentIndex];
@@ -403,7 +407,8 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                             ),
                           ),
                         ),
-                      if (_model.professionals.isEmpty)
+                      if ((_model.professionals.isEmpty) ||
+                          _model.showMessage)
                         Align(
                           alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Container(

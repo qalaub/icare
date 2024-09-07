@@ -34,6 +34,8 @@ class Tinderv2C1Model extends FlutterFlowModel<Tinderv2C1Widget> {
 
   int currentIndex = 0;
 
+  bool showMessage = false;
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Firestore Query - Query a collection] action in tinderv2C1 widget.
