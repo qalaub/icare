@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
+import '/v2/professional/mensage_tinder/mensage_tinder_widget.dart';
 import '/v2/professional/tinderv2_c0/tinderv2_c0_widget.dart';
 import 'dart:async';
 import '/flutter_flow/random_data_util.dart' as random_data;
@@ -399,6 +400,23 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                   backCardOffset: const Offset(1.0, 1.0),
                                 );
                               },
+                            ),
+                          ),
+                        ),
+                      if (_model.professionals.isEmpty)
+                        Align(
+                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          child: Container(
+                            constraints: BoxConstraints(
+                              maxWidth: MediaQuery.sizeOf(context).width * 0.96,
+                              maxHeight:
+                                  MediaQuery.sizeOf(context).height * 0.65,
+                            ),
+                            decoration: const BoxDecoration(),
+                            child: wrapWithModel(
+                              model: _model.mensageTinderModel,
+                              updateCallback: () => safeSetState(() {}),
+                              child: const MensageTinderWidget(),
                             ),
                           ),
                         ),

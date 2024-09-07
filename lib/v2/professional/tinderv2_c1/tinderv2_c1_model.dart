@@ -2,6 +2,7 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
+import '/v2/professional/mensage_tinder/mensage_tinder_widget.dart';
 import 'tinderv2_c1_widget.dart' show Tinderv2C1Widget;
 import 'package:flutter/material.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
@@ -45,6 +46,8 @@ class Tinderv2C1Model extends FlutterFlowModel<Tinderv2C1Widget> {
   ChatsRecord? newRef;
   // Stores action output result for [Backend Call - Create Document] action in SwipeableStack widget.
   ChatsRecord? newChatThread;
+  // Model for MENSAGE_TINDER component.
+  late MensageTinderModel mensageTinderModel;
   // Model for Navbar component.
   late NavbarModel navbarModel;
   // Model for NavbarPremiun component.
@@ -53,12 +56,14 @@ class Tinderv2C1Model extends FlutterFlowModel<Tinderv2C1Widget> {
   @override
   void initState(BuildContext context) {
     swipeableStackController = CardSwiperController();
+    mensageTinderModel = createModel(context, () => MensageTinderModel());
     navbarModel = createModel(context, () => NavbarModel());
     navbarPremiunModel = createModel(context, () => NavbarPremiunModel());
   }
 
   @override
   void dispose() {
+    mensageTinderModel.dispose();
     navbarModel.dispose();
     navbarPremiunModel.dispose();
   }
