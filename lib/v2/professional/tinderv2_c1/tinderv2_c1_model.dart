@@ -42,6 +42,8 @@ class Tinderv2C1Model extends FlutterFlowModel<Tinderv2C1Widget> {
 
   // Stores action output result for [Firestore Query - Query a collection] action in tinderv2C1 widget.
   List<UsersRecord>? professional;
+  // Model for MENSAGE_TINDER component.
+  late MensageTinderModel mensageTinderModel;
   // State field(s) for SwipeableStack widget.
   late CardSwiperController swipeableStackController;
   // Stores action output result for [Firestore Query - Query a collection] action in SwipeableStack widget.
@@ -50,8 +52,6 @@ class Tinderv2C1Model extends FlutterFlowModel<Tinderv2C1Widget> {
   ChatsRecord? newRef;
   // Stores action output result for [Backend Call - Create Document] action in SwipeableStack widget.
   ChatsRecord? newChatThread;
-  // Model for MENSAGE_TINDER component.
-  late MensageTinderModel mensageTinderModel;
   // Model for Navbar component.
   late NavbarModel navbarModel;
   // Model for NavbarPremiun component.
@@ -59,8 +59,8 @@ class Tinderv2C1Model extends FlutterFlowModel<Tinderv2C1Widget> {
 
   @override
   void initState(BuildContext context) {
-    swipeableStackController = CardSwiperController();
     mensageTinderModel = createModel(context, () => MensageTinderModel());
+    swipeableStackController = CardSwiperController();
     navbarModel = createModel(context, () => NavbarModel());
     navbarPremiunModel = createModel(context, () => NavbarPremiunModel());
   }
