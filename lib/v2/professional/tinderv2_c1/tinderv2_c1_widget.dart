@@ -167,7 +167,8 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      if (_model.professionals.isNotEmpty)
+                      if ((_model.professionals.isNotEmpty) ||
+                          !_model.showMessage)
                         Align(
                           alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Container(
