@@ -230,7 +230,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                               width: double.infinity,
                                               height: MediaQuery.sizeOf(context)
                                                       .height *
-                                                  0.825,
+                                                  0.72,
                                               decoration: BoxDecoration(
                                                 color: const Color(0xFFFDFDFD),
                                                 boxShadow: const [
