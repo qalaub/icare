@@ -115,10 +115,8 @@ class _V2FavoritosComponenteWidgetState
                           child: CachedNetworkImage(
                             fadeInDuration: const Duration(milliseconds: 500),
                             fadeOutDuration: const Duration(milliseconds: 500),
-                            imageUrl: valueOrDefault<String>(
-                              containerUsersRecord?.photoUrl,
-                              'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
-                            ),
+                            imageUrl:
+                                'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
                             width: MediaQuery.sizeOf(context).width * 0.18,
                             height: 63.0,
                             fit: BoxFit.fitWidth,
