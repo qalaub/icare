@@ -113,7 +113,7 @@ class _MapAumentWidgetState extends State<MapAumentWidget> {
                     alignment: const AlignmentDirectional(0.0, -1.0),
                     child: Container(
                       width: MediaQuery.sizeOf(context).width * 1.0,
-                      height: MediaQuery.sizeOf(context).height * 0.825,
+                      height: MediaQuery.sizeOf(context).height * 0.845,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                       ),
