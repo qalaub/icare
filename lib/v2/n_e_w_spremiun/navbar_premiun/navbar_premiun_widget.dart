@@ -221,7 +221,7 @@ class _NavbarPremiunWidgetState extends State<NavbarPremiunWidget> {
                 Align(
                   alignment: const AlignmentDirectional(-0.33, 0.64),
                   child: Text(
-                    'news',
+                    'News',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Poppins',
                           color: Colors.white,

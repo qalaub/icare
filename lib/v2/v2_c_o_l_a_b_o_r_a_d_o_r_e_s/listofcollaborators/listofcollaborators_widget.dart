@@ -85,7 +85,7 @@ class _ListofcollaboratorsWidgetState extends State<ListofcollaboratorsWidget> {
                                 Align(
                                   alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Text(
-                                    'list of collaborators',
+                                    'List Of Collaborators',
                                     style: FlutterFlowTheme.of(context)
                                         .headlineSmall
                                         .override(
