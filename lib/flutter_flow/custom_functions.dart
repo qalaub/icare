@@ -183,3 +183,32 @@ int averagueReviews(List<ReviewsRecord> reviews) {
   }
   return (sum / reviews.length).round();
 }
+
+bool? validateDate(String dateString) {
+  try {
+    final format = RegExp(r'(\d{2})/(\d{2})/(\d{4})');
+    final match = format.firstMatch(dateString);
+
+    if (match == null) {
+      throw FormatException(); // El formato no coincide
+    }
+
+    final day = int.parse(match.group(1)!);
+    final month = int.parse(match.group(2)!);
+    final year = int.parse(match.group(3)!);
+
+    final birthDate = DateTime(year, month, day);
+    final now = DateTime.now();
+    final adulthoodDate = DateTime(now.year - 18, now.month, now.day);
+
+    if (birthDate.isBefore(adulthoodDate)) {
+      return true; // La persona es mayor de edad
+    } else {
+      // Mensaje de error corto
+      print('Must be 18+ years old.');
+      return false; // La persona no es mayor de edad
+    }
+  } catch (e) {
+    return false; // Cambié a `false` para manejar casos de error de formato
+  }
+}

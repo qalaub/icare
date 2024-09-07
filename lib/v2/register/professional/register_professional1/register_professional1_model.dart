@@ -73,7 +73,8 @@ class RegisterProfessional1Model
       return 'Field is required';
     }
 
-    if (!RegExp(kTextValidatorEmailRegex).hasMatch(val)) {
+    if (!RegExp('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}\$')
+        .hasMatch(val)) {
       return 'Please enter a valid e-mail addres';
     }
     return null;

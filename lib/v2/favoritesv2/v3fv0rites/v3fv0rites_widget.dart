@@ -133,7 +133,7 @@ class _V3fv0ritesWidgetState extends State<V3fv0ritesWidget> {
                           alignment: const AlignmentDirectional(-1.0, -1.0),
                           child: Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
-                                10.0, 10.0, 0.0, 0.0),
+                                10.0, 14.0, 0.0, 0.0),
                             child: Container(
                               width: 61.0,
                               height: 61.0,

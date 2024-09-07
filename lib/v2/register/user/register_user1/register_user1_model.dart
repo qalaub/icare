@@ -22,6 +22,8 @@ class RegisterUser1Model extends FlutterFlowModel<RegisterUser1Widget> {
           int index, Function(QueryResultsStruct) updateFn) =>
       queryResults[index] = updateFn(queryResults[index]);
 
+  String dateError = 'Field is required';
+
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
@@ -61,6 +63,18 @@ class RegisterUser1Model extends FlutterFlowModel<RegisterUser1Widget> {
   FocusNode? emailFocusNode;
   TextEditingController? emailTextController;
   String? Function(BuildContext, String?)? emailTextControllerValidator;
+  String? _emailTextControllerValidator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Field is required';
+    }
+
+    if (!RegExp('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}\$')
+        .hasMatch(val)) {
+      return 'Please enter a valid e-mail addres';
+    }
+    return null;
+  }
+
   // Stores action output result for [Firestore Query - Query a collection] action in email widget.
   int? emailExists;
   // State field(s) for phone widget.
@@ -95,6 +109,7 @@ class RegisterUser1Model extends FlutterFlowModel<RegisterUser1Widget> {
   void initState(BuildContext context) {
     firstNameTextControllerValidator = _firstNameTextControllerValidator;
     lastnameTextControllerValidator = _lastnameTextControllerValidator;
+    emailTextControllerValidator = _emailTextControllerValidator;
     phoneTextControllerValidator = _phoneTextControllerValidator;
   }
 

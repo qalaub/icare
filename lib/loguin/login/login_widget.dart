@@ -631,7 +631,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                           ),
                                                     ),
                                                     TextSpan(
-                                                      text: 'sign up for iCare',
+                                                      text: 'Sign up for iCare',
                                                       style:
                                                           GoogleFonts.getFont(
                                                         'Montserrat',

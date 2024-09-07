@@ -801,7 +801,8 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                       -0.62,
                                                                       0.6),
                                                               child: Text(
-                                                                'Field is required',
+                                                                _model
+                                                                    .dateError,
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -1519,6 +1520,8 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                           0.0, 10.0, 0.0, 0.0),
                                                   child: FFButtonWidget(
                                                     onPressed: () async {
+                                                      _model.dateError =
+                                                          'Field is required';
                                                       FFAppState()
                                                           .updateVerifyFormStruct(
                                                         (e) => e
@@ -1548,6 +1551,26 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                               .validate()) {
                                                         return;
                                                       }
+                                                      if (functions
+                                                          .validateDate(_model
+                                                              .dateTextController
+                                                              .text)!) {
+                                                        FFAppState()
+                                                            .updateVerifyFormStruct(
+                                                          (e) => e..date = true,
+                                                        );
+                                                        safeSetState(() {});
+                                                      } else {
+                                                        _model.dateError =
+                                                            'You must be 18 or older';
+                                                        FFAppState()
+                                                            .updateVerifyFormStruct(
+                                                          (e) =>
+                                                              e..date = false,
+                                                        );
+                                                        safeSetState(() {});
+                                                      }
+
                                                       if (FFAppState()
                                                               .verifyForm
                                                               .subur &&

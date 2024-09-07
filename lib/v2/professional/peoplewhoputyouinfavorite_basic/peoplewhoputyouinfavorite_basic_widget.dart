@@ -180,8 +180,8 @@ class _PeoplewhoputyouinfavoriteBasicWidgetState
                         Align(
                           alignment: const AlignmentDirectional(0.0, -0.5),
                           child: Container(
-                            width: 250.0,
-                            height: 190.0,
+                            width: 315.0,
+                            height: 297.0,
                             decoration: const BoxDecoration(),
                             child: InkWell(
                               splashColor: Colors.transparent,
@@ -210,10 +210,10 @@ class _PeoplewhoputyouinfavoriteBasicWidgetState
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
                                 child: Image.asset(
-                                  'assets/images/lms-revenue-attribute-report-cta-kick-things-off-illus-dsk-v01.png.original.png',
+                                  'assets/images/pixelcut-export.png',
                                   width: double.infinity,
                                   height: double.infinity,
-                                  fit: BoxFit.contain,
+                                  fit: BoxFit.cover,
                                 ),
                               ),
                             ),

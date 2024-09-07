@@ -232,7 +232,6 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                                       .height *
                                                   0.72,
                                               decoration: BoxDecoration(
-                                                color: const Color(0xFFFDFDFD),
                                                 boxShadow: const [
                                                   BoxShadow(
                                                     blurRadius: 7.0,
@@ -243,6 +242,17 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                                     ),
                                                   )
                                                 ],
+                                                gradient: const LinearGradient(
+                                                  colors: [
+                                                    Color(0xE1F6F5F5),
+                                                    Color(0xD8A5A4A4)
+                                                  ],
+                                                  stops: [0.0, 1.0],
+                                                  begin: AlignmentDirectional(
+                                                      0.0, -1.0),
+                                                  end: AlignmentDirectional(
+                                                      0, 1.0),
+                                                ),
                                                 borderRadius: const BorderRadius.only(
                                                   bottomLeft:
                                                       Radius.circular(0.0),
@@ -618,57 +628,61 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
                                     ),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
+                                    child: Stack(
                                       children: [
-                                        Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  1.0,
-                                          height: MediaQuery.sizeOf(context)
-                                                  .height *
-                                              0.7,
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                          ),
-                                          child: wrapWithModel(
-                                            model: _model.mapButtonModel,
-                                            updateCallback: () =>
-                                                safeSetState(() {}),
-                                            child: const MapButtonWidget(
-                                              isProfessional: true,
+                                        Align(
+                                          alignment:
+                                              const AlignmentDirectional(0.0, -1.0),
+                                          child: Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                1.0,
+                                            height: MediaQuery.sizeOf(context)
+                                                    .height *
+                                                0.84,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
                                             ),
-                                          ),
-                                        ),
-                                        Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  0.72,
-                                          height: MediaQuery.sizeOf(context)
-                                                  .height *
-                                              0.16,
-                                          decoration: const BoxDecoration(),
-                                          child: wrapWithModel(
-                                            model:
-                                                _model.homeVistaCuidadorModel,
-                                            updateCallback: () =>
-                                                safeSetState(() {}),
-                                            child: HomeVistaCuidadorWidget(
-                                              participants:
-                                                  valueOrDefault<String>(
-                                                functions.concatStrings(
-                                                    homeVistaCuidadorUsersRecordList
-                                                        .length
-                                                        .toString(),
-                                                    'participants',
-                                                    ' '),
-                                                '35 participants',
+                                            child: wrapWithModel(
+                                              model: _model.mapButtonModel,
+                                              updateCallback: () =>
+                                                  safeSetState(() {}),
+                                              child: const MapButtonWidget(
+                                                isProfessional: true,
                                               ),
                                             ),
                                           ),
                                         ),
-                                      ].divide(const SizedBox(height: 22.0)),
+                                        Align(
+                                          alignment:
+                                              const AlignmentDirectional(-0.2, 0.76),
+                                          child: Container(
+                                            width: 290.0,
+                                            height: 120.0,
+                                            decoration: const BoxDecoration(),
+                                            child: wrapWithModel(
+                                              model:
+                                                  _model.homeVistaCuidadorModel,
+                                              updateCallback: () =>
+                                                  safeSetState(() {}),
+                                              child: HomeVistaCuidadorWidget(
+                                                participants:
+                                                    valueOrDefault<String>(
+                                                  functions.concatStrings(
+                                                      homeVistaCuidadorUsersRecordList
+                                                          .length
+                                                          .toString(),
+                                                      'participants',
+                                                      ' '),
+                                                  '35 participants',
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   );
                                 },

@@ -407,6 +407,12 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                             _model.currentProfessional =
                                                 newData[_model.currentIndex];
                                             _model.userToAdd = [];
+                                            if (_model.currentIndex >=
+                                                newData.length) {
+                                              _model.showMessage = true;
+                                              _model.temp = 'mostrar';
+                                              safeSetState(() {});
+                                            }
                                           }
                                         } finally {
                                           await firestoreBatch.commit();

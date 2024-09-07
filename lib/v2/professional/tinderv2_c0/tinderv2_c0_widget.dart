@@ -5,6 +5,7 @@ import '/v2/menbresiav2/membresia_logo/membresia_logo_widget.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'tinderv2_c0_model.dart';
 export 'tinderv2_c0_model.dart';
 
@@ -46,49 +47,56 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
   Widget build(BuildContext context) {
     return Align(
       alignment: const AlignmentDirectional(0.0, 0.0),
-      child: Column(
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          Align(
-            alignment: const AlignmentDirectional(0.0, 0.0),
-            child: Material(
-              color: Colors.transparent,
-              elevation: 10.0,
-              shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(20.0),
-                  bottomRight: Radius.circular(20.0),
-                  topLeft: Radius.circular(20.0),
-                  topRight: Radius.circular(20.0),
-                ),
-              ),
-              child: Container(
-                constraints: BoxConstraints(
-                  maxWidth: MediaQuery.sizeOf(context).width * 1.0,
-                  maxHeight: MediaQuery.sizeOf(context).height * 0.65,
-                ),
-                decoration: BoxDecoration(
-                  gradient: const LinearGradient(
-                    colors: [Color(0xFFA39C9C), Colors.white],
-                    stops: [0.0, 0.5],
-                    begin: AlignmentDirectional(0.0, -1.0),
-                    end: AlignmentDirectional(0, 1.0),
-                  ),
-                  borderRadius: const BorderRadius.only(
-                    bottomLeft: Radius.circular(20.0),
-                    bottomRight: Radius.circular(20.0),
-                    topLeft: Radius.circular(20.0),
-                    topRight: Radius.circular(20.0),
-                  ),
-                  border: Border.all(
-                    color: const Color(0xFFC45ABE),
-                    width: 3.0,
-                  ),
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Expanded(
+      child: Material(
+        color: Colors.transparent,
+        elevation: 10.0,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(20.0),
+            bottomRight: Radius.circular(20.0),
+            topLeft: Radius.circular(20.0),
+            topRight: Radius.circular(20.0),
+          ),
+        ),
+        child: Container(
+          height: MediaQuery.sizeOf(context).height * 1.0,
+          constraints: BoxConstraints(
+            maxWidth: MediaQuery.sizeOf(context).width * 1.0,
+            maxHeight: MediaQuery.sizeOf(context).height * 0.65,
+          ),
+          decoration: BoxDecoration(
+            gradient: const LinearGradient(
+              colors: [Color(0xFFA39C9C), Colors.white],
+              stops: [0.0, 0.5],
+              begin: AlignmentDirectional(0.0, -1.0),
+              end: AlignmentDirectional(0, 1.0),
+            ),
+            borderRadius: const BorderRadius.only(
+              bottomLeft: Radius.circular(20.0),
+              bottomRight: Radius.circular(20.0),
+              topLeft: Radius.circular(20.0),
+              topRight: Radius.circular(20.0),
+            ),
+            border: Border.all(
+              color: const Color(0xFFC45ABE),
+              width: 3.0,
+            ),
+          ),
+          alignment: const AlignmentDirectional(0.0, -1.0),
+          child: Align(
+            alignment: const AlignmentDirectional(0.0, -1.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Align(
+                  alignment: const AlignmentDirectional(0.0, -1.0),
+                  child: Container(
+                    width: MediaQuery.sizeOf(context).width * 1.0,
+                    height: MediaQuery.sizeOf(context).height * 0.49,
+                    decoration: const BoxDecoration(),
+                    child: Align(
+                      alignment: const AlignmentDirectional(0.0, -1.0),
                       child: Builder(
                         builder: (context) {
                           final imagesProfessional = widget
@@ -102,7 +110,7 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
 
                           return SizedBox(
                             width: double.infinity,
-                            height: 500.0,
+                            height: MediaQuery.sizeOf(context).height * 1.0,
                             child: PageView.builder(
                               controller: _model.pageViewController ??=
                                   PageController(
@@ -135,9 +143,9 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                                     ),
                                     child: CachedNetworkImage(
                                       fadeInDuration:
-                                          const Duration(milliseconds: 500),
+                                          const Duration(milliseconds: 600),
                                       fadeOutDuration:
-                                          const Duration(milliseconds: 500),
+                                          const Duration(milliseconds: 600),
                                       imageUrl: valueOrDefault<String>(
                                         imagesProfessionalItem,
                                         'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
@@ -146,7 +154,7 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                                           1.0,
                                       height:
                                           MediaQuery.sizeOf(context).height *
-                                              0.5,
+                                              0.0,
                                       fit: BoxFit.cover,
                                     ),
                                   ),
@@ -157,152 +165,103 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                         },
                       ),
                     ),
-                    Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.center,
+                  ),
+                ),
+                Container(
+                  height: 129.0,
+                  decoration: const BoxDecoration(),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Stack(
                         children: [
-                          Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                8.0, 0.0, 0.0, 0.0),
-                            child: Container(
-                              constraints: BoxConstraints(
-                                maxWidth:
-                                    MediaQuery.sizeOf(context).width * 0.7,
-                                maxHeight:
-                                    MediaQuery.sizeOf(context).height * 0.12,
-                              ),
-                              decoration: const BoxDecoration(),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Text(
-                                        valueOrDefault<String>(
-                                          widget.professional?.firtsName,
-                                          'sandra',
+                          Align(
+                            alignment: const AlignmentDirectional(0.0, -1.0),
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  8.0, 0.0, 0.0, 4.0),
+                              child: Container(
+                                constraints: BoxConstraints(
+                                  maxWidth:
+                                      MediaQuery.sizeOf(context).width * 0.7,
+                                  maxHeight:
+                                      MediaQuery.sizeOf(context).height * 0.12,
+                                ),
+                                decoration: const BoxDecoration(),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Text(
+                                          valueOrDefault<String>(
+                                            widget.professional?.firtsName,
+                                            'sandra',
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                fontSize: 20.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.bold,
+                                              ),
                                         ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              fontSize: 20.0,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.bold,
+                                      ],
+                                    ),
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        const Icon(
+                                          Icons.circle,
+                                          color: Color(0xFF52FF00),
+                                          size: 11.0,
+                                        ),
+                                        Text(
+                                          'recent activity',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                fontSize: 12.0,
+                                                letterSpacing: 0.0,
+                                              ),
+                                        ),
+                                      ].divide(const SizedBox(width: 4.0)),
+                                    ),
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.4,
+                                          height: 30.0,
+                                          decoration: const BoxDecoration(
+                                            color: Color(0xFFAC16A4),
+                                            borderRadius: BorderRadius.only(
+                                              bottomLeft: Radius.circular(30.0),
+                                              bottomRight:
+                                                  Radius.circular(30.0),
+                                              topLeft: Radius.circular(30.0),
+                                              topRight: Radius.circular(30.0),
                                             ),
-                                      ),
-                                    ],
-                                  ),
-                                  Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      const Icon(
-                                        Icons.circle,
-                                        color: Color(0xFF52FF00),
-                                        size: 11.0,
-                                      ),
-                                      Text(
-                                        'recent activity',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              fontSize: 12.0,
-                                              letterSpacing: 0.0,
-                                            ),
-                                      ),
-                                    ].divide(const SizedBox(width: 4.0)),
-                                  ),
-                                  Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                0.4,
-                                        height: 30.0,
-                                        decoration: const BoxDecoration(
-                                          color: Color(0xFFAC16A4),
-                                          borderRadius: BorderRadius.only(
-                                            bottomLeft: Radius.circular(30.0),
-                                            bottomRight: Radius.circular(30.0),
-                                            topLeft: Radius.circular(30.0),
-                                            topRight: Radius.circular(30.0),
                                           ),
-                                        ),
-                                        child: Align(
-                                          alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
-                                          child: AutoSizeText(
-                                            valueOrDefault<String>(
-                                              widget.professional?.serviceType
-                                                  .first,
-                                              'service',
-                                            ).maybeHandleOverflow(maxChars: 24),
-                                            minFontSize: 11.0,
-                                            style: FlutterFlowTheme.of(context)
-                                                .labelSmall
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  color: Colors.white,
-                                                  fontSize: 11.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w600,
-                                                ),
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                0.29,
-                                        height: 30.0,
-                                        decoration: const BoxDecoration(
-                                          color: Color(0xFFAC16A4),
-                                          borderRadius: BorderRadius.only(
-                                            bottomLeft: Radius.circular(30.0),
-                                            bottomRight: Radius.circular(30.0),
-                                            topLeft: Radius.circular(30.0),
-                                            topRight: Radius.circular(30.0),
-                                          ),
-                                        ),
-                                        child: Align(
-                                          alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
-                                          child: RichText(
-                                            textScaler: MediaQuery.of(context)
-                                                .textScaler,
-                                            text: TextSpan(
-                                              children: [
-                                                TextSpan(
-                                                  text: valueOrDefault<String>(
-                                                    widget.professional?.years
-                                                        .toString(),
-                                                    '4',
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .labelSmall
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color: Colors.white,
-                                                        fontSize: 11.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                      ),
-                                                ),
-                                                const TextSpan(
-                                                  text: ' years of Exp',
-                                                  style: TextStyle(),
-                                                )
-                                              ],
+                                          child: Align(
+                                            alignment:
+                                                const AlignmentDirectional(0.0, 0.0),
+                                            child: AutoSizeText(
+                                              valueOrDefault<String>(
+                                                widget.professional
+                                                    ?.serviceType.first,
+                                                'service',
+                                              ).maybeHandleOverflow(
+                                                  maxChars: 24),
+                                              minFontSize: 11.0,
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .labelSmall
@@ -317,37 +276,121 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                                             ),
                                           ),
                                         ),
-                                      ),
-                                    ].divide(const SizedBox(width: 4.0)),
-                                  ),
-                                ]
-                                    .divide(const SizedBox(height: 5.0))
-                                    .addToStart(const SizedBox(height: 3.0)),
+                                        Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.29,
+                                          height: 30.0,
+                                          decoration: const BoxDecoration(
+                                            color: Color(0xFFAC16A4),
+                                            borderRadius: BorderRadius.only(
+                                              bottomLeft: Radius.circular(30.0),
+                                              bottomRight:
+                                                  Radius.circular(30.0),
+                                              topLeft: Radius.circular(30.0),
+                                              topRight: Radius.circular(30.0),
+                                            ),
+                                          ),
+                                          child: Align(
+                                            alignment:
+                                                const AlignmentDirectional(0.0, 0.0),
+                                            child: RichText(
+                                              textScaler: MediaQuery.of(context)
+                                                  .textScaler,
+                                              text: TextSpan(
+                                                children: [
+                                                  TextSpan(
+                                                    text:
+                                                        valueOrDefault<String>(
+                                                      widget
+                                                          .professional?.years
+                                                          .toString(),
+                                                      '4',
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .labelSmall
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: Colors.white,
+                                                          fontSize: 11.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                        ),
+                                                  ),
+                                                  const TextSpan(
+                                                    text: ' years of Exp',
+                                                    style: TextStyle(),
+                                                  )
+                                                ],
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelSmall
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: Colors.white,
+                                                          fontSize: 11.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                        ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ].divide(const SizedBox(width: 4.0)),
+                                    ),
+                                  ]
+                                      .divide(const SizedBox(height: 5.0))
+                                      .addToStart(const SizedBox(height: 3.0)),
+                                ),
                               ),
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 8.0, 0.0),
-                            child: wrapWithModel(
-                              model: _model.membresiaLogoModel,
-                              updateCallback: () => safeSetState(() {}),
-                              child: MembresiaLogoWidget(
-                                width: 70,
-                                heigth: 70,
-                                professional: widget.professional!.reference,
+                          Align(
+                            alignment: const AlignmentDirectional(1.1, 0.76),
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  8.0, 0.0, 0.0, 0.0),
+                              child: RatingBar.builder(
+                                onRatingUpdate: (newValue) => safeSetState(
+                                    () => _model.ratingBarValue = newValue),
+                                itemBuilder: (context, index) => const Icon(
+                                  Icons.star_rounded,
+                                  color: Color(0xFFF9BF11),
+                                ),
+                                direction: Axis.horizontal,
+                                initialRating: _model.ratingBarValue ??= 3.0,
+                                unratedColor: const Color(0x4D040202),
+                                itemCount: 5,
+                                itemSize: 20.0,
+                                glowColor: const Color(0xFFF9BF11),
                               ),
                             ),
                           ),
-                        ].divide(const SizedBox(width: 2.0)),
+                        ],
                       ),
-                    ),
-                  ],
+                      Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                        child: wrapWithModel(
+                          model: _model.membresiaLogoModel,
+                          updateCallback: () => safeSetState(() {}),
+                          child: MembresiaLogoWidget(
+                            width: 70,
+                            heigth: 70,
+                            professional: widget.professional!.reference,
+                          ),
+                        ),
+                      ),
+                    ].divide(const SizedBox(width: 2.0)),
+                  ),
                 ),
-              ),
+              ],
             ),
           ),
-        ].divide(const SizedBox(height: 16.0)),
+        ),
       ),
     );
   }
