@@ -168,7 +168,7 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       if ((_model.professionals.isNotEmpty) ||
-                          !_model.showMessage)
+                          (_model.temp != 'mostrar'))
                         Align(
                           alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Container(
@@ -193,6 +193,7 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                           newData[_model.currentIndex];
                                     } else {
                                       _model.showMessage = false;
+                                      _model.temp = 'hola';
                                       safeSetState(() {});
                                       _model.currentIndex =
                                           _model.currentIndex + 1;
@@ -213,6 +214,7 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                           }(),
                                         );
                                         _model.showMessage = true;
+                                        _model.temp = 'mostrar';
                                         safeSetState(() {});
                                       }
                                       _model.currentProfessional =
