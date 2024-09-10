@@ -170,7 +170,9 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                               alignment: const AlignmentDirectional(0.0, -1.0),
                               child: Container(
                                 height: MediaQuery.sizeOf(context).height * 1.0,
-                                decoration: const BoxDecoration(),
+                                decoration: const BoxDecoration(
+                                  color: Colors.white,
+                                ),
                                 alignment: const AlignmentDirectional(0.0, -1.0),
                                 child: Align(
                                   alignment: const AlignmentDirectional(0.0, -1.0),
@@ -637,7 +639,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                                 1.0,
                                             height: MediaQuery.sizeOf(context)
                                                     .height *
-                                                0.84,
+                                                0.86,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
