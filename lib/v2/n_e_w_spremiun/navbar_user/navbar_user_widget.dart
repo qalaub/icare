@@ -50,7 +50,8 @@ class _NavbarUserWidgetState extends State<NavbarUserWidget> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            if (currentUserDocument?.rol == Roles.user)
+            if ((currentUserDocument?.rol == Roles.user) ||
+                (currentUserDocument?.rol == null))
               Align(
                 alignment: const AlignmentDirectional(0.0, 0.0),
                 child: AuthUserStreamWidget(

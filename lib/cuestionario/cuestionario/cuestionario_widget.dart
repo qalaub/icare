@@ -161,6 +161,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                         FFButtonWidget(
                                           onPressed: () async {
                                             _model.firts = true;
+                                            _model.showSugguestions = true;
                                             _model.suguestion =
                                                 functions.suguestionPlan(
                                                     _model.firts,
@@ -207,6 +208,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                         FFButtonWidget(
                                           onPressed: () async {
                                             _model.firts = false;
+                                            _model.showSugguestions = true;
                                             _model.suguestion =
                                                 functions.suguestionPlan(
                                                     _model.firts,
@@ -290,6 +292,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                         FFButtonWidget(
                                           onPressed: () async {
                                             _model.second = true;
+                                            _model.showSugguestions = true;
                                             _model.suguestion =
                                                 functions.suguestionPlan(
                                                     _model.firts,
@@ -336,6 +339,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                         FFButtonWidget(
                                           onPressed: () async {
                                             _model.second = false;
+                                            _model.showSugguestions = true;
                                             _model.suguestion =
                                                 functions.suguestionPlan(
                                                     _model.firts,
@@ -419,6 +423,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                         FFButtonWidget(
                                           onPressed: () async {
                                             _model.tree = true;
+                                            _model.showSugguestions = true;
                                             _model.suguestion =
                                                 functions.suguestionPlan(
                                                     _model.firts,
@@ -465,6 +470,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                         FFButtonWidget(
                                           onPressed: () async {
                                             _model.tree = false;
+                                            _model.showSugguestions = true;
                                             _model.suguestion =
                                                 functions.suguestionPlan(
                                                     _model.firts,
@@ -548,6 +554,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                         FFButtonWidget(
                                           onPressed: () async {
                                             _model.four = true;
+                                            _model.showSugguestions = true;
                                             _model.suguestion =
                                                 functions.suguestionPlan(
                                                     _model.firts,
@@ -594,6 +601,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                         FFButtonWidget(
                                           onPressed: () async {
                                             _model.four = false;
+                                            _model.showSugguestions = true;
                                             _model.suguestion =
                                                 functions.suguestionPlan(
                                                     _model.firts,
@@ -647,62 +655,108 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                     endIndent: 12.0,
                                     color: Color(0xD8BDB8B8),
                                   ),
-                                  Builder(
-                                    builder: (context) {
-                                      if (_model.suguestion == 'Basic') {
-                                        return Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
+                                  if (_model.showSugguestions)
+                                    Container(
+                                      decoration: const BoxDecoration(),
+                                      child: Builder(
+                                        builder: (context) {
+                                          if (_model.suguestion == 'Basic') {
+                                            return Container(
+                                              width: MediaQuery.sizeOf(context)
+                                                      .width *
                                                   0.86,
-                                          height: 230.0,
-                                          decoration: BoxDecoration(
-                                            color: const Color(0x9ED7AE71),
-                                            borderRadius:
-                                                BorderRadius.circular(18.0),
-                                          ),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        16.0, 0.0, 16.0, 0.0),
-                                                child: Container(
-                                                  decoration: const BoxDecoration(),
-                                                  child: Text(
-                                                    'Recommended Plan',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          fontSize: 18.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
-                                                  ),
-                                                ),
+                                              height: 230.0,
+                                              decoration: BoxDecoration(
+                                                color: const Color(0x9ED7AE71),
+                                                borderRadius:
+                                                    BorderRadius.circular(18.0),
                                               ),
-                                              Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        16.0, 0.0, 16.0, 0.0),
-                                                child: Container(
-                                                  decoration: const BoxDecoration(),
-                                                  child: RichText(
-                                                    textScaler:
-                                                        MediaQuery.of(context)
-                                                            .textScaler,
-                                                    text: TextSpan(
-                                                      children: [
-                                                        TextSpan(
-                                                          text:
-                                                              'Based on your answers, we recommend the',
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(16.0, 0.0,
+                                                                16.0, 0.0),
+                                                    child: Container(
+                                                      decoration:
+                                                          const BoxDecoration(),
+                                                      child: Text(
+                                                        'Recommended Plan',
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Inter',
+                                                              fontSize: 18.0,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                            ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(16.0, 0.0,
+                                                                16.0, 0.0),
+                                                    child: Container(
+                                                      decoration:
+                                                          const BoxDecoration(),
+                                                      child: RichText(
+                                                        textScaler:
+                                                            MediaQuery.of(
+                                                                    context)
+                                                                .textScaler,
+                                                        text: TextSpan(
+                                                          children: [
+                                                            TextSpan(
+                                                              text:
+                                                                  'Based on your answers, we recommend the',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Inter',
+                                                                    fontSize:
+                                                                        14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .normal,
+                                                                  ),
+                                                            ),
+                                                            const TextSpan(
+                                                              text: ' Basic',
+                                                              style: TextStyle(
+                                                                color: Colors
+                                                                    .white,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                                fontSize: 15.0,
+                                                                decoration:
+                                                                    TextDecoration
+                                                                        .underline,
+                                                              ),
+                                                            ),
+                                                            const TextSpan(
+                                                              text: '  plan.',
+                                                              style:
+                                                                  TextStyle(),
+                                                            )
+                                                          ],
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium
@@ -717,74 +771,87 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                                                         .normal,
                                                               ),
                                                         ),
-                                                        const TextSpan(
-                                                          text: ' Basic',
-                                                          style: TextStyle(
-                                                            color: Colors.white,
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                            fontSize: 15.0,
-                                                            decoration:
-                                                                TextDecoration
-                                                                    .underline,
-                                                          ),
-                                                        ),
-                                                        const TextSpan(
-                                                          text: '  plan.',
-                                                          style: TextStyle(),
-                                                        )
-                                                      ],
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily: 'Inter',
-                                                            fontSize: 14.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .normal,
-                                                          ),
+                                                      ),
                                                     ),
                                                   ),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        16.0, 8.0, 16.0, 8.0),
-                                                child: Container(
-                                                  decoration: const BoxDecoration(),
-                                                  child: Text(
-                                                    'The Premium plan includes:',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          fontSize: 14.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                        ),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(16.0, 8.0,
+                                                                16.0, 8.0),
+                                                    child: Container(
+                                                      decoration:
+                                                          const BoxDecoration(),
+                                                      child: Text(
+                                                        'The Premium plan includes:',
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Inter',
+                                                              fontSize: 14.0,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600,
+                                                            ),
+                                                      ),
+                                                    ),
                                                   ),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        16.0, 0.0, 16.0, 0.0),
-                                                child: Container(
-                                                  decoration: const BoxDecoration(),
-                                                  child: RichText(
-                                                    textScaler:
-                                                        MediaQuery.of(context)
-                                                            .textScaler,
-                                                    text: TextSpan(
-                                                      children: [
-                                                        TextSpan(
-                                                          text:
-                                                              '• Instant messaging for your team',
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(16.0, 0.0,
+                                                                16.0, 0.0),
+                                                    child: Container(
+                                                      decoration:
+                                                          const BoxDecoration(),
+                                                      child: RichText(
+                                                        textScaler:
+                                                            MediaQuery.of(
+                                                                    context)
+                                                                .textScaler,
+                                                        text: TextSpan(
+                                                          children: [
+                                                            TextSpan(
+                                                              text:
+                                                                  '• Instant messaging for your team',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Inter',
+                                                                    fontSize:
+                                                                        14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .normal,
+                                                                  ),
+                                                            ),
+                                                            const TextSpan(
+                                                              text:
+                                                                  '\n• Detailed map features to locate service providers',
+                                                              style:
+                                                                  TextStyle(),
+                                                            ),
+                                                            const TextSpan(
+                                                              text:
+                                                                  '\n• Customizable team profiles',
+                                                              style:
+                                                                  TextStyle(),
+                                                            ),
+                                                            const TextSpan(
+                                                              text:
+                                                                  '\n• Enhanced search visibility for your services',
+                                                              style:
+                                                                  TextStyle(),
+                                                            )
+                                                          ],
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium
@@ -799,95 +866,113 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                                                         .normal,
                                                               ),
                                                         ),
-                                                        const TextSpan(
-                                                          text:
-                                                              '\n• Detailed map features to locate service providers',
-                                                          style: TextStyle(),
-                                                        ),
-                                                        const TextSpan(
-                                                          text:
-                                                              '\n• Customizable team profiles',
-                                                          style: TextStyle(),
-                                                        ),
-                                                        const TextSpan(
-                                                          text:
-                                                              '\n• Enhanced search visibility for your services',
-                                                          style: TextStyle(),
-                                                        )
-                                                      ],
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily: 'Inter',
-                                                            fontSize: 14.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .normal,
-                                                          ),
+                                                      ),
                                                     ),
                                                   ),
-                                                ),
+                                                ],
                                               ),
-                                            ],
-                                          ),
-                                        );
-                                      } else if (_model.suguestion ==
-                                          'Standar') {
-                                        return Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
+                                            );
+                                          } else if (_model.suguestion ==
+                                              'Standar') {
+                                            return Container(
+                                              width: MediaQuery.sizeOf(context)
+                                                      .width *
                                                   0.86,
-                                          height: 230.0,
-                                          decoration: BoxDecoration(
-                                            color: const Color(0xE3E6E6E6),
-                                            borderRadius:
-                                                BorderRadius.circular(18.0),
-                                          ),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        16.0, 0.0, 16.0, 0.0),
-                                                child: Container(
-                                                  decoration: const BoxDecoration(),
-                                                  child: Text(
-                                                    'Recommended Plan',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          fontSize: 18.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
-                                                  ),
-                                                ),
+                                              height: 230.0,
+                                              decoration: BoxDecoration(
+                                                color: const Color(0xE3E6E6E6),
+                                                borderRadius:
+                                                    BorderRadius.circular(18.0),
                                               ),
-                                              Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        16.0, 0.0, 16.0, 0.0),
-                                                child: Container(
-                                                  decoration: const BoxDecoration(),
-                                                  child: RichText(
-                                                    textScaler:
-                                                        MediaQuery.of(context)
-                                                            .textScaler,
-                                                    text: TextSpan(
-                                                      children: [
-                                                        TextSpan(
-                                                          text:
-                                                              'Based on your answers, we recommend the',
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(16.0, 0.0,
+                                                                16.0, 0.0),
+                                                    child: Container(
+                                                      decoration:
+                                                          const BoxDecoration(),
+                                                      child: Text(
+                                                        'Recommended Plan',
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Inter',
+                                                              fontSize: 18.0,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                            ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(16.0, 0.0,
+                                                                16.0, 0.0),
+                                                    child: Container(
+                                                      decoration:
+                                                          const BoxDecoration(),
+                                                      child: RichText(
+                                                        textScaler:
+                                                            MediaQuery.of(
+                                                                    context)
+                                                                .textScaler,
+                                                        text: TextSpan(
+                                                          children: [
+                                                            TextSpan(
+                                                              text:
+                                                                  'Based on your answers, we recommend the',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Inter',
+                                                                    fontSize:
+                                                                        14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .normal,
+                                                                  ),
+                                                            ),
+                                                            const TextSpan(
+                                                              text: ' Standar',
+                                                              style: TextStyle(
+                                                                color: Color(
+                                                                    0xFF767676),
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                                fontSize: 15.0,
+                                                                decoration:
+                                                                    TextDecoration
+                                                                        .underline,
+                                                                fontStyle:
+                                                                    FontStyle
+                                                                        .normal,
+                                                              ),
+                                                            ),
+                                                            const TextSpan(
+                                                              text: ' plan.',
+                                                              style:
+                                                                  TextStyle(),
+                                                            )
+                                                          ],
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium
@@ -902,77 +987,87 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                                                         .normal,
                                                               ),
                                                         ),
-                                                        const TextSpan(
-                                                          text: ' Standar',
-                                                          style: TextStyle(
-                                                            color: Color(
-                                                                0xFF767676),
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                            fontSize: 15.0,
-                                                            decoration:
-                                                                TextDecoration
-                                                                    .underline,
-                                                            fontStyle: FontStyle
-                                                                .normal,
-                                                          ),
-                                                        ),
-                                                        const TextSpan(
-                                                          text: ' plan.',
-                                                          style: TextStyle(),
-                                                        )
-                                                      ],
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily: 'Inter',
-                                                            fontSize: 14.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .normal,
-                                                          ),
+                                                      ),
                                                     ),
                                                   ),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        16.0, 8.0, 16.0, 8.0),
-                                                child: Container(
-                                                  decoration: const BoxDecoration(),
-                                                  child: Text(
-                                                    'The Premium plan includes:',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          fontSize: 14.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                        ),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(16.0, 8.0,
+                                                                16.0, 8.0),
+                                                    child: Container(
+                                                      decoration:
+                                                          const BoxDecoration(),
+                                                      child: Text(
+                                                        'The Premium plan includes:',
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Inter',
+                                                              fontSize: 14.0,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600,
+                                                            ),
+                                                      ),
+                                                    ),
                                                   ),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        16.0, 0.0, 16.0, 0.0),
-                                                child: Container(
-                                                  decoration: const BoxDecoration(),
-                                                  child: RichText(
-                                                    textScaler:
-                                                        MediaQuery.of(context)
-                                                            .textScaler,
-                                                    text: TextSpan(
-                                                      children: [
-                                                        TextSpan(
-                                                          text:
-                                                              '• Instant messaging for your team',
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(16.0, 0.0,
+                                                                16.0, 0.0),
+                                                    child: Container(
+                                                      decoration:
+                                                          const BoxDecoration(),
+                                                      child: RichText(
+                                                        textScaler:
+                                                            MediaQuery.of(
+                                                                    context)
+                                                                .textScaler,
+                                                        text: TextSpan(
+                                                          children: [
+                                                            TextSpan(
+                                                              text:
+                                                                  '• Instant messaging for your team',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Inter',
+                                                                    fontSize:
+                                                                        14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .normal,
+                                                                  ),
+                                                            ),
+                                                            const TextSpan(
+                                                              text:
+                                                                  '\n• Detailed map features to locate service providers',
+                                                              style:
+                                                                  TextStyle(),
+                                                            ),
+                                                            const TextSpan(
+                                                              text:
+                                                                  '\n• Customizable team profiles',
+                                                              style:
+                                                                  TextStyle(),
+                                                            ),
+                                                            const TextSpan(
+                                                              text:
+                                                                  '\n• Enhanced search visibility for your services',
+                                                              style:
+                                                                  TextStyle(),
+                                                            )
+                                                          ],
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium
@@ -987,103 +1082,119 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                                                         .normal,
                                                               ),
                                                         ),
-                                                        const TextSpan(
-                                                          text:
-                                                              '\n• Detailed map features to locate service providers',
-                                                          style: TextStyle(),
-                                                        ),
-                                                        const TextSpan(
-                                                          text:
-                                                              '\n• Customizable team profiles',
-                                                          style: TextStyle(),
-                                                        ),
-                                                        const TextSpan(
-                                                          text:
-                                                              '\n• Enhanced search visibility for your services',
-                                                          style: TextStyle(),
-                                                        )
-                                                      ],
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily: 'Inter',
-                                                            fontSize: 14.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .normal,
-                                                          ),
+                                                      ),
                                                     ),
                                                   ),
-                                                ),
+                                                ],
                                               ),
-                                            ],
-                                          ),
-                                        );
-                                      } else {
-                                        return Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
+                                            );
+                                          } else {
+                                            return Container(
+                                              width: MediaQuery.sizeOf(context)
+                                                      .width *
                                                   0.86,
-                                          height: 230.0,
-                                          decoration: BoxDecoration(
-                                            gradient: const LinearGradient(
-                                              colors: [
-                                                Color(0xACF9CB4A),
-                                                Color(0xA393782B)
-                                              ],
-                                              stops: [0.0, 1.0],
-                                              begin: AlignmentDirectional(
-                                                  0.0, -1.0),
-                                              end: AlignmentDirectional(0, 1.0),
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(18.0),
-                                          ),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        16.0, 0.0, 16.0, 0.0),
-                                                child: Container(
-                                                  decoration: const BoxDecoration(),
-                                                  child: Text(
-                                                    'Recommended Plan',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          fontSize: 18.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
-                                                  ),
+                                              height: 230.0,
+                                              decoration: BoxDecoration(
+                                                gradient: const LinearGradient(
+                                                  colors: [
+                                                    Color(0xACF9CB4A),
+                                                    Color(0xA393782B)
+                                                  ],
+                                                  stops: [0.0, 1.0],
+                                                  begin: AlignmentDirectional(
+                                                      0.0, -1.0),
+                                                  end: AlignmentDirectional(
+                                                      0, 1.0),
                                                 ),
+                                                borderRadius:
+                                                    BorderRadius.circular(18.0),
                                               ),
-                                              Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        16.0, 0.0, 16.0, 0.0),
-                                                child: Container(
-                                                  decoration: const BoxDecoration(),
-                                                  child: RichText(
-                                                    textScaler:
-                                                        MediaQuery.of(context)
-                                                            .textScaler,
-                                                    text: TextSpan(
-                                                      children: [
-                                                        TextSpan(
-                                                          text:
-                                                              'Based on your answers, we recommend the',
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(16.0, 0.0,
+                                                                16.0, 0.0),
+                                                    child: Container(
+                                                      decoration:
+                                                          const BoxDecoration(),
+                                                      child: Text(
+                                                        'Recommended Plan',
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Inter',
+                                                              fontSize: 18.0,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                            ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(16.0, 0.0,
+                                                                16.0, 0.0),
+                                                    child: Container(
+                                                      decoration:
+                                                          const BoxDecoration(),
+                                                      child: RichText(
+                                                        textScaler:
+                                                            MediaQuery.of(
+                                                                    context)
+                                                                .textScaler,
+                                                        text: TextSpan(
+                                                          children: [
+                                                            TextSpan(
+                                                              text:
+                                                                  'Based on your answers, we recommend the',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Inter',
+                                                                    fontSize:
+                                                                        14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .normal,
+                                                                  ),
+                                                            ),
+                                                            const TextSpan(
+                                                              text: ' Premium',
+                                                              style: TextStyle(
+                                                                color: Color(
+                                                                    0xFF93782B),
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                                fontSize: 15.0,
+                                                                decoration:
+                                                                    TextDecoration
+                                                                        .underline,
+                                                              ),
+                                                            ),
+                                                            const TextSpan(
+                                                              text: ' plan.',
+                                                              style:
+                                                                  TextStyle(),
+                                                            )
+                                                          ],
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium
@@ -1098,75 +1209,87 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                                                         .normal,
                                                               ),
                                                         ),
-                                                        const TextSpan(
-                                                          text: ' Premium',
-                                                          style: TextStyle(
-                                                            color: Color(
-                                                                0xFF93782B),
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                            fontSize: 15.0,
-                                                            decoration:
-                                                                TextDecoration
-                                                                    .underline,
-                                                          ),
-                                                        ),
-                                                        const TextSpan(
-                                                          text: ' plan.',
-                                                          style: TextStyle(),
-                                                        )
-                                                      ],
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily: 'Inter',
-                                                            fontSize: 14.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .normal,
-                                                          ),
+                                                      ),
                                                     ),
                                                   ),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        16.0, 8.0, 16.0, 8.0),
-                                                child: Container(
-                                                  decoration: const BoxDecoration(),
-                                                  child: Text(
-                                                    'The Premium plan includes:',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          fontSize: 14.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                        ),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(16.0, 8.0,
+                                                                16.0, 8.0),
+                                                    child: Container(
+                                                      decoration:
+                                                          const BoxDecoration(),
+                                                      child: Text(
+                                                        'The Premium plan includes:',
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Inter',
+                                                              fontSize: 14.0,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600,
+                                                            ),
+                                                      ),
+                                                    ),
                                                   ),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        16.0, 0.0, 16.0, 0.0),
-                                                child: Container(
-                                                  decoration: const BoxDecoration(),
-                                                  child: RichText(
-                                                    textScaler:
-                                                        MediaQuery.of(context)
-                                                            .textScaler,
-                                                    text: TextSpan(
-                                                      children: [
-                                                        TextSpan(
-                                                          text:
-                                                              '• Instant messaging for your team',
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(16.0, 0.0,
+                                                                16.0, 0.0),
+                                                    child: Container(
+                                                      decoration:
+                                                          const BoxDecoration(),
+                                                      child: RichText(
+                                                        textScaler:
+                                                            MediaQuery.of(
+                                                                    context)
+                                                                .textScaler,
+                                                        text: TextSpan(
+                                                          children: [
+                                                            TextSpan(
+                                                              text:
+                                                                  '• Instant messaging for your team',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Inter',
+                                                                    fontSize:
+                                                                        14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .normal,
+                                                                  ),
+                                                            ),
+                                                            const TextSpan(
+                                                              text:
+                                                                  '\n• Detailed map features to locate service providers',
+                                                              style:
+                                                                  TextStyle(),
+                                                            ),
+                                                            const TextSpan(
+                                                              text:
+                                                                  '\n• Customizable team profiles',
+                                                              style:
+                                                                  TextStyle(),
+                                                            ),
+                                                            const TextSpan(
+                                                              text:
+                                                                  '\n• Enhanced search visibility for your services',
+                                                              style:
+                                                                  TextStyle(),
+                                                            )
+                                                          ],
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium
@@ -1181,43 +1304,16 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                                                         .normal,
                                                               ),
                                                         ),
-                                                        const TextSpan(
-                                                          text:
-                                                              '\n• Detailed map features to locate service providers',
-                                                          style: TextStyle(),
-                                                        ),
-                                                        const TextSpan(
-                                                          text:
-                                                              '\n• Customizable team profiles',
-                                                          style: TextStyle(),
-                                                        ),
-                                                        const TextSpan(
-                                                          text:
-                                                              '\n• Enhanced search visibility for your services',
-                                                          style: TextStyle(),
-                                                        )
-                                                      ],
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily: 'Inter',
-                                                            fontSize: 14.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .normal,
-                                                          ),
+                                                      ),
                                                     ),
                                                   ),
-                                                ),
+                                                ],
                                               ),
-                                            ],
-                                          ),
-                                        );
-                                      }
-                                    },
-                                  ),
+                                            );
+                                          }
+                                        },
+                                      ),
+                                    ),
                                   Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
                                         16.0, 16.0, 16.0, 0.0),

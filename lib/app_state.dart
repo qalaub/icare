@@ -152,6 +152,18 @@ class FFAppState extends ChangeNotifier {
     prefs.setBool('ff_showTutorial', value);
   }
 
+  String _newUbicationProfessional = '';
+  String get newUbicationProfessional => _newUbicationProfessional;
+  set newUbicationProfessional(String value) {
+    _newUbicationProfessional = value;
+  }
+
+  int _zoomFilter = 10;
+  int get zoomFilter => _zoomFilter;
+  set zoomFilter(int value) {
+    _zoomFilter = value;
+  }
+
   final _userDocQueryManager = FutureRequestManager<UsersRecord>();
   Future<UsersRecord> userDocQuery({
     String? uniqueQueryKey,

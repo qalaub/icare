@@ -158,8 +158,8 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                     child: Container(
                       width: MediaQuery.sizeOf(context).width * 1.0,
                       height: MediaQuery.sizeOf(context).height * 1.0,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
                       ),
                       alignment: const AlignmentDirectional(0.0, -1.0),
                       child: Builder(
@@ -231,8 +231,8 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                               height: MediaQuery.sizeOf(context)
                                                       .height *
                                                   0.72,
-                                              decoration: BoxDecoration(
-                                                boxShadow: const [
+                                              decoration: const BoxDecoration(
+                                                boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 7.0,
                                                     color: Color(0x33000000),
@@ -242,7 +242,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                                     ),
                                                   )
                                                 ],
-                                                gradient: const LinearGradient(
+                                                gradient: LinearGradient(
                                                   colors: [
                                                     Color(0xE1F6F5F5),
                                                     Color(0xD8A5A4A4)
@@ -253,7 +253,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                                   end: AlignmentDirectional(
                                                       0, 1.0),
                                                 ),
-                                                borderRadius: const BorderRadius.only(
+                                                borderRadius: BorderRadius.only(
                                                   bottomLeft:
                                                       Radius.circular(0.0),
                                                   bottomRight:
@@ -261,9 +261,6 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                                   topLeft: Radius.circular(0.0),
                                                   topRight:
                                                       Radius.circular(0.0),
-                                                ),
-                                                border: Border.all(
-                                                  color: Colors.white,
                                                 ),
                                               ),
                                               child: Align(
@@ -527,7 +524,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                                                   10.0,
                                                                 ),
                                                                 markersImage:
-                                                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/3ketutb35iu3/markerMap.png',
+                                                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/4twx3f2zgpkp/morado-marcador.png',
                                                                 newUbication: _model
                                                                     .newUbication,
                                                                 language: FFAppState()
@@ -539,6 +536,8 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                                                 service: FFAppState()
                                                                     .filtersPage
                                                                     .services,
+                                                                isProfessional:
+                                                                    false,
                                                               ),
                                                             ),
                                                           );
@@ -624,9 +623,8 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                   return Container(
                                     width:
                                         MediaQuery.sizeOf(context).width * 1.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
+                                    decoration: const BoxDecoration(
+                                      color: Colors.white,
                                     ),
                                     child: Stack(
                                       children: [
@@ -657,10 +655,10 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-0.2, 0.76),
+                                              const AlignmentDirectional(-2.0, 0.76),
                                           child: Container(
-                                            width: 290.0,
-                                            height: 120.0,
+                                            width: 325.0,
+                                            height: 236.0,
                                             decoration: const BoxDecoration(),
                                             child: wrapWithModel(
                                               model:
@@ -672,6 +670,14 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget>
                                                     valueOrDefault<String>(
                                                   functions.concatStrings(
                                                       homeVistaCuidadorUsersRecordList
+                                                          .where((e) => functions
+                                                              .verifyDistanceFilter(
+                                                                  FFAppState()
+                                                                      .newUbicationProfessional,
+                                                                  e.suburb!,
+                                                                  FFAppState()
+                                                                      .zoomFilter))
+                                                          .toList()
                                                           .length
                                                           .toString(),
                                                       'participants',

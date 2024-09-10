@@ -22,10 +22,10 @@ class ProfilesettingsModel extends FlutterFlowModel<ProfilesettingsWidget> {
 
   // Model for upload_profile_image component.
   late UploadProfileImageModel uploadProfileImageModel;
-  bool isDataUploading = false;
-  FFUploadedFile uploadedLocalFile =
+  bool isDataUploading1 = false;
+  FFUploadedFile uploadedLocalFile1 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl = '';
+  String uploadedFileUrl1 = '';
 
   // State field(s) for name widget.
   FocusNode? nameFocusNode;
@@ -44,6 +44,17 @@ class ProfilesettingsModel extends FlutterFlowModel<ProfilesettingsWidget> {
   FocusNode? descriptionFocusNode;
   TextEditingController? descriptionTextController;
   String? Function(BuildContext, String?)? descriptionTextControllerValidator;
+  bool isDataUploading2 = false;
+  FFUploadedFile uploadedLocalFile2 =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+
+  // Stores action output result for [Custom Action - verifySizeVideo] action in Button widget.
+  bool? verifyVideo;
+  bool isDataUploading3 = false;
+  FFUploadedFile uploadedLocalFile3 =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+  String uploadedFileUrl3 = '';
+
   // Model for Navbar component.
   late NavbarModel navbarModel;
   // Model for NavbarPremiun component.

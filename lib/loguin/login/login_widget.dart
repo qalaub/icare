@@ -605,7 +605,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                         Flexible(
                                           child: Align(
                                             alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
+                                                const AlignmentDirectional(0.0, -0.7),
                                             child: Container(
                                               decoration: const BoxDecoration(),
                                               child: RichText(
@@ -655,6 +655,48 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                     )
                                                   ],
                                                   style: const TextStyle(),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment:
+                                              const AlignmentDirectional(0.0, 1.0),
+                                          child: Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 16.0),
+                                            child: Container(
+                                              decoration: const BoxDecoration(),
+                                              child: InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
+                                                onTap: () async {
+                                                  context.pushNamed(
+                                                      'recuperarcontrasea');
+                                                },
+                                                child: Text(
+                                                  'Forgot your password',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Montserrat',
+                                                        color:
+                                                            const Color(0xFF040404),
+                                                        fontSize: 14.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                        decoration:
+                                                            TextDecoration
+                                                                .underline,
+                                                      ),
                                                 ),
                                               ),
                                             ),

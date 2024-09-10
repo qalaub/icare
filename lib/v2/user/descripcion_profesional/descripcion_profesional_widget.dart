@@ -10,10 +10,13 @@ class DescripcionProfesionalWidget extends StatefulWidget {
     super.key,
     this.parameter1,
     this.parameter2,
-  });
+    String? video,
+  }) : video = video ??
+            'https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.mp4';
 
   final String? parameter1;
   final String? parameter2;
+  final String video;
 
   @override
   State<DescripcionProfesionalWidget> createState() =>

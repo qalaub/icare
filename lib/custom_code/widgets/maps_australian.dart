@@ -11,14 +11,14 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+import 'dart:convert';
+
 import 'package:google_maps_flutter/google_maps_flutter.dart' as google_maps;
 import 'dart:math' as math;
-import 'package:flutter/services.dart' show rootBundle;
-import 'package:flutter/services.dart';
+import 'package:flutter/services.dart' show ByteData, rootBundle;
 import 'dart:ui' as ui;
-import 'package:flutter/painting.dart';
 import 'package:http/http.dart' as http;
-import 'dart:typed_data';
+import 'package:image/image.dart' as img;
 
 class MapsAustralian extends StatefulWidget {
   const MapsAustralian({
@@ -54,13 +54,17 @@ class MapsAustralian extends StatefulWidget {
 
 class _MapsAustralianState extends State<MapsAustralian> {
   google_maps.GoogleMapController? mapController;
-  google_maps.BitmapDescriptor? customMarker;
+  google_maps.BitmapDescriptor? userMarkerIcon;
+  google_maps.BitmapDescriptor? currentLocationMarkerIcon;
   ValueNotifier<LatLng?> newUbicationNotifier = ValueNotifier(null);
+
+  // Variable para almacenar el último valor del zoom
+  double? _lastZoom;
 
   @override
   void initState() {
     super.initState();
-    _loadCustomMarker();
+    _loadCustomMarkers();
 
     if (widget.newUbication != null) {
       newUbicationNotifier.value = _parseLatLng(widget.newUbication!);
@@ -99,36 +103,60 @@ class _MapsAustralianState extends State<MapsAustralian> {
     return LatLng(latitude, longitude);
   }
 
-  Future<void> _loadCustomMarker() async {
+  Future<void> _loadCustomMarkers() async {
     if (widget.markersImage != null) {
-      final bitmapDescriptor =
-          await google_maps.BitmapDescriptor.fromAssetImage(
-        ImageConfiguration(size: Size(28, 34)),
-        widget.markersImage!,
-      );
+      final markerIcon = await _buildMarkerIcon(
+          widget.markersImage!, 100); // Tamaño deseado aquí
       setState(() {
-        customMarker = bitmapDescriptor;
+        userMarkerIcon = markerIcon;
       });
     } else {
-      final bitmapDescriptor = await _createCustomMarkerFromAsset(
-          'https://i.ibb.co/5WVX7XJ/marker-Map.png');
       setState(() {
-        customMarker = bitmapDescriptor;
+        userMarkerIcon = google_maps.BitmapDescriptor.defaultMarker;
       });
     }
+
+    // Cargar el icono personalizado para la ubicación actual
+    final currentLocationImageUrl =
+        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/lvqw9xd8jn4h/mapitenRed.png';
+    final currentLocationMarkerIcon =
+        await _buildMarkerIcon(currentLocationImageUrl, 100);
+
+    setState(() {
+      this.currentLocationMarkerIcon = currentLocationMarkerIcon;
+    });
   }
 
-  Future<google_maps.BitmapDescriptor> _createCustomMarkerFromAsset(
-      String imageUrl) async {
-    final http.Response response = await http.get(Uri.parse(imageUrl));
-    final Uint8List bytes = response.bodyBytes;
-    final ui.Codec codec = await ui.instantiateImageCodec(bytes,
-        targetWidth: 28, targetHeight: 34);
-    final ui.FrameInfo fi = await codec.getNextFrame();
-    final ByteData? byteData =
-        await fi.image.toByteData(format: ui.ImageByteFormat.png);
-    final Uint8List resizedMarkerImageBytes = byteData!.buffer.asUint8List();
-    return google_maps.BitmapDescriptor.fromBytes(resizedMarkerImageBytes);
+  Future<google_maps.BitmapDescriptor> _buildMarkerIcon(
+      String pathImage, double size) async {
+    try {
+      final Uint8List bytes;
+
+      if (pathImage.startsWith('http://') || pathImage.startsWith('https://')) {
+        final response = await http.get(Uri.parse(pathImage));
+        if (response.statusCode == 200) {
+          bytes = response.bodyBytes;
+        } else {
+          throw Exception(
+              'Failed to load image. Status code: ${response.statusCode}');
+        }
+      } else {
+        final ByteData data = await rootBundle.load(pathImage);
+        bytes = data.buffer.asUint8List();
+      }
+
+      final image = img.decodeImage(Uint8List.fromList(bytes))!;
+      final resizedImage = img.copyResize(image, width: 80, height: 110);
+
+      final Uint8List resizedBytes = Uint8List.fromList(
+        img.encodePng(resizedImage),
+      );
+
+      return google_maps.BitmapDescriptor.fromBytes(resizedBytes);
+    } catch (e) {
+      print('Error loading marker image: $e');
+      return google_maps.BitmapDescriptor.defaultMarker;
+    }
   }
 
   final google_maps.LatLngBounds australiaBounds = google_maps.LatLngBounds(
@@ -166,38 +194,27 @@ class _MapsAustralianState extends State<MapsAustralian> {
             widget.current!.latitude,
             widget.current!.longitude,
           ),
-          icon: google_maps.BitmapDescriptor.defaultMarkerWithHue(
-            google_maps.BitmapDescriptor.hueViolet,
-          ),
+          icon: currentLocationMarkerIcon ??
+              google_maps.BitmapDescriptor.defaultMarkerWithHue(google_maps
+                  .BitmapDescriptor
+                  .hueRed), // Default red marker if custom one is not loaded
         ),
       );
+    }
 
-      if (widget.markers != null) {
-        for (UsersRecord user in widget.markers!) {
-          final LatLng? marker = user.suburb;
-          if (marker != null) {
-            if (_applyFilters(user)) {
-              if (widget.distance != null) {
-                final double distance = _calculateDistance(
-                  widget.current!.latitude,
-                  widget.current!.longitude,
-                  marker.latitude,
-                  marker.longitude,
-                );
-                if (distance <= widget.distance!) {
-                  markers.add(
-                    google_maps.Marker(
-                      markerId: google_maps.MarkerId(user.uid),
-                      position: google_maps.LatLng(
-                        marker.latitude,
-                        marker.longitude,
-                      ),
-                      icon: customMarker ??
-                          google_maps.BitmapDescriptor.defaultMarker,
-                    ),
-                  );
-                }
-              } else {
+    if (widget.markers != null) {
+      for (UsersRecord user in widget.markers!) {
+        final LatLng? marker = user.suburb;
+        if (marker != null) {
+          if (_applyFilters(user)) {
+            if (widget.distance != null) {
+              final double distance = _calculateDistance(
+                widget.current!.latitude,
+                widget.current!.longitude,
+                marker.latitude,
+                marker.longitude,
+              );
+              if (distance <= widget.distance!) {
                 markers.add(
                   google_maps.Marker(
                     markerId: google_maps.MarkerId(user.uid),
@@ -205,11 +222,25 @@ class _MapsAustralianState extends State<MapsAustralian> {
                       marker.latitude,
                       marker.longitude,
                     ),
-                    icon: customMarker ??
-                        google_maps.BitmapDescriptor.defaultMarker,
+                    icon: userMarkerIcon ??
+                        google_maps.BitmapDescriptor.defaultMarkerWithHue(
+                            google_maps.BitmapDescriptor.hueViolet),
                   ),
                 );
               }
+            } else {
+              markers.add(
+                google_maps.Marker(
+                  markerId: google_maps.MarkerId(user.uid),
+                  position: google_maps.LatLng(
+                    marker.latitude,
+                    marker.longitude,
+                  ),
+                  icon: userMarkerIcon ??
+                      google_maps.BitmapDescriptor.defaultMarkerWithHue(
+                          google_maps.BitmapDescriptor.hueViolet),
+                ),
+              );
             }
           }
         }
@@ -254,6 +285,18 @@ class _MapsAustralianState extends State<MapsAustralian> {
             cameraTargetBounds: google_maps.CameraTargetBounds(australiaBounds),
             markers: markers,
             onCameraMove: (google_maps.CameraPosition position) {
+              // Imprimir el nivel de zoom actual
+              print('Nivel de zoom actual: ${position.zoom}');
+              // Solo actualizar el estado si el zoom ha cambiado
+              if (_lastZoom == null ||
+                  (position.zoom - _lastZoom!).abs() > 0.1) {
+                _lastZoom = position.zoom;
+                int tempNumber = ((10 / position.zoom) * 100.0).toInt();
+                FFAppState().update(() {
+                  FFAppState().zoomFilter = tempNumber;
+                });
+              }
+              // Verificar si la posición está fuera de los límites de Australia y ajustar si es necesario
               if (!australiaBounds.contains(position.target)) {
                 mapController!.moveCamera(
                   google_maps.CameraUpdate.newLatLngBounds(australiaBounds, 0),
@@ -264,7 +307,7 @@ class _MapsAustralianState extends State<MapsAustralian> {
         ),
         Positioned(
           right: 10,
-          bottom: 10,
+          bottom: 5,
           child: FloatingActionButton(
             onPressed: () {
               if (widget.current != null) {

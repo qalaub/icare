@@ -212,3 +212,67 @@ bool? validateDate(String dateString) {
     return false; // Cambié a `false` para manejar casos de error de formato
   }
 }
+
+bool verifyDistanceFilter(
+  String? current,
+  LatLng user,
+  int zoom,
+) {
+  if (current == null || user.toString().isEmpty) {
+    return true;
+  }
+  // Función para convertir grados a radianes
+  double _degreesToRadians(double degrees) {
+    return degrees * math.pi / 180;
+  }
+
+  // Función para calcular la distancia entre dos puntos en la superficie de una esfera
+  double _calculateDistance(
+    double lat1,
+    double lon1,
+    double lat2,
+    double lon2,
+  ) {
+    const double radius = 6371; // Radio de la Tierra en kilómetros
+    final double dLat = _degreesToRadians(lat2 - lat1);
+    final double dLon = _degreesToRadians(lon2 - lon1);
+    final double a = math.sin(dLat / 2) * math.sin(dLat / 2) +
+        math.cos(_degreesToRadians(lat1)) *
+            math.cos(_degreesToRadians(lat2)) *
+            math.sin(dLon / 2) *
+            math.sin(dLon / 2);
+    final double c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a));
+    return radius * c * 1000; // Convertir a metros
+  }
+
+  // Parsear el string current para obtener latitud y longitud
+  final parts = current.split(',');
+  if (parts.length != 2) {
+    return true;
+  }
+  final double currentLat = double.tryParse(parts[0]) ?? 0.0;
+  final double currentLng = double.tryParse(parts[1]) ?? 0.0;
+
+  // Calcular la distancia usando la fórmula de Haversine
+  final double distance = _calculateDistance(
+    currentLat,
+    currentLng,
+    user.latitude,
+    user.longitude,
+  );
+
+  const double base = 2;
+
+  // Evita que el zoom sea menor a 10 y ajusta el crecimiento
+  double adjustedZoom = zoom - 100;
+  if (adjustedZoom <= 0) {
+    adjustedZoom = 5;
+  }
+  if (adjustedZoom == 150) adjustedZoom = 1000;
+  double multiplier = 1000.0 * (adjustedZoom * 1.8);
+  return distance <=
+      (multiplier * (math.log(adjustedZoom) / math.log(base))).toInt();
+
+  // Retornar true si la distancia es menor o igual a 100 metros
+  // return distance <= (zoom / 10) * 100000; // 100 metros
+}

@@ -13,6 +13,7 @@ import '/flutter_flow/upload_data.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
 import '/v2/user/upload_profile_image/upload_profile_image_widget.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'profilesettings_model.dart';
@@ -137,11 +138,11 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                   safeSetState(() {}),
                                               child: UploadProfileImageWidget(
                                                 img: valueOrDefault<String>(
-                                                  _model.uploadedFileUrl !=
+                                                  _model.uploadedFileUrl1 !=
                                                               ''
                                                       ? valueOrDefault<String>(
                                                           _model
-                                                              .uploadedFileUrl,
+                                                              .uploadedFileUrl1,
                                                           'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
                                                         )
                                                       : valueOrDefault<String>(
@@ -192,7 +193,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                             m.storagePath,
                                                             context))) {
                                                   safeSetState(() => _model
-                                                      .isDataUploading = true);
+                                                      .isDataUploading1 = true);
                                                   var selectedUploadedFiles =
                                                       <FFUploadedFile>[];
 
@@ -233,7 +234,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                         .map((u) => u!)
                                                         .toList();
                                                   } finally {
-                                                    _model.isDataUploading =
+                                                    _model.isDataUploading1 =
                                                         false;
                                                   }
                                                   if (selectedUploadedFiles
@@ -244,10 +245,10 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                           selectedMedia
                                                               .length) {
                                                     safeSetState(() {
-                                                      _model.uploadedLocalFile =
+                                                      _model.uploadedLocalFile1 =
                                                           selectedUploadedFiles
                                                               .first;
-                                                      _model.uploadedFileUrl =
+                                                      _model.uploadedFileUrl1 =
                                                           downloadUrls.first;
                                                     });
                                                   } else {
@@ -1289,18 +1290,143 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                         ],
                                       ),
                                     ),
-                                    const Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                    Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 8.0, 0.0, 0.0),
                                       child: FlutterFlowVideoPlayer(
-                                        path:
-                                            'https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.mp4',
+                                        path: valueOrDefault(
+                                                        currentUserDocument
+                                                            ?.video,
+                                                        '') !=
+                                                    ''
+                                            ? valueOrDefault(
+                                                currentUserDocument?.video, '')
+                                            : 'https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.mp4',
                                         videoType: VideoType.network,
                                         autoPlay: false,
-                                        looping: true,
+                                        looping: false,
                                         showControls: true,
-                                        allowFullScreen: true,
+                                        allowFullScreen: false,
                                         allowPlaybackSpeedMenu: false,
+                                      ),
+                                    ),
+                                    FFButtonWidget(
+                                      onPressed: () async {
+                                        final selectedMedia =
+                                            await selectMediaWithSourceBottomSheet(
+                                          context: context,
+                                          allowPhoto: false,
+                                          allowVideo: true,
+                                        );
+                                        if (selectedMedia != null &&
+                                            selectedMedia.every((m) =>
+                                                validateFileFormat(
+                                                    m.storagePath, context))) {
+                                          safeSetState(() =>
+                                              _model.isDataUploading2 = true);
+                                          var selectedUploadedFiles =
+                                              <FFUploadedFile>[];
+
+                                          try {
+                                            showUploadMessage(
+                                              context,
+                                              'Uploading file...',
+                                              showLoading: true,
+                                            );
+                                            selectedUploadedFiles =
+                                                selectedMedia
+                                                    .map((m) => FFUploadedFile(
+                                                          name: m.storagePath
+                                                              .split('/')
+                                                              .last,
+                                                          bytes: m.bytes,
+                                                          height: m.dimensions
+                                                              ?.height,
+                                                          width: m.dimensions
+                                                              ?.width,
+                                                          blurHash: m.blurHash,
+                                                        ))
+                                                    .toList();
+                                          } finally {
+                                            ScaffoldMessenger.of(context)
+                                                .hideCurrentSnackBar();
+                                            _model.isDataUploading2 = false;
+                                          }
+                                          if (selectedUploadedFiles.length ==
+                                              selectedMedia.length) {
+                                            safeSetState(() {
+                                              _model.uploadedLocalFile2 =
+                                                  selectedUploadedFiles.first;
+                                            });
+                                            showUploadMessage(
+                                                context, 'Success!');
+                                          } else {
+                                            safeSetState(() {});
+                                            showUploadMessage(context,
+                                                'Failed to upload data');
+                                            return;
+                                          }
+                                        }
+
+                                        _model.verifyVideo =
+                                            actions.verifySizeVideo(
+                                          _model.uploadedLocalFile2,
+                                        );
+                                        if (!_model.verifyVideo!) {
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(
+                                            SnackBar(
+                                              content: Text(
+                                                'File must be no larger than 10 MB',
+                                                style: TextStyle(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                ),
+                                              ),
+                                              duration:
+                                                  const Duration(milliseconds: 4000),
+                                              backgroundColor:
+                                                  const Color(0xFFD2395B),
+                                            ),
+                                          );
+                                          safeSetState(() {
+                                            _model.isDataUploading2 = false;
+                                            _model.uploadedLocalFile2 =
+                                                FFUploadedFile(
+                                                    bytes:
+                                                        Uint8List.fromList([]));
+                                          });
+                                        }
+
+                                        safeSetState(() {});
+                                      },
+                                      text: 'Upload video',
+                                      icon: const Icon(
+                                        Icons.upload,
+                                        size: 22.0,
+                                      ),
+                                      options: FFButtonOptions(
+                                        width: 167.0,
+                                        height: 47.0,
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            12.0, 0.0, 12.0, 0.0),
+                                        iconPadding:
+                                            const EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
+                                        color: const Color(0xFFB928B8),
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              fontFamily: 'Montserrat',
+                                              color: Colors.white,
+                                              fontSize: 20.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                        elevation: 0.0,
+                                        borderRadius:
+                                            BorderRadius.circular(16.0),
                                       ),
                                     ),
                                   ].divide(const SizedBox(height: 8.0)),
@@ -1378,15 +1504,62 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                   },
                                 ),
                               });
-                              if (_model.uploadedFileUrl != '') {
+                              if (_model.uploadedFileUrl1 != '') {
                                 await currentUserReference!
                                     .update(createUsersRecordData(
-                                  photoUrl: _model.uploadedFileUrl,
+                                  photoUrl: _model.uploadedFileUrl1,
                                 ));
                               }
                               FFAppState().registerProviderForm =
                                   RegisterProviderTypeStruct();
                               safeSetState(() {});
+                              {
+                                safeSetState(
+                                    () => _model.isDataUploading3 = true);
+                                var selectedUploadedFiles = <FFUploadedFile>[];
+                                var selectedMedia = <SelectedFile>[];
+                                var downloadUrls = <String>[];
+                                try {
+                                  selectedUploadedFiles = _model
+                                          .uploadedLocalFile2.bytes!.isNotEmpty
+                                      ? [_model.uploadedLocalFile2]
+                                      : <FFUploadedFile>[];
+                                  selectedMedia =
+                                      selectedFilesFromUploadedFiles(
+                                    selectedUploadedFiles,
+                                  );
+                                  downloadUrls = (await Future.wait(
+                                    selectedMedia.map(
+                                      (m) async => await uploadData(
+                                          m.storagePath, m.bytes),
+                                    ),
+                                  ))
+                                      .where((u) => u != null)
+                                      .map((u) => u!)
+                                      .toList();
+                                } finally {
+                                  _model.isDataUploading3 = false;
+                                }
+                                if (selectedUploadedFiles.length ==
+                                        selectedMedia.length &&
+                                    downloadUrls.length ==
+                                        selectedMedia.length) {
+                                  safeSetState(() {
+                                    _model.uploadedLocalFile3 =
+                                        selectedUploadedFiles.first;
+                                    _model.uploadedFileUrl3 =
+                                        downloadUrls.first;
+                                  });
+                                } else {
+                                  safeSetState(() {});
+                                  return;
+                                }
+                              }
+
+                              await currentUserReference!
+                                  .update(createUsersRecordData(
+                                video: _model.uploadedFileUrl3,
+                              ));
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
                                   content: Text(

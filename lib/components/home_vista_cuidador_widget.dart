@@ -43,96 +43,90 @@ class _HomeVistaCuidadorWidgetState extends State<HomeVistaCuidadorWidget> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Material(
-          color: Colors.transparent,
-          elevation: 5.0,
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(0.0),
-              bottomRight: Radius.circular(32.0),
-              topLeft: Radius.circular(32.0),
-              topRight: Radius.circular(32.0),
-            ),
-          ),
-          child: Container(
-            width: 285.0,
-            height: 120.0,
-            decoration: const BoxDecoration(
-              color: Color(0xFFFFCCF9),
+        Align(
+          alignment: const AlignmentDirectional(0.0, -0.1),
+          child: Material(
+            color: Colors.transparent,
+            elevation: 0.0,
+            shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(0.0),
-                bottomRight: Radius.circular(32.0),
-                topLeft: Radius.circular(32.0),
-                topRight: Radius.circular(32.0),
+                bottomRight: Radius.circular(0.0),
+                topLeft: Radius.circular(0.0),
+                topRight: Radius.circular(0.0),
               ),
             ),
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Align(
-                  alignment: const AlignmentDirectional(0.0, 0.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'There are ',
-                        textAlign: TextAlign.center,
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Montserrat',
-                              fontSize: 17.0,
-                              letterSpacing: 0.0,
-                              fontWeight: FontWeight.w500,
-                            ),
-                      ),
-                      Text(
-                        widget.participants,
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Montserrat',
-                              color: const Color(0xFFDF00AE),
-                              fontSize: 17.0,
-                              letterSpacing: 0.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                      ),
-                    ],
-                  ),
+            child: Container(
+              width: 344.0,
+              height: 260.0,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: Image.asset(
+                    'assets/images/Frame_427320849.png',
+                  ).image,
                 ),
-                Align(
-                  alignment: const AlignmentDirectional(0.0, 0.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        'ready to meet you near you',
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Montserrat',
-                              fontSize: 17.0,
-                              letterSpacing: 0.0,
-                              fontWeight: FontWeight.w500,
-                            ),
-                      ),
-                    ],
-                  ),
+                borderRadius: const BorderRadius.only(
+                  bottomLeft: Radius.circular(0.0),
+                  bottomRight: Radius.circular(0.0),
+                  topLeft: Radius.circular(0.0),
+                  topRight: Radius.circular(0.0),
                 ),
-              ],
-            ),
-          ),
-        ),
-        Align(
-          alignment: const AlignmentDirectional(-1.28, -1.87),
-          child: Container(
-            width: 76.6,
-            height: 76.6,
-            decoration: const BoxDecoration(),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(8.0),
-              child: Image.asset(
-                'assets/images/Notifications_Message.png',
-                width: 200.0,
-                height: 200.0,
-                fit: BoxFit.cover,
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Align(
+                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'There are ',
+                          textAlign: TextAlign.center,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Montserrat',
+                                    fontSize: 17.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                        ),
+                        Text(
+                          widget.participants,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Montserrat',
+                                    color: const Color(0xFFDF00AE),
+                                    fontSize: 17.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Align(
+                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          'ready to meet you near you',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Montserrat',
+                                    fontSize: 17.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ].addToStart(const SizedBox(height: 36.0)),
               ),
             ),
           ),

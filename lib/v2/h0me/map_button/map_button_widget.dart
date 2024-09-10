@@ -112,12 +112,15 @@ class _MapButtonWidgetState extends State<MapButtonWidget> {
                     child: custom_widgets.MapsAustralian(
                       width: MediaQuery.sizeOf(context).width * 1.0,
                       height: MediaQuery.sizeOf(context).height * 1.0,
-                      current: currentUserLocationValue,
+                      current: FFAppState().tempLocation,
                       markers: currentUserDocument?.rol != Roles.user
                           ? mapsAustralianUsersRecordList
                               .where((e) =>
-                                  (e.rol != Roles.profesional) &&
-                                  (e.rol != Roles.business))
+                                  (e.rol == Roles.user) &&
+                                  functions.verifyDistanceFilter(
+                                      _model.newUbication,
+                                      e.suburb!,
+                                      FFAppState().zoomFilter))
                               .toList()
                           : mapsAustralianUsersRecordList
                               .where((e) =>
@@ -129,7 +132,7 @@ class _MapButtonWidgetState extends State<MapButtonWidget> {
                         10.0,
                       ),
                       markersImage:
-                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/3ketutb35iu3/markerMap.png',
+                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/4twx3f2zgpkp/morado-marcador.png',
                       newUbication: _model.newUbication,
                       language: FFAppState().filtersPage.language,
                       age: FFAppState().filtersPage.age,
@@ -438,6 +441,11 @@ class _MapButtonWidgetState extends State<MapButtonWidget> {
                                                         ''),
                                                   )?.lng.toString(),
                                                   ',');
+                                          FFAppState()
+                                                  .newUbicationProfessional =
+                                              _model.newUbication!;
+                                          FFAppState().zoomFilter = 100;
+                                          _model.updatePage(() {});
                                         }
                                         _model.queryResults = [];
                                         safeSetState(() {

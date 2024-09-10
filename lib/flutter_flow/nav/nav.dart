@@ -496,6 +496,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   ParamType.bool,
                 ),
               ),
+            ),
+            FFRoute(
+              name: 'recuperarcontrasea',
+              path: 'recuperarcontrasea',
+              builder: (context, params) => const RecuperarcontraseaWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

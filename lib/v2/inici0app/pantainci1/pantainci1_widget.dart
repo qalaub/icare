@@ -218,7 +218,7 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
                             ),
                           ),
                           Text(
-                            'Never see this screen again',
+                            'Skip this screen next time',
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(

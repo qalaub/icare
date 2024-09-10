@@ -40,7 +40,8 @@ class _NavbarWidgetState extends State<NavbarWidget> {
   Widget build(BuildContext context) {
     return Builder(
       builder: (context) {
-        if (currentUserDocument?.rol == Roles.user) {
+        if ((currentUserDocument?.rol == Roles.user) ||
+            (currentUserDocument?.rol == null)) {
           return wrapWithModel(
             model: _model.navbarUserModel,
             updateCallback: () => safeSetState(() {}),
