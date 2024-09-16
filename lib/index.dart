@@ -14,8 +14,6 @@ export '/v2/register/professional/register_professional2/register_professional2_
 export '/loguin/login/login_widget.dart' show LoginWidget;
 export '/loguin/escoger_usuario/escoger_usuario_widget.dart'
     show EscogerUsuarioWidget;
-export '/reguistrocuidador/membresia/membresia_widget.dart'
-    show MembresiaWidget;
 export '/v2/user/userprofile/userprofile_widget.dart' show UserprofileWidget;
 export '/v2/v2_mensages/chat_2_details/chat2_details_widget.dart'
     show Chat2DetailsWidget;
@@ -72,7 +70,7 @@ export '/v2/v2_mensages/report_section/report_section_widget.dart'
 export '/v2/favoritesv2/fav_v3_copy/fav_v3_copy_widget.dart'
     show FavV3CopyWidget;
 export '/v2/inici0app/pantainci1/pantainci1_widget.dart' show Pantainci1Widget;
-export '/v2/register/professional/register_pfofesional4/register_pfofesional4_widget.dart'
+export '/v2/register/register_pfofesional4/register_pfofesional4_widget.dart'
     show RegisterPfofesional4Widget;
 export '/cuestionario/cuestionario/cuestionario_widget.dart'
     show CuestionarioWidget;

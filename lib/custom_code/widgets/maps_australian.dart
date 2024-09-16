@@ -307,7 +307,8 @@ class _MapsAustralianState extends State<MapsAustralian> {
         ),
         Positioned(
           right: 10,
-          bottom: 5,
+          top: MediaQuery.of(context).size.height / 2 -
+              28, // Centra verticalmente el botón
           child: FloatingActionButton(
             onPressed: () {
               if (widget.current != null) {

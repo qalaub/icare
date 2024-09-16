@@ -285,7 +285,7 @@ class _EscogerUsuarioWidgetState extends State<EscogerUsuarioWidget> {
                                 buttonSize: 40.0,
                                 icon: const Icon(
                                   Icons.arrow_back_ios_new,
-                                  color: Colors.black,
+                                  color: Colors.white,
                                   size: 24.0,
                                 ),
                                 onPressed: () async {

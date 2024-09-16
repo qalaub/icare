@@ -96,7 +96,7 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                 buttonSize: 40.0,
                                 icon: const Icon(
                                   Icons.arrow_back_ios_new,
-                                  color: Colors.black,
+                                  color: Color(0xFFF9F9F9),
                                   size: 24.0,
                                 ),
                                 onPressed: () async {

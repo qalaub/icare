@@ -5,11 +5,20 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/upload_data.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:provider/provider.dart';
 import 'image_upload_model.dart';
 export 'image_upload_model.dart';
 
 class ImageUploadWidget extends StatefulWidget {
-  const ImageUploadWidget({super.key});
+  const ImageUploadWidget({
+    super.key,
+    this.img,
+    this.index,
+  });
+
+  final String? img;
+  final int? index;
 
   @override
   State<ImageUploadWidget> createState() => _ImageUploadWidgetState();
@@ -28,6 +37,15 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ImageUploadModel());
+
+    // On component load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      if ((widget.img != null && widget.img != '') &&
+          (widget.img != 'https://i.ibb.co/b7TBHQJ/imagen-defecto.png') &&
+          (widget.img != ' ')) {
+        FFAppState().addToImagesUserUpload(widget.img!);
+      }
+    });
   }
 
   @override
@@ -39,13 +57,25 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Stack(
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(8.0),
           child: Image.network(
             valueOrDefault<String>(
-              _model.uploadedFileUrl,
+              _model.uploadedFileUrl != ''
+                  ? valueOrDefault<String>(
+                      _model.uploadedFileUrl,
+                      'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
+                    )
+                  : valueOrDefault<String>(
+                      widget.img != null && widget.img != ''
+                          ? widget.img
+                          : 'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
+                      'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
+                    ),
               'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
             ),
             width: MediaQuery.sizeOf(context).width * 1.0,
@@ -120,8 +150,17 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
                       }
                     }
 
-                    FFAppState().addToImagesUserUpload(_model.uploadedFileUrl);
-                    safeSetState(() {});
+                    if (widget.index != null) {
+                      FFAppState().updateImagesUserUploadAtIndex(
+                        widget.index!,
+                        (_) => _model.uploadedFileUrl,
+                      );
+                      safeSetState(() {});
+                    } else {
+                      FFAppState()
+                          .addToImagesUserUpload(_model.uploadedFileUrl);
+                      safeSetState(() {});
+                    }
                   },
                 ),
               );

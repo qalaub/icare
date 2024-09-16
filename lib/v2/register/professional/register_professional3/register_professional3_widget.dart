@@ -91,7 +91,7 @@ class _RegisterProfessional3WidgetState
                                 buttonSize: 40.0,
                                 icon: const Icon(
                                   Icons.arrow_back_ios_new,
-                                  color: Colors.black,
+                                  color: Color(0xFFF9F7F7),
                                   size: 24.0,
                                 ),
                                 onPressed: () async {
@@ -171,6 +171,10 @@ class _RegisterProfessional3WidgetState
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   0.9,
+                                              constraints: const BoxConstraints(
+                                                minHeight: 250.0,
+                                                maxHeight: 270.0,
+                                              ),
                                               decoration: const BoxDecoration(),
                                               child: Align(
                                                 alignment: const AlignmentDirectional(
@@ -424,28 +428,6 @@ class _RegisterProfessional3WidgetState
                                                                         .width *
                                                                     0.9,
                                                                 height: 56.0,
-                                                                searchHintTextStyle:
-                                                                    FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Readex Pro',
-                                                                          color:
-                                                                              Colors.black,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                        ),
-                                                                searchTextStyle:
-                                                                    FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Readex Pro',
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                        ),
                                                                 textStyle: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -462,8 +444,6 @@ class _RegisterProfessional3WidgetState
                                                                     ),
                                                                 hintText:
                                                                     'Company name',
-                                                                searchHintText:
-                                                                    'Search for a business...',
                                                                 icon: const Icon(
                                                                   Icons
                                                                       .keyboard_arrow_down_rounded,
@@ -492,7 +472,7 @@ class _RegisterProfessional3WidgetState
                                                                 isOverButton:
                                                                     false,
                                                                 isSearchable:
-                                                                    true,
+                                                                    false,
                                                                 isMultiSelect:
                                                                     false,
                                                               );

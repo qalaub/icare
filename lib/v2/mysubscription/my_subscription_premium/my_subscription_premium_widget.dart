@@ -116,7 +116,7 @@ class _MySubscriptionPremiumWidgetState
                       Container(
                         decoration: const BoxDecoration(),
                         child: Text(
-                          'business profile suitable for companies,\nYour collaborators will be better positioned',
+                          'Business profile suitable for companies,\nYour collaborators will be better positioned',
                           textAlign: TextAlign.center,
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
@@ -233,7 +233,7 @@ class _MySubscriptionPremiumWidgetState
                                         valueOrDefault<bool>(
                                                 currentUserDocument?.freeTrial,
                                                 false)
-                                            ? 'free trial'
+                                            ? 'Free trial'
                                             : functions
                                                 .getRestantDays(
                                                     currentUserDocument!
@@ -524,7 +524,7 @@ class _MySubscriptionPremiumWidgetState
                       onPressed: () async {
                         context.pushNamed('userprofile');
                       },
-                      text: 'return',
+                      text: 'Return',
                       options: FFButtonOptions(
                         width: 275.0,
                         height: 45.0,

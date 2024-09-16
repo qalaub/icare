@@ -166,11 +166,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => const EscogerUsuarioWidget(),
             ),
             FFRoute(
-              name: 'Membresia',
-              path: 'membresia',
-              builder: (context, params) => const MembresiaWidget(),
-            ),
-            FFRoute(
               name: 'userprofile',
               path: 'userprofile',
               requireAuth: true,

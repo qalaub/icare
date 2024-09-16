@@ -149,7 +149,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                 buttonSize: 40.0,
                                 icon: const Icon(
                                   Icons.arrow_back_ios_new,
-                                  color: Colors.black,
+                                  color: Color(0xFFEEE6E6),
                                   size: 24.0,
                                 ),
                                 onPressed: () async {

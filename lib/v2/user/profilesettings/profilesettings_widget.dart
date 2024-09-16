@@ -15,6 +15,7 @@ import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
 import '/v2/user/upload_profile_image/upload_profile_image_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
 import 'profilesettings_model.dart';
 export 'profilesettings_model.dart';
@@ -35,6 +36,11 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ProfilesettingsModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      FFAppState().imagesUserUpload = [];
+    });
 
     _model.nameTextController ??= TextEditingController(
         text: valueOrDefault<String>(
@@ -136,127 +142,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                   .uploadProfileImageModel,
                                               updateCallback: () =>
                                                   safeSetState(() {}),
-                                              child: UploadProfileImageWidget(
-                                                img: valueOrDefault<String>(
-                                                  _model.uploadedFileUrl1 !=
-                                                              ''
-                                                      ? valueOrDefault<String>(
-                                                          _model
-                                                              .uploadedFileUrl1,
-                                                          'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
-                                                        )
-                                                      : valueOrDefault<String>(
-                                                          currentUserPhoto !=
-                                                                      ''
-                                                              ? currentUserPhoto
-                                                              : ' ',
-                                                          'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
-                                                        ),
-                                                  'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        Align(
-                                          alignment:
-                                              const AlignmentDirectional(-0.01, 1.02),
-                                          child: Container(
-                                            width: MediaQuery.sizeOf(context)
-                                                    .width *
-                                                0.9,
-                                            height: 177.0,
-                                            decoration: const BoxDecoration(),
-                                            child: FlutterFlowIconButton(
-                                              borderColor: Colors.transparent,
-                                              borderRadius: 20.0,
-                                              borderWidth: 1.0,
-                                              buttonSize:
-                                                  MediaQuery.sizeOf(context)
-                                                          .width *
-                                                      1.0,
-                                              icon: const Icon(
-                                                Icons.circle,
-                                                color: Colors.white,
-                                                size: 1.0,
-                                              ),
-                                              showLoadingIndicator: true,
-                                              onPressed: () async {
-                                                final selectedMedia =
-                                                    await selectMediaWithSourceBottomSheet(
-                                                  context: context,
-                                                  allowPhoto: true,
-                                                );
-                                                if (selectedMedia != null &&
-                                                    selectedMedia.every((m) =>
-                                                        validateFileFormat(
-                                                            m.storagePath,
-                                                            context))) {
-                                                  safeSetState(() => _model
-                                                      .isDataUploading1 = true);
-                                                  var selectedUploadedFiles =
-                                                      <FFUploadedFile>[];
-
-                                                  var downloadUrls = <String>[];
-                                                  try {
-                                                    selectedUploadedFiles =
-                                                        selectedMedia
-                                                            .map((m) =>
-                                                                FFUploadedFile(
-                                                                  name: m
-                                                                      .storagePath
-                                                                      .split(
-                                                                          '/')
-                                                                      .last,
-                                                                  bytes:
-                                                                      m.bytes,
-                                                                  height: m
-                                                                      .dimensions
-                                                                      ?.height,
-                                                                  width: m
-                                                                      .dimensions
-                                                                      ?.width,
-                                                                  blurHash: m
-                                                                      .blurHash,
-                                                                ))
-                                                            .toList();
-
-                                                    downloadUrls = (await Future
-                                                            .wait(
-                                                      selectedMedia.map(
-                                                        (m) async =>
-                                                            await uploadData(
-                                                                m.storagePath,
-                                                                m.bytes),
-                                                      ),
-                                                    ))
-                                                        .where((u) => u != null)
-                                                        .map((u) => u!)
-                                                        .toList();
-                                                  } finally {
-                                                    _model.isDataUploading1 =
-                                                        false;
-                                                  }
-                                                  if (selectedUploadedFiles
-                                                              .length ==
-                                                          selectedMedia
-                                                              .length &&
-                                                      downloadUrls.length ==
-                                                          selectedMedia
-                                                              .length) {
-                                                    safeSetState(() {
-                                                      _model.uploadedLocalFile1 =
-                                                          selectedUploadedFiles
-                                                              .first;
-                                                      _model.uploadedFileUrl1 =
-                                                          downloadUrls.first;
-                                                    });
-                                                  } else {
-                                                    safeSetState(() {});
-                                                    return;
-                                                  }
-                                                }
-                                              },
+                                              child: const UploadProfileImageWidget(),
                                             ),
                                           ),
                                         ),
@@ -1323,7 +1209,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
                                           safeSetState(() =>
-                                              _model.isDataUploading2 = true);
+                                              _model.isDataUploading1 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
 
@@ -1350,12 +1236,12 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                           } finally {
                                             ScaffoldMessenger.of(context)
                                                 .hideCurrentSnackBar();
-                                            _model.isDataUploading2 = false;
+                                            _model.isDataUploading1 = false;
                                           }
                                           if (selectedUploadedFiles.length ==
                                               selectedMedia.length) {
                                             safeSetState(() {
-                                              _model.uploadedLocalFile2 =
+                                              _model.uploadedLocalFile1 =
                                                   selectedUploadedFiles.first;
                                             });
                                             showUploadMessage(
@@ -1370,7 +1256,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
 
                                         _model.verifyVideo =
                                             actions.verifySizeVideo(
-                                          _model.uploadedLocalFile2,
+                                          _model.uploadedLocalFile1,
                                         );
                                         if (!_model.verifyVideo!) {
                                           ScaffoldMessenger.of(context)
@@ -1391,8 +1277,8 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                             ),
                                           );
                                           safeSetState(() {
-                                            _model.isDataUploading2 = false;
-                                            _model.uploadedLocalFile2 =
+                                            _model.isDataUploading1 = false;
+                                            _model.uploadedLocalFile1 =
                                                 FFUploadedFile(
                                                     bytes:
                                                         Uint8List.fromList([]));
@@ -1434,95 +1320,117 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                               ),
                             ),
                           ),
-                        Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 8.0, 0.0),
-                          child: FFButtonWidget(
-                            onPressed: () async {
-                              FFAppState().updateRegisterProviderFormStruct(
-                                (e) => e
-                                  ..firstName = valueOrDefault(
-                                      currentUserDocument?.firtsName, '')
-                                  ..languagues = valueOrDefault(
-                                      currentUserDocument?.languagues, '')
-                                  ..description = valueOrDefault(
-                                      currentUserDocument?.description, '')
-                                  ..age = valueOrDefault(
-                                      currentUserDocument?.age, '')
-                                  ..serviceType = (currentUserDocument
-                                              ?.serviceType
-                                              .toList() ??
-                                          [])
-                                      .toList(),
-                              );
-                              FFAppState().updateRegisterProviderFormStruct(
-                                (e) => e
-                                  ..firstName = _model.nameTextController.text
-                                  ..description =
-                                      _model.descriptionTextController.text
-                                  ..updateTime = getCurrentTimestamp
-                                  ..age = _model.ageValue,
-                              );
-                              if (currentUserDocument?.rol != Roles.user) {
-                                if (currentUserDocument?.rol ==
-                                    Roles.business) {
-                                  FFAppState().updateRegisterProviderFormStruct(
-                                    (e) => e
-                                      ..serviceType =
-                                          _model.servicesPremiunValue!.toList(),
-                                  );
-                                } else {
-                                  FFAppState().updateRegisterProviderFormStruct(
-                                    (e) => e
-                                      ..serviceType =
-                                          _model.servicesPremiunValue!.toList(),
-                                  );
-                                }
+                        FFButtonWidget(
+                          onPressed: () async {
+                            FFAppState().updateRegisterProviderFormStruct(
+                              (e) => e
+                                ..firstName = valueOrDefault(
+                                    currentUserDocument?.firtsName, '')
+                                ..languagues = valueOrDefault(
+                                    currentUserDocument?.languagues, '')
+                                ..description = valueOrDefault(
+                                    currentUserDocument?.description, '')
+                                ..age =
+                                    valueOrDefault(currentUserDocument?.age, '')
+                                ..serviceType = (currentUserDocument
+                                            ?.serviceType
+                                            .toList() ??
+                                        [])
+                                    .toList(),
+                            );
+                            FFAppState().updateRegisterProviderFormStruct(
+                              (e) => e
+                                ..firstName = _model.nameTextController.text
+                                ..description =
+                                    _model.descriptionTextController.text
+                                ..updateTime = getCurrentTimestamp
+                                ..age = _model.ageValue,
+                            );
+                            if (currentUserDocument?.rol != Roles.user) {
+                              if (currentUserDocument?.rol == Roles.business) {
+                                FFAppState().updateRegisterProviderFormStruct(
+                                  (e) => e
+                                    ..serviceType =
+                                        _model.servicesPremiunValue!.toList(),
+                                );
+                              } else {
+                                FFAppState().updateRegisterProviderFormStruct(
+                                  (e) => e
+                                    ..serviceType =
+                                        _model.servicesPremiunValue!.toList(),
+                                );
                               }
+                            }
 
+                            await currentUserReference!.update({
+                              ...createUsersRecordData(
+                                firtsName:
+                                    FFAppState().registerProviderForm.firstName,
+                                languagues: FFAppState()
+                                    .registerProviderForm
+                                    .languagues,
+                                updateTime: FFAppState()
+                                    .registerProviderForm
+                                    .updateTime,
+                                description: FFAppState()
+                                    .registerProviderForm
+                                    .description,
+                                age: FFAppState().registerProviderForm.age,
+                              ),
+                              ...mapToFirestore(
+                                {
+                                  'serviceType': FFAppState()
+                                      .registerProviderForm
+                                      .serviceType,
+                                },
+                              ),
+                            });
+                            if (FFAppState().imagesUserUpload.isNotEmpty) {
                               await currentUserReference!.update({
                                 ...createUsersRecordData(
-                                  firtsName: FFAppState()
-                                      .registerProviderForm
-                                      .firstName,
-                                  languagues: FFAppState()
-                                      .registerProviderForm
-                                      .languagues,
-                                  updateTime: FFAppState()
-                                      .registerProviderForm
-                                      .updateTime,
-                                  description: FFAppState()
-                                      .registerProviderForm
-                                      .description,
-                                  age: FFAppState().registerProviderForm.age,
+                                  photoUrl: FFAppState().imagesUserUpload.first,
                                 ),
                                 ...mapToFirestore(
                                   {
-                                    'serviceType': FFAppState()
-                                        .registerProviderForm
-                                        .serviceType,
+                                    'images': FFAppState().imagesUserUpload,
                                   },
                                 ),
                               });
-                              if (_model.uploadedFileUrl1 != '') {
-                                await currentUserReference!
-                                    .update(createUsersRecordData(
-                                  photoUrl: _model.uploadedFileUrl1,
-                                ));
-                              }
-                              FFAppState().registerProviderForm =
-                                  RegisterProviderTypeStruct();
-                              safeSetState(() {});
+                              await showDialog(
+                                context: context,
+                                builder: (alertDialogContext) {
+                                  return AlertDialog(
+                                    title: const Text('efwfe'),
+                                    content: Text(FFAppState()
+                                        .imagesUserUpload
+                                        .length
+                                        .toString()),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () =>
+                                            Navigator.pop(alertDialogContext),
+                                        child: const Text('Ok'),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+                            }
+                            FFAppState().registerProviderForm =
+                                RegisterProviderTypeStruct();
+                            safeSetState(() {});
+                            if ((_model.uploadedLocalFile1.bytes?.isNotEmpty ??
+                                    false)) {
                               {
                                 safeSetState(
-                                    () => _model.isDataUploading3 = true);
+                                    () => _model.isDataUploading2 = true);
                                 var selectedUploadedFiles = <FFUploadedFile>[];
                                 var selectedMedia = <SelectedFile>[];
                                 var downloadUrls = <String>[];
                                 try {
                                   selectedUploadedFiles = _model
-                                          .uploadedLocalFile2.bytes!.isNotEmpty
-                                      ? [_model.uploadedLocalFile2]
+                                          .uploadedLocalFile1.bytes!.isNotEmpty
+                                      ? [_model.uploadedLocalFile1]
                                       : <FFUploadedFile>[];
                                   selectedMedia =
                                       selectedFilesFromUploadedFiles(
@@ -1538,16 +1446,16 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                       .map((u) => u!)
                                       .toList();
                                 } finally {
-                                  _model.isDataUploading3 = false;
+                                  _model.isDataUploading2 = false;
                                 }
                                 if (selectedUploadedFiles.length ==
                                         selectedMedia.length &&
                                     downloadUrls.length ==
                                         selectedMedia.length) {
                                   safeSetState(() {
-                                    _model.uploadedLocalFile3 =
+                                    _model.uploadedLocalFile2 =
                                         selectedUploadedFiles.first;
-                                    _model.uploadedFileUrl3 =
+                                    _model.uploadedFileUrl2 =
                                         downloadUrls.first;
                                   });
                                 } else {
@@ -1558,47 +1466,47 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
 
                               await currentUserReference!
                                   .update(createUsersRecordData(
-                                video: _model.uploadedFileUrl3,
+                                video: _model.uploadedFileUrl2,
                               ));
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text(
-                                    'Update success',
-                                    style: TextStyle(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                    ),
+                            }
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  'Update success',
+                                  style: TextStyle(
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
                                   ),
-                                  duration: const Duration(milliseconds: 4000),
-                                  backgroundColor:
-                                      FlutterFlowTheme.of(context).secondary,
                                 ),
-                              );
-                            },
-                            text: 'save changes',
-                            options: FFButtonOptions(
-                              width: 167.0,
-                              height: 57.0,
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 0.0, 12.0, 0.0),
-                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: const Color(0xFFFF6FF7),
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .headlineLarge
-                                  .override(
-                                    fontFamily: 'Montserrat',
-                                    color: Colors.white,
-                                    fontSize: 24.0,
-                                    letterSpacing: 0.0,
-                                  ),
-                              elevation: 3.0,
-                              borderSide: const BorderSide(
-                                color: Colors.transparent,
-                                width: 1.0,
+                                duration: const Duration(milliseconds: 4000),
+                                backgroundColor:
+                                    FlutterFlowTheme.of(context).secondary,
                               ),
-                              borderRadius: BorderRadius.circular(16.0),
+                            );
+                          },
+                          text: 'save changes',
+                          options: FFButtonOptions(
+                            width: 167.0,
+                            height: 57.0,
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                12.0, 0.0, 12.0, 0.0),
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: const Color(0xFFFF6FF7),
+                            textStyle: FlutterFlowTheme.of(context)
+                                .headlineLarge
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  color: Colors.white,
+                                  fontSize: 24.0,
+                                  letterSpacing: 0.0,
+                                ),
+                            elevation: 3.0,
+                            borderSide: const BorderSide(
+                              color: Colors.transparent,
+                              width: 1.0,
                             ),
+                            borderRadius: BorderRadius.circular(16.0),
                           ),
                         ),
                       ]

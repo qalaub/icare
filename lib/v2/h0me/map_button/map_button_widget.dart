@@ -112,7 +112,7 @@ class _MapButtonWidgetState extends State<MapButtonWidget> {
                     child: custom_widgets.MapsAustralian(
                       width: MediaQuery.sizeOf(context).width * 1.0,
                       height: MediaQuery.sizeOf(context).height * 1.0,
-                      current: FFAppState().tempLocation,
+                      current: currentUserLocationValue,
                       markers: currentUserDocument?.rol != Roles.user
                           ? mapsAustralianUsersRecordList
                               .where((e) =>
@@ -444,7 +444,7 @@ class _MapButtonWidgetState extends State<MapButtonWidget> {
                                           FFAppState()
                                                   .newUbicationProfessional =
                                               _model.newUbication!;
-                                          FFAppState().zoomFilter = 100;
+                                          FFAppState().zoomFilter = 10;
                                           _model.updatePage(() {});
                                         }
                                         _model.queryResults = [];

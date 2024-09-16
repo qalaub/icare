@@ -18,15 +18,19 @@ class ProfilesettingsModel extends FlutterFlowModel<ProfilesettingsWidget> {
   void updateImgsAtIndex(int index, Function(FFUploadedFile) updateFn) =>
       imgs[index] = updateFn(imgs[index]);
 
+  List<String> userImg = [];
+  void addToUserImg(String item) => userImg.add(item);
+  void removeFromUserImg(String item) => userImg.remove(item);
+  void removeAtIndexFromUserImg(int index) => userImg.removeAt(index);
+  void insertAtIndexInUserImg(int index, String item) =>
+      userImg.insert(index, item);
+  void updateUserImgAtIndex(int index, Function(String) updateFn) =>
+      userImg[index] = updateFn(userImg[index]);
+
   ///  State fields for stateful widgets in this page.
 
   // Model for upload_profile_image component.
   late UploadProfileImageModel uploadProfileImageModel;
-  bool isDataUploading1 = false;
-  FFUploadedFile uploadedLocalFile1 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl1 = '';
-
   // State field(s) for name widget.
   FocusNode? nameFocusNode;
   TextEditingController? nameTextController;
@@ -44,16 +48,16 @@ class ProfilesettingsModel extends FlutterFlowModel<ProfilesettingsWidget> {
   FocusNode? descriptionFocusNode;
   TextEditingController? descriptionTextController;
   String? Function(BuildContext, String?)? descriptionTextControllerValidator;
-  bool isDataUploading2 = false;
-  FFUploadedFile uploadedLocalFile2 =
+  bool isDataUploading1 = false;
+  FFUploadedFile uploadedLocalFile1 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // Stores action output result for [Custom Action - verifySizeVideo] action in Button widget.
   bool? verifyVideo;
-  bool isDataUploading3 = false;
-  FFUploadedFile uploadedLocalFile3 =
+  bool isDataUploading2 = false;
+  FFUploadedFile uploadedLocalFile2 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl3 = '';
+  String uploadedFileUrl2 = '';
 
   // Model for Navbar component.
   late NavbarModel navbarModel;

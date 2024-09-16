@@ -93,7 +93,7 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                   alignment: const AlignmentDirectional(0.0, -1.0),
                   child: Container(
                     width: MediaQuery.sizeOf(context).width * 1.0,
-                    height: MediaQuery.sizeOf(context).height * 0.49,
+                    height: MediaQuery.sizeOf(context).height * 0.485,
                     decoration: const BoxDecoration(),
                     child: Align(
                       alignment: const AlignmentDirectional(0.0, -1.0),
@@ -352,7 +352,7 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                             alignment: const AlignmentDirectional(1.1, 0.76),
                             child: Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
-                                  8.0, 0.0, 0.0, 0.0),
+                                  8.0, 8.0, 0.0, 0.0),
                               child: RatingBar.builder(
                                 onRatingUpdate: (newValue) => safeSetState(
                                     () => _model.ratingBarValue = newValue),

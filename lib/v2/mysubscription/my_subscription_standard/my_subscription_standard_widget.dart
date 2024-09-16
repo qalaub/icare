@@ -233,7 +233,7 @@ class _MySubscriptionStandardWidgetState
                                         valueOrDefault<bool>(
                                                 currentUserDocument?.freeTrial,
                                                 false)
-                                            ? 'free trial'
+                                            ? 'Free trial'
                                             : functions
                                                 .getRestantDays(
                                                     currentUserDocument!
@@ -523,7 +523,7 @@ class _MySubscriptionStandardWidgetState
                       onPressed: () async {
                         context.pushNamed('userprofile');
                       },
-                      text: 'return',
+                      text: 'Return',
                       options: FFButtonOptions(
                         width: 275.0,
                         height: 45.0,

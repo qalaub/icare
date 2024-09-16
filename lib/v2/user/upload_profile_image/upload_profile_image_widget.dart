@@ -1,3 +1,5 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/components/image_upload_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'upload_profile_image_model.dart';
@@ -6,10 +8,10 @@ export 'upload_profile_image_model.dart';
 class UploadProfileImageWidget extends StatefulWidget {
   const UploadProfileImageWidget({
     super.key,
-    this.img,
+    this.imgs,
   });
 
-  final String? img;
+  final List<String>? imgs;
 
   @override
   State<UploadProfileImageWidget> createState() =>
@@ -44,7 +46,10 @@ class _UploadProfileImageWidgetState extends State<UploadProfileImageWidget> {
       alignment: const AlignmentDirectional(-1.0, -1.0),
       child: Container(
         width: MediaQuery.sizeOf(context).width * 0.9,
-        height: 175.0,
+        constraints: const BoxConstraints(
+          minHeight: 225.0,
+          maxHeight: 245.0,
+        ),
         decoration: BoxDecoration(
           color: const Color(0xFFC9DEFF),
           borderRadius: const BorderRadius.only(
@@ -58,73 +63,111 @@ class _UploadProfileImageWidgetState extends State<UploadProfileImageWidget> {
             width: 1.0,
           ),
         ),
-        child: Builder(
-          builder: (context) {
-            if (widget.img == ' ') {
-              return Container(
-                decoration: const BoxDecoration(),
-                child: Stack(
-                  children: [
-                    Align(
-                      alignment: const AlignmentDirectional(0.0, 0.0),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: Image.asset(
-                          'assets/images/Diseo_sin_ttulo_(6)_4_(1).png',
-                          width: 100.0,
-                          height: 150.0,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
+        child: Align(
+          alignment: const AlignmentDirectional(0.0, 0.0),
+          child: Padding(
+            padding: const EdgeInsets.all(6.0),
+            child: GridView(
+              padding: const EdgeInsets.fromLTRB(
+                0,
+                6.0,
+                0,
+                0,
+              ),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                crossAxisSpacing: 10.0,
+                mainAxisSpacing: 9.0,
+                childAspectRatio: 1.0,
+              ),
+              scrollDirection: Axis.vertical,
+              children: [
+                AuthUserStreamWidget(
+                  builder: (context) => wrapWithModel(
+                    model: _model.imageUploadModel1,
+                    updateCallback: () => safeSetState(() {}),
+                    child: ImageUploadWidget(
+                      img:
+                          (currentUserDocument?.images.toList() ?? []).isNotEmpty
+                              ? (currentUserDocument?.images.toList() ?? [])[0]
+                              : ' ',
+                      index: 0,
                     ),
-                    const Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
-                      child: Icon(
-                        Icons.camera_alt_outlined,
-                        color: Colors.white,
-                        size: 60.0,
-                      ),
-                    ),
-                    Align(
-                      alignment: const AlignmentDirectional(0.0, 0.0),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: Image.asset(
-                          'assets/images/icareImagenParticipante.png',
-                          width: double.infinity,
-                          height: double.infinity,
-                          fit: BoxFit.none,
-                        ),
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
-              );
-            } else {
-              return Container(
-                decoration: const BoxDecoration(),
-                child: Stack(
-                  children: [
-                    Align(
-                      alignment: const AlignmentDirectional(-0.02, -0.09),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(160.0),
-                        child: Image.network(
-                          valueOrDefault<String>(
-                            widget.img,
-                            'https://i.ibb.co/2qkDLKb/Frame-74.png',
-                          ),
-                          width: 160.0,
-                          height: 160.0,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
+                AuthUserStreamWidget(
+                  builder: (context) => wrapWithModel(
+                    model: _model.imageUploadModel2,
+                    updateCallback: () => safeSetState(() {}),
+                    child: ImageUploadWidget(
+                      img:
+                          (currentUserDocument?.images.toList() ?? []).length >
+                                  1
+                              ? (currentUserDocument?.images.toList() ?? [])[1]
+                              : ' ',
+                      index: 1,
                     ),
-                  ],
+                  ),
                 ),
-              );
-            }
-          },
+                AuthUserStreamWidget(
+                  builder: (context) => wrapWithModel(
+                    model: _model.imageUploadModel3,
+                    updateCallback: () => safeSetState(() {}),
+                    child: ImageUploadWidget(
+                      img:
+                          (currentUserDocument?.images.toList() ?? []).length >
+                                  2
+                              ? (currentUserDocument?.images.toList() ?? [])[2]
+                              : ' ',
+                      index: 2,
+                    ),
+                  ),
+                ),
+                AuthUserStreamWidget(
+                  builder: (context) => wrapWithModel(
+                    model: _model.imageUploadModel4,
+                    updateCallback: () => safeSetState(() {}),
+                    child: ImageUploadWidget(
+                      img:
+                          (currentUserDocument?.images.toList() ?? []).length >
+                                  3
+                              ? (currentUserDocument?.images.toList() ?? [])[3]
+                              : ' ',
+                      index: 3,
+                    ),
+                  ),
+                ),
+                AuthUserStreamWidget(
+                  builder: (context) => wrapWithModel(
+                    model: _model.imageUploadModel5,
+                    updateCallback: () => safeSetState(() {}),
+                    child: ImageUploadWidget(
+                      img:
+                          (currentUserDocument?.images.toList() ?? []).length >
+                                  4
+                              ? (currentUserDocument?.images.toList() ?? [])[4]
+                              : ' ',
+                      index: 4,
+                    ),
+                  ),
+                ),
+                AuthUserStreamWidget(
+                  builder: (context) => wrapWithModel(
+                    model: _model.imageUploadModel6,
+                    updateCallback: () => safeSetState(() {}),
+                    child: ImageUploadWidget(
+                      img:
+                          (currentUserDocument?.images.toList() ?? []).length >
+                                  5
+                              ? (currentUserDocument?.images.toList() ?? [])[5]
+                              : ' ',
+                      index: 5,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );

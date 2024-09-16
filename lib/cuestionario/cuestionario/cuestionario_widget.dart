@@ -1,4 +1,5 @@
 import '/backend/schema/enums/enums.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -54,6 +55,27 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                         width: MediaQuery.sizeOf(context).width * 1.0,
                         height: MediaQuery.sizeOf(context).height * 1.0,
                         fit: BoxFit.fill,
+                      ),
+                    ),
+                    Align(
+                      alignment: const AlignmentDirectional(-0.91, -1.06),
+                      child: Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                        child: FlutterFlowIconButton(
+                          borderColor: Colors.transparent,
+                          borderRadius: 20.0,
+                          borderWidth: 1.0,
+                          buttonSize: 40.0,
+                          icon: const Icon(
+                            Icons.arrow_back_ios_new,
+                            color: Colors.white,
+                            size: 24.0,
+                          ),
+                          onPressed: () async {
+                            context.safePop();
+                          },
+                        ),
                       ),
                     ),
                     Align(
@@ -666,6 +688,9 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                                       .width *
                                                   0.86,
                                               height: 230.0,
+                                              constraints: const BoxConstraints(
+                                                minHeight: 230.0,
+                                              ),
                                               decoration: BoxDecoration(
                                                 color: const Color(0x9ED7AE71),
                                                 borderRadius:
@@ -879,6 +904,9 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                                       .width *
                                                   0.86,
                                               height: 230.0,
+                                              constraints: const BoxConstraints(
+                                                minHeight: 230.0,
+                                              ),
                                               decoration: BoxDecoration(
                                                 color: const Color(0xE3E6E6E6),
                                                 borderRadius:
@@ -1094,6 +1122,9 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
                                                       .width *
                                                   0.86,
                                               height: 230.0,
+                                              constraints: const BoxConstraints(
+                                                minHeight: 230.0,
+                                              ),
                                               decoration: BoxDecoration(
                                                 gradient: const LinearGradient(
                                                   colors: [

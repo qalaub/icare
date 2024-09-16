@@ -86,7 +86,7 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
             key: scaffoldKey,
             backgroundColor: Colors.white,
             appBar: AppBar(
-              backgroundColor: const Color(0xFFFEC0FB),
+              backgroundColor: const Color(0xFFB928B8),
               automaticallyImplyLeading: false,
               leading: FlutterFlowIconButton(
                 borderRadius: 20.0,
@@ -94,7 +94,7 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                 buttonSize: 40.0,
                 icon: const Icon(
                   Icons.arrow_back_ios_new,
-                  color: Colors.black,
+                  color: Colors.white,
                   size: 24.0,
                 ),
                 onPressed: () async {
@@ -105,7 +105,7 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                 'Profile',
                 style: FlutterFlowTheme.of(context).headlineLarge.override(
                       fontFamily: 'Montserrat',
-                      color: Colors.black,
+                      color: Colors.white,
                       fontSize: 24.0,
                       letterSpacing: 0.0,
                     ),
@@ -116,9 +116,9 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                     borderRadius: 24.0,
                     borderWidth: 1.0,
                     buttonSize: 40.0,
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.share_rounded,
-                      color: FlutterFlowTheme.of(context).primaryText,
+                      color: Colors.white,
                       size: 24.0,
                     ),
                     onPressed: () async {
@@ -201,7 +201,7 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                 },
                                 child: const Icon(
                                   FFIcons.kmessage,
-                                  color: Colors.black,
+                                  color: Colors.white,
                                   size: 33.0,
                                 ),
                               ),

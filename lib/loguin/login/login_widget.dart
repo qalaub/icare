@@ -121,7 +121,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 child: Container(
                                   width:
                                       MediaQuery.sizeOf(context).width * 0.96,
-                                  height: 468.0,
+                                  height: 488.0,
                                   decoration: BoxDecoration(
                                     color: const Color(0xFFFFFEFE),
                                     borderRadius: const BorderRadius.only(
@@ -666,7 +666,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                           child: Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 16.0),
+                                                    0.0, 16.0, 0.0, 16.0),
                                             child: Container(
                                               decoration: const BoxDecoration(),
                                               child: InkWell(
