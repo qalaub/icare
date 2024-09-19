@@ -87,7 +87,10 @@ class _MapButtonWidgetState extends State<MapButtonWidget> {
             alignment: const AlignmentDirectional(0.0, -0.99),
             child: AuthUserStreamWidget(
               builder: (context) => StreamBuilder<List<UsersRecord>>(
-                stream: queryUsersRecord(),
+                stream: queryUsersRecord(
+                  queryBuilder: (usersRecord) =>
+                      usersRecord.orderBy('update_time'),
+                ),
                 builder: (context, snapshot) {
                   // Customize what your widget looks like when it's loading.
                   if (!snapshot.hasData) {
@@ -132,7 +135,7 @@ class _MapButtonWidgetState extends State<MapButtonWidget> {
                         10.0,
                       ),
                       markersImage:
-                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/4twx3f2zgpkp/morado-marcador.png',
+                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/px92k8trm0hh/violetPoint.png',
                       newUbication: _model.newUbication,
                       language: FFAppState().filtersPage.language,
                       age: FFAppState().filtersPage.age,
@@ -156,7 +159,7 @@ class _MapButtonWidgetState extends State<MapButtonWidget> {
               markerColor: GoogleMarkerColor.violet,
               mapType: MapType.normal,
               style: GoogleMapStyle.standard,
-              initialZoom: 14.0,
+              initialZoom: 0.0,
               allowInteraction: false,
               allowZoom: false,
               showZoomControls: false,

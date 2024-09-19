@@ -120,6 +120,222 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                height: 100.0,
+                                decoration: const BoxDecoration(
+                                  color: Color(0xFFBD39BA),
+                                ),
+                                child: Builder(
+                                  builder: (context) {
+                                    final chatClip = containerChatsRecordList
+                                        .take(4)
+                                        .toList()
+                                        .take(4)
+                                        .toList();
+
+                                    return SingleChildScrollView(
+                                      scrollDirection: Axis.horizontal,
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: List.generate(chatClip.length,
+                                                (chatClipIndex) {
+                                          final chatClipItem =
+                                              chatClip[chatClipIndex];
+                                          return Container(
+                                            decoration: const BoxDecoration(),
+                                            child: StreamBuilder<UsersRecord>(
+                                              stream: UsersRecord.getDocument(
+                                                  chatClipItem.users
+                                                      .where((e) => e ==
+                                                              currentUserReference
+                                                          ? false
+                                                          : true)
+                                                      .toList()[0]),
+                                              builder: (context, snapshot) {
+                                                // Customize what your widget looks like when it's loading.
+                                                if (!snapshot.hasData) {
+                                                  return Center(
+                                                    child: SizedBox(
+                                                      width: 50.0,
+                                                      height: 50.0,
+                                                      child:
+                                                          CircularProgressIndicator(
+                                                        valueColor:
+                                                            AlwaysStoppedAnimation<
+                                                                Color>(
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  );
+                                                }
+
+                                                final columnUsersRecord =
+                                                    snapshot.data!;
+
+                                                return Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    Stack(
+                                                      children: [
+                                                        Material(
+                                                          color: Colors
+                                                              .transparent,
+                                                          elevation: 2.0,
+                                                          shape:
+                                                              const CircleBorder(),
+                                                          child: Container(
+                                                            width: 66.0,
+                                                            height: 66.0,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              shape: BoxShape
+                                                                  .circle,
+                                                              border:
+                                                                  Border.all(
+                                                                color: !chatClipItem
+                                                                        .lastMessageSeenBy
+                                                                        .contains(
+                                                                            currentUserReference)
+                                                                    ? const Color(
+                                                                        0x00000000)
+                                                                    : const Color(
+                                                                        0xFF2B2B2B),
+                                                                width: 1.5,
+                                                              ),
+                                                            ),
+                                                            child: Padding(
+                                                              padding:
+                                                                  const EdgeInsets
+                                                                      .all(2.0),
+                                                              child: ClipRRect(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            240.0),
+                                                                child:
+                                                                    CachedNetworkImage(
+                                                                  fadeInDuration:
+                                                                      const Duration(
+                                                                          milliseconds:
+                                                                              500),
+                                                                  fadeOutDuration:
+                                                                      const Duration(
+                                                                          milliseconds:
+                                                                              500),
+                                                                  imageUrl:
+                                                                      valueOrDefault<
+                                                                          String>(
+                                                                    columnUsersRecord
+                                                                        .photoUrl,
+                                                                    'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
+                                                                  ),
+                                                                  width: 44.0,
+                                                                  height: 44.0,
+                                                                  fit: BoxFit
+                                                                      .cover,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        Align(
+                                                          alignment:
+                                                              const AlignmentDirectional(
+                                                                  0.0, 1.0),
+                                                          child: Padding(
+                                                            padding:
+                                                                const EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        61.0,
+                                                                        30.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child: Container(
+                                                              width: 10.0,
+                                                              height: 10.0,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: !chatClipItem
+                                                                        .lastMessageSeenBy
+                                                                        .contains(
+                                                                            currentUserReference)
+                                                                    ? const Color(
+                                                                        0x00000000)
+                                                                    : const Color(
+                                                                        0xFF2B2B2B),
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            240.0),
+                                                                border:
+                                                                    Border.all(
+                                                                  color: const Color(
+                                                                      0xFF333030),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    Text(
+                                                      valueOrDefault<String>(
+                                                        columnUsersRecord
+                                                            .firtsName,
+                                                        'Name',
+                                                      ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Montserrat',
+                                                            color: Colors.white,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                    ),
+                                                  ],
+                                                );
+                                              },
+                                            ),
+                                          );
+                                        })
+                                            .divide(const SizedBox(width: 16.0))
+                                            .addToStart(const SizedBox(width: 16.0))
+                                            .addToEnd(const SizedBox(width: 16.0)),
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ),
+                              Align(
+                                alignment: const AlignmentDirectional(-0.9, 0.0),
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 8.0, 0.0, 8.0),
+                                  child: Text(
+                                    'Messages',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                  ),
+                                ),
+                              ),
                               Expanded(
                                 child: Builder(
                                   builder: (context) {
@@ -872,6 +1088,205 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                height: 100.0,
+                                decoration: const BoxDecoration(
+                                  color: Color(0xFFBD39BA),
+                                ),
+                                child: Builder(
+                                  builder: (context) {
+                                    final chatClip = containerChatsRecordList
+                                        .take(4)
+                                        .toList()
+                                        .take(4)
+                                        .toList();
+
+                                    return SingleChildScrollView(
+                                      scrollDirection: Axis.horizontal,
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: List.generate(chatClip.length,
+                                                (chatClipIndex) {
+                                          final chatClipItem =
+                                              chatClip[chatClipIndex];
+                                          return Container(
+                                            decoration: const BoxDecoration(),
+                                            child: StreamBuilder<UsersRecord>(
+                                              stream: UsersRecord.getDocument(
+                                                  chatClipItem.users
+                                                      .where((e) => e ==
+                                                              currentUserReference
+                                                          ? false
+                                                          : true)
+                                                      .toList()[0]),
+                                              builder: (context, snapshot) {
+                                                // Customize what your widget looks like when it's loading.
+                                                if (!snapshot.hasData) {
+                                                  return Center(
+                                                    child: SizedBox(
+                                                      width: 50.0,
+                                                      height: 50.0,
+                                                      child:
+                                                          CircularProgressIndicator(
+                                                        valueColor:
+                                                            AlwaysStoppedAnimation<
+                                                                Color>(
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  );
+                                                }
+
+                                                final columnUsersRecord =
+                                                    snapshot.data!;
+
+                                                return Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    Stack(
+                                                      children: [
+                                                        Material(
+                                                          color: Colors
+                                                              .transparent,
+                                                          elevation: 2.0,
+                                                          shape:
+                                                              const CircleBorder(),
+                                                          child: Container(
+                                                            width: 66.0,
+                                                            height: 66.0,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              shape: BoxShape
+                                                                  .circle,
+                                                              border:
+                                                                  Border.all(
+                                                                color: !chatClipItem
+                                                                        .lastMessageSeenBy
+                                                                        .contains(
+                                                                            currentUserReference)
+                                                                    ? const Color(
+                                                                        0x00000000)
+                                                                    : const Color(
+                                                                        0xFF2B2B2B),
+                                                                width: 1.5,
+                                                              ),
+                                                            ),
+                                                            child: Padding(
+                                                              padding:
+                                                                  const EdgeInsets
+                                                                      .all(2.0),
+                                                              child: ClipRRect(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            240.0),
+                                                                child:
+                                                                    CachedNetworkImage(
+                                                                  fadeInDuration:
+                                                                      const Duration(
+                                                                          milliseconds:
+                                                                              500),
+                                                                  fadeOutDuration:
+                                                                      const Duration(
+                                                                          milliseconds:
+                                                                              500),
+                                                                  imageUrl:
+                                                                      valueOrDefault<
+                                                                          String>(
+                                                                    columnUsersRecord
+                                                                        .photoUrl,
+                                                                    'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
+                                                                  ),
+                                                                  width: 44.0,
+                                                                  height: 44.0,
+                                                                  fit: BoxFit
+                                                                      .cover,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        Align(
+                                                          alignment:
+                                                              const AlignmentDirectional(
+                                                                  0.0, 1.0),
+                                                          child: Padding(
+                                                            padding:
+                                                                const EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        61.0,
+                                                                        30.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child: Container(
+                                                              width: 10.0,
+                                                              height: 10.0,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: !chatClipItem
+                                                                        .lastMessageSeenBy
+                                                                        .contains(
+                                                                            currentUserReference)
+                                                                    ? const Color(
+                                                                        0x00000000)
+                                                                    : const Color(
+                                                                        0xFF2B2B2B),
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            240.0),
+                                                                border:
+                                                                    Border.all(
+                                                                  color: const Color(
+                                                                      0xFF333030),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    Text(
+                                                      valueOrDefault<String>(
+                                                        columnUsersRecord
+                                                            .firtsName,
+                                                        'Name',
+                                                      ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Montserrat',
+                                                            color: Colors.white,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                    ),
+                                                  ],
+                                                );
+                                              },
+                                            ),
+                                          );
+                                        })
+                                            .divide(const SizedBox(width: 16.0))
+                                            .addToStart(const SizedBox(width: 16.0))
+                                            .addToEnd(const SizedBox(width: 16.0)),
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ),
                               Expanded(
                                 child: AuthUserStreamWidget(
                                   builder: (context) => Builder(

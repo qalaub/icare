@@ -153,7 +153,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                           child: Align(
                             alignment: const AlignmentDirectional(0.0, 0.0),
                             child: Slider(
-                              activeColor: const Color(0xFFFF09BA),
+                              activeColor: const Color(0xFFBD39BA),
                               inactiveColor: const Color(0xFFE4E4E4),
                               min: 10.0,
                               max: 1000.0,
@@ -265,7 +265,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                           letterSpacing: 0.0,
                                         ),
                                   ),
-                                  activeColor: const Color(0xFFFF09BA),
+                                  activeColor: const Color(0xFFBD39BA),
                                   checkColor: Colors.white,
                                   dense: false,
                                   controlAffinity:
@@ -296,7 +296,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                           letterSpacing: 0.0,
                                         ),
                                   ),
-                                  activeColor: const Color(0xFFFF09BA),
+                                  activeColor: const Color(0xFFBD39BA),
                                   checkColor: Colors.white,
                                   dense: false,
                                   controlAffinity:
@@ -327,7 +327,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                           letterSpacing: 0.0,
                                         ),
                                   ),
-                                  activeColor: const Color(0xFFFF09BA),
+                                  activeColor: const Color(0xFFBD39BA),
                                   checkColor: Colors.white,
                                   dense: false,
                                   controlAffinity:
@@ -426,7 +426,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                           letterSpacing: 0.0,
                                         ),
                                   ),
-                                  activeColor: const Color(0xFFFF09BA),
+                                  activeColor: const Color(0xFFBD39BA),
                                   checkColor: Colors.white,
                                   dense: false,
                                   controlAffinity:
@@ -458,7 +458,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                           letterSpacing: 0.0,
                                         ),
                                   ),
-                                  activeColor: const Color(0xFFFF09BA),
+                                  activeColor: const Color(0xFFBD39BA),
                                   checkColor: Colors.white,
                                   dense: false,
                                   controlAffinity:
@@ -489,7 +489,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                           letterSpacing: 0.0,
                                         ),
                                   ),
-                                  activeColor: const Color(0xFFFF09BA),
+                                  activeColor: const Color(0xFFBD39BA),
                                   checkColor: Colors.white,
                                   dense: false,
                                   controlAffinity:
@@ -521,7 +521,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                           letterSpacing: 0.0,
                                         ),
                                   ),
-                                  activeColor: const Color(0xFFFF09BA),
+                                  activeColor: const Color(0xFFBD39BA),
                                   checkColor: Colors.white,
                                   dense: false,
                                   controlAffinity:
@@ -552,7 +552,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                           letterSpacing: 0.0,
                                         ),
                                   ),
-                                  activeColor: const Color(0xFFFF09BA),
+                                  activeColor: const Color(0xFFBD39BA),
                                   checkColor: Colors.white,
                                   dense: false,
                                   controlAffinity:
@@ -724,7 +724,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                   24.0, 12.0, 24.0, 12.0),
                               iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              color: const Color(0xB3FF09BA),
+                              color: const Color(0xFFBD39BA),
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
