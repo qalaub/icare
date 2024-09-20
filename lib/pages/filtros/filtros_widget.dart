@@ -255,7 +255,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                         () => _model.age1Value = newValue!);
                                   },
                                   title: Text(
-                                    '18-25 years',
+                                    'Young (18-25) years',
                                     style: FlutterFlowTheme.of(context)
                                         .titleLarge
                                         .override(
@@ -286,7 +286,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                         () => _model.age2Value = newValue!);
                                   },
                                   title: Text(
-                                    '25-40 years',
+                                    'Adult (25-40) years',
                                     style: FlutterFlowTheme.of(context)
                                         .titleLarge
                                         .override(
@@ -317,7 +317,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                         () => _model.age3Value = newValue!);
                                   },
                                   title: Text(
-                                    '40-65+ years',
+                                    'Senior (40-65+) years',
                                     style: FlutterFlowTheme.of(context)
                                         .titleLarge
                                         .override(

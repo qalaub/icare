@@ -12,7 +12,6 @@ import 'package:flutter/material.dart';
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
 import 'dart:convert';
-
 import 'package:google_maps_flutter/google_maps_flutter.dart' as google_maps;
 import 'dart:math' as math;
 import 'package:flutter/services.dart' show ByteData, rootBundle;
@@ -58,7 +57,9 @@ class _MapsAustralianState extends State<MapsAustralian> {
   google_maps.BitmapDescriptor? currentLocationMarkerIcon;
   ValueNotifier<LatLng?> newUbicationNotifier = ValueNotifier(null);
 
-  // Variable para almacenar el último valor del zoom
+  // Variable para controlar si es la primera carga
+  bool isFirstLoad = true;
+
   double? _lastZoom;
 
   @override
@@ -105,8 +106,7 @@ class _MapsAustralianState extends State<MapsAustralian> {
 
   Future<void> _loadCustomMarkers() async {
     if (widget.markersImage != null) {
-      final markerIcon = await _buildMarkerIcon(
-          widget.markersImage!, 100); // Tamaño deseado aquí
+      final markerIcon = await _buildMarkerIcon(widget.markersImage!, 100);
       setState(() {
         userMarkerIcon = markerIcon;
       });
@@ -116,7 +116,6 @@ class _MapsAustralianState extends State<MapsAustralian> {
       });
     }
 
-    // Cargar el icono personalizado para la ubicación actual
     final currentLocationImageUrl =
         'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/lvqw9xd8jn4h/mapitenRed.png';
     final currentLocationMarkerIcon =
@@ -148,9 +147,8 @@ class _MapsAustralianState extends State<MapsAustralian> {
       final image = img.decodeImage(Uint8List.fromList(bytes))!;
       final resizedImage = img.copyResize(image, width: 25, height: 25);
 
-      final Uint8List resizedBytes = Uint8List.fromList(
-        img.encodePng(resizedImage),
-      );
+      final Uint8List resizedBytes =
+          Uint8List.fromList(img.encodePng(resizedImage));
 
       return google_maps.BitmapDescriptor.fromBytes(resizedBytes);
     } catch (e) {
@@ -182,6 +180,27 @@ class _MapsAustralianState extends State<MapsAustralian> {
     return degrees * math.pi / 180;
   }
 
+  bool _applyFilters(UsersRecord user) {
+    // Si es la primera carga, no aplicar filtros
+    if (isFirstLoad) {
+      return true;
+    }
+
+    bool ageMatch = widget.age == null ||
+        widget.age!.isEmpty ||
+        widget.age!.contains(user.age ?? '');
+    bool serviceMatch = widget.service == null ||
+        widget.service!.isEmpty ||
+        user.serviceType.any((service) => widget.service!.contains(service));
+    bool languageMatch = widget.language == null ||
+        widget.language!.isEmpty ||
+        (user.languagues != null &&
+            user.languagues!.contains(widget.language!));
+
+    if (widget.isProfessional == true) return true;
+    return ageMatch && serviceMatch && languageMatch;
+  }
+
   @override
   Widget build(BuildContext context) {
     final Set<google_maps.Marker> markers = {};
@@ -195,9 +214,8 @@ class _MapsAustralianState extends State<MapsAustralian> {
             widget.current!.longitude,
           ),
           icon: currentLocationMarkerIcon ??
-              google_maps.BitmapDescriptor.defaultMarkerWithHue(google_maps
-                  .BitmapDescriptor
-                  .hueRed), // Default red marker if custom one is not loaded
+              google_maps.BitmapDescriptor.defaultMarkerWithHue(
+                  google_maps.BitmapDescriptor.hueRed),
         ),
       );
     }
@@ -247,6 +265,13 @@ class _MapsAustralianState extends State<MapsAustralian> {
       }
     }
 
+    // Al finalizar la carga, cambiar el estado para que las próximas cargas sí apliquen filtros
+    if (isFirstLoad) {
+      setState(() {
+        isFirstLoad = false;
+      });
+    }
+
     return Stack(
       children: [
         Container(
@@ -285,9 +310,7 @@ class _MapsAustralianState extends State<MapsAustralian> {
             cameraTargetBounds: google_maps.CameraTargetBounds(australiaBounds),
             markers: markers,
             onCameraMove: (google_maps.CameraPosition position) {
-              // Imprimir el nivel de zoom actual
               print('Nivel de zoom actual: ${position.zoom}');
-              // Solo actualizar el estado si el zoom ha cambiado
               if (_lastZoom == null ||
                   (position.zoom - _lastZoom!).abs() > 0.1) {
                 _lastZoom = position.zoom;
@@ -296,7 +319,6 @@ class _MapsAustralianState extends State<MapsAustralian> {
                   FFAppState().zoomFilter = tempNumber;
                 });
               }
-              // Verificar si la posición está fuera de los límites de Australia y ajustar si es necesario
               if (!australiaBounds.contains(position.target)) {
                 mapController!.moveCamera(
                   google_maps.CameraUpdate.newLatLngBounds(australiaBounds, 0),
@@ -307,8 +329,7 @@ class _MapsAustralianState extends State<MapsAustralian> {
         ),
         Positioned(
           right: 10,
-          top: MediaQuery.of(context).size.height / 2 -
-              28, // Centra verticalmente el botón
+          top: MediaQuery.of(context).size.height / 2 - 28,
           child: FloatingActionButton(
             onPressed: () {
               if (widget.current != null) {
@@ -330,20 +351,5 @@ class _MapsAustralianState extends State<MapsAustralian> {
         ),
       ],
     );
-  }
-
-  bool _applyFilters(UsersRecord user) {
-    bool ageMatch = widget.age == null ||
-        widget.age!.isEmpty ||
-        widget.age!.contains(user.age ?? '');
-    bool serviceMatch = widget.service == null ||
-        widget.service!.isEmpty ||
-        user.serviceType.any((service) => widget.service!.contains(service));
-    bool languageMatch = widget.language == null ||
-        widget.language!.isEmpty ||
-        (user.languagues != null &&
-            user.languagues!.contains(widget.language!));
-    if (widget.isProfessional == true) return true;
-    return ageMatch && serviceMatch && languageMatch;
   }
 }

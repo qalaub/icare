@@ -158,7 +158,7 @@ class FFAppState extends ChangeNotifier {
     _newUbicationProfessional = value;
   }
 
-  int _zoomFilter = 10;
+  int _zoomFilter = 300;
   int get zoomFilter => _zoomFilter;
   set zoomFilter(int value) {
     _zoomFilter = value;

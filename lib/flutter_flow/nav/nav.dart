@@ -496,6 +496,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'recuperarcontrasea',
               path: 'recuperarcontrasea',
               builder: (context, params) => const RecuperarcontraseaWidget(),
+            ),
+            FFRoute(
+              name: 'Deleteaccount',
+              path: 'deleteaccount',
+              builder: (context, params) => const DeleteaccountWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -557,6 +558,12 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                   await actions.saveToken(
                                                     currentJwtToken,
                                                   );
+
+                                                  await currentUserReference!
+                                                      .update(
+                                                          createUsersRecordData(
+                                                    isActive: true,
+                                                  ));
                                                   if (currentUserDocument
                                                           ?.rol ==
                                                       Roles.user) {

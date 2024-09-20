@@ -343,6 +343,28 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                             ),
                           ),
                         ),
+                        Container(
+                          decoration: const BoxDecoration(),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              context.pushNamed('Deleteaccount');
+                            },
+                            child: wrapWithModel(
+                              model: _model.accountOptionModel3,
+                              updateCallback: () => safeSetState(() {}),
+                              child: const AccountOptionWidget(
+                                icon: Icon(
+                                  Icons.delete_sweep,
+                                ),
+                                text: 'Delete account',
+                              ),
+                            ),
+                          ),
+                        ),
                         if (currentUserDocument?.rol == Roles.business)
                           AuthUserStreamWidget(
                             builder: (context) => Container(
@@ -398,7 +420,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                       safeSetState(() {});
                                     },
                                     child: wrapWithModel(
-                                      model: _model.accountOptionModel3,
+                                      model: _model.accountOptionModel4,
                                       updateCallback: () => safeSetState(() {}),
                                       child: const AccountOptionWidget(
                                         icon: Icon(
@@ -469,7 +491,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                               context.pushNamed('BlockList');
                             },
                             child: wrapWithModel(
-                              model: _model.accountOptionModel4,
+                              model: _model.accountOptionModel5,
                               updateCallback: () => safeSetState(() {}),
                               child: const AccountOptionWidget(
                                 icon: Icon(
@@ -512,7 +534,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                     );
                                   },
                                   child: wrapWithModel(
-                                    model: _model.accountOptionModel5,
+                                    model: _model.accountOptionModel6,
                                     updateCallback: () => safeSetState(() {}),
                                     child: const AccountOptionWidget(
                                       icon: Icon(
@@ -542,7 +564,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                     'https://icareapp.com.au/privacy-policy');
                               },
                               child: wrapWithModel(
-                                model: _model.accountOptionModel6,
+                                model: _model.accountOptionModel7,
                                 updateCallback: () => safeSetState(() {}),
                                 child: const AccountOptionWidget(
                                   icon: Icon(
@@ -563,6 +585,11 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                             child: FFButtonWidget(
                               onPressed: () async {
                                 FFAppState().authUserFireBase = false;
+
+                                await currentUserReference!
+                                    .update(createUsersRecordData(
+                                  isActive: false,
+                                ));
                                 GoRouter.of(context).prepareAuthEvent();
                                 await authManager.signOut();
                                 GoRouter.of(context).clearRedirectLocation();

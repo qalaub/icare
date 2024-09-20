@@ -77,3 +77,4 @@ export '/cuestionario/cuestionario/cuestionario_widget.dart'
 export '/v2/h0me/map_aument/map_aument_widget.dart' show MapAumentWidget;
 export '/recuperarcontrasea/recuperarcontrasea_widget.dart'
     show RecuperarcontraseaWidget;
+export '/deleteaccount/deleteaccount_widget.dart' show DeleteaccountWidget;

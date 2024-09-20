@@ -2,6 +2,7 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/v2/menbresiav2/membresia_logo/membresia_logo_widget.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -93,7 +94,7 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                   alignment: const AlignmentDirectional(0.0, -1.0),
                   child: Container(
                     width: MediaQuery.sizeOf(context).width * 1.0,
-                    height: MediaQuery.sizeOf(context).height * 0.485,
+                    height: MediaQuery.sizeOf(context).height * 0.465,
                     decoration: const BoxDecoration(),
                     child: Align(
                       alignment: const AlignmentDirectional(0.0, -1.0),
@@ -168,14 +169,16 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                   ),
                 ),
                 Container(
-                  height: 129.0,
+                  height: 183.0,
                   decoration: const BoxDecoration(),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Stack(
+                      Column(
+                        mainAxisSize: MainAxisSize.max,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Align(
                             alignment: const AlignmentDirectional(0.0, -1.0),
@@ -190,140 +193,83 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                                       MediaQuery.sizeOf(context).height * 0.12,
                                 ),
                                 decoration: const BoxDecoration(),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Text(
-                                          valueOrDefault<String>(
-                                            widget.professional?.firtsName,
-                                            'sandra',
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 4.0, 0.0, 0.0),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Text(
+                                            valueOrDefault<String>(
+                                              widget.professional?.firtsName,
+                                              'sandra',
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 20.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
                                           ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Poppins',
-                                                fontSize: 20.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.bold,
+                                        ],
+                                      ),
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          const Icon(
+                                            Icons.circle,
+                                            color: Color(0xFF52FF00),
+                                            size: 11.0,
+                                          ),
+                                          Text(
+                                            'recent activity',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 12.0,
+                                                  letterSpacing: 0.0,
+                                                ),
+                                          ),
+                                        ].divide(const SizedBox(width: 4.0)),
+                                      ),
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                0.4,
+                                            height: 30.0,
+                                            decoration: const BoxDecoration(
+                                              color: Color(0xFFAC16A4),
+                                              borderRadius: BorderRadius.only(
+                                                bottomLeft:
+                                                    Radius.circular(30.0),
+                                                bottomRight:
+                                                    Radius.circular(30.0),
+                                                topLeft: Radius.circular(30.0),
+                                                topRight: Radius.circular(30.0),
                                               ),
-                                        ),
-                                      ],
-                                    ),
-                                    Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        const Icon(
-                                          Icons.circle,
-                                          color: Color(0xFF52FF00),
-                                          size: 11.0,
-                                        ),
-                                        Text(
-                                          'recent activity',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Poppins',
-                                                fontSize: 12.0,
-                                                letterSpacing: 0.0,
-                                              ),
-                                        ),
-                                      ].divide(const SizedBox(width: 4.0)),
-                                    ),
-                                    Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  0.4,
-                                          height: 30.0,
-                                          decoration: const BoxDecoration(
-                                            color: Color(0xFFAC16A4),
-                                            borderRadius: BorderRadius.only(
-                                              bottomLeft: Radius.circular(30.0),
-                                              bottomRight:
-                                                  Radius.circular(30.0),
-                                              topLeft: Radius.circular(30.0),
-                                              topRight: Radius.circular(30.0),
                                             ),
-                                          ),
-                                          child: Align(
-                                            alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
-                                            child: AutoSizeText(
-                                              valueOrDefault<String>(
-                                                widget.professional
-                                                    ?.serviceType.first,
-                                                'service',
-                                              ).maybeHandleOverflow(
-                                                  maxChars: 24),
-                                              minFontSize: 11.0,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelSmall
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color: Colors.white,
-                                                        fontSize: 11.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                      ),
-                                            ),
-                                          ),
-                                        ),
-                                        Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  0.29,
-                                          height: 30.0,
-                                          decoration: const BoxDecoration(
-                                            color: Color(0xFFAC16A4),
-                                            borderRadius: BorderRadius.only(
-                                              bottomLeft: Radius.circular(30.0),
-                                              bottomRight:
-                                                  Radius.circular(30.0),
-                                              topLeft: Radius.circular(30.0),
-                                              topRight: Radius.circular(30.0),
-                                            ),
-                                          ),
-                                          child: Align(
-                                            alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
-                                            child: RichText(
-                                              textScaler: MediaQuery.of(context)
-                                                  .textScaler,
-                                              text: TextSpan(
-                                                children: [
-                                                  TextSpan(
-                                                    text:
-                                                        valueOrDefault<String>(
-                                                      widget
-                                                          .professional?.years
-                                                          .toString(),
-                                                      '4',
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .labelSmall
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: Colors.white,
-                                                          fontSize: 11.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                        ),
-                                                  ),
-                                                  const TextSpan(
-                                                    text: ' years of Exp',
-                                                    style: TextStyle(),
-                                                  )
-                                                ],
+                                            child: Align(
+                                              alignment: const AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: AutoSizeText(
+                                                valueOrDefault<String>(
+                                                  widget.professional
+                                                      ?.serviceType.first,
+                                                  'service',
+                                                ).maybeHandleOverflow(
+                                                    maxChars: 24),
+                                                minFontSize: 11.0,
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .labelSmall
@@ -338,49 +284,240 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                                               ),
                                             ),
                                           ),
-                                        ),
-                                      ].divide(const SizedBox(width: 4.0)),
-                                    ),
-                                  ]
-                                      .divide(const SizedBox(height: 5.0))
-                                      .addToStart(const SizedBox(height: 3.0)),
+                                          Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                0.29,
+                                            height: 30.0,
+                                            decoration: const BoxDecoration(
+                                              color: Color(0xFFAC16A4),
+                                              borderRadius: BorderRadius.only(
+                                                bottomLeft:
+                                                    Radius.circular(30.0),
+                                                bottomRight:
+                                                    Radius.circular(30.0),
+                                                topLeft: Radius.circular(30.0),
+                                                topRight: Radius.circular(30.0),
+                                              ),
+                                            ),
+                                            child: Align(
+                                              alignment: const AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: RichText(
+                                                textScaler:
+                                                    MediaQuery.of(context)
+                                                        .textScaler,
+                                                text: TextSpan(
+                                                  children: [
+                                                    TextSpan(
+                                                      text: valueOrDefault<
+                                                          String>(
+                                                        widget
+                                                            .professional?.years
+                                                            .toString(),
+                                                        '4',
+                                                      ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .labelSmall
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            color: Colors.white,
+                                                            fontSize: 11.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                          ),
+                                                    ),
+                                                    const TextSpan(
+                                                      text: ' years of Exp',
+                                                      style: TextStyle(),
+                                                    )
+                                                  ],
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .labelSmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color: Colors.white,
+                                                        fontSize: 11.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                      ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ].divide(const SizedBox(width: 4.0)),
+                                      ),
+                                    ]
+                                        .divide(const SizedBox(height: 5.0))
+                                        .addToStart(const SizedBox(height: 3.0)),
+                                  ),
                                 ),
                               ),
                             ),
                           ),
                           Align(
-                            alignment: const AlignmentDirectional(1.1, 0.76),
+                            alignment: const AlignmentDirectional(-1.0, 0.0),
                             child: Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
-                                  8.0, 8.0, 0.0, 0.0),
-                              child: RatingBar.builder(
-                                onRatingUpdate: (newValue) => safeSetState(
-                                    () => _model.ratingBarValue = newValue),
-                                itemBuilder: (context, index) => const Icon(
-                                  Icons.star_rounded,
-                                  color: Color(0xFFF9BF11),
+                                  8.0, 4.0, 0.0, 0.0),
+                              child: StreamBuilder<List<ReviewsRecord>>(
+                                stream: queryReviewsRecord(
+                                  queryBuilder: (reviewsRecord) =>
+                                      reviewsRecord.where(
+                                    'professional',
+                                    isEqualTo: widget.professional?.reference,
+                                  ),
                                 ),
-                                direction: Axis.horizontal,
-                                initialRating: _model.ratingBarValue ??= 3.0,
-                                unratedColor: const Color(0x4D040202),
-                                itemCount: 5,
-                                itemSize: 20.0,
-                                glowColor: const Color(0xFFF9BF11),
+                                builder: (context, snapshot) {
+                                  // Customize what your widget looks like when it's loading.
+                                  if (!snapshot.hasData) {
+                                    return Center(
+                                      child: SizedBox(
+                                        width: 50.0,
+                                        height: 50.0,
+                                        child: CircularProgressIndicator(
+                                          valueColor:
+                                              AlwaysStoppedAnimation<Color>(
+                                            FlutterFlowTheme.of(context)
+                                                .primary,
+                                          ),
+                                        ),
+                                      ),
+                                    );
+                                  }
+                                  List<ReviewsRecord>
+                                      containerReviewsRecordList =
+                                      snapshot.data!;
+
+                                  return Container(
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 0.55,
+                                    height: MediaQuery.sizeOf(context).height *
+                                        0.045,
+                                    decoration: const BoxDecoration(),
+                                    child: Align(
+                                      alignment:
+                                          const AlignmentDirectional(0.0, -1.0),
+                                      child: Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            8.0, 0.0, 0.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Align(
+                                              alignment: const AlignmentDirectional(
+                                                  0.0, -1.0),
+                                              child: Text(
+                                                valueOrDefault<String>(
+                                                  functions.concatStrings(
+                                                      valueOrDefault<String>(
+                                                        functions
+                                                            .averagueReviews(
+                                                                containerReviewsRecordList
+                                                                    .toList())
+                                                            .toString(),
+                                                        '3',
+                                                      ),
+                                                      '0',
+                                                      ','),
+                                                  '4,5',
+                                                ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          fontSize: 18.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                              ),
+                                            ),
+                                            Align(
+                                              alignment: const AlignmentDirectional(
+                                                  0.0, -0.8),
+                                              child: RatingBar.builder(
+                                                onRatingUpdate: (newValue) =>
+                                                    safeSetState(() =>
+                                                        _model.ratingBarValue =
+                                                            newValue),
+                                                itemBuilder: (context, index) =>
+                                                    const Icon(
+                                                  Icons.star_rounded,
+                                                  color: Color(0xFFF9BF11),
+                                                ),
+                                                direction: Axis.horizontal,
+                                                initialRating:
+                                                    _model.ratingBarValue ??=
+                                                        valueOrDefault<double>(
+                                                  functions
+                                                      .averagueReviews(
+                                                          containerReviewsRecordList
+                                                              .toList())
+                                                      .toDouble(),
+                                                  3.0,
+                                                ),
+                                                unratedColor: const Color(0x4D040202),
+                                                itemCount: 5,
+                                                itemSize: 20.0,
+                                                glowColor: const Color(0xFFF9BF11),
+                                              ),
+                                            ),
+                                            Align(
+                                              alignment: const AlignmentDirectional(
+                                                  0.0, -0.7),
+                                              child: Text(
+                                                valueOrDefault<String>(
+                                                  functions.concatStrings(
+                                                      '(',
+                                                      ')',
+                                                      valueOrDefault<String>(
+                                                        containerReviewsRecordList
+                                                            .length
+                                                            .toString(),
+                                                        '1278',
+                                                      )),
+                                                  '(1278)',
+                                                ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                              ),
+                                            ),
+                                          ].divide(const SizedBox(width: 4.0)),
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                },
                               ),
                             ),
                           ),
                         ],
                       ),
-                      Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
-                        child: wrapWithModel(
-                          model: _model.membresiaLogoModel,
-                          updateCallback: () => safeSetState(() {}),
-                          child: MembresiaLogoWidget(
-                            width: 70,
-                            heigth: 70,
-                            professional: widget.professional!.reference,
+                      Align(
+                        alignment: const AlignmentDirectional(1.0, -0.7),
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 8.0, 0.0),
+                          child: wrapWithModel(
+                            model: _model.membresiaLogoModel,
+                            updateCallback: () => safeSetState(() {}),
+                            child: MembresiaLogoWidget(
+                              width: 70,
+                              heigth: 70,
+                              professional: widget.professional!.reference,
+                            ),
                           ),
                         ),
                       ),

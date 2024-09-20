@@ -138,7 +138,7 @@ class _PerfilProfesionalMapaWidgetState
                     alignment: const AlignmentDirectional(0.06, -1.23),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 26.0, 0.0, 0.0),
                       child: Container(
                         width: 139.0,
                         height: 36.0,
@@ -185,7 +185,7 @@ class _PerfilProfesionalMapaWidgetState
                     ),
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(0.05, -0.19),
+                    alignment: const AlignmentDirectional(0.05, -0.29),
                     child: Container(
                       width: 139.0,
                       height: 18.0,
@@ -212,9 +212,9 @@ class _PerfilProfesionalMapaWidgetState
                     ),
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(0.09, -0.02),
+                    alignment: const AlignmentDirectional(0.09, -0.12),
                     child: Container(
-                      width: 150.0,
+                      width: 140.0,
                       height: 1.0,
                       decoration: const BoxDecoration(
                         color: Colors.white,
@@ -222,7 +222,7 @@ class _PerfilProfesionalMapaWidgetState
                     ),
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(0.09, 0.52),
+                    alignment: const AlignmentDirectional(0.09, 0.42),
                     child: Container(
                       width: 150.0,
                       height: 50.0,
@@ -327,23 +327,64 @@ class _PerfilProfesionalMapaWidgetState
                     ),
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(-0.29, 1.05),
+                    alignment: const AlignmentDirectional(1.0, 1.0),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
-                      child: RatingBar.builder(
-                        onRatingUpdate: (newValue) => safeSetState(
-                            () => _model.ratingBarValue = newValue),
-                        itemBuilder: (context, index) => const Icon(
-                          Icons.star_rate,
-                          color: Color(0xFFF9BF11),
-                        ),
-                        direction: Axis.horizontal,
-                        initialRating: _model.ratingBarValue ??= 3.0,
-                        unratedColor: const Color(0x4D040202),
-                        itemCount: 5,
-                        itemSize: 15.0,
-                        glowColor: const Color(0xFFF9BF11),
+                          const EdgeInsetsDirectional.fromSTEB(73.0, 0.0, 0.0, 0.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Align(
+                            alignment: const AlignmentDirectional(0.0, 0.9),
+                            child: Text(
+                              '4,5',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Inter',
+                                    fontSize: 13.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                            ),
+                          ),
+                          Align(
+                            alignment: const AlignmentDirectional(-0.29, 1.05),
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 10.0),
+                              child: RatingBar.builder(
+                                onRatingUpdate: (newValue) => safeSetState(
+                                    () => _model.ratingBarValue = newValue),
+                                itemBuilder: (context, index) => const Icon(
+                                  Icons.star_rate,
+                                  color: Color(0xFFF9BF11),
+                                ),
+                                direction: Axis.horizontal,
+                                initialRating: _model.ratingBarValue ??= 3.0,
+                                unratedColor: const Color(0x4D040202),
+                                itemCount: 5,
+                                itemSize: 15.0,
+                                glowColor: const Color(0xFFF9BF11),
+                              ),
+                            ),
+                          ),
+                          Align(
+                            alignment: const AlignmentDirectional(1.0, 0.9),
+                            child: Text(
+                              '(1278)',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Inter',
+                                    color: const Color(0xFFBD39BA),
+                                    fontSize: 12.0,
+                                    letterSpacing: 0.0,
+                                  ),
+                            ),
+                          ),
+                        ].divide(const SizedBox(width: 4.0)),
                       ),
                     ),
                   ),

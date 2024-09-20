@@ -86,8 +86,8 @@ class _MapButtonWidgetState extends State<MapButtonWidget> {
           Align(
             alignment: const AlignmentDirectional(0.0, -0.99),
             child: AuthUserStreamWidget(
-              builder: (context) => StreamBuilder<List<UsersRecord>>(
-                stream: queryUsersRecord(
+              builder: (context) => FutureBuilder<List<UsersRecord>>(
+                future: queryUsersRecordOnce(
                   queryBuilder: (usersRecord) =>
                       usersRecord.orderBy('update_time'),
                 ),

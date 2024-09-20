@@ -206,6 +206,11 @@ class UsersRecord extends FirestoreRecord {
   String get video => _video ?? '';
   bool hasVideo() => _video != null;
 
+  // "isActive" field.
+  bool? _isActive;
+  bool get isActive => _isActive ?? false;
+  bool hasIsActive() => _isActive != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -245,6 +250,7 @@ class UsersRecord extends FirestoreRecord {
     _firtsLogin = snapshotData['firtsLogin'] as bool?;
     _disabilities = getDataList(snapshotData['disabilities']);
     _video = snapshotData['video'] as String?;
+    _isActive = snapshotData['isActive'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -311,6 +317,7 @@ Map<String, dynamic> createUsersRecordData({
   bool? isFreeTrialFInish,
   bool? firtsLogin,
   String? video,
+  bool? isActive,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -344,6 +351,7 @@ Map<String, dynamic> createUsersRecordData({
       'isFreeTrialFInish': isFreeTrialFInish,
       'firtsLogin': firtsLogin,
       'video': video,
+      'isActive': isActive,
     }.withoutNulls,
   );
 
@@ -393,7 +401,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.isFreeTrialFInish == e2?.isFreeTrialFInish &&
         e1?.firtsLogin == e2?.firtsLogin &&
         listEquality.equals(e1?.disabilities, e2?.disabilities) &&
-        e1?.video == e2?.video;
+        e1?.video == e2?.video &&
+        e1?.isActive == e2?.isActive;
   }
 
   @override
@@ -435,7 +444,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.isFreeTrialFInish,
         e?.firtsLogin,
         e?.disabilities,
-        e?.video
+        e?.video,
+        e?.isActive
       ]);
 
   @override

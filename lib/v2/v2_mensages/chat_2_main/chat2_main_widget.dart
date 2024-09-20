@@ -201,12 +201,10 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
                                                                   .circle,
                                                               border:
                                                                   Border.all(
-                                                                color: !chatClipItem
-                                                                        .lastMessageSeenBy
-                                                                        .contains(
-                                                                            currentUserReference)
+                                                                color: columnUsersRecord
+                                                                        .isActive
                                                                     ? const Color(
-                                                                        0x00000000)
+                                                                        0xFF00FF0A)
                                                                     : const Color(
                                                                         0xFF2B2B2B),
                                                                 width: 1.5,
@@ -221,19 +219,10 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
                                                                     BorderRadius
                                                                         .circular(
                                                                             240.0),
-                                                                child:
-                                                                    CachedNetworkImage(
-                                                                  fadeInDuration:
-                                                                      const Duration(
-                                                                          milliseconds:
-                                                                              500),
-                                                                  fadeOutDuration:
-                                                                      const Duration(
-                                                                          milliseconds:
-                                                                              500),
-                                                                  imageUrl:
-                                                                      valueOrDefault<
-                                                                          String>(
+                                                                child: Image
+                                                                    .network(
+                                                                  valueOrDefault<
+                                                                      String>(
                                                                     columnUsersRecord
                                                                         .photoUrl,
                                                                     'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
@@ -264,12 +253,10 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
                                                               height: 10.0,
                                                               decoration:
                                                                   BoxDecoration(
-                                                                color: !chatClipItem
-                                                                        .lastMessageSeenBy
-                                                                        .contains(
-                                                                            currentUserReference)
+                                                                color: columnUsersRecord
+                                                                        .isActive
                                                                     ? const Color(
-                                                                        0x00000000)
+                                                                        0xFF00FF0A)
                                                                     : const Color(
                                                                         0xFF2B2B2B),
                                                                 borderRadius:
@@ -1169,12 +1156,10 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
                                                                   .circle,
                                                               border:
                                                                   Border.all(
-                                                                color: !chatClipItem
-                                                                        .lastMessageSeenBy
-                                                                        .contains(
-                                                                            currentUserReference)
+                                                                color: columnUsersRecord
+                                                                        .isActive
                                                                     ? const Color(
-                                                                        0x00000000)
+                                                                        0xFF00FF0A)
                                                                     : const Color(
                                                                         0xFF2B2B2B),
                                                                 width: 1.5,
@@ -1189,19 +1174,10 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
                                                                     BorderRadius
                                                                         .circular(
                                                                             240.0),
-                                                                child:
-                                                                    CachedNetworkImage(
-                                                                  fadeInDuration:
-                                                                      const Duration(
-                                                                          milliseconds:
-                                                                              500),
-                                                                  fadeOutDuration:
-                                                                      const Duration(
-                                                                          milliseconds:
-                                                                              500),
-                                                                  imageUrl:
-                                                                      valueOrDefault<
-                                                                          String>(
+                                                                child: Image
+                                                                    .network(
+                                                                  valueOrDefault<
+                                                                      String>(
                                                                     columnUsersRecord
                                                                         .photoUrl,
                                                                     'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
@@ -1232,12 +1208,10 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
                                                               height: 10.0,
                                                               decoration:
                                                                   BoxDecoration(
-                                                                color: !chatClipItem
-                                                                        .lastMessageSeenBy
-                                                                        .contains(
-                                                                            currentUserReference)
+                                                                color: columnUsersRecord
+                                                                        .isActive
                                                                     ? const Color(
-                                                                        0x00000000)
+                                                                        0xFF00FF0A)
                                                                     : const Color(
                                                                         0xFF2B2B2B),
                                                                 borderRadius:

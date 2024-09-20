@@ -1,8 +1,11 @@
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:provider/provider.dart';
 import 'escoger_usuario_model.dart';
 export 'escoger_usuario_model.dart';
 
@@ -22,6 +25,12 @@ class _EscogerUsuarioWidgetState extends State<EscogerUsuarioWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => EscogerUsuarioModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      FFAppState().registerProviderForm = RegisterProviderTypeStruct();
+      FFAppState().imagesUserUpload = [];
+    });
   }
 
   @override
@@ -33,6 +42,8 @@ class _EscogerUsuarioWidgetState extends State<EscogerUsuarioWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(

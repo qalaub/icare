@@ -1396,25 +1396,6 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                   },
                                 ),
                               });
-                              await showDialog(
-                                context: context,
-                                builder: (alertDialogContext) {
-                                  return AlertDialog(
-                                    title: const Text('efwfe'),
-                                    content: Text(FFAppState()
-                                        .imagesUserUpload
-                                        .length
-                                        .toString()),
-                                    actions: [
-                                      TextButton(
-                                        onPressed: () =>
-                                            Navigator.pop(alertDialogContext),
-                                        child: const Text('Ok'),
-                                      ),
-                                    ],
-                                  );
-                                },
-                              );
                             }
                             FFAppState().registerProviderForm =
                                 RegisterProviderTypeStruct();

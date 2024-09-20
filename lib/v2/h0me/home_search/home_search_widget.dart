@@ -4,7 +4,7 @@ import '/backend/schema/enums/enums.dart';
 import '/components/home_vista_cuidador_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/v2/favoritesv2/perfil_profesional_mapa/perfil_profesional_mapa_widget.dart';
+import '/v2/favoritesv2/v3fv0rites/v3fv0rites_widget.dart';
 import '/v2/h0me/map_button/map_button_widget.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
@@ -133,7 +133,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
                               child: Stack(
                                 children: [
                                   Align(
-                                    alignment: const AlignmentDirectional(0.0, -1.0),
+                                    alignment: const AlignmentDirectional(0.1, -1.0),
                                     child: Container(
                                       width: MediaQuery.sizeOf(context).width *
                                           1.0,
@@ -149,19 +149,23 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
                                         updateCallback: () =>
                                             safeSetState(() {}),
                                         child: const MapButtonWidget(
-                                          isProfessional: true,
+                                          isProfessional: false,
                                         ),
                                       ),
                                     ),
                                   ),
                                   Align(
-                                    alignment: const AlignmentDirectional(-2.0, 0.76),
+                                    alignment: const AlignmentDirectional(0.0, 0.76),
                                     child: Container(
                                       width: MediaQuery.sizeOf(context).width *
                                           1.0,
-                                      height: 150.0,
+                                      height: 170.0,
+                                      constraints: const BoxConstraints(
+                                        minHeight: 150.0,
+                                        maxHeight: 170.0,
+                                      ),
                                       decoration: const BoxDecoration(
-                                        color: Color(0x22D6D6D6),
+                                        color: Color(0x76F9F6F6),
                                       ),
                                       child: PagedListView<
                                           DocumentSnapshot<Object?>?,
@@ -222,11 +226,11 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
                                             final listViewUsersRecord = _model
                                                 .listViewPagingController!
                                                 .itemList![listViewIndex];
-                                            return PerfilProfesionalMapaWidget(
+                                            return V3fv0ritesWidget(
                                               key: Key(
-                                                  'Keya5h_${listViewIndex}_of_${_model.listViewPagingController!.itemList!.length}'),
+                                                  'Keyxwz_${listViewIndex}_of_${_model.listViewPagingController!.itemList!.length}'),
                                               profesionalId:
-                                                  listViewUsersRecord,
+                                                  listViewUsersRecord.reference,
                                             );
                                           },
                                         ),
@@ -240,8 +244,8 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
                         } else {
                           return Align(
                             alignment: const AlignmentDirectional(0.0, 0.0),
-                            child: StreamBuilder<List<UsersRecord>>(
-                              stream: queryUsersRecord(
+                            child: FutureBuilder<List<UsersRecord>>(
+                              future: queryUsersRecordOnce(
                                 queryBuilder: (usersRecord) =>
                                     usersRecord.where(
                                   'rol',

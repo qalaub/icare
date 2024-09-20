@@ -19,16 +19,18 @@ class UserprofileModel extends FlutterFlowModel<UserprofileWidget> {
   late AccountOptionModel accountOptionModel2;
   // Model for AccountOption component.
   late AccountOptionModel accountOptionModel3;
+  // Model for AccountOption component.
+  late AccountOptionModel accountOptionModel4;
   // Stores action output result for [Firestore Query - Query a collection] action in AccountOption widget.
   CodesRecord? codes;
   // Stores action output result for [Backend Call - Create Document] action in AccountOption widget.
   CodesRecord? newCode;
   // Model for AccountOption component.
-  late AccountOptionModel accountOptionModel4;
-  // Model for AccountOption component.
   late AccountOptionModel accountOptionModel5;
   // Model for AccountOption component.
   late AccountOptionModel accountOptionModel6;
+  // Model for AccountOption component.
+  late AccountOptionModel accountOptionModel7;
   // Model for Navbar component.
   late NavbarModel navbarModel;
   // Model for NavbarPremiun component.
@@ -42,6 +44,7 @@ class UserprofileModel extends FlutterFlowModel<UserprofileWidget> {
     accountOptionModel4 = createModel(context, () => AccountOptionModel());
     accountOptionModel5 = createModel(context, () => AccountOptionModel());
     accountOptionModel6 = createModel(context, () => AccountOptionModel());
+    accountOptionModel7 = createModel(context, () => AccountOptionModel());
     navbarModel = createModel(context, () => NavbarModel());
     navbarPremiunModel = createModel(context, () => NavbarPremiunModel());
   }
@@ -54,6 +57,7 @@ class UserprofileModel extends FlutterFlowModel<UserprofileWidget> {
     accountOptionModel4.dispose();
     accountOptionModel5.dispose();
     accountOptionModel6.dispose();
+    accountOptionModel7.dispose();
     navbarModel.dispose();
     navbarPremiunModel.dispose();
   }
