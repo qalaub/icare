@@ -184,6 +184,7 @@ class _RegisterProfessional3WidgetState
                                                       .fromSTEB(
                                                           0.5, 0.0, 0.5, 0.0),
                                                   child: FlutterFlowRadioButton(
+                                                    key: const ValueKey('question'),
                                                     options: [
                                                       'Register a new business profile\n(This option is for any provider or professional that delivers services under the NDIS umbrella, including sole traders and/or companies)',
                                                       'Use existing company code (This option is for employees of an existing company who wish to create their employee profile)'
@@ -398,6 +399,8 @@ class _RegisterProfessional3WidgetState
 
                                                               return FlutterFlowDropDown<
                                                                   String>(
+                                                                key: const ValueKey(
+                                                                    'company'),
                                                                 controller: _model
                                                                         .companyValueController ??=
                                                                     FormFieldController<
@@ -544,6 +547,8 @@ class _RegisterProfessional3WidgetState
                                                                         -1.0),
                                                                 child:
                                                                     TextFormField(
+                                                                  key: const ValueKey(
+                                                                      'code'),
                                                                   controller: _model
                                                                       .codeTextController,
                                                                   focusNode: _model
@@ -677,6 +682,7 @@ class _RegisterProfessional3WidgetState
                                                     .fromSTEB(
                                                         0.0, 10.0, 0.0, 10.0),
                                                 child: FFButtonWidget(
+                                                  key: const ValueKey('continue'),
                                                   onPressed: () async {
                                                     if (_model.formKey
                                                                 .currentState ==

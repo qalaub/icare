@@ -469,6 +469,7 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                 _model.swipeableStackController.swipeLeft();
                               },
                               child: Container(
+                                key: const ValueKey('dislike'),
                                 width: MediaQuery.sizeOf(context).width * 0.18,
                                 height: MediaQuery.sizeOf(context).width * 0.18,
                                 clipBehavior: Clip.antiAlias,
@@ -476,6 +477,7 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                   shape: BoxShape.circle,
                                 ),
                                 child: Image.asset(
+                                  key: const ValueKey('dislike'),
                                   'assets/images/ggy9g_x.png',
                                   fit: BoxFit.cover,
                                 ),
@@ -494,6 +496,7 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                 }
                               },
                               child: Container(
+                                key: const ValueKey('like'),
                                 width: MediaQuery.sizeOf(context).width * 0.18,
                                 height: MediaQuery.sizeOf(context).width * 0.18,
                                 clipBehavior: Clip.antiAlias,
@@ -501,6 +504,7 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                   shape: BoxShape.circle,
                                 ),
                                 child: Image.asset(
+                                  key: const ValueKey('like'),
                                   'assets/images/ME-GUSTA.png',
                                   fit: BoxFit.cover,
                                 ),

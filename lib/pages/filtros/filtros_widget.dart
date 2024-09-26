@@ -153,6 +153,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                           child: Align(
                             alignment: const AlignmentDirectional(0.0, 0.0),
                             child: Slider(
+                              key: const ValueKey('distance'),
                               activeColor: const Color(0xFFBD39BA),
                               inactiveColor: const Color(0xFFE4E4E4),
                               min: 10.0,
@@ -244,6 +245,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                               Align(
                                 alignment: const AlignmentDirectional(0.0, 0.77),
                                 child: CheckboxListTile(
+                                  key: const ValueKey('young'),
                                   value: _model.age1Value ??= FFAppState()
                                           .filtersPage
                                           .age
@@ -275,6 +277,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                               Align(
                                 alignment: const AlignmentDirectional(0.0, 0.13),
                                 child: CheckboxListTile(
+                                  key: const ValueKey('adult'),
                                   value: _model.age2Value ??= FFAppState()
                                           .filtersPage
                                           .age
@@ -306,6 +309,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                               Align(
                                 alignment: const AlignmentDirectional(0.0, -0.46),
                                 child: CheckboxListTile(
+                                  key: const ValueKey('senior'),
                                   value: _model.age3Value ??= FFAppState()
                                           .filtersPage
                                           .age
@@ -405,6 +409,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                               Align(
                                 alignment: const AlignmentDirectional(0.0, -0.98),
                                 child: CheckboxListTile(
+                                  key: const ValueKey('supportWorkers'),
                                   value: _model.supportValue ??= FFAppState()
                                           .filtersPage
                                           .services
@@ -436,6 +441,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                               Align(
                                 alignment: const AlignmentDirectional(0.0, -0.46),
                                 child: CheckboxListTile(
+                                  key: const ValueKey('supportCoordinators'),
                                   value: _model
                                       .coordinatorsValue ??= FFAppState()
                                           .filtersPage
@@ -468,6 +474,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                               Align(
                                 alignment: const AlignmentDirectional(0.0, -0.98),
                                 child: CheckboxListTile(
+                                  key: const ValueKey('recoveryCoaches'),
                                   value: _model.recoveryValue ??= FFAppState()
                                           .filtersPage
                                           .services
@@ -499,6 +506,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                               Align(
                                 alignment: const AlignmentDirectional(0.0, 0.13),
                                 child: CheckboxListTile(
+                                  key: const ValueKey('therapeuticSupports'),
                                   value: _model
                                       .therapeuticValue ??= FFAppState()
                                           .filtersPage
@@ -531,6 +539,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                               Align(
                                 alignment: const AlignmentDirectional(0.0, 0.77),
                                 child: CheckboxListTile(
+                                  key: const ValueKey('homeMaintenance'),
                                   value: _model.homeValue ??= FFAppState()
                                           .filtersPage
                                           .services
@@ -586,6 +595,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                           ),
                         ),
                         child: FFButtonWidget(
+                          key: const ValueKey('clean'),
                           onPressed: () async {
                             safeSetState(() {
                               _model.distanceValue = 10.0;
@@ -642,6 +652,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                             shape: BoxShape.rectangle,
                           ),
                           child: FFButtonWidget(
+                            key: const ValueKey('search'),
                             onPressed: () async {
                               FFAppState().updateFiltersPageStruct(
                                 (e) => e
@@ -693,7 +704,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                 (e) => e
                                   ..updateServices(
                                     (e) => e.add(_model.homeValue == true
-                                        ? 'Home Maintence'
+                                        ? 'Home Maintenance'
                                         : ' '),
                                   ),
                               );

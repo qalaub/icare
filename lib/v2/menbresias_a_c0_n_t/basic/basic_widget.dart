@@ -439,6 +439,7 @@ class _BasicWidgetState extends State<BasicWidget> {
                               safeSetState(() {});
                             },
                             child: Container(
+                              key: const ValueKey('basic'),
                               width: MediaQuery.sizeOf(context).width * 1.0,
                               height: 55.0,
                               decoration: BoxDecoration(

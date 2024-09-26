@@ -58,12 +58,12 @@ class _HomeVistaCuidadorWidgetState extends State<HomeVistaCuidadorWidget> {
             ),
             child: Container(
               width: 344.0,
-              height: 260.0,
+              height: 230.0,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  fit: BoxFit.cover,
+                  fit: BoxFit.none,
                   image: Image.asset(
-                    'assets/images/mensajesss-23.png',
+                    'assets/images/Group_92_2.png',
                   ).image,
                 ),
                 borderRadius: const BorderRadius.only(
@@ -84,12 +84,13 @@ class _HomeVistaCuidadorWidgetState extends State<HomeVistaCuidadorWidget> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'There are ',
+                          'There are  ',
                           textAlign: TextAlign.center,
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Montserrat',
-                                    fontSize: 17.0,
+                                    color: Colors.white,
+                                    fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
                                   ),
@@ -100,7 +101,7 @@ class _HomeVistaCuidadorWidgetState extends State<HomeVistaCuidadorWidget> {
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Montserrat',
                                     color: const Color(0xFFDF00AE),
-                                    fontSize: 17.0,
+                                    fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -118,7 +119,8 @@ class _HomeVistaCuidadorWidgetState extends State<HomeVistaCuidadorWidget> {
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Montserrat',
-                                    fontSize: 17.0,
+                                    color: Colors.white,
+                                    fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
                                   ),
@@ -126,7 +128,9 @@ class _HomeVistaCuidadorWidgetState extends State<HomeVistaCuidadorWidget> {
                       ],
                     ),
                   ),
-                ].addToStart(const SizedBox(height: 36.0)),
+                ]
+                    .divide(const SizedBox(height: 8.0))
+                    .addToStart(const SizedBox(height: 48.0)),
               ),
             ),
           ),

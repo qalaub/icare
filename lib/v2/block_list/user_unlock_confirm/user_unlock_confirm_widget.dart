@@ -156,6 +156,7 @@ class _UserUnlockConfirmWidgetState extends State<UserUnlockConfirmWidget> {
                   Navigator.pop(context);
                 },
                 child: Row(
+                  key: const ValueKey('unlock'),
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -203,6 +204,7 @@ class _UserUnlockConfirmWidgetState extends State<UserUnlockConfirmWidget> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
+                        key: const ValueKey('cancel'),
                         'Cancel',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Roboto',

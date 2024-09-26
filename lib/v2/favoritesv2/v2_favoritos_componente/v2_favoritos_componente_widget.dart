@@ -144,18 +144,19 @@ class _V2FavoritosComponenteWidgetState
                                   Align(
                                     alignment: const AlignmentDirectional(0.0, -0.1),
                                     child: Text(
-                                      valueOrDefault<String>(
+                                      functions.upperCaseFirstLetter(
+                                          valueOrDefault<String>(
                                         functions.concatStrings(
                                             containerUsersRecord?.firtsName,
                                             containerUsersRecord?.lastName,
                                             ' '),
                                         'claudia',
-                                      ),
+                                      )),
                                       style: FlutterFlowTheme.of(context)
                                           .headlineLarge
                                           .override(
                                             fontFamily: 'Montserrat',
-                                            fontSize: 15.0,
+                                            fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),

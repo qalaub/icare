@@ -1,6 +1,7 @@
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -148,7 +149,8 @@ class _NewNotifcationsWidgetState extends State<NewNotifcationsWidget> {
                                 text: TextSpan(
                                   children: [
                                     TextSpan(
-                                      text: containerUsersRecord.firtsName,
+                                      text: functions.upperCaseFirstLetter(
+                                          containerUsersRecord.firtsName),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
@@ -166,7 +168,8 @@ class _NewNotifcationsWidgetState extends State<NewNotifcationsWidget> {
                                       ),
                                     ),
                                     TextSpan(
-                                      text: rowUsersRecord.firtsName,
+                                      text: functions.upperCaseFirstLetter(
+                                          rowUsersRecord.firtsName),
                                       style: GoogleFonts.getFont(
                                         'Montserrat',
                                         fontWeight: FontWeight.bold,

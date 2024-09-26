@@ -280,7 +280,10 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                         updateCallback: () =>
                                                             safeSetState(() {}),
                                                         child:
-                                                            const ImageUploadWidget(),
+                                                            const ImageUploadWidget(
+                                                          key: ValueKey(
+                                                              'image1'),
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
@@ -326,7 +329,10 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                         updateCallback: () =>
                                                             safeSetState(() {}),
                                                         child:
-                                                            const ImageUploadWidget(),
+                                                            const ImageUploadWidget(
+                                                          key: ValueKey(
+                                                              'image2'),
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
@@ -372,7 +378,10 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                         updateCallback: () =>
                                                             safeSetState(() {}),
                                                         child:
-                                                            const ImageUploadWidget(),
+                                                            const ImageUploadWidget(
+                                                          key: ValueKey(
+                                                              'image3'),
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
@@ -421,7 +430,10 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                         updateCallback: () =>
                                                             safeSetState(() {}),
                                                         child:
-                                                            const ImageUploadWidget(),
+                                                            const ImageUploadWidget(
+                                                          key: ValueKey(
+                                                              'image4'),
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
@@ -467,7 +479,10 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                         updateCallback: () =>
                                                             safeSetState(() {}),
                                                         child:
-                                                            const ImageUploadWidget(),
+                                                            const ImageUploadWidget(
+                                                          key: ValueKey(
+                                                              'image5'),
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
@@ -513,7 +528,10 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                         updateCallback: () =>
                                                             safeSetState(() {}),
                                                         child:
-                                                            const ImageUploadWidget(),
+                                                            const ImageUploadWidget(
+                                                          key: ValueKey(
+                                                              'image5'),
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
@@ -549,6 +567,7 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                 const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 10.0, 0.0, 10.0),
                                             child: FFButtonWidget(
+                                              key: const ValueKey('create'),
                                               onPressed: () async {
                                                 if (FFAppState()
                                                         .imagesUserUpload.isNotEmpty) {

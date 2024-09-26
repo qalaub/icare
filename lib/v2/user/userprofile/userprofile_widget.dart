@@ -95,9 +95,11 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                         padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 15.0, 0.0, 0.0),
                                         child: Text(
-                                          valueOrDefault(
-                                              currentUserDocument?.firtsName,
-                                              ''),
+                                          functions.upperCaseFirstLetter(
+                                              valueOrDefault(
+                                                  currentUserDocument
+                                                      ?.firtsName,
+                                                  '')),
                                           style: FlutterFlowTheme.of(context)
                                               .titleLarge
                                               .override(
@@ -259,7 +261,9 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                     model: _model.accountOptionModel1,
                                     updateCallback: () => safeSetState(() {}),
                                     child: const AccountOptionWidget(
+                                      key: ValueKey('subscription'),
                                       icon: Icon(
+                                        key: ValueKey('subscription'),
                                         Icons.card_membership_outlined,
                                         size: 30.0,
                                       ),
@@ -334,33 +338,13 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                               model: _model.accountOptionModel2,
                               updateCallback: () => safeSetState(() {}),
                               child: const AccountOptionWidget(
+                                key: ValueKey('profile'),
                                 icon: Icon(
+                                  key: ValueKey('profile'),
                                   Icons.location_history,
                                   size: 30.0,
                                 ),
                                 text: 'My profile',
-                              ),
-                            ),
-                          ),
-                        ),
-                        Container(
-                          decoration: const BoxDecoration(),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              context.pushNamed('Deleteaccount');
-                            },
-                            child: wrapWithModel(
-                              model: _model.accountOptionModel3,
-                              updateCallback: () => safeSetState(() {}),
-                              child: const AccountOptionWidget(
-                                icon: Icon(
-                                  Icons.delete_sweep,
-                                ),
-                                text: 'Delete account',
                               ),
                             ),
                           ),
@@ -420,10 +404,12 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                       safeSetState(() {});
                                     },
                                     child: wrapWithModel(
-                                      model: _model.accountOptionModel4,
+                                      model: _model.accountOptionModel3,
                                       updateCallback: () => safeSetState(() {}),
                                       child: const AccountOptionWidget(
+                                        key: ValueKey('seeCode'),
                                         icon: Icon(
+                                          key: ValueKey('seeCode'),
                                           Icons.password,
                                           size: 30.0,
                                         ),
@@ -440,11 +426,13 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                           CrossAxisAlignment.center,
                                       children: [
                                         FlutterFlowIconButton(
+                                          key: const ValueKey('copyCode'),
                                           borderColor: Colors.transparent,
                                           borderRadius: 20.0,
                                           borderWidth: 1.0,
                                           buttonSize: 40.0,
                                           icon: Icon(
+                                            key: const ValueKey('copyCode'),
                                             Icons.content_copy,
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryText,
@@ -461,6 +449,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                               const AlignmentDirectional(0.0, 0.0),
                                           child: SelectionArea(
                                               child: Text(
+                                            key: const ValueKey('code'),
                                             _model.code!,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
@@ -491,10 +480,12 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                               context.pushNamed('BlockList');
                             },
                             child: wrapWithModel(
-                              model: _model.accountOptionModel5,
+                              model: _model.accountOptionModel4,
                               updateCallback: () => safeSetState(() {}),
                               child: const AccountOptionWidget(
+                                key: ValueKey('block'),
                                 icon: Icon(
+                                  key: ValueKey('block'),
                                   Icons.no_accounts,
                                   size: 30.0,
                                 ),
@@ -534,10 +525,12 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                     );
                                   },
                                   child: wrapWithModel(
-                                    model: _model.accountOptionModel6,
+                                    model: _model.accountOptionModel5,
                                     updateCallback: () => safeSetState(() {}),
                                     child: const AccountOptionWidget(
+                                      key: ValueKey('change'),
                                       icon: Icon(
+                                        key: ValueKey('change'),
                                         Icons.contact_emergency,
                                         size: 30.0,
                                       ),
@@ -564,15 +557,42 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                     'https://icareapp.com.au/privacy-policy');
                               },
                               child: wrapWithModel(
-                                model: _model.accountOptionModel7,
+                                model: _model.accountOptionModel6,
                                 updateCallback: () => safeSetState(() {}),
                                 child: const AccountOptionWidget(
+                                  key: ValueKey('terms'),
                                   icon: Icon(
+                                    key: ValueKey('terms'),
                                     Icons.contact_page_outlined,
                                     size: 30.0,
                                   ),
                                   text: 'Terms and conditions',
                                 ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          width: 326.0,
+                          decoration: const BoxDecoration(),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              context.pushNamed('Deleteaccount');
+                            },
+                            child: wrapWithModel(
+                              model: _model.accountOptionModel7,
+                              updateCallback: () => safeSetState(() {}),
+                              child: const AccountOptionWidget(
+                                key: ValueKey('delete'),
+                                icon: Icon(
+                                  key: ValueKey('delete'),
+                                  Icons.delete_sweep,
+                                ),
+                                text: 'Delete account',
                               ),
                             ),
                           ),

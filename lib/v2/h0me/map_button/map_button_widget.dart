@@ -170,7 +170,7 @@ class _MapButtonWidgetState extends State<MapButtonWidget> {
               centerMapOnMarkerTap: false,
             ),
           Align(
-            alignment: const AlignmentDirectional(-0.04, -0.84),
+            alignment: const AlignmentDirectional(-0.04, -0.88),
             child: PointerInterceptor(
               intercepting: isWeb,
               child: Material(
@@ -386,7 +386,7 @@ class _MapButtonWidgetState extends State<MapButtonWidget> {
           ),
           if (_model.queryResults.isNotEmpty)
             Align(
-              alignment: const AlignmentDirectional(0.0, -0.4),
+              alignment: const AlignmentDirectional(0.0, -0.5),
               child: PointerInterceptor(
                 intercepting: isWeb,
                 child: Padding(

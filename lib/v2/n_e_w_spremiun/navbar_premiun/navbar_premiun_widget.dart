@@ -61,10 +61,12 @@ class _NavbarPremiunWidgetState extends State<NavbarPremiunWidget> {
                     child: Align(
                       alignment: const AlignmentDirectional(0.0, 0.0),
                       child: FlutterFlowIconButton(
+                        key: const ValueKey('home'),
                         borderColor: Colors.transparent,
                         borderRadius: 34.0,
                         buttonSize: 52.0,
                         icon: const FaIcon(
+                          key: ValueKey('home'),
                           FontAwesomeIcons.houseUser,
                           color: Colors.white,
                           size: 32.0,
@@ -106,10 +108,12 @@ class _NavbarPremiunWidgetState extends State<NavbarPremiunWidget> {
                   child: Align(
                     alignment: const AlignmentDirectional(0.0, 0.0),
                     child: FlutterFlowIconButton(
+                      key: const ValueKey('colaborators'),
                       borderColor: Colors.transparent,
                       borderRadius: 34.0,
                       buttonSize: 52.0,
                       icon: const Icon(
+                        key: ValueKey('colaborators'),
                         Icons.playlist_add_check_sharp,
                         color: Colors.white,
                         size: 34.0,
@@ -150,10 +154,12 @@ class _NavbarPremiunWidgetState extends State<NavbarPremiunWidget> {
                   child: Align(
                     alignment: const AlignmentDirectional(0.0, 0.0),
                     child: FlutterFlowIconButton(
+                      key: const ValueKey('message'),
                       borderColor: Colors.transparent,
                       borderRadius: 34.0,
                       buttonSize: 52.0,
                       icon: const Icon(
+                        key: ValueKey('message'),
                         Icons.wechat_rounded,
                         color: Colors.white,
                         size: 34.0,
@@ -199,10 +205,12 @@ class _NavbarPremiunWidgetState extends State<NavbarPremiunWidget> {
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(3.0, 0.0, 0.0, 0.0),
                       child: FlutterFlowIconButton(
+                        key: const ValueKey('newa'),
                         borderColor: Colors.transparent,
                         borderRadius: 34.0,
                         buttonSize: 52.0,
                         icon: const Icon(
+                          key: ValueKey('newa'),
                           Icons.notifications_sharp,
                           color: Colors.white,
                           size: 34.0,
@@ -249,10 +257,12 @@ class _NavbarPremiunWidgetState extends State<NavbarPremiunWidget> {
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 3.0, 0.0),
                       child: FlutterFlowIconButton(
+                        key: const ValueKey('profile'),
                         borderColor: Colors.transparent,
                         borderRadius: 31.0,
                         buttonSize: 52.0,
                         icon: const Icon(
+                          key: ValueKey('profile'),
                           Icons.person,
                           color: Colors.white,
                           size: 35.0,

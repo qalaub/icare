@@ -3,13 +3,13 @@ import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/backend/schema/enums/enums.dart';
 import '/chat_groupwbubbles/chat_thread_update/chat_thread_update_widget.dart';
-import '/chat_groupwbubbles/empty_state_simple/empty_state_simple_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_media_display.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/upload_data.dart';
+import '/usser_profesional_estandar/empty_state_simple/empty_state_simple_widget.dart';
 import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:collection/collection.dart';
@@ -266,6 +266,7 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                                       alignment:
                                           const AlignmentDirectional(-1.0, -1.0),
                                       child: FlutterFlowIconButton(
+                                        key: const ValueKey('delete'),
                                         borderColor:
                                             FlutterFlowTheme.of(context).error,
                                         borderRadius: 20.0,
@@ -274,6 +275,7 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                                         fillColor: FlutterFlowTheme.of(context)
                                             .primaryBackground,
                                         icon: Icon(
+                                          key: const ValueKey('delete'),
                                           Icons.delete_outline_rounded,
                                           color: FlutterFlowTheme.of(context)
                                               .error,
@@ -312,6 +314,7 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             FlutterFlowIconButton(
+                              key: const ValueKey('upload'),
                               borderColor:
                                   FlutterFlowTheme.of(context).alternate,
                               borderRadius: 60.0,
@@ -320,6 +323,7 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                               fillColor: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
                               icon: Icon(
+                                key: const ValueKey('upload'),
                                 Icons.add_rounded,
                                 color:
                                     FlutterFlowTheme.of(context).secondaryText,
@@ -412,6 +416,7 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                                     child: SizedBox(
                                       width: double.infinity,
                                       child: TextFormField(
+                                        key: const ValueKey('message'),
                                         controller: _model.textController,
                                         focusNode: _model.textFieldFocusNode,
                                         onFieldSubmitted: (_) async {
@@ -585,6 +590,7 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                                       padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 4.0, 6.0, 4.0),
                                       child: FlutterFlowIconButton(
+                                        key: const ValueKey('send'),
                                         borderColor:
                                             FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -593,6 +599,7 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                                         buttonSize: 40.0,
                                         fillColor: const Color(0x54CE69CE),
                                         icon: const Icon(
+                                          key: ValueKey('send'),
                                           Icons.send_rounded,
                                           color: Color(0xFF432C43),
                                           size: 20.0,

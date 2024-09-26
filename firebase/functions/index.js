@@ -89,4 +89,46 @@ exports.onUserDeleted = functions.auth.user().onDelete(async (user) => {
   let firestore = admin.firestore();
   let userRef = firestore.doc("users/" + user.uid);
   await firestore.collection("users").doc(user.uid).delete();
+  await firestore
+    .collection("chat_messages")
+    .where("user", "==", userRef)
+    .get()
+    .then(async (querySnapshot) => {
+      for (var doc of querySnapshot.docs) {
+        console.log(
+          `Deleting document ${doc.id} from collection chat_messages`,
+        );
+        await doc.ref.delete();
+      }
+    });
+  await firestore
+    .collection("chats")
+    .where("users", "array-contains", userRef)
+    .get()
+    .then(async (querySnapshot) => {
+      for (var doc of querySnapshot.docs) {
+        console.log(`Deleting document ${doc.id} from collection chats`);
+        await doc.ref.delete();
+      }
+    });
+  await firestore
+    .collection("codes")
+    .where("business", "==", userRef)
+    .get()
+    .then(async (querySnapshot) => {
+      for (var doc of querySnapshot.docs) {
+        console.log(`Deleting document ${doc.id} from collection codes`);
+        await doc.ref.delete();
+      }
+    });
+  await firestore
+    .collection("newsbusiness")
+    .where("business", "==", userRef)
+    .get()
+    .then(async (querySnapshot) => {
+      for (var doc of querySnapshot.docs) {
+        console.log(`Deleting document ${doc.id} from collection newsbusiness`);
+        await doc.ref.delete();
+      }
+    });
 });

@@ -355,6 +355,8 @@ class _RegisterProfessional2WidgetState
                                                           child:
                                                               FlutterFlowDropDown<
                                                                   String>(
+                                                            key: const ValueKey(
+                                                                'services'),
                                                             multiSelectController: _model
                                                                     .serviceTypeValueController ??=
                                                                 FormListFieldController<
@@ -432,6 +434,8 @@ class _RegisterProfessional2WidgetState
                                                                       -0.62,
                                                                       0.6),
                                                               child: Text(
+                                                                key: const ValueKey(
+                                                                    'serviceVerify'),
                                                                 'Field is required',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
@@ -541,6 +545,8 @@ class _RegisterProfessional2WidgetState
                                                             0.0, 0.0),
                                                     child: FlutterFlowDropDown<
                                                         String>(
+                                                      key: const ValueKey(
+                                                          'ndisSelect'),
                                                       controller: _model
                                                               .ndisselectValueController ??=
                                                           FormFieldController<
@@ -635,6 +641,7 @@ class _RegisterProfessional2WidgetState
                                                           ),
                                                         ),
                                                         child: TextFormField(
+                                                          key: const ValueKey('ndis'),
                                                           controller: _model
                                                               .ndisTextController,
                                                           focusNode: _model
@@ -820,6 +827,7 @@ class _RegisterProfessional2WidgetState
                                                 ),
                                               ),
                                               child: TextFormField(
+                                                key: const ValueKey('years'),
                                                 controller:
                                                     _model.yearsTextController,
                                                 focusNode:
@@ -1021,6 +1029,8 @@ class _RegisterProfessional2WidgetState
                                                           child:
                                                               FlutterFlowDropDown<
                                                                   String>(
+                                                            key:
+                                                                const ValueKey('age'),
                                                             controller: _model
                                                                     .ageValueController ??=
                                                                 FormFieldController<
@@ -1096,6 +1106,8 @@ class _RegisterProfessional2WidgetState
                                                                       -0.62,
                                                                       0.6),
                                                               child: Text(
+                                                                key: const ValueKey(
+                                                                    'ageVerify'),
                                                                 'Field is required',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
@@ -1185,6 +1197,8 @@ class _RegisterProfessional2WidgetState
                                                             const AlignmentDirectional(
                                                                 0.0, -1.0),
                                                         child: TextFormField(
+                                                          key: const ValueKey(
+                                                              'password'),
                                                           controller: _model
                                                               .passwordTextController,
                                                           focusNode: _model
@@ -1346,6 +1360,8 @@ class _RegisterProfessional2WidgetState
                                                                         -0.82,
                                                                         0.5),
                                                                 child: Text(
+                                                                  key: const ValueKey(
+                                                                      'passwordVerify'),
                                                                   !FFAppState()
                                                                               .verifyForm
                                                                               .same &&
@@ -1441,6 +1457,8 @@ class _RegisterProfessional2WidgetState
                                                             const AlignmentDirectional(
                                                                 0.0, -1.0),
                                                         child: TextFormField(
+                                                          key: const ValueKey(
+                                                              'confirmPassword'),
                                                           controller: _model
                                                               .confirmPasswordTextController,
                                                           focusNode: _model
@@ -1602,6 +1620,8 @@ class _RegisterProfessional2WidgetState
                                                                         -0.82,
                                                                         0.5),
                                                                 child: Text(
+                                                                  key: const ValueKey(
+                                                                      'confirmPasswordVerify'),
                                                                   !FFAppState()
                                                                               .verifyForm
                                                                               .same &&
@@ -1739,6 +1759,8 @@ class _RegisterProfessional2WidgetState
                                                                   .secondaryText,
                                                         ),
                                                         child: Checkbox(
+                                                          key:
+                                                              const ValueKey('terms'),
                                                           value: _model
                                                                   .termsValue ??=
                                                               false,
@@ -1816,7 +1838,27 @@ class _RegisterProfessional2WidgetState
                                                   .fromSTEB(
                                                       0.0, 10.0, 0.0, 10.0),
                                               child: FFButtonWidget(
+                                                key: const ValueKey('continue'),
                                                 onPressed: () async {
+                                                  FFAppState()
+                                                      .updateVerifyFormStruct(
+                                                    (e) => e
+                                                      ..dropdown =
+                                                          valueOrDefault<bool>(
+                                                        _model.serviceTypeValue!.isNotEmpty,
+                                                        false,
+                                                      )
+                                                      ..dropdown2 =
+                                                          valueOrDefault<bool>(
+                                                        _model.ageValue !=
+                                                                null &&
+                                                            _model.ageValue !=
+                                                                '',
+                                                        false,
+                                                      ),
+                                                  );
+                                                  FFAppState().counter = 4;
+                                                  safeSetState(() {});
                                                   if (_model.formKey
                                                               .currentState ==
                                                           null ||

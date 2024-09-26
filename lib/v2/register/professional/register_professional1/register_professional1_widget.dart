@@ -279,6 +279,7 @@ class _RegisterProfessional1WidgetState
                                               ),
                                             ),
                                             child: TextFormField(
+                                              key: const ValueKey('firtsname'),
                                               controller: _model
                                                   .firstNameTextController,
                                               focusNode:
@@ -417,6 +418,7 @@ class _RegisterProfessional1WidgetState
                                               ),
                                             ),
                                             child: TextFormField(
+                                              key: const ValueKey('lastName'),
                                               controller:
                                                   _model.lastNameTextController,
                                               focusNode:
@@ -599,6 +601,7 @@ class _RegisterProfessional1WidgetState
                                                         : null;
 
                                                 return TextFormField(
+                                                  key: const ValueKey('company'),
                                                   controller: _model
                                                           .companyTextController ??=
                                                       TextEditingController(
@@ -616,6 +619,9 @@ class _RegisterProfessional1WidgetState
                                                   focusNode:
                                                       _model.companyFocusNode,
                                                   autofocus: true,
+                                                  readOnly:
+                                                      widget.businessRef !=
+                                                          null,
                                                   obscureText: false,
                                                   decoration: InputDecoration(
                                                     isDense: true,
@@ -761,6 +767,7 @@ class _RegisterProfessional1WidgetState
                                                       const AlignmentDirectional(
                                                           0.0, -1.0),
                                                   child: TextFormField(
+                                                    key: const ValueKey('email'),
                                                     controller: _model
                                                         .emailTextController,
                                                     focusNode:
@@ -900,6 +907,8 @@ class _RegisterProfessional1WidgetState
                                                         const AlignmentDirectional(
                                                             0.0, 1.9),
                                                     child: Text(
+                                                      key: const ValueKey(
+                                                          'emailExists'),
                                                       'This email already has an account, use another email',
                                                       style: FlutterFlowTheme
                                                               .of(context)
@@ -963,6 +972,7 @@ class _RegisterProfessional1WidgetState
                                               ),
                                             ),
                                             child: TextFormField(
+                                              key: const ValueKey('phone'),
                                               controller:
                                                   _model.phoneTextController,
                                               focusNode: _model.phoneFocusNode,
@@ -1145,6 +1155,8 @@ class _RegisterProfessional1WidgetState
                                                                     8.0,
                                                                     0.0),
                                                         child: TextFormField(
+                                                          key:
+                                                              const ValueKey('query'),
                                                           controller: _model
                                                               .queryTextController,
                                                           focusNode: _model
@@ -1263,6 +1275,8 @@ class _RegisterProfessional1WidgetState
                                                                 const AlignmentDirectional(
                                                                     -0.62, 0.6),
                                                             child: Text(
+                                                              key: const ValueKey(
+                                                                  'invalidSuburb'),
                                                               'Invalid suburb',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
@@ -1331,6 +1345,7 @@ class _RegisterProfessional1WidgetState
                                                 const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 10.0, 0.0, 10.0),
                                             child: FFButtonWidget(
+                                              key: const ValueKey('continue'),
                                               onPressed: () async {
                                                 FFAppState()
                                                     .updateVerifyFormStruct(

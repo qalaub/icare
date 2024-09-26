@@ -87,6 +87,7 @@ class _UploadProfileImageWidgetState extends State<UploadProfileImageWidget> {
                     model: _model.imageUploadModel1,
                     updateCallback: () => safeSetState(() {}),
                     child: ImageUploadWidget(
+                      key: const ValueKey('image1'),
                       img:
                           (currentUserDocument?.images.toList() ?? []).isNotEmpty
                               ? (currentUserDocument?.images.toList() ?? [])[0]
@@ -100,6 +101,7 @@ class _UploadProfileImageWidgetState extends State<UploadProfileImageWidget> {
                     model: _model.imageUploadModel2,
                     updateCallback: () => safeSetState(() {}),
                     child: ImageUploadWidget(
+                      key: const ValueKey('image2'),
                       img:
                           (currentUserDocument?.images.toList() ?? []).length >
                                   1
@@ -114,6 +116,7 @@ class _UploadProfileImageWidgetState extends State<UploadProfileImageWidget> {
                     model: _model.imageUploadModel3,
                     updateCallback: () => safeSetState(() {}),
                     child: ImageUploadWidget(
+                      key: const ValueKey('image3'),
                       img:
                           (currentUserDocument?.images.toList() ?? []).length >
                                   2
@@ -128,6 +131,7 @@ class _UploadProfileImageWidgetState extends State<UploadProfileImageWidget> {
                     model: _model.imageUploadModel4,
                     updateCallback: () => safeSetState(() {}),
                     child: ImageUploadWidget(
+                      key: const ValueKey('image4'),
                       img:
                           (currentUserDocument?.images.toList() ?? []).length >
                                   3
@@ -142,6 +146,7 @@ class _UploadProfileImageWidgetState extends State<UploadProfileImageWidget> {
                     model: _model.imageUploadModel5,
                     updateCallback: () => safeSetState(() {}),
                     child: ImageUploadWidget(
+                      key: const ValueKey('image5'),
                       img:
                           (currentUserDocument?.images.toList() ?? []).length >
                                   4
@@ -156,6 +161,7 @@ class _UploadProfileImageWidgetState extends State<UploadProfileImageWidget> {
                     model: _model.imageUploadModel6,
                     updateCallback: () => safeSetState(() {}),
                     child: ImageUploadWidget(
+                      key: const ValueKey('image6'),
                       img:
                           (currentUserDocument?.images.toList() ?? []).length >
                                   5

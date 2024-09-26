@@ -74,10 +74,12 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
           backgroundColor: const Color(0xFFB928B8),
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
+            key: const ValueKey('back'),
             borderRadius: 20.0,
             borderWidth: 1.0,
             buttonSize: 27.0,
             icon: const Icon(
+              key: ValueKey('back'),
               Icons.arrow_back_ios_new,
               color: Colors.white,
               size: 25.0,
@@ -306,6 +308,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                                     .width *
                                                                 0.6,
                                                         child: TextFormField(
+                                                          key: const ValueKey('name'),
                                                           controller: _model
                                                               .nameTextController,
                                                           focusNode: _model
@@ -651,6 +654,8 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                         child:
                                                             FlutterFlowDropDown<
                                                                 String>(
+                                                          key: const ValueKey(
+                                                              'services'),
                                                           multiSelectController: _model
                                                                   .servicesPremiunValueController ??=
                                                               FormListFieldController<
@@ -670,7 +675,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                             'Support Coordinators ',
                                                             'Recovery Coaches ',
                                                             'Therapeutic Supports',
-                                                            ' Home Maintenance'
+                                                            'Home Maintenance'
                                                           ]),
                                                           optionLabels: const [
                                                             'Support Workers',
@@ -862,6 +867,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                           0.0, 0.0),
                                                   child: FlutterFlowDropDown<
                                                       String>(
+                                                    key: const ValueKey('age'),
                                                     controller: _model
                                                             .ageValueController ??=
                                                         FormFieldController<
@@ -1002,13 +1008,14 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                         Expanded(
                                           child: Align(
                                             alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
+                                                const AlignmentDirectional(0.0, -0.9),
                                             child: Padding(
                                               padding: const EdgeInsetsDirectional
                                                   .fromSTEB(4.0, 0.0, 4.0, 0.0),
                                               child: AuthUserStreamWidget(
                                                 builder: (context) =>
                                                     TextFormField(
+                                                  key: const ValueKey('description'),
                                                   controller: _model
                                                       .descriptionTextController,
                                                   focusNode: _model
@@ -1016,6 +1023,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                   autofocus: true,
                                                   obscureText: false,
                                                   decoration: InputDecoration(
+                                                    isDense: false,
                                                     labelStyle: FlutterFlowTheme
                                                             .of(context)
                                                         .bodyMedium
@@ -1089,6 +1097,14 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                             'Readex Pro',
                                                         letterSpacing: 0.0,
                                                       ),
+                                                  maxLines: null,
+                                                  minLines: 1,
+                                                  maxLength: 2000,
+                                                  buildCounter: (context,
+                                                          {required currentLength,
+                                                          required isFocused,
+                                                          maxLength}) =>
+                                                      null,
                                                   validator: _model
                                                       .descriptionTextControllerValidator
                                                       .asValidator(context),
@@ -1187,16 +1203,21 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                     ''
                                             ? valueOrDefault(
                                                 currentUserDocument?.video, '')
-                                            : 'https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.mp4',
+                                            : 'https://assets.mixkit.co/videos/51585/51585-720.mp4',
                                         videoType: VideoType.network,
+                                        width: 400.0,
+                                        height: 250.0,
+                                        aspectRatio: 1.7,
                                         autoPlay: false,
                                         looping: false,
                                         showControls: true,
                                         allowFullScreen: false,
                                         allowPlaybackSpeedMenu: false,
+                                        lazyLoad: false,
                                       ),
                                     ),
                                     FFButtonWidget(
+                                      key: const ValueKey('upload'),
                                       onPressed: () async {
                                         final selectedMedia =
                                             await selectMediaWithSourceBottomSheet(
@@ -1263,7 +1284,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                               .showSnackBar(
                                             SnackBar(
                                               content: Text(
-                                                'File must be no larger than 10 MB',
+                                                'File must be no larger than 100 MB',
                                                 style: TextStyle(
                                                   color: FlutterFlowTheme.of(
                                                           context)
@@ -1289,6 +1310,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                       },
                                       text: 'Upload video',
                                       icon: const Icon(
+                                        key: ValueKey('upload'),
                                         Icons.upload,
                                         size: 22.0,
                                       ),
@@ -1321,6 +1343,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                             ),
                           ),
                         FFButtonWidget(
+                          key: const ValueKey('save'),
                           onPressed: () async {
                             FFAppState().updateRegisterProviderFormStruct(
                               (e) => e
@@ -1465,7 +1488,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                               ),
                             );
                           },
-                          text: 'save changes',
+                          text: 'Save changes',
                           options: FFButtonOptions(
                             width: 167.0,
                             height: 57.0,

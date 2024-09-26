@@ -347,6 +347,8 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
                                                           child:
                                                               FlutterFlowDropDown<
                                                                   String>(
+                                                            key: const ValueKey(
+                                                                'services'),
                                                             multiSelectController: _model
                                                                     .serviceTypeValueController ??=
                                                                 FormListFieldController<
@@ -424,6 +426,8 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
                                                                       -0.62,
                                                                       1.0),
                                                               child: Text(
+                                                                key: const ValueKey(
+                                                                    'typeServiceRequired'),
                                                                 'Field is required',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
@@ -533,6 +537,8 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
                                                             0.0, 0.0),
                                                     child: FlutterFlowDropDown<
                                                         String>(
+                                                      key: const ValueKey(
+                                                          'ndisSelect'),
                                                       controller: _model
                                                               .ndisselectValueController ??=
                                                           FormFieldController<
@@ -630,6 +636,7 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
                                                           ),
                                                         ),
                                                         child: TextFormField(
+                                                          key: const ValueKey('ndis'),
                                                           controller: _model
                                                               .ndisTextController,
                                                           focusNode: _model
@@ -866,6 +873,8 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
                                                           child:
                                                               FlutterFlowDropDown<
                                                                   String>(
+                                                            key:
+                                                                const ValueKey('age'),
                                                             controller: _model
                                                                     .ageValueController ??=
                                                                 FormFieldController<
@@ -941,6 +950,8 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
                                                                       -0.62,
                                                                       0.6),
                                                               child: Text(
+                                                                key: const ValueKey(
+                                                                    'ageRequired'),
                                                                 'Field is required',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
@@ -1030,6 +1041,8 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
                                                             const AlignmentDirectional(
                                                                 0.0, -1.0),
                                                         child: TextFormField(
+                                                          key: const ValueKey(
+                                                              'password'),
                                                           controller: _model
                                                               .passwordTextController,
                                                           focusNode: _model
@@ -1191,6 +1204,8 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
                                                                         -0.82,
                                                                         0.5),
                                                                 child: Text(
+                                                                  key: const ValueKey(
+                                                                      'passwordVerify'),
                                                                   !FFAppState()
                                                                               .verifyForm
                                                                               .same &&
@@ -1286,6 +1301,8 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
                                                             const AlignmentDirectional(
                                                                 0.0, -1.0),
                                                         child: TextFormField(
+                                                          key: const ValueKey(
+                                                              'confirmPassword'),
                                                           controller: _model
                                                               .confirmPasswordTextController,
                                                           focusNode: _model
@@ -1447,6 +1464,8 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
                                                                         -0.82,
                                                                         0.5),
                                                                 child: Text(
+                                                                  key: const ValueKey(
+                                                                      'confirmPasswordVerify'),
                                                                   !FFAppState()
                                                                               .verifyForm
                                                                               .same &&
@@ -1584,6 +1603,8 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
                                                                   .secondaryText,
                                                         ),
                                                         child: Checkbox(
+                                                          key:
+                                                              const ValueKey('terms'),
                                                           value: _model
                                                                   .termsValue ??=
                                                               false,
@@ -1662,6 +1683,7 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
                                                   .fromSTEB(
                                                       0.0, 10.0, 0.0, 10.0),
                                               child: FFButtonWidget(
+                                                key: const ValueKey('continue'),
                                                 onPressed: () async {
                                                   if (_model.formKey
                                                               .currentState ==

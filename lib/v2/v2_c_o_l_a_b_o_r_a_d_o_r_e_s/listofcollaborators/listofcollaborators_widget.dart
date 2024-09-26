@@ -45,159 +45,165 @@ class _ListofcollaboratorsWidgetState extends State<ListofcollaboratorsWidget> {
         backgroundColor: Colors.white,
         body: SafeArea(
           top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Expanded(
-                child: Container(
-                  width: double.infinity,
-                  height: double.infinity,
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
-                  ),
-                  child: Align(
-                    alignment: const AlignmentDirectional(0.0, 1.0),
-                    child: Stack(
-                      children: [
-                        Align(
-                          alignment: const AlignmentDirectional(0.0, -1.0),
-                          child: Container(
-                            width: 399.0,
-                            height: 100.0,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                            ),
-                            child: Stack(
-                              children: [
-                                Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(8.0),
-                                    child: Image.asset(
-                                      'assets/images/Rectangle_7.png',
-                                      width: double.infinity,
-                                      height: double.infinity,
-                                      fit: BoxFit.cover,
+          child: Container(
+            decoration: BoxDecoration(
+              color: const Color(0xFFA41414),
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                image: Image.asset(
+                  'assets/images/F0NDer_fav3_(1).png',
+                ).image,
+              ),
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Expanded(
+                  child: Container(
+                    width: double.infinity,
+                    height: double.infinity,
+                    decoration: const BoxDecoration(),
+                    child: Align(
+                      alignment: const AlignmentDirectional(0.0, 1.0),
+                      child: Stack(
+                        children: [
+                          Align(
+                            alignment: const AlignmentDirectional(0.0, -1.0),
+                            child: Container(
+                              width: MediaQuery.sizeOf(context).width * 1.0,
+                              height: 100.0,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                              ),
+                              child: Stack(
+                                children: [
+                                  Align(
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(0.0),
+                                      child: Image.asset(
+                                        'assets/images/Rectangle_7.png',
+                                        width: double.infinity,
+                                        height: double.infinity,
+                                        fit: BoxFit.none,
+                                      ),
                                     ),
                                   ),
-                                ),
-                                Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
-                                  child: Text(
-                                    'List Of Collaborators',
-                                    style: FlutterFlowTheme.of(context)
-                                        .headlineSmall
-                                        .override(
-                                          fontFamily: 'Montserrat',
-                                          color: Colors.white,
-                                          fontSize: 20.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.bold,
-                                        ),
+                                  Align(
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    child: Text(
+                                      'List Of Collaborators',
+                                      style: FlutterFlowTheme.of(context)
+                                          .headlineSmall
+                                          .override(
+                                            fontFamily: 'Montserrat',
+                                            color: Colors.white,
+                                            fontSize: 20.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                        Align(
-                          alignment: const AlignmentDirectional(0.88, -0.69),
-                          child: AuthUserStreamWidget(
-                            builder: (context) => Text(
-                              valueOrDefault<String>(
-                                functions.concatStrings(
-                                    (currentUserDocument?.professionals
+                          Align(
+                            alignment: const AlignmentDirectional(0.88, -0.7),
+                            child: AuthUserStreamWidget(
+                              builder: (context) => Text(
+                                valueOrDefault<String>(
+                                  functions.concatStrings(
+                                      (currentUserDocument?.professionals
+                                                  .toList() ??
+                                              [])
+                                          .length
+                                          .toString(),
+                                      '10',
+                                      '/'),
+                                  '3/10',
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyLarge
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      color: Colors.white,
+                                      letterSpacing: 0.0,
+                                    ),
+                              ),
+                            ),
+                          ),
+                          Align(
+                            alignment: const AlignmentDirectional(0.0, 0.6),
+                            child: Container(
+                              width: MediaQuery.sizeOf(context).width * 0.86,
+                              height: MediaQuery.sizeOf(context).height * 0.76,
+                              decoration: const BoxDecoration(),
+                              child: AuthUserStreamWidget(
+                                builder: (context) => Builder(
+                                  builder: (context) {
+                                    final colaborators = (currentUserDocument
+                                                ?.professionals
                                                 .toList() ??
                                             [])
-                                        .length
-                                        .toString(),
-                                    '10',
-                                    '/'),
-                                '3/10',
+                                        .toList();
+
+                                    return ListView.builder(
+                                      padding: EdgeInsets.zero,
+                                      shrinkWrap: true,
+                                      scrollDirection: Axis.vertical,
+                                      itemCount: colaborators.length,
+                                      itemBuilder:
+                                          (context, colaboratorsIndex) {
+                                        final colaboratorsItem =
+                                            colaborators[colaboratorsIndex];
+                                        return ListofcollaboratorsPERFILWidget(
+                                          key: Key(
+                                              'Key9hk_${colaboratorsIndex}_of_${colaborators.length}'),
+                                          professional: colaboratorsItem,
+                                        );
+                                      },
+                                    );
+                                  },
+                                ),
                               ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyLarge
-                                  .override(
-                                    fontFamily: 'Readex Pro',
-                                    color: const Color(0xFFDB1FB5),
-                                    letterSpacing: 0.0,
-                                  ),
                             ),
                           ),
-                        ),
-                        Align(
-                          alignment: const AlignmentDirectional(0.0, 0.2),
-                          child: Container(
-                            width: 300.0,
-                            height: 480.0,
-                            decoration: const BoxDecoration(),
-                            child: AuthUserStreamWidget(
-                              builder: (context) => Builder(
+                          Align(
+                            alignment: const AlignmentDirectional(0.0, 1.01),
+                            child: Container(
+                              height: 73.0,
+                              decoration: const BoxDecoration(
+                                color: Color(0xD5B928B8),
+                              ),
+                              child: Builder(
                                 builder: (context) {
-                                  final colaborators = (currentUserDocument
-                                              ?.professionals
-                                              .toList() ??
-                                          [])
-                                      .toList();
-
-                                  return ListView.builder(
-                                    padding: EdgeInsets.zero,
-                                    shrinkWrap: true,
-                                    scrollDirection: Axis.vertical,
-                                    itemCount: colaborators.length,
-                                    itemBuilder: (context, colaboratorsIndex) {
-                                      final colaboratorsItem =
-                                          colaborators[colaboratorsIndex];
-                                      return Align(
-                                        alignment:
-                                            const AlignmentDirectional(0.0, 0.0),
-                                        child: ListofcollaboratorsPERFILWidget(
-                                          key: Key(
-                                              'Keymd2_${colaboratorsIndex}_of_${colaborators.length}'),
-                                          professional: colaboratorsItem,
-                                        ),
-                                      );
-                                    },
-                                  );
+                                  if (currentUserDocument?.rol !=
+                                      Roles.business) {
+                                    return wrapWithModel(
+                                      model: _model.navbarModel,
+                                      updateCallback: () => safeSetState(() {}),
+                                      child: const NavbarWidget(),
+                                    );
+                                  } else {
+                                    return wrapWithModel(
+                                      model: _model.navbarPremiunModel,
+                                      updateCallback: () => safeSetState(() {}),
+                                      child: const NavbarPremiunWidget(),
+                                    );
+                                  }
                                 },
                               ),
                             ),
                           ),
-                        ),
-                        Align(
-                          alignment: const AlignmentDirectional(0.0, 1.01),
-                          child: Container(
-                            height: 73.0,
-                            decoration: const BoxDecoration(
-                              color: Color(0xD5B928B8),
-                            ),
-                            child: Builder(
-                              builder: (context) {
-                                if (currentUserDocument?.rol !=
-                                    Roles.business) {
-                                  return wrapWithModel(
-                                    model: _model.navbarModel,
-                                    updateCallback: () => safeSetState(() {}),
-                                    child: const NavbarWidget(),
-                                  );
-                                } else {
-                                  return wrapWithModel(
-                                    model: _model.navbarPremiunModel,
-                                    updateCallback: () => safeSetState(() {}),
-                                    child: const NavbarPremiunWidget(),
-                                  );
-                                }
-                              },
-                            ),
-                          ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

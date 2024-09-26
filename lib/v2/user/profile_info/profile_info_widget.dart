@@ -113,10 +113,12 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
               actions: [
                 Builder(
                   builder: (context) => FlutterFlowIconButton(
+                    key: const ValueKey('share'),
                     borderRadius: 24.0,
                     borderWidth: 1.0,
                     buttonSize: 40.0,
                     icon: const Icon(
+                      key: ValueKey('share'),
                       Icons.share_rounded,
                       color: Colors.white,
                       size: 24.0,
@@ -200,6 +202,7 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                   safeSetState(() {});
                                 },
                                 child: const Icon(
+                                  key: ValueKey('message'),
                                   FFIcons.kmessage,
                                   color: Colors.white,
                                   size: 33.0,
@@ -215,6 +218,7 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                 model: _model.addFavoritesModel,
                                 updateCallback: () => safeSetState(() {}),
                                 child: AddFavoritesWidget(
+                                  key: const ValueKey('favorite'),
                                   professional: profileInfoUsersRecord!,
                                 ),
                               ),
@@ -332,6 +336,10 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                       decoration: const BoxDecoration(),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
                                           Padding(
                                             padding:
@@ -340,7 +348,8 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                             child: Container(
                                               decoration: const BoxDecoration(),
                                               child: Text(
-                                                valueOrDefault<String>(
+                                                functions.upperCaseFirstLetter(
+                                                    valueOrDefault<String>(
                                                   functions.concatStrings(
                                                       profileInfoUsersRecord
                                                           .firtsName,
@@ -348,7 +357,7 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                                           .lastName,
                                                       ' '),
                                                   'last name',
-                                                ),
+                                                )),
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .headlineLarge
@@ -396,10 +405,19 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                               height: 19.0,
                                               decoration: const BoxDecoration(),
                                               child: Text(
-                                                valueOrDefault<String>(
-                                                  profileInfoUsersRecord.age,
-                                                  '32 years',
-                                                ),
+                                                () {
+                                                  if (profileInfoUsersRecord
+                                                          .age ==
+                                                      '18-25 years') {
+                                                    return 'Young';
+                                                  } else if (profileInfoUsersRecord
+                                                          .age ==
+                                                      '25-40 years') {
+                                                    return ' Adult';
+                                                  } else {
+                                                    return 'Senior';
+                                                  }
+                                                }(),
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .headlineLarge
@@ -441,10 +459,7 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                         model: _model.descripcionProfesionalModel,
                         updateCallback: () => safeSetState(() {}),
                         child: DescripcionProfesionalWidget(
-                          parameter1: valueOrDefault<String>(
-                            profileInfoUsersRecord.description,
-                            'I have worked for 5 years as a mental health nurse and care for people with attention deficit and more related disorders, I am kind and protective, I like  to help',
-                          ),
+                          parameter1: profileInfoUsersRecord.description,
                           parameter2: valueOrDefault<String>(
                             formatNumber(
                               profileInfoUsersRecord.years,
@@ -456,11 +471,13 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                           ),
                           video: valueOrDefault<String>(
                             profileInfoUsersRecord.video,
-                            'https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.mp4',
+                            'https://assets.mixkit.co/videos/51585/51585-720.mp4',
                           ),
+                          services: profileInfoUsersRecord.serviceType,
+                          imgs: profileInfoUsersRecord.images,
                         ),
                       ),
-                    ],
+                    ].addToEnd(const SizedBox(height: 32.0)),
                   ),
                 ),
               ),

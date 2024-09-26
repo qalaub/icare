@@ -178,6 +178,7 @@ class _EscogerUsuarioWidgetState extends State<EscogerUsuarioWidget> {
                                               const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 30.0, 0.0, 20.0),
                                           child: FFButtonWidget(
+                                            key: const ValueKey('participant'),
                                             onPressed: () async {
                                               context
                                                   .pushNamed('RegisterUser1');
@@ -217,6 +218,7 @@ class _EscogerUsuarioWidgetState extends State<EscogerUsuarioWidget> {
                                         alignment:
                                             const AlignmentDirectional(0.0, 0.0),
                                         child: FFButtonWidget(
+                                          key: const ValueKey('professional'),
                                           onPressed: () async {
                                             context.pushNamed(
                                               'RegisterProfessional3',

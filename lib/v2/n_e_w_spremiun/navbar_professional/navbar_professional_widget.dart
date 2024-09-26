@@ -85,10 +85,12 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                       child: Align(
                         alignment: const AlignmentDirectional(0.0, 0.0),
                         child: FlutterFlowIconButton(
+                          key: const ValueKey('home'),
                           borderColor: Colors.transparent,
                           borderRadius: 34.0,
                           buttonSize: 48.0,
                           icon: const FaIcon(
+                            key: ValueKey('home'),
                             FontAwesomeIcons.houseUser,
                             color: Colors.white,
                             size: 30.0,
@@ -169,10 +171,12 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                         child: Align(
                           alignment: const AlignmentDirectional(0.0, 0.0),
                           child: FlutterFlowIconButton(
+                            key: const ValueKey('likes'),
                             borderColor: Colors.transparent,
                             borderRadius: 34.0,
                             buttonSize: 48.0,
                             icon: const Icon(
+                              key: ValueKey('likes'),
                               Icons.favorite_border_rounded,
                               color: Colors.white,
                               size: 33.0,
@@ -229,9 +233,11 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                       child: Align(
                         alignment: const AlignmentDirectional(0.0, 0.0),
                         child: FlutterFlowIconButton(
+                          key: const ValueKey('message'),
                           borderColor: Colors.transparent,
                           buttonSize: 48.0,
                           icon: const Icon(
+                            key: ValueKey('message'),
                             Icons.wechat_rounded,
                             color: Colors.white,
                             size: 34.0,
@@ -275,9 +281,11 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                           padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 6.0, 0.0),
                           child: FlutterFlowIconButton(
+                            key: const ValueKey('profile'),
                             borderColor: Colors.transparent,
                             buttonSize: 48.0,
                             icon: const Icon(
+                              key: ValueKey('profile'),
                               Icons.person,
                               color: Colors.white,
                               size: 37.0,

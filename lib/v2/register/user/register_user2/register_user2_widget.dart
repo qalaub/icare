@@ -289,6 +289,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                 alignment: const AlignmentDirectional(
                                                     0.0, -1.0),
                                                 child: TextFormField(
+                                                  key: const ValueKey('ndis'),
                                                   controller:
                                                       _model.ndisTextController,
                                                   focusNode:
@@ -486,6 +487,8 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                           child:
                                                               FlutterFlowDropDown<
                                                                   String>(
+                                                            key: const ValueKey(
+                                                                'disability'),
                                                             multiSelectController: _model
                                                                     .dropDownValueController ??=
                                                                 FormListFieldController<
@@ -567,6 +570,8 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                                       -0.62,
                                                                       0.7),
                                                               child: Text(
+                                                                key: const ValueKey(
+                                                                    'disabilityRequired'),
                                                                 'Field is required',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
@@ -654,6 +659,8 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                           const AlignmentDirectional(
                                                               0.0, -1.0),
                                                       child: TextFormField(
+                                                        key: const ValueKey(
+                                                            'password'),
                                                         controller: _model
                                                             .passwordTextController,
                                                         focusNode: _model
@@ -819,6 +826,8 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                                       -0.82,
                                                                       0.5),
                                                               child: Text(
+                                                                key: const ValueKey(
+                                                                    'passwordVerify'),
                                                                 !FFAppState()
                                                                             .verifyForm
                                                                             .same &&
@@ -912,6 +921,8 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                           const AlignmentDirectional(
                                                               0.0, -1.0),
                                                       child: TextFormField(
+                                                        key: const ValueKey(
+                                                            'confirmPassword'),
                                                         controller: _model
                                                             .confirmPasswordTextController,
                                                         focusNode: _model
@@ -1075,6 +1086,8 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                                       -0.82,
                                                                       0.6),
                                                               child: Text(
+                                                                key: const ValueKey(
+                                                                    'confirmPasswordVerify'),
                                                                 !FFAppState()
                                                                             .verifyForm
                                                                             .same &&
@@ -1146,6 +1159,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                 const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 10.0, 0.0, 10.0),
                                             child: FFButtonWidget(
+                                              key: const ValueKey('create'),
                                               onPressed: () async {
                                                 if (_model.formKey
                                                             .currentState ==

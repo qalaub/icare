@@ -12,7 +12,6 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 import 'home_search_model.dart';
 export 'home_search_model.dart';
@@ -139,7 +138,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
                                           1.0,
                                       height:
                                           MediaQuery.sizeOf(context).height *
-                                              0.875,
+                                              0.925,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
@@ -156,41 +155,18 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
                                   ),
                                   Align(
                                     alignment: const AlignmentDirectional(0.0, 0.76),
-                                    child: Container(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          1.0,
-                                      height: 170.0,
-                                      constraints: const BoxConstraints(
-                                        minHeight: 150.0,
-                                        maxHeight: 170.0,
-                                      ),
-                                      decoration: const BoxDecoration(
-                                        color: Color(0x76F9F6F6),
-                                      ),
-                                      child: PagedListView<
-                                          DocumentSnapshot<Object?>?,
-                                          UsersRecord>.separated(
-                                        pagingController:
-                                            _model.setListViewController(
-                                          UsersRecord.collection.where(
-                                            'rol',
-                                            isNotEqualTo:
-                                                Roles.user.serialize(),
-                                          ),
+                                    child: StreamBuilder<List<UsersRecord>>(
+                                      stream: queryUsersRecord(
+                                        queryBuilder: (usersRecord) =>
+                                            usersRecord.where(
+                                          'rol',
+                                          isNotEqualTo: Roles.user.serialize(),
                                         ),
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 20.0),
-                                        shrinkWrap: true,
-                                        reverse: false,
-                                        scrollDirection: Axis.horizontal,
-                                        separatorBuilder: (_, __) =>
-                                            const SizedBox(width: 20.0),
-                                        builderDelegate:
-                                            PagedChildBuilderDelegate<
-                                                UsersRecord>(
-                                          // Customize what your widget looks like when it's loading the first page.
-                                          firstPageProgressIndicatorBuilder:
-                                              (_) => Center(
+                                      ),
+                                      builder: (context, snapshot) {
+                                        // Customize what your widget looks like when it's loading.
+                                        if (!snapshot.hasData) {
+                                          return Center(
                                             child: SizedBox(
                                               width: 50.0,
                                               height: 50.0,
@@ -203,38 +179,76 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
                                                 ),
                                               ),
                                             ),
-                                          ),
-                                          // Customize what your widget looks like when it's loading another page.
-                                          newPageProgressIndicatorBuilder:
-                                              (_) => Center(
-                                            child: SizedBox(
-                                              width: 50.0,
-                                              height: 50.0,
-                                              child: CircularProgressIndicator(
-                                                valueColor:
-                                                    AlwaysStoppedAnimation<
-                                                        Color>(
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
+                                          );
+                                        }
+                                        List<UsersRecord>
+                                            containerUsersRecordList = snapshot
+                                                .data!
+                                                .where((u) =>
+                                                    u.uid != currentUserUid)
+                                                .toList();
 
-                                          itemBuilder:
-                                              (context, _, listViewIndex) {
-                                            final listViewUsersRecord = _model
-                                                .listViewPagingController!
-                                                .itemList![listViewIndex];
-                                            return V3fv0ritesWidget(
-                                              key: Key(
-                                                  'Keyxwz_${listViewIndex}_of_${_model.listViewPagingController!.itemList!.length}'),
-                                              profesionalId:
-                                                  listViewUsersRecord.reference,
-                                            );
-                                          },
-                                        ),
-                                      ),
+                                        return Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  1.0,
+                                          height: 170.0,
+                                          constraints: const BoxConstraints(
+                                            minHeight: 150.0,
+                                            maxHeight: 170.0,
+                                          ),
+                                          decoration: const BoxDecoration(
+                                            color: Color(0x76F9F6F6),
+                                          ),
+                                          child: Builder(
+                                            builder: (context) {
+                                              final containerVar =
+                                                  containerUsersRecordList
+                                                      .where((e) => functions
+                                                          .filterProfessionals(
+                                                              e,
+                                                              FFAppState()
+                                                                  .filtersPage
+                                                                  .distance,
+                                                              FFAppState()
+                                                                  .filtersPage
+                                                                  .services
+                                                                  .toList(),
+                                                              FFAppState()
+                                                                  .filtersPage
+                                                                  .age
+                                                                  .toList(),
+                                                              FFAppState()
+                                                                  .tempLocation!))
+                                                      .toList();
+
+                                              return ListView.separated(
+                                                padding: const EdgeInsets.symmetric(
+                                                    horizontal: 20.0),
+                                                shrinkWrap: true,
+                                                scrollDirection:
+                                                    Axis.horizontal,
+                                                itemCount: containerVar.length,
+                                                separatorBuilder: (_, __) =>
+                                                    const SizedBox(width: 20.0),
+                                                itemBuilder: (context,
+                                                    containerVarIndex) {
+                                                  final containerVarItem =
+                                                      containerVar[
+                                                          containerVarIndex];
+                                                  return V3fv0ritesWidget(
+                                                    key: Key(
+                                                        'Keyxwz_${containerVarIndex}_of_${containerVar.length}'),
+                                                    profesionalId:
+                                                        containerVarItem
+                                                            .reference,
+                                                  );
+                                                },
+                                              );
+                                            },
+                                          ),
+                                        );
+                                      },
                                     ),
                                   ),
                                 ],
@@ -281,14 +295,14 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
                                     children: [
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(0.0, -1.0),
+                                            const AlignmentDirectional(0.0, -1.5),
                                         child: Container(
                                           width:
                                               MediaQuery.sizeOf(context).width *
                                                   1.0,
                                           height: MediaQuery.sizeOf(context)
                                                   .height *
-                                              0.875,
+                                              0.94,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -307,7 +321,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
                                         alignment:
                                             const AlignmentDirectional(-2.0, 0.76),
                                         child: Container(
-                                          height: 236.0,
+                                          height: 234.0,
                                           decoration: const BoxDecoration(),
                                           child: wrapWithModel(
                                             model:

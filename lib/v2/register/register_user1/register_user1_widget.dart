@@ -320,6 +320,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                 alignment: const AlignmentDirectional(
                                                     0.0, -1.0),
                                                 child: TextFormField(
+                                                  key: const ValueKey('firstName'),
                                                   controller: _model
                                                       .firstNameTextController,
                                                   focusNode:
@@ -478,6 +479,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                 alignment: const AlignmentDirectional(
                                                     0.0, -1.0),
                                                 child: TextFormField(
+                                                  key: const ValueKey('lastName'),
                                                   controller: _model
                                                       .lastnameTextController,
                                                   focusNode:
@@ -656,6 +658,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                           ),
                                                         ),
                                                         child: TextFormField(
+                                                          key: const ValueKey('date'),
                                                           controller: _model
                                                               .dateTextController,
                                                           focusNode: _model
@@ -801,6 +804,8 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                       -0.62,
                                                                       0.6),
                                                               child: Text(
+                                                                key: const ValueKey(
+                                                                    'dateError'),
                                                                 _model
                                                                     .dateError,
                                                                 style: FlutterFlowTheme.of(
@@ -895,6 +900,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                         const AlignmentDirectional(
                                                             0.0, -1.0),
                                                     child: TextFormField(
+                                                      key: const ValueKey('email'),
                                                       controller: _model
                                                           .emailTextController,
                                                       focusNode:
@@ -1039,6 +1045,8 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                           const AlignmentDirectional(
                                                               0.0, 1.9),
                                                       child: Text(
+                                                        key: const ValueKey(
+                                                            'emailVerify'),
                                                         'This email already has an account, use another email',
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -1109,6 +1117,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                 ),
                                               ),
                                               child: TextFormField(
+                                                key: const ValueKey('phone'),
                                                 controller:
                                                     _model.phoneTextController,
                                                 focusNode:
@@ -1311,6 +1320,8 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                       8.0,
                                                                       0.0),
                                                           child: TextFormField(
+                                                            key: const ValueKey(
+                                                                'query'),
                                                             controller: _model
                                                                 .queryTextController,
                                                             focusNode: _model
@@ -1433,6 +1444,8 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                       -0.62,
                                                                       0.7),
                                                               child: Text(
+                                                                key: const ValueKey(
+                                                                    'indalidSuburb'),
                                                                 'Invalid suburb',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
@@ -1519,6 +1532,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                       .fromSTEB(
                                                           0.0, 10.0, 0.0, 0.0),
                                                   child: FFButtonWidget(
+                                                    key: const ValueKey('continue'),
                                                     onPressed: () async {
                                                       _model.dateError =
                                                           'Field is required';
@@ -1781,6 +1795,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                       key: Key(
                                                           'Keygju_${newqueryIndex}_of_${newquery.length}'),
                                                       icon: const Icon(
+                                                        key: ValueKey('search'),
                                                         Icons.location_on,
                                                         color:
                                                             Color(0xFFD26AD2),

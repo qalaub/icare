@@ -439,6 +439,7 @@ class _StandarWidgetState extends State<StandarWidget> {
                               safeSetState(() {});
                             },
                             child: Container(
+                              key: const ValueKey('standar'),
                               width: MediaQuery.sizeOf(context).width * 1.0,
                               height: 55.0,
                               decoration: BoxDecoration(

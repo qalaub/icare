@@ -583,6 +583,7 @@ class _MySubscriptionBasicWidgetState extends State<MySubscriptionBasicWidget> {
                     padding:
                         const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                     child: FFButtonWidget(
+                      key: const ValueKey('return'),
                       onPressed: () async {
                         context.pushNamed('userprofile');
                       },

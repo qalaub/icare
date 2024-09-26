@@ -267,6 +267,7 @@ class _RegisterBusiness3WidgetState extends State<RegisterBusiness3Widget>
                                                   ),
                                                 ),
                                                 child: TextFormField(
+                                                  key: const ValueKey('years'),
                                                   controller: _model
                                                       .yearsTextController,
                                                   focusNode:
@@ -465,6 +466,8 @@ class _RegisterBusiness3WidgetState extends State<RegisterBusiness3Widget>
                                                             child:
                                                                 FlutterFlowDropDown<
                                                                     String>(
+                                                              key: const ValueKey(
+                                                                  'gender'),
                                                               controller: _model
                                                                       .genderValueController ??=
                                                                   FormFieldController<
@@ -541,6 +544,8 @@ class _RegisterBusiness3WidgetState extends State<RegisterBusiness3Widget>
                                                                         -0.62,
                                                                         0.6),
                                                                 child: Text(
+                                                                  key: const ValueKey(
+                                                                      'genderVerify'),
                                                                   'Field is required',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
@@ -629,6 +634,7 @@ class _RegisterBusiness3WidgetState extends State<RegisterBusiness3Widget>
                                                   ),
                                                 ),
                                                 child: TextFormField(
+                                                  key: const ValueKey('disabilities'),
                                                   controller: _model
                                                       .disabilitiesTextController,
                                                   focusNode: _model
@@ -756,6 +762,7 @@ class _RegisterBusiness3WidgetState extends State<RegisterBusiness3Widget>
                                                     .fromSTEB(
                                                         0.0, 10.0, 0.0, 10.0),
                                                 child: FFButtonWidget(
+                                                  key: const ValueKey('cascavel'),
                                                   onPressed: () async {
                                                     FFAppState()
                                                         .updateVerifyFormStruct(

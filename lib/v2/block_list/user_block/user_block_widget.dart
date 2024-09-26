@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/v2/block_list/user_block_options/user_block_options_widget.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:flutter/material.dart';
 import 'user_block_model.dart';
@@ -98,10 +99,11 @@ class _UserBlockWidgetState extends State<UserBlockWidget> {
                         child: Container(
                           decoration: const BoxDecoration(),
                           child: Text(
-                            valueOrDefault<String>(
+                            functions
+                                .upperCaseFirstLetter(valueOrDefault<String>(
                               widget.username,
                               'Arlene McCoy',
-                            ),
+                            )),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(

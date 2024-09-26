@@ -117,7 +117,7 @@ class _MapsAustralianState extends State<MapsAustralian> {
     }
 
     final currentLocationImageUrl =
-        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/lvqw9xd8jn4h/mapitenRed.png';
+        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/reod6o2gntsf/redPoint.png';
     final currentLocationMarkerIcon =
         await _buildMarkerIcon(currentLocationImageUrl, 100);
 

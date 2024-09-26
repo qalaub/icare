@@ -205,10 +205,11 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Text(
-                                            valueOrDefault<String>(
+                                            functions.upperCaseFirstLetter(
+                                                valueOrDefault<String>(
                                               widget.professional?.firtsName,
                                               'sandra',
-                                            ),
+                                            )),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -229,7 +230,7 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                                             size: 11.0,
                                           ),
                                           Text(
-                                            'recent activity',
+                                            'Recent activity',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(

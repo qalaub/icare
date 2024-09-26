@@ -89,8 +89,14 @@ class _PeoplewhoputyouinfavoritesWidgetState
                 child: Container(
                   width: double.infinity,
                   height: double.infinity,
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF9F2525),
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: Image.asset(
+                        'assets/images/F0NDer_fav2_(1).png',
+                      ).image,
+                    ),
                   ),
                   child: Align(
                     alignment: const AlignmentDirectional(0.0, 0.0),
@@ -101,10 +107,7 @@ class _PeoplewhoputyouinfavoritesWidgetState
                           child: Container(
                             width: 390.0,
                             height: 580.0,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                            ),
+                            decoration: const BoxDecoration(),
                             child: StreamBuilder<List<UsersRecord>>(
                               stream: queryUsersRecord(
                                 queryBuilder: (usersRecord) =>

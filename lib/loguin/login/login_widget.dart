@@ -232,6 +232,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                               alignment: const AlignmentDirectional(
                                                   0.0, -1.0),
                                               child: TextFormField(
+                                                key: const ValueKey('email'),
                                                 controller:
                                                     _model.emailTextController,
                                                 focusNode:
@@ -378,6 +379,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                               alignment: const AlignmentDirectional(
                                                   0.0, -1.0),
                                               child: TextFormField(
+                                                key: const ValueKey('password'),
                                                 controller: _model
                                                     .passwordTextController,
                                                 focusNode:
@@ -527,6 +529,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                 const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 15.0, 0.0, 15.0),
                                             child: FFButtonWidget(
+                                              key: const ValueKey('login'),
                                               onPressed: () async {
                                                 if (_model.formKey
                                                             .currentState ==
@@ -619,6 +622,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                 textScaler:
                                                     MediaQuery.of(context)
                                                         .textScaler,
+                                                key: const ValueKey('signup'),
                                                 text: TextSpan(
                                                   children: [
                                                     TextSpan(
@@ -687,6 +691,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                       'recuperarcontrasea');
                                                 },
                                                 child: Text(
+                                                  key:
+                                                      const ValueKey('forgotPssword'),
                                                   'Forgot your password',
                                                   style: FlutterFlowTheme.of(
                                                           context)

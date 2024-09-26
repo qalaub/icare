@@ -19,12 +19,12 @@ class UserprofileModel extends FlutterFlowModel<UserprofileWidget> {
   late AccountOptionModel accountOptionModel2;
   // Model for AccountOption component.
   late AccountOptionModel accountOptionModel3;
-  // Model for AccountOption component.
-  late AccountOptionModel accountOptionModel4;
   // Stores action output result for [Firestore Query - Query a collection] action in AccountOption widget.
   CodesRecord? codes;
   // Stores action output result for [Backend Call - Create Document] action in AccountOption widget.
   CodesRecord? newCode;
+  // Model for AccountOption component.
+  late AccountOptionModel accountOptionModel4;
   // Model for AccountOption component.
   late AccountOptionModel accountOptionModel5;
   // Model for AccountOption component.

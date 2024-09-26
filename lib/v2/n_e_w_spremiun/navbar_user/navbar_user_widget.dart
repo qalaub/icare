@@ -65,9 +65,11 @@ class _NavbarUserWidgetState extends State<NavbarUserWidget> {
                         child: Align(
                           alignment: const AlignmentDirectional(0.0, 0.0),
                           child: FlutterFlowIconButton(
+                            key: const ValueKey('home'),
                             borderColor: Colors.transparent,
                             buttonSize: MediaQuery.sizeOf(context).width * 0.12,
                             icon: const FaIcon(
+                              key: ValueKey('home'),
                               FontAwesomeIcons.houseUser,
                               color: Colors.white,
                               size: 33.0,
@@ -113,9 +115,11 @@ class _NavbarUserWidgetState extends State<NavbarUserWidget> {
                       child: Align(
                         alignment: const AlignmentDirectional(0.0, 0.0),
                         child: FlutterFlowIconButton(
+                          key: const ValueKey('favorite'),
                           borderColor: Colors.transparent,
                           buttonSize: 48.0,
                           icon: const Icon(
+                            key: ValueKey('favorite'),
                             Icons.favorite_border_rounded,
                             color: Colors.white,
                             size: 34.0,
@@ -171,9 +175,11 @@ class _NavbarUserWidgetState extends State<NavbarUserWidget> {
                       child: Align(
                         alignment: const AlignmentDirectional(0.0, 0.0),
                         child: FlutterFlowIconButton(
+                          key: const ValueKey('message'),
                           borderColor: Colors.transparent,
                           buttonSize: 48.0,
                           icon: const Icon(
+                            key: ValueKey('message'),
                             Icons.wechat_rounded,
                             color: Colors.white,
                             size: 34.0,
@@ -217,10 +223,12 @@ class _NavbarUserWidgetState extends State<NavbarUserWidget> {
                       child: Align(
                         alignment: const AlignmentDirectional(0.0, 0.0),
                         child: FlutterFlowIconButton(
+                          key: const ValueKey('maps'),
                           borderColor: Colors.transparent,
                           borderRadius: 34.0,
                           buttonSize: 48.0,
                           icon: const FaIcon(
+                            key: ValueKey('maps'),
                             FontAwesomeIcons.mapMarkedAlt,
                             color: Colors.white,
                             size: 30.0,
@@ -265,9 +273,11 @@ class _NavbarUserWidgetState extends State<NavbarUserWidget> {
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 6.0, 0.0),
                       child: FlutterFlowIconButton(
+                        key: const ValueKey('profile'),
                         borderColor: Colors.transparent,
                         buttonSize: 48.0,
                         icon: const Icon(
+                          key: ValueKey('profile'),
                           Icons.person,
                           color: Colors.white,
                           size: 34.0,

@@ -212,11 +212,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'professionalprofile',
-              path: 'professionalprofile',
-              builder: (context, params) => const ProfessionalprofileWidget(),
-            ),
-            FFRoute(
               name: 'Profilesettings',
               path: 'profilesettings',
               requireAuth: true,
@@ -242,20 +237,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'MembresiaPerfil_Estandar',
-              path: 'membresiaPerfilEstandar',
-              builder: (context, params) => const MembresiaPerfilEstandarWidget(),
-            ),
-            FFRoute(
               name: 'peoplewhoputyouinfavorites',
               path: 'peoplewhoputyouinfavorites',
               requireAuth: true,
               builder: (context, params) => const PeoplewhoputyouinfavoritesWidget(),
-            ),
-            FFRoute(
-              name: 'MembresiaPerfil_Basico',
-              path: 'membresiaPerfilBasico',
-              builder: (context, params) => const MembresiaPerfilBasicoWidget(),
             ),
             FFRoute(
               name: 'peoplewhoputyouinfavoriteBasic',
@@ -328,11 +313,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'RegisterBusiness4',
               path: 'registerBusiness4',
               builder: (context, params) => const RegisterBusiness4Widget(),
-            ),
-            FFRoute(
-              name: 'TinDERv1',
-              path: 'tinDERv1',
-              builder: (context, params) => const TinDERv1Widget(),
             ),
             FFRoute(
               name: 'tinderv2C1',

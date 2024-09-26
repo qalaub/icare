@@ -280,6 +280,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                               ),
                                             ),
                                             child: TextFormField(
+                                              key: const ValueKey('firstName'),
                                               controller: _model
                                                   .firstNameTextController,
                                               focusNode:
@@ -418,6 +419,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                               ),
                                             ),
                                             child: TextFormField(
+                                              key: const ValueKey('lastName'),
                                               controller:
                                                   _model.lastNameTextController,
                                               focusNode:
@@ -556,6 +558,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                               ),
                                             ),
                                             child: TextFormField(
+                                              key: const ValueKey('company'),
                                               controller:
                                                   _model.companyTextController,
                                               focusNode:
@@ -699,6 +702,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                       const AlignmentDirectional(
                                                           0.0, -1.0),
                                                   child: TextFormField(
+                                                    key: const ValueKey('email'),
                                                     controller: _model
                                                         .emailTextController,
                                                     focusNode:
@@ -835,6 +839,8 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                         const AlignmentDirectional(
                                                             0.0, 1.3),
                                                     child: Text(
+                                                      key: const ValueKey(
+                                                          'emailExists'),
                                                       'This email already has an account, use another email',
                                                       style: FlutterFlowTheme
                                                               .of(context)
@@ -898,6 +904,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                               ),
                                             ),
                                             child: TextFormField(
+                                              key: const ValueKey('phone'),
                                               controller:
                                                   _model.phoneTextController,
                                               focusNode: _model.phoneFocusNode,
@@ -1087,6 +1094,8 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                                     8.0,
                                                                     0.0),
                                                         child: TextFormField(
+                                                          key:
+                                                              const ValueKey('query'),
                                                           controller: _model
                                                               .queryTextController,
                                                           focusNode: _model
@@ -1216,6 +1225,8 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                                 const AlignmentDirectional(
                                                                     -0.62, 0.7),
                                                             child: Text(
+                                                              key: const ValueKey(
+                                                                  'invalidSuburb'),
                                                               'Invalid suburb',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
@@ -1284,6 +1295,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                 const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 10.0, 0.0, 10.0),
                                             child: FFButtonWidget(
+                                              key: const ValueKey('continue'),
                                               onPressed: () async {
                                                 FFAppState()
                                                     .updateVerifyFormStruct(

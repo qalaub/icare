@@ -357,6 +357,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                         0.1,
                                                     decoration: const BoxDecoration(),
                                                     child: ToggleIcon(
+                                                      key: const ValueKey('basic'),
                                                       onPressed: () async {
                                                         safeSetState(() =>
                                                             _model.basic =
@@ -373,6 +374,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                       },
                                                       value: _model.basic,
                                                       onIcon: Icon(
+                                                        key: const ValueKey('basic'),
                                                         Icons
                                                             .radio_button_checked,
                                                         color:
@@ -382,6 +384,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                         size: 25.0,
                                                       ),
                                                       offIcon: Icon(
+                                                        key: const ValueKey('basic'),
                                                         Icons.radio_button_off,
                                                         color:
                                                             FlutterFlowTheme.of(
@@ -715,6 +718,8 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                           const AlignmentDirectional(
                                                               -1.0, 0.0),
                                                       child: ToggleIcon(
+                                                        key:
+                                                            const ValueKey('standar'),
                                                         onPressed: () async {
                                                           safeSetState(() =>
                                                               _model.standar =
@@ -734,6 +739,8 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                         },
                                                         value: _model.standar,
                                                         onIcon: Icon(
+                                                          key: const ValueKey(
+                                                              'standar'),
                                                           Icons
                                                               .radio_button_checked,
                                                           color: FlutterFlowTheme
@@ -742,6 +749,8 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                           size: 25.0,
                                                         ),
                                                         offIcon: Icon(
+                                                          key: const ValueKey(
+                                                              'standar'),
                                                           Icons
                                                               .radio_button_off,
                                                           color: FlutterFlowTheme
@@ -1063,6 +1072,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                           0.1,
                                                   decoration: const BoxDecoration(),
                                                   child: ToggleIcon(
+                                                    key: const ValueKey('premiun'),
                                                     onPressed: () async {
                                                       safeSetState(() =>
                                                           _model.premiun =
@@ -1079,6 +1089,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                     },
                                                     value: _model.premiun,
                                                     onIcon: Icon(
+                                                      key: const ValueKey('premiun'),
                                                       Icons
                                                           .radio_button_checked,
                                                       color:
@@ -1088,6 +1099,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                       size: 25.0,
                                                     ),
                                                     offIcon: Icon(
+                                                      key: const ValueKey('premiun'),
                                                       Icons.radio_button_off,
                                                       color:
                                                           FlutterFlowTheme.of(
@@ -1165,6 +1177,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 10.0, 0.0, 10.0),
                               child: FFButtonWidget(
+                                key: const ValueKey('continue'),
                                 onPressed: () async {
                                   if (widget.professionalUpdate != null) {
                                     if (FFAppState()

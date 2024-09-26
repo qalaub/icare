@@ -79,34 +79,16 @@ class _V3fv0ritesWidgetState extends State<V3fv0ritesWidget> {
               if (!loggedIn) {
                 context.pushNamed('Login');
               } else {
-                _model.chat = await queryChatsRecordOnce(
-                  queryBuilder: (chatsRecord) => chatsRecord
-                      .where(
-                        'user_a',
-                        isEqualTo: currentUserReference,
-                      )
-                      .where(
-                        'user_b',
-                        isEqualTo: widget.profesionalId,
-                      ),
-                  singleRecord: true,
-                ).then((s) => s.firstOrNull);
-
                 context.pushNamed(
-                  'chat_2_Details',
+                  'profile_info',
                   queryParameters: {
-                    'chatRef': serializeParam(
-                      _model.chat,
-                      ParamType.Document,
+                    'professional': serializeParam(
+                      widget.profesionalId,
+                      ParamType.DocumentReference,
                     ),
                   }.withoutNulls,
-                  extra: <String, dynamic>{
-                    'chatRef': _model.chat,
-                  },
                 );
               }
-
-              safeSetState(() {});
             },
             child: Material(
               color: Colors.transparent,
@@ -188,7 +170,8 @@ class _V3fv0ritesWidgetState extends State<V3fv0ritesWidget> {
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     5.0, 0.0, 0.0, 0.0),
                                 child: Text(
-                                  containerUsersRecord.firtsName,
+                                  functions.upperCaseFirstLetter(
+                                      containerUsersRecord.firtsName),
                                   style: FlutterFlowTheme.of(context)
                                       .headlineLarge
                                       .override(

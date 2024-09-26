@@ -276,3 +276,70 @@ bool verifyDistanceFilter(
   // Retornar true si la distancia es menor o igual a 100 metros
   // return distance <= (zoom / 10) * 100000; // 100 metros
 }
+
+bool filterProfessionals(
+  UsersRecord user,
+  double distance,
+  List<String> services,
+  List<String> age,
+  LatLng current,
+) {
+  // Calcular la distancia entre la ubicación del usuario y la ubicación del profesional
+  const double earthRadius = 6371; // Radio de la Tierra en kilómetros
+  double dLat =
+      (user.suburb!.latitude - current.latitude) * (3.141592653589793 / 180);
+  double dLon =
+      (user.suburb!.longitude - current.longitude) * (3.141592653589793 / 180);
+
+  double a = math.sin(dLat / 2) * math.sin(dLat / 2) +
+      math.cos(current.latitude * (3.141592653589793 / 180)) *
+          math.cos(user.suburb!.latitude * (3.141592653589793 / 180)) *
+          math.sin(dLon / 2) *
+          math.sin(dLon / 2);
+  double c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a));
+  double userDistance = earthRadius * c; // Distancia en kilómetros
+
+  // Verificar si la distancia es aceptable
+  if (userDistance > distance) {
+    return false;
+  }
+
+  // Verificar si los servicios ofrecidos están en la lista de servicios deseados
+  bool hasValidServices =
+      user.serviceType.any((service) => services.contains(service));
+  if (!hasValidServices) {
+    return false;
+  }
+
+  // Verificar si la edad del profesional está en el rango aceptable
+  bool hasValidAge = age.contains(user.age);
+  if (!hasValidAge) {
+    return false;
+  }
+
+  return true;
+}
+
+String upperCaseFirstLetter(String word) {
+  if (word.isEmpty) {
+    return '';
+  }
+
+  List<String> words = word.split(' ');
+  List<String> capitalizedWords = [];
+
+  for (String w in words) {
+    if (w.isNotEmpty) {
+      // Capitaliza la primera letra y concatena el resto en minúsculas
+      String capitalizedWord =
+          w[0].toUpperCase() + w.substring(1).toLowerCase();
+      capitalizedWords.add(capitalizedWord);
+    } else {
+      capitalizedWords.add(w); // Para manejar palabras vacías
+    }
+  }
+
+  return capitalizedWords.length > 1
+      ? capitalizedWords.join(' ')
+      : capitalizedWords[0];
+}

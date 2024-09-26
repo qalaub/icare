@@ -1,11 +1,13 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/backend/schema/enums/enums.dart';
 import '/chat_groupwbubbles/chat_thread_component/chat_thread_component_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/v2/v2_mensages/options_message/options_message_widget.dart';
 import 'dart:async';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -161,10 +163,11 @@ class _Chat2DetailsWidgetState extends State<Chat2DetailsWidget> {
                                 ),
                               ),
                               Text(
-                                valueOrDefault<String>(
+                                functions.upperCaseFirstLetter(
+                                    valueOrDefault<String>(
                                   chat2DetailsUsersRecord.firtsName,
                                   'math',
-                                ),
+                                )),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -227,16 +230,25 @@ class _Chat2DetailsWidgetState extends State<Chat2DetailsWidget> {
                         ),
                         Align(
                           alignment: const AlignmentDirectional(1.0, -1.0),
-                          child: Container(
-                            width: MediaQuery.sizeOf(context).width * 0.4,
-                            decoration: const BoxDecoration(),
-                            child: Visibility(
-                              visible: _model.showMenu,
-                              child: wrapWithModel(
-                                model: _model.optionsMessageModel,
-                                updateCallback: () => safeSetState(() {}),
-                                child: OptionsMessageWidget(
-                                  userRef: chat2DetailsUsersRecord,
+                          child: AuthUserStreamWidget(
+                            builder: (context) => Container(
+                              width: MediaQuery.sizeOf(context).width * 0.4,
+                              height: currentUserDocument?.rol == Roles.user
+                                  ? 137.0
+                                  : 88.0,
+                              constraints: const BoxConstraints(
+                                minHeight: 100.0,
+                                maxHeight: 140.0,
+                              ),
+                              decoration: const BoxDecoration(),
+                              child: Visibility(
+                                visible: _model.showMenu,
+                                child: wrapWithModel(
+                                  model: _model.optionsMessageModel,
+                                  updateCallback: () => safeSetState(() {}),
+                                  child: OptionsMessageWidget(
+                                    userRef: chat2DetailsUsersRecord,
+                                  ),
                                 ),
                               ),
                             ),

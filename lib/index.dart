@@ -3,7 +3,7 @@ export '/v2/h0me/home_search/home_search_widget.dart' show HomeSearchWidget;
 export '/pages/user/user_widget.dart' show UserWidget;
 export '/pages/filtros/filtros_widget.dart' show FiltrosWidget;
 export '/pages/favorites1/favorites1_widget.dart' show Favorites1Widget;
-export '/v2/register/user/register_user1/register_user1_widget.dart'
+export '/v2/register/register_user1/register_user1_widget.dart'
     show RegisterUser1Widget;
 export '/v2/register/user/register_user2/register_user2_widget.dart'
     show RegisterUser2Widget;
@@ -21,19 +21,13 @@ export '/v2/v2_mensages/chat_2_main/chat2_main_widget.dart'
     show Chat2MainWidget;
 export '/chat_groupwbubbles/image_details/image_details_widget.dart'
     show ImageDetailsWidget;
-export '/usser_profesional_premiun/professionalprofile/professionalprofile_widget.dart'
-    show ProfessionalprofileWidget;
 export '/v2/user/profilesettings/profilesettings_widget.dart'
     show ProfilesettingsWidget;
 export '/v2/v2_c_o_l_a_b_o_r_a_d_o_r_e_s/listofcollaborators/listofcollaborators_widget.dart'
     show ListofcollaboratorsWidget;
 export '/v2/user/profile_info/profile_info_widget.dart' show ProfileInfoWidget;
-export '/usser_profesional_estandar/membresia_perfil_estandar/membresia_perfil_estandar_widget.dart'
-    show MembresiaPerfilEstandarWidget;
 export '/v2/professional/peoplewhoputyouinfavorites/peoplewhoputyouinfavorites_widget.dart'
     show PeoplewhoputyouinfavoritesWidget;
-export '/usser_profesional_basic/membresia_perfil_basico/membresia_perfil_basico_widget.dart'
-    show MembresiaPerfilBasicoWidget;
 export '/v2/professional/peoplewhoputyouinfavorite_basic/peoplewhoputyouinfavorite_basic_widget.dart'
     show PeoplewhoputyouinfavoriteBasicWidget;
 export '/v2/favoritesv2/fav_v2/fav_v2_widget.dart' show FavV2Widget;
@@ -49,8 +43,6 @@ export '/v2/register/business/register_business3/register_business3_widget.dart'
     show RegisterBusiness3Widget;
 export '/v2/register/business/register_business4/register_business4_widget.dart'
     show RegisterBusiness4Widget;
-export '/v2/professional/tin_d_e_rv1/tin_d_e_rv1_widget.dart'
-    show TinDERv1Widget;
 export '/v2/professional/tinderv2_c1/tinderv2_c1_widget.dart'
     show Tinderv2C1Widget;
 export '/v2/n_e_w_spremiun/news/news_widget.dart' show NewsWidget;
@@ -70,7 +62,7 @@ export '/v2/v2_mensages/report_section/report_section_widget.dart'
 export '/v2/favoritesv2/fav_v3_copy/fav_v3_copy_widget.dart'
     show FavV3CopyWidget;
 export '/v2/inici0app/pantainci1/pantainci1_widget.dart' show Pantainci1Widget;
-export '/v2/register/register_pfofesional4/register_pfofesional4_widget.dart'
+export '/v2/register/professional/register_pfofesional4/register_pfofesional4_widget.dart'
     show RegisterPfofesional4Widget;
 export '/cuestionario/cuestionario/cuestionario_widget.dart'
     show CuestionarioWidget;

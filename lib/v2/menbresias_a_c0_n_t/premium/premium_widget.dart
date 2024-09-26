@@ -445,6 +445,7 @@ class _PremiumWidgetState extends State<PremiumWidget> {
                               safeSetState(() {});
                             },
                             child: Container(
+                              key: const ValueKey('premiun'),
                               width: MediaQuery.sizeOf(context).width * 1.0,
                               height: 55.0,
                               decoration: BoxDecoration(
