@@ -362,6 +362,14 @@ class _RegisterBusiness3WidgetState extends State<RegisterBusiness3Widget>
                                                         letterSpacing: 0.0,
                                                       ),
                                                   maxLines: null,
+                                                  maxLength: 2,
+                                                  buildCounter: (context,
+                                                          {required currentLength,
+                                                          required isFocused,
+                                                          maxLength}) =>
+                                                      null,
+                                                  keyboardType:
+                                                      TextInputType.number,
                                                   validator: _model
                                                       .yearsTextControllerValidator
                                                       .asValidator(context),
@@ -729,6 +737,7 @@ class _RegisterBusiness3WidgetState extends State<RegisterBusiness3Widget>
                                                         letterSpacing: 0.0,
                                                       ),
                                                   maxLines: 7,
+                                                  maxLength: 500,
                                                   validator: _model
                                                       .disabilitiesTextControllerValidator
                                                       .asValidator(context),

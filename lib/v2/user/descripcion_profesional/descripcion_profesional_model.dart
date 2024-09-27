@@ -5,6 +5,10 @@ import 'package:flutter/material.dart';
 
 class DescripcionProfesionalModel
     extends FlutterFlowModel<DescripcionProfesionalWidget> {
+  ///  Local state fields for this component.
+
+  bool more = false;
+
   ///  State fields for stateful widgets in this component.
 
   // Model for imganes component.

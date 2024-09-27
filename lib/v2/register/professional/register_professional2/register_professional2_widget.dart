@@ -923,6 +923,12 @@ class _RegisterProfessional2WidgetState
                                                           letterSpacing: 0.0,
                                                         ),
                                                 maxLines: null,
+                                                maxLength: 2,
+                                                buildCounter: (context,
+                                                        {required currentLength,
+                                                        required isFocused,
+                                                        maxLength}) =>
+                                                    null,
                                                 keyboardType:
                                                     TextInputType.number,
                                                 validator: _model

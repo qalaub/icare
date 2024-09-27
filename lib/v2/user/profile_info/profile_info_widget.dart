@@ -475,6 +475,9 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                           ),
                           services: profileInfoUsersRecord.serviceType,
                           imgs: profileInfoUsersRecord.images,
+                          company: profileInfoUsersRecord.business != null
+                              ? profileInfoUsersRecord.comapny
+                              : 'default230',
                         ),
                       ),
                     ].addToEnd(const SizedBox(height: 32.0)),

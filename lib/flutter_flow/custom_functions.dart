@@ -343,3 +343,8 @@ String upperCaseFirstLetter(String word) {
       ? capitalizedWords.join(' ')
       : capitalizedWords[0];
 }
+
+int getLengthString(String str) {
+  // get Length String
+  return str.length;
+}
