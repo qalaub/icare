@@ -23,6 +23,20 @@ class FiltrosModel extends FlutterFlowModel<FiltrosWidget> {
   bool? therapeuticValue;
   // State field(s) for home widget.
   bool? homeValue;
+  // State field(s) for Monday widget.
+  bool? mondayValue;
+  // State field(s) for tuesday widget.
+  bool? tuesdayValue;
+  // State field(s) for wednesday widget.
+  bool? wednesdayValue;
+  // State field(s) for thursday widget.
+  bool? thursdayValue;
+  // State field(s) for friday widget.
+  bool? fridayValue;
+  // State field(s) for saturday widget.
+  bool? saturdayValue;
+  // State field(s) for sunday widget.
+  bool? sundayValue;
 
   @override
   void initState(BuildContext context) {}

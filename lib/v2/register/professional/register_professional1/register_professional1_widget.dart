@@ -52,6 +52,9 @@ class _RegisterProfessional1WidgetState
     _model.emailTextController ??= TextEditingController();
     _model.emailFocusNode ??= FocusNode();
 
+    _model.email2TextController ??= TextEditingController();
+    _model.email2FocusNode ??= FocusNode();
+
     _model.phoneTextController ??= TextEditingController();
     _model.phoneFocusNode ??= FocusNode();
 
@@ -72,6 +75,18 @@ class _RegisterProfessional1WidgetState
         ],
       ),
       'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(0.0, -11.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation3': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           MoveEffect(
@@ -285,6 +300,8 @@ class _RegisterProfessional1WidgetState
                                               focusNode:
                                                   _model.firstNameFocusNode,
                                               autofocus: true,
+                                              textCapitalization:
+                                                  TextCapitalization.words,
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 isDense: true,
@@ -424,6 +441,8 @@ class _RegisterProfessional1WidgetState
                                               focusNode:
                                                   _model.lastNameFocusNode,
                                               autofocus: true,
+                                              textCapitalization:
+                                                  TextCapitalization.words,
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 isDense: true,
@@ -619,6 +638,8 @@ class _RegisterProfessional1WidgetState
                                                   focusNode:
                                                       _model.companyFocusNode,
                                                   autofocus: true,
+                                                  textCapitalization:
+                                                      TextCapitalization.words,
                                                   readOnly:
                                                       widget.businessRef !=
                                                           null,
@@ -920,11 +941,201 @@ class _RegisterProfessional1WidgetState
                                                                 0xFFFF5963),
                                                             letterSpacing: 0.0,
                                                             fontWeight:
-                                                                FontWeight.w600,
+                                                                FontWeight.w500,
                                                           ),
                                                     ).animateOnPageLoad(
                                                         animationsMap[
                                                             'textOnPageLoadAnimation1']!),
+                                                  ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment: const AlignmentDirectional(
+                                              -0.84, -0.73),
+                                          child: Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 15.0, 0.0, 15.0),
+                                            child: Text(
+                                              '  * Confirm email address',
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Montserrat',
+                                                    color: Colors.black,
+                                                    fontSize: 15.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
+                                            ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment: const AlignmentDirectional(
+                                              -0.01, -0.69),
+                                          child: Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                0.8,
+                                            height: 69.0,
+                                            decoration: const BoxDecoration(
+                                              color: Color(0xFFFFFEFE),
+                                              borderRadius: BorderRadius.only(
+                                                bottomLeft:
+                                                    Radius.circular(12.0),
+                                                bottomRight:
+                                                    Radius.circular(12.0),
+                                                topLeft: Radius.circular(12.0),
+                                                topRight: Radius.circular(12.0),
+                                              ),
+                                            ),
+                                            child: Stack(
+                                              children: [
+                                                Align(
+                                                  alignment:
+                                                      const AlignmentDirectional(
+                                                          0.0, -1.0),
+                                                  child: TextFormField(
+                                                    key: const ValueKey('email'),
+                                                    controller: _model
+                                                        .email2TextController,
+                                                    focusNode:
+                                                        _model.email2FocusNode,
+                                                    autofocus: true,
+                                                    textCapitalization:
+                                                        TextCapitalization.none,
+                                                    obscureText: false,
+                                                    decoration: InputDecoration(
+                                                      isDense: true,
+                                                      labelStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                      alignLabelWithHint: false,
+                                                      hintStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                      errorStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .error,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                lineHeight: 1.0,
+                                                              ),
+                                                      enabledBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: const BorderSide(
+                                                          color:
+                                                              Color(0xFFBB33B9),
+                                                          width: 0.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(12.0),
+                                                      ),
+                                                      focusedBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: const BorderSide(
+                                                          color:
+                                                              Color(0xFF762075),
+                                                          width: 0.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(12.0),
+                                                      ),
+                                                      errorBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .error,
+                                                          width: 0.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(12.0),
+                                                      ),
+                                                      focusedErrorBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .error,
+                                                          width: 0.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(12.0),
+                                                      ),
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Montserrat',
+                                                          color: Colors.black,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                    maxLines: null,
+                                                    keyboardType: TextInputType
+                                                        .emailAddress,
+                                                    validator: _model
+                                                        .email2TextControllerValidator
+                                                        .asValidator(context),
+                                                  ),
+                                                ),
+                                                if (FFAppState()
+                                                        .verifyForm
+                                                        .same1 ==
+                                                    false)
+                                                  Align(
+                                                    alignment:
+                                                        const AlignmentDirectional(
+                                                            -0.8, 0.9),
+                                                    child: Text(
+                                                      key: const ValueKey(
+                                                          'emailExists'),
+                                                      'Email has to be the same',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Montserrat',
+                                                            color: const Color(
+                                                                0xFFFF5963),
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                    ).animateOnPageLoad(
+                                                        animationsMap[
+                                                            'textOnPageLoadAnimation2']!),
                                                   ),
                                               ],
                                             ),
@@ -1290,11 +1501,11 @@ class _RegisterProfessional1WidgetState
                                                                         0.0,
                                                                     fontWeight:
                                                                         FontWeight
-                                                                            .w600,
+                                                                            .w500,
                                                                   ),
                                                             ).animateOnPageLoad(
                                                                 animationsMap[
-                                                                    'textOnPageLoadAnimation2']!),
+                                                                    'textOnPageLoadAnimation3']!),
                                                           );
                                                         } else {
                                                           return Text(
@@ -1360,7 +1571,13 @@ class _RegisterProfessional1WidgetState
                                                               _model.newUbication !=
                                                                   ''),
                                                       false,
-                                                    ),
+                                                    )
+                                                    ..same1 = _model
+                                                            .emailTextController
+                                                            .text ==
+                                                        _model
+                                                            .email2TextController
+                                                            .text,
                                                 );
                                                 FFAppState().counter = 4;
                                                 safeSetState(() {});

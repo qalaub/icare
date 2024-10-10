@@ -115,7 +115,7 @@ class _MapButtonWidgetState extends State<MapButtonWidget> {
                     child: custom_widgets.MapsAustralian(
                       width: MediaQuery.sizeOf(context).width * 1.0,
                       height: MediaQuery.sizeOf(context).height * 1.0,
-                      current: currentUserLocationValue,
+                      current: FFAppState().tempLocation,
                       markers: currentUserDocument?.rol != Roles.user
                           ? mapsAustralianUsersRecordList
                               .where((e) =>
@@ -135,12 +135,13 @@ class _MapButtonWidgetState extends State<MapButtonWidget> {
                         10.0,
                       ),
                       markersImage:
-                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/px92k8trm0hh/violetPoint.png',
+                          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/znz4vzyqj65b/profesionalMarker.png',
                       newUbication: _model.newUbication,
                       language: FFAppState().filtersPage.language,
                       age: FFAppState().filtersPage.age,
                       service: FFAppState().filtersPage.services,
                       isProfessional: widget.isProfessional,
+                      schedule: FFAppState().filtersPage.schedule,
                     ),
                   );
                 },
@@ -170,7 +171,7 @@ class _MapButtonWidgetState extends State<MapButtonWidget> {
               centerMapOnMarkerTap: false,
             ),
           Align(
-            alignment: const AlignmentDirectional(-0.04, -0.88),
+            alignment: const AlignmentDirectional(-0.04, -0.95),
             child: PointerInterceptor(
               intercepting: isWeb,
               child: Material(

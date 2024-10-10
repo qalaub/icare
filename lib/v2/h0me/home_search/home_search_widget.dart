@@ -43,7 +43,9 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       if (!(await getPermissionStatus(locationPermission))) {
-        FFAppState().registerProviderForm = RegisterProviderTypeStruct();
+        FFAppState().registerProviderForm =
+            RegisterProviderTypeStruct.fromSerializableMap(jsonDecode(
+                '{\"images\":\"[]\",\"serviceType\":\"[]\",\"disabilities\":\"[]\",\"schedule\":\"[\\\"Monday\\\",\\\"Tuesday\\\",\\\"Wednesday\\\",\\\"Thursday\\\",\\\"Friday\\\",\\\"Saturday\\\",\\\"Sunday\\\"]\"}'));
         await Future.delayed(const Duration(milliseconds: 1500));
         await requestPermission(locationPermission);
       }
@@ -58,6 +60,10 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
                 freeTrial: false,
                 paymentDate: getCurrentTimestamp,
               ));
+            } else {
+              if (currentUserDocument?.business != null) {
+                context.pushNamed('peoplewhoputyouinfavorites');
+              }
             }
           } else {
             if (functions.addDays(
@@ -80,6 +86,10 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
                   ),
                 }.withoutNulls,
               );
+            } else {
+              if (currentUserDocument?.business != null) {
+                context.pushNamed('peoplewhoputyouinfavorites');
+              }
             }
           }
         }
@@ -202,10 +212,9 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
                                           ),
                                           child: Builder(
                                             builder: (context) {
-                                              final containerVar =
-                                                  containerUsersRecordList
-                                                      .where((e) => functions
-                                                          .filterProfessionals(
+                                              final containerVar = containerUsersRecordList
+                                                  .where((e) =>
+                                                      (functions.filterProfessionals(
                                                               e,
                                                               FFAppState()
                                                                   .filtersPage
@@ -219,8 +228,19 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
                                                                   .age
                                                                   .toList(),
                                                               FFAppState()
-                                                                  .tempLocation!))
-                                                      .toList();
+                                                                  .tempLocation!,
+                                                              FFAppState()
+                                                                  .filtersPage
+                                                                  .schedule
+                                                                  .toList()) ==
+                                                          true) &&
+                                                      !(currentUserDocument
+                                                                  ?.blockList
+                                                                  .toList() ??
+                                                              [])
+                                                          .contains(
+                                                              e.reference))
+                                                  .toList();
 
                                               return ListView.separated(
                                                 padding: const EdgeInsets.symmetric(
@@ -319,9 +339,12 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
                                       ),
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(-2.0, 0.76),
+                                            const AlignmentDirectional(-0.9, 0.76),
                                         child: Container(
-                                          height: 234.0,
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.541,
+                                          height: 220.0,
                                           decoration: const BoxDecoration(),
                                           child: wrapWithModel(
                                             model:
@@ -330,23 +353,17 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
                                                 safeSetState(() {}),
                                             child: HomeVistaCuidadorWidget(
                                               participants:
-                                                  valueOrDefault<String>(
-                                                functions.concatStrings(
-                                                    homeVistaCuidadorUsersRecordList
-                                                        .where((e) => functions
-                                                            .verifyDistanceFilter(
-                                                                FFAppState()
-                                                                    .newUbicationProfessional,
-                                                                e.suburb!,
-                                                                FFAppState()
-                                                                    .zoomFilter))
-                                                        .toList()
-                                                        .length
-                                                        .toString(),
-                                                    'participants',
-                                                    ' '),
-                                                '35 participants',
-                                              ),
+                                                  homeVistaCuidadorUsersRecordList
+                                                      .where((e) => functions
+                                                          .verifyDistanceFilter(
+                                                              FFAppState()
+                                                                  .newUbicationProfessional,
+                                                              e.suburb!,
+                                                              FFAppState()
+                                                                  .zoomFilter))
+                                                      .toList()
+                                                      .length
+                                                      .toString(),
                                             ),
                                           ),
                                         ),

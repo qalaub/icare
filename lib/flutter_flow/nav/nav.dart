@@ -189,6 +189,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   isList: false,
                   collectionNamePath: ['chats'],
                 ),
+                professional: params.getParam(
+                  'professional',
+                  ParamType.DocumentReference,
+                  isList: false,
+                  collectionNamePath: ['users'],
+                ),
               ),
             ),
             FFRoute(
@@ -224,7 +230,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => const ListofcollaboratorsWidget(),
             ),
             FFRoute(
-              name: 'profile_info',
+              name: 'ProfileInfo',
               path: 'profileInfo',
               requireAuth: true,
               builder: (context, params) => ProfileInfoWidget(
@@ -481,6 +487,49 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'Deleteaccount',
               path: 'deleteaccount',
               builder: (context, params) => const DeleteaccountWidget(),
+            ),
+            FFRoute(
+              name: 'cadari0',
+              path: 'cadari0',
+              builder: (context, params) => Cadari0Widget(
+                bussinesRef: params.getParam(
+                  'bussinesRef',
+                  ParamType.DocumentReference,
+                  isList: false,
+                  collectionNamePath: ['users'],
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'chat_2_DetailsCopy',
+              path: 'chat2DetailsCopy',
+              requireAuth: true,
+              asyncParams: {
+                'chatRef': getDoc(['chats'], ChatsRecord.fromSnapshot),
+              },
+              builder: (context, params) => Chat2DetailsCopyWidget(
+                chatRef: params.getParam(
+                  'chatRef',
+                  ParamType.Document,
+                ),
+                chatRefTotal: params.getParam(
+                  'chatRefTotal',
+                  ParamType.DocumentReference,
+                  isList: false,
+                  collectionNamePath: ['chats'],
+                ),
+                professional: params.getParam(
+                  'professional',
+                  ParamType.DocumentReference,
+                  isList: false,
+                  collectionNamePath: ['users'],
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'avatars',
+              path: 'avatars',
+              builder: (context, params) => const AvatarsWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
@@ -739,10 +788,33 @@ class _RouteErrorBuilderState extends State<_RouteErrorBuilder> {
   @override
   void initState() {
     super.initState();
+
     // Handle erroneous links from Firebase Dynamic Links.
+
+    String? location;
+
+    /*
+    Handle `links` routes that have dynamic-link entangled with deep-link 
+    */
+    if (widget.state.uri.toString().startsWith('/link') &&
+        widget.state.uri.queryParameters.containsKey('deep_link_id')) {
+      final deepLinkId = widget.state.uri.queryParameters['deep_link_id'];
+      if (deepLinkId != null) {
+        final deepLinkUri = Uri.parse(deepLinkId);
+        final link = deepLinkUri.toString();
+        final host = deepLinkUri.host;
+        location = link.split(host).last;
+      }
+    }
+
     if (widget.state.uri.toString().startsWith('/link') &&
         widget.state.uri.toString().contains('request_ip_version')) {
-      SchedulerBinding.instance.addPostFrameCallback((_) => context.go('/'));
+      location = '/';
+    }
+
+    if (location != null) {
+      SchedulerBinding.instance
+          .addPostFrameCallback((_) => context.go(location!));
     }
   }
 

@@ -329,6 +329,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                           letterSpacing: 0.0,
                                                         ),
                                                 maxLines: null,
+                                                keyboardType:
+                                                    TextInputType.emailAddress,
                                                 validator: _model
                                                     .emailTextControllerValidator
                                                     .asValidator(context),
@@ -495,6 +497,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                           color: Colors.black,
                                                           letterSpacing: 0.0,
                                                         ),
+                                                keyboardType: TextInputType
+                                                    .visiblePassword,
                                                 validator: _model
                                                     .passwordTextControllerValidator
                                                     .asValidator(context),
@@ -570,11 +574,17 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                   if (currentUserDocument
                                                           ?.rol ==
                                                       Roles.user) {
-                                                    context.pushNamedAuth(
+                                                    context.goNamedAuth(
                                                         'tinderv2C1',
                                                         context.mounted);
+                                                  } else if (currentUserDocument
+                                                          ?.business !=
+                                                      null) {
+                                                    context.goNamedAuth(
+                                                        'peoplewhoputyouinfavorites',
+                                                        context.mounted);
                                                   } else {
-                                                    context.pushNamedAuth(
+                                                    context.goNamedAuth(
                                                         'HomeSearch',
                                                         context.mounted);
                                                   }

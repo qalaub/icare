@@ -3,9 +3,9 @@ import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/v2/favoritesv2/v3fv0rites/v3fv0rites_widget.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
+import '/v3correciones/user_fav0rites/v3fv0ritesv3/v3fv0ritesv3_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'fav_v3_copy_model.dart';
@@ -130,9 +130,9 @@ class _FavV3CopyWidgetState extends State<FavV3CopyWidget> {
                                   itemBuilder: (context, userListIndex) {
                                     final userListItem =
                                         userList[userListIndex];
-                                    return V3fv0ritesWidget(
+                                    return V3fv0ritesv3Widget(
                                       key: Key(
-                                          'Key4z3_${userListIndex}_of_${userList.length}'),
+                                          'Keyx8t_${userListIndex}_of_${userList.length}'),
                                       profesionalId: userListItem,
                                     );
                                   },

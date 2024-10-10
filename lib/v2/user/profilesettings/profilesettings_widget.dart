@@ -144,7 +144,12 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                   .uploadProfileImageModel,
                                               updateCallback: () =>
                                                   safeSetState(() {}),
-                                              child: const UploadProfileImageWidget(),
+                                              child: UploadProfileImageWidget(
+                                                imgs: (currentUserDocument
+                                                        ?.images
+                                                        .toList() ??
+                                                    []),
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -314,6 +319,9 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                           focusNode: _model
                                                               .nameFocusNode,
                                                           autofocus: true,
+                                                          textCapitalization:
+                                                              TextCapitalization
+                                                                  .words,
                                                           obscureText: false,
                                                           decoration:
                                                               InputDecoration(
@@ -411,6 +419,9 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                               ),
                                                           textAlign:
                                                               TextAlign.center,
+                                                          keyboardType:
+                                                              TextInputType
+                                                                  .name,
                                                           validator: _model
                                                               .nameTextControllerValidator
                                                               .asValidator(
@@ -672,16 +683,16 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                           options: List<
                                                               String>.from([
                                                             'Support Workers',
-                                                            'Support Coordinators ',
-                                                            'Recovery Coaches ',
+                                                            'Support  Coordinators',
+                                                            'Recovery Coaches',
                                                             'Therapeutic Supports',
                                                             'Home Maintenance'
                                                           ]),
                                                           optionLabels: const [
                                                             'Support Workers',
-                                                            'Support Coordinators',
-                                                            'Recovery Coaches ',
-                                                            ' Therapeutic Supports',
+                                                            'Support  Coordinators',
+                                                            'Recovery Coaches',
+                                                            'Therapeutic Supports',
                                                             'Home Maintenance'
                                                           ],
                                                           width:
@@ -1021,6 +1032,9 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                   focusNode: _model
                                                       .descriptionFocusNode,
                                                   autofocus: true,
+                                                  textCapitalization:
+                                                      TextCapitalization
+                                                          .sentences,
                                                   obscureText: false,
                                                   decoration: InputDecoration(
                                                     isDense: false,
@@ -1421,7 +1435,9 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                               });
                             }
                             FFAppState().registerProviderForm =
-                                RegisterProviderTypeStruct();
+                                RegisterProviderTypeStruct.fromSerializableMap(
+                                    jsonDecode(
+                                        '{\"images\":\"[]\",\"serviceType\":\"[]\",\"disabilities\":\"[]\",\"schedule\":\"[\\\"Monday\\\",\\\"Tuesday\\\",\\\"Wednesday\\\",\\\"Thursday\\\",\\\"Friday\\\",\\\"Saturday\\\",\\\"Sunday\\\"]\"}'));
                             safeSetState(() {});
                             if ((_model.uploadedLocalFile1.bytes?.isNotEmpty ??
                                     false)) {

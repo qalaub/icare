@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
 import '/v2/professional/imganes/imganes_widget.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'descripcion_profesional_model.dart';
 export 'descripcion_profesional_model.dart';
@@ -15,6 +16,7 @@ class DescripcionProfesionalWidget extends StatefulWidget {
     required this.services,
     required this.imgs,
     String? company,
+    this.schedule,
   })  : video = video ??
             'https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.mp4',
         company = company ?? 'default230';
@@ -25,6 +27,7 @@ class DescripcionProfesionalWidget extends StatefulWidget {
   final List<String>? services;
   final List<String>? imgs;
   final String company;
+  final List<String>? schedule;
 
   @override
   State<DescripcionProfesionalWidget> createState() =>
@@ -86,7 +89,7 @@ class _DescripcionProfesionalWidgetState
                       ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(-0.01, -0.69),
+                      alignment: const AlignmentDirectional(0.0, 0.0),
                       child: Container(
                         width: double.infinity,
                         decoration: const BoxDecoration(
@@ -131,10 +134,7 @@ class _DescripcionProfesionalWidgetState
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       2.0, 2.0, 0.0, 0.0),
                                   child: Text(
-                                    valueOrDefault<String>(
-                                      widget.parameter1,
-                                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi volutpat, lectus nec pretium vestibulum, tortor leo aliquam eros, non elementum urna purus laoreet enim. Etiam a libero porttitor, imperdiet lorem non, ornare velit. Etiam non mattis sem, nec porta metus. Sed imperdiet, nibh eget vestibulum imperdiet, quam diam tincidunt enim, ac lacinia mi purus at ante. Vivamus nec sapien fermentum, varius dolor et, molestie diam. Mauris a lectus at lorem ornare vehicula eget id enim. Nullam aliquet mattis ullamcorper. Donec malesuada, nibh nec imperdiet interdum, quam sem euismod nulla, sit amet vestibulum ipsum tortor vitae urna. Nullam id lectus non diam pulvinar consequat eget eu lorem.',
-                                    ).maybeHandleOverflow(
+                                    widget.parameter1!.maybeHandleOverflow(
                                       maxChars: 2000,
                                       replacement: '…',
                                     ),
@@ -156,28 +156,30 @@ class _DescripcionProfesionalWidgetState
                         ),
                       ),
                     ),
-                    Align(
-                      alignment: const AlignmentDirectional(1.0, 0.0),
-                      child: InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          _model.more = !_model.more;
-                          _model.updatePage(() {});
-                        },
-                        child: Text(
-                          !_model.more ? 'View more' : 'View less',
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Montserrat',
-                                    color: const Color(0xFFC14BBC),
-                                    letterSpacing: 0.0,
-                                  ),
+                    if (functions.getLengthString(widget.parameter1!) > 200)
+                      Align(
+                        alignment: const AlignmentDirectional(1.0, 0.0),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            _model.more = !_model.more;
+                            _model.updatePage(() {});
+                          },
+                          child: Text(
+                            !_model.more ? 'View more' : 'View less',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  color: const Color(0xFFC14BBC),
+                                  letterSpacing: 0.0,
+                                ),
+                          ),
                         ),
                       ),
-                    ),
                   ].divide(const SizedBox(height: 16.0)),
                 ),
               ),
@@ -364,6 +366,77 @@ class _DescripcionProfesionalWidgetState
                           ),
                         ),
                       ),
+                      Align(
+                        alignment: const AlignmentDirectional(-0.8, 0.0),
+                        child: Container(
+                          width: 300.0,
+                          decoration: const BoxDecoration(),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Align(
+                                alignment: AlignmentDirectional(-1.0, -1.0),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 3.0),
+                                  child: Icon(
+                                    Icons.more_time_sharp,
+                                    color: Color(0xFF0E70DF),
+                                    size: 22.0,
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                width: 266.0,
+                                decoration: const BoxDecoration(),
+                                child: Builder(
+                                  builder: (context) {
+                                    final scheduleDays =
+                                        widget.schedule?.toList() ?? [];
+
+                                    return ListView.separated(
+                                      padding: const EdgeInsets.fromLTRB(
+                                        0,
+                                        2.0,
+                                        0,
+                                        0,
+                                      ),
+                                      shrinkWrap: true,
+                                      scrollDirection: Axis.vertical,
+                                      itemCount: scheduleDays.length,
+                                      separatorBuilder: (_, __) =>
+                                          const SizedBox(height: 4.0),
+                                      itemBuilder:
+                                          (context, scheduleDaysIndex) {
+                                        final scheduleDaysItem =
+                                            scheduleDays[scheduleDaysIndex];
+                                        return Align(
+                                          alignment:
+                                              const AlignmentDirectional(-1.0, 0.0),
+                                          child: Text(
+                                            scheduleDaysItem,
+                                            textAlign: TextAlign.start,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Montserrat',
+                                                  color: Colors.black,
+                                                  fontSize: 17.0,
+                                                  letterSpacing: 0.0,
+                                                ),
+                                          ),
+                                        );
+                                      },
+                                    );
+                                  },
+                                ),
+                              ),
+                            ].divide(const SizedBox(width: 12.0)),
+                          ),
+                        ),
+                      ),
                       if (widget.company != 'default230')
                         Align(
                           alignment: const AlignmentDirectional(-0.8, 0.0),
@@ -393,7 +466,7 @@ class _DescripcionProfesionalWidgetState
                                       alignment:
                                           const AlignmentDirectional(-1.0, 0.0),
                                       child: Text(
-                                        'Company',
+                                        widget.company,
                                         textAlign: TextAlign.start,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium

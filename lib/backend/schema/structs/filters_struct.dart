@@ -14,11 +14,13 @@ class FiltersStruct extends FFFirebaseStruct {
     List<String>? age,
     List<String>? services,
     String? language,
+    List<String>? schedule,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _distance = distance,
         _age = age,
         _services = services,
         _language = language,
+        _schedule = schedule,
         super(firestoreUtilData);
 
   // "distance" field.
@@ -59,11 +61,23 @@ class FiltersStruct extends FFFirebaseStruct {
 
   bool hasLanguage() => _language != null;
 
+  // "schedule" field.
+  List<String>? _schedule;
+  List<String> get schedule => _schedule ?? const [];
+  set schedule(List<String>? val) => _schedule = val;
+
+  void updateSchedule(Function(List<String>) updateFn) {
+    updateFn(_schedule ??= []);
+  }
+
+  bool hasSchedule() => _schedule != null;
+
   static FiltersStruct fromMap(Map<String, dynamic> data) => FiltersStruct(
         distance: castToType<double>(data['distance']),
         age: getDataList(data['age']),
         services: getDataList(data['services']),
         language: data['language'] as String?,
+        schedule: getDataList(data['schedule']),
       );
 
   static FiltersStruct? maybeFromMap(dynamic data) =>
@@ -74,6 +88,7 @@ class FiltersStruct extends FFFirebaseStruct {
         'age': _age,
         'services': _services,
         'language': _language,
+        'schedule': _schedule,
       }.withoutNulls;
 
   @override
@@ -95,6 +110,11 @@ class FiltersStruct extends FFFirebaseStruct {
         'language': serializeParam(
           _language,
           ParamType.String,
+        ),
+        'schedule': serializeParam(
+          _schedule,
+          ParamType.String,
+          isList: true,
         ),
       }.withoutNulls;
 
@@ -120,6 +140,11 @@ class FiltersStruct extends FFFirebaseStruct {
           ParamType.String,
           false,
         ),
+        schedule: deserializeParam<String>(
+          data['schedule'],
+          ParamType.String,
+          true,
+        ),
       );
 
   @override
@@ -132,12 +157,13 @@ class FiltersStruct extends FFFirebaseStruct {
         distance == other.distance &&
         listEquality.equals(age, other.age) &&
         listEquality.equals(services, other.services) &&
-        language == other.language;
+        language == other.language &&
+        listEquality.equals(schedule, other.schedule);
   }
 
   @override
   int get hashCode =>
-      const ListEquality().hash([distance, age, services, language]);
+      const ListEquality().hash([distance, age, services, language, schedule]);
 }
 
 FiltersStruct createFiltersStruct({

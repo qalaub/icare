@@ -41,7 +41,9 @@ class _MapAumentWidgetState extends State<MapAumentWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       if (!(await getPermissionStatus(locationPermission))) {
-        FFAppState().registerProviderForm = RegisterProviderTypeStruct();
+        FFAppState().registerProviderForm =
+            RegisterProviderTypeStruct.fromSerializableMap(jsonDecode(
+                '{\"images\":\"[]\",\"serviceType\":\"[]\",\"disabilities\":\"[]\",\"schedule\":\"[\\\"Monday\\\",\\\"Tuesday\\\",\\\"Wednesday\\\",\\\"Thursday\\\",\\\"Friday\\\",\\\"Saturday\\\",\\\"Sunday\\\"]\"}'));
         await Future.delayed(const Duration(milliseconds: 1500));
         await requestPermission(locationPermission);
       }

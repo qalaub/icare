@@ -80,7 +80,7 @@ class _V3fv0ritesWidgetState extends State<V3fv0ritesWidget> {
                 context.pushNamed('Login');
               } else {
                 context.pushNamed(
-                  'profile_info',
+                  'ProfileInfo',
                   queryParameters: {
                     'professional': serializeParam(
                       widget.profesionalId,
@@ -100,7 +100,7 @@ class _V3fv0ritesWidgetState extends State<V3fv0ritesWidget> {
                 width: 285.0,
                 height: 139.0,
                 decoration: BoxDecoration(
-                  color: const Color(0xFFFFCCF9),
+                  color: const Color(0xFFBB3FBB),
                   borderRadius: BorderRadius.circular(20.0),
                 ),
                 child: Row(
@@ -176,6 +176,7 @@ class _V3fv0ritesWidgetState extends State<V3fv0ritesWidget> {
                                       .headlineLarge
                                       .override(
                                         fontFamily: 'Montserrat',
+                                        color: Colors.white,
                                         fontSize: 16.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
@@ -200,6 +201,7 @@ class _V3fv0ritesWidgetState extends State<V3fv0ritesWidget> {
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Montserrat',
+                                      color: Colors.white,
                                       fontSize: 11.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
@@ -264,7 +266,7 @@ class _V3fv0ritesWidgetState extends State<V3fv0ritesWidget> {
                                                         .override(
                                                           fontFamily:
                                                               'Montserrat',
-                                                          color: Colors.black,
+                                                          color: Colors.white,
                                                           fontSize: 11.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -288,7 +290,7 @@ class _V3fv0ritesWidgetState extends State<V3fv0ritesWidget> {
                                                         .override(
                                                           fontFamily:
                                                               'Montserrat',
-                                                          color: Colors.black,
+                                                          color: Colors.white,
                                                           fontSize: 11.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -341,7 +343,7 @@ class _V3fv0ritesWidgetState extends State<V3fv0ritesWidget> {
                                                         .override(
                                                           fontFamily:
                                                               'Montserrat',
-                                                          color: Colors.black,
+                                                          color: Colors.white,
                                                           fontSize: 10.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -405,12 +407,13 @@ class _V3fv0ritesWidgetState extends State<V3fv0ritesWidget> {
                                           ),
                                           '0',
                                           ','),
-                                      '4,5',
+                                      '0',
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Inter',
+                                          color: Colors.white,
                                           fontSize: 13.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
@@ -477,7 +480,7 @@ class _V3fv0ritesWidgetState extends State<V3fv0ritesWidget> {
                                                   containerReviewsRecordList
                                                       .toList())
                                               .toDouble(),
-                                          3.0,
+                                          0.0,
                                         ),
                                         unratedColor: const Color(0x4D040202),
                                         itemCount: 5,
@@ -504,7 +507,7 @@ class _V3fv0ritesWidgetState extends State<V3fv0ritesWidget> {
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Inter',
-                                            color: const Color(0xFFBD39BA),
+                                            color: Colors.white,
                                             fontSize: 12.0,
                                             letterSpacing: 0.0,
                                           ),
@@ -531,7 +534,7 @@ class _V3fv0ritesWidgetState extends State<V3fv0ritesWidget> {
                             highlightColor: Colors.transparent,
                             onTap: () async {
                               context.pushNamed(
-                                'profile_info',
+                                'ProfileInfo',
                                 queryParameters: {
                                   'professional': serializeParam(
                                     containerUsersRecord.reference,

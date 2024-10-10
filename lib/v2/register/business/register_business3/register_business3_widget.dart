@@ -9,6 +9,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
 import 'register_business3_model.dart';
@@ -566,7 +567,7 @@ class _RegisterBusiness3WidgetState extends State<RegisterBusiness3Widget>
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
-                                                                            FontWeight.w600,
+                                                                            FontWeight.w500,
                                                                       ),
                                                                 ).animateOnPageLoad(
                                                                     animationsMap[
@@ -600,7 +601,7 @@ class _RegisterBusiness3WidgetState extends State<RegisterBusiness3Widget>
                                               child: Padding(
                                                 padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
-                                                        20.0, 15.0, 0.0, 15.0),
+                                                        20.0, 15.0, 20.0, 15.0),
                                                 child: Text(
                                                   '*  Tell us more about yourself, include your experience within the disability sector…',
                                                   style: FlutterFlowTheme.of(
@@ -648,6 +649,9 @@ class _RegisterBusiness3WidgetState extends State<RegisterBusiness3Widget>
                                                   focusNode: _model
                                                       .disabilitiesFocusNode,
                                                   autofocus: true,
+                                                  textCapitalization:
+                                                      TextCapitalization
+                                                          .sentences,
                                                   obscureText: false,
                                                   decoration: InputDecoration(
                                                     isDense: true,
@@ -738,6 +742,9 @@ class _RegisterBusiness3WidgetState extends State<RegisterBusiness3Widget>
                                                       ),
                                                   maxLines: 7,
                                                   maxLength: 500,
+                                                  maxLengthEnforcement:
+                                                      MaxLengthEnforcement
+                                                          .enforced,
                                                   validator: _model
                                                       .disabilitiesTextControllerValidator
                                                       .asValidator(context),

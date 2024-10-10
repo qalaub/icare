@@ -66,10 +66,10 @@ class RegisterBusiness1Model extends FlutterFlowModel<RegisterBusiness1Widget> {
   }
 
   // State field(s) for email widget.
-  FocusNode? emailFocusNode;
-  TextEditingController? emailTextController;
-  String? Function(BuildContext, String?)? emailTextControllerValidator;
-  String? _emailTextControllerValidator(BuildContext context, String? val) {
+  FocusNode? emailFocusNode1;
+  TextEditingController? emailTextController1;
+  String? Function(BuildContext, String?)? emailTextController1Validator;
+  String? _emailTextController1Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return 'Field is required';
     }
@@ -83,6 +83,10 @@ class RegisterBusiness1Model extends FlutterFlowModel<RegisterBusiness1Widget> {
 
   // Stores action output result for [Firestore Query - Query a collection] action in email widget.
   int? emailExists;
+  // State field(s) for email widget.
+  FocusNode? emailFocusNode2;
+  TextEditingController? emailTextController2;
+  String? Function(BuildContext, String?)? emailTextController2Validator;
   // State field(s) for phone widget.
   FocusNode? phoneFocusNode;
   TextEditingController? phoneTextController;
@@ -116,7 +120,7 @@ class RegisterBusiness1Model extends FlutterFlowModel<RegisterBusiness1Widget> {
     firstNameTextControllerValidator = _firstNameTextControllerValidator;
     lastNameTextControllerValidator = _lastNameTextControllerValidator;
     companyTextControllerValidator = _companyTextControllerValidator;
-    emailTextControllerValidator = _emailTextControllerValidator;
+    emailTextController1Validator = _emailTextController1Validator;
     phoneTextControllerValidator = _phoneTextControllerValidator;
   }
 
@@ -131,8 +135,11 @@ class RegisterBusiness1Model extends FlutterFlowModel<RegisterBusiness1Widget> {
     companyFocusNode?.dispose();
     companyTextController?.dispose();
 
-    emailFocusNode?.dispose();
-    emailTextController?.dispose();
+    emailFocusNode1?.dispose();
+    emailTextController1?.dispose();
+
+    emailFocusNode2?.dispose();
+    emailTextController2?.dispose();
 
     phoneFocusNode?.dispose();
     phoneTextController?.dispose();

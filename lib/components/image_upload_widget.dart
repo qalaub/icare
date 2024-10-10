@@ -15,10 +15,13 @@ class ImageUploadWidget extends StatefulWidget {
     super.key,
     this.img,
     this.index,
-  });
+    String? background,
+  }) : background = background ??
+            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/xokotouxb9hk/imageText.png';
 
   final String? img;
   final int? index;
+  final String background;
 
   @override
   State<ImageUploadWidget> createState() => _ImageUploadWidgetState();
@@ -73,10 +76,10 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
                   : valueOrDefault<String>(
                       widget.img != null && widget.img != ''
                           ? widget.img
-                          : 'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
-                      'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
+                          : widget.background,
+                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/xokotouxb9hk/imageText.png',
                     ),
-              'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
+              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/xokotouxb9hk/imageText.png',
             ),
             width: MediaQuery.sizeOf(context).width * 1.0,
             height: MediaQuery.sizeOf(context).height * 1.0,
@@ -103,7 +106,7 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
                     final selectedMedia =
                         await selectMediaWithSourceBottomSheet(
                       context: context,
-                      imageQuality: 70,
+                      imageQuality: 50,
                       allowPhoto: true,
                     );
                     if (selectedMedia != null &&
@@ -151,11 +154,18 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
                     }
 
                     if (widget.index != null) {
-                      FFAppState().updateImagesUserUploadAtIndex(
-                        widget.index!,
-                        (_) => _model.uploadedFileUrl,
-                      );
-                      safeSetState(() {});
+                      if (FFAppState().imagesUserUpload.length >
+                          widget.index!) {
+                        FFAppState().updateImagesUserUploadAtIndex(
+                          widget.index!,
+                          (_) => _model.uploadedFileUrl,
+                        );
+                        safeSetState(() {});
+                      } else {
+                        FFAppState().insertAtIndexInImagesUserUpload(
+                            widget.index!, _model.uploadedFileUrl);
+                        safeSetState(() {});
+                      }
                     } else {
                       FFAppState()
                           .addToImagesUserUpload(_model.uploadedFileUrl);

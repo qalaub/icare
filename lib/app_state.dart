@@ -42,7 +42,8 @@ class FFAppState extends ChangeNotifier {
   }
 
   RegisterProviderTypeStruct _registerProviderForm =
-      RegisterProviderTypeStruct();
+      RegisterProviderTypeStruct.fromSerializableMap(jsonDecode(
+          '{\"images\":\"[]\",\"serviceType\":\"[]\",\"disabilities\":\"[]\",\"schedule\":\"[\\\"Monday\\\",\\\"Tuesday\\\",\\\"Wednesday\\\",\\\"Thursday\\\",\\\"Friday\\\",\\\"Saturday\\\",\\\"Sunday\\\"]\"}'));
   RegisterProviderTypeStruct get registerProviderForm => _registerProviderForm;
   set registerProviderForm(RegisterProviderTypeStruct value) {
     _registerProviderForm = value;
@@ -135,7 +136,7 @@ class FFAppState extends ChangeNotifier {
   }
 
   FiltersStruct _filtersPage = FiltersStruct.fromSerializableMap(jsonDecode(
-      '{\"distance\":\"100000\",\"age\":\"[\\\"40-65+ years\\\",\\\"25-40 years\\\",\\\"18-25 years\\\"]\",\"services\":\"[\\\"Support Worker\\\",\\\" Support Coordinators\\\",\\\"Therapeutic Supports\\\",\\\"Home Maintence\\\",\\\"Recovery Coaches\\\"]\"}'));
+      '{\"distance\":\"1000000\",\"age\":\"[\\\"40-65+ years\\\",\\\"25-40 years\\\",\\\"18-25 years\\\"]\",\"services\":\"[\\\"Support Workers\\\",\\\"Support  Coordinators\\\",\\\"Therapeutic Supports\\\",\\\"Home Maintenance\\\",\\\"Recovery Coaches\\\"]\",\"schedule\":\"[\\\"Monday\\\",\\\"Tuesday\\\",\\\"Wednesday\\\",\\\"Thursday\\\",\\\"Friday\\\",\\\"Saturday\\\",\\\"Sunday\\\"]\"}'));
   FiltersStruct get filtersPage => _filtersPage;
   set filtersPage(FiltersStruct value) {
     _filtersPage = value;
@@ -158,7 +159,7 @@ class FFAppState extends ChangeNotifier {
     _newUbicationProfessional = value;
   }
 
-  int _zoomFilter = 300;
+  int _zoomFilter = 10000;
   int get zoomFilter => _zoomFilter;
   set zoomFilter(int value) {
     _zoomFilter = value;

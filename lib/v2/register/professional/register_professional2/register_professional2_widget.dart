@@ -431,7 +431,7 @@ class _RegisterProfessional2WidgetState
                                                             return Align(
                                                               alignment:
                                                                   const AlignmentDirectional(
-                                                                      -0.62,
+                                                                      -0.68,
                                                                       0.6),
                                                               child: Text(
                                                                 key: const ValueKey(
@@ -449,7 +449,7 @@ class _RegisterProfessional2WidgetState
                                                                           0.0,
                                                                       fontWeight:
                                                                           FontWeight
-                                                                              .w600,
+                                                                              .w500,
                                                                     ),
                                                               ).animateOnPageLoad(
                                                                   animationsMap[
@@ -527,16 +527,7 @@ class _RegisterProfessional2WidgetState
                                                           Radius.circular(12.0),
                                                     ),
                                                     border: Border.all(
-                                                      color:
-                                                          valueOrDefault<Color>(
-                                                        FFAppState()
-                                                                    .verifyForm
-                                                                    .dropdown ==
-                                                                true
-                                                            ? const Color(0xFFBB33B9)
-                                                            : const Color(0xFFFF5963),
-                                                        const Color(0xFFBB33B9),
-                                                      ),
+                                                      color: const Color(0xFFBB33B9),
                                                     ),
                                                   ),
                                                   child: Align(
@@ -1109,8 +1100,8 @@ class _RegisterProfessional2WidgetState
                                                             return Align(
                                                               alignment:
                                                                   const AlignmentDirectional(
-                                                                      -0.62,
-                                                                      0.6),
+                                                                      -0.72,
+                                                                      0.5),
                                                               child: Text(
                                                                 key: const ValueKey(
                                                                     'ageVerify'),
@@ -1127,7 +1118,7 @@ class _RegisterProfessional2WidgetState
                                                                           0.0,
                                                                       fontWeight:
                                                                           FontWeight
-                                                                              .w600,
+                                                                              .w500,
                                                                     ),
                                                               ).animateOnPageLoad(
                                                                   animationsMap[
@@ -1386,7 +1377,7 @@ class _RegisterProfessional2WidgetState
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
-                                                                            FontWeight.w600,
+                                                                            FontWeight.w500,
                                                                       ),
                                                                 ).animateOnPageLoad(
                                                                     animationsMap[
@@ -1646,7 +1637,7 @@ class _RegisterProfessional2WidgetState
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
-                                                                            FontWeight.w600,
+                                                                            FontWeight.w500,
                                                                       ),
                                                                 ).animateOnPageLoad(
                                                                     animationsMap[
@@ -1851,7 +1842,10 @@ class _RegisterProfessional2WidgetState
                                                     (e) => e
                                                       ..dropdown =
                                                           valueOrDefault<bool>(
-                                                        _model.serviceTypeValue!.isNotEmpty,
+                                                        _model.serviceTypeValue !=
+                                                                null &&
+                                                            (_model.serviceTypeValue)!
+                                                                .isNotEmpty,
                                                         false,
                                                       )
                                                       ..dropdown2 =
@@ -1951,9 +1945,9 @@ class _RegisterProfessional2WidgetState
                                                     FFAppState().counter = 0;
 
                                                     context.pushNamed(
-                                                      'RegisterPfofesional4',
+                                                      'cadari0',
                                                       queryParameters: {
-                                                        'businessRef':
+                                                        'bussinesRef':
                                                             serializeParam(
                                                           widget.businessRef,
                                                           ParamType

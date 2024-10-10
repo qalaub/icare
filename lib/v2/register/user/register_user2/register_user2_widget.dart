@@ -1307,6 +1307,9 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                         'disabilities': FFAppState()
                                                             .registerProviderForm
                                                             .disabilities,
+                                                        'schedule': FFAppState()
+                                                            .registerProviderForm
+                                                            .schedule,
                                                       },
                                                     ),
                                                   });

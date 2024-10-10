@@ -211,6 +211,11 @@ class UsersRecord extends FirestoreRecord {
   bool get isActive => _isActive ?? false;
   bool hasIsActive() => _isActive != null;
 
+  // "schedule" field.
+  List<String>? _schedule;
+  List<String> get schedule => _schedule ?? const [];
+  bool hasSchedule() => _schedule != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -251,6 +256,7 @@ class UsersRecord extends FirestoreRecord {
     _disabilities = getDataList(snapshotData['disabilities']);
     _video = snapshotData['video'] as String?;
     _isActive = snapshotData['isActive'] as bool?;
+    _schedule = getDataList(snapshotData['schedule']);
   }
 
   static CollectionReference get collection =>
@@ -402,7 +408,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.firtsLogin == e2?.firtsLogin &&
         listEquality.equals(e1?.disabilities, e2?.disabilities) &&
         e1?.video == e2?.video &&
-        e1?.isActive == e2?.isActive;
+        e1?.isActive == e2?.isActive &&
+        listEquality.equals(e1?.schedule, e2?.schedule);
   }
 
   @override
@@ -445,7 +452,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.firtsLogin,
         e?.disabilities,
         e?.video,
-        e?.isActive
+        e?.isActive,
+        e?.schedule
       ]);
 
   @override

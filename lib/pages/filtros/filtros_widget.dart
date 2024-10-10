@@ -454,7 +454,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                         _model.coordinatorsValue = newValue!);
                                   },
                                   title: Text(
-                                    ' Support Coordinators',
+                                    'Support Coordinators',
                                     style: FlutterFlowTheme.of(context)
                                         .titleLarge
                                         .override(
@@ -576,6 +576,289 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                   ),
                 ),
                 Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Align(
+                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        child: Container(
+                          width: 346.0,
+                          height: 30.0,
+                          decoration: BoxDecoration(
+                            color: const Color(0xFFEEEAEA),
+                            borderRadius: const BorderRadius.only(
+                              bottomLeft: Radius.circular(12.0),
+                              bottomRight: Radius.circular(12.0),
+                              topLeft: Radius.circular(12.0),
+                              topRight: Radius.circular(12.0),
+                            ),
+                            border: Border.all(
+                              color: const Color(0xFFEEEAEA),
+                            ),
+                          ),
+                          child: Align(
+                            alignment: const AlignmentDirectional(-1.0, 0.0),
+                            child: Text(
+                              'Select work days:',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Montserrat',
+                                    color: const Color(0xFF545454),
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Align(
+                        alignment: const AlignmentDirectional(-0.03, -0.86),
+                        child: Container(
+                          width: 347.0,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: const BorderRadius.only(
+                              bottomLeft: Radius.circular(12.0),
+                              bottomRight: Radius.circular(12.0),
+                              topLeft: Radius.circular(12.0),
+                              topRight: Radius.circular(12.0),
+                            ),
+                            border: Border.all(
+                              color: Colors.white,
+                            ),
+                          ),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Align(
+                                alignment: const AlignmentDirectional(0.0, -0.98),
+                                child: CheckboxListTile(
+                                  key: const ValueKey('supportWorkers'),
+                                  value: _model.mondayValue ??= FFAppState()
+                                          .filtersPage
+                                          .schedule
+                                          .contains(FFAppConstants.days[0]) ==
+                                      true,
+                                  onChanged: (newValue) async {
+                                    safeSetState(
+                                        () => _model.mondayValue = newValue!);
+                                  },
+                                  title: Text(
+                                    'Monday ',
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleLarge
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: Colors.black,
+                                          fontSize: 14.0,
+                                          letterSpacing: 0.0,
+                                        ),
+                                  ),
+                                  activeColor: const Color(0xFFBD39BA),
+                                  checkColor: Colors.white,
+                                  dense: false,
+                                  controlAffinity:
+                                      ListTileControlAffinity.trailing,
+                                ),
+                              ),
+                              Align(
+                                alignment: const AlignmentDirectional(0.0, -0.46),
+                                child: CheckboxListTile(
+                                  key: const ValueKey('supportCoordinators'),
+                                  value: _model.tuesdayValue ??= FFAppState()
+                                          .filtersPage
+                                          .schedule
+                                          .contains(FFAppConstants.days[1]) ==
+                                      true,
+                                  onChanged: (newValue) async {
+                                    safeSetState(
+                                        () => _model.tuesdayValue = newValue!);
+                                  },
+                                  title: Text(
+                                    'Tuesday',
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleLarge
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: Colors.black,
+                                          fontSize: 14.0,
+                                          letterSpacing: 0.0,
+                                        ),
+                                  ),
+                                  activeColor: const Color(0xFFBD39BA),
+                                  checkColor: Colors.white,
+                                  dense: false,
+                                  controlAffinity:
+                                      ListTileControlAffinity.trailing,
+                                ),
+                              ),
+                              Align(
+                                alignment: const AlignmentDirectional(0.0, -0.98),
+                                child: CheckboxListTile(
+                                  key: const ValueKey('recoveryCoaches'),
+                                  value: _model.wednesdayValue ??= FFAppState()
+                                          .filtersPage
+                                          .schedule
+                                          .contains(FFAppConstants.days[2]) ==
+                                      true,
+                                  onChanged: (newValue) async {
+                                    safeSetState(() =>
+                                        _model.wednesdayValue = newValue!);
+                                  },
+                                  title: Text(
+                                    'Wednesday',
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleLarge
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: Colors.black,
+                                          fontSize: 14.0,
+                                          letterSpacing: 0.0,
+                                        ),
+                                  ),
+                                  activeColor: const Color(0xFFBD39BA),
+                                  checkColor: Colors.white,
+                                  dense: false,
+                                  controlAffinity:
+                                      ListTileControlAffinity.trailing,
+                                ),
+                              ),
+                              Align(
+                                alignment: const AlignmentDirectional(0.0, 0.13),
+                                child: CheckboxListTile(
+                                  key: const ValueKey('therapeuticSupports'),
+                                  value: _model.thursdayValue ??= FFAppState()
+                                          .filtersPage
+                                          .schedule
+                                          .contains(FFAppConstants.days[3]) ==
+                                      true,
+                                  onChanged: (newValue) async {
+                                    safeSetState(
+                                        () => _model.thursdayValue = newValue!);
+                                  },
+                                  title: Text(
+                                    'Thursday',
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleLarge
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: Colors.black,
+                                          fontSize: 14.0,
+                                          letterSpacing: 0.0,
+                                        ),
+                                  ),
+                                  activeColor: const Color(0xFFBD39BA),
+                                  checkColor: Colors.white,
+                                  dense: false,
+                                  controlAffinity:
+                                      ListTileControlAffinity.trailing,
+                                ),
+                              ),
+                              Align(
+                                alignment: const AlignmentDirectional(0.0, 0.77),
+                                child: CheckboxListTile(
+                                  key: const ValueKey('homeMaintenance'),
+                                  value: _model.fridayValue ??= FFAppState()
+                                          .filtersPage
+                                          .schedule
+                                          .contains(FFAppConstants.days[4]) ==
+                                      true,
+                                  onChanged: (newValue) async {
+                                    safeSetState(
+                                        () => _model.fridayValue = newValue!);
+                                  },
+                                  title: Text(
+                                    'Friday ',
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleLarge
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: Colors.black,
+                                          fontSize: 14.0,
+                                          letterSpacing: 0.0,
+                                        ),
+                                  ),
+                                  activeColor: const Color(0xFFBD39BA),
+                                  checkColor: Colors.white,
+                                  dense: false,
+                                  controlAffinity:
+                                      ListTileControlAffinity.trailing,
+                                ),
+                              ),
+                              Align(
+                                alignment: const AlignmentDirectional(0.0, 0.77),
+                                child: CheckboxListTile(
+                                  key: const ValueKey('homeMaintenance'),
+                                  value: _model.saturdayValue ??= FFAppState()
+                                          .filtersPage
+                                          .schedule
+                                          .contains(FFAppConstants.days[5]) ==
+                                      true,
+                                  onChanged: (newValue) async {
+                                    safeSetState(
+                                        () => _model.saturdayValue = newValue!);
+                                  },
+                                  title: Text(
+                                    'Saturday',
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleLarge
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: Colors.black,
+                                          fontSize: 14.0,
+                                          letterSpacing: 0.0,
+                                        ),
+                                  ),
+                                  activeColor: const Color(0xFFBD39BA),
+                                  checkColor: Colors.white,
+                                  dense: false,
+                                  controlAffinity:
+                                      ListTileControlAffinity.trailing,
+                                ),
+                              ),
+                              Align(
+                                alignment: const AlignmentDirectional(0.0, 0.77),
+                                child: CheckboxListTile(
+                                  key: const ValueKey('homeMaintenance'),
+                                  value: _model.sundayValue ??= FFAppState()
+                                          .filtersPage
+                                          .schedule
+                                          .contains(FFAppConstants.days[6]) ==
+                                      true,
+                                  onChanged: (newValue) async {
+                                    safeSetState(
+                                        () => _model.sundayValue = newValue!);
+                                  },
+                                  title: Text(
+                                    'Sunday',
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleLarge
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: Colors.black,
+                                          fontSize: 14.0,
+                                          letterSpacing: 0.0,
+                                        ),
+                                  ),
+                                  activeColor: const Color(0xFFBD39BA),
+                                  checkColor: Colors.white,
+                                  dense: false,
+                                  controlAffinity:
+                                      ListTileControlAffinity.trailing,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ].divide(const SizedBox(height: 12.0)),
+                  ),
+                ),
+                Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
@@ -605,6 +888,8 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                 ..distance = 10.0
                                 ..age = FFAppConstants.clearService.toList()
                                 ..services =
+                                    FFAppConstants.clearService.toList()
+                                ..schedule =
                                     FFAppConstants.clearService.toList(),
                             );
                             FFAppState().update(() {});
@@ -658,7 +943,8 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                 (e) => e
                                   ..distance = _model.distanceValue
                                   ..age = []
-                                  ..services = [],
+                                  ..services = []
+                                  ..schedule = [],
                               );
                               FFAppState().updateFiltersPageStruct(
                                 (e) => e
@@ -669,7 +955,12 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                   )
                                   ..updateServices(
                                     (e) => e.add(_model.supportValue == true
-                                        ? 'Support Worker'
+                                        ? 'Support Workers'
+                                        : ' '),
+                                  )
+                                  ..updateSchedule(
+                                    (e) => e.add(_model.mondayValue == true
+                                        ? 'Monday'
                                         : ' '),
                                   ),
                               );
@@ -683,8 +974,13 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                   ..updateServices(
                                     (e) => e.add(
                                         _model.coordinatorsValue == true
-                                            ? ' Coordinator'
+                                            ? 'Support  Coordinators'
                                             : ' '),
+                                  )
+                                  ..updateSchedule(
+                                    (e) => e.add(_model.tuesdayValue == true
+                                        ? 'Tuesday'
+                                        : ' '),
                                   ),
                               );
                               FFAppState().updateFiltersPageStruct(
@@ -698,6 +994,11 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                     (e) => e.add(_model.therapeuticValue == true
                                         ? 'Therapeutic Supports'
                                         : ' '),
+                                  )
+                                  ..updateSchedule(
+                                    (e) => e.add(_model.wednesdayValue == true
+                                        ? 'Wednesday'
+                                        : ' '),
                                   ),
                               );
                               FFAppState().updateFiltersPageStruct(
@@ -706,6 +1007,11 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                     (e) => e.add(_model.homeValue == true
                                         ? 'Home Maintenance'
                                         : ' '),
+                                  )
+                                  ..updateSchedule(
+                                    (e) => e.add(_model.thursdayValue == true
+                                        ? 'Thursday'
+                                        : ' '),
                                   ),
                               );
                               FFAppState().updateFiltersPageStruct(
@@ -713,6 +1019,27 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                   ..updateServices(
                                     (e) => e.add(_model.recoveryValue == true
                                         ? 'Recovery Coaches'
+                                        : ' '),
+                                  )
+                                  ..updateSchedule(
+                                    (e) => e.add(_model.fridayValue == true
+                                        ? 'Friday'
+                                        : ' '),
+                                  ),
+                              );
+                              FFAppState().updateFiltersPageStruct(
+                                (e) => e
+                                  ..updateSchedule(
+                                    (e) => e.add(_model.saturdayValue == true
+                                        ? 'Saturday'
+                                        : ' '),
+                                  ),
+                              );
+                              FFAppState().updateFiltersPageStruct(
+                                (e) => e
+                                  ..updateSchedule(
+                                    (e) => e.add(_model.sundayValue == true
+                                        ? 'Sunday'
                                         : ' '),
                                   ),
                               );

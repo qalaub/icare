@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
 import 'register_business4_model.dart';
 export 'register_business4_model.dart';
@@ -29,6 +30,14 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => RegisterBusiness4Model());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      FFAppState().updateRegisterProviderFormStruct(
+        (e) => e..images = [],
+      );
+      FFAppState().imagesUserUpload = [];
+    });
   }
 
   @override
@@ -283,6 +292,8 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                             const ImageUploadWidget(
                                                           key: ValueKey(
                                                               'image1'),
+                                                          background:
+                                                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/ur7v7ul2ofjo/companyText.png',
                                                         ),
                                                       ),
                                                     ),
@@ -331,7 +342,7 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                         child:
                                                             const ImageUploadWidget(
                                                           key: ValueKey(
-                                                              'image2'),
+                                                              'image1'),
                                                         ),
                                                       ),
                                                     ),
@@ -380,7 +391,7 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                         child:
                                                             const ImageUploadWidget(
                                                           key: ValueKey(
-                                                              'image3'),
+                                                              'image1'),
                                                         ),
                                                       ),
                                                     ),
@@ -432,7 +443,7 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                         child:
                                                             const ImageUploadWidget(
                                                           key: ValueKey(
-                                                              'image4'),
+                                                              'image1'),
                                                         ),
                                                       ),
                                                     ),
@@ -481,7 +492,7 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                         child:
                                                             const ImageUploadWidget(
                                                           key: ValueKey(
-                                                              'image5'),
+                                                              'image1'),
                                                         ),
                                                       ),
                                                     ),
@@ -530,7 +541,7 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                         child:
                                                             const ImageUploadWidget(
                                                           key: ValueKey(
-                                                              'image5'),
+                                                              'image1'),
                                                         ),
                                                       ),
                                                     ),
@@ -580,7 +591,7 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                           .imagesUserUpload
                                                           .where((e) =>
                                                               (e !=
-                                                                  'https://i.ibb.co/b7TBHQJ/imagen-defecto.png') &&
+                                                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/xokotouxb9hk/imageText.png') &&
                                                               (e != ''))
                                                           .toList(),
                                                   );
@@ -674,6 +685,9 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                         'disabilities': FFAppState()
                                                             .registerProviderForm
                                                             .disabilities,
+                                                        'schedule': FFAppState()
+                                                            .registerProviderForm
+                                                            .schedule,
                                                       },
                                                     ),
                                                   });

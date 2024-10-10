@@ -1,4 +1,6 @@
+import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
+import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/v2/menbresiav2/membresia_logo/membresia_logo_widget.dart';
@@ -6,6 +8,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'tinderv2_c0_model.dart';
 export 'tinderv2_c0_model.dart';
@@ -35,6 +38,23 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => Tinderv2C0Model());
+
+    // On component load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      _model.apiResultipr = await GetNamePlaceCall.call(
+        lat: functions.latLngToString(widget.professional!.suburb!),
+      );
+
+      if ((_model.apiResultipr?.succeeded ?? true)) {
+        _model.newSuburb = valueOrDefault<String>(
+          GetNamePlaceCall.street(
+            (_model.apiResultipr?.jsonBody ?? ''),
+          )?.first?.toString(),
+          'location',
+        );
+        safeSetState(() {});
+      }
+    });
   }
 
   @override
@@ -96,75 +116,153 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                     width: MediaQuery.sizeOf(context).width * 1.0,
                     height: MediaQuery.sizeOf(context).height * 0.465,
                     decoration: const BoxDecoration(),
-                    child: Align(
-                      alignment: const AlignmentDirectional(0.0, -1.0),
-                      child: Builder(
-                        builder: (context) {
-                          final imagesProfessional = widget
-                                  .professional?.images
-                                  .map((e) => e)
-                                  .toList()
-                                  .where((e) => e != '')
-                                  .toList()
-                                  .toList() ??
-                              [];
+                    child: Stack(
+                      children: [
+                        Align(
+                          alignment: const AlignmentDirectional(0.0, -1.0),
+                          child: Builder(
+                            builder: (context) {
+                              final imagesProfessional = widget
+                                      .professional?.images
+                                      .map((e) => e)
+                                      .toList()
+                                      .where((e) => e != '')
+                                      .toList()
+                                      .toList() ??
+                                  [];
 
-                          return SizedBox(
-                            width: double.infinity,
-                            height: MediaQuery.sizeOf(context).height * 1.0,
-                            child: PageView.builder(
-                              controller: _model.pageViewController ??=
-                                  PageController(
-                                      initialPage: max(
-                                          0,
-                                          min(0,
-                                              imagesProfessional.length - 1))),
-                              scrollDirection: Axis.horizontal,
-                              itemCount: imagesProfessional.length,
-                              itemBuilder: (context, imagesProfessionalIndex) {
-                                final imagesProfessionalItem =
-                                    imagesProfessional[imagesProfessionalIndex];
-                                return InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    await _model.pageViewController?.nextPage(
-                                      duration: const Duration(milliseconds: 300),
-                                      curve: Curves.ease,
+                              return SizedBox(
+                                width: double.infinity,
+                                height: MediaQuery.sizeOf(context).height * 1.0,
+                                child: PageView.builder(
+                                  controller: _model.pageViewController ??=
+                                      PageController(
+                                          initialPage: max(
+                                              0,
+                                              min(
+                                                  0,
+                                                  imagesProfessional.length -
+                                                      1))),
+                                  scrollDirection: Axis.horizontal,
+                                  itemCount: imagesProfessional.length,
+                                  itemBuilder:
+                                      (context, imagesProfessionalIndex) {
+                                    final imagesProfessionalItem =
+                                        imagesProfessional[
+                                            imagesProfessionalIndex];
+                                    return InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        await _model.pageViewController
+                                            ?.nextPage(
+                                          duration: const Duration(milliseconds: 300),
+                                          curve: Curves.ease,
+                                        );
+                                      },
+                                      child: ClipRRect(
+                                        borderRadius: const BorderRadius.only(
+                                          bottomLeft: Radius.circular(0.0),
+                                          bottomRight: Radius.circular(0.0),
+                                          topLeft: Radius.circular(20.0),
+                                          topRight: Radius.circular(20.0),
+                                        ),
+                                        child: CachedNetworkImage(
+                                          fadeInDuration:
+                                              const Duration(milliseconds: 600),
+                                          fadeOutDuration:
+                                              const Duration(milliseconds: 600),
+                                          imageUrl: valueOrDefault<String>(
+                                            imagesProfessionalItem,
+                                            'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
+                                          ),
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  1.0,
+                                          height: MediaQuery.sizeOf(context)
+                                                  .height *
+                                              0.0,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
                                     );
                                   },
-                                  child: ClipRRect(
-                                    borderRadius: const BorderRadius.only(
-                                      bottomLeft: Radius.circular(0.0),
-                                      bottomRight: Radius.circular(0.0),
-                                      topLeft: Radius.circular(20.0),
-                                      topRight: Radius.circular(20.0),
-                                    ),
-                                    child: CachedNetworkImage(
-                                      fadeInDuration:
-                                          const Duration(milliseconds: 600),
-                                      fadeOutDuration:
-                                          const Duration(milliseconds: 600),
-                                      imageUrl: valueOrDefault<String>(
-                                        imagesProfessionalItem,
-                                        'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                        if (valueOrDefault<bool>(
+                          (widget.professional?.business != null) ||
+                              (widget.professional?.rol == Roles.business),
+                          false,
+                        ))
+                          Align(
+                            alignment: const AlignmentDirectional(0.95, 0.95),
+                            child: Container(
+                              width: 50.0,
+                              height: 50.0,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12.0),
+                              ),
+                              child: Builder(
+                                builder: (context) {
+                                  if (widget.professional?.rol ==
+                                      Roles.profesional) {
+                                    return FutureBuilder<UsersRecord>(
+                                      future: UsersRecord.getDocumentOnce(
+                                          widget.professional!.business!),
+                                      builder: (context, snapshot) {
+                                        // Customize what your widget looks like when it's loading.
+                                        if (!snapshot.hasData) {
+                                          return Center(
+                                            child: SizedBox(
+                                              width: 50.0,
+                                              height: 50.0,
+                                              child: CircularProgressIndicator(
+                                                valueColor:
+                                                    AlwaysStoppedAnimation<
+                                                        Color>(
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                                ),
+                                              ),
+                                            ),
+                                          );
+                                        }
+
+                                        final imageUsersRecord = snapshot.data!;
+
+                                        return ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                          child: Image.network(
+                                            imageUsersRecord.photoUrl,
+                                            width: 200.0,
+                                            height: 200.0,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        );
+                                      },
+                                    );
+                                  } else {
+                                    return ClipRRect(
+                                      borderRadius: BorderRadius.circular(8.0),
+                                      child: Image.network(
+                                        widget.professional!.photoUrl,
+                                        width: 200.0,
+                                        height: 200.0,
+                                        fit: BoxFit.fill,
                                       ),
-                                      width: MediaQuery.sizeOf(context).width *
-                                          1.0,
-                                      height:
-                                          MediaQuery.sizeOf(context).height *
-                                              0.0,
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                );
-                              },
+                                    );
+                                  }
+                                },
+                              ),
                             ),
-                          );
-                        },
-                      ),
+                          ),
+                      ],
                     ),
                   ),
                 ),
@@ -225,12 +323,13 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           const Icon(
-                                            Icons.circle,
-                                            color: Color(0xFF52FF00),
-                                            size: 11.0,
+                                            Icons.location_on,
+                                            color: Color(0xFFB83CB8),
+                                            size: 14.0,
                                           ),
                                           Text(
-                                            'Recent activity',
+                                            functions.formatnameStreet(
+                                                _model.newSuburb),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -515,8 +614,8 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                             model: _model.membresiaLogoModel,
                             updateCallback: () => safeSetState(() {}),
                             child: MembresiaLogoWidget(
-                              width: 70,
-                              heigth: 70,
+                              width: 60,
+                              heigth: 60,
                               professional: widget.professional!.reference,
                             ),
                           ),

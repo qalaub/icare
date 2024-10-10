@@ -1,5 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -475,9 +476,12 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                           ),
                           services: profileInfoUsersRecord.serviceType,
                           imgs: profileInfoUsersRecord.images,
-                          company: profileInfoUsersRecord.business != null
+                          company: (profileInfoUsersRecord.business != null) ||
+                                  (profileInfoUsersRecord.rol ==
+                                      Roles.business)
                               ? profileInfoUsersRecord.comapny
                               : 'default230',
+                          schedule: profileInfoUsersRecord.schedule,
                         ),
                       ),
                     ].addToEnd(const SizedBox(height: 32.0)),

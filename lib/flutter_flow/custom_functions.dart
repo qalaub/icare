@@ -175,7 +175,7 @@ int restOne(int index) {
 int averagueReviews(List<ReviewsRecord> reviews) {
   // averague of Reviews from colletion reviews
   if (reviews.isEmpty) {
-    return 4;
+    return 0;
   }
   int sum = 0;
   for (final review in reviews) {
@@ -271,7 +271,8 @@ bool verifyDistanceFilter(
   if (adjustedZoom == 150) adjustedZoom = 1000;
   double multiplier = 1000.0 * (adjustedZoom * 1.8);
   return distance <=
-      (multiplier * (math.log(adjustedZoom) / math.log(base))).toInt();
+      ((multiplier) * (math.log(adjustedZoom + 20) / math.log(base + 2)))
+          .toInt();
 
   // Retornar true si la distancia es menor o igual a 100 metros
   // return distance <= (zoom / 10) * 100000; // 100 metros
@@ -283,8 +284,9 @@ bool filterProfessionals(
   List<String> services,
   List<String> age,
   LatLng current,
+  List<String> schedule,
 ) {
-  // Calcular la distancia entre la ubicación del usuario y la ubicación del profesional
+// Calcular la distancia entre la ubicación del usuario y la ubicación del profesional
   const double earthRadius = 6371; // Radio de la Tierra en kilómetros
   double dLat =
       (user.suburb!.latitude - current.latitude) * (3.141592653589793 / 180);
@@ -314,6 +316,12 @@ bool filterProfessionals(
   // Verificar si la edad del profesional está en el rango aceptable
   bool hasValidAge = age.contains(user.age);
   if (!hasValidAge) {
+    return false;
+  }
+
+  // Verificar si el horario del profesional coincide con alguno de los días deseados
+  bool hasValidSchedule = user.schedule.any((day) => schedule.contains(day));
+  if (user.schedule.length > 0) if (!hasValidSchedule) {
     return false;
   }
 
@@ -347,4 +355,52 @@ String upperCaseFirstLetter(String word) {
 int getLengthString(String str) {
   // get Length String
   return str.length;
+}
+
+String latLngToString(LatLng latlng) {
+  return '${latlng.latitude}, ${latlng.longitude}';
+}
+
+String formatnameStreet(String input) {
+  // Encontrar el índice del primer espacio
+  int spaceIndex = input.indexOf(' ');
+
+  // Si encontramos un espacio
+  if (spaceIndex != -1) {
+    // Obtener la subcadena desde el primer espacio hasta la coma (o el final si no hay coma)
+    String address =
+        input.substring(spaceIndex + 1); // Cortamos desde el primer espacio
+    int commaIndex = address.indexOf(',');
+
+    // Si hay una coma, cortamos hasta la coma; de lo contrario, devolvemos la cadena completa
+    if (commaIndex != -1) {
+      return address.substring(0, commaIndex).trim(); // Cortamos hasta la coma
+    } else {
+      return address.trim(); // Devolvemos la dirección completa si no hay coma
+    }
+  } else {
+    return "Location"; // Manejo de caso si no hay espacio
+  }
+}
+
+String extractStateAndPostalCode(String input) {
+  // Encontrar la posición de la primera y segunda coma
+  int firstCommaIndex = input.indexOf(',');
+  int secondCommaIndex = input.indexOf(',', firstCommaIndex + 1);
+
+  // Verificar si encontramos ambas comas
+  if (firstCommaIndex != -1 && secondCommaIndex != -1) {
+    // Obtener la subcadena entre la segunda coma y el final
+    String statePostalCode = input.substring(secondCommaIndex + 1).trim();
+
+    // Verificar si hay al menos dos espacios antes del estado
+    if (statePostalCode.startsWith(' ')) {
+      // Retornar la parte de "estado código postal"
+      return statePostalCode
+          .substring(2)
+          .trim(); // Cortar los dos espacios y devolver el resto
+    }
+  }
+
+  return "NSW 2781"; // Manejo de caso si no se cumplen las condiciones
 }

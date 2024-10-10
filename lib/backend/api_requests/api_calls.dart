@@ -118,6 +118,36 @@ class GetPlaceCall {
       ));
 }
 
+class GetNamePlaceCall {
+  static Future<ApiCallResponse> call({
+    String? apiKey = 'AIzaSyArSl-isY2tQa--YEne30YvnjTiDb6JQig',
+    String? lat = '-33.71217710351823,150.31209443915802',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'getNamePlace',
+      apiUrl: 'https://maps.googleapis.com/maps/api/geocode/json',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {
+        'key': apiKey,
+        'latlng': lat,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static List? street(dynamic response) => getJsonField(
+        response,
+        r'''$.results[:].formatted_address''',
+        true,
+      ) as List?;
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;

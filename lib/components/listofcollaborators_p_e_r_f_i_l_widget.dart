@@ -83,7 +83,7 @@ class _ListofcollaboratorsPERFILWidgetState
                   context.pushNamed('Login');
                 } else {
                   context.pushNamed(
-                    'profile_info',
+                    'ProfileInfo',
                     queryParameters: {
                       'professional': serializeParam(
                         widget.professional,

@@ -3,13 +3,13 @@ import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/backend/schema/enums/enums.dart';
 import '/chat_groupwbubbles/chat_thread_update/chat_thread_update_widget.dart';
+import '/components/empty_state_simple_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_media_display.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/upload_data.dart';
-import '/usser_profesional_estandar/empty_state_simple/empty_state_simple_widget.dart';
 import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:collection/collection.dart';
@@ -25,11 +25,13 @@ class ChatThreadComponentWidget extends StatefulWidget {
     this.chatRef,
     this.profesiona,
     this.chatRefTotal,
+    this.professional,
   });
 
   final ChatsRecord? chatRef;
   final UsersRecord? profesiona;
   final DocumentReference? chatRefTotal;
+  final DocumentReference? professional;
 
   @override
   State<ChatThreadComponentWidget> createState() =>
@@ -779,6 +781,22 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                       ),
                     ),
                   ],
+                ),
+              ),
+            ),
+          if (currentUserDocument?.business != null)
+            AuthUserStreamWidget(
+              builder: (context) => Container(
+                width: MediaQuery.sizeOf(context).width * 1.0,
+                height: MediaQuery.sizeOf(context).height * 1.0,
+                decoration: const BoxDecoration(
+                  color: Color(0x5DFFFFFF),
+                ),
+                child: SizedBox(
+                  height: MediaQuery.sizeOf(context).height * 1.0,
+                  child: const Stack(
+                    children: [],
+                  ),
                 ),
               ),
             ),

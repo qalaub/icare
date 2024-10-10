@@ -1,8 +1,11 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:async';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'deleteaccount_model.dart';
 export 'deleteaccount_model.dart';
@@ -156,12 +159,34 @@ class _DeleteaccountWidgetState extends State<DeleteaccountWidget> {
                                             const AlignmentDirectional(1.0, 1.0),
                                         child: FFButtonWidget(
                                           onPressed: () async {
+                                            _model.chats =
+                                                await queryChatsRecordOnce(
+                                              queryBuilder: (chatsRecord) =>
+                                                  chatsRecord.where(
+                                                'users',
+                                                arrayContains:
+                                                    currentUserReference,
+                                              ),
+                                              singleRecord: true,
+                                            ).then((s) => s.firstOrNull);
+                                            unawaited(
+                                              () async {
+                                                await _model.chats!.reference
+                                                    .delete();
+                                              }(),
+                                            );
+                                            unawaited(
+                                              () async {
+                                                await currentUserReference!
+                                                    .delete();
+                                              }(),
+                                            );
                                             await authManager
                                                 .deleteUser(context);
-                                            await currentUserReference!
-                                                .delete();
 
                                             context.goNamed('Login');
+
+                                            safeSetState(() {});
                                           },
                                           text: 'Yes, delete',
                                           options: FFButtonOptions(

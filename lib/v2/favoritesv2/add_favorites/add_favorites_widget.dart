@@ -89,7 +89,7 @@ class _AddFavoritesWidgetState extends State<AddFavoritesWidget> {
                   borderColor: Colors.transparent,
                   borderRadius: 20.0,
                   borderWidth: 1.0,
-                  buttonSize: 40.0,
+                  buttonSize: 45.0,
                   icon: const Icon(
                     Icons.favorite,
                     color: Color(0xFFFB4F4F),
@@ -113,7 +113,7 @@ class _AddFavoritesWidgetState extends State<AddFavoritesWidget> {
                   borderColor: Colors.transparent,
                   borderRadius: 20.0,
                   borderWidth: 1.0,
-                  buttonSize: 40.0,
+                  buttonSize: 45.0,
                   icon: const Icon(
                     Icons.favorite_border,
                     color: Color(0xFFFB4F4F),
@@ -200,7 +200,7 @@ class _AddFavoritesWidgetState extends State<AddFavoritesWidget> {
                     }
 
                     context.pushNamed(
-                      'profile_info',
+                      'ProfileInfo',
                       queryParameters: {
                         'professional': serializeParam(
                           widget.professional?.reference,

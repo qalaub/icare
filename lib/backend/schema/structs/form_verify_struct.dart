@@ -15,6 +15,9 @@ class FormVerifyStruct extends FFFirebaseStruct {
     bool? confirm1,
     bool? confirm2,
     bool? same,
+    bool? emailC1,
+    bool? emailC2,
+    bool? same1,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _subur = subur,
         _date = date,
@@ -23,6 +26,9 @@ class FormVerifyStruct extends FFFirebaseStruct {
         _confirm1 = confirm1,
         _confirm2 = confirm2,
         _same = same,
+        _emailC1 = emailC1,
+        _emailC2 = emailC2,
+        _same1 = same1,
         super(firestoreUtilData);
 
   // "subur" field.
@@ -74,6 +80,27 @@ class FormVerifyStruct extends FFFirebaseStruct {
 
   bool hasSame() => _same != null;
 
+  // "emailC1" field.
+  bool? _emailC1;
+  bool get emailC1 => _emailC1 ?? true;
+  set emailC1(bool? val) => _emailC1 = val;
+
+  bool hasEmailC1() => _emailC1 != null;
+
+  // "emailC2" field.
+  bool? _emailC2;
+  bool get emailC2 => _emailC2 ?? true;
+  set emailC2(bool? val) => _emailC2 = val;
+
+  bool hasEmailC2() => _emailC2 != null;
+
+  // "same1" field.
+  bool? _same1;
+  bool get same1 => _same1 ?? true;
+  set same1(bool? val) => _same1 = val;
+
+  bool hasSame1() => _same1 != null;
+
   static FormVerifyStruct fromMap(Map<String, dynamic> data) =>
       FormVerifyStruct(
         subur: data['subur'] as bool?,
@@ -83,6 +110,9 @@ class FormVerifyStruct extends FFFirebaseStruct {
         confirm1: data['confirm1'] as bool?,
         confirm2: data['confirm2'] as bool?,
         same: data['same'] as bool?,
+        emailC1: data['emailC1'] as bool?,
+        emailC2: data['emailC2'] as bool?,
+        same1: data['same1'] as bool?,
       );
 
   static FormVerifyStruct? maybeFromMap(dynamic data) => data is Map
@@ -97,6 +127,9 @@ class FormVerifyStruct extends FFFirebaseStruct {
         'confirm1': _confirm1,
         'confirm2': _confirm2,
         'same': _same,
+        'emailC1': _emailC1,
+        'emailC2': _emailC2,
+        'same1': _same1,
       }.withoutNulls;
 
   @override
@@ -127,6 +160,18 @@ class FormVerifyStruct extends FFFirebaseStruct {
         ),
         'same': serializeParam(
           _same,
+          ParamType.bool,
+        ),
+        'emailC1': serializeParam(
+          _emailC1,
+          ParamType.bool,
+        ),
+        'emailC2': serializeParam(
+          _emailC2,
+          ParamType.bool,
+        ),
+        'same1': serializeParam(
+          _same1,
           ParamType.bool,
         ),
       }.withoutNulls;
@@ -168,6 +213,21 @@ class FormVerifyStruct extends FFFirebaseStruct {
           ParamType.bool,
           false,
         ),
+        emailC1: deserializeParam(
+          data['emailC1'],
+          ParamType.bool,
+          false,
+        ),
+        emailC2: deserializeParam(
+          data['emailC2'],
+          ParamType.bool,
+          false,
+        ),
+        same1: deserializeParam(
+          data['same1'],
+          ParamType.bool,
+          false,
+        ),
       );
 
   @override
@@ -182,12 +242,25 @@ class FormVerifyStruct extends FFFirebaseStruct {
         dropdown2 == other.dropdown2 &&
         confirm1 == other.confirm1 &&
         confirm2 == other.confirm2 &&
-        same == other.same;
+        same == other.same &&
+        emailC1 == other.emailC1 &&
+        emailC2 == other.emailC2 &&
+        same1 == other.same1;
   }
 
   @override
-  int get hashCode => const ListEquality()
-      .hash([subur, date, dropdown, dropdown2, confirm1, confirm2, same]);
+  int get hashCode => const ListEquality().hash([
+        subur,
+        date,
+        dropdown,
+        dropdown2,
+        confirm1,
+        confirm2,
+        same,
+        emailC1,
+        emailC2,
+        same1
+      ]);
 }
 
 FormVerifyStruct createFormVerifyStruct({
@@ -198,6 +271,9 @@ FormVerifyStruct createFormVerifyStruct({
   bool? confirm1,
   bool? confirm2,
   bool? same,
+  bool? emailC1,
+  bool? emailC2,
+  bool? same1,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
@@ -211,6 +287,9 @@ FormVerifyStruct createFormVerifyStruct({
       confirm1: confirm1,
       confirm2: confirm2,
       same: same,
+      emailC1: emailC1,
+      emailC2: emailC2,
+      same1: same1,
       firestoreUtilData: FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,

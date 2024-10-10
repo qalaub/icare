@@ -19,10 +19,12 @@ class Chat2DetailsWidget extends StatefulWidget {
     super.key,
     required this.chatRef,
     this.chatRefTotal,
+    this.professional,
   });
 
   final ChatsRecord? chatRef;
   final DocumentReference? chatRefTotal;
+  final DocumentReference? professional;
 
   @override
   State<Chat2DetailsWidget> createState() => _Chat2DetailsWidgetState();

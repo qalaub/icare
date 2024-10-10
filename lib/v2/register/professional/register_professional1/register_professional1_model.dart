@@ -82,6 +82,10 @@ class RegisterProfessional1Model
 
   // Stores action output result for [Firestore Query - Query a collection] action in email widget.
   int? emailExists;
+  // State field(s) for email2 widget.
+  FocusNode? email2FocusNode;
+  TextEditingController? email2TextController;
+  String? Function(BuildContext, String?)? email2TextControllerValidator;
   // State field(s) for phone widget.
   FocusNode? phoneFocusNode;
   TextEditingController? phoneTextController;
@@ -132,6 +136,9 @@ class RegisterProfessional1Model
 
     emailFocusNode?.dispose();
     emailTextController?.dispose();
+
+    email2FocusNode?.dispose();
+    email2TextController?.dispose();
 
     phoneFocusNode?.dispose();
     phoneTextController?.dispose();

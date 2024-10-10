@@ -80,10 +80,10 @@ class _MembresiaLogoWidgetState extends State<MembresiaLogoWidget> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
                     child: Image.asset(
-                      'assets/images/basic.png',
+                      'assets/images/basicV2.png',
                       width: widget.width.toDouble(),
                       height: widget.heigth.toDouble(),
-                      fit: BoxFit.cover,
+                      fit: BoxFit.contain,
                     ),
                   ),
                 ),
@@ -93,10 +93,10 @@ class _MembresiaLogoWidgetState extends State<MembresiaLogoWidget> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
                     child: Image.asset(
-                      'assets/images/Badge.png',
+                      'assets/images/standarV2.png',
                       width: widget.width.toDouble(),
                       height: widget.heigth.toDouble(),
-                      fit: BoxFit.cover,
+                      fit: BoxFit.contain,
                     ),
                   ),
                 ),
@@ -107,10 +107,10 @@ class _MembresiaLogoWidgetState extends State<MembresiaLogoWidget> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
                     child: Image.asset(
-                      'assets/images/ic-empIead.png',
+                      'assets/images/premiunV2.png',
                       width: widget.width.toDouble(),
                       height: widget.heigth.toDouble(),
-                      fit: BoxFit.cover,
+                      fit: BoxFit.contain,
                     ),
                   ),
                 ),
@@ -121,7 +121,7 @@ class _MembresiaLogoWidgetState extends State<MembresiaLogoWidget> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
                     child: Image.asset(
-                      'assets/images/ic-empresa.png',
+                      'assets/images/premiunV2.png',
                       width: widget.width.toDouble(),
                       height: widget.heigth.toDouble(),
                       fit: BoxFit.contain,

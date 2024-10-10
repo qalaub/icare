@@ -33,6 +33,7 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
     List<String>? serviceType,
     DocumentReference? business,
     List<String>? disabilities,
+    List<String>? schedule,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _firstName = firstName,
         _lastName = lastName,
@@ -56,6 +57,7 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
         _serviceType = serviceType,
         _business = business,
         _disabilities = disabilities,
+        _schedule = schedule,
         super(firestoreUtilData);
 
   // "firstName" field.
@@ -226,6 +228,17 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
 
   bool hasDisabilities() => _disabilities != null;
 
+  // "schedule" field.
+  List<String>? _schedule;
+  List<String> get schedule => _schedule ?? const [];
+  set schedule(List<String>? val) => _schedule = val;
+
+  void updateSchedule(Function(List<String>) updateFn) {
+    updateFn(_schedule ??= []);
+  }
+
+  bool hasSchedule() => _schedule != null;
+
   static RegisterProviderTypeStruct fromMap(Map<String, dynamic> data) =>
       RegisterProviderTypeStruct(
         firstName: data['firstName'] as String?,
@@ -250,6 +263,7 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
         serviceType: getDataList(data['serviceType']),
         business: data['business'] as DocumentReference?,
         disabilities: getDataList(data['disabilities']),
+        schedule: getDataList(data['schedule']),
       );
 
   static RegisterProviderTypeStruct? maybeFromMap(dynamic data) => data is Map
@@ -279,6 +293,7 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
         'serviceType': _serviceType,
         'business': _business,
         'disabilities': _disabilities,
+        'schedule': _schedule,
       }.withoutNulls;
 
   @override
@@ -371,6 +386,11 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
         ),
         'disabilities': serializeParam(
           _disabilities,
+          ParamType.String,
+          isList: true,
+        ),
+        'schedule': serializeParam(
+          _schedule,
           ParamType.String,
           isList: true,
         ),
@@ -490,6 +510,11 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
           ParamType.String,
           true,
         ),
+        schedule: deserializeParam<String>(
+          data['schedule'],
+          ParamType.String,
+          true,
+        ),
       );
 
   @override
@@ -520,7 +545,8 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
         updateTime == other.updateTime &&
         listEquality.equals(serviceType, other.serviceType) &&
         business == other.business &&
-        listEquality.equals(disabilities, other.disabilities);
+        listEquality.equals(disabilities, other.disabilities) &&
+        listEquality.equals(schedule, other.schedule);
   }
 
   @override
@@ -546,7 +572,8 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
         updateTime,
         serviceType,
         business,
-        disabilities
+        disabilities,
+        schedule
       ]);
 }
 

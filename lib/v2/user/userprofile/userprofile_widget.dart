@@ -63,21 +63,40 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Builder(
-                          builder: (context) {
-                            if (currentUserDocument?.rol == Roles.user) {
-                              return Container(
-                                width: double.infinity,
-                                height: 200.0,
+                        Container(
+                          width: double.infinity,
+                          height: 200.0,
+                          decoration: const BoxDecoration(
+                            color: Color(0x31FB8CE2),
+                          ),
+                          child: Stack(
+                            children: [
+                              AuthUserStreamWidget(
+                                builder: (context) => ClipRRect(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  child: Image.network(
+                                    valueOrDefault<String>(
+                                      currentUserPhoto,
+                                      'https://i.ibb.co/2qkDLKb/Frame-74.png',
+                                    ),
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 1.0,
+                                    height: 200.0,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                width: MediaQuery.sizeOf(context).width * 1.0,
                                 decoration: const BoxDecoration(
-                                  color: Color(0xB6E7A2D2),
+                                  color: Color(0x59F428EB),
                                 ),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
                                       padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 15.0, 0.0, 0.0),
+                                          0.0, 45.0, 0.0, 0.0),
                                       child: ClipRRect(
                                         borderRadius:
                                             BorderRadius.circular(8.0),
@@ -89,114 +108,32 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                         ),
                                       ),
                                     ),
-                                    Align(
-                                      alignment: const AlignmentDirectional(0.0, 0.0),
-                                      child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 15.0, 0.0, 0.0),
-                                        child: Text(
-                                          functions.upperCaseFirstLetter(
-                                              valueOrDefault(
-                                                  currentUserDocument
-                                                      ?.firtsName,
-                                                  '')),
-                                          style: FlutterFlowTheme.of(context)
-                                              .titleLarge
-                                              .override(
-                                                fontFamily: 'Montserrat',
-                                                fontSize: 28.0,
-                                                letterSpacing: 0.0,
-                                              ),
-                                        ),
-                                      ),
-                                    ),
                                   ],
                                 ),
-                              );
-                            } else {
-                              return Container(
-                                width: double.infinity,
-                                height: 200.0,
-                                decoration: const BoxDecoration(
-                                  color: Color(0x31FB8CE2),
-                                ),
-                                child: Stack(
-                                  children: [
-                                    AuthUserStreamWidget(
-                                      builder: (context) => ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                        child: Image.network(
-                                          valueOrDefault<String>(
-                                            currentUserPhoto,
-                                            'https://i.ibb.co/2qkDLKb/Frame-74.png',
-                                          ),
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  1.0,
-                                          height: 200.0,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Align(
+                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 15.0, 0.0, 0.0),
+                            child: AuthUserStreamWidget(
+                              builder: (context) => Text(
+                                functions.upperCaseFirstLetter(valueOrDefault(
+                                    currentUserDocument?.firtsName, '')),
+                                style: FlutterFlowTheme.of(context)
+                                    .titleLarge
+                                    .override(
+                                      fontFamily: 'Montserrat',
+                                      color: Colors.black,
+                                      fontSize: 28.0,
+                                      letterSpacing: 0.0,
                                     ),
-                                    Container(
-                                      decoration: const BoxDecoration(
-                                        color: Color(0x59F428EB),
-                                      ),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 15.0, 0.0, 0.0),
-                                            child: ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                              child: Image.asset(
-                                                'assets/images/Diseo_sin_ttulo_(6)_4.png',
-                                                width: 67.0,
-                                                height: 101.0,
-                                                fit: BoxFit.cover,
-                                              ),
-                                            ),
-                                          ),
-                                          Align(
-                                            alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
-                                            child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 15.0, 0.0, 0.0),
-                                              child: AuthUserStreamWidget(
-                                                builder: (context) => Text(
-                                                  valueOrDefault(
-                                                      currentUserDocument
-                                                          ?.firtsName,
-                                                      ''),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .titleLarge
-                                                      .override(
-                                                        fontFamily:
-                                                            'Montserrat',
-                                                        color:
-                                                            const Color(0xFFF9F9F9),
-                                                        fontSize: 28.0,
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              );
-                            }
-                          },
+                              ),
+                            ),
+                          ),
                         ),
                         if (currentUserPhoto == '')
                           Padding(

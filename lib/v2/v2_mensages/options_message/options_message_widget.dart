@@ -132,7 +132,7 @@ class _OptionsMessageWidgetState extends State<OptionsMessageWidget> {
                   highlightColor: Colors.transparent,
                   onTap: () async {
                     context.pushNamed(
-                      'profile_info',
+                      'ProfileInfo',
                       queryParameters: {
                         'professional': serializeParam(
                           widget.userRef?.reference,

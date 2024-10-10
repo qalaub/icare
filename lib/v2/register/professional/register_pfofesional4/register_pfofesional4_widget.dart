@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
 import 'register_pfofesional4_model.dart';
 export 'register_pfofesional4_model.dart';
@@ -35,6 +36,14 @@ class _RegisterPfofesional4WidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => RegisterPfofesional4Model());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      FFAppState().updateRegisterProviderFormStruct(
+        (e) => e..images = [],
+      );
+      FFAppState().imagesUserUpload = [];
+    });
   }
 
   @override
@@ -291,7 +300,12 @@ class _RegisterPfofesional4WidgetState
                                                               safeSetState(
                                                                   () {}),
                                                           child:
-                                                              const ImageUploadWidget(),
+                                                              const ImageUploadWidget(
+                                                            key: ValueKey(
+                                                                'image1'),
+                                                            background:
+                                                                'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/njqqw52d239b/professionalText.png',
+                                                          ),
                                                         ),
                                                       ),
                                                     ),
@@ -343,7 +357,10 @@ class _RegisterPfofesional4WidgetState
                                                               safeSetState(
                                                                   () {}),
                                                           child:
-                                                              const ImageUploadWidget(),
+                                                              const ImageUploadWidget(
+                                                            key: ValueKey(
+                                                                'image1'),
+                                                          ),
                                                         ),
                                                       ),
                                                     ),
@@ -395,7 +412,10 @@ class _RegisterPfofesional4WidgetState
                                                               safeSetState(
                                                                   () {}),
                                                           child:
-                                                              const ImageUploadWidget(),
+                                                              const ImageUploadWidget(
+                                                            key: ValueKey(
+                                                                'image1'),
+                                                          ),
                                                         ),
                                                       ),
                                                     ),
@@ -447,7 +467,10 @@ class _RegisterPfofesional4WidgetState
                                                               safeSetState(
                                                                   () {}),
                                                           child:
-                                                              const ImageUploadWidget(),
+                                                              const ImageUploadWidget(
+                                                            key: ValueKey(
+                                                                'image1'),
+                                                          ),
                                                         ),
                                                       ),
                                                     ),
@@ -499,7 +522,10 @@ class _RegisterPfofesional4WidgetState
                                                               safeSetState(
                                                                   () {}),
                                                           child:
-                                                              const ImageUploadWidget(),
+                                                              const ImageUploadWidget(
+                                                            key: ValueKey(
+                                                                'image1'),
+                                                          ),
                                                         ),
                                                       ),
                                                     ),
@@ -551,7 +577,10 @@ class _RegisterPfofesional4WidgetState
                                                               safeSetState(
                                                                   () {}),
                                                           child:
-                                                              const ImageUploadWidget(),
+                                                              const ImageUploadWidget(
+                                                            key: ValueKey(
+                                                                'image1'),
+                                                          ),
                                                         ),
                                                       ),
                                                     ),
@@ -599,7 +628,7 @@ class _RegisterPfofesional4WidgetState
                                                             .imagesUserUpload
                                                             .where((e) =>
                                                                 (e !=
-                                                                    'https://i.ibb.co/b7TBHQJ/imagen-defecto.png') &&
+                                                                    'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/xokotouxb9hk/imageText.png') &&
                                                                 (e != ''))
                                                             .toList(),
                                                     );
@@ -696,6 +725,9 @@ class _RegisterPfofesional4WidgetState
                                                               FFAppState()
                                                                   .registerProviderForm
                                                                   .disabilities,
+                                                          'schedule': FFAppState()
+                                                              .registerProviderForm
+                                                              .schedule,
                                                         },
                                                       ),
                                                     });

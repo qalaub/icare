@@ -3,7 +3,7 @@ export '/v2/h0me/home_search/home_search_widget.dart' show HomeSearchWidget;
 export '/pages/user/user_widget.dart' show UserWidget;
 export '/pages/filtros/filtros_widget.dart' show FiltrosWidget;
 export '/pages/favorites1/favorites1_widget.dart' show Favorites1Widget;
-export '/v2/register/register_user1/register_user1_widget.dart'
+export '/v2/register/user/register_user1/register_user1_widget.dart'
     show RegisterUser1Widget;
 export '/v2/register/user/register_user2/register_user2_widget.dart'
     show RegisterUser2Widget;
@@ -70,3 +70,8 @@ export '/v2/h0me/map_aument/map_aument_widget.dart' show MapAumentWidget;
 export '/recuperarcontrasea/recuperarcontrasea_widget.dart'
     show RecuperarcontraseaWidget;
 export '/deleteaccount/deleteaccount_widget.dart' show DeleteaccountWidget;
+export '/v3correciones/calendario/cadari0/cadari0_widget.dart'
+    show Cadari0Widget;
+export '/v2/v2_mensages/chat_2_details_copy/chat2_details_copy_widget.dart'
+    show Chat2DetailsCopyWidget;
+export '/v2/register/user/avatars/avatars_widget.dart' show AvatarsWidget;

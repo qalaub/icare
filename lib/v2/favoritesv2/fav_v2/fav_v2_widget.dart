@@ -3,9 +3,9 @@ import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/v2/favoritesv2/v2_favoritos_componente/v2_favoritos_componente_widget.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
+import '/v3correciones/likes_v3/likes_v3/likes_v3_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'fav_v2_model.dart';
@@ -130,9 +130,9 @@ class _FavV2WidgetState extends State<FavV2Widget> {
                                   itemBuilder: (context, userListIndex) {
                                     final userListItem =
                                         userList[userListIndex];
-                                    return V2FavoritosComponenteWidget(
+                                    return LikesV3Widget(
                                       key: Key(
-                                          'Keyz80_${userListIndex}_of_${userList.length}'),
+                                          'Key2vm_${userListIndex}_of_${userList.length}'),
                                       professionalRef: userListItem,
                                     );
                                   },

@@ -11,6 +11,8 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+import 'package:i_care/v2/user/profile_info/profile_info_widget.dart';
+
 import 'dart:convert';
 import 'package:google_maps_flutter/google_maps_flutter.dart' as google_maps;
 import 'dart:math' as math;
@@ -33,6 +35,7 @@ class MapsAustralian extends StatefulWidget {
     this.service,
     this.language,
     this.isProfessional,
+    this.schedule,
   });
 
   final double? width;
@@ -46,6 +49,7 @@ class MapsAustralian extends StatefulWidget {
   final List<String>? service;
   final String? language;
   final bool? isProfessional;
+  final List<String>? schedule;
 
   @override
   State<MapsAustralian> createState() => _MapsAustralianState();
@@ -117,7 +121,7 @@ class _MapsAustralianState extends State<MapsAustralian> {
     }
 
     final currentLocationImageUrl =
-        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/reod6o2gntsf/redPoint.png';
+        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/evrj8rjucpf8/currentMarker.png';
     final currentLocationMarkerIcon =
         await _buildMarkerIcon(currentLocationImageUrl, 100);
 
@@ -145,7 +149,7 @@ class _MapsAustralianState extends State<MapsAustralian> {
       }
 
       final image = img.decodeImage(Uint8List.fromList(bytes))!;
-      final resizedImage = img.copyResize(image, width: 25, height: 25);
+      final resizedImage = img.copyResize(image, width: 45, height: 70);
 
       final Uint8List resizedBytes =
           Uint8List.fromList(img.encodePng(resizedImage));
@@ -186,19 +190,45 @@ class _MapsAustralianState extends State<MapsAustralian> {
       return true;
     }
 
+    // Verifica si el usuario cumple con los filtros de edad
     bool ageMatch = widget.age == null ||
         widget.age!.isEmpty ||
         widget.age!.contains(user.age ?? '');
+
+    // Verifica si el usuario cumple con los filtros de servicio
     bool serviceMatch = widget.service == null ||
         widget.service!.isEmpty ||
         user.serviceType.any((service) => widget.service!.contains(service));
+
+    // Verifica si el usuario cumple con los filtros de idioma
     bool languageMatch = widget.language == null ||
         widget.language!.isEmpty ||
         (user.languagues != null &&
             user.languagues!.contains(widget.language!));
 
-    if (widget.isProfessional == true) return true;
-    return ageMatch && serviceMatch && languageMatch;
+    // Verifica si el usuario tiene algún día en común con el horario especificado
+    bool scheduleMatch = widget.schedule == null ||
+        widget.schedule!.isEmpty ||
+        user.schedule.any((day) => widget.schedule!.contains(day));
+
+    // Si el usuario es profesional, no se aplican los filtros
+    if (widget.isProfessional == true) {
+      return true;
+    }
+
+    // Retorna verdadero si cumple con alguno de los filtros
+    return ageMatch || serviceMatch || languageMatch || scheduleMatch;
+  }
+
+  void navigateToProfileInfo(UsersRecord user) {
+    if (widget.isProfessional != true) {
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => ProfileInfoWidget(
+                    professional: user.reference,
+                  )));
+    }
   }
 
   @override
@@ -243,6 +273,10 @@ class _MapsAustralianState extends State<MapsAustralian> {
                     icon: userMarkerIcon ??
                         google_maps.BitmapDescriptor.defaultMarkerWithHue(
                             google_maps.BitmapDescriptor.hueViolet),
+                    onTap: () {
+                      // Acción al hacer clic en el marcador
+                      navigateToProfileInfo(user);
+                    },
                   ),
                 );
               }
@@ -257,6 +291,10 @@ class _MapsAustralianState extends State<MapsAustralian> {
                   icon: userMarkerIcon ??
                       google_maps.BitmapDescriptor.defaultMarkerWithHue(
                           google_maps.BitmapDescriptor.hueViolet),
+                  onTap: () {
+                    // Acción al hacer clic en el marcador
+                    navigateToProfileInfo(user);
+                  },
                 ),
               );
             }

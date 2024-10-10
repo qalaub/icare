@@ -441,7 +441,7 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
                                                                           0.0,
                                                                       fontWeight:
                                                                           FontWeight
-                                                                              .w600,
+                                                                              .w500,
                                                                     ),
                                                               ).animateOnPageLoad(
                                                                   animationsMap[
@@ -519,16 +519,7 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
                                                           Radius.circular(12.0),
                                                     ),
                                                     border: Border.all(
-                                                      color:
-                                                          valueOrDefault<Color>(
-                                                        FFAppState()
-                                                                    .verifyForm
-                                                                    .dropdown ==
-                                                                true
-                                                            ? const Color(0xFFBB33B9)
-                                                            : const Color(0xFFFF5963),
-                                                        const Color(0xFFBB33B9),
-                                                      ),
+                                                      color: const Color(0xFFBB33B9),
                                                     ),
                                                   ),
                                                   child: Align(
@@ -965,7 +956,7 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
                                                                           0.0,
                                                                       fontWeight:
                                                                           FontWeight
-                                                                              .w600,
+                                                                              .w500,
                                                                     ),
                                                               ).animateOnPageLoad(
                                                                   animationsMap[
@@ -1224,7 +1215,7 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
-                                                                            FontWeight.w600,
+                                                                            FontWeight.w500,
                                                                       ),
                                                                 ).animateOnPageLoad(
                                                                     animationsMap[
@@ -1484,7 +1475,7 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
-                                                                            FontWeight.w600,
+                                                                            FontWeight.w500,
                                                                       ),
                                                                 ).animateOnPageLoad(
                                                                     animationsMap[
@@ -1685,6 +1676,28 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
                                               child: FFButtonWidget(
                                                 key: const ValueKey('continue'),
                                                 onPressed: () async {
+                                                  FFAppState()
+                                                      .updateVerifyFormStruct(
+                                                    (e) => e
+                                                      ..dropdown =
+                                                          valueOrDefault<bool>(
+                                                        _model.serviceTypeValue !=
+                                                                null &&
+                                                            (_model.serviceTypeValue)!
+                                                                .isNotEmpty,
+                                                        false,
+                                                      )
+                                                      ..dropdown2 =
+                                                          valueOrDefault<bool>(
+                                                        _model.ageValue !=
+                                                                null &&
+                                                            _model.ageValue !=
+                                                                '',
+                                                        false,
+                                                      ),
+                                                  );
+                                                  FFAppState().counter = 4;
+                                                  safeSetState(() {});
                                                   if (_model.formKey
                                                               .currentState ==
                                                           null ||
@@ -1700,27 +1713,9 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
                                                   if (_model.ageValue == null) {
                                                     return;
                                                   }
-                                                  _model.termsAccept =
-                                                      _model.termsValue!;
-                                                  safeSetState(() {});
                                                   FFAppState()
                                                       .updateVerifyFormStruct(
                                                     (e) => e
-                                                      ..dropdown =
-                                                          valueOrDefault<bool>(
-                                                        FFAppState()
-                                                                .registerProviderForm !=
-                                                            null,
-                                                        false,
-                                                      )
-                                                      ..dropdown2 =
-                                                          valueOrDefault<bool>(
-                                                        _model.ageValue !=
-                                                                null &&
-                                                            _model.ageValue !=
-                                                                '',
-                                                        false,
-                                                      )
                                                       ..confirm1 = _model.passwordTextController
                                                                   .text !=
                                                               ''
@@ -1735,6 +1730,10 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
                                                               .text,
                                                   );
                                                   FFAppState().counter = 4;
+                                                  safeSetState(() {});
+                                                  _model.termsAccept =
+                                                      _model.termsValue!;
+                                                  safeSetState(() {});
                                                   if ((FFAppState()
                                                               .verifyForm
                                                               .same ==

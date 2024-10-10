@@ -4,9 +4,9 @@ import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/v2/favoritesv2/v2_favoritos_componente/v2_favoritos_componente_widget.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
+import '/v3correciones/likes_v3/likes_v3/likes_v3_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'peoplewhoputyouinfavorites_model.dart';
@@ -108,8 +108,8 @@ class _PeoplewhoputyouinfavoritesWidgetState
                             width: 390.0,
                             height: 580.0,
                             decoration: const BoxDecoration(),
-                            child: StreamBuilder<List<UsersRecord>>(
-                              stream: queryUsersRecord(
+                            child: FutureBuilder<List<UsersRecord>>(
+                              future: queryUsersRecordOnce(
                                 queryBuilder: (usersRecord) =>
                                     usersRecord.where(
                                   'favorites',
@@ -150,9 +150,9 @@ class _PeoplewhoputyouinfavoritesWidgetState
                                   itemBuilder: (context, listViewIndex) {
                                     final listViewUsersRecord =
                                         listViewUsersRecordList[listViewIndex];
-                                    return V2FavoritosComponenteWidget(
+                                    return LikesV3Widget(
                                       key: Key(
-                                          'Keyebk_${listViewIndex}_of_${listViewUsersRecordList.length}'),
+                                          'Keynnl_${listViewIndex}_of_${listViewUsersRecordList.length}'),
                                       professionalRef:
                                           listViewUsersRecord.reference,
                                     );

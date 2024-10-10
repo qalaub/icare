@@ -28,7 +28,9 @@ class _EscogerUsuarioWidgetState extends State<EscogerUsuarioWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      FFAppState().registerProviderForm = RegisterProviderTypeStruct();
+      FFAppState().registerProviderForm =
+          RegisterProviderTypeStruct.fromSerializableMap(jsonDecode(
+              '{\"images\":\"[]\",\"serviceType\":\"[]\",\"disabilities\":\"[]\",\"schedule\":\"[\\\"Monday\\\",\\\"Tuesday\\\",\\\"Wednesday\\\",\\\"Thursday\\\",\\\"Friday\\\",\\\"Saturday\\\",\\\"Sunday\\\"]\"}'));
       FFAppState().imagesUserUpload = [];
     });
   }

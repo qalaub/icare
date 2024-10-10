@@ -121,7 +121,7 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                           context.pushNamed('Login');
                         } else {
                           context.pushNamed(
-                            'profile_info',
+                            'ProfileInfo',
                             queryParameters: {
                               'professional': serializeParam(
                                 _model.currentProfessional?.reference,
@@ -392,7 +392,7 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                             }
 
                                             context.pushNamed(
-                                              'profile_info',
+                                              'ProfileInfo',
                                               queryParameters: {
                                                 'professional': serializeParam(
                                                   _model.currentProfessional

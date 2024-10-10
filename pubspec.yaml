@@ -15,7 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 0.91.55+145
+version: 0.91.68+149
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -68,6 +68,7 @@ dependencies:
   flutter_svg: 2.0.9
   font_awesome_flutter: 10.7.0
   from_css_color: 2.0.0
+  geocoding: ^2.1.0
   geolocator: 12.0.0
   geolocator_android: 4.6.0
   geolocator_apple: 2.3.7
@@ -180,11 +181,24 @@ flutter:
     - assets/images/
     - assets/videos/
     - assets/audios/
-    - assets/lottie_animations/
     - assets/rive_animations/
     - assets/pdfs/
+    - assets/jsons/
 
   fonts:
+    - family: 'ITC Bauhaus fuente'
+      fonts:
+        - asset: assets/fonts/BauhausStd-Demi.ttf
+          weight: 100
+        - asset: assets/fonts/BauhausStd-Heavy.ttf
+          weight: 200
+        - asset: assets/fonts/BauhausStd-Light.ttf
+          weight: 300
+        - asset: assets/fonts/BauhausStd-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/BauhausStd-Bold.ttf
+          weight: 700
+
     - family: MyFlutterApp
       fonts:
         - asset: assets/fonts/MyFlutterApp.ttf
@@ -194,8 +208,11 @@ flutter:
     - family: Like
       fonts:
         - asset: assets/fonts/Like.ttf
+    - family: IconsV3
+      fonts:
+        - asset: assets/fonts/IconsV3.ttf
 
-  
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
