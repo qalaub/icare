@@ -81,7 +81,7 @@ class _FavV3CopyWidgetState extends State<FavV3CopyWidget> {
                 image: DecorationImage(
                   fit: BoxFit.cover,
                   image: Image.asset(
-                    'assets/images/F0NDer_fav3_(1).png',
+                    'assets/images/inicio_1-3-4.png',
                   ).image,
                 ),
               ),

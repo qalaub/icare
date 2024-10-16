@@ -18,9 +18,11 @@ class V3fv0ritesv3Widget extends StatefulWidget {
   const V3fv0ritesv3Widget({
     super.key,
     required this.profesionalId,
-  });
+    bool? isCollaborator,
+  }) : isCollaborator = isCollaborator ?? false;
 
   final DocumentReference? profesionalId;
+  final bool isCollaborator;
 
   @override
   State<V3fv0ritesv3Widget> createState() => _V3fv0ritesv3WidgetState();
@@ -221,9 +223,8 @@ class _V3fv0ritesv3WidgetState extends State<V3fv0ritesv3Widget> {
 
                                 return Container(
                                   decoration: const BoxDecoration(),
-                                  child: Row(
+                                  child: Column(
                                     mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Align(
                                         alignment:
@@ -300,7 +301,34 @@ class _V3fv0ritesv3WidgetState extends State<V3fv0ritesv3Widget> {
                                           ),
                                         ),
                                       ),
-                                    ].divide(const SizedBox(width: 4.0)),
+                                      Align(
+                                        alignment:
+                                            const AlignmentDirectional(0.0, -0.7),
+                                        child: Text(
+                                          valueOrDefault<String>(
+                                            functions.concatStrings(
+                                                '(',
+                                                ')',
+                                                valueOrDefault<String>(
+                                                  containerReviewsRecordList
+                                                      .length
+                                                      .toString(),
+                                                  '1278',
+                                                )),
+                                            '(1278)',
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Montserrat',
+                                                color: Colors.white,
+                                                fontSize: 11.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 );
                               },
@@ -623,25 +651,27 @@ class _V3fv0ritesv3WidgetState extends State<V3fv0ritesv3Widget> {
                             ),
                           ),
                         ),
-                        Align(
-                          alignment: const AlignmentDirectional(1.0, -0.19),
-                          child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 16.0),
-                            child: Container(
-                              decoration: const BoxDecoration(),
-                              child: wrapWithModel(
-                                model: _model.membresiaLogoModel,
-                                updateCallback: () => safeSetState(() {}),
-                                child: MembresiaLogoWidget(
-                                  professional: containerUsersRecord.reference,
-                                  width: 40,
-                                  heigth: 40,
+                        if (!widget.isCollaborator)
+                          Align(
+                            alignment: const AlignmentDirectional(1.0, -0.19),
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 16.0),
+                              child: Container(
+                                decoration: const BoxDecoration(),
+                                child: wrapWithModel(
+                                  model: _model.membresiaLogoModel,
+                                  updateCallback: () => safeSetState(() {}),
+                                  child: MembresiaLogoWidget(
+                                    professional:
+                                        containerUsersRecord.reference,
+                                    width: 40,
+                                    heigth: 40,
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
                       ],
                     ),
                   ],

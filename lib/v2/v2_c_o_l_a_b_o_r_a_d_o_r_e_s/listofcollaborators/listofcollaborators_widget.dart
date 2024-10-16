@@ -1,10 +1,10 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/schema/enums/enums.dart';
-import '/components/listofcollaborators_p_e_r_f_i_l_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
+import '/v3correciones/user_fav0rites/v3fv0ritesv3/v3fv0ritesv3_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'listofcollaborators_model.dart';
@@ -51,7 +51,7 @@ class _ListofcollaboratorsWidgetState extends State<ListofcollaboratorsWidget> {
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: Image.asset(
-                  'assets/images/F0NDer_fav3_(1).png',
+                  'assets/images/inicio_1-3.png',
                 ).image,
               ),
             ),
@@ -134,42 +134,49 @@ class _ListofcollaboratorsWidgetState extends State<ListofcollaboratorsWidget> {
                               ),
                             ),
                           ),
-                          Align(
-                            alignment: const AlignmentDirectional(0.0, 0.6),
-                            child: Container(
-                              width: MediaQuery.sizeOf(context).width * 0.86,
-                              height: MediaQuery.sizeOf(context).height * 0.76,
-                              decoration: const BoxDecoration(),
+                          if ((currentUserDocument?.professionals.toList() ??
+                                      []).isNotEmpty)
+                            Align(
+                              alignment: const AlignmentDirectional(0.0, 0.3),
                               child: AuthUserStreamWidget(
-                                builder: (context) => Builder(
-                                  builder: (context) {
-                                    final colaborators = (currentUserDocument
-                                                ?.professionals
-                                                .toList() ??
-                                            [])
-                                        .toList();
+                                builder: (context) => Container(
+                                  width:
+                                      MediaQuery.sizeOf(context).width * 0.86,
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.62,
+                                  decoration: const BoxDecoration(),
+                                  child: Builder(
+                                    builder: (context) {
+                                      final colaborators = (currentUserDocument
+                                                  ?.professionals
+                                                  .toList() ??
+                                              [])
+                                          .toList();
 
-                                    return ListView.builder(
-                                      padding: EdgeInsets.zero,
-                                      shrinkWrap: true,
-                                      scrollDirection: Axis.vertical,
-                                      itemCount: colaborators.length,
-                                      itemBuilder:
-                                          (context, colaboratorsIndex) {
-                                        final colaboratorsItem =
-                                            colaborators[colaboratorsIndex];
-                                        return ListofcollaboratorsPERFILWidget(
-                                          key: Key(
-                                              'Key9hk_${colaboratorsIndex}_of_${colaborators.length}'),
-                                          professional: colaboratorsItem,
-                                        );
-                                      },
-                                    );
-                                  },
+                                      return ListView.separated(
+                                        padding: EdgeInsets.zero,
+                                        shrinkWrap: true,
+                                        scrollDirection: Axis.vertical,
+                                        itemCount: colaborators.length,
+                                        separatorBuilder: (_, __) =>
+                                            const SizedBox(height: 14.0),
+                                        itemBuilder:
+                                            (context, colaboratorsIndex) {
+                                          final colaboratorsItem =
+                                              colaborators[colaboratorsIndex];
+                                          return V3fv0ritesv3Widget(
+                                            key: Key(
+                                                'Key81z_${colaboratorsIndex}_of_${colaborators.length}'),
+                                            profesionalId: colaboratorsItem,
+                                            isCollaborator: true,
+                                          );
+                                        },
+                                      );
+                                    },
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
                           Align(
                             alignment: const AlignmentDirectional(0.0, 1.01),
                             child: Container(

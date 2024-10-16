@@ -1414,7 +1414,7 @@ class _RegisterProfessional2WidgetState
                                                   .fromSTEB(
                                                       0.0, 15.0, 0.0, 15.0),
                                               child: Text(
-                                                '* Password has to be the same',
+                                                '  * Confirm password',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium

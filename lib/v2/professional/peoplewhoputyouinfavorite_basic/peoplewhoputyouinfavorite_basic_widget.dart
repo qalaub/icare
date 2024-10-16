@@ -88,14 +88,7 @@ class _PeoplewhoputyouinfavoriteBasicWidgetState
                 child: Container(
                   width: double.infinity,
                   height: double.infinity,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: Image.asset(
-                        'assets/images/F0NDer_fav3_(1).png',
-                      ).image,
-                    ),
-                  ),
+                  decoration: const BoxDecoration(),
                   child: Align(
                     alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Stack(

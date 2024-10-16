@@ -81,7 +81,7 @@ class _FavV2WidgetState extends State<FavV2Widget> {
                 image: DecorationImage(
                   fit: BoxFit.cover,
                   image: Image.asset(
-                    'assets/images/F0NDer_fav2_(1).png',
+                    'assets/images/inicio_1-3-4.png',
                   ).image,
                 ),
               ),

@@ -91,24 +91,9 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                 decoration: const BoxDecoration(
                                   color: Color(0x59F428EB),
                                 ),
-                                child: Column(
+                                child: const Column(
                                   mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 45.0, 0.0, 0.0),
-                                      child: ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                        child: Image.asset(
-                                          'assets/images/Diseo_sin_ttulo_(6)_4.png',
-                                          width: 67.0,
-                                          height: 101.0,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
+                                  children: [],
                                 ),
                               ),
                             ],

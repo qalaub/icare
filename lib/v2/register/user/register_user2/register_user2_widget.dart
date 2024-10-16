@@ -883,7 +883,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                   .fromSTEB(
                                                       0.0, 15.0, 0.0, 15.0),
                                               child: Text(
-                                                '* Password has to be the same',
+                                                '  * Confirm password',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium

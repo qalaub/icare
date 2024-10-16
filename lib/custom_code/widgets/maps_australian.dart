@@ -341,9 +341,12 @@ class _MapsAustralianState extends State<MapsAustralian> {
               }
             },
             mapType: google_maps.MapType.normal,
-            myLocationEnabled: true,
-            myLocationButtonEnabled: false,
-            zoomControlsEnabled: false,
+            myLocationButtonEnabled:
+                false, // Desactiva el botón de "My Location"
+            zoomControlsEnabled: false, // Desactiva los controles de zoom
+            compassEnabled: false, // Desactiva la brújula
+            mapToolbarEnabled: false, // Desactiva la barra de herramientas
+
             minMaxZoomPreference: google_maps.MinMaxZoomPreference(4, 10),
             cameraTargetBounds: google_maps.CameraTargetBounds(australiaBounds),
             markers: markers,

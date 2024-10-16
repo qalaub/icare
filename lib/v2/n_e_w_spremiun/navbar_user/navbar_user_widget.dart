@@ -68,7 +68,7 @@ class _NavbarUserWidgetState extends State<NavbarUserWidget> {
                           child: FlutterFlowIconButton(
                             key: const ValueKey('home'),
                             borderColor: Colors.transparent,
-                            buttonSize: MediaQuery.sizeOf(context).width * 0.12,
+                            buttonSize: MediaQuery.sizeOf(context).width * 0.11,
                             icon: const FaIcon(
                               key: ValueKey('home'),
                               FontAwesomeIcons.houseUser,
@@ -94,6 +94,7 @@ class _NavbarUserWidgetState extends State<NavbarUserWidget> {
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Poppins',
                                     color: Colors.white,
+                                    fontSize: 15.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
                                   ),
@@ -119,7 +120,7 @@ class _NavbarUserWidgetState extends State<NavbarUserWidget> {
                         child: FlutterFlowIconButton(
                           key: const ValueKey('favorite'),
                           borderColor: Colors.transparent,
-                          buttonSize: 48.0,
+                          buttonSize: 50.0,
                           icon: const Icon(
                             key: ValueKey('favorite'),
                             Icons.favorite_border_rounded,
@@ -155,6 +156,7 @@ class _NavbarUserWidgetState extends State<NavbarUserWidget> {
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Poppins',
                               color: Colors.white,
+                              fontSize: 15.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w500,
                             ),
@@ -184,7 +186,7 @@ class _NavbarUserWidgetState extends State<NavbarUserWidget> {
                               child: FlutterFlowIconButton(
                                 key: const ValueKey('message'),
                                 borderColor: Colors.transparent,
-                                buttonSize: 48.0,
+                                buttonSize: 50.0,
                                 icon: const Icon(
                                   key: ValueKey('message'),
                                   Icons.wechat_rounded,
@@ -305,7 +307,7 @@ class _NavbarUserWidgetState extends State<NavbarUserWidget> {
                           key: const ValueKey('maps'),
                           borderColor: Colors.transparent,
                           borderRadius: 34.0,
-                          buttonSize: 48.0,
+                          buttonSize: 50.0,
                           icon: const FaIcon(
                             key: ValueKey('maps'),
                             FontAwesomeIcons.mapMarkedAlt,
@@ -329,6 +331,7 @@ class _NavbarUserWidgetState extends State<NavbarUserWidget> {
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Poppins',
                               color: Colors.white,
+                              fontSize: 15.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w500,
                             ),
@@ -348,27 +351,23 @@ class _NavbarUserWidgetState extends State<NavbarUserWidget> {
                   flex: 1,
                   child: Align(
                     alignment: const AlignmentDirectional(0.0, 0.0),
-                    child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 6.0, 0.0),
-                      child: FlutterFlowIconButton(
-                        key: const ValueKey('profile'),
-                        borderColor: Colors.transparent,
-                        buttonSize: 48.0,
-                        icon: const Icon(
-                          key: ValueKey('profile'),
-                          Icons.person,
-                          color: Colors.white,
-                          size: 34.0,
-                        ),
-                        onPressed: () async {
-                          if (loggedIn) {
-                            context.pushNamed('userprofile');
-                          } else {
-                            context.pushNamed('Login');
-                          }
-                        },
+                    child: FlutterFlowIconButton(
+                      key: const ValueKey('profile'),
+                      borderColor: Colors.transparent,
+                      buttonSize: 50.0,
+                      icon: const Icon(
+                        key: ValueKey('profile'),
+                        Icons.person,
+                        color: Colors.white,
+                        size: 34.0,
                       ),
+                      onPressed: () async {
+                        if (loggedIn) {
+                          context.pushNamed('userprofile');
+                        } else {
+                          context.pushNamed('Login');
+                        }
+                      },
                     ),
                   ),
                 ),
@@ -379,6 +378,7 @@ class _NavbarUserWidgetState extends State<NavbarUserWidget> {
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Poppins',
                           color: Colors.white,
+                          fontSize: 15.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w500,
                         ),

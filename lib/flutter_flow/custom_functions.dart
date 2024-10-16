@@ -374,7 +374,12 @@ String formatnameStreet(String input) {
 
     // Si hay una coma, cortamos hasta la coma; de lo contrario, devolvemos la cadena completa
     if (commaIndex != -1) {
-      return address.substring(0, commaIndex).trim(); // Cortamos hasta la coma
+      String temp = address.substring(commaIndex + 2).trim();
+      int spaceIndexTemp = temp.indexOf(' ');
+      if (spaceIndexTemp != -1) {
+        return temp.substring(0, spaceIndexTemp).trim();
+      }
+      return address.substring(0, commaIndex).trim();
     } else {
       return address.trim(); // Devolvemos la dirección completa si no hay coma
     }

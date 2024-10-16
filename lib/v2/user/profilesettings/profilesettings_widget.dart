@@ -1507,23 +1507,24 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                           text: 'Save changes',
                           options: FFButtonOptions(
                             width: 167.0,
-                            height: 57.0,
+                            height: 50.0,
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 12.0, 0.0, 12.0, 0.0),
                             iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            color: const Color(0xFFFF6FF7),
+                            color: const Color(0xFFB928B8),
                             textStyle: FlutterFlowTheme.of(context)
                                 .headlineLarge
                                 .override(
                                   fontFamily: 'Montserrat',
                                   color: Colors.white,
-                                  fontSize: 24.0,
+                                  fontSize: 22.0,
                                   letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w500,
                                 ),
                             elevation: 3.0,
                             borderSide: const BorderSide(
-                              color: Colors.transparent,
+                              color: Color(0x001C1818),
                               width: 1.0,
                             ),
                             borderRadius: BorderRadius.circular(16.0),
