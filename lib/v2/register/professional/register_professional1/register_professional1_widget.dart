@@ -149,7 +149,7 @@ class _RegisterProfessional1WidgetState
                             Align(
                               alignment: const AlignmentDirectional(0.0, 0.0),
                               child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
+                                borderRadius: BorderRadius.circular(0.0),
                                 child: Image.asset(
                                   'assets/images/escoger-users.png',
                                   width: double.infinity,
@@ -178,13 +178,13 @@ class _RegisterProfessional1WidgetState
                               alignment: const AlignmentDirectional(0.0, -1.0),
                               child: Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 10.0, 0.0, 0.0),
+                                    0.0, 6.0, 0.0, 0.0),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(8.0),
                                   child: Image.asset(
                                     'assets/images/logoapp.png',
                                     width: 110.0,
-                                    height: 110.0,
+                                    height: 116.0,
                                     fit: BoxFit.fitWidth,
                                   ),
                                 ),

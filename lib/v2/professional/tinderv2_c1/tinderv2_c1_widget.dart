@@ -13,6 +13,7 @@ import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'tinderv2_c1_model.dart';
 export 'tinderv2_c1_model.dart';
 
@@ -27,6 +28,8 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
   late Tinderv2C1Model _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  late StreamSubscription<bool> _keyboardVisibilitySubscription;
+  bool _isKeyboardVisible = false;
 
   @override
   void initState() {
@@ -62,12 +65,24 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
 
       _model.currentProfessional = _model.professionals.first;
     });
+
+    if (!isWeb) {
+      _keyboardVisibilitySubscription =
+          KeyboardVisibilityController().onChange.listen((bool visible) {
+        safeSetState(() {
+          _isKeyboardVisible = visible;
+        });
+      });
+    }
   }
 
   @override
   void dispose() {
     _model.dispose();
 
+    if (!isWeb) {
+      _keyboardVisibilitySubscription.cancel();
+    }
     super.dispose();
   }
 
@@ -460,57 +475,164 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                _model.swipeableStackController.swipeLeft();
-                              },
-                              child: Container(
-                                key: const ValueKey('dislike'),
-                                width: MediaQuery.sizeOf(context).width * 0.18,
-                                height: MediaQuery.sizeOf(context).width * 0.18,
-                                clipBehavior: Clip.antiAlias,
-                                decoration: const BoxDecoration(
-                                  shape: BoxShape.circle,
-                                ),
-                                child: Image.asset(
+                            Align(
+                              alignment: const AlignmentDirectional(1.0, 0.0),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  _model.swipeableStackController.swipeLeft();
+                                },
+                                child: Container(
                                   key: const ValueKey('dislike'),
-                                  'assets/images/ggy9g_x.png',
-                                  fit: BoxFit.cover,
+                                  width:
+                                      MediaQuery.sizeOf(context).width * 0.18,
+                                  height:
+                                      MediaQuery.sizeOf(context).width * 0.18,
+                                  clipBehavior: Clip.antiAlias,
+                                  decoration: const BoxDecoration(
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Image.asset(
+                                    key: const ValueKey('dislike'),
+                                    'assets/images/ggy9g_x.png',
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
                               ),
                             ),
-                            InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                if (loggedIn == false) {
-                                  context.pushNamed('Login');
-                                } else {
-                                  _model.swipeableStackController.swipeRight();
-                                }
-                              },
-                              child: Container(
-                                key: const ValueKey('like'),
-                                width: MediaQuery.sizeOf(context).width * 0.18,
-                                height: MediaQuery.sizeOf(context).width * 0.18,
-                                clipBehavior: Clip.antiAlias,
-                                decoration: const BoxDecoration(
-                                  shape: BoxShape.circle,
-                                ),
-                                child: Image.asset(
+                            if (isWeb
+                                ? MediaQuery.viewInsetsOf(context).bottom > 0
+                                : _isKeyboardVisible)
+                              Stack(
+                                children: [
+                                  Align(
+                                    alignment: const AlignmentDirectional(0.0, 1.0),
+                                    child: Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 16.0, 0.0, 0.0),
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          _model.refreshProfesional =
+                                              await queryUsersRecordOnce(
+                                            queryBuilder: (usersRecord) =>
+                                                usersRecord.where(
+                                              'rol',
+                                              isNotEqualTo:
+                                                  Roles.user.serialize(),
+                                            ),
+                                          );
+                                          if (loggedIn) {
+                                            await currentUserReference!.update({
+                                              ...mapToFirestore(
+                                                {
+                                                  'dontShow':
+                                                      FieldValue.arrayRemove([
+                                                    (currentUserDocument
+                                                                ?.dontShow
+                                                                .toList() ??
+                                                            [])
+                                                        .last
+                                                  ]),
+                                                },
+                                              ),
+                                            });
+                                            _model.professionals = _model
+                                                .refreshProfesional!
+                                                .where((e) =>
+                                                    ((currentUserDocument
+                                                                    ?.dontShow
+                                                                    .toList() ??
+                                                                [])
+                                                            .contains(
+                                                                e.reference) ==
+                                                        false) &&
+                                                    ((currentUserDocument
+                                                                    ?.favorites
+                                                                    .toList() ??
+                                                                [])
+                                                            .contains(
+                                                                e.reference) ==
+                                                        false))
+                                                .toList()
+                                                .cast<UsersRecord>();
+                                            safeSetState(() {});
+                                          } else {
+                                            _model.professionals = _model
+                                                .refreshProfesional!
+                                                .toList()
+                                                .cast<UsersRecord>();
+                                            safeSetState(() {});
+                                          }
+
+                                          _model.currentProfessional =
+                                              _model.professionals.first;
+
+                                          safeSetState(() {});
+                                        },
+                                        child: Container(
+                                          key: const ValueKey('like'),
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.13,
+                                          height:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.13,
+                                          clipBehavior: Clip.antiAlias,
+                                          decoration: const BoxDecoration(
+                                            shape: BoxShape.circle,
+                                          ),
+                                          child: Image.asset(
+                                            key: const ValueKey('like'),
+                                            'assets/images/Group_100-2_(1).png',
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            Align(
+                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  if (loggedIn == false) {
+                                    context.pushNamed('Login');
+                                  } else {
+                                    _model.swipeableStackController
+                                        .swipeRight();
+                                  }
+                                },
+                                child: Container(
                                   key: const ValueKey('like'),
-                                  'assets/images/ME-GUSTA.png',
-                                  fit: BoxFit.cover,
+                                  width:
+                                      MediaQuery.sizeOf(context).width * 0.18,
+                                  height:
+                                      MediaQuery.sizeOf(context).width * 0.18,
+                                  clipBehavior: Clip.antiAlias,
+                                  decoration: const BoxDecoration(
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Image.asset(
+                                    key: const ValueKey('like'),
+                                    'assets/images/ME-GUSTA.png',
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
                               ),
                             ),
-                          ].divide(const SizedBox(width: 30.0)),
+                          ].divide(const SizedBox(width: 12.0)),
                         ),
                       ),
                     ].divide(const SizedBox(height: 2.0)),

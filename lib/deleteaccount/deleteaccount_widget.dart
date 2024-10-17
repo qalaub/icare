@@ -106,44 +106,48 @@ class _DeleteaccountWidgetState extends State<DeleteaccountWidget> {
                                   thickness: 2.0,
                                   color: Color(0xFFF0DFEF),
                                 ),
-                                Container(
-                                  decoration: const BoxDecoration(),
-                                  child: RichText(
-                                    textScaler:
-                                        MediaQuery.of(context).textScaler,
-                                    text: TextSpan(
-                                      children: [
-                                        TextSpan(
-                                          text:
-                                              'Deleting your account will be permanent, you will lose all your information and access to the current app, keep in mind that this is an irreversible process.',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Montserrat',
-                                                fontSize: 15.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.normal,
-                                              ),
-                                        ),
-                                        const TextSpan(
-                                          text:
-                                              '  Are you sure you want to delete your account?',
-                                          style: TextStyle(
-                                            color: Color(0xFFB928B8),
-                                            fontWeight: FontWeight.w600,
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      8.0, 0.0, 8.0, 0.0),
+                                  child: Container(
+                                    decoration: const BoxDecoration(),
+                                    child: RichText(
+                                      textScaler:
+                                          MediaQuery.of(context).textScaler,
+                                      text: TextSpan(
+                                        children: [
+                                          TextSpan(
+                                            text:
+                                                'Deleting your account will be permanent, you will lose all your information and access to the current app, keep in mind that this is an irreversible process.',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Montserrat',
+                                                  fontSize: 15.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.normal,
+                                                ),
                                           ),
-                                        )
-                                      ],
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Montserrat',
-                                            fontSize: 15.0,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.normal,
-                                          ),
+                                          const TextSpan(
+                                            text:
+                                                '  Are you sure you want to delete your account?',
+                                            style: TextStyle(
+                                              color: Color(0xFFB928B8),
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                          )
+                                        ],
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Montserrat',
+                                              fontSize: 15.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.normal,
+                                            ),
+                                      ),
+                                      textAlign: TextAlign.center,
                                     ),
-                                    textAlign: TextAlign.center,
                                   ),
                                 ),
                                 Padding(

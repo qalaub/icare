@@ -106,7 +106,7 @@ class _LikesV3WidgetState extends State<LikesV3Widget> {
               : null;
 
           return Container(
-            width: MediaQuery.sizeOf(context).width * 0.92,
+            width: MediaQuery.sizeOf(context).width * 0.72,
             height: 124.0,
             decoration: BoxDecoration(
               color: const Color(0xFFF2CCF1),
@@ -119,6 +119,8 @@ class _LikesV3WidgetState extends State<LikesV3Widget> {
                 Align(
                   alignment: const AlignmentDirectional(0.0, -0.6),
                   child: Container(
+                    width: 60.0,
+                    height: 60.0,
                     decoration: const BoxDecoration(),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(8.0),

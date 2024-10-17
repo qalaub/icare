@@ -279,7 +279,7 @@ class _PeoplewhoputyouinfavoriteBasicWidgetState
                                   16.0, 0.0, 16.0, 0.0),
                               iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              color: const Color(0xFBDD92DD),
+                              color: const Color(0xFFA00BAB),
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(

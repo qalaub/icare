@@ -1,15 +1,24 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/components/avatar_component_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 import 'avatars_model.dart';
 export 'avatars_model.dart';
 
 class AvatarsWidget extends StatefulWidget {
-  const AvatarsWidget({super.key});
+  const AvatarsWidget({
+    super.key,
+    bool? isUpdate,
+  }) : isUpdate = isUpdate ?? false;
+
+  final bool isUpdate;
 
   @override
   State<AvatarsWidget> createState() => _AvatarsWidgetState();
@@ -24,6 +33,14 @@ class _AvatarsWidgetState extends State<AvatarsWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => AvatarsModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      if (widget.isUpdate) {
+        _model.selectImage = currentUserPhoto;
+        safeSetState(() {});
+      }
+    });
   }
 
   @override
@@ -35,6 +52,8 @@ class _AvatarsWidgetState extends State<AvatarsWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
@@ -156,25 +175,119 @@ class _AvatarsWidgetState extends State<AvatarsWidget> {
                           child: FFButtonWidget(
                             key: const ValueKey('continue'),
                             onPressed: () async {
-                              FFAppState().updateRegisterProviderFormStruct(
-                                (e) => e
-                                  ..updateImages(
-                                    (e) => e.add(_model.selectImage),
-                                  ),
-                              );
-                              safeSetState(() {});
+                              if (widget.isUpdate) {
+                                await currentUserReference!
+                                    .update(createUsersRecordData(
+                                  photoUrl: _model.selectImage,
+                                ));
 
-                              context.pushNamed(
-                                'RegisterUser2',
-                                extra: <String, dynamic>{
-                                  kTransitionInfoKey: const TransitionInfo(
-                                    hasTransition: true,
-                                    transitionType: PageTransitionType.fade,
+                                context.pushNamedAuth(
+                                    'Profilesettings', context.mounted);
+                              } else {
+                                FFAppState().updateRegisterProviderFormStruct(
+                                  (e) => e
+                                    ..updateImages(
+                                      (e) => e.add(_model.selectImage),
+                                    ),
+                                );
+                                safeSetState(() {});
+                                GoRouter.of(context).prepareAuthEvent();
+
+                                final user =
+                                    await authManager.createAccountWithEmail(
+                                  context,
+                                  FFAppState().registerProviderForm.email,
+                                  FFAppState().registerProviderForm.password,
+                                );
+                                if (user == null) {
+                                  return;
+                                }
+
+                                await UsersRecord.collection
+                                    .doc(user.uid)
+                                    .update({
+                                  ...createUsersRecordData(
+                                    firtsName: FFAppState()
+                                        .registerProviderForm
+                                        .firstName,
+                                    lastName: FFAppState()
+                                        .registerProviderForm
+                                        .lastName,
+                                    birthdate: FFAppState()
+                                        .registerProviderForm
+                                        .birthdate,
+                                    suburb: FFAppState()
+                                        .registerProviderForm
+                                        .suburb,
+                                    ndis:
+                                        FFAppState().registerProviderForm.ndis,
+                                    phoneNumber:
+                                        FFAppState().registerProviderForm.phone,
+                                    email:
+                                        FFAppState().registerProviderForm.email,
+                                    age: FFAppState().registerProviderForm.age,
+                                    years:
+                                        FFAppState().registerProviderForm.years,
+                                    gender: FFAppState()
+                                        .registerProviderForm
+                                        .gender,
+                                    description: FFAppState()
+                                        .registerProviderForm
+                                        .description,
+                                    comapny: FFAppState()
+                                        .registerProviderForm
+                                        .company,
+                                    languagues: '',
+                                    rol: FFAppState().registerProviderForm.rol,
+                                    plan:
+                                        FFAppState().registerProviderForm.plan,
+                                    photoUrl: FFAppState()
+                                                .registerProviderForm
+                                                .images.isNotEmpty
+                                        ? FFAppState()
+                                            .registerProviderForm
+                                            .images
+                                            .first
+                                        : ' ',
+                                    business: FFAppState()
+                                        .registerProviderForm
+                                        .business,
+                                    paymentDate: getCurrentTimestamp,
+                                    freeTrial: true,
+                                    displayName: '',
                                   ),
-                                },
-                              );
+                                  ...mapToFirestore(
+                                    {
+                                      'images': FFAppState().imagesUserUpload,
+                                      'serviceType': FFAppState()
+                                          .registerProviderForm
+                                          .serviceType,
+                                      'disabilities': FFAppState()
+                                          .registerProviderForm
+                                          .disabilities,
+                                      'schedule': FFAppState()
+                                          .registerProviderForm
+                                          .schedule,
+                                    },
+                                  ),
+                                });
+
+                                FFAppState().authUserFireBase = true;
+
+                                context.pushNamedAuth(
+                                  'HomeSearch',
+                                  context.mounted,
+                                  extra: <String, dynamic>{
+                                    kTransitionInfoKey: const TransitionInfo(
+                                      hasTransition: true,
+                                      transitionType: PageTransitionType.fade,
+                                      duration: Duration(milliseconds: 200),
+                                    ),
+                                  },
+                                );
+                              }
                             },
-                            text: 'Continue',
+                            text: widget.isUpdate ? 'Update' : 'Create',
                             options: FFButtonOptions(
                               width: 275.0,
                               height: 45.0,

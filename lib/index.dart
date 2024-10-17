@@ -56,7 +56,7 @@ export '/v2/mysubscription/my_subscription_premium/my_subscription_premium_widge
     show MySubscriptionPremiumWidget;
 export '/v2/mysubscription/my_subscription_basic/my_subscription_basic_widget.dart'
     show MySubscriptionBasicWidget;
-export '/v2/v2_mensages/report/report_widget.dart' show ReportWidget;
+export '/v2/report/report_widget.dart' show ReportWidget;
 export '/v2/v2_mensages/report_section/report_section_widget.dart'
     show ReportSectionWidget;
 export '/v2/favoritesv2/fav_v3_copy/fav_v3_copy_widget.dart'

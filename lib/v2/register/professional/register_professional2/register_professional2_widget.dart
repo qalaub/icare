@@ -153,7 +153,7 @@ class _RegisterProfessional2WidgetState
                             Align(
                               alignment: const AlignmentDirectional(0.0, 0.0),
                               child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
+                                borderRadius: BorderRadius.circular(0.0),
                                 child: Image.asset(
                                   'assets/images/escoger-users.png',
                                   width: double.infinity,
@@ -187,18 +187,18 @@ class _RegisterProfessional2WidgetState
                                   borderRadius: BorderRadius.circular(8.0),
                                   child: Image.asset(
                                     'assets/images/logoapp.png',
-                                    width: 113.0,
-                                    height: 106.0,
+                                    width: 110.0,
+                                    height: 116.0,
                                     fit: BoxFit.fitWidth,
                                   ),
                                 ),
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 0.8),
+                              alignment: const AlignmentDirectional(0.0, 0.3),
                               child: Container(
                                 width: MediaQuery.sizeOf(context).width * 0.96,
-                                height: 604.0,
+                                height: MediaQuery.sizeOf(context).height * 0.7,
                                 decoration: BoxDecoration(
                                   color: const Color(0xFFFFFEFE),
                                   borderRadius: const BorderRadius.only(

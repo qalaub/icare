@@ -52,6 +52,8 @@ class Tinderv2C1Model extends FlutterFlowModel<Tinderv2C1Widget> {
   ChatsRecord? newRef;
   // Stores action output result for [Backend Call - Create Document] action in SwipeableStack widget.
   ChatsRecord? newChatThread;
+  // Stores action output result for [Firestore Query - Query a collection] action in CircleImage widget.
+  List<UsersRecord>? refreshProfesional;
   // Model for Navbar component.
   late NavbarModel navbarModel;
   // Model for NavbarPremiun component.

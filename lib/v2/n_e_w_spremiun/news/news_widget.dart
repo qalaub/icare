@@ -106,7 +106,7 @@ class _NewsWidgetState extends State<NewsWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Poppins',
+                                    fontFamily: 'Inter',
                                     fontSize: 20.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
@@ -196,7 +196,7 @@ class _NewsWidgetState extends State<NewsWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Poppins',
+                                    fontFamily: 'Inter',
                                     fontSize: 20.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,

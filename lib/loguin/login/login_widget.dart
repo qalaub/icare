@@ -89,7 +89,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                             Align(
                               alignment: const AlignmentDirectional(0.0, 0.0),
                               child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
+                                borderRadius: BorderRadius.circular(0.0),
                                 child: Image.asset(
                                   'assets/images/escoger-users.png',
                                   width: double.infinity,

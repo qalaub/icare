@@ -176,7 +176,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                             Align(
                               alignment: const AlignmentDirectional(0.0, 0.0),
                               child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
+                                borderRadius: BorderRadius.circular(0.0),
                                 child: Image.asset(
                                   'assets/images/escoger-users.png',
                                   width: double.infinity,
@@ -203,1137 +203,140 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                             ),
                             Align(
                               alignment: const AlignmentDirectional(0.0, -1.0),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.asset(
-                                  'assets/images/logoapp.png',
-                                  width: 110.0,
-                                  height: 106.0,
-                                  fit: BoxFit.fitWidth,
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 6.0, 0.0, 0.0),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  child: Image.asset(
+                                    'assets/images/logoapp.png',
+                                    width: 110.0,
+                                    height: 116.0,
+                                    fit: BoxFit.fitWidth,
+                                  ),
                                 ),
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
-                              child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 100.0, 0.0, 0.0),
-                                child: Container(
-                                  width:
-                                      MediaQuery.sizeOf(context).width * 0.96,
-                                  height:
-                                      MediaQuery.sizeOf(context).height * 0.65,
-                                  decoration: BoxDecoration(
-                                    color: const Color(0xFFFFFEFE),
-                                    borderRadius: const BorderRadius.only(
-                                      bottomLeft: Radius.circular(24.0),
-                                      bottomRight: Radius.circular(24.0),
-                                      topLeft: Radius.circular(24.0),
-                                      topRight: Radius.circular(24.0),
-                                    ),
-                                    border: Border.all(
-                                      color: Colors.black,
-                                      width: 2.0,
-                                    ),
+                              alignment: const AlignmentDirectional(0.0, 0.3),
+                              child: Container(
+                                width: MediaQuery.sizeOf(context).width * 0.96,
+                                height: MediaQuery.sizeOf(context).height * 0.7,
+                                decoration: BoxDecoration(
+                                  color: const Color(0xFFFFFEFE),
+                                  borderRadius: const BorderRadius.only(
+                                    bottomLeft: Radius.circular(24.0),
+                                    bottomRight: Radius.circular(24.0),
+                                    topLeft: Radius.circular(24.0),
+                                    topRight: Radius.circular(24.0),
                                   ),
-                                  child: Form(
-                                    key: _model.formKey,
-                                    autovalidateMode: AutovalidateMode.disabled,
-                                    child: SingleChildScrollView(
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Align(
-                                            alignment:
-                                                const AlignmentDirectional(0.0, -1.0),
-                                            child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 10.0, 0.0, 0.0),
-                                              child: Text(
-                                                'Create Account',
-                                                textAlign: TextAlign.center,
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      fontFamily: 'Montserrat',
-                                                      color: const Color(0xFF8E058A),
-                                                      fontSize: 20.0,
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                    ),
-                                              ),
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 2.0,
+                                  ),
+                                ),
+                                child: Form(
+                                  key: _model.formKey,
+                                  autovalidateMode: AutovalidateMode.disabled,
+                                  child: SingleChildScrollView(
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Align(
+                                          alignment:
+                                              const AlignmentDirectional(0.0, -1.0),
+                                          child: Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 10.0, 0.0, 0.0),
+                                            child: Text(
+                                              'Create Account',
+                                              textAlign: TextAlign.center,
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Montserrat',
+                                                    color: const Color(0xFF8E058A),
+                                                    fontSize: 20.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
                                             ),
                                           ),
-                                          Align(
-                                            alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
-                                            child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 10.0, 0.0, 0.0),
-                                              child: Container(
-                                                width: 327.0,
-                                                height: 1.0,
-                                                decoration: BoxDecoration(
+                                        ),
+                                        Align(
+                                          alignment:
+                                              const AlignmentDirectional(0.0, 0.0),
+                                          child: Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 10.0, 0.0, 0.0),
+                                            child: Container(
+                                              width: 327.0,
+                                              height: 1.0,
+                                              decoration: BoxDecoration(
+                                                color: const Color(0xFFF0DFEF),
+                                                border: Border.all(
                                                   color: const Color(0xFFF0DFEF),
-                                                  border: Border.all(
-                                                    color: const Color(0xFFF0DFEF),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment: const AlignmentDirectional(
+                                              -0.84, -0.73),
+                                          child: Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 15.0, 0.0, 15.0),
+                                            child: Text(
+                                              '* First name',
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Montserrat',
+                                                    color: Colors.black,
+                                                    fontSize: 15.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w500,
                                                   ),
-                                                ),
-                                              ),
                                             ),
                                           ),
-                                          Align(
-                                            alignment: const AlignmentDirectional(
-                                                -0.84, -0.73),
-                                            child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 15.0, 0.0, 15.0),
-                                              child: Text(
-                                                '* First name',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Montserrat',
-                                                          color: Colors.black,
-                                                          fontSize: 15.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
+                                        ),
+                                        Align(
+                                          alignment: const AlignmentDirectional(
+                                              -0.01, -0.69),
+                                          child: Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                0.8,
+                                            height: 70.0,
+                                            decoration: const BoxDecoration(
+                                              color: Color(0xFFFFFEFE),
+                                              borderRadius: BorderRadius.only(
+                                                bottomLeft:
+                                                    Radius.circular(12.0),
+                                                bottomRight:
+                                                    Radius.circular(12.0),
+                                                topLeft: Radius.circular(12.0),
+                                                topRight: Radius.circular(12.0),
                                               ),
                                             ),
-                                          ),
-                                          Align(
-                                            alignment: const AlignmentDirectional(
-                                                -0.01, -0.69),
-                                            child: Container(
-                                              width: MediaQuery.sizeOf(context)
-                                                      .width *
-                                                  0.8,
-                                              height: 70.0,
-                                              decoration: const BoxDecoration(
-                                                color: Color(0xFFFFFEFE),
-                                                borderRadius: BorderRadius.only(
-                                                  bottomLeft:
-                                                      Radius.circular(12.0),
-                                                  bottomRight:
-                                                      Radius.circular(12.0),
-                                                  topLeft:
-                                                      Radius.circular(12.0),
-                                                  topRight:
-                                                      Radius.circular(12.0),
-                                                ),
-                                              ),
-                                              child: Align(
-                                                alignment: const AlignmentDirectional(
-                                                    0.0, -1.0),
-                                                child: TextFormField(
-                                                  key: const ValueKey('firstName'),
-                                                  controller: _model
-                                                      .firstNameTextController,
-                                                  focusNode:
-                                                      _model.firstNameFocusNode,
-                                                  autofocus: true,
-                                                  textCapitalization:
-                                                      TextCapitalization.words,
-                                                  obscureText: false,
-                                                  decoration: InputDecoration(
-                                                    isDense: true,
-                                                    labelStyle: FlutterFlowTheme
-                                                            .of(context)
-                                                        .labelMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Readex Pro',
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                    hintStyle: FlutterFlowTheme
-                                                            .of(context)
-                                                        .labelMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Readex Pro',
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                    errorStyle: FlutterFlowTheme
-                                                            .of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Readex Pro',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .error,
-                                                          letterSpacing: 0.0,
-                                                          lineHeight: 1.0,
-                                                        ),
-                                                    enabledBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: const BorderSide(
-                                                        color:
-                                                            Color(0xFFBB33B9),
-                                                        width: 0.0,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              12.0),
-                                                    ),
-                                                    focusedBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: const BorderSide(
-                                                        color:
-                                                            Color(0xFF762075),
-                                                        width: 0.0,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              12.0),
-                                                    ),
-                                                    errorBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: BorderSide(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .error,
-                                                        width: 0.0,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              12.0),
-                                                    ),
-                                                    focusedErrorBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: BorderSide(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .error,
-                                                        width: 0.0,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              12.0),
-                                                    ),
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Montserrat',
-                                                        color: Colors.black,
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                                  maxLines: null,
-                                                  keyboardType:
-                                                      TextInputType.name,
-                                                  validator: _model
-                                                      .firstNameTextControllerValidator
-                                                      .asValidator(context),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                          Align(
-                                            alignment: const AlignmentDirectional(
-                                                -0.84, -0.73),
-                                            child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 15.0, 0.0, 15.0),
-                                              child: Text(
-                                                '* Last name',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Montserrat',
-                                                          color: Colors.black,
-                                                          fontSize: 15.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
-                                              ),
-                                            ),
-                                          ),
-                                          Align(
-                                            alignment: const AlignmentDirectional(
-                                                -0.01, -0.69),
-                                            child: Container(
-                                              width: MediaQuery.sizeOf(context)
-                                                      .width *
-                                                  0.8,
-                                              height: 70.0,
-                                              decoration: const BoxDecoration(
-                                                color: Color(0xFFFFFEFE),
-                                                borderRadius: BorderRadius.only(
-                                                  bottomLeft:
-                                                      Radius.circular(12.0),
-                                                  bottomRight:
-                                                      Radius.circular(12.0),
-                                                  topLeft:
-                                                      Radius.circular(12.0),
-                                                  topRight:
-                                                      Radius.circular(12.0),
-                                                ),
-                                              ),
-                                              child: Align(
-                                                alignment: const AlignmentDirectional(
-                                                    0.0, -1.0),
-                                                child: TextFormField(
-                                                  key: const ValueKey('lastName'),
-                                                  controller: _model
-                                                      .lastnameTextController,
-                                                  focusNode:
-                                                      _model.lastnameFocusNode,
-                                                  autofocus: true,
-                                                  textCapitalization:
-                                                      TextCapitalization.words,
-                                                  obscureText: false,
-                                                  decoration: InputDecoration(
-                                                    isDense: true,
-                                                    labelStyle: FlutterFlowTheme
-                                                            .of(context)
-                                                        .labelMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Readex Pro',
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                    hintStyle: FlutterFlowTheme
-                                                            .of(context)
-                                                        .labelMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Readex Pro',
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                    errorStyle: FlutterFlowTheme
-                                                            .of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Readex Pro',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .error,
-                                                          letterSpacing: 0.0,
-                                                          lineHeight: 1.0,
-                                                        ),
-                                                    enabledBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: const BorderSide(
-                                                        color:
-                                                            Color(0xFFBB33B9),
-                                                        width: 0.0,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              12.0),
-                                                    ),
-                                                    focusedBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: const BorderSide(
-                                                        color:
-                                                            Color(0xFF762075),
-                                                        width: 0.0,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              12.0),
-                                                    ),
-                                                    errorBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: BorderSide(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .error,
-                                                        width: 0.0,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              12.0),
-                                                    ),
-                                                    focusedErrorBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: BorderSide(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .error,
-                                                        width: 0.0,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              12.0),
-                                                    ),
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Montserrat',
-                                                        color: Colors.black,
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                                  maxLines: null,
-                                                  keyboardType:
-                                                      TextInputType.name,
-                                                  validator: _model
-                                                      .lastnameTextControllerValidator
-                                                      .asValidator(context),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                          Align(
-                                            alignment: const AlignmentDirectional(
-                                                -0.84, -0.73),
-                                            child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 15.0, 0.0, 15.0),
-                                              child: Text(
-                                                '* Date of birth',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Montserrat',
-                                                          color: Colors.black,
-                                                          fontSize: 15.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
-                                              ),
-                                            ),
-                                          ),
-                                          Align(
-                                            alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
-                                            child: Container(
-                                              height: 90.0,
-                                              decoration: const BoxDecoration(),
-                                              child: Align(
-                                                alignment: const AlignmentDirectional(
-                                                    0.0, -1.0),
-                                                child: Stack(
-                                                  alignment:
-                                                      const AlignmentDirectional(
-                                                          0.0, -1.0),
-                                                  children: [
-                                                    Align(
-                                                      alignment:
-                                                          const AlignmentDirectional(
-                                                              -0.01, -0.69),
-                                                      child: Container(
-                                                        width:
-                                                            MediaQuery.sizeOf(
-                                                                        context)
-                                                                    .width *
-                                                                0.8,
-                                                        decoration:
-                                                            const BoxDecoration(
-                                                          color:
-                                                              Color(0xFFFFFEFE),
-                                                          borderRadius:
-                                                              BorderRadius.only(
-                                                            bottomLeft:
-                                                                Radius.circular(
-                                                                    12.0),
-                                                            bottomRight:
-                                                                Radius.circular(
-                                                                    12.0),
-                                                            topLeft:
-                                                                Radius.circular(
-                                                                    12.0),
-                                                            topRight:
-                                                                Radius.circular(
-                                                                    12.0),
-                                                          ),
-                                                        ),
-                                                        child: TextFormField(
-                                                          key: const ValueKey('date'),
-                                                          controller: _model
-                                                              .dateTextController,
-                                                          focusNode: _model
-                                                              .dateFocusNode,
-                                                          autofocus: true,
-                                                          textCapitalization:
-                                                              TextCapitalization
-                                                                  .none,
-                                                          obscureText: false,
-                                                          decoration:
-                                                              InputDecoration(
-                                                            isDense: true,
-                                                            labelStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Readex Pro',
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                    ),
-                                                            hintText:
-                                                                'DD/MM/YYYY',
-                                                            hintStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Readex Pro',
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                    ),
-                                                            errorStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Readex Pro',
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .error,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                    ),
-                                                            enabledBorder:
-                                                                OutlineInputBorder(
-                                                              borderSide:
-                                                                  const BorderSide(
-                                                                color: Color(
-                                                                    0xFFBB33B9),
-                                                                width: 0.0,
-                                                              ),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          12.0),
-                                                            ),
-                                                            focusedBorder:
-                                                                OutlineInputBorder(
-                                                              borderSide:
-                                                                  const BorderSide(
-                                                                color: Color(
-                                                                    0xFF762075),
-                                                                width: 0.0,
-                                                              ),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          12.0),
-                                                            ),
-                                                            errorBorder:
-                                                                OutlineInputBorder(
-                                                              borderSide:
-                                                                  BorderSide(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .error,
-                                                                width: 0.0,
-                                                              ),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          12.0),
-                                                            ),
-                                                            focusedErrorBorder:
-                                                                OutlineInputBorder(
-                                                              borderSide:
-                                                                  BorderSide(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .error,
-                                                                width: 0.0,
-                                                              ),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          12.0),
-                                                            ),
-                                                          ),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Montserrat',
-                                                                color: Colors
-                                                                    .black,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                              ),
-                                                          maxLines: null,
-                                                          keyboardType:
-                                                              TextInputType
-                                                                  .datetime,
-                                                          validator: _model
-                                                              .dateTextControllerValidator
-                                                              .asValidator(
-                                                                  context),
-                                                          inputFormatters: [
-                                                            _model.dateMask
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Align(
-                                                      alignment:
-                                                          const AlignmentDirectional(
-                                                              0.0, 0.0),
-                                                      child: Builder(
-                                                        builder: (context) {
-                                                          if (!FFAppState()
-                                                                  .verifyForm
-                                                                  .date &&
-                                                              (FFAppState()
-                                                                      .counter >
-                                                                  2)) {
-                                                            return Align(
-                                                              alignment:
-                                                                  const AlignmentDirectional(
-                                                                      -0.72,
-                                                                      0.6),
-                                                              child: Text(
-                                                                key: const ValueKey(
-                                                                    'dateError'),
-                                                                _model
-                                                                    .dateError,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Montserrat',
-                                                                      color: const Color(
-                                                                          0xFFFF5963),
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w500,
-                                                                    ),
-                                                              ).animateOnPageLoad(
-                                                                  animationsMap[
-                                                                      'textOnPageLoadAnimation1']!),
-                                                            );
-                                                          } else {
-                                                            return Text(
-                                                              ' ',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Readex Pro',
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                  ),
-                                                            );
-                                                          }
-                                                        },
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                          Align(
-                                            alignment: const AlignmentDirectional(
-                                                -0.84, -0.73),
-                                            child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 15.0, 0.0, 15.0),
-                                              child: Text(
-                                                '* Email address',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Montserrat',
-                                                          color: Colors.black,
-                                                          fontSize: 15.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
-                                              ),
-                                            ),
-                                          ),
-                                          Align(
-                                            alignment: const AlignmentDirectional(
-                                                -0.01, -0.69),
-                                            child: Container(
-                                              width: MediaQuery.sizeOf(context)
-                                                      .width *
-                                                  0.8,
-                                              height: 70.0,
-                                              decoration: const BoxDecoration(
-                                                color: Color(0xFFFFFEFE),
-                                                borderRadius: BorderRadius.only(
-                                                  bottomLeft:
-                                                      Radius.circular(12.0),
-                                                  bottomRight:
-                                                      Radius.circular(12.0),
-                                                  topLeft:
-                                                      Radius.circular(12.0),
-                                                  topRight:
-                                                      Radius.circular(12.0),
-                                                ),
-                                              ),
-                                              child: Stack(
-                                                children: [
-                                                  Align(
-                                                    alignment:
-                                                        const AlignmentDirectional(
-                                                            0.0, -1.0),
-                                                    child: TextFormField(
-                                                      key: const ValueKey('email'),
-                                                      controller: _model
-                                                          .emailTextController1,
-                                                      focusNode: _model
-                                                          .emailFocusNode1,
-                                                      onChanged: (_) =>
-                                                          EasyDebounce.debounce(
-                                                        '_model.emailTextController1',
-                                                        const Duration(
-                                                            milliseconds: 10),
-                                                        () async {
-                                                          _model.emailExists =
-                                                              await queryUsersRecordCount(
-                                                            queryBuilder:
-                                                                (usersRecord) =>
-                                                                    usersRecord
-                                                                        .where(
-                                                              'email',
-                                                              isEqualTo: _model
-                                                                  .emailTextController1
-                                                                  .text,
-                                                            ),
-                                                          );
-
-                                                          safeSetState(() {});
-                                                        },
-                                                      ),
-                                                      autofocus: true,
-                                                      obscureText: false,
-                                                      decoration:
-                                                          InputDecoration(
-                                                        isDense: true,
-                                                        labelStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Readex Pro',
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
-                                                        hintStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Readex Pro',
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
-                                                        errorStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Readex Pro',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .error,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  lineHeight:
-                                                                      1.0,
-                                                                ),
-                                                        enabledBorder:
-                                                            OutlineInputBorder(
-                                                          borderSide:
-                                                              const BorderSide(
-                                                            color: Color(
-                                                                0xFFBB33B9),
-                                                            width: 0.0,
-                                                          ),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      12.0),
-                                                        ),
-                                                        focusedBorder:
-                                                            OutlineInputBorder(
-                                                          borderSide:
-                                                              const BorderSide(
-                                                            color: Color(
-                                                                0xFF762075),
-                                                            width: 0.0,
-                                                          ),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      12.0),
-                                                        ),
-                                                        errorBorder:
-                                                            OutlineInputBorder(
-                                                          borderSide:
-                                                              BorderSide(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .error,
-                                                            width: 0.0,
-                                                          ),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      12.0),
-                                                        ),
-                                                        focusedErrorBorder:
-                                                            OutlineInputBorder(
-                                                          borderSide:
-                                                              BorderSide(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .error,
-                                                            width: 0.0,
-                                                          ),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      12.0),
-                                                        ),
-                                                      ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Montserrat',
-                                                            color: Colors.black,
-                                                            letterSpacing: 0.0,
-                                                          ),
-                                                      maxLines: null,
-                                                      validator: _model
-                                                          .emailTextController1Validator
-                                                          .asValidator(context),
-                                                    ),
-                                                  ),
-                                                  if ((_model.emailExists !=
-                                                          null) &&
-                                                      (_model.emailExists! > 0))
-                                                    Align(
-                                                      alignment:
-                                                          const AlignmentDirectional(
-                                                              0.0, 1.9),
-                                                      child: Text(
-                                                        key: const ValueKey(
-                                                            'emailVerify'),
-                                                        'This email already has an account, use another email',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Montserrat',
-                                                                  color: const Color(
-                                                                      0xFFFF5963),
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                ),
-                                                      ).animateOnPageLoad(
-                                                          animationsMap[
-                                                              'textOnPageLoadAnimation2']!),
-                                                    ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                          Align(
-                                            alignment: const AlignmentDirectional(
-                                                -0.84, -0.73),
-                                            child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 15.0, 0.0, 15.0),
-                                              child: Text(
-                                                '  * Confirm email address',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Montserrat',
-                                                          color: Colors.black,
-                                                          fontSize: 15.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
-                                              ),
-                                            ),
-                                          ),
-                                          Align(
-                                            alignment: const AlignmentDirectional(
-                                                -0.01, -0.69),
-                                            child: Container(
-                                              width: MediaQuery.sizeOf(context)
-                                                      .width *
-                                                  0.8,
-                                              height: 70.0,
-                                              decoration: const BoxDecoration(
-                                                color: Color(0xFFFFFEFE),
-                                                borderRadius: BorderRadius.only(
-                                                  bottomLeft:
-                                                      Radius.circular(12.0),
-                                                  bottomRight:
-                                                      Radius.circular(12.0),
-                                                  topLeft:
-                                                      Radius.circular(12.0),
-                                                  topRight:
-                                                      Radius.circular(12.0),
-                                                ),
-                                              ),
-                                              child: Stack(
-                                                children: [
-                                                  Align(
-                                                    alignment:
-                                                        const AlignmentDirectional(
-                                                            0.0, -1.0),
-                                                    child: TextFormField(
-                                                      key: const ValueKey('email'),
-                                                      controller: _model
-                                                          .emailTextController2,
-                                                      focusNode: _model
-                                                          .emailFocusNode2,
-                                                      autofocus: true,
-                                                      obscureText: false,
-                                                      decoration:
-                                                          InputDecoration(
-                                                        isDense: true,
-                                                        labelStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Readex Pro',
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
-                                                        hintStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Readex Pro',
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
-                                                        errorStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Readex Pro',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .error,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  lineHeight:
-                                                                      1.0,
-                                                                ),
-                                                        enabledBorder:
-                                                            OutlineInputBorder(
-                                                          borderSide:
-                                                              const BorderSide(
-                                                            color: Color(
-                                                                0xFFBB33B9),
-                                                            width: 0.0,
-                                                          ),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      12.0),
-                                                        ),
-                                                        focusedBorder:
-                                                            OutlineInputBorder(
-                                                          borderSide:
-                                                              const BorderSide(
-                                                            color: Color(
-                                                                0xFF762075),
-                                                            width: 0.0,
-                                                          ),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      12.0),
-                                                        ),
-                                                        errorBorder:
-                                                            OutlineInputBorder(
-                                                          borderSide:
-                                                              BorderSide(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .error,
-                                                            width: 0.0,
-                                                          ),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      12.0),
-                                                        ),
-                                                        focusedErrorBorder:
-                                                            OutlineInputBorder(
-                                                          borderSide:
-                                                              BorderSide(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .error,
-                                                            width: 0.0,
-                                                          ),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      12.0),
-                                                        ),
-                                                      ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Montserrat',
-                                                            color: Colors.black,
-                                                            letterSpacing: 0.0,
-                                                          ),
-                                                      maxLines: null,
-                                                      validator: _model
-                                                          .emailTextController2Validator
-                                                          .asValidator(context),
-                                                    ),
-                                                  ),
-                                                  if (FFAppState()
-                                                          .verifyForm
-                                                          .same1 ==
-                                                      false)
-                                                    Align(
-                                                      alignment:
-                                                          const AlignmentDirectional(
-                                                              -0.8, 0.9),
-                                                      child: Text(
-                                                        key: const ValueKey(
-                                                            'emailVerify'),
-                                                        'Email has to be the same',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Montserrat',
-                                                                  color: const Color(
-                                                                      0xFFFF5963),
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                ),
-                                                      ).animateOnPageLoad(
-                                                          animationsMap[
-                                                              'textOnPageLoadAnimation3']!),
-                                                    ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                          Align(
-                                            alignment: const AlignmentDirectional(
-                                                -0.54, -0.73),
-                                            child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 15.0, 0.0, 15.0),
-                                              child: Text(
-                                                '* Enter your 10-digit mobile number',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Montserrat',
-                                                          color: Colors.black,
-                                                          fontSize: 15.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
-                                              ),
-                                            ),
-                                          ),
-                                          Align(
-                                            alignment: const AlignmentDirectional(
-                                                -0.01, -0.69),
-                                            child: Container(
-                                              width: MediaQuery.sizeOf(context)
-                                                      .width *
-                                                  0.8,
-                                              height: 80.0,
-                                              decoration: const BoxDecoration(
-                                                color: Color(0xFFFFFEFE),
-                                                borderRadius: BorderRadius.only(
-                                                  bottomLeft:
-                                                      Radius.circular(12.0),
-                                                  bottomRight:
-                                                      Radius.circular(12.0),
-                                                  topLeft:
-                                                      Radius.circular(12.0),
-                                                  topRight:
-                                                      Radius.circular(12.0),
-                                                ),
-                                              ),
+                                            child: Align(
+                                              alignment: const AlignmentDirectional(
+                                                  0.0, -1.0),
                                               child: TextFormField(
-                                                key: const ValueKey('phone'),
-                                                controller:
-                                                    _model.phoneTextController,
+                                                key: const ValueKey('firstName'),
+                                                controller: _model
+                                                    .firstNameTextController,
                                                 focusNode:
-                                                    _model.phoneFocusNode,
+                                                    _model.firstNameFocusNode,
                                                 autofocus: true,
+                                                textCapitalization:
+                                                    TextCapitalization.words,
                                                 obscureText: false,
                                                 decoration: InputDecoration(
                                                   isDense: true,
@@ -1346,15 +349,13 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                 'Readex Pro',
                                                             letterSpacing: 0.0,
                                                           ),
-                                                  hintText:
-                                                      'Example:  0400345234',
                                                   hintStyle:
                                                       FlutterFlowTheme.of(
                                                               context)
                                                           .labelMedium
                                                           .override(
                                                             fontFamily:
-                                                                'Montserrat',
+                                                                'Readex Pro',
                                                             letterSpacing: 0.0,
                                                           ),
                                                   errorStyle: FlutterFlowTheme
@@ -1368,6 +369,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                     context)
                                                                 .error,
                                                         letterSpacing: 0.0,
+                                                        lineHeight: 1.0,
                                                       ),
                                                   enabledBorder:
                                                       OutlineInputBorder(
@@ -1426,28 +428,149 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                           letterSpacing: 0.0,
                                                         ),
                                                 maxLines: null,
-                                                maxLength: 10,
                                                 keyboardType:
-                                                    TextInputType.number,
+                                                    TextInputType.name,
                                                 validator: _model
-                                                    .phoneTextControllerValidator
+                                                    .firstNameTextControllerValidator
                                                     .asValidator(context),
-                                                inputFormatters: [
-                                                  FilteringTextInputFormatter
-                                                      .allow(RegExp('[0-9]'))
-                                                ],
                                               ),
                                             ),
                                           ),
-                                          Align(
-                                            alignment: const AlignmentDirectional(
-                                                -0.84, -0.73),
-                                            child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 0.0, 0.0, 15.0),
-                                              child: Text(
-                                                '* Select your suburb',
+                                        ),
+                                        Align(
+                                          alignment: const AlignmentDirectional(
+                                              -0.84, -0.73),
+                                          child: Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 15.0, 0.0, 15.0),
+                                            child: Text(
+                                              '* Last name',
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Montserrat',
+                                                    color: Colors.black,
+                                                    fontSize: 15.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
+                                            ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment: const AlignmentDirectional(
+                                              -0.01, -0.69),
+                                          child: Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                0.8,
+                                            height: 70.0,
+                                            decoration: const BoxDecoration(
+                                              color: Color(0xFFFFFEFE),
+                                              borderRadius: BorderRadius.only(
+                                                bottomLeft:
+                                                    Radius.circular(12.0),
+                                                bottomRight:
+                                                    Radius.circular(12.0),
+                                                topLeft: Radius.circular(12.0),
+                                                topRight: Radius.circular(12.0),
+                                              ),
+                                            ),
+                                            child: Align(
+                                              alignment: const AlignmentDirectional(
+                                                  0.0, -1.0),
+                                              child: TextFormField(
+                                                key: const ValueKey('lastName'),
+                                                controller: _model
+                                                    .lastnameTextController,
+                                                focusNode:
+                                                    _model.lastnameFocusNode,
+                                                autofocus: true,
+                                                textCapitalization:
+                                                    TextCapitalization.words,
+                                                obscureText: false,
+                                                decoration: InputDecoration(
+                                                  isDense: true,
+                                                  labelStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Readex Pro',
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                  hintStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Readex Pro',
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                  errorStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Readex Pro',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .error,
+                                                        letterSpacing: 0.0,
+                                                        lineHeight: 1.0,
+                                                      ),
+                                                  enabledBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: const BorderSide(
+                                                      color: Color(0xFFBB33B9),
+                                                      width: 0.0,
+                                                    ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            12.0),
+                                                  ),
+                                                  focusedBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: const BorderSide(
+                                                      color: Color(0xFF762075),
+                                                      width: 0.0,
+                                                    ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            12.0),
+                                                  ),
+                                                  errorBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .error,
+                                                      width: 0.0,
+                                                    ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            12.0),
+                                                  ),
+                                                  focusedErrorBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .error,
+                                                      width: 0.0,
+                                                    ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            12.0),
+                                                  ),
+                                                ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -1455,464 +578,1255 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                           fontFamily:
                                                               'Montserrat',
                                                           color: Colors.black,
-                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
                                                         ),
+                                                maxLines: null,
+                                                keyboardType:
+                                                    TextInputType.name,
+                                                validator: _model
+                                                    .lastnameTextControllerValidator
+                                                    .asValidator(context),
                                               ),
                                             ),
                                           ),
-                                          Align(
-                                            alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
-                                            child: Container(
-                                              height: 90.0,
-                                              decoration: const BoxDecoration(),
-                                              child: Align(
+                                        ),
+                                        Align(
+                                          alignment: const AlignmentDirectional(
+                                              -0.84, -0.73),
+                                          child: Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 15.0, 0.0, 15.0),
+                                            child: Text(
+                                              '* Date of birth',
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Montserrat',
+                                                    color: Colors.black,
+                                                    fontSize: 15.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
+                                            ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment:
+                                              const AlignmentDirectional(0.0, 0.0),
+                                          child: Container(
+                                            height: 90.0,
+                                            decoration: const BoxDecoration(),
+                                            child: Align(
+                                              alignment: const AlignmentDirectional(
+                                                  0.0, -1.0),
+                                              child: Stack(
                                                 alignment: const AlignmentDirectional(
                                                     0.0, -1.0),
-                                                child: Stack(
-                                                  alignment:
-                                                      const AlignmentDirectional(
-                                                          0.0, -1.0),
-                                                  children: [
-                                                    Align(
-                                                      alignment:
-                                                          const AlignmentDirectional(
-                                                              0.0, -1.0),
-                                                      child: Container(
-                                                        width:
-                                                            MediaQuery.sizeOf(
-                                                                        context)
-                                                                    .width *
-                                                                0.8,
-                                                        height: 45.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: Colors.white,
-                                                          borderRadius:
-                                                              const BorderRadius.only(
-                                                            bottomLeft:
-                                                                Radius.circular(
-                                                                    12.0),
-                                                            bottomRight:
-                                                                Radius.circular(
-                                                                    12.0),
-                                                            topLeft:
-                                                                Radius.circular(
-                                                                    12.0),
-                                                            topRight:
-                                                                Radius.circular(
-                                                                    12.0),
-                                                          ),
-                                                          border: Border.all(
-                                                            color:
-                                                                valueOrDefault<
-                                                                    Color>(
-                                                              FFAppState()
-                                                                          .verifyForm
-                                                                          .subur ==
-                                                                      true
-                                                                  ? const Color(
-                                                                      0xFFBB33B9)
-                                                                  : const Color(
-                                                                      0xFFFF5963),
-                                                              const Color(0xFFBB33B9),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        child: Padding(
-                                                          padding:
-                                                              const EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      8.0,
-                                                                      0.0,
-                                                                      8.0,
-                                                                      0.0),
-                                                          child: TextFormField(
-                                                            key: const ValueKey(
-                                                                'query'),
-                                                            controller: _model
-                                                                .queryTextController,
-                                                            focusNode: _model
-                                                                .queryFocusNode,
-                                                            onChanged: (_) =>
-                                                                EasyDebounce
-                                                                    .debounce(
-                                                              '_model.queryTextController',
-                                                              const Duration(
-                                                                  milliseconds:
-                                                                      100),
-                                                              () async {
-                                                                _model.apiResultuev =
-                                                                    await GetSuggestionMapProfesionalCall
-                                                                        .call(
-                                                                  query: _model
-                                                                      .queryTextController
-                                                                      .text,
-                                                                );
-
-                                                                if ((_model
-                                                                        .apiResultuev
-                                                                        ?.succeeded ??
-                                                                    true)) {
-                                                                  _model
-                                                                      .queryResults = GetSuggestionMapProfesionalCall
-                                                                          .predictions(
-                                                                    (_model.apiResultuev
-                                                                            ?.jsonBody ??
-                                                                        ''),
-                                                                  )!
-                                                                      .toList()
-                                                                      .cast<
-                                                                          QueryResultsStruct>();
-                                                                }
-
-                                                                safeSetState(
-                                                                    () {});
-                                                              },
-                                                            ),
-                                                            autofocus: false,
-                                                            obscureText: false,
-                                                            decoration:
-                                                                InputDecoration(
-                                                              labelStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Montserrat',
-                                                                        fontSize:
-                                                                            14.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                      ),
-                                                              hintText:
-                                                                  'Select your suburb',
-                                                              hintStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Montserrat',
-                                                                        fontSize:
-                                                                            14.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                      ),
-                                                              enabledBorder:
-                                                                  InputBorder
-                                                                      .none,
-                                                              focusedBorder:
-                                                                  InputBorder
-                                                                      .none,
-                                                              errorBorder:
-                                                                  InputBorder
-                                                                      .none,
-                                                              focusedErrorBorder:
-                                                                  InputBorder
-                                                                      .none,
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Montserrat',
-                                                                  color: Colors
-                                                                      .black,
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
-                                                            validator: _model
-                                                                .queryTextControllerValidator
-                                                                .asValidator(
-                                                                    context),
-                                                          ),
+                                                children: [
+                                                  Align(
+                                                    alignment:
+                                                        const AlignmentDirectional(
+                                                            -0.01, -0.69),
+                                                    child: Container(
+                                                      width: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width *
+                                                          0.8,
+                                                      decoration: const BoxDecoration(
+                                                        color:
+                                                            Color(0xFFFFFEFE),
+                                                        borderRadius:
+                                                            BorderRadius.only(
+                                                          bottomLeft:
+                                                              Radius.circular(
+                                                                  12.0),
+                                                          bottomRight:
+                                                              Radius.circular(
+                                                                  12.0),
+                                                          topLeft:
+                                                              Radius.circular(
+                                                                  12.0),
+                                                          topRight:
+                                                              Radius.circular(
+                                                                  12.0),
                                                         ),
                                                       ),
+                                                      child: TextFormField(
+                                                        key: const ValueKey('date'),
+                                                        controller: _model
+                                                            .dateTextController,
+                                                        focusNode: _model
+                                                            .dateFocusNode,
+                                                        autofocus: true,
+                                                        textCapitalization:
+                                                            TextCapitalization
+                                                                .none,
+                                                        obscureText: false,
+                                                        decoration:
+                                                            InputDecoration(
+                                                          isDense: true,
+                                                          labelStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Readex Pro',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
+                                                          hintText:
+                                                              'DD/MM/YYYY',
+                                                          hintStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Readex Pro',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
+                                                          errorStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Readex Pro',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .error,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
+                                                          enabledBorder:
+                                                              OutlineInputBorder(
+                                                            borderSide:
+                                                                const BorderSide(
+                                                              color: Color(
+                                                                  0xFFBB33B9),
+                                                              width: 0.0,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        12.0),
+                                                          ),
+                                                          focusedBorder:
+                                                              OutlineInputBorder(
+                                                            borderSide:
+                                                                const BorderSide(
+                                                              color: Color(
+                                                                  0xFF762075),
+                                                              width: 0.0,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        12.0),
+                                                          ),
+                                                          errorBorder:
+                                                              OutlineInputBorder(
+                                                            borderSide:
+                                                                BorderSide(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .error,
+                                                              width: 0.0,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        12.0),
+                                                          ),
+                                                          focusedErrorBorder:
+                                                              OutlineInputBorder(
+                                                            borderSide:
+                                                                BorderSide(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .error,
+                                                              width: 0.0,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        12.0),
+                                                          ),
+                                                        ),
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Montserrat',
+                                                              color:
+                                                                  Colors.black,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                            ),
+                                                        maxLines: null,
+                                                        keyboardType:
+                                                            TextInputType
+                                                                .datetime,
+                                                        validator: _model
+                                                            .dateTextControllerValidator
+                                                            .asValidator(
+                                                                context),
+                                                        inputFormatters: [
+                                                          _model.dateMask
+                                                        ],
+                                                      ),
                                                     ),
-                                                    Align(
-                                                      alignment:
-                                                          const AlignmentDirectional(
-                                                              0.0, 0.0),
-                                                      child: Builder(
-                                                        builder: (context) {
-                                                          if (!FFAppState()
-                                                                  .verifyForm
-                                                                  .subur &&
-                                                              (FFAppState()
-                                                                      .counter >
-                                                                  2)) {
-                                                            return Align(
-                                                              alignment:
-                                                                  const AlignmentDirectional(
-                                                                      -0.62,
-                                                                      0.7),
-                                                              child: Text(
-                                                                key: const ValueKey(
-                                                                    'indalidSuburb'),
-                                                                'Invalid suburb',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Montserrat',
-                                                                      color: const Color(
-                                                                          0xFFFF5963),
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w600,
-                                                                    ),
-                                                              ).animateOnPageLoad(
-                                                                  animationsMap[
-                                                                      'textOnPageLoadAnimation4']!),
-                                                            );
-                                                          } else {
-                                                            return Text(
-                                                              ' ',
+                                                  ),
+                                                  Align(
+                                                    alignment:
+                                                        const AlignmentDirectional(
+                                                            0.0, 0.0),
+                                                    child: Builder(
+                                                      builder: (context) {
+                                                        if (!FFAppState()
+                                                                .verifyForm
+                                                                .date &&
+                                                            (FFAppState()
+                                                                    .counter >
+                                                                2)) {
+                                                          return Align(
+                                                            alignment:
+                                                                const AlignmentDirectional(
+                                                                    -0.72, 0.6),
+                                                            child: Text(
+                                                              key: const ValueKey(
+                                                                  'dateError'),
+                                                              _model.dateError,
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
                                                                   .override(
                                                                     fontFamily:
                                                                         'Montserrat',
+                                                                    color: const Color(
+                                                                        0xFFFF5963),
                                                                     letterSpacing:
                                                                         0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w500,
                                                                   ),
-                                                            );
-                                                          }
-                                                        },
-                                                      ),
+                                                            ).animateOnPageLoad(
+                                                                animationsMap[
+                                                                    'textOnPageLoadAnimation1']!),
+                                                          );
+                                                        } else {
+                                                          return Text(
+                                                            ' ',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Readex Pro',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                          );
+                                                        }
+                                                      },
                                                     ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                          Align(
-                                            alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
-                                            child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 10.0, 0.0, 0.0),
-                                              child: Container(
-                                                width: 327.0,
-                                                height: 1.0,
-                                                decoration: BoxDecoration(
-                                                  color: const Color(0xFFF0DFEF),
-                                                  border: Border.all(
-                                                    color: const Color(0xFFF0DFEF),
                                                   ),
-                                                ),
+                                                ],
                                               ),
                                             ),
                                           ),
-                                          Align(
-                                            alignment:
-                                                const AlignmentDirectional(0.0, -1.0),
-                                            child: Container(
-                                              width: 269.0,
-                                              height: 93.0,
-                                              decoration: const BoxDecoration(
-                                                borderRadius: BorderRadius.only(
-                                                  bottomLeft:
-                                                      Radius.circular(12.0),
-                                                  bottomRight:
-                                                      Radius.circular(12.0),
-                                                  topLeft:
-                                                      Radius.circular(12.0),
-                                                  topRight:
-                                                      Radius.circular(12.0),
-                                                ),
+                                        ),
+                                        Align(
+                                          alignment: const AlignmentDirectional(
+                                              -0.84, -0.73),
+                                          child: Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 15.0, 0.0, 15.0),
+                                            child: Text(
+                                              '* Email address',
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Montserrat',
+                                                    color: Colors.black,
+                                                    fontSize: 15.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
+                                            ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment: const AlignmentDirectional(
+                                              -0.01, -0.69),
+                                          child: Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                0.8,
+                                            height: 70.0,
+                                            decoration: const BoxDecoration(
+                                              color: Color(0xFFFFFEFE),
+                                              borderRadius: BorderRadius.only(
+                                                bottomLeft:
+                                                    Radius.circular(12.0),
+                                                bottomRight:
+                                                    Radius.circular(12.0),
+                                                topLeft: Radius.circular(12.0),
+                                                topRight: Radius.circular(12.0),
                                               ),
-                                              child: Align(
-                                                alignment: const AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 10.0, 0.0, 0.0),
-                                                  child: FFButtonWidget(
-                                                    key: const ValueKey('continue'),
-                                                    onPressed: () async {
-                                                      _model.dateError =
-                                                          'Field is required';
-                                                      FFAppState()
-                                                          .updateVerifyFormStruct(
-                                                        (e) => e
-                                                          ..date = _model.dateTextController
-                                                                      .text !=
-                                                                  ''
-                                                          ..subur =
-                                                              valueOrDefault<
-                                                                  bool>(
-                                                            (_model.queryTextController
-                                                                            .text !=
-                                                                        '') &&
-                                                                (_model.newUbication !=
-                                                                        null &&
-                                                                    _model.newUbication !=
-                                                                        ''),
-                                                            false,
-                                                          )
-                                                          ..same1 = _model
-                                                                  .emailTextController1
-                                                                  .text ==
-                                                              _model
-                                                                  .emailTextController2
-                                                                  .text,
-                                                      );
-                                                      FFAppState().counter = 4;
-                                                      safeSetState(() {});
-                                                      if (_model.formKey
-                                                                  .currentState ==
-                                                              null ||
-                                                          !_model.formKey
-                                                              .currentState!
-                                                              .validate()) {
-                                                        return;
-                                                      }
-                                                      if (functions
-                                                          .validateDate(_model
-                                                              .dateTextController
-                                                              .text)!) {
-                                                        FFAppState()
-                                                            .updateVerifyFormStruct(
-                                                          (e) => e..date = true,
-                                                        );
-                                                        safeSetState(() {});
-                                                      } else {
-                                                        _model.dateError =
-                                                            'You must be 18 or older';
-                                                        FFAppState()
-                                                            .updateVerifyFormStruct(
-                                                          (e) =>
-                                                              e..date = false,
-                                                        );
-                                                        safeSetState(() {});
-                                                      }
-
-                                                      if (FFAppState()
-                                                              .verifyForm
-                                                              .subur &&
-                                                          FFAppState()
-                                                              .verifyForm
-                                                              .date &&
-                                                          FFAppState()
-                                                              .verifyForm
-                                                              .same1) {
-                                                        FFAppState()
-                                                                .verifyForm =
-                                                            FormVerifyStruct();
-                                                        FFAppState().counter =
-                                                            0;
-                                                        FFAppState()
-                                                            .updateRegisterProviderFormStruct(
-                                                          (e) => e
-                                                            ..firstName = _model
-                                                                .firstNameTextController
-                                                                .text
-                                                            ..birthdate = functions
-                                                                .convertStringToDate(
-                                                                    _model
-                                                                        .dateTextController
-                                                                        .text)
-                                                            ..phone = _model
-                                                                .phoneTextController
-                                                                .text
-                                                            ..suburb = functions
-                                                                .changeUbication(
-                                                                    functions.stringToLatLng(
-                                                                        _model
-                                                                            .newUbication!))
-                                                            ..plan =
-                                                                Plan.standar
-                                                            ..lastName = _model
-                                                                .lastnameTextController
-                                                                .text
-                                                            ..email = _model
+                                            ),
+                                            child: Stack(
+                                              children: [
+                                                Align(
+                                                  alignment:
+                                                      const AlignmentDirectional(
+                                                          0.0, -1.0),
+                                                  child: TextFormField(
+                                                    key: const ValueKey('email'),
+                                                    controller: _model
+                                                        .emailTextController1,
+                                                    focusNode:
+                                                        _model.emailFocusNode1,
+                                                    onChanged: (_) =>
+                                                        EasyDebounce.debounce(
+                                                      '_model.emailTextController1',
+                                                      const Duration(
+                                                          milliseconds: 10),
+                                                      () async {
+                                                        _model.emailExists =
+                                                            await queryUsersRecordCount(
+                                                          queryBuilder:
+                                                              (usersRecord) =>
+                                                                  usersRecord
+                                                                      .where(
+                                                            'email',
+                                                            isEqualTo: _model
                                                                 .emailTextController1
                                                                 .text,
+                                                          ),
                                                         );
 
-                                                        context.pushNamed(
-                                                          'avatars',
-                                                          extra: <String,
-                                                              dynamic>{
-                                                            kTransitionInfoKey:
-                                                                const TransitionInfo(
-                                                              hasTransition:
-                                                                  true,
-                                                              transitionType:
-                                                                  PageTransitionType
-                                                                      .fade,
-                                                              duration: Duration(
-                                                                  milliseconds:
-                                                                      200),
-                                                            ),
-                                                          },
-                                                        );
-                                                      }
-                                                    },
-                                                    text: 'Continue',
-                                                    options: FFButtonOptions(
-                                                      width: 275.0,
-                                                      height: 45.0,
-                                                      padding:
-                                                          const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  24.0,
-                                                                  0.0,
-                                                                  24.0,
-                                                                  0.0),
-                                                      iconPadding:
-                                                          const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      color: const Color(0xFFB928B8),
-                                                      textStyle:
+                                                        safeSetState(() {});
+                                                      },
+                                                    ),
+                                                    autofocus: true,
+                                                    obscureText: false,
+                                                    decoration: InputDecoration(
+                                                      isDense: true,
+                                                      labelStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .titleSmall
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                      hintStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                      errorStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .error,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                lineHeight: 1.0,
+                                                              ),
+                                                      enabledBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: const BorderSide(
+                                                          color:
+                                                              Color(0xFFBB33B9),
+                                                          width: 0.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(12.0),
+                                                      ),
+                                                      focusedBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: const BorderSide(
+                                                          color:
+                                                              Color(0xFF762075),
+                                                          width: 0.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(12.0),
+                                                      ),
+                                                      errorBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .error,
+                                                          width: 0.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(12.0),
+                                                      ),
+                                                      focusedErrorBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .error,
+                                                          width: 0.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(12.0),
+                                                      ),
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Montserrat',
+                                                          color: Colors.black,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                    maxLines: null,
+                                                    validator: _model
+                                                        .emailTextController1Validator
+                                                        .asValidator(context),
+                                                  ),
+                                                ),
+                                                if ((_model.emailExists !=
+                                                        null) &&
+                                                    (_model.emailExists! > 0))
+                                                  Align(
+                                                    alignment:
+                                                        const AlignmentDirectional(
+                                                            0.0, 1.9),
+                                                    child: Text(
+                                                      key: const ValueKey(
+                                                          'emailVerify'),
+                                                      'This email already has an account, use another email',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Montserrat',
+                                                            color: const Color(
+                                                                0xFFFF5963),
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                    ).animateOnPageLoad(
+                                                        animationsMap[
+                                                            'textOnPageLoadAnimation2']!),
+                                                  ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment: const AlignmentDirectional(
+                                              -0.84, -0.73),
+                                          child: Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 15.0, 0.0, 15.0),
+                                            child: Text(
+                                              '  * Confirm email address',
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Montserrat',
+                                                    color: Colors.black,
+                                                    fontSize: 15.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
+                                            ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment: const AlignmentDirectional(
+                                              -0.01, -0.69),
+                                          child: Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                0.8,
+                                            height: 70.0,
+                                            decoration: const BoxDecoration(
+                                              color: Color(0xFFFFFEFE),
+                                              borderRadius: BorderRadius.only(
+                                                bottomLeft:
+                                                    Radius.circular(12.0),
+                                                bottomRight:
+                                                    Radius.circular(12.0),
+                                                topLeft: Radius.circular(12.0),
+                                                topRight: Radius.circular(12.0),
+                                              ),
+                                            ),
+                                            child: Stack(
+                                              children: [
+                                                Align(
+                                                  alignment:
+                                                      const AlignmentDirectional(
+                                                          0.0, -1.0),
+                                                  child: TextFormField(
+                                                    key: const ValueKey('email'),
+                                                    controller: _model
+                                                        .emailTextController2,
+                                                    focusNode:
+                                                        _model.emailFocusNode2,
+                                                    autofocus: true,
+                                                    obscureText: false,
+                                                    decoration: InputDecoration(
+                                                      isDense: true,
+                                                      labelStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                      hintStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                      errorStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .error,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                lineHeight: 1.0,
+                                                              ),
+                                                      enabledBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: const BorderSide(
+                                                          color:
+                                                              Color(0xFFBB33B9),
+                                                          width: 0.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(12.0),
+                                                      ),
+                                                      focusedBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: const BorderSide(
+                                                          color:
+                                                              Color(0xFF762075),
+                                                          width: 0.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(12.0),
+                                                      ),
+                                                      errorBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .error,
+                                                          width: 0.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(12.0),
+                                                      ),
+                                                      focusedErrorBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .error,
+                                                          width: 0.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(12.0),
+                                                      ),
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Montserrat',
+                                                          color: Colors.black,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                    maxLines: null,
+                                                    validator: _model
+                                                        .emailTextController2Validator
+                                                        .asValidator(context),
+                                                  ),
+                                                ),
+                                                if (FFAppState()
+                                                        .verifyForm
+                                                        .same1 ==
+                                                    false)
+                                                  Align(
+                                                    alignment:
+                                                        const AlignmentDirectional(
+                                                            -0.8, 0.9),
+                                                    child: Text(
+                                                      key: const ValueKey(
+                                                          'emailVerify'),
+                                                      'Email has to be the same',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Montserrat',
+                                                            color: const Color(
+                                                                0xFFFF5963),
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                    ).animateOnPageLoad(
+                                                        animationsMap[
+                                                            'textOnPageLoadAnimation3']!),
+                                                  ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment: const AlignmentDirectional(
+                                              -0.54, -0.73),
+                                          child: Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 15.0, 0.0, 15.0),
+                                            child: Text(
+                                              '* Enter your 10-digit mobile number',
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Montserrat',
+                                                    color: Colors.black,
+                                                    fontSize: 15.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
+                                            ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment: const AlignmentDirectional(
+                                              -0.01, -0.69),
+                                          child: Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                0.8,
+                                            height: 80.0,
+                                            decoration: const BoxDecoration(
+                                              color: Color(0xFFFFFEFE),
+                                              borderRadius: BorderRadius.only(
+                                                bottomLeft:
+                                                    Radius.circular(12.0),
+                                                bottomRight:
+                                                    Radius.circular(12.0),
+                                                topLeft: Radius.circular(12.0),
+                                                topRight: Radius.circular(12.0),
+                                              ),
+                                            ),
+                                            child: TextFormField(
+                                              key: const ValueKey('phone'),
+                                              controller:
+                                                  _model.phoneTextController,
+                                              focusNode: _model.phoneFocusNode,
+                                              autofocus: true,
+                                              obscureText: false,
+                                              decoration: InputDecoration(
+                                                isDense: true,
+                                                labelStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                hintText:
+                                                    'Example:  0400345234',
+                                                hintStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Montserrat',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                errorStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily: 'Readex Pro',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .error,
+                                                      letterSpacing: 0.0,
+                                                    ),
+                                                enabledBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide: const BorderSide(
+                                                    color: Color(0xFFBB33B9),
+                                                    width: 0.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          12.0),
+                                                ),
+                                                focusedBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide: const BorderSide(
+                                                    color: Color(0xFF762075),
+                                                    width: 0.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          12.0),
+                                                ),
+                                                errorBorder: OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .error,
+                                                    width: 0.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          12.0),
+                                                ),
+                                                focusedErrorBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .error,
+                                                    width: 0.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          12.0),
+                                                ),
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Montserrat',
+                                                        color: Colors.black,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                              maxLines: null,
+                                              maxLength: 10,
+                                              keyboardType:
+                                                  TextInputType.number,
+                                              validator: _model
+                                                  .phoneTextControllerValidator
+                                                  .asValidator(context),
+                                              inputFormatters: [
+                                                FilteringTextInputFormatter
+                                                    .allow(RegExp('[0-9]'))
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment: const AlignmentDirectional(
+                                              -0.84, -0.73),
+                                          child: Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 15.0),
+                                            child: Text(
+                                              '* Select your suburb',
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Montserrat',
+                                                    color: Colors.black,
+                                                    fontSize: 15.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
+                                            ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment:
+                                              const AlignmentDirectional(0.0, 0.0),
+                                          child: Container(
+                                            height: 90.0,
+                                            decoration: const BoxDecoration(),
+                                            child: Align(
+                                              alignment: const AlignmentDirectional(
+                                                  0.0, -1.0),
+                                              child: Stack(
+                                                alignment: const AlignmentDirectional(
+                                                    0.0, -1.0),
+                                                children: [
+                                                  Align(
+                                                    alignment:
+                                                        const AlignmentDirectional(
+                                                            0.0, -1.0),
+                                                    child: Container(
+                                                      width: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width *
+                                                          0.8,
+                                                      height: 45.0,
+                                                      decoration: BoxDecoration(
+                                                        color: Colors.white,
+                                                        borderRadius:
+                                                            const BorderRadius.only(
+                                                          bottomLeft:
+                                                              Radius.circular(
+                                                                  12.0),
+                                                          bottomRight:
+                                                              Radius.circular(
+                                                                  12.0),
+                                                          topLeft:
+                                                              Radius.circular(
+                                                                  12.0),
+                                                          topRight:
+                                                              Radius.circular(
+                                                                  12.0),
+                                                        ),
+                                                        border: Border.all(
+                                                          color: valueOrDefault<
+                                                              Color>(
+                                                            FFAppState()
+                                                                        .verifyForm
+                                                                        .subur ==
+                                                                    true
+                                                                ? const Color(
+                                                                    0xFFBB33B9)
+                                                                : const Color(
+                                                                    0xFFFF5963),
+                                                            const Color(0xFFBB33B9),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      child: Padding(
+                                                        padding:
+                                                            const EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    8.0,
+                                                                    0.0,
+                                                                    8.0,
+                                                                    0.0),
+                                                        child: TextFormField(
+                                                          key:
+                                                              const ValueKey('query'),
+                                                          controller: _model
+                                                              .queryTextController,
+                                                          focusNode: _model
+                                                              .queryFocusNode,
+                                                          onChanged: (_) =>
+                                                              EasyDebounce
+                                                                  .debounce(
+                                                            '_model.queryTextController',
+                                                            const Duration(
+                                                                milliseconds:
+                                                                    100),
+                                                            () async {
+                                                              _model.apiResultuev =
+                                                                  await GetSuggestionMapProfesionalCall
+                                                                      .call(
+                                                                query: _model
+                                                                    .queryTextController
+                                                                    .text,
+                                                              );
+
+                                                              if ((_model
+                                                                      .apiResultuev
+                                                                      ?.succeeded ??
+                                                                  true)) {
+                                                                _model.queryResults =
+                                                                    GetSuggestionMapProfesionalCall
+                                                                            .predictions(
+                                                                  (_model.apiResultuev
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )!
+                                                                        .toList()
+                                                                        .cast<
+                                                                            QueryResultsStruct>();
+                                                              }
+
+                                                              safeSetState(
+                                                                  () {});
+                                                            },
+                                                          ),
+                                                          autofocus: false,
+                                                          obscureText: false,
+                                                          decoration:
+                                                              InputDecoration(
+                                                            labelStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Montserrat',
+                                                                      fontSize:
+                                                                          14.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
+                                                            hintText:
+                                                                'Select your suburb',
+                                                            hintStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Montserrat',
+                                                                      fontSize:
+                                                                          14.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
+                                                            enabledBorder:
+                                                                InputBorder
+                                                                    .none,
+                                                            focusedBorder:
+                                                                InputBorder
+                                                                    .none,
+                                                            errorBorder:
+                                                                InputBorder
+                                                                    .none,
+                                                            focusedErrorBorder:
+                                                                InputBorder
+                                                                    .none,
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Montserrat',
                                                                 color: Colors
-                                                                    .white,
-                                                                fontSize: 20.0,
+                                                                    .black,
+                                                                fontSize: 14.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
-                                                      elevation: 5.0,
-                                                      borderSide: const BorderSide(
-                                                        color:
-                                                            Colors.transparent,
-                                                        width: 1.0,
+                                                          validator: _model
+                                                              .queryTextControllerValidator
+                                                              .asValidator(
+                                                                  context),
+                                                        ),
                                                       ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              24.0),
                                                     ),
+                                                  ),
+                                                  Align(
+                                                    alignment:
+                                                        const AlignmentDirectional(
+                                                            0.0, 0.0),
+                                                    child: Builder(
+                                                      builder: (context) {
+                                                        if (!FFAppState()
+                                                                .verifyForm
+                                                                .subur &&
+                                                            (FFAppState()
+                                                                    .counter >
+                                                                2)) {
+                                                          return Align(
+                                                            alignment:
+                                                                const AlignmentDirectional(
+                                                                    -0.62, 0.7),
+                                                            child: Text(
+                                                              key: const ValueKey(
+                                                                  'indalidSuburb'),
+                                                              'Invalid suburb',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Montserrat',
+                                                                    color: const Color(
+                                                                        0xFFFF5963),
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                  ),
+                                                            ).animateOnPageLoad(
+                                                                animationsMap[
+                                                                    'textOnPageLoadAnimation4']!),
+                                                          );
+                                                        } else {
+                                                          return Text(
+                                                            ' ',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Montserrat',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                          );
+                                                        }
+                                                      },
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment:
+                                              const AlignmentDirectional(0.0, 0.0),
+                                          child: Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 10.0, 0.0, 0.0),
+                                            child: Container(
+                                              width: 327.0,
+                                              height: 1.0,
+                                              decoration: BoxDecoration(
+                                                color: const Color(0xFFF0DFEF),
+                                                border: Border.all(
+                                                  color: const Color(0xFFF0DFEF),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment:
+                                              const AlignmentDirectional(0.0, -1.0),
+                                          child: Container(
+                                            width: 269.0,
+                                            height: 93.0,
+                                            decoration: const BoxDecoration(
+                                              borderRadius: BorderRadius.only(
+                                                bottomLeft:
+                                                    Radius.circular(12.0),
+                                                bottomRight:
+                                                    Radius.circular(12.0),
+                                                topLeft: Radius.circular(12.0),
+                                                topRight: Radius.circular(12.0),
+                                              ),
+                                            ),
+                                            child: Align(
+                                              alignment: const AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 10.0, 0.0, 0.0),
+                                                child: FFButtonWidget(
+                                                  key: const ValueKey('continue'),
+                                                  onPressed: () async {
+                                                    _model.dateError =
+                                                        'Field is required';
+                                                    FFAppState()
+                                                        .updateVerifyFormStruct(
+                                                      (e) => e
+                                                        ..date = _model.dateTextController
+                                                                    .text !=
+                                                                ''
+                                                        ..subur =
+                                                            valueOrDefault<
+                                                                bool>(
+                                                          (_model.queryTextController
+                                                                          .text !=
+                                                                      '') &&
+                                                              (_model.newUbication !=
+                                                                      null &&
+                                                                  _model.newUbication !=
+                                                                      ''),
+                                                          false,
+                                                        )
+                                                        ..same1 = _model
+                                                                .emailTextController1
+                                                                .text ==
+                                                            _model
+                                                                .emailTextController2
+                                                                .text,
+                                                    );
+                                                    FFAppState().counter = 4;
+                                                    safeSetState(() {});
+                                                    if (_model.formKey
+                                                                .currentState ==
+                                                            null ||
+                                                        !_model.formKey
+                                                            .currentState!
+                                                            .validate()) {
+                                                      return;
+                                                    }
+                                                    if (functions.validateDate(
+                                                        _model
+                                                            .dateTextController
+                                                            .text)!) {
+                                                      FFAppState()
+                                                          .updateVerifyFormStruct(
+                                                        (e) => e..date = true,
+                                                      );
+                                                      safeSetState(() {});
+                                                    } else {
+                                                      _model.dateError =
+                                                          'You must be 18 or older';
+                                                      FFAppState()
+                                                          .updateVerifyFormStruct(
+                                                        (e) => e..date = false,
+                                                      );
+                                                      safeSetState(() {});
+                                                    }
+
+                                                    if (FFAppState()
+                                                            .verifyForm
+                                                            .subur &&
+                                                        FFAppState()
+                                                            .verifyForm
+                                                            .date &&
+                                                        FFAppState()
+                                                            .verifyForm
+                                                            .same1) {
+                                                      FFAppState().verifyForm =
+                                                          FormVerifyStruct();
+                                                      FFAppState().counter = 0;
+                                                      FFAppState()
+                                                          .updateRegisterProviderFormStruct(
+                                                        (e) => e
+                                                          ..firstName = _model
+                                                              .firstNameTextController
+                                                              .text
+                                                          ..birthdate = functions
+                                                              .convertStringToDate(
+                                                                  _model
+                                                                      .dateTextController
+                                                                      .text)
+                                                          ..phone = _model
+                                                              .phoneTextController
+                                                              .text
+                                                          ..suburb = functions
+                                                              .changeUbication(functions
+                                                                  .stringToLatLng(
+                                                                      _model
+                                                                          .newUbication!))
+                                                          ..plan = Plan.standar
+                                                          ..lastName = _model
+                                                              .lastnameTextController
+                                                              .text
+                                                          ..email = _model
+                                                              .emailTextController1
+                                                              .text,
+                                                      );
+
+                                                      context.pushNamed(
+                                                        'RegisterUser2',
+                                                        extra: <String,
+                                                            dynamic>{
+                                                          kTransitionInfoKey:
+                                                              const TransitionInfo(
+                                                            hasTransition: true,
+                                                            transitionType:
+                                                                PageTransitionType
+                                                                    .fade,
+                                                            duration: Duration(
+                                                                milliseconds:
+                                                                    200),
+                                                          ),
+                                                        },
+                                                      );
+                                                    }
+                                                  },
+                                                  text: 'Continue',
+                                                  options: FFButtonOptions(
+                                                    width: 275.0,
+                                                    height: 45.0,
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(24.0, 0.0,
+                                                                24.0, 0.0),
+                                                    iconPadding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 0.0),
+                                                    color: const Color(0xFFB928B8),
+                                                    textStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .titleSmall
+                                                        .override(
+                                                          fontFamily:
+                                                              'Montserrat',
+                                                          color: Colors.white,
+                                                          fontSize: 20.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                    elevation: 5.0,
+                                                    borderSide: const BorderSide(
+                                                      color: Colors.transparent,
+                                                      width: 1.0,
+                                                    ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            24.0),
                                                   ),
                                                 ),
                                               ),
                                             ),
                                           ),
-                                        ],
-                                      ),
+                                        ),
+                                      ],
                                     ),
                                   ),
                                 ),
