@@ -535,6 +535,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   ParamType.bool,
                 ),
               ),
+            ),
+            FFRoute(
+              name: 'DislikePage',
+              path: 'dislikePage',
+              builder: (context, params) => const DislikePageWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
