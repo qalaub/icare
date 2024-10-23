@@ -602,7 +602,7 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                           child: Align(
                             alignment: const AlignmentDirectional(-1.0, 0.0),
                             child: Text(
-                              'Select work days:',
+                              'Select the days you wish to be served:',
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
