@@ -202,16 +202,39 @@ class _Cadari0WidgetState extends State<Cadari0Widget> {
                                               .toList(),
                                       );
                                       safeSetState(() {});
-
-                                      context.pushNamed(
-                                        'RegisterPfofesional4',
-                                        queryParameters: {
-                                          'businessRef': serializeParam(
-                                            widget.bussinesRef,
-                                            ParamType.DocumentReference,
+                                      if (_model.checkboxGroupValues != null &&
+                                              (_model.checkboxGroupValues)!
+                                                  .isNotEmpty
+                                          ? (_model
+                                                  .checkboxGroupValues!.isNotEmpty)
+                                          : false) {
+                                        context.pushNamed(
+                                          'RegisterPfofesional4',
+                                          queryParameters: {
+                                            'businessRef': serializeParam(
+                                              widget.bussinesRef,
+                                              ParamType.DocumentReference,
+                                            ),
+                                          }.withoutNulls,
+                                        );
+                                      } else {
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                            content: Text(
+                                              'You must select at least one day',
+                                              style: TextStyle(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                              ),
+                                            ),
+                                            duration:
+                                                const Duration(milliseconds: 4000),
+                                            backgroundColor: const Color(0xFFBE39D2),
                                           ),
-                                        }.withoutNulls,
-                                      );
+                                        );
+                                      }
                                     },
                                     text: 'Continue',
                                     options: FFButtonOptions(

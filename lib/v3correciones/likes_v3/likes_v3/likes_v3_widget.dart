@@ -106,8 +106,8 @@ class _LikesV3WidgetState extends State<LikesV3Widget> {
               : null;
 
           return Container(
-            width: MediaQuery.sizeOf(context).width * 0.72,
-            height: 124.0,
+            width: MediaQuery.sizeOf(context).width * 0.85,
+            height: 144.0,
             decoration: BoxDecoration(
               color: const Color(0xFFF2CCF1),
               borderRadius: BorderRadius.circular(22.0),
