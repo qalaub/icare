@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/v2/block_list/user_block/user_block_widget.dart';
-import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'block_list_model.dart';
@@ -143,12 +142,7 @@ class _BlockListWidgetState extends State<BlockListWidget> {
                                 return UserBlockWidget(
                                   key: Key(
                                       'Key0sa_${containerVarIndex}_of_${containerVar.length}'),
-                                  background: valueOrDefault<Color>(
-                                    functions.isOdd(containerVarIndex) == true
-                                        ? Colors.white
-                                        : const Color(0xFFDEE8EB),
-                                    Colors.white,
-                                  ),
+                                  background: Colors.white,
                                   username: containerVarItem.firtsName,
                                   service: containerVarItem.rol == Roles.user
                                       ? ' '
