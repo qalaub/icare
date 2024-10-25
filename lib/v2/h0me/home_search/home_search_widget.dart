@@ -4,10 +4,10 @@ import '/backend/schema/enums/enums.dart';
 import '/components/home_vista_cuidador_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/v2/favoritesv2/v3fv0rites/v3fv0rites_widget.dart';
 import '/v2/h0me/map_button/map_button_widget.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
+import '/v3correciones/user_fav0rites/v3fv0ritesv3/v3fv0ritesv3_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
 import 'package:flutter/material.dart';
@@ -256,9 +256,10 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
                                                   final containerVarItem =
                                                       containerVar[
                                                           containerVarIndex];
-                                                  return V3fv0ritesWidget(
+                                                  return V3fv0ritesv3Widget(
                                                     key: Key(
-                                                        'Keyxwz_${containerVarIndex}_of_${containerVar.length}'),
+                                                        'Keyx22_${containerVarIndex}_of_${containerVar.length}'),
+                                                    isCollaborator: false,
                                                     profesionalId:
                                                         containerVarItem
                                                             .reference,
