@@ -13,6 +13,10 @@ class RegisterBusiness2Model extends FlutterFlowModel<RegisterBusiness2Widget> {
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
+  // State field(s) for ListView widget.
+  ScrollController? listViewController;
+  // State field(s) for scroll widget.
+  ScrollController? scroll;
   // State field(s) for serviceType widget.
   List<String>? serviceTypeValue;
   FormFieldController<List<String>>? serviceTypeValueController;
@@ -77,6 +81,8 @@ class RegisterBusiness2Model extends FlutterFlowModel<RegisterBusiness2Widget> {
 
   @override
   void initState(BuildContext context) {
+    listViewController = ScrollController();
+    scroll = ScrollController();
     passwordVisibility = false;
     passwordTextControllerValidator = _passwordTextControllerValidator;
     confirmPasswordVisibility = false;
@@ -86,6 +92,8 @@ class RegisterBusiness2Model extends FlutterFlowModel<RegisterBusiness2Widget> {
 
   @override
   void dispose() {
+    listViewController?.dispose();
+    scroll?.dispose();
     ndisFocusNode?.dispose();
     ndisTextController?.dispose();
 

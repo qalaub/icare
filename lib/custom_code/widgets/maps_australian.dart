@@ -303,6 +303,13 @@ class _MapsAustralianState extends State<MapsAustralian> {
       }
     }
 
+    // Al finalizar la carga, cambiar el estado para que las próximas cargas sí apliquen filtros
+    if (isFirstLoad) {
+      setState(() {
+        isFirstLoad = false;
+      });
+    }
+
     return Stack(
       children: [
         Container(
@@ -334,10 +341,12 @@ class _MapsAustralianState extends State<MapsAustralian> {
               }
             },
             mapType: google_maps.MapType.normal,
-            myLocationButtonEnabled: false,
-            zoomControlsEnabled: false,
-            compassEnabled: false,
-            mapToolbarEnabled: false,
+            myLocationButtonEnabled:
+                false, // Desactiva el botón de "My Location"
+            zoomControlsEnabled: false, // Desactiva los controles de zoom
+            compassEnabled: false, // Desactiva la brújula
+            mapToolbarEnabled: false, // Desactiva la barra de herramientas
+
             minMaxZoomPreference: google_maps.MinMaxZoomPreference(4, 10),
             cameraTargetBounds: google_maps.CameraTargetBounds(australiaBounds),
             markers: markers,
@@ -379,21 +388,6 @@ class _MapsAustralianState extends State<MapsAustralian> {
               }
             },
             child: Icon(Icons.my_location),
-          ),
-        ),
-        // Contenedor para ocultar la marca de agua
-        IgnorePointer(
-          ignoring: true, // Ignora cualquier interacción táctil
-          child: Positioned(
-            bottom: 0,
-            right: 0,
-            child: Container(
-              width:
-                  100, // Ajusta el tamaño para que cubra completamente la marca de agua
-              height: 30,
-              color: Colors
-                  .white, // Puedes cambiar el color o agregar una imagen si lo prefieres
-            ),
           ),
         ),
       ],

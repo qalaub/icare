@@ -211,6 +211,7 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
                                 child: ListView(
                                   padding: EdgeInsets.zero,
                                   scrollDirection: Axis.vertical,
+                                  controller: _model.listViewController,
                                   children: [
                                     Form(
                                       key: _model.formKey,
@@ -254,6 +255,13 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
                                                 border: Border.all(
                                                   color: const Color(0xFFF0DFEF),
                                                 ),
+                                              ),
+                                              child: ListView(
+                                                padding: EdgeInsets.zero,
+                                                shrinkWrap: true,
+                                                scrollDirection: Axis.vertical,
+                                                controller: _model.scroll,
+                                                children: const [],
                                               ),
                                             ),
                                           ),
@@ -1772,6 +1780,15 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
 
                                                     context.pushNamed(
                                                         'RegisterBusiness3');
+                                                  } else {
+                                                    await _model.scroll
+                                                        ?.animateTo(
+                                                      _model.scroll!.position
+                                                          .maxScrollExtent,
+                                                      duration: const Duration(
+                                                          milliseconds: 500),
+                                                      curve: Curves.ease,
+                                                    );
                                                   }
                                                 },
                                                 text: 'Continue',

@@ -215,6 +215,7 @@ class _RegisterProfessional2WidgetState
                                 child: ListView(
                                   padding: EdgeInsets.zero,
                                   scrollDirection: Axis.vertical,
+                                  controller: _model.listViewController,
                                   children: [
                                     Form(
                                       key: _model.formKey,
@@ -263,6 +264,13 @@ class _RegisterProfessional2WidgetState
                                               ),
                                               alignment: const AlignmentDirectional(
                                                   0.0, 0.0),
+                                              child: ListView(
+                                                padding: EdgeInsets.zero,
+                                                shrinkWrap: true,
+                                                scrollDirection: Axis.vertical,
+                                                controller: _model.scroll,
+                                                children: const [],
+                                              ),
                                             ),
                                           ),
                                           Align(
@@ -1958,6 +1966,15 @@ class _RegisterProfessional2WidgetState
                                                               .DocumentReference,
                                                         ),
                                                       }.withoutNulls,
+                                                    );
+                                                  } else {
+                                                    await _model.scroll
+                                                        ?.animateTo(
+                                                      _model.scroll!.position
+                                                          .maxScrollExtent,
+                                                      duration: const Duration(
+                                                          milliseconds: 500),
+                                                      curve: Curves.ease,
                                                     );
                                                   }
                                                 },

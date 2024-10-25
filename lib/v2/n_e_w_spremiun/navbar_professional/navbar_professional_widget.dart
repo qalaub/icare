@@ -91,7 +91,7 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                               key: const ValueKey('home'),
                               borderColor: Colors.transparent,
                               borderRadius: 34.0,
-                              buttonSize: 48.0,
+                              buttonSize: 52.0,
                               icon: const FaIcon(
                                 key: ValueKey('home'),
                                 FontAwesomeIcons.houseUser,

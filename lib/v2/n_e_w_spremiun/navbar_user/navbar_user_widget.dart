@@ -68,7 +68,7 @@ class _NavbarUserWidgetState extends State<NavbarUserWidget> {
                           child: FlutterFlowIconButton(
                             key: const ValueKey('home'),
                             borderColor: Colors.transparent,
-                            buttonSize: MediaQuery.sizeOf(context).width * 0.11,
+                            buttonSize: 52.0,
                             icon: const FaIcon(
                               key: ValueKey('home'),
                               FontAwesomeIcons.houseUser,
