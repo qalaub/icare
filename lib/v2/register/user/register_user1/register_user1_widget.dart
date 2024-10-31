@@ -239,6 +239,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                   key: _model.formKey,
                                   autovalidateMode: AutovalidateMode.disabled,
                                   child: SingleChildScrollView(
+                                    controller: _model.formC,
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -1704,13 +1705,14 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                     );
                                                     FFAppState().counter = 4;
                                                     safeSetState(() {});
+                                                    _model.formV = true;
                                                     if (_model.formKey
                                                                 .currentState ==
                                                             null ||
                                                         !_model.formKey
                                                             .currentState!
                                                             .validate()) {
-                                                      return;
+                                                      _model.formV = false;
                                                     }
                                                     if (functions.validateDate(
                                                         _model
@@ -1731,15 +1733,14 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                       safeSetState(() {});
                                                     }
 
-                                                    if (FFAppState()
-                                                            .verifyForm
-                                                            .subur &&
+                                                    if (FFAppState().verifyForm.subur &&
                                                         FFAppState()
                                                             .verifyForm
                                                             .date &&
                                                         FFAppState()
                                                             .verifyForm
-                                                            .same1) {
+                                                            .same1 &&
+                                                        _model.formV!) {
                                                       FFAppState().verifyForm =
                                                           FormVerifyStruct();
                                                       FFAppState().counter = 0;
@@ -1787,7 +1788,17 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                           ),
                                                         },
                                                       );
+                                                    } else {
+                                                      await _model.formC
+                                                          ?.animateTo(
+                                                        0,
+                                                        duration: const Duration(
+                                                            milliseconds: 300),
+                                                        curve: Curves.ease,
+                                                      );
                                                     }
+
+                                                    safeSetState(() {});
                                                   },
                                                   text: 'Continue',
                                                   options: FFButtonOptions(
@@ -1845,6 +1856,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                     borderRadius: BorderRadius.circular(0.0),
                                   ),
                                   child: SingleChildScrollView(
+                                    controller: _model.columnController,
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -1939,6 +1951,8 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                     ),
                                                   );
                                                 },
+                                                controller:
+                                                    _model.listViewController,
                                               );
                                             },
                                           ),

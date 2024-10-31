@@ -27,6 +27,8 @@ class RegisterUser1Model extends FlutterFlowModel<RegisterUser1Widget> {
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
+  // State field(s) for formC widget.
+  ScrollController? formC;
   // State field(s) for firstName widget.
   FocusNode? firstNameFocusNode;
   TextEditingController? firstNameTextController;
@@ -105,19 +107,29 @@ class RegisterUser1Model extends FlutterFlowModel<RegisterUser1Widget> {
   String? Function(BuildContext, String?)? queryTextControllerValidator;
   // Stores action output result for [Backend Call - API (getSuggestionMapProfesional)] action in query widget.
   ApiCallResponse? apiResultuev;
+  // Stores action output result for [Validate Form] action in Button widget.
+  bool? formV;
+  // State field(s) for Column widget.
+  ScrollController? columnController;
+  // State field(s) for ListView widget.
+  ScrollController? listViewController;
   // Stores action output result for [Backend Call - API (getPlace)] action in mapbuscar widget.
   ApiCallResponse? newPlace;
 
   @override
   void initState(BuildContext context) {
+    formC = ScrollController();
     firstNameTextControllerValidator = _firstNameTextControllerValidator;
     lastnameTextControllerValidator = _lastnameTextControllerValidator;
     emailTextController1Validator = _emailTextController1Validator;
     phoneTextControllerValidator = _phoneTextControllerValidator;
+    columnController = ScrollController();
+    listViewController = ScrollController();
   }
 
   @override
   void dispose() {
+    formC?.dispose();
     firstNameFocusNode?.dispose();
     firstNameTextController?.dispose();
 
@@ -138,5 +150,8 @@ class RegisterUser1Model extends FlutterFlowModel<RegisterUser1Widget> {
 
     queryFocusNode?.dispose();
     queryTextController?.dispose();
+
+    columnController?.dispose();
+    listViewController?.dispose();
   }
 }

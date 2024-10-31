@@ -12,6 +12,7 @@ import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
+import '/v2/professional/imagenesfotos_users/imagenesfotos_users_widget.dart';
 import '/v2/user/upload_profile_image/upload_profile_image_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
@@ -201,6 +202,108 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                     ],
                                   ),
                                 ].addToStart(const SizedBox(height: 11.0)),
+                              ),
+                            ),
+                          ),
+                        if ((currentUserDocument?.rol != Roles.user) &&
+                            ((currentUserDocument?.plan == Plan.premiun) ||
+                                (currentUserDocument?.plan == Plan.standar)))
+                          Align(
+                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 0.0, 16.0, 0.0),
+                              child: AuthUserStreamWidget(
+                                builder: (context) => Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'profile preview',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Montserrat',
+                                                color: const Color(0xFFC14BBC),
+                                                fontSize: 15.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                        ),
+                                      ],
+                                    ),
+                                    Align(
+                                      alignment:
+                                          const AlignmentDirectional(-1.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                0.9,
+                                            height: 39.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                            ),
+                                            child: Align(
+                                              alignment: const AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: Text(
+                                                'In this section you can see your photos as your potential clients do.',
+                                                textAlign: TextAlign.justify,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Montserrat',
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          12.0, 16.0, 12.0, 16.0),
+                                      child: Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                1.0,
+                                        height: 235.0,
+                                        decoration: const BoxDecoration(),
+                                        child: wrapWithModel(
+                                          model: _model.imagenesfotosUsersModel,
+                                          updateCallback: () =>
+                                              safeSetState(() {}),
+                                          child: ImagenesfotosUsersWidget(
+                                            professional: FFAppState()
+                                                        .imagesUserUpload.isNotEmpty
+                                                ? FFAppState().imagesUserUpload
+                                                : (currentUserDocument?.images
+                                                        .toList() ??
+                                                    []),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ].divide(const SizedBox(height: 8.0)),
+                                ),
                               ),
                             ),
                           ),

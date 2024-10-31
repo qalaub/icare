@@ -58,7 +58,7 @@ class _NavbarUserWidgetState extends State<NavbarUserWidget> {
                 child: AuthUserStreamWidget(
                   builder: (context) => Column(
                     mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Expanded(
@@ -87,17 +87,22 @@ class _NavbarUserWidgetState extends State<NavbarUserWidget> {
                       ),
                       Align(
                         alignment: const AlignmentDirectional(0.0, 0.0),
-                        child: Text(
-                          'Home',
-                          textAlign: TextAlign.center,
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.white,
-                                    fontSize: 15.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              1.0, 0.0, 1.0, 0.0),
+                          child: Text(
+                            'Home',
+                            textAlign: TextAlign.center,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Poppins',
+                                  color: Colors.white,
+                                  fontSize: 15.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                          ),
                         ),
                       ),
                       Container(
@@ -112,6 +117,7 @@ class _NavbarUserWidgetState extends State<NavbarUserWidget> {
               AuthUserStreamWidget(
                 builder: (context) => Column(
                   mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Expanded(
                       flex: 1,
@@ -173,6 +179,7 @@ class _NavbarUserWidgetState extends State<NavbarUserWidget> {
               AuthUserStreamWidget(
                 builder: (context) => Column(
                   mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Expanded(
                       flex: 1,
@@ -298,6 +305,7 @@ class _NavbarUserWidgetState extends State<NavbarUserWidget> {
               AuthUserStreamWidget(
                 builder: (context) => Column(
                   mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Expanded(
                       flex: 1,
@@ -346,6 +354,7 @@ class _NavbarUserWidgetState extends State<NavbarUserWidget> {
               ),
             Column(
               mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Expanded(
                   flex: 1,

@@ -26,6 +26,8 @@ class RegisterBusiness1Model extends FlutterFlowModel<RegisterBusiness1Widget> {
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
+  // State field(s) for Column widget.
+  ScrollController? columnController1;
   // State field(s) for firstName widget.
   FocusNode? firstNameFocusNode;
   TextEditingController? firstNameTextController;
@@ -112,20 +114,30 @@ class RegisterBusiness1Model extends FlutterFlowModel<RegisterBusiness1Widget> {
   String? Function(BuildContext, String?)? queryTextControllerValidator;
   // Stores action output result for [Backend Call - API (getSuggestionMapProfesional)] action in query widget.
   ApiCallResponse? apiResultuev;
+  // Stores action output result for [Validate Form] action in Button widget.
+  bool? formV;
+  // State field(s) for Column widget.
+  ScrollController? columnController2;
+  // State field(s) for ListView widget.
+  ScrollController? listViewController;
   // Stores action output result for [Backend Call - API (getPlace)] action in mapbuscar widget.
   ApiCallResponse? newPlace;
 
   @override
   void initState(BuildContext context) {
+    columnController1 = ScrollController();
     firstNameTextControllerValidator = _firstNameTextControllerValidator;
     lastNameTextControllerValidator = _lastNameTextControllerValidator;
     companyTextControllerValidator = _companyTextControllerValidator;
     emailTextController1Validator = _emailTextController1Validator;
     phoneTextControllerValidator = _phoneTextControllerValidator;
+    columnController2 = ScrollController();
+    listViewController = ScrollController();
   }
 
   @override
   void dispose() {
+    columnController1?.dispose();
     firstNameFocusNode?.dispose();
     firstNameTextController?.dispose();
 
@@ -146,5 +158,8 @@ class RegisterBusiness1Model extends FlutterFlowModel<RegisterBusiness1Widget> {
 
     queryFocusNode?.dispose();
     queryTextController?.dispose();
+
+    columnController2?.dispose();
+    listViewController?.dispose();
   }
 }

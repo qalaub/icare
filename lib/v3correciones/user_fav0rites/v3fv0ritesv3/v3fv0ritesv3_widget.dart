@@ -238,42 +238,134 @@ class _V3fv0ritesv3WidgetState extends State<V3fv0ritesv3Widget> {
                                             onRatingUpdate: (newValue) async {
                                               safeSetState(() => _model
                                                   .ratingBarValue = newValue);
-                                              _model.reviewsC =
-                                                  await queryReviewsRecordOnce(
-                                                queryBuilder: (reviewsRecord) =>
-                                                    reviewsRecord
-                                                        .where(
-                                                          'participant',
-                                                          isEqualTo:
-                                                              currentUserReference,
-                                                        )
-                                                        .where(
-                                                          'professional',
-                                                          isEqualTo: widget
-                                                              .profesionalId,
+                                              if (loggedIn) {
+                                                _model.chatsR =
+                                                    await queryChatsRecordOnce(
+                                                  queryBuilder: (chatsRecord) =>
+                                                      chatsRecord
+                                                          .where(
+                                                            'user_a',
+                                                            isEqualTo:
+                                                                currentUserReference,
+                                                          )
+                                                          .where(
+                                                            'user_b',
+                                                            isEqualTo: widget
+                                                                .profesionalId,
+                                                          ),
+                                                  singleRecord: true,
+                                                ).then((s) => s.firstOrNull);
+                                                if (_model.chatsR?.reference !=
+                                                    null) {
+                                                  _model.chatsM =
+                                                      await queryChatMessagesRecordOnce(
+                                                    queryBuilder:
+                                                        (chatMessagesRecord) =>
+                                                            chatMessagesRecord
+                                                                .where(
+                                                                  'chat',
+                                                                  isEqualTo: _model
+                                                                      .chatsR
+                                                                      ?.reference,
+                                                                )
+                                                                .where(
+                                                                  'user',
+                                                                  isEqualTo: widget
+                                                                      .profesionalId,
+                                                                ),
+                                                    limit: 5,
+                                                  );
+                                                  if (((_model.chatsM != null &&
+                                                              (_model.chatsM)!
+                                                                  .isNotEmpty) ==
+                                                          true) &&
+                                                      (_model.chatsM!.isNotEmpty)) {
+                                                    _model.reviewsC =
+                                                        await queryReviewsRecordOnce(
+                                                      queryBuilder:
+                                                          (reviewsRecord) =>
+                                                              reviewsRecord
+                                                                  .where(
+                                                                    'participant',
+                                                                    isEqualTo:
+                                                                        currentUserReference,
+                                                                  )
+                                                                  .where(
+                                                                    'professional',
+                                                                    isEqualTo:
+                                                                        widget
+                                                                            .profesionalId,
+                                                                  ),
+                                                      singleRecord: true,
+                                                    ).then((s) =>
+                                                            s.firstOrNull);
+                                                    if (_model.reviewsC
+                                                            ?.reference !=
+                                                        null) {
+                                                      await _model
+                                                          .reviewsC!.reference
+                                                          .update(
+                                                              createReviewsRecordData(
+                                                        num: _model
+                                                            .ratingBarValue
+                                                            ?.round(),
+                                                      ));
+                                                    } else {
+                                                      await ReviewsRecord
+                                                          .collection
+                                                          .doc()
+                                                          .set(
+                                                              createReviewsRecordData(
+                                                            num: _model
+                                                                .ratingBarValue
+                                                                ?.round(),
+                                                            professional: widget
+                                                                .profesionalId,
+                                                            participant:
+                                                                currentUserReference,
+                                                          ));
+                                                    }
+                                                  } else {
+                                                    ScaffoldMessenger.of(
+                                                            context)
+                                                        .showSnackBar(
+                                                      SnackBar(
+                                                        content: Text(
+                                                          'You should first interact with the professional.',
+                                                          style: TextStyle(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
+                                                          ),
                                                         ),
-                                                singleRecord: true,
-                                              ).then((s) => s.firstOrNull);
-                                              if (_model.reviewsC?.reference !=
-                                                  null) {
-                                                await _model.reviewsC!.reference
-                                                    .update(
-                                                        createReviewsRecordData(
-                                                  num: _model.ratingBarValue
-                                                      ?.round(),
-                                                ));
+                                                        duration: const Duration(
+                                                            milliseconds: 4000),
+                                                        backgroundColor:
+                                                            const Color(0xFFD239B4),
+                                                      ),
+                                                    );
+                                                  }
+                                                } else {
+                                                  ScaffoldMessenger.of(context)
+                                                      .showSnackBar(
+                                                    SnackBar(
+                                                      content: Text(
+                                                        'You should first interact with the professional.',
+                                                        style: TextStyle(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                        ),
+                                                      ),
+                                                      duration: const Duration(
+                                                          milliseconds: 4000),
+                                                      backgroundColor:
+                                                          const Color(0xFFD239B4),
+                                                    ),
+                                                  );
+                                                }
                                               } else {
-                                                await ReviewsRecord.collection
-                                                    .doc()
-                                                    .set(
-                                                        createReviewsRecordData(
-                                                      num: _model.ratingBarValue
-                                                          ?.round(),
-                                                      professional:
-                                                          widget.profesionalId,
-                                                      participant:
-                                                          currentUserReference,
-                                                    ));
+                                                context.pushNamed('Login');
                                               }
 
                                               safeSetState(() {});

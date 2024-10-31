@@ -213,6 +213,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                   key: _model.formKey,
                                   autovalidateMode: AutovalidateMode.disabled,
                                   child: SingleChildScrollView(
+                                    controller: _model.columnController1,
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -1525,13 +1526,14 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                 );
                                                 FFAppState().counter = 4;
                                                 safeSetState(() {});
+                                                _model.formV = true;
                                                 if (_model.formKey
                                                             .currentState ==
                                                         null ||
                                                     !_model
                                                         .formKey.currentState!
                                                         .validate()) {
-                                                  return;
+                                                  _model.formV = false;
                                                 }
                                                 if ((FFAppState()
                                                             .verifyForm
@@ -1539,7 +1541,8 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                         true) &&
                                                     FFAppState()
                                                         .verifyForm
-                                                        .same1) {
+                                                        .same1 &&
+                                                    _model.formV!) {
                                                   FFAppState()
                                                       .updateRegisterProviderFormStruct(
                                                     (e) => e
@@ -1591,7 +1594,17 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                       ),
                                                     },
                                                   );
+                                                } else {
+                                                  await _model.columnController1
+                                                      ?.animateTo(
+                                                    0,
+                                                    duration: const Duration(
+                                                        milliseconds: 300),
+                                                    curve: Curves.ease,
+                                                  );
                                                 }
+
+                                                safeSetState(() {});
                                               },
                                               text: 'Continue',
                                               options: FFButtonOptions(
@@ -1645,6 +1658,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                     borderRadius: BorderRadius.circular(0.0),
                                   ),
                                   child: SingleChildScrollView(
+                                    controller: _model.columnController2,
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -1739,6 +1753,8 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                     ),
                                                   );
                                                 },
+                                                controller:
+                                                    _model.listViewController,
                                               );
                                             },
                                           ),

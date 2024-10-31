@@ -7,6 +7,8 @@ class RegisterUser2Model extends FlutterFlowModel<RegisterUser2Widget> {
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
+  // State field(s) for formC widget.
+  ScrollController? formC;
   // State field(s) for ndis widget.
   FocusNode? ndisFocusNode;
   TextEditingController? ndisTextController;
@@ -62,8 +64,12 @@ class RegisterUser2Model extends FlutterFlowModel<RegisterUser2Widget> {
     return null;
   }
 
+  // Stores action output result for [Validate Form] action in Button widget.
+  bool? formV;
+
   @override
   void initState(BuildContext context) {
+    formC = ScrollController();
     passwordVisibility = false;
     passwordTextControllerValidator = _passwordTextControllerValidator;
     confirmPasswordVisibility = false;
@@ -73,6 +79,7 @@ class RegisterUser2Model extends FlutterFlowModel<RegisterUser2Widget> {
 
   @override
   void dispose() {
+    formC?.dispose();
     ndisFocusNode?.dispose();
     ndisTextController?.dispose();
 

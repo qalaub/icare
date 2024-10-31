@@ -160,16 +160,16 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
                           widget.index!,
                           (_) => _model.uploadedFileUrl,
                         );
-                        safeSetState(() {});
+                        FFAppState().update(() {});
                       } else {
                         FFAppState().insertAtIndexInImagesUserUpload(
                             widget.index!, _model.uploadedFileUrl);
-                        safeSetState(() {});
+                        FFAppState().update(() {});
                       }
                     } else {
                       FFAppState()
                           .addToImagesUserUpload(_model.uploadedFileUrl);
-                      safeSetState(() {});
+                      FFAppState().update(() {});
                     }
                   },
                 ),
@@ -191,7 +191,7 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
                   onPressed: () async {
                     FFAppState()
                         .removeFromImagesUserUpload(_model.uploadedFileUrl);
-                    safeSetState(() {});
+                    FFAppState().update(() {});
                     await FirebaseStorage.instance
                         .refFromURL(_model.uploadedFileUrl)
                         .delete();

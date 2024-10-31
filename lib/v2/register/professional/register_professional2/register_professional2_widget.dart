@@ -264,13 +264,6 @@ class _RegisterProfessional2WidgetState
                                               ),
                                               alignment: const AlignmentDirectional(
                                                   0.0, 0.0),
-                                              child: ListView(
-                                                padding: EdgeInsets.zero,
-                                                shrinkWrap: true,
-                                                scrollDirection: Axis.vertical,
-                                                controller: _model.scroll,
-                                                children: const [],
-                                              ),
                                             ),
                                           ),
                                           Align(
@@ -1870,20 +1863,21 @@ class _RegisterProfessional2WidgetState
                                                   );
                                                   FFAppState().counter = 4;
                                                   safeSetState(() {});
+                                                  _model.formV = true;
                                                   if (_model.formKey
                                                               .currentState ==
                                                           null ||
                                                       !_model
                                                           .formKey.currentState!
                                                           .validate()) {
-                                                    return;
+                                                    _model.formV = false;
                                                   }
                                                   if (_model.serviceTypeValue ==
                                                       null) {
-                                                    return;
+                                                    _model.formV = false;
                                                   }
                                                   if (_model.ageValue == null) {
-                                                    return;
+                                                    _model.formV = false;
                                                   }
                                                   FFAppState()
                                                       .updateVerifyFormStruct(
@@ -1925,7 +1919,8 @@ class _RegisterProfessional2WidgetState
                                                       (FFAppState()
                                                               .verifyForm
                                                               .dropdown2 ==
-                                                          true)) {
+                                                          true) &&
+                                                      _model.formV!) {
                                                     FFAppState()
                                                         .updateRegisterProviderFormStruct(
                                                       (e) => e
@@ -1968,15 +1963,17 @@ class _RegisterProfessional2WidgetState
                                                       }.withoutNulls,
                                                     );
                                                   } else {
-                                                    await _model.scroll
+                                                    await _model
+                                                        .listViewController
                                                         ?.animateTo(
-                                                      _model.scroll!.position
-                                                          .maxScrollExtent,
+                                                      0,
                                                       duration: const Duration(
-                                                          milliseconds: 500),
+                                                          milliseconds: 300),
                                                       curve: Curves.ease,
                                                     );
                                                   }
+
+                                                  safeSetState(() {});
                                                 },
                                                 text: 'Continue',
                                                 options: FFButtonOptions(

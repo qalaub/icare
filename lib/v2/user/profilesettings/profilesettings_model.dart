@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
+import '/v2/professional/imagenesfotos_users/imagenesfotos_users_widget.dart';
 import '/v2/user/upload_profile_image/upload_profile_image_widget.dart';
 import 'profilesettings_widget.dart' show ProfilesettingsWidget;
 import 'package:flutter/material.dart';
@@ -31,6 +32,8 @@ class ProfilesettingsModel extends FlutterFlowModel<ProfilesettingsWidget> {
 
   // Model for upload_profile_image component.
   late UploadProfileImageModel uploadProfileImageModel;
+  // Model for imagenesfotosUsers component.
+  late ImagenesfotosUsersModel imagenesfotosUsersModel;
   // State field(s) for name widget.
   FocusNode? nameFocusNode;
   TextEditingController? nameTextController;
@@ -68,6 +71,8 @@ class ProfilesettingsModel extends FlutterFlowModel<ProfilesettingsWidget> {
   void initState(BuildContext context) {
     uploadProfileImageModel =
         createModel(context, () => UploadProfileImageModel());
+    imagenesfotosUsersModel =
+        createModel(context, () => ImagenesfotosUsersModel());
     navbarModel = createModel(context, () => NavbarModel());
     navbarPremiunModel = createModel(context, () => NavbarPremiunModel());
   }
@@ -75,6 +80,7 @@ class ProfilesettingsModel extends FlutterFlowModel<ProfilesettingsWidget> {
   @override
   void dispose() {
     uploadProfileImageModel.dispose();
+    imagenesfotosUsersModel.dispose();
     nameFocusNode?.dispose();
     nameTextController?.dispose();
 

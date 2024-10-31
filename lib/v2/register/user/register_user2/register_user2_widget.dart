@@ -195,6 +195,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                   key: _model.formKey,
                                   autovalidateMode: AutovalidateMode.disabled,
                                   child: SingleChildScrollView(
+                                    controller: _model.formC,
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -1135,15 +1136,16 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                           child: FFButtonWidget(
                                             key: const ValueKey('create'),
                                             onPressed: () async {
+                                              _model.formV = true;
                                               if (_model.formKey.currentState ==
                                                       null ||
                                                   !_model.formKey.currentState!
                                                       .validate()) {
-                                                return;
+                                                _model.formV = false;
                                               }
                                               if (_model.dropDownValue ==
                                                   null) {
-                                                return;
+                                                _model.formV = false;
                                               }
                                               FFAppState()
                                                   .updateVerifyFormStruct(
@@ -1177,10 +1179,11 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                       .dropDownValue!
                                                       .toList(),
                                               );
-                                              if (FFAppState()
-                                                      .verifyForm
-                                                      .same ==
-                                                  true) {
+                                              if ((FFAppState()
+                                                          .verifyForm
+                                                          .same ==
+                                                      true) &&
+                                                  _model.formV!) {
                                                 FFAppState().verifyForm =
                                                     FormVerifyStruct();
                                                 FFAppState().counter = 0;
@@ -1203,7 +1206,17 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                     ),
                                                   },
                                                 );
+                                              } else {
+                                                await _model.formC?.animateTo(
+                                                  _model.formC!.position
+                                                      .maxScrollExtent,
+                                                  duration: const Duration(
+                                                      milliseconds: 300),
+                                                  curve: Curves.ease,
+                                                );
                                               }
+
+                                              safeSetState(() {});
                                             },
                                             text: 'Continue',
                                             options: FFButtonOptions(
