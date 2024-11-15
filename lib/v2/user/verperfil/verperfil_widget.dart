@@ -1,6 +1,4 @@
 import '/auth/firebase_auth/auth_util.dart';
-import '/backend/backend.dart';
-import '/backend/firebase_storage/storage.dart';
 import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -9,34 +7,31 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import '/flutter_flow/upload_data.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
 import '/v2/professional/imagenesfotos_users/imagenesfotos_users_widget.dart';
-import '/v2/user/upload_profile_image/upload_profile_image_widget.dart';
-import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
-import 'profilesettings_model.dart';
-export 'profilesettings_model.dart';
+import 'verperfil_model.dart';
+export 'verperfil_model.dart';
 
-class ProfilesettingsWidget extends StatefulWidget {
-  const ProfilesettingsWidget({super.key});
+class VerperfilWidget extends StatefulWidget {
+  const VerperfilWidget({super.key});
 
   @override
-  State<ProfilesettingsWidget> createState() => _ProfilesettingsWidgetState();
+  State<VerperfilWidget> createState() => _VerperfilWidgetState();
 }
 
-class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
-  late ProfilesettingsModel _model;
+class _VerperfilWidgetState extends State<VerperfilWidget> {
+  late VerperfilModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => ProfilesettingsModel());
+    _model = createModel(context, () => VerperfilModel());
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
@@ -89,7 +84,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
             },
           ),
           title: Text(
-            'Edit Profile',
+            'My Profile',
             style: FlutterFlowTheme.of(context).headlineLarge.override(
                   fontFamily: 'Montserrat',
                   color: Colors.white,
@@ -117,168 +112,104 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        if (currentUserDocument?.rol != Roles.user)
+                        if (currentUserDocument?.rol == Roles.user)
                           Align(
                             alignment: const AlignmentDirectional(0.0, 0.0),
-                            child: AuthUserStreamWidget(
-                              builder: (context) => Column(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Align(
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
-                                    child: Stack(
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 0.0, 16.0, 0.0),
+                              child: AuthUserStreamWidget(
+                                builder: (context) => Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
                                       children: [
-                                        Align(
-                                          alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
-                                          child: Container(
-                                            width: MediaQuery.sizeOf(context)
-                                                    .width *
-                                                0.9,
-                                            decoration: const BoxDecoration(),
-                                            child: wrapWithModel(
-                                              model: _model
-                                                  .uploadProfileImageModel,
-                                              updateCallback: () =>
-                                                  safeSetState(() {}),
-                                              child: UploadProfileImageWidget(
-                                                imgs: (currentUserDocument
-                                                        ?.images
-                                                        .toList() ??
-                                                    []),
+                                        Text(
+                                          'Avatar preview',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Montserrat',
+                                                color: const Color(0xFFC14BBC),
+                                                fontSize: 15.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w600,
                                               ),
-                                            ),
-                                          ),
                                         ),
                                       ],
                                     ),
-                                  ),
-                                  Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Column(
+                                    Align(
+                                      alignment:
+                                          const AlignmentDirectional(-1.0, 0.0),
+                                      child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
-                                            MainAxisAlignment.spaceAround,
+                                            MainAxisAlignment.start,
                                         children: [
-                                          Text(
-                                            'Profile Picture',
-                                            style: FlutterFlowTheme.of(context)
-                                                .headlineLarge
-                                                .override(
-                                                  fontFamily: 'Montserrat',
-                                                  fontSize: 16.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 8.0, 0.0, 8.0),
-                                            child: Text(
-                                              'Highly recommended',
-                                              textAlign: TextAlign.center,
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .headlineSmall
-                                                  .override(
-                                                    fontFamily: 'Montserrat',
-                                                    color: const Color(0xFFA62985),
-                                                    fontSize: 14.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight:
-                                                        FontWeight.normal,
-                                                  ),
-                                            ),
-                                          ),
-                                        ].addToStart(const SizedBox(height: 4.0)),
-                                      ),
-                                    ],
-                                  ),
-                                ].addToStart(const SizedBox(height: 11.0)),
-                              ),
-                            ),
-                          ),
-                        if (currentUserDocument?.rol == Roles.user)
-                          Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 16.0),
-                            child: AuthUserStreamWidget(
-                              builder: (context) => Column(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Align(
-                                    alignment: const AlignmentDirectional(-1.0, 0.0),
-                                    child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          20.0, 16.0, 0.0, 0.0),
-                                      child: Text(
-                                        'Change avatar',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyLarge
-                                            .override(
-                                              fontFamily: 'Montserrat',
-                                              color: const Color(0xFFC14BBC),
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 10.0, 0.0, 0.0),
-                                    child: FFButtonWidget(
-                                      key: const ValueKey('upload'),
-                                      onPressed: () async {
-                                        context.pushNamed(
-                                          'avatars',
-                                          queryParameters: {
-                                            'isUpdate': serializeParam(
-                                              true,
-                                              ParamType.bool,
-                                            ),
-                                          }.withoutNulls,
-                                        );
-                                      },
-                                      text: 'Change avatar',
-                                      icon: const Icon(
-                                        key: ValueKey('upload'),
-                                        Icons.location_history_sharp,
-                                        size: 22.0,
-                                      ),
-                                      options: FFButtonOptions(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
+                                          Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
                                                 0.9,
-                                        height: 47.0,
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            12.0, 0.0, 12.0, 0.0),
-                                        iconPadding:
-                                            const EdgeInsetsDirectional.fromSTEB(
-                                                0.0, 0.0, 0.0, 0.0),
-                                        color: const Color(0xFFB928B8),
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .override(
-                                              fontFamily: 'Montserrat',
-                                              color: Colors.white,
-                                              fontSize: 20.0,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.w500,
+                                            height: 39.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
                                             ),
-                                        elevation: 3.0,
-                                        borderRadius:
-                                            BorderRadius.circular(12.0),
+                                            child: Align(
+                                              alignment: const AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: Text(
+                                                'In this section you can see your avatar as your potential caregivers see it.',
+                                                textAlign: TextAlign.justify,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Montserrat',
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
-                                  ),
-                                ].divide(const SizedBox(height: 8.0)),
+                                    Align(
+                                      alignment: const AlignmentDirectional(0.0, 0.0),
+                                      child: Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            12.0, 16.0, 12.0, 16.0),
+                                        child: Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.9,
+                                          decoration: const BoxDecoration(),
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            child: Image.network(
+                                              'https://picsum.photos/seed/506/600',
+                                              width: 200.0,
+                                              height: 243.0,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ].addToStart(const SizedBox(height: 11.0)),
+                                ),
                               ),
                             ),
                           ),
@@ -301,7 +232,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                           MainAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'profile preview',
+                                          'Profile preview',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -502,6 +433,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                           textCapitalization:
                                                               TextCapitalization
                                                                   .words,
+                                                          readOnly: true,
                                                           obscureText: false,
                                                           decoration:
                                                               InputDecoration(
@@ -1215,6 +1147,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                   textCapitalization:
                                                       TextCapitalization
                                                           .sentences,
+                                                  readOnly: true,
                                                   obscureText: false,
                                                   decoration: InputDecoration(
                                                     isDense: false,
@@ -1410,127 +1343,6 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                         lazyLoad: false,
                                       ),
                                     ),
-                                    FFButtonWidget(
-                                      key: const ValueKey('upload'),
-                                      onPressed: () async {
-                                        final selectedMedia =
-                                            await selectMediaWithSourceBottomSheet(
-                                          context: context,
-                                          allowPhoto: false,
-                                          allowVideo: true,
-                                        );
-                                        if (selectedMedia != null &&
-                                            selectedMedia.every((m) =>
-                                                validateFileFormat(
-                                                    m.storagePath, context))) {
-                                          safeSetState(() =>
-                                              _model.isDataUploading1 = true);
-                                          var selectedUploadedFiles =
-                                              <FFUploadedFile>[];
-
-                                          try {
-                                            showUploadMessage(
-                                              context,
-                                              'Uploading file...',
-                                              showLoading: true,
-                                            );
-                                            selectedUploadedFiles =
-                                                selectedMedia
-                                                    .map((m) => FFUploadedFile(
-                                                          name: m.storagePath
-                                                              .split('/')
-                                                              .last,
-                                                          bytes: m.bytes,
-                                                          height: m.dimensions
-                                                              ?.height,
-                                                          width: m.dimensions
-                                                              ?.width,
-                                                          blurHash: m.blurHash,
-                                                        ))
-                                                    .toList();
-                                          } finally {
-                                            ScaffoldMessenger.of(context)
-                                                .hideCurrentSnackBar();
-                                            _model.isDataUploading1 = false;
-                                          }
-                                          if (selectedUploadedFiles.length ==
-                                              selectedMedia.length) {
-                                            safeSetState(() {
-                                              _model.uploadedLocalFile1 =
-                                                  selectedUploadedFiles.first;
-                                            });
-                                            showUploadMessage(
-                                                context, 'Success!');
-                                          } else {
-                                            safeSetState(() {});
-                                            showUploadMessage(context,
-                                                'Failed to upload data');
-                                            return;
-                                          }
-                                        }
-
-                                        _model.verifyVideo =
-                                            actions.verifySizeVideo(
-                                          _model.uploadedLocalFile1,
-                                        );
-                                        if (!_model.verifyVideo!) {
-                                          ScaffoldMessenger.of(context)
-                                              .showSnackBar(
-                                            SnackBar(
-                                              content: Text(
-                                                'File must be no larger than 100 MB',
-                                                style: TextStyle(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryText,
-                                                ),
-                                              ),
-                                              duration:
-                                                  const Duration(milliseconds: 4000),
-                                              backgroundColor:
-                                                  const Color(0xFFD2395B),
-                                            ),
-                                          );
-                                          safeSetState(() {
-                                            _model.isDataUploading1 = false;
-                                            _model.uploadedLocalFile1 =
-                                                FFUploadedFile(
-                                                    bytes:
-                                                        Uint8List.fromList([]));
-                                          });
-                                        }
-
-                                        safeSetState(() {});
-                                      },
-                                      text: 'Upload video',
-                                      icon: const Icon(
-                                        key: ValueKey('upload'),
-                                        Icons.upload,
-                                        size: 22.0,
-                                      ),
-                                      options: FFButtonOptions(
-                                        width: 167.0,
-                                        height: 47.0,
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            12.0, 0.0, 12.0, 0.0),
-                                        iconPadding:
-                                            const EdgeInsetsDirectional.fromSTEB(
-                                                0.0, 0.0, 0.0, 0.0),
-                                        color: const Color(0xFFB928B8),
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .override(
-                                              fontFamily: 'Montserrat',
-                                              color: Colors.white,
-                                              fontSize: 20.0,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                        elevation: 0.0,
-                                        borderRadius:
-                                            BorderRadius.circular(16.0),
-                                      ),
-                                    ),
                                   ].divide(const SizedBox(height: 8.0)),
                                 ),
                               ),
@@ -1539,152 +1351,9 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                         FFButtonWidget(
                           key: const ValueKey('save'),
                           onPressed: () async {
-                            FFAppState().updateRegisterProviderFormStruct(
-                              (e) => e
-                                ..firstName = valueOrDefault(
-                                    currentUserDocument?.firtsName, '')
-                                ..languagues = valueOrDefault(
-                                    currentUserDocument?.languagues, '')
-                                ..description = valueOrDefault(
-                                    currentUserDocument?.description, '')
-                                ..age =
-                                    valueOrDefault(currentUserDocument?.age, '')
-                                ..serviceType = (currentUserDocument
-                                            ?.serviceType
-                                            .toList() ??
-                                        [])
-                                    .toList(),
-                            );
-                            FFAppState().updateRegisterProviderFormStruct(
-                              (e) => e
-                                ..firstName = _model.nameTextController.text
-                                ..description =
-                                    _model.descriptionTextController.text
-                                ..updateTime = getCurrentTimestamp
-                                ..age = _model.ageValue,
-                            );
-                            if (currentUserDocument?.rol != Roles.user) {
-                              if (currentUserDocument?.rol == Roles.business) {
-                                FFAppState().updateRegisterProviderFormStruct(
-                                  (e) => e
-                                    ..serviceType =
-                                        _model.servicesPremiunValue!.toList(),
-                                );
-                              } else {
-                                FFAppState().updateRegisterProviderFormStruct(
-                                  (e) => e
-                                    ..serviceType =
-                                        _model.servicesPremiunValue!.toList(),
-                                );
-                              }
-                            }
-
-                            await currentUserReference!.update({
-                              ...createUsersRecordData(
-                                firtsName:
-                                    FFAppState().registerProviderForm.firstName,
-                                languagues: FFAppState()
-                                    .registerProviderForm
-                                    .languagues,
-                                updateTime: FFAppState()
-                                    .registerProviderForm
-                                    .updateTime,
-                                description: FFAppState()
-                                    .registerProviderForm
-                                    .description,
-                                age: FFAppState().registerProviderForm.age,
-                              ),
-                              ...mapToFirestore(
-                                {
-                                  'serviceType': FFAppState()
-                                      .registerProviderForm
-                                      .serviceType,
-                                },
-                              ),
-                            });
-                            if (FFAppState().imagesUserUpload.isNotEmpty) {
-                              await currentUserReference!.update({
-                                ...createUsersRecordData(
-                                  photoUrl: FFAppState().imagesUserUpload.first,
-                                ),
-                                ...mapToFirestore(
-                                  {
-                                    'images': FFAppState().imagesUserUpload,
-                                  },
-                                ),
-                              });
-                            }
-                            FFAppState().registerProviderForm =
-                                RegisterProviderTypeStruct.fromSerializableMap(
-                                    jsonDecode(
-                                        '{\"images\":\"[]\",\"serviceType\":\"[]\",\"disabilities\":\"[]\",\"schedule\":\"[\\\"Monday\\\",\\\"Tuesday\\\",\\\"Wednesday\\\",\\\"Thursday\\\",\\\"Friday\\\",\\\"Saturday\\\",\\\"Sunday\\\"]\"}'));
-                            safeSetState(() {});
-                            if ((_model.uploadedLocalFile1.bytes?.isNotEmpty ??
-                                    false)) {
-                              {
-                                safeSetState(
-                                    () => _model.isDataUploading2 = true);
-                                var selectedUploadedFiles = <FFUploadedFile>[];
-                                var selectedMedia = <SelectedFile>[];
-                                var downloadUrls = <String>[];
-                                try {
-                                  selectedUploadedFiles = _model
-                                          .uploadedLocalFile1.bytes!.isNotEmpty
-                                      ? [_model.uploadedLocalFile1]
-                                      : <FFUploadedFile>[];
-                                  selectedMedia =
-                                      selectedFilesFromUploadedFiles(
-                                    selectedUploadedFiles,
-                                  );
-                                  downloadUrls = (await Future.wait(
-                                    selectedMedia.map(
-                                      (m) async => await uploadData(
-                                          m.storagePath, m.bytes),
-                                    ),
-                                  ))
-                                      .where((u) => u != null)
-                                      .map((u) => u!)
-                                      .toList();
-                                } finally {
-                                  _model.isDataUploading2 = false;
-                                }
-                                if (selectedUploadedFiles.length ==
-                                        selectedMedia.length &&
-                                    downloadUrls.length ==
-                                        selectedMedia.length) {
-                                  safeSetState(() {
-                                    _model.uploadedLocalFile2 =
-                                        selectedUploadedFiles.first;
-                                    _model.uploadedFileUrl2 =
-                                        downloadUrls.first;
-                                  });
-                                } else {
-                                  safeSetState(() {});
-                                  return;
-                                }
-                              }
-
-                              await currentUserReference!
-                                  .update(createUsersRecordData(
-                                video: _model.uploadedFileUrl2,
-                              ));
-                            }
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text(
-                                  'Update success',
-                                  style: TextStyle(
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                  ),
-                                ),
-                                duration: const Duration(milliseconds: 4000),
-                                backgroundColor:
-                                    FlutterFlowTheme.of(context).secondary,
-                              ),
-                            );
+                            context.pushNamed('Profilesettings');
                           },
-                          text: 'Save changes',
+                          text: 'Edit profile',
                           options: FFButtonOptions(
                             width: 167.0,
                             height: 50.0,

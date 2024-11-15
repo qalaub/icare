@@ -4,7 +4,7 @@ import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/v2/favoritesv2/add_favorites/add_favorites_widget.dart';
+import '/v2/block_list/favoritesv2/add_favorites/add_favorites_widget.dart';
 import '/v2/menbresiav2/membresia_logo/membresia_logo_widget.dart';
 import '/v2/user/descripcion_profesional/descripcion_profesional_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -119,7 +119,6 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                     borderWidth: 1.0,
                     buttonSize: 40.0,
                     icon: const Icon(
-                      key: ValueKey('share'),
                       Icons.share_rounded,
                       color: Colors.white,
                       size: 24.0,

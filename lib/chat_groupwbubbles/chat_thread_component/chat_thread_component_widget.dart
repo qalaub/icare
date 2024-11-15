@@ -277,7 +277,6 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                                         fillColor: FlutterFlowTheme.of(context)
                                             .primaryBackground,
                                         icon: Icon(
-                                          key: const ValueKey('delete'),
                                           Icons.delete_outline_rounded,
                                           color: FlutterFlowTheme.of(context)
                                               .error,
@@ -325,7 +324,6 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                               fillColor: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
                               icon: Icon(
-                                key: const ValueKey('upload'),
                                 Icons.add_rounded,
                                 color:
                                     FlutterFlowTheme.of(context).secondaryText,
@@ -601,7 +599,6 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                                         buttonSize: 40.0,
                                         fillColor: const Color(0x54CE69CE),
                                         icon: const Icon(
-                                          key: ValueKey('send'),
                                           Icons.send_rounded,
                                           color: Color(0xFF432C43),
                                           size: 20.0,

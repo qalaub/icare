@@ -128,7 +128,6 @@ class _NavbarUserWidgetState extends State<NavbarUserWidget> {
                           borderColor: Colors.transparent,
                           buttonSize: 50.0,
                           icon: const Icon(
-                            key: ValueKey('favorite'),
                             Icons.favorite_border_rounded,
                             color: Colors.white,
                             size: 34.0,
@@ -195,7 +194,6 @@ class _NavbarUserWidgetState extends State<NavbarUserWidget> {
                                 borderColor: Colors.transparent,
                                 buttonSize: 50.0,
                                 icon: const Icon(
-                                  key: ValueKey('message'),
                                   Icons.wechat_rounded,
                                   color: Colors.white,
                                   size: 34.0,
@@ -365,7 +363,6 @@ class _NavbarUserWidgetState extends State<NavbarUserWidget> {
                       borderColor: Colors.transparent,
                       buttonSize: 50.0,
                       icon: const Icon(
-                        key: ValueKey('profile'),
                         Icons.person,
                         color: Colors.white,
                         size: 34.0,

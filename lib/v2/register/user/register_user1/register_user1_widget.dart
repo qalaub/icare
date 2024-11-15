@@ -1924,13 +1924,22 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                     ?.jsonBody ??
                                                                 ''),
                                                           )!;
-                                                          _model.queryTextController
-                                                                  ?.selection =
-                                                              TextSelection.collapsed(
-                                                                  offset: _model
-                                                                      .queryTextController!
-                                                                      .text
-                                                                      .length);
+                                                          _model.queryFocusNode
+                                                              ?.requestFocus();
+                                                          WidgetsBinding
+                                                              .instance
+                                                              .addPostFrameCallback(
+                                                                  (_) {
+                                                            _model.queryTextController
+                                                                    ?.selection =
+                                                                TextSelection
+                                                                    .collapsed(
+                                                              offset: _model
+                                                                  .queryTextController!
+                                                                  .text
+                                                                  .length,
+                                                            );
+                                                          });
                                                         });
                                                       }
                                                       _model.queryResults = [];

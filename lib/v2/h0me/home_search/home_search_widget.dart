@@ -238,8 +238,16 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
                                                                   ?.blockList
                                                                   .toList() ??
                                                               [])
-                                                          .contains(
-                                                              e.reference))
+                                                          .contains(e
+                                                              .reference) &&
+                                                      functions
+                                                          .verifyDistanceFilter(
+                                                              FFAppState()
+                                                                  .tempLocation
+                                                                  ?.toString(),
+                                                              e.suburb!,
+                                                              FFAppState()
+                                                                  .zoomFilter))
                                                   .toList();
 
                                               return ListView.separated(
@@ -263,6 +271,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
                                                     profesionalId:
                                                         containerVarItem
                                                             .reference,
+                                                    isReview: false,
                                                   );
                                                 },
                                               );

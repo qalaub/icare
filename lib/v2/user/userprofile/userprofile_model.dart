@@ -1,8 +1,8 @@
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/v2/account_option/account_option_widget.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
-import '/v2/user/account_option/account_option_widget.dart';
 import 'userprofile_widget.dart' show UserprofileWidget;
 import 'package:flutter/material.dart';
 
@@ -19,18 +19,20 @@ class UserprofileModel extends FlutterFlowModel<UserprofileWidget> {
   late AccountOptionModel accountOptionModel2;
   // Model for AccountOption component.
   late AccountOptionModel accountOptionModel3;
+  // Model for AccountOption component.
+  late AccountOptionModel accountOptionModel4;
   // Stores action output result for [Firestore Query - Query a collection] action in AccountOption widget.
   CodesRecord? codes;
   // Stores action output result for [Backend Call - Create Document] action in AccountOption widget.
   CodesRecord? newCode;
-  // Model for AccountOption component.
-  late AccountOptionModel accountOptionModel4;
   // Model for AccountOption component.
   late AccountOptionModel accountOptionModel5;
   // Model for AccountOption component.
   late AccountOptionModel accountOptionModel6;
   // Model for AccountOption component.
   late AccountOptionModel accountOptionModel7;
+  // Model for AccountOption component.
+  late AccountOptionModel accountOptionModel8;
   // Model for Navbar component.
   late NavbarModel navbarModel;
   // Model for NavbarPremiun component.
@@ -45,6 +47,7 @@ class UserprofileModel extends FlutterFlowModel<UserprofileWidget> {
     accountOptionModel5 = createModel(context, () => AccountOptionModel());
     accountOptionModel6 = createModel(context, () => AccountOptionModel());
     accountOptionModel7 = createModel(context, () => AccountOptionModel());
+    accountOptionModel8 = createModel(context, () => AccountOptionModel());
     navbarModel = createModel(context, () => NavbarModel());
     navbarPremiunModel = createModel(context, () => NavbarPremiunModel());
   }
@@ -58,6 +61,7 @@ class UserprofileModel extends FlutterFlowModel<UserprofileWidget> {
     accountOptionModel5.dispose();
     accountOptionModel6.dispose();
     accountOptionModel7.dispose();
+    accountOptionModel8.dispose();
     navbarModel.dispose();
     navbarPremiunModel.dispose();
   }

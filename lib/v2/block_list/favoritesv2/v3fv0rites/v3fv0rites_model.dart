@@ -1,11 +1,11 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/v2/favoritesv2/add_favorites/add_favorites_widget.dart';
+import '/v2/block_list/favoritesv2/add_favorites/add_favorites_widget.dart';
 import '/v2/menbresiav2/membresia_logo/membresia_logo_widget.dart';
-import 'perfil_profesional_mapa_widget.dart' show PerfilProfesionalMapaWidget;
+import 'v3fv0rites_widget.dart' show V3fv0ritesWidget;
 import 'package:flutter/material.dart';
 
-class PerfilProfesionalMapaModel
-    extends FlutterFlowModel<PerfilProfesionalMapaWidget> {
+class V3fv0ritesModel extends FlutterFlowModel<V3fv0ritesWidget> {
   ///  Local state fields for this component.
 
   List<DocumentReference> usersToAdd = [];
@@ -20,12 +20,18 @@ class PerfilProfesionalMapaModel
 
   ///  State fields for stateful widgets in this component.
 
+  // State field(s) for RatingBar widget.
+  double? ratingBarValue1;
+  // Stores action output result for [Firestore Query - Query a collection] action in RatingBar widget.
+  ReviewsRecord? reviewsC;
+  // State field(s) for RatingBar widget.
+  double? ratingBarValue2;
+  // Stores action output result for [Firestore Query - Query a collection] action in RatingBar widget.
+  ReviewsRecord? reviewsCs;
   // Model for AddFavorites component.
   late AddFavoritesModel addFavoritesModel;
   // Model for MembresiaLogo component.
   late MembresiaLogoModel membresiaLogoModel;
-  // State field(s) for RatingBar widget.
-  double? ratingBarValue;
 
   @override
   void initState(BuildContext context) {

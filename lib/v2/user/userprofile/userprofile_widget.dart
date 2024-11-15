@@ -5,13 +5,14 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/v2/account_option/account_option_widget.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
-import '/v2/user/account_option/account_option_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'userprofile_model.dart';
 export 'userprofile_model.dart';
 
@@ -254,7 +255,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              context.pushNamed('Profilesettings');
+                              context.pushNamed('verperfil');
                             },
                             child: wrapWithModel(
                               model: _model.accountOptionModel2,
@@ -267,6 +268,33 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                   size: 30.0,
                                 ),
                                 text: 'My profile',
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          width: 326.0,
+                          height: 52.0,
+                          decoration: const BoxDecoration(),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              context.pushNamed('Profilesettings');
+                            },
+                            child: wrapWithModel(
+                              model: _model.accountOptionModel3,
+                              updateCallback: () => safeSetState(() {}),
+                              child: const AccountOptionWidget(
+                                key: ValueKey('profile'),
+                                icon: FaIcon(
+                                  key: ValueKey('profile'),
+                                  FontAwesomeIcons.userEdit,
+                                  size: 21.0,
+                                ),
+                                text: 'Edit profile',
                               ),
                             ),
                           ),
@@ -326,7 +354,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                       safeSetState(() {});
                                     },
                                     child: wrapWithModel(
-                                      model: _model.accountOptionModel3,
+                                      model: _model.accountOptionModel4,
                                       updateCallback: () => safeSetState(() {}),
                                       child: const AccountOptionWidget(
                                         key: ValueKey('seeCode'),
@@ -354,7 +382,6 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                           borderWidth: 1.0,
                                           buttonSize: 40.0,
                                           icon: Icon(
-                                            key: const ValueKey('copyCode'),
                                             Icons.content_copy,
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryText,
@@ -402,7 +429,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                               context.pushNamed('BlockList');
                             },
                             child: wrapWithModel(
-                              model: _model.accountOptionModel4,
+                              model: _model.accountOptionModel5,
                               updateCallback: () => safeSetState(() {}),
                               child: const AccountOptionWidget(
                                 key: ValueKey('block'),
@@ -447,7 +474,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                     );
                                   },
                                   child: wrapWithModel(
-                                    model: _model.accountOptionModel5,
+                                    model: _model.accountOptionModel6,
                                     updateCallback: () => safeSetState(() {}),
                                     child: const AccountOptionWidget(
                                       key: ValueKey('change'),
@@ -479,7 +506,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                     'https://icareapp.com.au/privacy-policy');
                               },
                               child: wrapWithModel(
-                                model: _model.accountOptionModel6,
+                                model: _model.accountOptionModel7,
                                 updateCallback: () => safeSetState(() {}),
                                 child: const AccountOptionWidget(
                                   key: ValueKey('terms'),
@@ -506,7 +533,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                               context.pushNamed('Deleteaccount');
                             },
                             child: wrapWithModel(
-                              model: _model.accountOptionModel7,
+                              model: _model.accountOptionModel8,
                               updateCallback: () => safeSetState(() {}),
                               child: const AccountOptionWidget(
                                 key: ValueKey('delete'),

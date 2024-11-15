@@ -1,7 +1,7 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/v2/favoritesv2/add_favorites/add_favorites_widget.dart';
+import '/v2/block_list/favoritesv2/add_favorites/add_favorites_widget.dart';
 import '/v2/menbresiav2/membresia_logo/membresia_logo_widget.dart';
 import 'v3fv0ritesv3_widget.dart' show V3fv0ritesv3Widget;
 import 'package:flutter/material.dart';
@@ -28,7 +28,7 @@ class V3fv0ritesv3Model extends FlutterFlowModel<V3fv0ritesv3Widget> {
   // Stores action output result for [Backend Call - API (getNamePlace)] action in v3fv0ritesv3 widget.
   ApiCallResponse? apiResult23d;
   // State field(s) for RatingBar widget.
-  double? ratingBarValue;
+  double? ratingBarValue1;
   // Stores action output result for [Firestore Query - Query a collection] action in RatingBar widget.
   ChatsRecord? chatsR;
   // Stores action output result for [Firestore Query - Query a collection] action in RatingBar widget.

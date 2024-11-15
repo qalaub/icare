@@ -540,6 +540,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'DislikePage',
               path: 'dislikePage',
               builder: (context, params) => const DislikePageWidget(),
+            ),
+            FFRoute(
+              name: 'verperfil',
+              path: 'verperfil',
+              requireAuth: true,
+              builder: (context, params) => const VerperfilWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

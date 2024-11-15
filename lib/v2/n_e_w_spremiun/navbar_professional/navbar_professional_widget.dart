@@ -148,7 +148,6 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                                 borderRadius: 34.0,
                                 buttonSize: 48.0,
                                 icon: const Icon(
-                                  key: ValueKey('likes'),
                                   Icons.favorite_border_rounded,
                                   color: Colors.white,
                                   size: 33.0,
@@ -248,7 +247,6 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                                   borderColor: Colors.transparent,
                                   buttonSize: 48.0,
                                   icon: const Icon(
-                                    key: ValueKey('message'),
                                     Icons.wechat_rounded,
                                     color: Colors.white,
                                     size: 34.0,
@@ -372,7 +370,6 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                             borderColor: Colors.transparent,
                             buttonSize: 48.0,
                             icon: const Icon(
-                              key: ValueKey('profile'),
                               Icons.person,
                               color: Colors.white,
                               size: 37.0,

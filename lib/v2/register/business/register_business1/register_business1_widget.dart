@@ -1726,13 +1726,22 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                                     ?.jsonBody ??
                                                                 ''),
                                                           )!;
-                                                          _model.queryTextController
-                                                                  ?.selection =
-                                                              TextSelection.collapsed(
-                                                                  offset: _model
-                                                                      .queryTextController!
-                                                                      .text
-                                                                      .length);
+                                                          _model.queryFocusNode
+                                                              ?.requestFocus();
+                                                          WidgetsBinding
+                                                              .instance
+                                                              .addPostFrameCallback(
+                                                                  (_) {
+                                                            _model.queryTextController
+                                                                    ?.selection =
+                                                                TextSelection
+                                                                    .collapsed(
+                                                              offset: _model
+                                                                  .queryTextController!
+                                                                  .text
+                                                                  .length,
+                                                            );
+                                                          });
                                                         });
                                                       }
                                                       _model.isLoading = false;

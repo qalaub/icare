@@ -134,6 +134,8 @@ class _FavV3CopyWidgetState extends State<FavV3CopyWidget> {
                                       key: Key(
                                           'Keyx8t_${userListIndex}_of_${userList.length}'),
                                       profesionalId: userListItem,
+                                      isCollaborator: false,
+                                      isReview: true,
                                     );
                                   },
                                 );

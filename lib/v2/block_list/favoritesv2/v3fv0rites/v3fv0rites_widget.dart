@@ -2,7 +2,7 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/v2/favoritesv2/add_favorites/add_favorites_widget.dart';
+import '/v2/block_list/favoritesv2/add_favorites/add_favorites_widget.dart';
 import '/v2/menbresiav2/membresia_logo/membresia_logo_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cached_network_image/cached_network_image.dart';
@@ -16,9 +16,11 @@ class V3fv0ritesWidget extends StatefulWidget {
   const V3fv0ritesWidget({
     super.key,
     required this.profesionalId,
-  });
+    bool? isReview,
+  }) : isReview = isReview ?? false;
 
   final DocumentReference? profesionalId;
+  final bool isReview;
 
   @override
   State<V3fv0ritesWidget> createState() => _V3fv0ritesWidgetState();
@@ -421,72 +423,213 @@ class _V3fv0ritesWidgetState extends State<V3fv0ritesWidget> {
                                   ),
                                   Align(
                                     alignment: const AlignmentDirectional(-1.0, 0.0),
-                                    child: InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      child: RatingBar.builder(
-                                        onRatingUpdate: (newValue) async {
-                                          safeSetState(() =>
-                                              _model.ratingBarValue = newValue);
-                                          _model.reviewsC =
-                                              await queryReviewsRecordOnce(
-                                            queryBuilder: (reviewsRecord) =>
-                                                reviewsRecord
-                                                    .where(
-                                                      'participant',
-                                                      isEqualTo:
-                                                          currentUserReference,
-                                                    )
-                                                    .where(
-                                                      'professional',
-                                                      isEqualTo:
-                                                          widget.profesionalId,
-                                                    ),
-                                            singleRecord: true,
-                                          ).then((s) => s.firstOrNull);
-                                          if (_model.reviewsC?.reference !=
-                                              null) {
-                                            await _model.reviewsC!.reference
-                                                .update(createReviewsRecordData(
-                                              num: _model.ratingBarValue
-                                                  ?.round(),
-                                            ));
-                                          } else {
-                                            await ReviewsRecord.collection
-                                                .doc()
-                                                .set(createReviewsRecordData(
-                                                  num: _model.ratingBarValue
-                                                      ?.round(),
-                                                  professional:
-                                                      widget.profesionalId,
-                                                  participant:
-                                                      currentUserReference,
-                                                ));
-                                          }
+                                    child: Builder(
+                                      builder: (context) {
+                                        if (widget.isReview) {
+                                          return InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            child: RatingBar.builder(
+                                              onRatingUpdate: (newValue) async {
+                                                safeSetState(() =>
+                                                    _model.ratingBarValue1 =
+                                                        newValue);
+                                                _model.reviewsC =
+                                                    await queryReviewsRecordOnce(
+                                                  queryBuilder:
+                                                      (reviewsRecord) =>
+                                                          reviewsRecord
+                                                              .where(
+                                                                'participant',
+                                                                isEqualTo:
+                                                                    currentUserReference,
+                                                              )
+                                                              .where(
+                                                                'professional',
+                                                                isEqualTo: widget
+                                                                    .profesionalId,
+                                                              ),
+                                                  singleRecord: true,
+                                                ).then((s) => s.firstOrNull);
+                                                if (_model
+                                                        .reviewsC?.reference !=
+                                                    null) {
+                                                  await _model
+                                                      .reviewsC!.reference
+                                                      .update(
+                                                          createReviewsRecordData(
+                                                    num: _model.ratingBarValue1
+                                                        ?.round(),
+                                                  ));
+                                                } else {
+                                                  await ReviewsRecord.collection
+                                                      .doc()
+                                                      .set(
+                                                          createReviewsRecordData(
+                                                        num: _model
+                                                            .ratingBarValue1
+                                                            ?.round(),
+                                                        professional: widget
+                                                            .profesionalId,
+                                                        participant:
+                                                            currentUserReference,
+                                                      ));
+                                                }
 
-                                          safeSetState(() {});
-                                        },
-                                        itemBuilder: (context, index) => const Icon(
-                                          Icons.star_rate,
-                                          color: Color(0xFFF9BF11),
-                                        ),
-                                        direction: Axis.horizontal,
-                                        initialRating: _model.ratingBarValue ??=
-                                            valueOrDefault<double>(
-                                          functions
-                                              .averagueReviews(
-                                                  containerReviewsRecordList
-                                                      .toList())
-                                              .toDouble(),
-                                          0.0,
-                                        ),
-                                        unratedColor: const Color(0x4D040202),
-                                        itemCount: 5,
-                                        itemSize: 15.0,
-                                        glowColor: const Color(0xFFF9BF11),
-                                      ),
+                                                safeSetState(() {});
+                                              },
+                                              itemBuilder: (context, index) =>
+                                                  const Icon(
+                                                Icons.star_rate,
+                                                color: Color(0xFFF9BF11),
+                                              ),
+                                              direction: Axis.horizontal,
+                                              initialRating:
+                                                  _model.ratingBarValue1 ??=
+                                                      valueOrDefault<double>(
+                                                functions
+                                                    .averagueReviews(
+                                                        containerReviewsRecordList
+                                                            .toList())
+                                                    .toDouble(),
+                                                0.0,
+                                              ),
+                                              unratedColor: const Color(0x4D040202),
+                                              itemCount: 5,
+                                              itemSize: 15.0,
+                                              glowColor: const Color(0xFFF9BF11),
+                                            ),
+                                          );
+                                        } else {
+                                          return Align(
+                                            alignment:
+                                                const AlignmentDirectional(-1.0, 0.0),
+                                            child: Builder(
+                                              builder: (context) {
+                                                if (widget.isReview) {
+                                                  return InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    child: RatingBar.builder(
+                                                      onRatingUpdate:
+                                                          (newValue) async {
+                                                        safeSetState(() => _model
+                                                                .ratingBarValue2 =
+                                                            newValue);
+                                                        _model.reviewsCs =
+                                                            await queryReviewsRecordOnce(
+                                                          queryBuilder:
+                                                              (reviewsRecord) =>
+                                                                  reviewsRecord
+                                                                      .where(
+                                                                        'participant',
+                                                                        isEqualTo:
+                                                                            currentUserReference,
+                                                                      )
+                                                                      .where(
+                                                                        'professional',
+                                                                        isEqualTo:
+                                                                            widget.profesionalId,
+                                                                      ),
+                                                          singleRecord: true,
+                                                        ).then((s) =>
+                                                                s.firstOrNull);
+                                                        if (_model.reviewsCs
+                                                                ?.reference !=
+                                                            null) {
+                                                          await _model
+                                                              .reviewsCs!
+                                                              .reference
+                                                              .update(
+                                                                  createReviewsRecordData(
+                                                            num: _model
+                                                                .ratingBarValue2
+                                                                ?.round(),
+                                                          ));
+                                                        } else {
+                                                          await ReviewsRecord
+                                                              .collection
+                                                              .doc()
+                                                              .set(
+                                                                  createReviewsRecordData(
+                                                                num: _model
+                                                                    .ratingBarValue2
+                                                                    ?.round(),
+                                                                professional:
+                                                                    widget
+                                                                        .profesionalId,
+                                                                participant:
+                                                                    currentUserReference,
+                                                              ));
+                                                        }
+
+                                                        safeSetState(() {});
+                                                      },
+                                                      itemBuilder:
+                                                          (context, index) =>
+                                                              const Icon(
+                                                        Icons.star_rate,
+                                                        color:
+                                                            Color(0xFFF9BF11),
+                                                      ),
+                                                      direction:
+                                                          Axis.horizontal,
+                                                      initialRating: _model
+                                                              .ratingBarValue2 ??=
+                                                          valueOrDefault<
+                                                              double>(
+                                                        functions
+                                                            .averagueReviews(
+                                                                containerReviewsRecordList
+                                                                    .toList())
+                                                            .toDouble(),
+                                                        0.0,
+                                                      ),
+                                                      unratedColor:
+                                                          const Color(0x4D040202),
+                                                      itemCount: 5,
+                                                      itemSize: 15.0,
+                                                      glowColor:
+                                                          const Color(0xFFF9BF11),
+                                                    ),
+                                                  );
+                                                } else {
+                                                  return RatingBarIndicator(
+                                                    itemBuilder:
+                                                        (context, index) =>
+                                                            const Icon(
+                                                      Icons.star_rate,
+                                                      color: Color(0xFFF9BF11),
+                                                    ),
+                                                    direction: Axis.horizontal,
+                                                    rating:
+                                                        valueOrDefault<double>(
+                                                      functions
+                                                          .averagueReviews(
+                                                              containerReviewsRecordList
+                                                                  .toList())
+                                                          .toDouble(),
+                                                      0.0,
+                                                    ),
+                                                    unratedColor:
+                                                        const Color(0x4D040202),
+                                                    itemCount: 5,
+                                                    itemSize: 15.0,
+                                                  );
+                                                }
+                                              },
+                                            ),
+                                          );
+                                        }
+                                      },
                                     ),
                                   ),
                                   Align(
