@@ -34,6 +34,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
   late HomeSearchModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  LatLng? currentUserLocationValue;
 
   @override
   void initState() {
@@ -95,6 +96,9 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
         }
       }
     });
+
+    getCurrentUserLocation(defaultLocation: const LatLng(0.0, 0.0), cached: true)
+        .then((loc) => safeSetState(() => currentUserLocationValue = loc));
   }
 
   @override
@@ -107,6 +111,22 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
+    if (currentUserLocationValue == null) {
+      return Container(
+        color: FlutterFlowTheme.of(context).primaryBackground,
+        child: Center(
+          child: SizedBox(
+            width: 50.0,
+            height: 50.0,
+            child: CircularProgressIndicator(
+              valueColor: AlwaysStoppedAnimation<Color>(
+                FlutterFlowTheme.of(context).primary,
+              ),
+            ),
+          ),
+        ),
+      );
+    }
 
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
@@ -227,8 +247,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
                                                                   .filtersPage
                                                                   .age
                                                                   .toList(),
-                                                              FFAppState()
-                                                                  .tempLocation!,
+                                                              currentUserLocationValue!,
                                                               FFAppState()
                                                                   .filtersPage
                                                                   .schedule
@@ -238,12 +257,11 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
                                                                   ?.blockList
                                                                   .toList() ??
                                                               [])
-                                                          .contains(e
-                                                              .reference) &&
+                                                          .contains(
+                                                              e.reference) &&
                                                       functions
                                                           .verifyDistanceFilter(
-                                                              FFAppState()
-                                                                  .tempLocation
+                                                              currentUserLocationValue
                                                                   ?.toString(),
                                                               e.suburb!,
                                                               FFAppState()

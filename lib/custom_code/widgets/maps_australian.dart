@@ -61,9 +61,9 @@ class _MapsAustralianState extends State<MapsAustralian> {
   google_maps.BitmapDescriptor? currentLocationMarkerIcon;
   ValueNotifier<LatLng?> newUbicationNotifier = ValueNotifier(null);
 
-  google_maps.LatLng?
-      viewportLocation; // Almacena la ubicación actual del viewport
+  // Variable para controlar si es la primera carga
   bool isFirstLoad = true;
+
   double? _lastZoom;
 
   @override
@@ -185,31 +185,38 @@ class _MapsAustralianState extends State<MapsAustralian> {
   }
 
   bool _applyFilters(UsersRecord user) {
+    // Si es la primera carga, no aplicar filtros
     if (isFirstLoad) {
       return true;
     }
 
+    // Verifica si el usuario cumple con los filtros de edad
     bool ageMatch = widget.age == null ||
         widget.age!.isEmpty ||
         widget.age!.contains(user.age ?? '');
 
+    // Verifica si el usuario cumple con los filtros de servicio
     bool serviceMatch = widget.service == null ||
         widget.service!.isEmpty ||
         user.serviceType.any((service) => widget.service!.contains(service));
 
+    // Verifica si el usuario cumple con los filtros de idioma
     bool languageMatch = widget.language == null ||
         widget.language!.isEmpty ||
         (user.languagues != null &&
             user.languagues!.contains(widget.language!));
 
+    // Verifica si el usuario tiene algún día en común con el horario especificado
     bool scheduleMatch = widget.schedule == null ||
         widget.schedule!.isEmpty ||
         user.schedule.any((day) => widget.schedule!.contains(day));
 
+    // Si el usuario es profesional, no se aplican los filtros
     if (widget.isProfessional == true) {
       return true;
     }
 
+    // Retorna verdadero si cumple con alguno de los filtros
     return ageMatch || serviceMatch || languageMatch || scheduleMatch;
   }
 
@@ -267,6 +274,7 @@ class _MapsAustralianState extends State<MapsAustralian> {
                         google_maps.BitmapDescriptor.defaultMarkerWithHue(
                             google_maps.BitmapDescriptor.hueViolet),
                     onTap: () {
+                      // Acción al hacer clic en el marcador
                       navigateToProfileInfo(user);
                     },
                   ),
@@ -284,6 +292,7 @@ class _MapsAustralianState extends State<MapsAustralian> {
                       google_maps.BitmapDescriptor.defaultMarkerWithHue(
                           google_maps.BitmapDescriptor.hueViolet),
                   onTap: () {
+                    // Acción al hacer clic en el marcador
                     navigateToProfileInfo(user);
                   },
                 ),
@@ -294,11 +303,10 @@ class _MapsAustralianState extends State<MapsAustralian> {
       }
     }
 
+    // Al finalizar la carga, cambiar el estado para que las próximas cargas sí apliquen filtros
     if (isFirstLoad) {
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        setState(() {
-          isFirstLoad = false;
-        });
+      setState(() {
+        isFirstLoad = false;
       });
     }
 
@@ -333,27 +341,24 @@ class _MapsAustralianState extends State<MapsAustralian> {
               }
             },
             mapType: google_maps.MapType.normal,
-            myLocationButtonEnabled: false,
-            zoomControlsEnabled: false,
-            compassEnabled: false,
-            mapToolbarEnabled: false,
+            myLocationButtonEnabled:
+                false, // Desactiva el botón de "My Location"
+            zoomControlsEnabled: false, // Desactiva los controles de zoom
+            compassEnabled: false, // Desactiva la brújula
+            mapToolbarEnabled: false, // Desactiva la barra de herramientas
+
             minMaxZoomPreference: google_maps.MinMaxZoomPreference(4, 10),
             cameraTargetBounds: google_maps.CameraTargetBounds(australiaBounds),
             markers: markers,
             onCameraMove: (google_maps.CameraPosition position) {
-              viewportLocation =
-                  position.target; // Almacena la nueva posición de cámara
-              print('Ubicación actual del viewport: ${viewportLocation}');
-
+              print('Nivel de zoom actual: ${position.zoom}');
               if (_lastZoom == null ||
                   (position.zoom - _lastZoom!).abs() > 0.1) {
                 _lastZoom = position.zoom;
                 int tempNumber = ((10 / position.zoom) * 100.0).toInt();
                 FFAppState().update(() {
                   FFAppState().zoomFilter = tempNumber;
-                  FFAppState().tempLocation = position.target as LatLng?;
                 });
-                FFAppState().update(() {});
               }
               if (!australiaBounds.contains(position.target)) {
                 mapController!.moveCamera(
@@ -368,13 +373,13 @@ class _MapsAustralianState extends State<MapsAustralian> {
           top: MediaQuery.of(context).size.height / 2 - 28,
           child: FloatingActionButton(
             onPressed: () {
-              if (viewportLocation != null) {
+              if (widget.current != null) {
                 mapController!.animateCamera(
                   google_maps.CameraUpdate.newCameraPosition(
                     google_maps.CameraPosition(
                       target: google_maps.LatLng(
-                        viewportLocation!.latitude,
-                        viewportLocation!.longitude,
+                        widget.current!.latitude,
+                        widget.current!.longitude,
                       ),
                       zoom: 14,
                     ),

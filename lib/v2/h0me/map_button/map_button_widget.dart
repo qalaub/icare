@@ -115,7 +115,7 @@ class _MapButtonWidgetState extends State<MapButtonWidget> {
                     child: custom_widgets.MapsAustralian(
                       width: MediaQuery.sizeOf(context).width * 1.0,
                       height: MediaQuery.sizeOf(context).height * 1.0,
-                      current: FFAppState().tempLocation,
+                      current: currentUserLocationValue,
                       markers: currentUserDocument?.rol != Roles.user
                           ? mapsAustralianUsersRecordList
                               .where((e) =>
