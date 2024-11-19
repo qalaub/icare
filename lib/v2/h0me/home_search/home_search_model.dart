@@ -29,8 +29,22 @@ class HomeSearchModel extends FlutterFlowModel<HomeSearchWidget> {
 
   String? newUbication;
 
+  List<UsersRecord> professionalList = [];
+  void addToProfessionalList(UsersRecord item) => professionalList.add(item);
+  void removeFromProfessionalList(UsersRecord item) =>
+      professionalList.remove(item);
+  void removeAtIndexFromProfessionalList(int index) =>
+      professionalList.removeAt(index);
+  void insertAtIndexInProfessionalList(int index, UsersRecord item) =>
+      professionalList.insert(index, item);
+  void updateProfessionalListAtIndex(
+          int index, Function(UsersRecord) updateFn) =>
+      professionalList[index] = updateFn(professionalList[index]);
+
   ///  State fields for stateful widgets in this page.
 
+  // Stores action output result for [Firestore Query - Query a collection] action in HomeSearch widget.
+  List<UsersRecord>? newProfessionals;
   // Model for MapButton component.
   late MapButtonModel mapButtonModel1;
   // Model for MapButton component.

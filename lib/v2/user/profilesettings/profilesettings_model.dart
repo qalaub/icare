@@ -1,3 +1,6 @@
+import '/backend/api_requests/api_calls.dart';
+import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
@@ -28,6 +31,19 @@ class ProfilesettingsModel extends FlutterFlowModel<ProfilesettingsWidget> {
   void updateUserImgAtIndex(int index, Function(String) updateFn) =>
       userImg[index] = updateFn(userImg[index]);
 
+  List<QueryResultsStruct> queryResults = [];
+  void addToQueryResults(QueryResultsStruct item) => queryResults.add(item);
+  void removeFromQueryResults(QueryResultsStruct item) =>
+      queryResults.remove(item);
+  void removeAtIndexFromQueryResults(int index) => queryResults.removeAt(index);
+  void insertAtIndexInQueryResults(int index, QueryResultsStruct item) =>
+      queryResults.insert(index, item);
+  void updateQueryResultsAtIndex(
+          int index, Function(QueryResultsStruct) updateFn) =>
+      queryResults[index] = updateFn(queryResults[index]);
+
+  String? newUbication;
+
   ///  State fields for stateful widgets in this page.
 
   // Model for upload_profile_image component.
@@ -38,12 +54,21 @@ class ProfilesettingsModel extends FlutterFlowModel<ProfilesettingsWidget> {
   FocusNode? nameFocusNode;
   TextEditingController? nameTextController;
   String? Function(BuildContext, String?)? nameTextControllerValidator;
+  // State field(s) for query widget.
+  FocusNode? queryFocusNode;
+  TextEditingController? queryTextController;
+  String? Function(BuildContext, String?)? queryTextControllerValidator;
+  // Stores action output result for [Backend Call - API (getSuggestionMapProfesional)] action in query widget.
+  ApiCallResponse? apiResultuev;
   // State field(s) for services widget.
   String? servicesValue;
   FormFieldController<String>? servicesValueController;
   // State field(s) for servicesPremiun widget.
   List<String>? servicesPremiunValue;
   FormFieldController<List<String>>? servicesPremiunValueController;
+  // State field(s) for DropDown widget.
+  List<String>? dropDownValue;
+  FormFieldController<List<String>>? dropDownValueController;
   // State field(s) for age widget.
   String? ageValue;
   FormFieldController<String>? ageValueController;
@@ -62,6 +87,8 @@ class ProfilesettingsModel extends FlutterFlowModel<ProfilesettingsWidget> {
       FFUploadedFile(bytes: Uint8List.fromList([]));
   String uploadedFileUrl2 = '';
 
+  // Stores action output result for [Backend Call - API (getPlace)] action in mapbuscar widget.
+  ApiCallResponse? newPlace;
   // Model for Navbar component.
   late NavbarModel navbarModel;
   // Model for NavbarPremiun component.
@@ -83,6 +110,9 @@ class ProfilesettingsModel extends FlutterFlowModel<ProfilesettingsWidget> {
     imagenesfotosUsersModel.dispose();
     nameFocusNode?.dispose();
     nameTextController?.dispose();
+
+    queryFocusNode?.dispose();
+    queryTextController?.dispose();
 
     descriptionFocusNode?.dispose();
     descriptionTextController?.dispose();

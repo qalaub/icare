@@ -27,6 +27,16 @@ class VerperfilModel extends FlutterFlowModel<VerperfilWidget> {
   void updateUserImgAtIndex(int index, Function(String) updateFn) =>
       userImg[index] = updateFn(userImg[index]);
 
+  List<String> ages = [];
+  void addToAges(String item) => ages.add(item);
+  void removeFromAges(String item) => ages.remove(item);
+  void removeAtIndexFromAges(int index) => ages.removeAt(index);
+  void insertAtIndexInAges(int index, String item) => ages.insert(index, item);
+  void updateAgesAtIndex(int index, Function(String) updateFn) =>
+      ages[index] = updateFn(ages[index]);
+
+  bool isEdit = true;
+
   ///  State fields for stateful widgets in this page.
 
   // Model for imagenesfotosUsers component.
@@ -41,6 +51,9 @@ class VerperfilModel extends FlutterFlowModel<VerperfilWidget> {
   // State field(s) for servicesPremiun widget.
   List<String>? servicesPremiunValue;
   FormFieldController<List<String>>? servicesPremiunValueController;
+  // State field(s) for DropDown widget.
+  List<String>? dropDownValue;
+  FormFieldController<List<String>>? dropDownValueController;
   // State field(s) for age widget.
   String? ageValue;
   FormFieldController<String>? ageValueController;

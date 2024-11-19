@@ -138,7 +138,7 @@ class _MySubscriptionStandardWidgetState
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Inter',
-                                      color: const Color(0xFF44D600),
+                                      color: Colors.white,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
                                     ),

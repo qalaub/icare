@@ -36,6 +36,8 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       FFAppState().imagesUserUpload = [];
+      _model.addToAges(valueOrDefault(currentUserDocument?.age, ''));
+      safeSetState(() {});
     });
 
     _model.nameTextController ??= TextEditingController(
@@ -792,21 +794,10 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                                     []) ??
                                                                 [],
                                                           )),
-                                                          options: List<
-                                                              String>.from([
-                                                            'Support Workers',
-                                                            'Support  Coordinators',
-                                                            'Recovery Coaches',
-                                                            'Therapeutic Supports',
-                                                            'Home Maintenance'
-                                                          ]),
-                                                          optionLabels: const [
-                                                            'Support Workers',
-                                                            'Support  Coordinators',
-                                                            'Recovery Coaches',
-                                                            'Therapeutic Supports',
-                                                            'Home Maintenance'
-                                                          ],
+                                                          options: (currentUserDocument
+                                                                  ?.serviceType
+                                                                  .toList() ??
+                                                              []),
                                                           width:
                                                               MediaQuery.sizeOf(
                                                                           context)
@@ -836,7 +827,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .secondaryText,
-                                                            size: 24.0,
+                                                            size: 1.0,
                                                           ),
                                                           elevation: 0.0,
                                                           borderColor: Colors
@@ -851,6 +842,8 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                                       16.0,
                                                                       4.0),
                                                           hidesUnderline: true,
+                                                          disabled:
+                                                              _model.isEdit,
                                                           isOverButton: true,
                                                           isSearchable: false,
                                                           isMultiSelect: true,
@@ -874,6 +867,194 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                       );
                                                     }
                                                   },
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ].divide(const SizedBox(height: 8.0)),
+                                ),
+                              ),
+                            ),
+                          ),
+                        if (currentUserDocument?.rol == Roles.user)
+                          Align(
+                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 0.0, 16.0, 0.0),
+                              child: AuthUserStreamWidget(
+                                builder: (context) => Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Type of disability',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Montserrat',
+                                                color: const Color(0xFFC14BBC),
+                                                fontSize: 15.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                        ),
+                                      ],
+                                    ),
+                                    Align(
+                                      alignment:
+                                          const AlignmentDirectional(-1.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                0.9,
+                                            height: 39.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                            ),
+                                            child: Align(
+                                              alignment: const AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: Text(
+                                                'You can modify the disability you suffer from in case you made a mistake when registering.',
+                                                textAlign: TextAlign.justify,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Montserrat',
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Align(
+                                      alignment:
+                                          const AlignmentDirectional(-1.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          Expanded(
+                                            child: Material(
+                                              color: Colors.transparent,
+                                              elevation: 2.0,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(12.0),
+                                              ),
+                                              child: Container(
+                                                width: double.infinity,
+                                                height: 52.0,
+                                                decoration: BoxDecoration(
+                                                  color: const Color(0xFFF0F0F0),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          12.0),
+                                                  border: Border.all(
+                                                    color: const Color(0xFFC14BBC),
+                                                    width: 3.0,
+                                                  ),
+                                                ),
+                                                child: Align(
+                                                  alignment:
+                                                      const AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(10.0, 4.0,
+                                                                10.0, 4.0),
+                                                    child: FlutterFlowDropDown<
+                                                        String>(
+                                                      key: const ValueKey(
+                                                          'disability'),
+                                                      multiSelectController: _model
+                                                              .dropDownValueController ??=
+                                                          FormListFieldController<
+                                                              String>(_model
+                                                                  .dropDownValue ??=
+                                                              List<String>.from(
+                                                        (currentUserDocument
+                                                                    ?.disabilities
+                                                                    .toList() ??
+                                                                []) ??
+                                                            [],
+                                                      )),
+                                                      options:
+                                                          (currentUserDocument
+                                                                  ?.disabilities
+                                                                  .toList() ??
+                                                              []),
+                                                      width: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width *
+                                                          1.0,
+                                                      height: 56.0,
+                                                      textStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Montserrat',
+                                                                color: Colors
+                                                                    .black,
+                                                                fontSize: 13.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                              ),
+                                                      hintText:
+                                                          'Type of disability',
+                                                      icon: const Icon(
+                                                        Icons
+                                                            .keyboard_arrow_down_rounded,
+                                                        color: Colors.black,
+                                                        size: 1.0,
+                                                      ),
+                                                      elevation: 2.0,
+                                                      borderColor:
+                                                          Colors.transparent,
+                                                      borderWidth: 0.0,
+                                                      borderRadius: 0.0,
+                                                      margin:
+                                                          const EdgeInsets.all(0.0),
+                                                      hidesUnderline: true,
+                                                      disabled: _model.isEdit,
+                                                      isOverButton: true,
+                                                      isSearchable: false,
+                                                      isMultiSelect: true,
+                                                      onMultiSelectChanged:
+                                                          (val) => safeSetState(
+                                                              () => _model
+                                                                      .dropDownValue =
+                                                                  val),
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
                                             ),
@@ -1001,16 +1182,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                                   ?.age,
                                                               ''),
                                                     ),
-                                                    options: List<String>.from([
-                                                      '18-25 years',
-                                                      '25-40 years',
-                                                      '40-65+ years'
-                                                    ]),
-                                                    optionLabels: const [
-                                                      '18-25 years',
-                                                      '25-40 years',
-                                                      '40-65+ years'
-                                                    ],
+                                                    options: _model.ages,
                                                     onChanged: (val) =>
                                                         safeSetState(() =>
                                                             _model.ageValue =
@@ -1040,7 +1212,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .secondaryText,
-                                                      size: 24.0,
+                                                      size: 1.0,
                                                     ),
                                                     elevation: 0.0,
                                                     borderColor:
@@ -1052,6 +1224,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                             .fromSTEB(16.0, 4.0,
                                                                 16.0, 4.0),
                                                     hidesUnderline: true,
+                                                    disabled: _model.isEdit,
                                                     isOverButton: true,
                                                     isSearchable: false,
                                                     isMultiSelect: false,
@@ -1079,175 +1252,185 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                               ),
                             ),
                           ),
-                        Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Align(
-                              alignment: const AlignmentDirectional(-1.0, 0.0),
-                              child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    20.0, 16.0, 0.0, 0.0),
-                                child: Text(
-                                  'Description',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyLarge
-                                      .override(
-                                        fontFamily: 'Montserrat',
-                                        color: const Color(0xFFC14BBC),
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                ),
-                              ),
-                            ),
-                            Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
-                              child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    20.0, 10.0, 20.0, 20.0),
-                                child: Material(
-                                  color: Colors.transparent,
-                                  elevation: 2.0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(12.0),
-                                  ),
-                                  child: Container(
-                                    width: double.infinity,
-                                    height: 120.0,
-                                    decoration: BoxDecoration(
-                                      color: const Color(0xFFF0F0F0),
-                                      borderRadius: BorderRadius.circular(12.0),
-                                      border: Border.all(
-                                        color: const Color(0xFFC45ABE),
-                                        width: 3.0,
-                                      ),
+                        if (currentUserDocument?.rol != Roles.user)
+                          AuthUserStreamWidget(
+                            builder: (context) => Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Align(
+                                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                                  child: Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        20.0, 16.0, 0.0, 0.0),
+                                    child: Text(
+                                      'Description',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyLarge
+                                          .override(
+                                            fontFamily: 'Montserrat',
+                                            color: const Color(0xFFC14BBC),
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w600,
+                                          ),
                                     ),
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Expanded(
-                                          child: Align(
-                                            alignment:
-                                                const AlignmentDirectional(0.0, -0.9),
-                                            child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(4.0, 0.0, 4.0, 0.0),
-                                              child: AuthUserStreamWidget(
-                                                builder: (context) =>
-                                                    TextFormField(
-                                                  key: const ValueKey('description'),
-                                                  controller: _model
-                                                      .descriptionTextController,
-                                                  focusNode: _model
-                                                      .descriptionFocusNode,
-                                                  autofocus: false,
-                                                  textCapitalization:
-                                                      TextCapitalization
-                                                          .sentences,
-                                                  readOnly: true,
-                                                  obscureText: false,
-                                                  decoration: InputDecoration(
-                                                    isDense: false,
-                                                    labelStyle: FlutterFlowTheme
-                                                            .of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Montserrat',
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
+                                  ),
+                                ),
+                                Align(
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  child: Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        20.0, 10.0, 20.0, 20.0),
+                                    child: Material(
+                                      color: Colors.transparent,
+                                      elevation: 2.0,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
+                                      ),
+                                      child: Container(
+                                        width: double.infinity,
+                                        height: 120.0,
+                                        decoration: BoxDecoration(
+                                          color: const Color(0xFFF0F0F0),
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                          border: Border.all(
+                                            color: const Color(0xFFC45ABE),
+                                            width: 3.0,
+                                          ),
+                                        ),
+                                        alignment:
+                                            const AlignmentDirectional(0.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Expanded(
+                                              child: Align(
+                                                alignment: const AlignmentDirectional(
+                                                    0.0, -0.9),
+                                                child: Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          4.0, 0.0, 4.0, 0.0),
+                                                  child: TextFormField(
+                                                    key:
+                                                        const ValueKey('description'),
+                                                    controller: _model
+                                                        .descriptionTextController,
+                                                    focusNode: _model
+                                                        .descriptionFocusNode,
+                                                    autofocus: false,
+                                                    textCapitalization:
+                                                        TextCapitalization
+                                                            .sentences,
+                                                    readOnly: true,
+                                                    obscureText: false,
+                                                    decoration: InputDecoration(
+                                                      isDense: false,
+                                                      labelStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Montserrat',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                              ),
+                                                      hintText:
+                                                          'Tell us more about yourself',
+                                                      hintStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                      enabledBorder:
+                                                          UnderlineInputBorder(
+                                                        borderSide: const BorderSide(
+                                                          color:
+                                                              Color(0x00000000),
+                                                          width: 1.0,
                                                         ),
-                                                    hintText:
-                                                        'Tell us more about yourself',
-                                                    hintStyle: FlutterFlowTheme
-                                                            .of(context)
-                                                        .labelMedium
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(0.0),
+                                                      ),
+                                                      focusedBorder:
+                                                          UnderlineInputBorder(
+                                                        borderSide: const BorderSide(
+                                                          color:
+                                                              Color(0x00000000),
+                                                          width: 1.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(0.0),
+                                                      ),
+                                                      errorBorder:
+                                                          UnderlineInputBorder(
+                                                        borderSide: const BorderSide(
+                                                          color:
+                                                              Color(0x00000000),
+                                                          width: 1.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(0.0),
+                                                      ),
+                                                      focusedErrorBorder:
+                                                          UnderlineInputBorder(
+                                                        borderSide: const BorderSide(
+                                                          color:
+                                                              Color(0x00000000),
+                                                          width: 1.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(0.0),
+                                                      ),
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
                                                         .override(
                                                           fontFamily:
                                                               'Readex Pro',
                                                           letterSpacing: 0.0,
                                                         ),
-                                                    enabledBorder:
-                                                        UnderlineInputBorder(
-                                                      borderSide: const BorderSide(
-                                                        color:
-                                                            Color(0x00000000),
-                                                        width: 1.0,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              0.0),
-                                                    ),
-                                                    focusedBorder:
-                                                        UnderlineInputBorder(
-                                                      borderSide: const BorderSide(
-                                                        color:
-                                                            Color(0x00000000),
-                                                        width: 1.0,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              0.0),
-                                                    ),
-                                                    errorBorder:
-                                                        UnderlineInputBorder(
-                                                      borderSide: const BorderSide(
-                                                        color:
-                                                            Color(0x00000000),
-                                                        width: 1.0,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              0.0),
-                                                    ),
-                                                    focusedErrorBorder:
-                                                        UnderlineInputBorder(
-                                                      borderSide: const BorderSide(
-                                                        color:
-                                                            Color(0x00000000),
-                                                        width: 1.0,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              0.0),
-                                                    ),
+                                                    maxLines: null,
+                                                    minLines: 1,
+                                                    maxLength: 2000,
+                                                    buildCounter: (context,
+                                                            {required currentLength,
+                                                            required isFocused,
+                                                            maxLength}) =>
+                                                        null,
+                                                    validator: _model
+                                                        .descriptionTextControllerValidator
+                                                        .asValidator(context),
                                                   ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                                  maxLines: null,
-                                                  minLines: 1,
-                                                  maxLength: 2000,
-                                                  buildCounter: (context,
-                                                          {required currentLength,
-                                                          required isFocused,
-                                                          maxLength}) =>
-                                                      null,
-                                                  validator: _model
-                                                      .descriptionTextControllerValidator
-                                                      .asValidator(context),
                                                 ),
                                               ),
                                             ),
-                                          ),
+                                          ],
                                         ),
-                                      ],
+                                      ),
                                     ),
                                   ),
                                 ),
-                              ),
+                              ].divide(const SizedBox(height: 8.0)),
                             ),
-                          ].divide(const SizedBox(height: 8.0)),
-                        ),
+                          ),
                         if (currentUserDocument?.rol != Roles.user)
                           Align(
                             alignment: const AlignmentDirectional(0.0, 0.0),

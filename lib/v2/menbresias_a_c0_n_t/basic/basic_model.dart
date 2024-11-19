@@ -3,6 +3,10 @@ import 'basic_widget.dart' show BasicWidget;
 import 'package:flutter/material.dart';
 
 class BasicModel extends FlutterFlowModel<BasicWidget> {
+  ///  Local state fields for this page.
+
+  bool show = false;
+
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for Checkbox widget.

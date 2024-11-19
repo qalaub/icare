@@ -351,13 +351,23 @@ class _MapsAustralianState extends State<MapsAustralian> {
             cameraTargetBounds: google_maps.CameraTargetBounds(australiaBounds),
             markers: markers,
             onCameraMove: (google_maps.CameraPosition position) {
-              print('Nivel de zoom actual: ${position.zoom}');
+              // Actualizar la posición central relativa al mapa en FFAppState
+              FFAppState().update(() {
+                FFAppState().tempLocation = LatLng(
+                  position.target.latitude,
+                  position.target.longitude,
+                );
+              });
+
               if (_lastZoom == null ||
                   (position.zoom - _lastZoom!).abs() > 0.1) {
                 _lastZoom = position.zoom;
                 int tempNumber = ((10 / position.zoom) * 100.0).toInt();
                 FFAppState().update(() {
                   FFAppState().zoomFilter = tempNumber;
+                  int multiplier =
+                      ((tempNumber - 50) * ((tempNumber % 100) + 1)) as int;
+                  FFAppState().distanceToShow = multiplier;
                 });
               }
               if (!australiaBounds.contains(position.target)) {

@@ -17,7 +17,7 @@ import '/auth/firebase_auth/auth_util.dart';
 LatLng? changeUbication(LatLng ubication) {
   // Radio de la Tierra en metros
   const double earthRadius = 6371000;
-  const int meters = 10;
+  const int meters = 5;
   // Calcular el cambi  o en latitud
   double deltaLatitude = meters / earthRadius;
   // Convertir de radianes a grados
@@ -286,45 +286,60 @@ bool filterProfessionals(
   LatLng current,
   List<String> schedule,
 ) {
-// Calcular la distancia entre la ubicación del usuario y la ubicación del profesional
-  const double earthRadius = 6371; // Radio de la Tierra en kilómetros
-  double dLat =
-      (user.suburb!.latitude - current.latitude) * (3.141592653589793 / 180);
-  double dLon =
-      (user.suburb!.longitude - current.longitude) * (3.141592653589793 / 180);
+  // print('current : ${current}   ${current.longitude}');
 
-  double a = math.sin(dLat / 2) * math.sin(dLat / 2) +
-      math.cos(current.latitude * (3.141592653589793 / 180)) *
-          math.cos(user.suburb!.latitude * (3.141592653589793 / 180)) *
-          math.sin(dLon / 2) *
-          math.sin(dLon / 2);
-  double c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a));
-  double userDistance = earthRadius * c; // Distancia en kilómetros
+  /// Constante: Radio promedio de la Tierra en km
+  const double earthRadius = 6371;
+  current;
+  // Validar datos iniciales
+  if (user.suburb == null || current == null) return false;
 
-  // Verificar si la distancia es aceptable
-  if (userDistance > distance) {
+  // Cálculo de la distancia con Haversine
+  if (user.suburb != null) {
+    LatLng userSuburb = user.suburb ?? current;
+
+    // Diferencias de latitud y longitud en radianes
+    double dLat = (userSuburb.latitude - current.latitude) * math.pi / 180;
+    double dLon = (userSuburb.longitude - current.longitude) * math.pi / 180;
+
+    // Conversión de coordenadas a radianes
+    double lat1 = current.latitude * math.pi / 180;
+    double lat2 = userSuburb.latitude * math.pi / 180;
+
+    // Fórmula de Haversine
+    double a = math.sin(dLat / 2) * math.sin(dLat / 2) +
+        math.cos(lat1) *
+            math.cos(lat2) *
+            math.sin(dLon / 2) *
+            math.sin(dLon / 2);
+    double c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a));
+    double userDistance = earthRadius * c;
+
+    // Filtrar por distancia
+    if (userDistance > distance) {
+      return false;
+    }
+  }
+
+  // Filtrar por servicios ofrecidos
+  if (user.serviceType == null ||
+      !user.serviceType.any((service) => services.contains(service))) {
     return false;
   }
 
-  // Verificar si los servicios ofrecidos están en la lista de servicios deseados
-  bool hasValidServices =
-      user.serviceType.any((service) => services.contains(service));
-  if (!hasValidServices) {
+  // Filtrar por rango de edad
+  if (user.age == null || !age.contains(user.age)) {
     return false;
   }
 
-  // Verificar si la edad del profesional está en el rango aceptable
-  bool hasValidAge = age.contains(user.age);
-  if (!hasValidAge) {
+  // Filtrar por disponibilidad horaria
+  if (user.schedule == null ||
+      user.schedule.isEmpty ||
+      !user.schedule.any((day) => schedule.contains(day))) {
     return false;
   }
 
-  // Verificar si el horario del profesional coincide con alguno de los días deseados
-  bool hasValidSchedule = user.schedule.any((day) => schedule.contains(day));
-  if (user.schedule.length > 0) if (!hasValidSchedule) {
-    return false;
-  }
-
+  // Si pasa todos los filtros, retorna true
   return true;
 }
 
@@ -408,4 +423,33 @@ String extractStateAndPostalCode(String input) {
   }
 
   return "NSW 2781"; // Manejo de caso si no se cumplen las condiciones
+}
+
+int getDistance(
+  LatLng distance,
+  LatLng current,
+) {
+  /// Constante: Radio promedio de la Tierra en km
+  const double earthRadius = 6371;
+  LatLng userSuburb = distance;
+
+  // Diferencias de latitud y longitud en radianes
+  double dLat = (userSuburb.latitude - current.latitude) * math.pi / 180;
+  double dLon = (userSuburb.longitude - current.longitude) * math.pi / 180;
+
+  // Conversión de coordenadas a radianes
+  double lat1 = current.latitude * math.pi / 180;
+  double lat2 = userSuburb.latitude * math.pi / 180;
+
+  // Fórmula de Haversine
+  double a = math.sin(dLat / 2) * math.sin(dLat / 2) +
+      math.cos(lat1) * math.cos(lat2) * math.sin(dLon / 2) * math.sin(dLon / 2);
+  double c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a));
+  int userDistance = (earthRadius * c) as int;
+  return userDistance;
+}
+
+int doubleToInt(double number) {
+  // double to int
+  return number.toInt();
 }

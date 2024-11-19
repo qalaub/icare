@@ -165,6 +165,12 @@ class FFAppState extends ChangeNotifier {
     _zoomFilter = value;
   }
 
+  int _distanceToShow = 1000000;
+  int get distanceToShow => _distanceToShow;
+  set distanceToShow(int value) {
+    _distanceToShow = value;
+  }
+
   final _userDocQueryManager = FutureRequestManager<UsersRecord>();
   Future<UsersRecord> userDocQuery({
     String? uniqueQueryKey,

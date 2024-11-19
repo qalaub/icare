@@ -3,6 +3,10 @@ import 'premium_widget.dart' show PremiumWidget;
 import 'package:flutter/material.dart';
 
 class PremiumModel extends FlutterFlowModel<PremiumWidget> {
+  ///  Local state fields for this page.
+
+  bool show = false;
+
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for Checkbox widget.

@@ -946,6 +946,8 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                   ..services = []
                                   ..schedule = [],
                               );
+                              FFAppState().distanceToShow =
+                                  functions.doubleToInt(_model.distanceValue!);
                               FFAppState().updateFiltersPageStruct(
                                 (e) => e
                                   ..updateAge(

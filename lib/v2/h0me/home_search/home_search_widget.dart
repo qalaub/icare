@@ -34,7 +34,6 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
   late HomeSearchModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  LatLng? currentUserLocationValue;
 
   @override
   void initState() {
@@ -95,10 +94,18 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
           }
         }
       }
+      if (currentUserDocument?.rol == Roles.user) {
+        _model.newProfessionals = await queryUsersRecordOnce(
+          queryBuilder: (usersRecord) => usersRecord.where(
+            'rol',
+            isNotEqualTo: Roles.user.serialize(),
+          ),
+        );
+        _model.professionalList =
+            _model.newProfessionals!.toList().cast<UsersRecord>();
+        safeSetState(() {});
+      }
     });
-
-    getCurrentUserLocation(defaultLocation: const LatLng(0.0, 0.0), cached: true)
-        .then((loc) => safeSetState(() => currentUserLocationValue = loc));
   }
 
   @override
@@ -111,22 +118,6 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
-    if (currentUserLocationValue == null) {
-      return Container(
-        color: FlutterFlowTheme.of(context).primaryBackground,
-        child: Center(
-          child: SizedBox(
-            width: 50.0,
-            height: 50.0,
-            child: CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation<Color>(
-                FlutterFlowTheme.of(context).primary,
-              ),
-            ),
-          ),
-        ),
-      );
-    }
 
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
@@ -185,118 +176,74 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
                                   ),
                                   Align(
                                     alignment: const AlignmentDirectional(0.0, 0.76),
-                                    child: StreamBuilder<List<UsersRecord>>(
-                                      stream: queryUsersRecord(
-                                        queryBuilder: (usersRecord) =>
-                                            usersRecord.where(
-                                          'rol',
-                                          isNotEqualTo: Roles.user.serialize(),
-                                        ),
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      height: 170.0,
+                                      constraints: const BoxConstraints(
+                                        minHeight: 150.0,
+                                        maxHeight: 170.0,
                                       ),
-                                      builder: (context, snapshot) {
-                                        // Customize what your widget looks like when it's loading.
-                                        if (!snapshot.hasData) {
-                                          return Center(
-                                            child: SizedBox(
-                                              width: 50.0,
-                                              height: 50.0,
-                                              child: CircularProgressIndicator(
-                                                valueColor:
-                                                    AlwaysStoppedAnimation<
-                                                        Color>(
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                                ),
-                                              ),
-                                            ),
-                                          );
-                                        }
-                                        List<UsersRecord>
-                                            containerUsersRecordList = snapshot
-                                                .data!
-                                                .where((u) =>
-                                                    u.uid != currentUserUid)
-                                                .toList();
+                                      decoration: const BoxDecoration(
+                                        color: Color(0x76F9F6F6),
+                                      ),
+                                      child: Builder(
+                                        builder: (context) {
+                                          final containerVar = _model
+                                              .professionalList
+                                              .where((e) =>
+                                                  (functions.filterProfessionals(
+                                                          e,
+                                                          FFAppState()
+                                                              .distanceToShow
+                                                              .toDouble(),
+                                                          FFAppState()
+                                                              .filtersPage
+                                                              .services
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .filtersPage
+                                                              .age
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .tempLocation!,
+                                                          FFAppState()
+                                                              .filtersPage
+                                                              .schedule
+                                                              .toList()) ==
+                                                      true) &&
+                                                  !(currentUserDocument
+                                                              ?.blockList
+                                                              .toList() ??
+                                                          [])
+                                                      .contains(e.reference))
+                                              .toList();
 
-                                        return Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  1.0,
-                                          height: 170.0,
-                                          constraints: const BoxConstraints(
-                                            minHeight: 150.0,
-                                            maxHeight: 170.0,
-                                          ),
-                                          decoration: const BoxDecoration(
-                                            color: Color(0x76F9F6F6),
-                                          ),
-                                          child: Builder(
-                                            builder: (context) {
-                                              final containerVar = containerUsersRecordList
-                                                  .where((e) =>
-                                                      (functions.filterProfessionals(
-                                                              e,
-                                                              FFAppState()
-                                                                  .filtersPage
-                                                                  .distance,
-                                                              FFAppState()
-                                                                  .filtersPage
-                                                                  .services
-                                                                  .toList(),
-                                                              FFAppState()
-                                                                  .filtersPage
-                                                                  .age
-                                                                  .toList(),
-                                                              currentUserLocationValue!,
-                                                              FFAppState()
-                                                                  .filtersPage
-                                                                  .schedule
-                                                                  .toList()) ==
-                                                          true) &&
-                                                      !(currentUserDocument
-                                                                  ?.blockList
-                                                                  .toList() ??
-                                                              [])
-                                                          .contains(
-                                                              e.reference) &&
-                                                      functions
-                                                          .verifyDistanceFilter(
-                                                              currentUserLocationValue
-                                                                  ?.toString(),
-                                                              e.suburb!,
-                                                              FFAppState()
-                                                                  .zoomFilter))
-                                                  .toList();
-
-                                              return ListView.separated(
-                                                padding: const EdgeInsets.symmetric(
-                                                    horizontal: 20.0),
-                                                shrinkWrap: true,
-                                                scrollDirection:
-                                                    Axis.horizontal,
-                                                itemCount: containerVar.length,
-                                                separatorBuilder: (_, __) =>
-                                                    const SizedBox(width: 20.0),
-                                                itemBuilder: (context,
-                                                    containerVarIndex) {
-                                                  final containerVarItem =
-                                                      containerVar[
-                                                          containerVarIndex];
-                                                  return V3fv0ritesv3Widget(
-                                                    key: Key(
-                                                        'Keyx22_${containerVarIndex}_of_${containerVar.length}'),
-                                                    isCollaborator: false,
-                                                    profesionalId:
-                                                        containerVarItem
-                                                            .reference,
-                                                    isReview: false,
-                                                  );
-                                                },
+                                          return ListView.separated(
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 20.0),
+                                            shrinkWrap: true,
+                                            scrollDirection: Axis.horizontal,
+                                            itemCount: containerVar.length,
+                                            separatorBuilder: (_, __) =>
+                                                const SizedBox(width: 20.0),
+                                            itemBuilder:
+                                                (context, containerVarIndex) {
+                                              final containerVarItem =
+                                                  containerVar[
+                                                      containerVarIndex];
+                                              return V3fv0ritesv3Widget(
+                                                key: Key(
+                                                    'Keyx22_${containerVarIndex}_of_${containerVar.length}'),
+                                                isCollaborator: false,
+                                                profesionalId:
+                                                    containerVarItem.reference,
+                                                isReview: false,
                                               );
                                             },
-                                          ),
-                                        );
-                                      },
+                                          );
+                                        },
+                                      ),
                                     ),
                                   ),
                                 ],
