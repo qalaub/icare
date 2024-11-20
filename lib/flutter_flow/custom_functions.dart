@@ -286,6 +286,32 @@ bool filterProfessionals(
   LatLng current,
   List<String> schedule,
 ) {
+  double _degreesToRadians(double degrees) {
+    return degrees * math.pi / 180;
+  }
+
+  double _calculateAdjustedDistance(
+      double lat1, double lon1, double lat2, double lon2) {
+    const double radius = 6371; // Radio de la Tierra en kilómetros
+    final double dLat = _degreesToRadians(lat2 - lat1);
+    final double dLon = _degreesToRadians(lon2 - lon1);
+
+    // Cálculo del factor de escala basado en la latitud promedio
+    final double avgLat = (lat1 + lat2) / 2.0;
+    final double scaleFactor = math.cos(_degreesToRadians(avgLat));
+
+    // Fórmula del haversine para la distancia
+    final double a = math.sin(dLat / 2) * math.sin(dLat / 2) +
+        math.cos(_degreesToRadians(lat1)) *
+            math.cos(_degreesToRadians(lat2)) *
+            math.sin(dLon / 2) *
+            math.sin(dLon / 2);
+    final double c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a));
+    final double distance = radius * c;
+
+    // Ajustar la distancia horizontal por el factor de escala
+    return distance * scaleFactor;
+  }
   // print('current : ${current}   ${current.longitude}');
 
   /// Constante: Radio promedio de la Tierra en km
@@ -297,23 +323,12 @@ bool filterProfessionals(
   // Cálculo de la distancia con Haversine
   if (user.suburb != null) {
     LatLng userSuburb = user.suburb ?? current;
-
-    // Diferencias de latitud y longitud en radianes
-    double dLat = (userSuburb.latitude - current.latitude) * math.pi / 180;
-    double dLon = (userSuburb.longitude - current.longitude) * math.pi / 180;
-
-    // Conversión de coordenadas a radianes
-    double lat1 = current.latitude * math.pi / 180;
-    double lat2 = userSuburb.latitude * math.pi / 180;
-
-    // Fórmula de Haversine
-    double a = math.sin(dLat / 2) * math.sin(dLat / 2) +
-        math.cos(lat1) *
-            math.cos(lat2) *
-            math.sin(dLon / 2) *
-            math.sin(dLon / 2);
-    double c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a));
-    double userDistance = earthRadius * c;
+    double userDistance = _calculateAdjustedDistance(
+      current.latitude,
+      current.longitude,
+      userSuburb.latitude,
+      userSuburb.longitude,
+    );
 
     // Filtrar por distancia
     if (userDistance > distance) {

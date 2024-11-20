@@ -149,7 +149,7 @@ class _MapsAustralianState extends State<MapsAustralian> {
       }
 
       final image = img.decodeImage(Uint8List.fromList(bytes))!;
-      final resizedImage = img.copyResize(image, width: 45, height: 70);
+      final resizedImage = img.copyResize(image, width: 60, height: 105);
 
       final Uint8List resizedBytes =
           Uint8List.fromList(img.encodePng(resizedImage));
@@ -366,7 +366,8 @@ class _MapsAustralianState extends State<MapsAustralian> {
                 FFAppState().update(() {
                   FFAppState().zoomFilter = tempNumber;
                   int multiplier =
-                      ((tempNumber - 50) * ((tempNumber % 100) + 1)) as int;
+                      (50 + (math.log(tempNumber / 50) * 70).toInt())
+                          .clamp(50, 600) as int;
                   FFAppState().distanceToShow = multiplier;
                 });
               }

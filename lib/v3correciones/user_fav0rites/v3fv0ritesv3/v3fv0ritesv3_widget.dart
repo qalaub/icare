@@ -1,6 +1,8 @@
+import '/auth/base_auth_user_provider.dart';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
+import '/components/estrellas_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/v2/block_list/favoritesv2/add_favorites/add_favorites_widget.dart';
@@ -10,7 +12,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'v3fv0ritesv3_model.dart';
 export 'v3fv0ritesv3_model.dart';
 
@@ -216,247 +217,18 @@ class _V3fv0ritesv3WidgetState extends State<V3fv0ritesv3Widget> {
 
                                 return Container(
                                   decoration: const BoxDecoration(),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Align(
-                                        alignment:
-                                            const AlignmentDirectional(-1.0, 0.0),
-                                        child: Builder(
-                                          builder: (context) {
-                                            if (widget.isReview) {
-                                              return InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                child: RatingBar.builder(
-                                                  onRatingUpdate:
-                                                      (newValue) async {
-                                                    safeSetState(() =>
-                                                        _model.ratingBarValue1 =
-                                                            newValue);
-                                                    if (loggedIn) {
-                                                      _model.chatsR =
-                                                          await queryChatsRecordOnce(
-                                                        queryBuilder:
-                                                            (chatsRecord) =>
-                                                                chatsRecord
-                                                                    .where(
-                                                                      'user_a',
-                                                                      isEqualTo:
-                                                                          currentUserReference,
-                                                                    )
-                                                                    .where(
-                                                                      'user_b',
-                                                                      isEqualTo:
-                                                                          widget
-                                                                              .profesionalId,
-                                                                    ),
-                                                        singleRecord: true,
-                                                      ).then((s) =>
-                                                              s.firstOrNull);
-                                                      if (_model.chatsR
-                                                              ?.reference !=
-                                                          null) {
-                                                        _model.chatsM =
-                                                            await queryChatMessagesRecordOnce(
-                                                          queryBuilder:
-                                                              (chatMessagesRecord) =>
-                                                                  chatMessagesRecord
-                                                                      .where(
-                                                                        'chat',
-                                                                        isEqualTo: _model
-                                                                            .chatsR
-                                                                            ?.reference,
-                                                                      )
-                                                                      .where(
-                                                                        'user',
-                                                                        isEqualTo:
-                                                                            widget.profesionalId,
-                                                                      ),
-                                                          limit: 5,
-                                                        );
-                                                        if (((_model.chatsM !=
-                                                                        null &&
-                                                                    (_model.chatsM)!
-                                                                        .isNotEmpty) ==
-                                                                true) &&
-                                                            (_model.chatsM!.isNotEmpty)) {
-                                                          _model.reviewsC =
-                                                              await queryReviewsRecordOnce(
-                                                            queryBuilder:
-                                                                (reviewsRecord) =>
-                                                                    reviewsRecord
-                                                                        .where(
-                                                                          'participant',
-                                                                          isEqualTo:
-                                                                              currentUserReference,
-                                                                        )
-                                                                        .where(
-                                                                          'professional',
-                                                                          isEqualTo:
-                                                                              widget.profesionalId,
-                                                                        ),
-                                                            singleRecord: true,
-                                                          ).then((s) => s
-                                                                  .firstOrNull);
-                                                          if (_model.reviewsC
-                                                                  ?.reference !=
-                                                              null) {
-                                                            await _model
-                                                                .reviewsC!
-                                                                .reference
-                                                                .update(
-                                                                    createReviewsRecordData(
-                                                              num: _model
-                                                                  .ratingBarValue1
-                                                                  ?.round(),
-                                                            ));
-                                                          } else {
-                                                            await ReviewsRecord
-                                                                .collection
-                                                                .doc()
-                                                                .set(
-                                                                    createReviewsRecordData(
-                                                                  num: _model
-                                                                      .ratingBarValue1
-                                                                      ?.round(),
-                                                                  professional:
-                                                                      widget
-                                                                          .profesionalId,
-                                                                  participant:
-                                                                      currentUserReference,
-                                                                ));
-                                                          }
-                                                        } else {
-                                                          ScaffoldMessenger.of(
-                                                                  context)
-                                                              .showSnackBar(
-                                                            SnackBar(
-                                                              content: Text(
-                                                                'You should first interact with the professional.',
-                                                                style:
-                                                                    TextStyle(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                ),
-                                                              ),
-                                                              duration: const Duration(
-                                                                  milliseconds:
-                                                                      4000),
-                                                              backgroundColor:
-                                                                  const Color(
-                                                                      0xFFD239B4),
-                                                            ),
-                                                          );
-                                                        }
-                                                      } else {
-                                                        ScaffoldMessenger.of(
-                                                                context)
-                                                            .showSnackBar(
-                                                          SnackBar(
-                                                            content: Text(
-                                                              'You should first interact with the professional.',
-                                                              style: TextStyle(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryText,
-                                                              ),
-                                                            ),
-                                                            duration: const Duration(
-                                                                milliseconds:
-                                                                    4000),
-                                                            backgroundColor:
-                                                                const Color(
-                                                                    0xFFD239B4),
-                                                          ),
-                                                        );
-                                                      }
-                                                    } else {
-                                                      context
-                                                          .pushNamed('Login');
-                                                    }
-
-                                                    safeSetState(() {});
-                                                  },
-                                                  itemBuilder:
-                                                      (context, index) => const Icon(
-                                                    Icons.star_rate,
-                                                    color: Color(0xFFF9BF11),
-                                                  ),
-                                                  direction: Axis.horizontal,
-                                                  initialRating: _model
-                                                          .ratingBarValue1 ??=
-                                                      valueOrDefault<double>(
-                                                    functions
-                                                        .averagueReviews(
-                                                            containerReviewsRecordList
-                                                                .toList())
-                                                        .toDouble(),
-                                                    0.0,
-                                                  ),
-                                                  unratedColor:
-                                                      const Color(0x4D040202),
-                                                  itemCount: 5,
-                                                  itemSize: 12.0,
-                                                  glowColor: const Color(0xFFF9BF11),
-                                                ),
-                                              );
-                                            } else {
-                                              return RatingBarIndicator(
-                                                itemBuilder: (context, index) =>
-                                                    const Icon(
-                                                  Icons.star_rate,
-                                                  color: Color(0xFFF9BF11),
-                                                ),
-                                                direction: Axis.horizontal,
-                                                rating: valueOrDefault<double>(
-                                                  functions
-                                                      .averagueReviews(
-                                                          containerReviewsRecordList
-                                                              .toList())
-                                                      .toDouble(),
-                                                  0.0,
-                                                ),
-                                                unratedColor: const Color(0x4D040202),
-                                                itemCount: 5,
-                                                itemSize: 12.0,
-                                              );
-                                            }
-                                          },
-                                        ),
+                                  child: wrapWithModel(
+                                    model: _model.estrellasModel,
+                                    updateCallback: () => safeSetState(() {}),
+                                    child: EstrellasWidget(
+                                      parameter1: containerReviewsRecordList,
+                                      parameter2: widget.profesionalId!,
+                                      parameter3: widget.isReview,
+                                      parameter4: valueOrDefault<int>(
+                                        containerReviewsRecordList.length,
+                                        1278,
                                       ),
-                                      Align(
-                                        alignment:
-                                            const AlignmentDirectional(0.0, -0.7),
-                                        child: Text(
-                                          valueOrDefault<String>(
-                                            functions.concatStrings(
-                                                '(',
-                                                ')',
-                                                valueOrDefault<String>(
-                                                  containerReviewsRecordList
-                                                      .length
-                                                      .toString(),
-                                                  '1278',
-                                                )),
-                                            '(1278)',
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Montserrat',
-                                                color: Colors.white,
-                                                fontSize: 11.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w500,
-                                              ),
-                                        ),
-                                      ),
-                                    ],
+                                    ),
                                   ),
                                 );
                               },

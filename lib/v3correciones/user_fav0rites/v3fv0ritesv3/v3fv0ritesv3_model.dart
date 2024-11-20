@@ -1,5 +1,6 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
+import '/components/estrellas_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/v2/block_list/favoritesv2/add_favorites/add_favorites_widget.dart';
 import '/v2/menbresiav2/membresia_logo/membresia_logo_widget.dart';
@@ -27,14 +28,8 @@ class V3fv0ritesv3Model extends FlutterFlowModel<V3fv0ritesv3Widget> {
   UsersRecord? userCurrent;
   // Stores action output result for [Backend Call - API (getNamePlace)] action in v3fv0ritesv3 widget.
   ApiCallResponse? apiResult23d;
-  // State field(s) for RatingBar widget.
-  double? ratingBarValue1;
-  // Stores action output result for [Firestore Query - Query a collection] action in RatingBar widget.
-  ChatsRecord? chatsR;
-  // Stores action output result for [Firestore Query - Query a collection] action in RatingBar widget.
-  List<ChatMessagesRecord>? chatsM;
-  // Stores action output result for [Firestore Query - Query a collection] action in RatingBar widget.
-  ReviewsRecord? reviewsC;
+  // Model for estrellas component.
+  late EstrellasModel estrellasModel;
   // Model for AddFavorites component.
   late AddFavoritesModel addFavoritesModel;
   // Model for MembresiaLogo component.
@@ -42,12 +37,14 @@ class V3fv0ritesv3Model extends FlutterFlowModel<V3fv0ritesv3Widget> {
 
   @override
   void initState(BuildContext context) {
+    estrellasModel = createModel(context, () => EstrellasModel());
     addFavoritesModel = createModel(context, () => AddFavoritesModel());
     membresiaLogoModel = createModel(context, () => MembresiaLogoModel());
   }
 
   @override
   void dispose() {
+    estrellasModel.dispose();
     addFavoritesModel.dispose();
     membresiaLogoModel.dispose();
   }
