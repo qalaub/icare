@@ -4,6 +4,10 @@ import 'deleteaccount_widget.dart' show DeleteaccountWidget;
 import 'package:flutter/material.dart';
 
 class DeleteaccountModel extends FlutterFlowModel<DeleteaccountWidget> {
+  ///  Local state fields for this page.
+
+  int index = 0;
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Firestore Query - Query a collection] action in Button widget.

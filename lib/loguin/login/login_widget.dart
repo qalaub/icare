@@ -9,6 +9,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'login_model.dart';
 export 'login_model.dart';
 
@@ -34,6 +35,8 @@ class _LoginWidgetState extends State<LoginWidget> {
       GoRouter.of(context).prepareAuthEvent();
       await authManager.signOut();
       GoRouter.of(context).clearRedirectLocation();
+
+      FFAppState().imagesUserUpload = [];
     });
 
     _model.emailTextController ??= TextEditingController();
@@ -52,6 +55,8 @@ class _LoginWidgetState extends State<LoginWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(

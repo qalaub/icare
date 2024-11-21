@@ -2224,6 +2224,13 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                     video: _model.uploadedFileUrl2,
                                   ));
                                 }
+                                if (_model.queryTextController.text != '') {
+                                  await currentUserReference!
+                                      .update(createUsersRecordData(
+                                    suburb: functions.changeUbication(functions
+                                        .stringToLatLng(_model.newUbication!)),
+                                  ));
+                                }
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
                                     content: Text(
