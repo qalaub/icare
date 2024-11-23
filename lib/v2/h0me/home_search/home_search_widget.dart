@@ -34,6 +34,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
   late HomeSearchModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  LatLng? currentUserLocationValue;
 
   @override
   void initState() {
@@ -42,6 +43,8 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      currentUserLocationValue =
+          await getCurrentUserLocation(defaultLocation: const LatLng(0.0, 0.0));
       if (!(await getPermissionStatus(locationPermission))) {
         FFAppState().registerProviderForm =
             RegisterProviderTypeStruct.fromSerializableMap(jsonDecode(
@@ -103,6 +106,8 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
         );
         _model.professionalList =
             _model.newProfessionals!.toList().cast<UsersRecord>();
+        safeSetState(() {});
+        FFAppState().tempLocation = currentUserLocationValue;
         safeSetState(() {});
       }
     });
