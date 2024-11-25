@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
@@ -37,6 +38,8 @@ class VerperfilModel extends FlutterFlowModel<VerperfilWidget> {
 
   bool isEdit = true;
 
+  bool dontShow = false;
+
   ///  State fields for stateful widgets in this page.
 
   // Model for imagenesfotosUsers component.
@@ -45,6 +48,22 @@ class VerperfilModel extends FlutterFlowModel<VerperfilWidget> {
   FocusNode? nameFocusNode;
   TextEditingController? nameTextController;
   String? Function(BuildContext, String?)? nameTextControllerValidator;
+  // State field(s) for lastName widget.
+  FocusNode? lastNameFocusNode;
+  TextEditingController? lastNameTextController;
+  String? Function(BuildContext, String?)? lastNameTextControllerValidator;
+  // State field(s) for phone widget.
+  FocusNode? phoneFocusNode;
+  TextEditingController? phoneTextController;
+  String? Function(BuildContext, String?)? phoneTextControllerValidator;
+  // State field(s) for query widget.
+  FocusNode? queryFocusNode;
+  TextEditingController? queryTextController;
+  String? Function(BuildContext, String?)? queryTextControllerValidator;
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode;
+  TextEditingController? textController5;
+  String? Function(BuildContext, String?)? textController5Validator;
   // State field(s) for services widget.
   String? servicesValue;
   FormFieldController<String>? servicesValueController;
@@ -61,6 +80,8 @@ class VerperfilModel extends FlutterFlowModel<VerperfilWidget> {
   FocusNode? descriptionFocusNode;
   TextEditingController? descriptionTextController;
   String? Function(BuildContext, String?)? descriptionTextControllerValidator;
+  // Stores action output result for [Backend Call - API (getNamePlace)] action in Button widget.
+  ApiCallResponse? apiResult23d;
   // Model for Navbar component.
   late NavbarModel navbarModel;
   // Model for NavbarPremiun component.
@@ -79,6 +100,18 @@ class VerperfilModel extends FlutterFlowModel<VerperfilWidget> {
     imagenesfotosUsersModel.dispose();
     nameFocusNode?.dispose();
     nameTextController?.dispose();
+
+    lastNameFocusNode?.dispose();
+    lastNameTextController?.dispose();
+
+    phoneFocusNode?.dispose();
+    phoneTextController?.dispose();
+
+    queryFocusNode?.dispose();
+    queryTextController?.dispose();
+
+    textFieldFocusNode?.dispose();
+    textController5?.dispose();
 
     descriptionFocusNode?.dispose();
     descriptionTextController?.dispose();

@@ -3,6 +3,10 @@ import 'filtros_widget.dart' show FiltrosWidget;
 import 'package:flutter/material.dart';
 
 class FiltrosModel extends FlutterFlowModel<FiltrosWidget> {
+  ///  Local state fields for this page.
+
+  bool dontShow = false;
+
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for distance widget.

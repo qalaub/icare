@@ -3,9 +3,9 @@ export '/v2/h0me/home_search/home_search_widget.dart' show HomeSearchWidget;
 export '/pages/user/user_widget.dart' show UserWidget;
 export '/pages/filtros/filtros_widget.dart' show FiltrosWidget;
 export '/pages/favorites1/favorites1_widget.dart' show Favorites1Widget;
-export '/v2/register/user/register_user1/register_user1_widget.dart'
+export '/v2/register/professional/user/register_user1/register_user1_widget.dart'
     show RegisterUser1Widget;
-export '/v2/register/user/register_user2/register_user2_widget.dart'
+export '/v2/register/professional/user/register_user2/register_user2_widget.dart'
     show RegisterUser2Widget;
 export '/v2/register/professional/register_professional1/register_professional1_widget.dart'
     show RegisterProfessional1Widget;
@@ -39,7 +39,7 @@ export '/v2/register/business/register_business1/register_business1_widget.dart'
     show RegisterBusiness1Widget;
 export '/v2/register/business/register_business2/register_business2_widget.dart'
     show RegisterBusiness2Widget;
-export '/v2/register/business/register_business3/register_business3_widget.dart'
+export '/v2/register/register_business3/register_business3_widget.dart'
     show RegisterBusiness3Widget;
 export '/v2/register/business/register_business4/register_business4_widget.dart'
     show RegisterBusiness4Widget;
@@ -74,6 +74,7 @@ export '/v3correciones/calendario/cadari0/cadari0_widget.dart'
     show Cadari0Widget;
 export '/v2/v2_mensages/chat_2_details_copy/chat2_details_copy_widget.dart'
     show Chat2DetailsCopyWidget;
-export '/v2/register/user/avatars/avatars_widget.dart' show AvatarsWidget;
+export '/v2/register/professional/user/avatars/avatars_widget.dart'
+    show AvatarsWidget;
 export '/rejected/dislike_page/dislike_page_widget.dart' show DislikePageWidget;
 export '/v2/user/verperfil/verperfil_widget.dart' show VerperfilWidget;

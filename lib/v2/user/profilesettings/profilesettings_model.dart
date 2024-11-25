@@ -44,6 +44,10 @@ class ProfilesettingsModel extends FlutterFlowModel<ProfilesettingsWidget> {
 
   String? newUbication;
 
+  bool dontShow = false;
+
+  String? initialSudbur = 'P Melborne, D';
+
   ///  State fields for stateful widgets in this page.
 
   // Model for upload_profile_image component.
@@ -54,6 +58,18 @@ class ProfilesettingsModel extends FlutterFlowModel<ProfilesettingsWidget> {
   FocusNode? nameFocusNode;
   TextEditingController? nameTextController;
   String? Function(BuildContext, String?)? nameTextControllerValidator;
+  // State field(s) for lastName widget.
+  FocusNode? lastNameFocusNode;
+  TextEditingController? lastNameTextController;
+  String? Function(BuildContext, String?)? lastNameTextControllerValidator;
+  // State field(s) for phone widget.
+  FocusNode? phoneFocusNode;
+  TextEditingController? phoneTextController;
+  String? Function(BuildContext, String?)? phoneTextControllerValidator;
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode;
+  TextEditingController? textController4;
+  String? Function(BuildContext, String?)? textController4Validator;
   // State field(s) for query widget.
   FocusNode? queryFocusNode;
   TextEditingController? queryTextController;
@@ -110,6 +126,15 @@ class ProfilesettingsModel extends FlutterFlowModel<ProfilesettingsWidget> {
     imagenesfotosUsersModel.dispose();
     nameFocusNode?.dispose();
     nameTextController?.dispose();
+
+    lastNameFocusNode?.dispose();
+    lastNameTextController?.dispose();
+
+    phoneFocusNode?.dispose();
+    phoneTextController?.dispose();
+
+    textFieldFocusNode?.dispose();
+    textController4?.dispose();
 
     queryFocusNode?.dispose();
     queryTextController?.dispose();

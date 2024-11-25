@@ -221,7 +221,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'Profilesettings',
               path: 'profilesettings',
               requireAuth: true,
-              builder: (context, params) => const ProfilesettingsWidget(),
+              builder: (context, params) => ProfilesettingsWidget(
+                initialSur: params.getParam(
+                  'initialSur',
+                  ParamType.String,
+                ),
+              ),
             ),
             FFRoute(
               name: 'listofcollaborators',
@@ -545,7 +550,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'verperfil',
               path: 'verperfil',
               requireAuth: true,
-              builder: (context, params) => const VerperfilWidget(),
+              builder: (context, params) => VerperfilWidget(
+                initialSurb: params.getParam(
+                  'initialSurb',
+                  ParamType.String,
+                ),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

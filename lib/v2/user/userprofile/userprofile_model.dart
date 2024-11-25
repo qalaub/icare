@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/v2/account_option/account_option_widget.dart';
@@ -17,8 +18,12 @@ class UserprofileModel extends FlutterFlowModel<UserprofileWidget> {
   late AccountOptionModel accountOptionModel1;
   // Model for AccountOption component.
   late AccountOptionModel accountOptionModel2;
+  // Stores action output result for [Backend Call - API (getNamePlace)] action in AccountOption widget.
+  ApiCallResponse? apiResult23d;
   // Model for AccountOption component.
   late AccountOptionModel accountOptionModel3;
+  // Stores action output result for [Backend Call - API (getNamePlace)] action in AccountOption widget.
+  ApiCallResponse? apiResult23d1;
   // Model for AccountOption component.
   late AccountOptionModel accountOptionModel4;
   // Stores action output result for [Firestore Query - Query a collection] action in AccountOption widget.
