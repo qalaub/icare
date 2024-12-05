@@ -104,14 +104,17 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                   context.safePop();
                 },
               ),
-              title: Text(
-                'Profile',
-                style: FlutterFlowTheme.of(context).headlineLarge.override(
-                      fontFamily: 'Montserrat',
-                      color: Colors.white,
-                      fontSize: 24.0,
-                      letterSpacing: 0.0,
-                    ),
+              title: Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(1.0, 0.0, 0.0, 0.0),
+                child: Text(
+                  'Profile',
+                  style: FlutterFlowTheme.of(context).headlineLarge.override(
+                        fontFamily: 'Montserrat',
+                        color: Colors.white,
+                        fontSize: 24.0,
+                        letterSpacing: 0.0,
+                      ),
+                ),
               ),
               actions: [
                 Builder(
@@ -241,7 +244,7 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                 width: double.infinity,
                 height: double.infinity,
                 decoration: const BoxDecoration(
-                  color: Colors.white,
+                  color: Color(0xFFF0EAEA),
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(0.0),
                     bottomRight: Radius.circular(0.0),
@@ -296,36 +299,40 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                 children: [
                                   Align(
                                     alignment: const AlignmentDirectional(-1.0, 0.0),
-                                    child: Container(
-                                      width: 100.0,
-                                      height: 100.0,
-                                      decoration: const BoxDecoration(
-                                        borderRadius: BorderRadius.only(
-                                          bottomLeft: Radius.circular(22.0),
-                                          bottomRight: Radius.circular(22.0),
-                                          topLeft: Radius.circular(22.0),
-                                          topRight: Radius.circular(22.0),
-                                        ),
-                                      ),
-                                      child: ClipRRect(
-                                        borderRadius: const BorderRadius.only(
-                                          bottomLeft: Radius.circular(32.0),
-                                          bottomRight: Radius.circular(32.0),
-                                          topLeft: Radius.circular(32.0),
-                                          topRight: Radius.circular(32.0),
-                                        ),
-                                        child: CachedNetworkImage(
-                                          fadeInDuration:
-                                              const Duration(milliseconds: 500),
-                                          fadeOutDuration:
-                                              const Duration(milliseconds: 500),
-                                          imageUrl: valueOrDefault<String>(
-                                            profileInfoUsersRecord.photoUrl,
-                                            'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
+                                    child: Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          10.0, 0.0, 0.0, 0.0),
+                                      child: Container(
+                                        width: 100.0,
+                                        height: 100.0,
+                                        decoration: const BoxDecoration(
+                                          borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(22.0),
+                                            bottomRight: Radius.circular(22.0),
+                                            topLeft: Radius.circular(22.0),
+                                            topRight: Radius.circular(22.0),
                                           ),
-                                          width: double.infinity,
-                                          height: double.infinity,
-                                          fit: BoxFit.cover,
+                                        ),
+                                        child: ClipRRect(
+                                          borderRadius: const BorderRadius.only(
+                                            bottomLeft: Radius.circular(32.0),
+                                            bottomRight: Radius.circular(32.0),
+                                            topLeft: Radius.circular(32.0),
+                                            topRight: Radius.circular(32.0),
+                                          ),
+                                          child: CachedNetworkImage(
+                                            fadeInDuration:
+                                                const Duration(milliseconds: 500),
+                                            fadeOutDuration:
+                                                const Duration(milliseconds: 500),
+                                            imageUrl: valueOrDefault<String>(
+                                              profileInfoUsersRecord.photoUrl,
+                                              'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
+                                            ),
+                                            width: double.infinity,
+                                            height: double.infinity,
+                                            fit: BoxFit.cover,
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -705,14 +712,19 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: const AlignmentDirectional(0.0, -0.3),
-                                    child: wrapWithModel(
-                                      model: _model.membresiaLogoModel,
-                                      updateCallback: () => safeSetState(() {}),
-                                      child: MembresiaLogoWidget(
-                                        width: 70,
-                                        heigth: 70,
-                                        professional: widget.professional!,
+                                    alignment: const AlignmentDirectional(0.0, 0.7),
+                                    child: Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 10.0, 0.0),
+                                      child: wrapWithModel(
+                                        model: _model.membresiaLogoModel,
+                                        updateCallback: () =>
+                                            safeSetState(() {}),
+                                        child: MembresiaLogoWidget(
+                                          width: 48,
+                                          heigth: 70,
+                                          professional: widget.professional!,
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -747,7 +759,9 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                       Roles.business)
                               ? profileInfoUsersRecord.comapny
                               : 'default230',
-                          schedule: profileInfoUsersRecord.schedule,
+                          morning: profileInfoUsersRecord.morning,
+                          noon: profileInfoUsersRecord.noon,
+                          afternoon: profileInfoUsersRecord.afternoon,
                         ),
                       ),
                     ].addToEnd(const SizedBox(height: 32.0)),

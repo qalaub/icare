@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/components/calendario_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
@@ -44,6 +45,8 @@ class VerperfilModel extends FlutterFlowModel<VerperfilWidget> {
 
   // Model for imagenesfotosUsers component.
   late ImagenesfotosUsersModel imagenesfotosUsersModel;
+  // Model for calendario component.
+  late CalendarioModel calendarioModel;
   // State field(s) for name widget.
   FocusNode? nameFocusNode;
   TextEditingController? nameTextController;
@@ -91,6 +94,7 @@ class VerperfilModel extends FlutterFlowModel<VerperfilWidget> {
   void initState(BuildContext context) {
     imagenesfotosUsersModel =
         createModel(context, () => ImagenesfotosUsersModel());
+    calendarioModel = createModel(context, () => CalendarioModel());
     navbarModel = createModel(context, () => NavbarModel());
     navbarPremiunModel = createModel(context, () => NavbarPremiunModel());
   }
@@ -98,6 +102,7 @@ class VerperfilModel extends FlutterFlowModel<VerperfilWidget> {
   @override
   void dispose() {
     imagenesfotosUsersModel.dispose();
+    calendarioModel.dispose();
     nameFocusNode?.dispose();
     nameTextController?.dispose();
 

@@ -43,7 +43,7 @@ class FFAppState extends ChangeNotifier {
 
   RegisterProviderTypeStruct _registerProviderForm =
       RegisterProviderTypeStruct.fromSerializableMap(jsonDecode(
-          '{\"images\":\"[]\",\"serviceType\":\"[]\",\"disabilities\":\"[]\",\"schedule\":\"[\\\"Monday\\\",\\\"Tuesday\\\",\\\"Wednesday\\\",\\\"Thursday\\\",\\\"Friday\\\",\\\"Saturday\\\",\\\"Sunday\\\"]\"}'));
+          '{\"images\":\"[]\",\"serviceType\":\"[]\",\"disabilities\":\"[]\",\"schedule\":\"[\\\"Monday\\\",\\\"Tuesday\\\",\\\"Wednesday\\\",\\\"Thursday\\\",\\\"Friday\\\",\\\"Saturday\\\",\\\"Sunday\\\"]\",\"morning\":\"[\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\"]\",\"noon\":\"[\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\"]\",\"afternoon\":\"[\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\"]\"}'));
   RegisterProviderTypeStruct get registerProviderForm => _registerProviderForm;
   set registerProviderForm(RegisterProviderTypeStruct value) {
     _registerProviderForm = value;

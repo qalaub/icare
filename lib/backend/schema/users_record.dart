@@ -221,6 +221,21 @@ class UsersRecord extends FirestoreRecord {
   String get isBusinessDelete => _isBusinessDelete ?? '';
   bool hasIsBusinessDelete() => _isBusinessDelete != null;
 
+  // "morning" field.
+  List<bool>? _morning;
+  List<bool> get morning => _morning ?? const [];
+  bool hasMorning() => _morning != null;
+
+  // "noon" field.
+  List<bool>? _noon;
+  List<bool> get noon => _noon ?? const [];
+  bool hasNoon() => _noon != null;
+
+  // "afternoon" field.
+  List<bool>? _afternoon;
+  List<bool> get afternoon => _afternoon ?? const [];
+  bool hasAfternoon() => _afternoon != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -263,6 +278,9 @@ class UsersRecord extends FirestoreRecord {
     _isActive = snapshotData['isActive'] as bool?;
     _schedule = getDataList(snapshotData['schedule']);
     _isBusinessDelete = snapshotData['isBusinessDelete'] as String?;
+    _morning = getDataList(snapshotData['morning']);
+    _noon = getDataList(snapshotData['noon']);
+    _afternoon = getDataList(snapshotData['afternoon']);
   }
 
   static CollectionReference get collection =>
@@ -418,7 +436,10 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.video == e2?.video &&
         e1?.isActive == e2?.isActive &&
         listEquality.equals(e1?.schedule, e2?.schedule) &&
-        e1?.isBusinessDelete == e2?.isBusinessDelete;
+        e1?.isBusinessDelete == e2?.isBusinessDelete &&
+        listEquality.equals(e1?.morning, e2?.morning) &&
+        listEquality.equals(e1?.noon, e2?.noon) &&
+        listEquality.equals(e1?.afternoon, e2?.afternoon);
   }
 
   @override
@@ -463,7 +484,10 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.video,
         e?.isActive,
         e?.schedule,
-        e?.isBusinessDelete
+        e?.isBusinessDelete,
+        e?.morning,
+        e?.noon,
+        e?.afternoon
       ]);
 
   @override

@@ -3,6 +3,7 @@ import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/backend/schema/enums/enums.dart';
+import '/components/calendario_copy_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -16,6 +17,7 @@ import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
 import '/v2/professional/imagenesfotos_users/imagenesfotos_users_widget.dart';
 import '/v2/user/mapbuscar/mapbuscar_widget.dart';
 import '/v2/user/upload_profile_image/upload_profile_image_widget.dart';
+import 'dart:async';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
@@ -51,6 +53,13 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       FFAppState().imagesUserUpload = [];
+      FFAppState().updateRegisterProviderFormStruct(
+        (e) => e
+          ..morning = (currentUserDocument?.morning.toList() ?? []).toList()
+          ..noon = (currentUserDocument?.noon.toList() ?? []).toList()
+          ..afternoon =
+              (currentUserDocument?.afternoon.toList() ?? []).toList(),
+      );
       FFAppState().update(() {});
     });
 
@@ -431,6 +440,94 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                               ),
                                             ),
                                           ),
+                                        ),
+                                      ].divide(const SizedBox(height: 8.0)),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            if (currentUserDocument?.rol != Roles.user)
+                              Align(
+                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      16.0, 0.0, 16.0, 0.0),
+                                  child: AuthUserStreamWidget(
+                                    builder: (context) => Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              'schedule',
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Montserrat',
+                                                    color: const Color(0xFFC14BBC),
+                                                    fontSize: 15.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
+                                            ),
+                                          ],
+                                        ),
+                                        Align(
+                                          alignment:
+                                              const AlignmentDirectional(-1.0, 0.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            children: [
+                                              Container(
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        0.9,
+                                                height: 39.0,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                ),
+                                                child: Align(
+                                                  alignment:
+                                                      const AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: Text(
+                                                    'In this section you can establish which days you work per week and at what times of the day',
+                                                    textAlign:
+                                                        TextAlign.justify,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Montserrat',
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        wrapWithModel(
+                                          model: _model.calendarioCopyModel,
+                                          updateCallback: () =>
+                                              safeSetState(() {}),
+                                          updateOnChange: true,
+                                          child: const CalendarioCopyWidget(),
                                         ),
                                       ].divide(const SizedBox(height: 8.0)),
                                     ),
@@ -1064,6 +1161,8 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                                   .override(
                                                                     fontFamily:
                                                                         'Readex Pro',
+                                                                    fontSize:
+                                                                        10.0,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -1159,6 +1258,12 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                                   0.0,
                                                             ),
                                                         maxLines: null,
+                                                        maxLength: 14,
+                                                        buildCounter: (context,
+                                                                {required currentLength,
+                                                                required isFocused,
+                                                                maxLength}) =>
+                                                            null,
                                                         keyboardType:
                                                             TextInputType
                                                                 .number,
@@ -2827,6 +2932,15 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                       'serviceType': FFAppState()
                                           .registerProviderForm
                                           .serviceType,
+                                      'morning': FFAppState()
+                                          .registerProviderForm
+                                          .morning,
+                                      'noon': FFAppState()
+                                          .registerProviderForm
+                                          .noon,
+                                      'afternoon': FFAppState()
+                                          .registerProviderForm
+                                          .morning,
                                     },
                                   ),
                                 });
@@ -2846,7 +2960,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                 FFAppState().registerProviderForm =
                                     RegisterProviderTypeStruct
                                         .fromSerializableMap(jsonDecode(
-                                            '{\"images\":\"[]\",\"serviceType\":\"[]\",\"disabilities\":\"[]\",\"schedule\":\"[\\\"Monday\\\",\\\"Tuesday\\\",\\\"Wednesday\\\",\\\"Thursday\\\",\\\"Friday\\\",\\\"Saturday\\\",\\\"Sunday\\\"]\"}'));
+                                            '{\"images\":\"[]\",\"serviceType\":\"[]\",\"disabilities\":\"[]\",\"schedule\":\"[\\\"Monday\\\",\\\"Tuesday\\\",\\\"Wednesday\\\",\\\"Thursday\\\",\\\"Friday\\\",\\\"Saturday\\\",\\\"Sunday\\\"]\",\"morning\":\"[\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\"]\",\"noon\":\"[\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\"]\",\"afternoon\":\"[\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\"]\"}'));
                                 safeSetState(() {});
                                 if ((_model.uploadedLocalFile1.bytes
                                             ?.isNotEmpty ??
@@ -2903,11 +3017,16 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                   ));
                                 }
                                 if (_model.queryTextController.text != '') {
-                                  await currentUserReference!
-                                      .update(createUsersRecordData(
-                                    suburb: functions.changeUbication(functions
-                                        .stringToLatLng(_model.newUbication!)),
-                                  ));
+                                  unawaited(
+                                    () async {
+                                      await currentUserReference!
+                                          .update(createUsersRecordData(
+                                        suburb: functions.changeUbication(
+                                            functions.stringToLatLng(
+                                                _model.newUbication!)),
+                                      ));
+                                    }(),
+                                  );
                                 }
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(

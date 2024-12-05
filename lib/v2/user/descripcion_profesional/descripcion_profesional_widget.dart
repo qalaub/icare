@@ -1,3 +1,4 @@
+import '/components/calendario_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
@@ -16,7 +17,9 @@ class DescripcionProfesionalWidget extends StatefulWidget {
     required this.services,
     required this.imgs,
     String? company,
-    this.schedule,
+    this.morning,
+    this.noon,
+    this.afternoon,
   })  : video = video ??
             'https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.mp4',
         company = company ?? 'default230';
@@ -27,7 +30,9 @@ class DescripcionProfesionalWidget extends StatefulWidget {
   final List<String>? services;
   final List<String>? imgs;
   final String company;
-  final List<String>? schedule;
+  final List<bool>? morning;
+  final List<bool>? noon;
+  final List<bool>? afternoon;
 
   @override
   State<DescripcionProfesionalWidget> createState() =>
@@ -93,7 +98,6 @@ class _DescripcionProfesionalWidgetState
                       child: Container(
                         width: double.infinity,
                         decoration: const BoxDecoration(
-                          color: Color(0xFFFFFEFE),
                           borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(0.0),
                             bottomRight: Radius.circular(0.0),
@@ -186,7 +190,7 @@ class _DescripcionProfesionalWidgetState
             ),
           ),
           const SizedBox(
-            width: 360.0,
+            width: 500.0,
             child: Divider(
               thickness: 1.0,
               color: Color(0xDEBAB7B7),
@@ -208,14 +212,14 @@ class _DescripcionProfesionalWidgetState
             ),
           ),
           const SizedBox(
-            width: 360.0,
+            width: 500.0,
             child: Divider(
               thickness: 1.0,
               color: Color(0xDEBAB7B7),
             ),
           ),
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
             child: FlutterFlowVideoPlayer(
               path: widget.video != ''
                   ? widget.video
@@ -233,27 +237,273 @@ class _DescripcionProfesionalWidgetState
             ),
           ),
           const SizedBox(
-            width: 360.0,
+            width: 500.0,
             child: Divider(
               thickness: 1.0,
               color: Color(0xDEBAB7B7),
             ),
           ),
           Align(
-            alignment: const AlignmentDirectional(0.09, 0.52),
+            alignment: const AlignmentDirectional(-1.0, -1.0),
+            child: Container(
+              decoration: const BoxDecoration(),
+              child: Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(40.0, 8.0, 0.0, 8.0),
+                child: Text(
+                  'Availability',
+                  style: FlutterFlowTheme.of(context).displaySmall.override(
+                        fontFamily: 'Montserrat',
+                        color: const Color(0xFFC14BBC),
+                        fontSize: 16.0,
+                        letterSpacing: 0.0,
+                      ),
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 8.0),
+            child: wrapWithModel(
+              model: _model.calendarioModel,
+              updateCallback: () => safeSetState(() {}),
+              child: CalendarioWidget(
+                morning: widget.morning,
+                noon: widget.noon,
+                afternoon: widget.afternoon,
+              ),
+            ),
+          ),
+          Align(
+            alignment: const AlignmentDirectional(-1.0, -1.0),
+            child: Container(
+              decoration: const BoxDecoration(),
+              child: Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(40.0, 8.0, 0.0, 8.0),
+                child: Text(
+                  'Services Provided',
+                  style: FlutterFlowTheme.of(context).displaySmall.override(
+                        fontFamily: 'Montserrat',
+                        color: const Color(0xFFC14BBC),
+                        fontSize: 16.0,
+                        letterSpacing: 0.0,
+                      ),
+                ),
+              ),
+            ),
+          ),
+          Align(
+            alignment: const AlignmentDirectional(-0.03, -0.86),
             child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 16.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 8.0),
               child: Container(
-                width: double.infinity,
-                decoration: const BoxDecoration(),
+                width: 355.0,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: const BorderRadius.only(
+                    bottomLeft: Radius.circular(12.0),
+                    bottomRight: Radius.circular(12.0),
+                    topLeft: Radius.circular(12.0),
+                    topRight: Radius.circular(12.0),
+                  ),
+                  border: Border.all(
+                    color: Colors.white,
+                  ),
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Align(
+                      alignment: const AlignmentDirectional(0.0, -0.98),
+                      child: CheckboxListTile(
+                        key: const ValueKey('supportWorkers'),
+                        value: _model.supportValue ??= widget.services
+                                ?.contains(FFAppConstants.servicesType[0]) ==
+                            true,
+                        onChanged: _model.services
+                            ? null
+                            : (newValue) async {
+                                safeSetState(
+                                    () => _model.supportValue = newValue!);
+                              },
+                        title: Text(
+                          'Support Workers',
+                          style:
+                              FlutterFlowTheme.of(context).titleLarge.override(
+                                    fontFamily: 'Montserrat',
+                                    color: Colors.black,
+                                    fontSize: 14.0,
+                                    letterSpacing: 0.0,
+                                  ),
+                        ),
+                        activeColor: const Color(0xFFBD39BA),
+                        checkColor:
+                            _model.services ? const Color(0xFFBD39BA) : Colors.white,
+                        dense: false,
+                        controlAffinity: ListTileControlAffinity.trailing,
+                      ),
+                    ),
+                    Align(
+                      alignment: const AlignmentDirectional(0.0, -0.46),
+                      child: CheckboxListTile(
+                        key: const ValueKey('supportCoordinators'),
+                        value: _model.coordinatorsValue ??= widget.services
+                                ?.contains(FFAppConstants.servicesType[1]) ==
+                            true,
+                        onChanged: _model.services
+                            ? null
+                            : (newValue) async {
+                                safeSetState(
+                                    () => _model.coordinatorsValue = newValue!);
+                              },
+                        title: Text(
+                          'Support Coordinators',
+                          style:
+                              FlutterFlowTheme.of(context).titleLarge.override(
+                                    fontFamily: 'Montserrat',
+                                    color: Colors.black,
+                                    fontSize: 14.0,
+                                    letterSpacing: 0.0,
+                                  ),
+                        ),
+                        activeColor: const Color(0xFFBD39BA),
+                        checkColor:
+                            _model.services ? const Color(0xFFBD39BA) : Colors.white,
+                        dense: false,
+                        controlAffinity: ListTileControlAffinity.trailing,
+                      ),
+                    ),
+                    Align(
+                      alignment: const AlignmentDirectional(0.0, -0.98),
+                      child: CheckboxListTile(
+                        key: const ValueKey('recoveryCoaches'),
+                        value: _model.recoveryValue ??= widget.services
+                                ?.contains(FFAppConstants.servicesType[4]) ==
+                            true,
+                        onChanged: _model.services
+                            ? null
+                            : (newValue) async {
+                                safeSetState(
+                                    () => _model.recoveryValue = newValue!);
+                              },
+                        title: Text(
+                          'Recovery Coaches',
+                          style:
+                              FlutterFlowTheme.of(context).titleLarge.override(
+                                    fontFamily: 'Montserrat',
+                                    color: Colors.black,
+                                    fontSize: 14.0,
+                                    letterSpacing: 0.0,
+                                  ),
+                        ),
+                        activeColor: const Color(0xFFBD39BA),
+                        checkColor:
+                            _model.services ? const Color(0xFFBD39BA) : Colors.white,
+                        dense: false,
+                        controlAffinity: ListTileControlAffinity.trailing,
+                      ),
+                    ),
+                    Align(
+                      alignment: const AlignmentDirectional(0.0, 0.13),
+                      child: CheckboxListTile(
+                        key: const ValueKey('therapeuticSupports'),
+                        value: _model.therapeuticValue ??= widget.services
+                                ?.contains(FFAppConstants.servicesType[2]) ==
+                            true,
+                        onChanged: _model.services
+                            ? null
+                            : (newValue) async {
+                                safeSetState(
+                                    () => _model.therapeuticValue = newValue!);
+                              },
+                        title: Text(
+                          'Therapeutic Supports',
+                          style:
+                              FlutterFlowTheme.of(context).titleLarge.override(
+                                    fontFamily: 'Montserrat',
+                                    color: Colors.black,
+                                    fontSize: 14.0,
+                                    letterSpacing: 0.0,
+                                  ),
+                        ),
+                        activeColor: const Color(0xFFBD39BA),
+                        checkColor:
+                            _model.services ? const Color(0xFFBD39BA) : Colors.white,
+                        dense: false,
+                        controlAffinity: ListTileControlAffinity.trailing,
+                      ),
+                    ),
+                    Align(
+                      alignment: const AlignmentDirectional(0.0, 0.77),
+                      child: CheckboxListTile(
+                        key: const ValueKey('homeMaintenance'),
+                        value: _model.homeValue ??= widget.services
+                                ?.contains(FFAppConstants.servicesType[3]) ==
+                            true,
+                        onChanged: _model.services
+                            ? null
+                            : (newValue) async {
+                                safeSetState(
+                                    () => _model.homeValue = newValue!);
+                              },
+                        title: Text(
+                          'Home Maintenance ',
+                          style:
+                              FlutterFlowTheme.of(context).titleLarge.override(
+                                    fontFamily: 'Montserrat',
+                                    color: Colors.black,
+                                    fontSize: 14.0,
+                                    letterSpacing: 0.0,
+                                  ),
+                        ),
+                        activeColor: const Color(0xFFBD39BA),
+                        checkColor:
+                            _model.services ? const Color(0xFFBD39BA) : Colors.white,
+                        dense: false,
+                        controlAffinity: ListTileControlAffinity.trailing,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Align(
+            alignment: const AlignmentDirectional(-1.0, -1.0),
+            child: Container(
+              decoration: const BoxDecoration(),
+              child: Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(40.0, 8.0, 0.0, 8.0),
+                child: Text(
+                  'Provider details',
+                  style: FlutterFlowTheme.of(context).displaySmall.override(
+                        fontFamily: 'Montserrat',
+                        color: const Color(0xFFC14BBC),
+                        fontSize: 16.0,
+                        letterSpacing: 0.0,
+                      ),
+                ),
+              ),
+            ),
+          ),
+          Align(
+            alignment: const AlignmentDirectional(0.0, 0.0),
+            child: Padding(
+              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 16.0),
+              child: Container(
+                width: 355.0,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(12.0),
+                ),
                 child: Align(
                   alignment: const AlignmentDirectional(0.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Align(
-                        alignment: const AlignmentDirectional(-0.8, 0.0),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Container(
                           width: 270.0,
                           height: 50.0,
@@ -322,8 +572,13 @@ class _DescripcionProfesionalWidgetState
                           ),
                         ),
                       ),
+                      Divider(
+                        height: 16.0,
+                        thickness: 3.0,
+                        color: FlutterFlowTheme.of(context).alternate,
+                      ),
                       Align(
-                        alignment: const AlignmentDirectional(-0.8, 0.0),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Container(
                           width: 270.0,
                           height: 50.0,
@@ -366,80 +621,14 @@ class _DescripcionProfesionalWidgetState
                           ),
                         ),
                       ),
-                      Align(
-                        alignment: const AlignmentDirectional(-0.8, 0.0),
-                        child: Container(
-                          width: 300.0,
-                          decoration: const BoxDecoration(),
-                          alignment: const AlignmentDirectional(0.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Align(
-                                alignment: AlignmentDirectional(-1.0, -1.0),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 3.0),
-                                  child: Icon(
-                                    Icons.more_time_sharp,
-                                    color: Color(0xFF0E70DF),
-                                    size: 22.0,
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                width: 266.0,
-                                decoration: const BoxDecoration(),
-                                child: Builder(
-                                  builder: (context) {
-                                    final scheduleDays =
-                                        widget.schedule?.toList() ?? [];
-
-                                    return ListView.separated(
-                                      padding: const EdgeInsets.fromLTRB(
-                                        0,
-                                        2.0,
-                                        0,
-                                        0,
-                                      ),
-                                      shrinkWrap: true,
-                                      scrollDirection: Axis.vertical,
-                                      itemCount: scheduleDays.length,
-                                      separatorBuilder: (_, __) =>
-                                          const SizedBox(height: 4.0),
-                                      itemBuilder:
-                                          (context, scheduleDaysIndex) {
-                                        final scheduleDaysItem =
-                                            scheduleDays[scheduleDaysIndex];
-                                        return Align(
-                                          alignment:
-                                              const AlignmentDirectional(-1.0, 0.0),
-                                          child: Text(
-                                            scheduleDaysItem,
-                                            textAlign: TextAlign.start,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Montserrat',
-                                                  color: Colors.black,
-                                                  fontSize: 17.0,
-                                                  letterSpacing: 0.0,
-                                                ),
-                                          ),
-                                        );
-                                      },
-                                    );
-                                  },
-                                ),
-                              ),
-                            ].divide(const SizedBox(width: 12.0)),
-                          ),
-                        ),
+                      Divider(
+                        height: 16.0,
+                        thickness: 3.0,
+                        color: FlutterFlowTheme.of(context).alternate,
                       ),
                       if (widget.company != 'default230')
                         Align(
-                          alignment: const AlignmentDirectional(-0.8, 0.0),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Container(
                             width: 270.0,
                             height: 50.0,
@@ -484,124 +673,85 @@ class _DescripcionProfesionalWidgetState
                             ),
                           ),
                         ),
+                      Divider(
+                        height: 16.0,
+                        thickness: 3.0,
+                        color: FlutterFlowTheme.of(context).alternate,
+                      ),
                       Align(
-                        alignment: const AlignmentDirectional(-0.8, 0.0),
-                        child: Container(
-                          width: 300.0,
-                          height: 50.0,
-                          decoration: const BoxDecoration(),
-                          alignment: const AlignmentDirectional(0.0, 0.0),
-                          child: Stack(
-                            children: [
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  const Align(
-                                    alignment: AlignmentDirectional(-1.0, 0.0),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 3.0),
-                                      child: Icon(
-                                        Icons.check_circle,
-                                        color: Color(0xFFE069BF),
-                                        size: 22.0,
-                                      ),
-                                    ),
-                                  ),
-                                  Align(
-                                    alignment: const AlignmentDirectional(-1.0, 0.0),
-                                    child: Text(
-                                      'Official ID document, name\n provide your ID correctly',
-                                      textAlign: TextAlign.start,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Montserrat',
-                                            color: Colors.black,
-                                            fontSize: 17.0,
-                                            letterSpacing: 0.0,
+                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              25.0, 0.0, 0.0, 0.0),
+                          child: Container(
+                            width: 300.0,
+                            height: 50.0,
+                            decoration: const BoxDecoration(),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            child: Stack(
+                              children: [
+                                Align(
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      const Align(
+                                        alignment:
+                                            AlignmentDirectional(-1.0, 0.0),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 3.0),
+                                          child: Icon(
+                                            Icons.check_circle,
+                                            color: Color(0xFFE069BF),
+                                            size: 22.0,
                                           ),
-                                    ),
+                                        ),
+                                      ),
+                                      Align(
+                                        alignment:
+                                            const AlignmentDirectional(-1.0, 0.0),
+                                        child: Text(
+                                          'Official ID document, name\n provide your ID correctly',
+                                          textAlign: TextAlign.start,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Montserrat',
+                                                color: Colors.black,
+                                                fontSize: 17.0,
+                                                letterSpacing: 0.0,
+                                              ),
+                                        ),
+                                      ),
+                                    ].divide(const SizedBox(width: 12.0)),
                                   ),
-                                ].divide(const SizedBox(width: 12.0)),
-                              ),
-                            ],
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
+                      Divider(
+                        height: 16.0,
+                        thickness: 3.0,
+                        color: FlutterFlowTheme.of(context).alternate,
+                      ),
                       Align(
-                        alignment: const AlignmentDirectional(-0.8, 0.0),
-                        child: Container(
-                          width: 300.0,
-                          decoration: const BoxDecoration(),
-                          alignment: const AlignmentDirectional(0.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Align(
-                                alignment: AlignmentDirectional(-1.0, -1.0),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 3.0),
-                                  child: Icon(
-                                    Icons.work_history_sharp,
-                                    color: Color(0xFF0E70DF),
-                                    size: 22.0,
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                width: 266.0,
-                                decoration: const BoxDecoration(),
-                                child: Builder(
-                                  builder: (context) {
-                                    final servicesList =
-                                        widget.services!.toList();
-
-                                    return ListView.separated(
-                                      padding: const EdgeInsets.fromLTRB(
-                                        0,
-                                        2.0,
-                                        0,
-                                        0,
-                                      ),
-                                      shrinkWrap: true,
-                                      scrollDirection: Axis.vertical,
-                                      itemCount: servicesList.length,
-                                      separatorBuilder: (_, __) =>
-                                          const SizedBox(height: 4.0),
-                                      itemBuilder:
-                                          (context, servicesListIndex) {
-                                        final servicesListItem =
-                                            servicesList[servicesListIndex];
-                                        return Align(
-                                          alignment:
-                                              const AlignmentDirectional(-1.0, 0.0),
-                                          child: Text(
-                                            servicesListItem,
-                                            textAlign: TextAlign.start,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Montserrat',
-                                                  color: Colors.black,
-                                                  fontSize: 17.0,
-                                                  letterSpacing: 0.0,
-                                                ),
-                                          ),
-                                        );
-                                      },
-                                    );
-                                  },
-                                ),
-                              ),
-                            ].divide(const SizedBox(width: 12.0)),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              26.0, 0.0, 0.0, 0.0),
+                          child: Container(
+                            width: 300.0,
+                            decoration: const BoxDecoration(),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
                           ),
                         ),
                       ),
                     ]
-                        .divide(const SizedBox(height: 16.0))
+                        .addToStart(const SizedBox(height: 8.0))
                         .addToEnd(const SizedBox(height: 32.0)),
                   ),
                 ),

@@ -699,9 +699,15 @@ class _RegisterPfofesional4WidgetState
                                                         'disabilities': FFAppState()
                                                             .registerProviderForm
                                                             .disabilities,
-                                                        'schedule': FFAppState()
+                                                        'morning': FFAppState()
                                                             .registerProviderForm
-                                                            .schedule,
+                                                            .morning,
+                                                        'noon': FFAppState()
+                                                            .registerProviderForm
+                                                            .noon,
+                                                        'afternoon': FFAppState()
+                                                            .registerProviderForm
+                                                            .afternoon,
                                                       },
                                                     ),
                                                   });

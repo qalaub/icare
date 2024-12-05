@@ -47,7 +47,6 @@ class _ListofcollaboratorsWidgetState extends State<ListofcollaboratorsWidget> {
           top: true,
           child: Container(
             decoration: BoxDecoration(
-              color: const Color(0xFFA41414),
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: Image.asset(

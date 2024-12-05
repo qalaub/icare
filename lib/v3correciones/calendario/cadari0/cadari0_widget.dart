@@ -1,10 +1,10 @@
-import '/flutter_flow/flutter_flow_checkbox_group.dart';
+import '/components/calendario_copy_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'cadari0_model.dart';
 export 'cadari0_model.dart';
 
@@ -40,6 +40,8 @@ class _Cadari0WidgetState extends State<Cadari0Widget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
@@ -109,105 +111,35 @@ class _Cadari0WidgetState extends State<Cadari0Widget> {
                                   thickness: 2.0,
                                   color: Color(0xFFF0DFEF),
                                 ),
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
-                                  children: [
-                                    Expanded(
-                                      child: Align(
-                                        alignment:
-                                            const AlignmentDirectional(-1.0, 0.0),
-                                        child: Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  16.0, 0.0, 16.0, 0.0),
-                                          child: FlutterFlowCheckboxGroup(
-                                            options: const [
-                                              'Monday',
-                                              'Tuesday',
-                                              'Wednesday',
-                                              'Thursday',
-                                              'Friday',
-                                              'Saturday',
-                                              'Sunday'
-                                            ],
-                                            onChanged: (val) => safeSetState(
-                                                () => _model
-                                                    .checkboxGroupValues = val),
-                                            controller: _model
-                                                    .checkboxGroupValueController ??=
-                                                FormFieldController<
-                                                    List<String>>(
-                                              List.from([
-                                                    'Monday',
-                                                    'Tuesday',
-                                                    'Wednesday',
-                                                    'Thursday',
-                                                    'Friday',
-                                                    'Saturday',
-                                                    'Sunday'
-                                                  ] ??
-                                                  []),
-                                            ),
-                                            activeColor: const Color(0xFFB928B8),
-                                            checkColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .info,
-                                            checkboxBorderColor:
-                                                const Color(0xFF090909),
-                                            textStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      fontFamily: 'Montserrat',
-                                                      color: Colors.black,
-                                                      fontSize: 18.0,
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FontWeight.w500,
-                                                    ),
-                                            unselectedTextStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      fontFamily: 'Montserrat',
-                                                      color: const Color(0xFF050505),
-                                                      fontSize: 18.0,
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                    ),
-                                            checkboxBorderRadius:
-                                                BorderRadius.circular(4.0),
-                                            initialized:
-                                                _model.checkboxGroupValues !=
-                                                    null,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      1.0, 0.0, 0.0, 0.0),
+                                  child: wrapWithModel(
+                                    model: _model.calendarioCopyModel,
+                                    updateCallback: () => safeSetState(() {}),
+                                    child: const CalendarioCopyWidget(),
+                                  ),
                                 ),
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 32.0, 0.0, 16.0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
-                                      FFAppState()
-                                          .updateRegisterProviderFormStruct(
-                                        (e) => e
-                                          ..schedule = _model
-                                              .checkboxGroupValues!
-                                              .toList(),
-                                      );
-                                      safeSetState(() {});
-                                      if (_model.checkboxGroupValues != null &&
-                                              (_model.checkboxGroupValues)!
-                                                  .isNotEmpty
-                                          ? (_model
-                                                  .checkboxGroupValues!.isNotEmpty)
-                                          : false) {
+                                      if ((FFAppState()
+                                                  .registerProviderForm
+                                                  .morning
+                                                  .contains(_model.trueS) ==
+                                              true) ||
+                                          (FFAppState()
+                                                  .registerProviderForm
+                                                  .noon
+                                                  .contains(_model.trueS) ==
+                                              true) ||
+                                          (FFAppState()
+                                                  .registerProviderForm
+                                                  .afternoon
+                                                  .contains(_model.trueS) ==
+                                              true)) {
                                         context.pushNamed(
                                           'RegisterPfofesional4',
                                           queryParameters: {

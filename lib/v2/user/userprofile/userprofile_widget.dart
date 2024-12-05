@@ -12,8 +12,10 @@ import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 import 'userprofile_model.dart';
 export 'userprofile_model.dart';
 
@@ -33,6 +35,19 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => UserprofileModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      FFAppState().imagesUserUpload = [];
+      FFAppState().updateRegisterProviderFormStruct(
+        (e) => e
+          ..morning = (currentUserDocument?.morning.toList() ?? []).toList()
+          ..noon = (currentUserDocument?.noon.toList() ?? []).toList()
+          ..afternoon =
+              (currentUserDocument?.afternoon.toList() ?? []).toList(),
+      );
+      FFAppState().update(() {});
+    });
   }
 
   @override
@@ -44,6 +59,8 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(

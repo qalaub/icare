@@ -1,6 +1,7 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
+import '/components/calendario_copy_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
@@ -54,6 +55,8 @@ class ProfilesettingsModel extends FlutterFlowModel<ProfilesettingsWidget> {
   late UploadProfileImageModel uploadProfileImageModel;
   // Model for imagenesfotosUsers component.
   late ImagenesfotosUsersModel imagenesfotosUsersModel;
+  // Model for calendarioCopy component.
+  late CalendarioCopyModel calendarioCopyModel;
   // State field(s) for name widget.
   FocusNode? nameFocusNode;
   TextEditingController? nameTextController;
@@ -116,6 +119,7 @@ class ProfilesettingsModel extends FlutterFlowModel<ProfilesettingsWidget> {
         createModel(context, () => UploadProfileImageModel());
     imagenesfotosUsersModel =
         createModel(context, () => ImagenesfotosUsersModel());
+    calendarioCopyModel = createModel(context, () => CalendarioCopyModel());
     navbarModel = createModel(context, () => NavbarModel());
     navbarPremiunModel = createModel(context, () => NavbarPremiunModel());
   }
@@ -124,6 +128,7 @@ class ProfilesettingsModel extends FlutterFlowModel<ProfilesettingsWidget> {
   void dispose() {
     uploadProfileImageModel.dispose();
     imagenesfotosUsersModel.dispose();
+    calendarioCopyModel.dispose();
     nameFocusNode?.dispose();
     nameTextController?.dispose();
 

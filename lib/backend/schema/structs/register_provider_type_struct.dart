@@ -34,6 +34,9 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
     DocumentReference? business,
     List<String>? disabilities,
     List<String>? schedule,
+    List<bool>? morning,
+    List<bool>? noon,
+    List<bool>? afternoon,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _firstName = firstName,
         _lastName = lastName,
@@ -58,6 +61,9 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
         _business = business,
         _disabilities = disabilities,
         _schedule = schedule,
+        _morning = morning,
+        _noon = noon,
+        _afternoon = afternoon,
         super(firestoreUtilData);
 
   // "firstName" field.
@@ -239,6 +245,39 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
 
   bool hasSchedule() => _schedule != null;
 
+  // "morning" field.
+  List<bool>? _morning;
+  List<bool> get morning => _morning ?? const [];
+  set morning(List<bool>? val) => _morning = val;
+
+  void updateMorning(Function(List<bool>) updateFn) {
+    updateFn(_morning ??= []);
+  }
+
+  bool hasMorning() => _morning != null;
+
+  // "noon" field.
+  List<bool>? _noon;
+  List<bool> get noon => _noon ?? const [];
+  set noon(List<bool>? val) => _noon = val;
+
+  void updateNoon(Function(List<bool>) updateFn) {
+    updateFn(_noon ??= []);
+  }
+
+  bool hasNoon() => _noon != null;
+
+  // "afternoon" field.
+  List<bool>? _afternoon;
+  List<bool> get afternoon => _afternoon ?? const [];
+  set afternoon(List<bool>? val) => _afternoon = val;
+
+  void updateAfternoon(Function(List<bool>) updateFn) {
+    updateFn(_afternoon ??= []);
+  }
+
+  bool hasAfternoon() => _afternoon != null;
+
   static RegisterProviderTypeStruct fromMap(Map<String, dynamic> data) =>
       RegisterProviderTypeStruct(
         firstName: data['firstName'] as String?,
@@ -264,6 +303,9 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
         business: data['business'] as DocumentReference?,
         disabilities: getDataList(data['disabilities']),
         schedule: getDataList(data['schedule']),
+        morning: getDataList(data['morning']),
+        noon: getDataList(data['noon']),
+        afternoon: getDataList(data['afternoon']),
       );
 
   static RegisterProviderTypeStruct? maybeFromMap(dynamic data) => data is Map
@@ -294,6 +336,9 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
         'business': _business,
         'disabilities': _disabilities,
         'schedule': _schedule,
+        'morning': _morning,
+        'noon': _noon,
+        'afternoon': _afternoon,
       }.withoutNulls;
 
   @override
@@ -392,6 +437,21 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
         'schedule': serializeParam(
           _schedule,
           ParamType.String,
+          isList: true,
+        ),
+        'morning': serializeParam(
+          _morning,
+          ParamType.bool,
+          isList: true,
+        ),
+        'noon': serializeParam(
+          _noon,
+          ParamType.bool,
+          isList: true,
+        ),
+        'afternoon': serializeParam(
+          _afternoon,
+          ParamType.bool,
           isList: true,
         ),
       }.withoutNulls;
@@ -515,6 +575,21 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
           ParamType.String,
           true,
         ),
+        morning: deserializeParam<bool>(
+          data['morning'],
+          ParamType.bool,
+          true,
+        ),
+        noon: deserializeParam<bool>(
+          data['noon'],
+          ParamType.bool,
+          true,
+        ),
+        afternoon: deserializeParam<bool>(
+          data['afternoon'],
+          ParamType.bool,
+          true,
+        ),
       );
 
   @override
@@ -546,7 +621,10 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
         listEquality.equals(serviceType, other.serviceType) &&
         business == other.business &&
         listEquality.equals(disabilities, other.disabilities) &&
-        listEquality.equals(schedule, other.schedule);
+        listEquality.equals(schedule, other.schedule) &&
+        listEquality.equals(morning, other.morning) &&
+        listEquality.equals(noon, other.noon) &&
+        listEquality.equals(afternoon, other.afternoon);
   }
 
   @override
@@ -573,7 +651,10 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
         serviceType,
         business,
         disabilities,
-        schedule
+        schedule,
+        morning,
+        noon,
+        afternoon
       ]);
 }
 
