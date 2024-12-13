@@ -15,7 +15,7 @@ export '/loguin/login/login_widget.dart' show LoginWidget;
 export '/loguin/escoger_usuario/escoger_usuario_widget.dart'
     show EscogerUsuarioWidget;
 export '/v2/user/userprofile/userprofile_widget.dart' show UserprofileWidget;
-export '/v2/v2_mensages/chat_2_details/chat2_details_widget.dart'
+export '/v2/v2_c_o_l_a_b_o_r_a_d_o_r_e_s/chat_2_details/chat2_details_widget.dart'
     show Chat2DetailsWidget;
 export '/v2/v2_mensages/chat_2_main/chat2_main_widget.dart'
     show Chat2MainWidget;
@@ -39,7 +39,7 @@ export '/v2/register/business/register_business1/register_business1_widget.dart'
     show RegisterBusiness1Widget;
 export '/v2/register/business/register_business2/register_business2_widget.dart'
     show RegisterBusiness2Widget;
-export '/v2/register/register_business3/register_business3_widget.dart'
+export '/v2/register/business/register_business3/register_business3_widget.dart'
     show RegisterBusiness3Widget;
 export '/v2/register/business/register_business4/register_business4_widget.dart'
     show RegisterBusiness4Widget;

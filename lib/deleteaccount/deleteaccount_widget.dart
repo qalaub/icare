@@ -39,7 +39,10 @@ class _DeleteaccountWidgetState extends State<DeleteaccountWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -191,12 +194,14 @@ class _DeleteaccountWidgetState extends State<DeleteaccountWidget> {
                                                 await (currentUserDocument
                                                             ?.professionals
                                                             .toList() ??
-                                                        [])[_model.index]
+                                                        [])
+                                                    .elementAtOrNull(
+                                                        _model.index)!
                                                     .update(
                                                         createUsersRecordData(
-                                                  isBusinessDelete:
-                                                      'M042EFSAYUOFW24',
-                                                ));
+                                                      isBusinessDelete:
+                                                          'M042EFSAYUOFW24',
+                                                    ));
                                                 _model.index = _model.index + 1;
                                                 safeSetState(() {});
                                               }

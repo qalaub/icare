@@ -65,7 +65,9 @@ class _ImagenesfotosUsersWidgetState extends State<ImagenesfotosUsersWidget> {
             Expanded(
               child: Builder(
                 builder: (context) {
-                  final imgs = widget.professional!.toList();
+                  final imgs = widget.professional!
+                      .where((e) => e != '')
+                      .toList();
 
                   return SizedBox(
                     width: double.infinity,

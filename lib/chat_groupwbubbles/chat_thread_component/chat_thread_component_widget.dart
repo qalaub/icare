@@ -461,6 +461,53 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                                           // addMyUserToList
                                           _model.addToLastSeenBy(
                                               currentUserReference!);
+                                          if (widget.chatRef != null) {
+                                            // updateChatDocument
+                                            unawaited(
+                                              () async {
+                                                await widget.chatRefTotal!
+                                                    .update({
+                                                  ...createChatsRecordData(
+                                                    lastMessage: _model
+                                                        .textController.text,
+                                                    lastMessageSentBy:
+                                                        currentUserReference,
+                                                  ),
+                                                  ...mapToFirestore(
+                                                    {
+                                                      'last_message_seen_by':
+                                                          FieldValue.delete(),
+                                                    },
+                                                  ),
+                                                });
+                                              }(),
+                                            );
+                                            // updateChatDocument
+                                            unawaited(
+                                              () async {
+                                                await widget.chatRefTotal!
+                                                    .update({
+                                                  ...createChatsRecordData(
+                                                    lastMessage: _model
+                                                        .textController.text,
+                                                    lastMessageTime:
+                                                        getCurrentTimestamp,
+                                                    lastMessageSentBy:
+                                                        currentUserReference,
+                                                  ),
+                                                  ...mapToFirestore(
+                                                    {
+                                                      'last_message_seen_by':
+                                                          FieldValue
+                                                              .arrayUnion([
+                                                        currentUserReference
+                                                      ]),
+                                                    },
+                                                  ),
+                                                });
+                                              }(),
+                                            );
+                                          }
                                           // clearUsers
                                           _model.lastSeenBy = [];
                                           safeSetState(() {
@@ -661,6 +708,24 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                                             _model.addToLastSeenBy(
                                                 currentUserReference!);
                                             if (widget.chatRef != null) {
+                                              // updateChatDocument
+                                              unawaited(
+                                                () async {
+                                                  firestoreBatch.update(
+                                                      widget.chatRefTotal!, {
+                                                    ...createChatsRecordData(
+                                                      lastMessage: _model
+                                                          .textController.text,
+                                                    ),
+                                                    ...mapToFirestore(
+                                                      {
+                                                        'last_message_seen_by':
+                                                            FieldValue.delete(),
+                                                      },
+                                                    ),
+                                                  });
+                                                }(),
+                                              );
                                               // updateChatDocument
                                               unawaited(
                                                 () async {

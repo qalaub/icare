@@ -122,8 +122,12 @@ class RegisterFormTypeStruct extends FFFirebaseStruct {
         password: data['password'] as String?,
         ubication: data['ubication'] as LatLng?,
         suburb: data['suburb'] as LatLng?,
-        rol: deserializeEnum<Roles>(data['rol']),
-        plan: deserializeEnum<Plan>(data['plan']),
+        rol: data['rol'] is Roles
+            ? data['rol']
+            : deserializeEnum<Roles>(data['rol']),
+        plan: data['plan'] is Plan
+            ? data['plan']
+            : deserializeEnum<Plan>(data['plan']),
       );
 
   static RegisterFormTypeStruct? maybeFromMap(dynamic data) => data is Map

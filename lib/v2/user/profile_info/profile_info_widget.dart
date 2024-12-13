@@ -84,7 +84,10 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
             : null;
 
         return GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          onTap: () {
+            FocusScope.of(context).unfocus();
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: Colors.white,
@@ -187,7 +190,7 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                                 e.users.contains(
                                                     currentUserReference))
                                             .toList()
-                                            .first,
+                                            .firstOrNull,
                                         ParamType.Document,
                                       ),
                                     }.withoutNulls,
@@ -200,7 +203,7 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                               e.users.contains(
                                                   currentUserReference))
                                           .toList()
-                                          .first,
+                                          .firstOrNull,
                                     },
                                   );
 
@@ -390,7 +393,8 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                               child: Text(
                                                 valueOrDefault<String>(
                                                   profileInfoUsersRecord
-                                                      .serviceType.first,
+                                                      .serviceType
+                                                      .firstOrNull,
                                                   'telfer psychologist',
                                                 ),
                                                 style:

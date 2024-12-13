@@ -12,9 +12,11 @@ class Cadari0Widget extends StatefulWidget {
   const Cadari0Widget({
     super.key,
     this.bussinesRef,
-  });
+    bool? isBussines,
+  }) : isBussines = isBussines ?? false;
 
   final DocumentReference? bussinesRef;
+  final bool isBussines;
 
   @override
   State<Cadari0Widget> createState() => _Cadari0WidgetState();
@@ -43,7 +45,10 @@ class _Cadari0WidgetState extends State<Cadari0Widget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -111,13 +116,17 @@ class _Cadari0WidgetState extends State<Cadari0Widget> {
                                   thickness: 2.0,
                                   color: Color(0xFFF0DFEF),
                                 ),
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      1.0, 0.0, 0.0, 0.0),
-                                  child: wrapWithModel(
-                                    model: _model.calendarioCopyModel,
-                                    updateCallback: () => safeSetState(() {}),
-                                    child: const CalendarioCopyWidget(),
+                                Container(
+                                  width: 370.0,
+                                  decoration: const BoxDecoration(),
+                                  child: Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        1.0, 0.0, 0.0, 0.0),
+                                    child: wrapWithModel(
+                                      model: _model.calendarioCopyModel,
+                                      updateCallback: () => safeSetState(() {}),
+                                      child: const CalendarioCopyWidget(),
+                                    ),
                                   ),
                                 ),
                                 Padding(
@@ -140,15 +149,20 @@ class _Cadari0WidgetState extends State<Cadari0Widget> {
                                                   .afternoon
                                                   .contains(_model.trueS) ==
                                               true)) {
-                                        context.pushNamed(
-                                          'RegisterPfofesional4',
-                                          queryParameters: {
-                                            'businessRef': serializeParam(
-                                              widget.bussinesRef,
-                                              ParamType.DocumentReference,
-                                            ),
-                                          }.withoutNulls,
-                                        );
+                                        if (widget.isBussines) {
+                                          context
+                                              .pushNamed('RegisterBusiness4');
+                                        } else {
+                                          context.pushNamed(
+                                            'RegisterPfofesional4',
+                                            queryParameters: {
+                                              'businessRef': serializeParam(
+                                                widget.bussinesRef,
+                                                ParamType.DocumentReference,
+                                              ),
+                                            }.withoutNulls,
+                                          );
+                                        }
                                       } else {
                                         ScaffoldMessenger.of(context)
                                             .showSnackBar(

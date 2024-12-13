@@ -259,8 +259,12 @@ class UsersRecord extends FirestoreRecord {
     _gender = snapshotData['gender'] as String?;
     _images = getDataList(snapshotData['images']);
     _description = snapshotData['description'] as String?;
-    _plan = deserializeEnum<Plan>(snapshotData['plan']);
-    _rol = deserializeEnum<Roles>(snapshotData['rol']);
+    _plan = snapshotData['plan'] is Plan
+        ? snapshotData['plan']
+        : deserializeEnum<Plan>(snapshotData['plan']);
+    _rol = snapshotData['rol'] is Roles
+        ? snapshotData['rol']
+        : deserializeEnum<Roles>(snapshotData['rol']);
     _favorites = getDataList(snapshotData['favorites']);
     _business = snapshotData['business'] as DocumentReference?;
     _professionals = getDataList(snapshotData['professionals']);

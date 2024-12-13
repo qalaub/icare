@@ -38,7 +38,10 @@ class _BlockListWidgetState extends State<BlockListWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -146,7 +149,8 @@ class _BlockListWidgetState extends State<BlockListWidget> {
                                   username: containerVarItem.firtsName,
                                   service: containerVarItem.rol == Roles.user
                                       ? ' '
-                                      : containerVarItem.serviceType.first,
+                                      : containerVarItem
+                                          .serviceType.firstOrNull,
                                   userRef: containerVarItem.reference,
                                   image: containerVarItem.photoUrl,
                                 );

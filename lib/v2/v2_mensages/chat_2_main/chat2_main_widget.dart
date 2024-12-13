@@ -50,7 +50,10 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: const Color(0xFFF2F2F2),
@@ -162,7 +165,8 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
                                                               currentUserReference
                                                           ? false
                                                           : true)
-                                                      .toList()[0]),
+                                                      .toList()
+                                                      .elementAtOrNull(0)!),
                                               builder: (context, snapshot) {
                                                 // Customize what your widget looks like when it's loading.
                                                 if (!snapshot.hasData) {
@@ -473,7 +477,9 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
                                                                               ?.id
                                                                       ? false
                                                                       : true)
-                                                                  .toList()[0]),
+                                                                  .toList()
+                                                                  .elementAtOrNull(
+                                                                      0)!),
                                                           builder: (context,
                                                               snapshot) {
                                                             // Customize what your widget looks like when it's loading.
@@ -700,15 +706,14 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
                                                                 chat2MainVarItem
                                                                     .reference
                                                                     .id,
-                                                            requestFn: () => UsersRecord
-                                                                .getDocumentOnce(
-                                                                    chat2MainVarItem
-                                                                        .users
-                                                                        .where((e) =>
-                                                                            e !=
-                                                                            currentUserReference)
-                                                                        .toList()
-                                                                        .first),
+                                                            requestFn: () => UsersRecord.getDocumentOnce(
+                                                                chat2MainVarItem
+                                                                    .users
+                                                                    .where((e) =>
+                                                                        e !=
+                                                                        currentUserReference)
+                                                                    .toList()
+                                                                    .firstOrNull!),
                                                           ),
                                                           builder: (context,
                                                               snapshot) {
@@ -766,7 +771,7 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
                                                                           child:
                                                                               FutureBuilder<UsersRecord>(
                                                                             future:
-                                                                                UsersRecord.getDocumentOnce(chat2MainVarItem.users.where((e) => e != currentUserReference).toList().last),
+                                                                                UsersRecord.getDocumentOnce(chat2MainVarItem.users.where((e) => e != currentUserReference).toList().lastOrNull!),
                                                                             builder:
                                                                                 (context, snapshot) {
                                                                               // Customize what your widget looks like when it's loading.
@@ -1142,7 +1147,7 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
                                                             ? false
                                                             : true)
                                                         .toList()
-                                                        .last),
+                                                        .lastOrNull!),
                                                 builder: (context, snapshot) {
                                                   // Customize what your widget looks like when it's loading.
                                                   if (!snapshot.hasData) {
@@ -1456,7 +1461,7 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
                                                                   ? false
                                                                   : true)
                                                               .toList()
-                                                              .last),
+                                                              .lastOrNull!),
                                                       builder:
                                                           (context, snapshot) {
                                                         // Customize what your widget looks like when it's loading.

@@ -317,7 +317,8 @@ class _DescripcionProfesionalWidgetState
                       child: CheckboxListTile(
                         key: const ValueKey('supportWorkers'),
                         value: _model.supportValue ??= widget.services
-                                ?.contains(FFAppConstants.servicesType[0]) ==
+                                ?.contains(FFAppConstants.servicesType
+                                    .elementAtOrNull(0)) ==
                             true,
                         onChanged: _model.services
                             ? null
@@ -347,7 +348,8 @@ class _DescripcionProfesionalWidgetState
                       child: CheckboxListTile(
                         key: const ValueKey('supportCoordinators'),
                         value: _model.coordinatorsValue ??= widget.services
-                                ?.contains(FFAppConstants.servicesType[1]) ==
+                                ?.contains(FFAppConstants.servicesType
+                                    .elementAtOrNull(1)) ==
                             true,
                         onChanged: _model.services
                             ? null
@@ -377,7 +379,8 @@ class _DescripcionProfesionalWidgetState
                       child: CheckboxListTile(
                         key: const ValueKey('recoveryCoaches'),
                         value: _model.recoveryValue ??= widget.services
-                                ?.contains(FFAppConstants.servicesType[4]) ==
+                                ?.contains(FFAppConstants.servicesType
+                                    .elementAtOrNull(4)) ==
                             true,
                         onChanged: _model.services
                             ? null
@@ -407,7 +410,8 @@ class _DescripcionProfesionalWidgetState
                       child: CheckboxListTile(
                         key: const ValueKey('therapeuticSupports'),
                         value: _model.therapeuticValue ??= widget.services
-                                ?.contains(FFAppConstants.servicesType[2]) ==
+                                ?.contains(FFAppConstants.servicesType
+                                    .elementAtOrNull(2)) ==
                             true,
                         onChanged: _model.services
                             ? null
@@ -436,8 +440,9 @@ class _DescripcionProfesionalWidgetState
                       alignment: const AlignmentDirectional(0.0, 0.77),
                       child: CheckboxListTile(
                         key: const ValueKey('homeMaintenance'),
-                        value: _model.homeValue ??= widget.services
-                                ?.contains(FFAppConstants.servicesType[3]) ==
+                        value: _model.homeValue ??= widget.services?.contains(
+                                FFAppConstants.servicesType
+                                    .elementAtOrNull(3)) ==
                             true,
                         onChanged: _model.services
                             ? null

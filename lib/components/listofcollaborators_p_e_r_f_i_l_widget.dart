@@ -210,7 +210,8 @@ class _ListofcollaboratorsPERFILWidgetState
                                       padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 2.0, 0.0, 0.0),
                                       child: Text(
-                                        containerUsersRecord.serviceType.first,
+                                        containerUsersRecord
+                                            .serviceType.firstOrNull!,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(

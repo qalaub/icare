@@ -70,7 +70,7 @@ class _Chat2DetailsCopyWidgetState extends State<Chat2DetailsCopyWidget> {
       stream: UsersRecord.getDocument(widget.chatRef!.users
           .where((e) => e != currentUserReference)
           .toList()
-          .last),
+          .lastOrNull!),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {

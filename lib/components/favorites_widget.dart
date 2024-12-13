@@ -259,7 +259,8 @@ class _FavoritesWidgetState extends State<FavoritesWidget> {
                                   height: 18.0,
                                   decoration: const BoxDecoration(),
                                   child: Text(
-                                    containerUsersRecord.serviceType.first,
+                                    containerUsersRecord
+                                        .serviceType.firstOrNull!,
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(

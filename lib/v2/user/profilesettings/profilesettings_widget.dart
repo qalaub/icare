@@ -102,7 +102,10 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: Colors.white,
@@ -1809,7 +1812,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                                               ?.serviceType
                                                                               .toList() ??
                                                                           [])
-                                                                      .first,
+                                                                      .firstOrNull,
                                                                   'Home Maintence',
                                                                 ),
                                                               ),
@@ -2947,8 +2950,9 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                 if (FFAppState().imagesUserUpload.isNotEmpty) {
                                   await currentUserReference!.update({
                                     ...createUsersRecordData(
-                                      photoUrl:
-                                          FFAppState().imagesUserUpload.first,
+                                      photoUrl: FFAppState()
+                                          .imagesUserUpload
+                                          .firstOrNull,
                                     ),
                                     ...mapToFirestore(
                                       {

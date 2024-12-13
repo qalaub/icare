@@ -137,7 +137,7 @@ class _UserSkipWidgetState extends State<UserSkipWidget> {
                               child: Container(
                                 decoration: const BoxDecoration(),
                                 child: Text(
-                                  usera1UsersRecord.serviceType.first,
+                                  usera1UsersRecord.serviceType.firstOrNull!,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(

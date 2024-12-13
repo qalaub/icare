@@ -62,7 +62,10 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -285,7 +288,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                     'initialSurb': serializeParam(
                                       GetNamePlaceCall.street(
                                         (_model.apiResult23d?.jsonBody ?? ''),
-                                      )?.first?.toString(),
+                                      )?.firstOrNull?.toString(),
                                       ParamType.String,
                                     ),
                                   }.withoutNulls,
@@ -334,7 +337,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                     'initialSur': serializeParam(
                                       GetNamePlaceCall.street(
                                         (_model.apiResult23d1?.jsonBody ?? ''),
-                                      )?.first?.toString(),
+                                      )?.firstOrNull?.toString(),
                                       ParamType.String,
                                     ),
                                   }.withoutNulls,

@@ -125,7 +125,10 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: Colors.white,
@@ -215,7 +218,9 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
                                                           FFAppState()
                                                               .filtersPage
                                                               .schedule
-                                                              .toList()) ==
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .zoomFilter) ==
                                                       true) &&
                                                   !(currentUserDocument
                                                               ?.blockList

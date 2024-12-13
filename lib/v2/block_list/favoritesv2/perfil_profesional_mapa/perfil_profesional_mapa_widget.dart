@@ -197,7 +197,7 @@ class _PerfilProfesionalMapaWidgetState
                             const EdgeInsetsDirectional.fromSTEB(3.0, 2.0, 0.0, 0.0),
                         child: Text(
                           valueOrDefault<String>(
-                            widget.profesionalId?.serviceType.first,
+                            widget.profesionalId?.serviceType.firstOrNull,
                             'e',
                           ),
                           style:

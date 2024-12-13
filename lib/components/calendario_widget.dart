@@ -216,7 +216,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 ),
                                 child: Checkbox(
                                   value: _model.checkboxValue1 ??=
-                                      widget.morning![0],
+                                      (widget.morning!.elementAtOrNull(0))!,
                                   onChanged: _model.trueS
                                       ? null
                                       : (newValue) async {
@@ -245,7 +245,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 ),
                                 child: Checkbox(
                                   value: _model.checkboxValue2 ??=
-                                      widget.morning![1],
+                                      (widget.morning!.elementAtOrNull(1))!,
                                   onChanged: _model.trueS
                                       ? null
                                       : (newValue) async {
@@ -275,7 +275,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 ),
                                 child: Checkbox(
                                   value: _model.checkboxValue3 ??=
-                                      widget.morning![2],
+                                      (widget.morning!.elementAtOrNull(2))!,
                                   onChanged: _model.trueS
                                       ? null
                                       : (newValue) async {
@@ -305,7 +305,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 ),
                                 child: Checkbox(
                                   value: _model.checkboxValue4 ??=
-                                      widget.morning![3],
+                                      (widget.morning!.elementAtOrNull(3))!,
                                   onChanged: _model.trueS
                                       ? null
                                       : (newValue) async {
@@ -335,7 +335,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 ),
                                 child: Checkbox(
                                   value: _model.checkboxValue5 ??=
-                                      widget.morning![4],
+                                      (widget.morning!.elementAtOrNull(4))!,
                                   onChanged: _model.trueS
                                       ? null
                                       : (newValue) async {
@@ -365,7 +365,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 ),
                                 child: Checkbox(
                                   value: _model.checkboxValue6 ??=
-                                      widget.morning![5],
+                                      (widget.morning!.elementAtOrNull(5))!,
                                   onChanged: _model.trueS
                                       ? null
                                       : (newValue) async {
@@ -395,7 +395,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 ),
                                 child: Checkbox(
                                   value: _model.checkboxValue7 ??=
-                                      widget.morning![6],
+                                      (widget.morning!.elementAtOrNull(6))!,
                                   onChanged: _model.trueS
                                       ? null
                                       : (newValue) async {
@@ -471,7 +471,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 ),
                                 child: Checkbox(
                                   value: _model.checkboxValue8 ??=
-                                      widget.noon![0],
+                                      (widget.noon!.elementAtOrNull(0))!,
                                   onChanged: _model.trueS
                                       ? null
                                       : (newValue) async {
@@ -501,7 +501,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 ),
                                 child: Checkbox(
                                   value: _model.checkboxValue9 ??=
-                                      widget.noon![1],
+                                      (widget.noon!.elementAtOrNull(1))!,
                                   onChanged: _model.trueS
                                       ? null
                                       : (newValue) async {
@@ -531,7 +531,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 ),
                                 child: Checkbox(
                                   value: _model.checkboxValue10 ??=
-                                      widget.noon![2],
+                                      (widget.noon!.elementAtOrNull(2))!,
                                   onChanged: _model.trueS
                                       ? null
                                       : (newValue) async {
@@ -561,7 +561,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 ),
                                 child: Checkbox(
                                   value: _model.checkboxValue11 ??=
-                                      widget.noon![3],
+                                      (widget.noon!.elementAtOrNull(3))!,
                                   onChanged: _model.trueS
                                       ? null
                                       : (newValue) async {
@@ -591,7 +591,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 ),
                                 child: Checkbox(
                                   value: _model.checkboxValue12 ??=
-                                      widget.noon![4],
+                                      (widget.noon!.elementAtOrNull(4))!,
                                   onChanged: _model.trueS
                                       ? null
                                       : (newValue) async {
@@ -621,7 +621,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 ),
                                 child: Checkbox(
                                   value: _model.checkboxValue13 ??=
-                                      widget.noon![5],
+                                      (widget.noon!.elementAtOrNull(5))!,
                                   onChanged: _model.trueS
                                       ? null
                                       : (newValue) async {
@@ -651,7 +651,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 ),
                                 child: Checkbox(
                                   value: _model.checkboxValue14 ??=
-                                      widget.noon![6],
+                                      (widget.noon!.elementAtOrNull(6))!,
                                   onChanged: _model.trueS
                                       ? null
                                       : (newValue) async {
@@ -723,7 +723,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 ),
                                 child: Checkbox(
                                   value: _model.checkboxValue15 ??=
-                                      widget.afternoon![0],
+                                      (widget.afternoon!.elementAtOrNull(0))!,
                                   onChanged: _model.trueS
                                       ? null
                                       : (newValue) async {
@@ -753,7 +753,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 ),
                                 child: Checkbox(
                                   value: _model.checkboxValue16 ??=
-                                      widget.afternoon![1],
+                                      (widget.afternoon!.elementAtOrNull(1))!,
                                   onChanged: _model.trueS
                                       ? null
                                       : (newValue) async {
@@ -783,7 +783,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 ),
                                 child: Checkbox(
                                   value: _model.checkboxValue17 ??=
-                                      widget.afternoon![2],
+                                      (widget.afternoon!.elementAtOrNull(2))!,
                                   onChanged: _model.trueS
                                       ? null
                                       : (newValue) async {
@@ -813,7 +813,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 ),
                                 child: Checkbox(
                                   value: _model.checkboxValue18 ??=
-                                      widget.afternoon![3],
+                                      (widget.afternoon!.elementAtOrNull(3))!,
                                   onChanged: _model.trueS
                                       ? null
                                       : (newValue) async {
@@ -843,7 +843,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 ),
                                 child: Checkbox(
                                   value: _model.checkboxValue19 ??=
-                                      widget.afternoon![4],
+                                      (widget.afternoon!.elementAtOrNull(4))!,
                                   onChanged: _model.trueS
                                       ? null
                                       : (newValue) async {
@@ -873,7 +873,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 ),
                                 child: Checkbox(
                                   value: _model.checkboxValue20 ??=
-                                      widget.afternoon![5],
+                                      (widget.afternoon!.elementAtOrNull(5))!,
                                   onChanged: _model.trueS
                                       ? null
                                       : (newValue) async {
@@ -903,7 +903,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 ),
                                 child: Checkbox(
                                   value: _model.checkboxValue21 ??=
-                                      widget.afternoon![6],
+                                      (widget.afternoon!.elementAtOrNull(6))!,
                                   onChanged: _model.trueS
                                       ? null
                                       : (newValue) async {

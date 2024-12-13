@@ -49,7 +49,7 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
         _model.newSuburb = valueOrDefault<String>(
           GetNamePlaceCall.street(
             (_model.apiResultipr?.jsonBody ?? ''),
-          )?.first?.toString(),
+          )?.firstOrNull?.toString(),
           'location',
         );
         safeSetState(() {});
@@ -364,8 +364,10 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                                                   0.0, 0.0),
                                               child: AutoSizeText(
                                                 valueOrDefault<String>(
-                                                  widget.professional
-                                                      ?.serviceType.first,
+                                                  widget
+                                                      .professional
+                                                      ?.serviceType
+                                                      .firstOrNull,
                                                   'service',
                                                 ).maybeHandleOverflow(
                                                   maxChars: 24,

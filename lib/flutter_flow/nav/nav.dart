@@ -503,6 +503,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   isList: false,
                   collectionNamePath: ['users'],
                 ),
+                isBussines: params.getParam(
+                  'isBussines',
+                  ParamType.bool,
+                ),
               ),
             ),
             FFRoute(

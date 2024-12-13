@@ -285,56 +285,62 @@ bool filterProfessionals(
   List<String> age,
   LatLng current,
   List<String> schedule,
+  int zoom,
 ) {
+  /// FUNCIONES AUXILIARES
   double _degreesToRadians(double degrees) {
     return degrees * math.pi / 180;
   }
 
-  double _calculateAdjustedDistance(
+  double _calculateDistanceAustralia(
       double lat1, double lon1, double lat2, double lon2) {
     const double radius = 6371; // Radio de la Tierra en kilómetros
+
+    // Diferencias de latitud y longitud en radianes
     final double dLat = _degreesToRadians(lat2 - lat1);
     final double dLon = _degreesToRadians(lon2 - lon1);
 
-    // Cálculo del factor de escala basado en la latitud promedio
-    final double avgLat = (lat1 + lat2) / 2.0;
-    final double scaleFactor = math.cos(_degreesToRadians(avgLat));
+    // Latitud promedio de Australia (~25 grados)
+    const double avgLatAustralia = -25.0;
+    final double scaleFactor = math.cos(_degreesToRadians(avgLatAustralia));
 
-    // Fórmula del haversine para la distancia
+    // Cálculo de la distancia usando la fórmula del haversine
     final double a = math.sin(dLat / 2) * math.sin(dLat / 2) +
         math.cos(_degreesToRadians(lat1)) *
             math.cos(_degreesToRadians(lat2)) *
             math.sin(dLon / 2) *
             math.sin(dLon / 2);
     final double c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a));
+
+    // Distancia en kilómetros
     final double distance = radius * c;
 
-    // Ajustar la distancia horizontal por el factor de escala
+    // Ajuste de la distancia horizontal con el factor de escala
     return distance * scaleFactor;
   }
-  // print('current : ${current}   ${current.longitude}');
 
-  /// Constante: Radio promedio de la Tierra en km
-  const double earthRadius = 6371;
-  current;
-  // Validar datos iniciales
+  /// VALIDACIONES INICIALES
   if (user.suburb == null || current == null) return false;
 
-  // Cálculo de la distancia con Haversine
-  if (user.suburb != null) {
-    LatLng userSuburb = user.suburb ?? current;
-    double userDistance = _calculateAdjustedDistance(
-      current.latitude,
-      current.longitude,
-      userSuburb.latitude,
-      userSuburb.longitude,
-    );
+  // Cálculo de la distancia considerando la proyección de Australia
+  LatLng userSuburb = user.suburb ?? current;
+  double userDistance = _calculateDistanceAustralia(
+    current.latitude,
+    current.longitude,
+    userSuburb.latitude,
+    userSuburb.longitude,
+  );
 
-    // Filtrar por distancia
-    if (userDistance > distance) {
-      return false;
-    }
+  double multiplier = zoom * 0.15;
+  multiplier = (multiplier) * (math.log(zoom) / math.log(1.1));
+  print(multiplier);
+  if (zoom == 250) multiplier = 3200;
+  // Filtrar por distancia
+  if (userDistance > (distance * (multiplier / 1000))) {
+    return false;
   }
+
+  /// FILTROS ADICIONALES
 
   // Filtrar por servicios ofrecidos
   if (user.serviceType == null ||
@@ -344,13 +350,6 @@ bool filterProfessionals(
 
   // Filtrar por rango de edad
   if (user.age == null || !age.contains(user.age)) {
-    return false;
-  }
-
-  // Filtrar por disponibilidad horaria
-  if (user.schedule == null ||
-      user.schedule.isEmpty ||
-      !user.schedule.any((day) => schedule.contains(day))) {
     return false;
   }
 

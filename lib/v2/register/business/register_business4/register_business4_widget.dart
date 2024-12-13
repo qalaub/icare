@@ -52,7 +52,10 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: const Color(0xFFFFFEFE),
@@ -640,7 +643,7 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                                         ? FFAppState()
                                                             .registerProviderForm
                                                             .images
-                                                            .first
+                                                            .firstOrNull
                                                         : ' ',
                                                     business: FFAppState()
                                                         .registerProviderForm

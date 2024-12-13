@@ -60,7 +60,7 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
         safeSetState(() {});
       }
 
-      _model.currentProfessional = _model.professionals.first;
+      _model.currentProfessional = _model.professionals.firstOrNull;
     });
   }
 
@@ -74,7 +74,10 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -212,7 +215,8 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                           _model.currentIndex =
                                               _model.currentIndex + 1;
                                           _model.currentProfessional =
-                                              newData[_model.currentIndex];
+                                              newData.elementAtOrNull(
+                                                  _model.currentIndex);
                                         } else {
                                           _model.showMessage = false;
                                           _model.temp = 'hola';
@@ -241,7 +245,8 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                             safeSetState(() {});
                                           }
                                           _model.currentProfessional =
-                                              newData[_model.currentIndex];
+                                              newData.elementAtOrNull(
+                                                  _model.currentIndex);
                                           unawaited(
                                             () async {
                                               await currentUserReference!
@@ -405,7 +410,8 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                             _model.currentIndex =
                                                 _model.currentIndex + 1;
                                             _model.currentProfessional =
-                                                newData[_model.currentIndex];
+                                                newData.elementAtOrNull(
+                                                    _model.currentIndex);
                                             _model.userToAdd = [];
                                             if (_model.currentIndex >=
                                                 newData.length) {

@@ -296,8 +296,12 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
         years: castToType<int>(data['years']),
         languagues: data['languagues'] as String?,
         images: getDataList(data['images']),
-        rol: deserializeEnum<Roles>(data['rol']),
-        plan: deserializeEnum<Plan>(data['plan']),
+        rol: data['rol'] is Roles
+            ? data['rol']
+            : deserializeEnum<Roles>(data['rol']),
+        plan: data['plan'] is Plan
+            ? data['plan']
+            : deserializeEnum<Plan>(data['plan']),
         updateTime: data['update_time'] as DateTime?,
         serviceType: getDataList(data['serviceType']),
         business: data['business'] as DocumentReference?,

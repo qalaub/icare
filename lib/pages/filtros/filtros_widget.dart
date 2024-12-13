@@ -39,7 +39,10 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: const Color(0xFFEEEAEA),
@@ -249,8 +252,8 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                   value: _model.age1Value ??= FFAppState()
                                           .filtersPage
                                           .age
-                                          .contains(
-                                              FFAppConstants.agesType[2]) ==
+                                          .contains(FFAppConstants.agesType
+                                              .elementAtOrNull(2)) ==
                                       true,
                                   onChanged: (newValue) async {
                                     safeSetState(
@@ -281,8 +284,8 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                   value: _model.age2Value ??= FFAppState()
                                           .filtersPage
                                           .age
-                                          .contains(
-                                              FFAppConstants.agesType[1]) ==
+                                          .contains(FFAppConstants.agesType
+                                              .elementAtOrNull(1)) ==
                                       true,
                                   onChanged: (newValue) async {
                                     safeSetState(
@@ -313,8 +316,8 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                   value: _model.age3Value ??= FFAppState()
                                           .filtersPage
                                           .age
-                                          .contains(
-                                              FFAppConstants.agesType[0]) ==
+                                          .contains(FFAppConstants.agesType
+                                              .elementAtOrNull(0)) ==
                                       true,
                                   onChanged: (newValue) async {
                                     safeSetState(
@@ -413,8 +416,8 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                   value: _model.supportValue ??= FFAppState()
                                           .filtersPage
                                           .services
-                                          .contains(
-                                              FFAppConstants.servicesType[0]) ==
+                                          .contains(FFAppConstants.servicesType
+                                              .elementAtOrNull(0)) ==
                                       true,
                                   onChanged: (newValue) async {
                                     safeSetState(
@@ -442,13 +445,14 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                 alignment: const AlignmentDirectional(0.0, -0.46),
                                 child: CheckboxListTile(
                                   key: const ValueKey('supportCoordinators'),
-                                  value: _model
-                                      .coordinatorsValue ??= FFAppState()
-                                          .filtersPage
-                                          .services
-                                          .contains(
-                                              FFAppConstants.servicesType[1]) ==
-                                      true,
+                                  value: _model.coordinatorsValue ??=
+                                      FFAppState()
+                                              .filtersPage
+                                              .services
+                                              .contains(FFAppConstants
+                                                  .servicesType
+                                                  .elementAtOrNull(1)) ==
+                                          true,
                                   onChanged: (newValue) async {
                                     safeSetState(() =>
                                         _model.coordinatorsValue = newValue!);
@@ -478,8 +482,8 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                   value: _model.recoveryValue ??= FFAppState()
                                           .filtersPage
                                           .services
-                                          .contains(
-                                              FFAppConstants.servicesType[4]) ==
+                                          .contains(FFAppConstants.servicesType
+                                              .elementAtOrNull(4)) ==
                                       true,
                                   onChanged: (newValue) async {
                                     safeSetState(
@@ -507,13 +511,14 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                 alignment: const AlignmentDirectional(0.0, 0.13),
                                 child: CheckboxListTile(
                                   key: const ValueKey('therapeuticSupports'),
-                                  value: _model
-                                      .therapeuticValue ??= FFAppState()
-                                          .filtersPage
-                                          .services
-                                          .contains(
-                                              FFAppConstants.servicesType[2]) ==
-                                      true,
+                                  value: _model.therapeuticValue ??=
+                                      FFAppState()
+                                              .filtersPage
+                                              .services
+                                              .contains(FFAppConstants
+                                                  .servicesType
+                                                  .elementAtOrNull(2)) ==
+                                          true,
                                   onChanged: (newValue) async {
                                     safeSetState(() =>
                                         _model.therapeuticValue = newValue!);
@@ -543,8 +548,8 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                   value: _model.homeValue ??= FFAppState()
                                           .filtersPage
                                           .services
-                                          .contains(
-                                              FFAppConstants.servicesType[3]) ==
+                                          .contains(FFAppConstants.servicesType
+                                              .elementAtOrNull(3)) ==
                                       true,
                                   onChanged: (newValue) async {
                                     safeSetState(
@@ -643,7 +648,8 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                     value: _model.mondayValue ??= FFAppState()
                                             .filtersPage
                                             .schedule
-                                            .contains(FFAppConstants.days[0]) ==
+                                            .contains(FFAppConstants.days
+                                                .elementAtOrNull(0)) ==
                                         true,
                                     onChanged: (newValue) async {
                                       safeSetState(
@@ -674,7 +680,8 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                     value: _model.tuesdayValue ??= FFAppState()
                                             .filtersPage
                                             .schedule
-                                            .contains(FFAppConstants.days[1]) ==
+                                            .contains(FFAppConstants.days
+                                                .elementAtOrNull(1)) ==
                                         true,
                                     onChanged: (newValue) async {
                                       safeSetState(() =>
@@ -702,12 +709,13 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                   alignment: const AlignmentDirectional(0.0, -0.98),
                                   child: CheckboxListTile(
                                     key: const ValueKey('recoveryCoaches'),
-                                    value: _model
-                                        .wednesdayValue ??= FFAppState()
-                                            .filtersPage
-                                            .schedule
-                                            .contains(FFAppConstants.days[2]) ==
-                                        true,
+                                    value: _model.wednesdayValue ??=
+                                        FFAppState()
+                                                .filtersPage
+                                                .schedule
+                                                .contains(FFAppConstants.days
+                                                    .elementAtOrNull(2)) ==
+                                            true,
                                     onChanged: (newValue) async {
                                       safeSetState(() =>
                                           _model.wednesdayValue = newValue!);
@@ -737,7 +745,8 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                     value: _model.thursdayValue ??= FFAppState()
                                             .filtersPage
                                             .schedule
-                                            .contains(FFAppConstants.days[3]) ==
+                                            .contains(FFAppConstants.days
+                                                .elementAtOrNull(3)) ==
                                         true,
                                     onChanged: (newValue) async {
                                       safeSetState(() =>
@@ -768,7 +777,8 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                     value: _model.fridayValue ??= FFAppState()
                                             .filtersPage
                                             .schedule
-                                            .contains(FFAppConstants.days[4]) ==
+                                            .contains(FFAppConstants.days
+                                                .elementAtOrNull(4)) ==
                                         true,
                                     onChanged: (newValue) async {
                                       safeSetState(
@@ -799,7 +809,8 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                     value: _model.saturdayValue ??= FFAppState()
                                             .filtersPage
                                             .schedule
-                                            .contains(FFAppConstants.days[5]) ==
+                                            .contains(FFAppConstants.days
+                                                .elementAtOrNull(5)) ==
                                         true,
                                     onChanged: (newValue) async {
                                       safeSetState(() =>
@@ -830,7 +841,8 @@ class _FiltrosWidgetState extends State<FiltrosWidget> {
                                     value: _model.sundayValue ??= FFAppState()
                                             .filtersPage
                                             .schedule
-                                            .contains(FFAppConstants.days[6]) ==
+                                            .contains(FFAppConstants.days
+                                                .elementAtOrNull(6)) ==
                                         true,
                                     onChanged: (newValue) async {
                                       safeSetState(

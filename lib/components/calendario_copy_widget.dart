@@ -140,8 +140,10 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                           FlutterFlowTheme.of(context).alternate,
                     ),
                     child: Checkbox(
-                      value: _model.checkboxValue1 ??=
-                          FFAppState().registerProviderForm.morning[0],
+                      value: _model.checkboxValue1 ??= FFAppState()
+                          .registerProviderForm
+                          .morning
+                          .elementAtOrNull(0)!,
                       onChanged: (newValue) async {
                         safeSetState(() => _model.checkboxValue1 = newValue!);
                         if (newValue!) {
@@ -181,8 +183,10 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                           FlutterFlowTheme.of(context).alternate,
                     ),
                     child: Checkbox(
-                      value: _model.noonValue1 ??=
-                          FFAppState().registerProviderForm.noon[0],
+                      value: _model.noonValue1 ??= FFAppState()
+                          .registerProviderForm
+                          .noon
+                          .elementAtOrNull(0)!,
                       onChanged: (newValue) async {
                         safeSetState(() => _model.noonValue1 = newValue!);
                         if (newValue!) {
@@ -222,8 +226,10 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                           FlutterFlowTheme.of(context).alternate,
                     ),
                     child: Checkbox(
-                      value: _model.afternoonValue1 ??=
-                          FFAppState().registerProviderForm.afternoon[0],
+                      value: _model.afternoonValue1 ??= FFAppState()
+                          .registerProviderForm
+                          .afternoon
+                          .elementAtOrNull(0)!,
                       onChanged: (newValue) async {
                         safeSetState(() => _model.afternoonValue1 = newValue!);
                         if (newValue!) {
@@ -287,8 +293,10 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                           FlutterFlowTheme.of(context).alternate,
                     ),
                     child: Checkbox(
-                      value: _model.checkboxValue2 ??=
-                          FFAppState().registerProviderForm.morning[1],
+                      value: _model.checkboxValue2 ??= FFAppState()
+                          .registerProviderForm
+                          .morning
+                          .elementAtOrNull(1)!,
                       onChanged: (newValue) async {
                         safeSetState(() => _model.checkboxValue2 = newValue!);
                         if (newValue!) {
@@ -328,8 +336,10 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                           FlutterFlowTheme.of(context).alternate,
                     ),
                     child: Checkbox(
-                      value: _model.noonValue2 ??=
-                          FFAppState().registerProviderForm.noon[1],
+                      value: _model.noonValue2 ??= FFAppState()
+                          .registerProviderForm
+                          .noon
+                          .elementAtOrNull(1)!,
                       onChanged: (newValue) async {
                         safeSetState(() => _model.noonValue2 = newValue!);
                         if (newValue!) {
@@ -369,8 +379,10 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                           FlutterFlowTheme.of(context).alternate,
                     ),
                     child: Checkbox(
-                      value: _model.afternoonValue2 ??=
-                          FFAppState().registerProviderForm.afternoon[1],
+                      value: _model.afternoonValue2 ??= FFAppState()
+                          .registerProviderForm
+                          .afternoon
+                          .elementAtOrNull(1)!,
                       onChanged: (newValue) async {
                         safeSetState(() => _model.afternoonValue2 = newValue!);
                         if (newValue!) {
@@ -434,8 +446,10 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                           FlutterFlowTheme.of(context).alternate,
                     ),
                     child: Checkbox(
-                      value: _model.checkboxValue3 ??=
-                          FFAppState().registerProviderForm.morning[2],
+                      value: _model.checkboxValue3 ??= FFAppState()
+                          .registerProviderForm
+                          .morning
+                          .elementAtOrNull(2)!,
                       onChanged: (newValue) async {
                         safeSetState(() => _model.checkboxValue3 = newValue!);
                         if (newValue!) {
@@ -475,8 +489,10 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                           FlutterFlowTheme.of(context).alternate,
                     ),
                     child: Checkbox(
-                      value: _model.noonValue3 ??=
-                          FFAppState().registerProviderForm.noon[2],
+                      value: _model.noonValue3 ??= FFAppState()
+                          .registerProviderForm
+                          .noon
+                          .elementAtOrNull(2)!,
                       onChanged: (newValue) async {
                         safeSetState(() => _model.noonValue3 = newValue!);
                         if (newValue!) {
@@ -516,8 +532,10 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                           FlutterFlowTheme.of(context).alternate,
                     ),
                     child: Checkbox(
-                      value: _model.afternoonValue3 ??=
-                          FFAppState().registerProviderForm.afternoon[2],
+                      value: _model.afternoonValue3 ??= FFAppState()
+                          .registerProviderForm
+                          .afternoon
+                          .elementAtOrNull(2)!,
                       onChanged: (newValue) async {
                         safeSetState(() => _model.afternoonValue3 = newValue!);
                         if (newValue!) {
@@ -581,8 +599,10 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                           FlutterFlowTheme.of(context).alternate,
                     ),
                     child: Checkbox(
-                      value: _model.checkboxValue4 ??=
-                          FFAppState().registerProviderForm.morning[3],
+                      value: _model.checkboxValue4 ??= FFAppState()
+                          .registerProviderForm
+                          .morning
+                          .elementAtOrNull(3)!,
                       onChanged: (newValue) async {
                         safeSetState(() => _model.checkboxValue4 = newValue!);
                         if (newValue!) {
@@ -622,8 +642,10 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                           FlutterFlowTheme.of(context).alternate,
                     ),
                     child: Checkbox(
-                      value: _model.noonValue4 ??=
-                          FFAppState().registerProviderForm.noon[3],
+                      value: _model.noonValue4 ??= FFAppState()
+                          .registerProviderForm
+                          .noon
+                          .elementAtOrNull(3)!,
                       onChanged: (newValue) async {
                         safeSetState(() => _model.noonValue4 = newValue!);
                         if (newValue!) {
@@ -663,8 +685,10 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                           FlutterFlowTheme.of(context).alternate,
                     ),
                     child: Checkbox(
-                      value: _model.afternoonValue4 ??=
-                          FFAppState().registerProviderForm.afternoon[3],
+                      value: _model.afternoonValue4 ??= FFAppState()
+                          .registerProviderForm
+                          .afternoon
+                          .elementAtOrNull(3)!,
                       onChanged: (newValue) async {
                         safeSetState(() => _model.afternoonValue4 = newValue!);
                         if (newValue!) {
@@ -728,8 +752,10 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                           FlutterFlowTheme.of(context).alternate,
                     ),
                     child: Checkbox(
-                      value: _model.checkboxValue5 ??=
-                          FFAppState().registerProviderForm.morning[4],
+                      value: _model.checkboxValue5 ??= FFAppState()
+                          .registerProviderForm
+                          .morning
+                          .elementAtOrNull(4)!,
                       onChanged: (newValue) async {
                         safeSetState(() => _model.checkboxValue5 = newValue!);
                         if (newValue!) {
@@ -769,8 +795,10 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                           FlutterFlowTheme.of(context).alternate,
                     ),
                     child: Checkbox(
-                      value: _model.noonValue5 ??=
-                          FFAppState().registerProviderForm.noon[4],
+                      value: _model.noonValue5 ??= FFAppState()
+                          .registerProviderForm
+                          .noon
+                          .elementAtOrNull(4)!,
                       onChanged: (newValue) async {
                         safeSetState(() => _model.noonValue5 = newValue!);
                         if (newValue!) {
@@ -810,8 +838,10 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                           FlutterFlowTheme.of(context).alternate,
                     ),
                     child: Checkbox(
-                      value: _model.afternoonValue5 ??=
-                          FFAppState().registerProviderForm.afternoon[4],
+                      value: _model.afternoonValue5 ??= FFAppState()
+                          .registerProviderForm
+                          .afternoon
+                          .elementAtOrNull(4)!,
                       onChanged: (newValue) async {
                         safeSetState(() => _model.afternoonValue5 = newValue!);
                         if (newValue!) {
@@ -875,8 +905,10 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                           FlutterFlowTheme.of(context).alternate,
                     ),
                     child: Checkbox(
-                      value: _model.checkboxValue6 ??=
-                          FFAppState().registerProviderForm.morning[5],
+                      value: _model.checkboxValue6 ??= FFAppState()
+                          .registerProviderForm
+                          .morning
+                          .elementAtOrNull(5)!,
                       onChanged: (newValue) async {
                         safeSetState(() => _model.checkboxValue6 = newValue!);
                         if (newValue!) {
@@ -916,8 +948,10 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                           FlutterFlowTheme.of(context).alternate,
                     ),
                     child: Checkbox(
-                      value: _model.noonValue6 ??=
-                          FFAppState().registerProviderForm.noon[5],
+                      value: _model.noonValue6 ??= FFAppState()
+                          .registerProviderForm
+                          .noon
+                          .elementAtOrNull(5)!,
                       onChanged: (newValue) async {
                         safeSetState(() => _model.noonValue6 = newValue!);
                         if (newValue!) {
@@ -957,8 +991,10 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                           FlutterFlowTheme.of(context).alternate,
                     ),
                     child: Checkbox(
-                      value: _model.afternoonValue6 ??=
-                          FFAppState().registerProviderForm.afternoon[5],
+                      value: _model.afternoonValue6 ??= FFAppState()
+                          .registerProviderForm
+                          .afternoon
+                          .elementAtOrNull(5)!,
                       onChanged: (newValue) async {
                         safeSetState(() => _model.afternoonValue6 = newValue!);
                         if (newValue!) {
@@ -1022,8 +1058,10 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                           FlutterFlowTheme.of(context).alternate,
                     ),
                     child: Checkbox(
-                      value: _model.checkboxValue7 ??=
-                          FFAppState().registerProviderForm.morning[6],
+                      value: _model.checkboxValue7 ??= FFAppState()
+                          .registerProviderForm
+                          .morning
+                          .elementAtOrNull(6)!,
                       onChanged: (newValue) async {
                         safeSetState(() => _model.checkboxValue7 = newValue!);
                         if (newValue!) {
@@ -1063,8 +1101,10 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                           FlutterFlowTheme.of(context).alternate,
                     ),
                     child: Checkbox(
-                      value: _model.noonValue7 ??=
-                          FFAppState().registerProviderForm.noon[6],
+                      value: _model.noonValue7 ??= FFAppState()
+                          .registerProviderForm
+                          .noon
+                          .elementAtOrNull(6)!,
                       onChanged: (newValue) async {
                         safeSetState(() => _model.noonValue7 = newValue!);
                         if (newValue!) {
@@ -1104,8 +1144,10 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                           FlutterFlowTheme.of(context).alternate,
                     ),
                     child: Checkbox(
-                      value: _model.afternoonValue7 ??=
-                          FFAppState().registerProviderForm.afternoon[6],
+                      value: _model.afternoonValue7 ??= FFAppState()
+                          .registerProviderForm
+                          .afternoon
+                          .elementAtOrNull(6)!,
                       onChanged: (newValue) async {
                         safeSetState(() => _model.afternoonValue7 = newValue!);
                         if (newValue!) {

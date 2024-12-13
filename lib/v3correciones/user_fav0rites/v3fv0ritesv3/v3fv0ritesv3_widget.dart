@@ -63,7 +63,7 @@ class _V3fv0ritesv3WidgetState extends State<V3fv0ritesv3Widget> {
         _model.newSuburb = GetNamePlaceCall.street(
           (_model.apiResult23d?.jsonBody ?? ''),
         )!
-            .first
+            .firstOrNull!
             .toString();
         safeSetState(() {});
       }
@@ -274,7 +274,7 @@ class _V3fv0ritesv3WidgetState extends State<V3fv0ritesv3Widget> {
                             child: Align(
                               alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Text(
-                                containerUsersRecord.serviceType.first,
+                                containerUsersRecord.serviceType.firstOrNull!,
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(

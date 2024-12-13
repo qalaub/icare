@@ -54,7 +54,7 @@ class _LikesV3WidgetState extends State<LikesV3Widget> {
         _model.newSuburb = GetNamePlaceCall.street(
           (_model.apiResult63q?.jsonBody ?? ''),
         )!
-            .first
+            .firstOrNull!
             .toString();
         safeSetState(() {});
       }

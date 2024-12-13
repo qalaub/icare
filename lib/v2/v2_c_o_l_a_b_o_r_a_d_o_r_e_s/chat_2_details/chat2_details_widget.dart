@@ -70,7 +70,7 @@ class _Chat2DetailsWidgetState extends State<Chat2DetailsWidget> {
       stream: UsersRecord.getDocument(widget.chatRef!.users
           .where((e) => e != currentUserReference)
           .toList()
-          .first),
+          .firstOrNull!),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
