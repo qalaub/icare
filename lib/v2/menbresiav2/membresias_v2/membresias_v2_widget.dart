@@ -74,7 +74,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
           child: Stack(
             children: [
               ClipRRect(
-                borderRadius: BorderRadius.circular(8.0),
+                borderRadius: BorderRadius.circular(0.0),
                 child: Image.asset(
                   'assets/images/preci-basic.png',
                   width: double.infinity,

@@ -116,17 +116,19 @@ class _Cadari0WidgetState extends State<Cadari0Widget> {
                                   thickness: 2.0,
                                   color: Color(0xFFF0DFEF),
                                 ),
-                                Container(
-                                  width: 370.0,
-                                  decoration: const BoxDecoration(),
-                                  child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        1.0, 0.0, 0.0, 0.0),
-                                    child: wrapWithModel(
-                                      model: _model.calendarioCopyModel,
-                                      updateCallback: () => safeSetState(() {}),
-                                      child: const CalendarioCopyWidget(),
-                                    ),
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 16.0, 0.0),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      wrapWithModel(
+                                        model: _model.calendarioCopyModel,
+                                        updateCallback: () =>
+                                            safeSetState(() {}),
+                                        child: const CalendarioCopyWidget(),
+                                      ),
+                                    ],
                                   ),
                                 ),
                                 Padding(

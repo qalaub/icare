@@ -687,7 +687,7 @@ class _DescripcionProfesionalWidgetState
                         alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              25.0, 0.0, 0.0, 0.0),
+                              25.0, 8.0, 0.0, 0.0),
                           child: Container(
                             width: 300.0,
                             height: 50.0,
@@ -735,23 +735,6 @@ class _DescripcionProfesionalWidgetState
                                 ),
                               ],
                             ),
-                          ),
-                        ),
-                      ),
-                      Divider(
-                        height: 16.0,
-                        thickness: 3.0,
-                        color: FlutterFlowTheme.of(context).alternate,
-                      ),
-                      Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
-                        child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              26.0, 0.0, 0.0, 0.0),
-                          child: Container(
-                            width: 300.0,
-                            decoration: const BoxDecoration(),
-                            alignment: const AlignmentDirectional(0.0, 0.0),
                           ),
                         ),
                       ),

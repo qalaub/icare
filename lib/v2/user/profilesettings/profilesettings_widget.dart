@@ -525,18 +525,27 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                             ],
                                           ),
                                         ),
-                                        wrapWithModel(
-                                          model: _model.calendarioCopyModel,
-                                          updateCallback: () =>
-                                              safeSetState(() {}),
-                                          updateOnChange: true,
-                                          child: const CalendarioCopyWidget(),
-                                        ),
                                       ].divide(const SizedBox(height: 8.0)),
                                     ),
                                   ),
                                 ),
                               ),
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 0.0, 16.0, 0.0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  wrapWithModel(
+                                    model: _model.calendarioCopyModel,
+                                    updateCallback: () => safeSetState(() {}),
+                                    updateOnChange: true,
+                                    child: const CalendarioCopyWidget(),
+                                  ),
+                                ],
+                              ),
+                            ),
                             Align(
                               alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Padding(
