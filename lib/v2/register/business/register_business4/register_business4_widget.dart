@@ -550,7 +550,7 @@ class _RegisterBusiness4WidgetState extends State<RegisterBusiness4Widget> {
                                       ),
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(0.01, 0.7),
+                                            const AlignmentDirectional(0.01, 0.71),
                                         child: Padding(
                                           padding:
                                               const EdgeInsetsDirectional.fromSTEB(

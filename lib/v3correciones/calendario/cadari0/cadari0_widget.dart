@@ -67,154 +67,138 @@ class _Cadari0WidgetState extends State<Cadari0Widget> {
               ),
               child: Stack(
                 children: [
-                  Column(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
-                        child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 200.0, 0.0, 0.0),
-                          child: Container(
-                            width: MediaQuery.sizeOf(context).width * 0.96,
-                            height: 384.0,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: const BorderRadius.only(
-                                bottomLeft: Radius.circular(24.0),
-                                bottomRight: Radius.circular(24.0),
-                                topLeft: Radius.circular(24.0),
-                                topRight: Radius.circular(24.0),
-                              ),
-                              border: Border.all(
-                                width: 2.0,
-                              ),
-                            ),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 8.0, 0.0, 0.0),
-                                  child: Text(
-                                    'Select work days',
-                                    style: FlutterFlowTheme.of(context)
-                                        .headlineMedium
-                                        .override(
-                                          fontFamily: 'Montserrat',
-                                          fontSize: 19.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                ),
-                                const Divider(
-                                  height: 23.0,
-                                  thickness: 2.0,
-                                  color: Color(0xFFF0DFEF),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 16.0, 0.0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      wrapWithModel(
-                                        model: _model.calendarioCopyModel,
-                                        updateCallback: () =>
-                                            safeSetState(() {}),
-                                        child: const CalendarioCopyWidget(),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 32.0, 0.0, 16.0),
-                                  child: FFButtonWidget(
-                                    onPressed: () async {
-                                      if ((FFAppState()
-                                                  .registerProviderForm
-                                                  .morning
-                                                  .contains(_model.trueS) ==
-                                              true) ||
-                                          (FFAppState()
-                                                  .registerProviderForm
-                                                  .noon
-                                                  .contains(_model.trueS) ==
-                                              true) ||
-                                          (FFAppState()
-                                                  .registerProviderForm
-                                                  .afternoon
-                                                  .contains(_model.trueS) ==
-                                              true)) {
-                                        if (widget.isBussines) {
-                                          context
-                                              .pushNamed('RegisterBusiness4');
-                                        } else {
-                                          context.pushNamed(
-                                            'RegisterPfofesional4',
-                                            queryParameters: {
-                                              'businessRef': serializeParam(
-                                                widget.bussinesRef,
-                                                ParamType.DocumentReference,
-                                              ),
-                                            }.withoutNulls,
-                                          );
-                                        }
-                                      } else {
-                                        ScaffoldMessenger.of(context)
-                                            .showSnackBar(
-                                          SnackBar(
-                                            content: Text(
-                                              'You must select at least one day',
-                                              style: TextStyle(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                              ),
-                                            ),
-                                            duration:
-                                                const Duration(milliseconds: 4000),
-                                            backgroundColor: const Color(0xFFBE39D2),
-                                          ),
-                                        );
-                                      }
-                                    },
-                                    text: 'Continue',
-                                    options: FFButtonOptions(
-                                      width: 279.0,
-                                      height: 45.0,
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 0.0),
-                                      iconPadding:
-                                          const EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 0.0, 0.0, 0.0),
-                                      color: const Color(0xFFB928B8),
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .override(
-                                            fontFamily: 'Montserrat',
-                                            color: Colors.white,
-                                            letterSpacing: 0.0,
-                                          ),
-                                      elevation: 3.0,
-                                      borderSide: const BorderSide(
-                                        width: 1.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(24.0),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
+                  Align(
+                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    child: Container(
+                      width: MediaQuery.sizeOf(context).width * 0.96,
+                      height: 384.0,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: const BorderRadius.only(
+                          bottomLeft: Radius.circular(24.0),
+                          bottomRight: Radius.circular(24.0),
+                          topLeft: Radius.circular(24.0),
+                          topRight: Radius.circular(24.0),
+                        ),
+                        border: Border.all(
+                          width: 2.0,
                         ),
                       ),
-                    ],
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Align(
+                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 8.0, 0.0, 0.0),
+                              child: Text(
+                                'Select work days',
+                                style: FlutterFlowTheme.of(context)
+                                    .headlineMedium
+                                    .override(
+                                      fontFamily: 'Montserrat',
+                                      fontSize: 19.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                              ),
+                            ),
+                          ),
+                          const Divider(
+                            height: 23.0,
+                            thickness: 2.0,
+                            color: Color(0xFFF0DFEF),
+                          ),
+                          Align(
+                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            child: wrapWithModel(
+                              model: _model.calendarioCopyModel,
+                              updateCallback: () => safeSetState(() {}),
+                              child: const CalendarioCopyWidget(),
+                            ),
+                          ),
+                          Align(
+                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 32.0, 0.0, 16.0),
+                              child: FFButtonWidget(
+                                onPressed: () async {
+                                  if ((FFAppState()
+                                              .registerProviderForm
+                                              .morning
+                                              .contains(_model.trueS) ==
+                                          true) ||
+                                      (FFAppState()
+                                              .registerProviderForm
+                                              .noon
+                                              .contains(_model.trueS) ==
+                                          true) ||
+                                      (FFAppState()
+                                              .registerProviderForm
+                                              .afternoon
+                                              .contains(_model.trueS) ==
+                                          true)) {
+                                    if (widget.isBussines) {
+                                      context.pushNamed('RegisterBusiness4');
+                                    } else {
+                                      context.pushNamed(
+                                        'RegisterPfofesional4',
+                                        queryParameters: {
+                                          'businessRef': serializeParam(
+                                            widget.bussinesRef,
+                                            ParamType.DocumentReference,
+                                          ),
+                                        }.withoutNulls,
+                                      );
+                                    }
+                                  } else {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(
+                                          'You must select at least one day',
+                                          style: TextStyle(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                          ),
+                                        ),
+                                        duration: const Duration(milliseconds: 4000),
+                                        backgroundColor: const Color(0xFFBE39D2),
+                                      ),
+                                    );
+                                  }
+                                },
+                                text: 'Continue',
+                                options: FFButtonOptions(
+                                  width: 279.0,
+                                  height: 45.0,
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color: const Color(0xFFB928B8),
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        fontFamily: 'Montserrat',
+                                        color: Colors.white,
+                                        letterSpacing: 0.0,
+                                      ),
+                                  elevation: 3.0,
+                                  borderSide: const BorderSide(
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(24.0),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                   Align(
                     alignment: const AlignmentDirectional(0.0, -1.0),

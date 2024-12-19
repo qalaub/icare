@@ -281,7 +281,7 @@ class _NavbarUserWidgetState extends State<NavbarUserWidget> {
                       ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(0.29, 0.64),
+                      alignment: const AlignmentDirectional(0.3, 0.64),
                       child: Text(
                         'Message',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -331,7 +331,7 @@ class _NavbarUserWidgetState extends State<NavbarUserWidget> {
                       ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(0.29, 0.64),
+                      alignment: const AlignmentDirectional(0.3, 0.64),
                       child: Text(
                         'Maps',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(

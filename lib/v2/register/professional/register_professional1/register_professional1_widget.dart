@@ -1554,7 +1554,7 @@ class _RegisterProfessional1WidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.01, 0.7),
+                                              const AlignmentDirectional(0.01, 0.71),
                                           child: Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
@@ -1791,22 +1791,6 @@ class _RegisterProfessional1WidgetState
                                                                     ?.jsonBody ??
                                                                 ''),
                                                           )!;
-                                                          _model.queryFocusNode
-                                                              ?.requestFocus();
-                                                          WidgetsBinding
-                                                              .instance
-                                                              .addPostFrameCallback(
-                                                                  (_) {
-                                                            _model.queryTextController
-                                                                    ?.selection =
-                                                                TextSelection
-                                                                    .collapsed(
-                                                              offset: _model
-                                                                  .queryTextController!
-                                                                  .text
-                                                                  .length,
-                                                            );
-                                                          });
                                                         });
                                                       }
                                                       _model.queryResults = [];

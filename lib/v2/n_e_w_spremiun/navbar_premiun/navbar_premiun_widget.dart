@@ -259,7 +259,7 @@ class _NavbarPremiunWidgetState extends State<NavbarPremiunWidget> {
                       ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(0.29, 0.64),
+                      alignment: const AlignmentDirectional(0.3, 0.64),
                       child: Text(
                         'Message',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(

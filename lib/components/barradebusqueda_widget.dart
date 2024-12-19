@@ -41,7 +41,7 @@ class _BarradebusquedaWidgetState extends State<BarradebusquedaWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(-0.04, -0.96),
+      alignment: const AlignmentDirectional(-0.05, -0.96),
       child: Material(
         color: Colors.transparent,
         elevation: 2.0,

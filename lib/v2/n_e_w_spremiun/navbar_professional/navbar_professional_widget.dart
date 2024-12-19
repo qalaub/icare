@@ -335,7 +335,7 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                           ),
                         ),
                         Align(
-                          alignment: const AlignmentDirectional(0.29, 0.64),
+                          alignment: const AlignmentDirectional(0.3, 0.64),
                           child: Text(
                             'Message',
                             style: FlutterFlowTheme.of(context)

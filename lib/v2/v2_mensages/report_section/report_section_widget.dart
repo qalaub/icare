@@ -150,7 +150,7 @@ class _ReportSectionWidgetState extends State<ReportSectionWidget> {
                   ),
                 ),
                 Align(
-                  alignment: const AlignmentDirectional(0.01, 0.7),
+                  alignment: const AlignmentDirectional(0.01, 0.71),
                   child: Padding(
                     padding:
                         const EdgeInsetsDirectional.fromSTEB(0.0, 168.0, 0.0, 10.0),

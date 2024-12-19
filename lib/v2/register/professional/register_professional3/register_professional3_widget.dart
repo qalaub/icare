@@ -657,8 +657,8 @@ class _RegisterProfessional3WidgetState
                                               ],
                                             ),
                                           Align(
-                                            alignment:
-                                                const AlignmentDirectional(0.01, 0.7),
+                                            alignment: const AlignmentDirectional(
+                                                0.01, 0.71),
                                             child: Padding(
                                               padding: const EdgeInsetsDirectional
                                                   .fromSTEB(

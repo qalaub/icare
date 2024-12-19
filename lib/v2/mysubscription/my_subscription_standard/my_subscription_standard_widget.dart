@@ -518,7 +518,7 @@ class _MySubscriptionStandardWidgetState
                   ),
                 ),
                 Align(
-                  alignment: const AlignmentDirectional(0.01, 0.7),
+                  alignment: const AlignmentDirectional(0.01, 0.71),
                   child: Padding(
                     padding:
                         const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),

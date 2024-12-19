@@ -530,20 +530,15 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                   ),
                                 ),
                               ),
-                            Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 16.0, 0.0),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  wrapWithModel(
-                                    model: _model.calendarioCopyModel,
-                                    updateCallback: () => safeSetState(() {}),
-                                    updateOnChange: true,
-                                    child: const CalendarioCopyWidget(),
-                                  ),
-                                ],
+                            Container(
+                              width: MediaQuery.sizeOf(context).width * 0.96,
+                              height: 195.0,
+                              decoration: const BoxDecoration(),
+                              child: wrapWithModel(
+                                model: _model.calendarioCopyModel,
+                                updateCallback: () => safeSetState(() {}),
+                                updateOnChange: true,
+                                child: const CalendarioCopyWidget(),
                               ),
                             ),
                             Align(
@@ -3153,20 +3148,6 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                             ?.jsonBody ??
                                                         ''),
                                                   )!;
-                                                  _model.queryFocusNode
-                                                      ?.requestFocus();
-                                                  WidgetsBinding.instance
-                                                      .addPostFrameCallback(
-                                                          (_) {
-                                                    _model.queryTextController
-                                                            ?.selection =
-                                                        TextSelection.collapsed(
-                                                      offset: _model
-                                                          .queryTextController!
-                                                          .text
-                                                          .length,
-                                                    );
-                                                  });
                                                 });
                                               }
                                               _model.queryResults = [];

@@ -171,7 +171,7 @@ class _MapButtonWidgetState extends State<MapButtonWidget> {
               centerMapOnMarkerTap: false,
             ),
           Align(
-            alignment: const AlignmentDirectional(-0.04, -0.95),
+            alignment: const AlignmentDirectional(-0.05, -0.95),
             child: PointerInterceptor(
               intercepting: isWeb,
               child: Material(

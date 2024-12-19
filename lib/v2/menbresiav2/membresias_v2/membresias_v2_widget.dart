@@ -1175,7 +1175,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                               ],
                             ),
                           Align(
-                            alignment: const AlignmentDirectional(0.01, 0.7),
+                            alignment: const AlignmentDirectional(0.01, 0.71),
                             child: Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 10.0, 0.0, 10.0),
