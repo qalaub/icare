@@ -3167,6 +3167,10 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                         .description,
                                     age: FFAppState().registerProviderForm.age,
                                     abn: _model.abnTextController.text,
+                                    displayName:
+                                        _model.lastNameTextController.text,
+                                    phoneNumber:
+                                        _model.phoneTextController.text,
                                   ),
                                   ...mapToFirestore(
                                     {
