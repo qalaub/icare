@@ -60,7 +60,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
           constraints: const BoxConstraints(
             minHeight: 190.0,
             maxWidth: 392.0,
-            maxHeight: 200.0,
+            maxHeight: 190.0,
           ),
           decoration: BoxDecoration(
             color: const Color(0xFFF3F3F3),
@@ -156,7 +156,9 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                             ),
                           ),
                         ),
-                      ].divide(const SizedBox(height: 14.0)),
+                      ]
+                          .divide(const SizedBox(height: 10.0))
+                          .addToStart(const SizedBox(height: 10.0)),
                     ),
                   ),
                 ),
@@ -188,30 +190,39 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Column(
-                          mainAxisSize: MainAxisSize.max,
+                          mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Container(
-                              decoration: const BoxDecoration(),
-                              child: Text(
-                                'Mo',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Montserrat',
-                                      color: const Color(0xFFC14BBC),
-                                      fontSize: 15.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w600,
-                                    ),
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 10.0),
+                              child: Container(
+                                decoration: const BoxDecoration(),
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 10.0),
+                                  child: Text(
+                                    'Mo',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: const Color(0xFFC14BBC),
+                                          fontSize: 15.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                  ),
+                                ),
                               ),
                             ),
                             Column(
-                              mainAxisSize: MainAxisSize.max,
+                              mainAxisSize: MainAxisSize.min,
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 Container(
                                   width: 20.0,
+                                  height: 20.0,
                                   decoration: const BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
@@ -270,6 +281,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 ),
                                 Container(
                                   width: 20.0,
+                                  height: 20.0,
                                   decoration: const BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
@@ -327,6 +339,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 ),
                                 Container(
                                   width: 20.0,
+                                  height: 20.0,
                                   decoration: const BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
@@ -383,29 +396,35 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                     ),
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 2.0)),
+                              ].divide(const SizedBox(height: 12.0)),
                             ),
-                          ]
-                              .divide(const SizedBox(height: 10.0))
-                              .addToStart(const SizedBox(height: 0.0)),
+                          ].addToStart(const SizedBox(height: 0.0)),
                         ),
                         Column(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Container(
-                              decoration: const BoxDecoration(),
-                              child: Text(
-                                'Tu',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Montserrat',
-                                      color: const Color(0xFFC14BBC),
-                                      fontSize: 15.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w600,
-                                    ),
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 10.0),
+                              child: Container(
+                                decoration: const BoxDecoration(),
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 10.0),
+                                  child: Text(
+                                    'Tu',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: const Color(0xFFC14BBC),
+                                          fontSize: 15.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                  ),
+                                ),
                               ),
                             ),
                             Column(
@@ -414,6 +433,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                               children: [
                                 Container(
                                   width: 20.0,
+                                  height: 20.0,
                                   decoration: const BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
@@ -472,6 +492,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 ),
                                 Container(
                                   width: 20.0,
+                                  height: 20.0,
                                   decoration: const BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
@@ -529,6 +550,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 ),
                                 Container(
                                   width: 20.0,
+                                  height: 20.0,
                                   decoration: const BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
@@ -585,29 +607,35 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                     ),
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 2.0)),
+                              ].divide(const SizedBox(height: 12.0)),
                             ),
-                          ]
-                              .divide(const SizedBox(height: 10.0))
-                              .addToStart(const SizedBox(height: 0.0)),
+                          ].addToStart(const SizedBox(height: 0.0)),
                         ),
                         Column(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Container(
-                              decoration: const BoxDecoration(),
-                              child: Text(
-                                'We',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Montserrat',
-                                      color: const Color(0xFFC14BBC),
-                                      fontSize: 15.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w600,
-                                    ),
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 10.0),
+                              child: Container(
+                                decoration: const BoxDecoration(),
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 10.0),
+                                  child: Text(
+                                    'We',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: const Color(0xFFC14BBC),
+                                          fontSize: 15.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                  ),
+                                ),
                               ),
                             ),
                             Column(
@@ -616,6 +644,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                               children: [
                                 Container(
                                   width: 20.0,
+                                  height: 20.0,
                                   decoration: const BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
@@ -674,6 +703,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 ),
                                 Container(
                                   width: 20.0,
+                                  height: 20.0,
                                   decoration: const BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
@@ -731,6 +761,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 ),
                                 Container(
                                   width: 20.0,
+                                  height: 20.0,
                                   decoration: const BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
@@ -787,29 +818,35 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                     ),
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 2.0)),
+                              ].divide(const SizedBox(height: 12.0)),
                             ),
-                          ]
-                              .divide(const SizedBox(height: 10.0))
-                              .addToStart(const SizedBox(height: 0.0)),
+                          ].addToStart(const SizedBox(height: 0.0)),
                         ),
                         Column(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Container(
-                              decoration: const BoxDecoration(),
-                              child: Text(
-                                'Th',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Montserrat',
-                                      color: const Color(0xFFC14BBC),
-                                      fontSize: 15.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w600,
-                                    ),
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 10.0),
+                              child: Container(
+                                decoration: const BoxDecoration(),
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 10.0),
+                                  child: Text(
+                                    'Th',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: const Color(0xFFC14BBC),
+                                          fontSize: 15.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                  ),
+                                ),
                               ),
                             ),
                             Column(
@@ -818,6 +855,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                               children: [
                                 Container(
                                   width: 20.0,
+                                  height: 20.0,
                                   decoration: const BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
@@ -876,6 +914,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 ),
                                 Container(
                                   width: 20.0,
+                                  height: 20.0,
                                   decoration: const BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
@@ -933,6 +972,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 ),
                                 Container(
                                   width: 20.0,
+                                  height: 20.0,
                                   decoration: const BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
@@ -989,28 +1029,36 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                     ),
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 2.0)),
+                              ].divide(const SizedBox(height: 12.0)),
                             ),
-                          ].divide(const SizedBox(height: 10.0)),
+                          ],
                         ),
                         Column(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Container(
-                              decoration: const BoxDecoration(),
-                              child: Text(
-                                'Fr',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Montserrat',
-                                      color: const Color(0xFFC14BBC),
-                                      fontSize: 15.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w600,
-                                    ),
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 10.0),
+                              child: Container(
+                                decoration: const BoxDecoration(),
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 10.0),
+                                  child: Text(
+                                    'Fr',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: const Color(0xFFC14BBC),
+                                          fontSize: 15.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                  ),
+                                ),
                               ),
                             ),
                             Column(
@@ -1019,6 +1067,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                               children: [
                                 Container(
                                   width: 20.0,
+                                  height: 20.0,
                                   decoration: const BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
@@ -1077,6 +1126,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 ),
                                 Container(
                                   width: 20.0,
+                                  height: 20.0,
                                   decoration: const BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
@@ -1134,6 +1184,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 ),
                                 Container(
                                   width: 20.0,
+                                  height: 20.0,
                                   decoration: const BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
@@ -1190,29 +1241,35 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                     ),
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 2.0)),
+                              ].divide(const SizedBox(height: 12.0)),
                             ),
-                          ]
-                              .divide(const SizedBox(height: 10.0))
-                              .addToStart(const SizedBox(height: 0.0)),
+                          ].addToStart(const SizedBox(height: 0.0)),
                         ),
                         Column(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Container(
-                              decoration: const BoxDecoration(),
-                              child: Text(
-                                'Sa',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Montserrat',
-                                      color: const Color(0xFFC14BBC),
-                                      fontSize: 15.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w600,
-                                    ),
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 10.0),
+                              child: Container(
+                                decoration: const BoxDecoration(),
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 10.0),
+                                  child: Text(
+                                    'Sa',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: const Color(0xFFC14BBC),
+                                          fontSize: 15.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                  ),
+                                ),
                               ),
                             ),
                             Column(
@@ -1221,6 +1278,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                               children: [
                                 Container(
                                   width: 20.0,
+                                  height: 20.0,
                                   decoration: const BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
@@ -1279,6 +1337,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 ),
                                 Container(
                                   width: 20.0,
+                                  height: 20.0,
                                   decoration: const BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
@@ -1336,6 +1395,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 ),
                                 Container(
                                   width: 20.0,
+                                  height: 20.0,
                                   decoration: const BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
@@ -1392,29 +1452,35 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                     ),
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 2.0)),
+                              ].divide(const SizedBox(height: 12.0)),
                             ),
-                          ]
-                              .divide(const SizedBox(height: 10.0))
-                              .addToStart(const SizedBox(height: 0.0)),
+                          ].addToStart(const SizedBox(height: 0.0)),
                         ),
                         Column(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Container(
-                              decoration: const BoxDecoration(),
-                              child: Text(
-                                'Su',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Montserrat',
-                                      color: const Color(0xFFC14BBC),
-                                      fontSize: 15.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w600,
-                                    ),
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 10.0),
+                              child: Container(
+                                decoration: const BoxDecoration(),
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 10.0),
+                                  child: Text(
+                                    'Su',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: const Color(0xFFC14BBC),
+                                          fontSize: 15.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                  ),
+                                ),
                               ),
                             ),
                             Column(
@@ -1423,6 +1489,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                               children: [
                                 Container(
                                   width: 20.0,
+                                  height: 20.0,
                                   decoration: const BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
@@ -1481,6 +1548,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 ),
                                 Container(
                                   width: 20.0,
+                                  height: 20.0,
                                   decoration: const BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
@@ -1538,6 +1606,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 ),
                                 Container(
                                   width: 20.0,
+                                  height: 20.0,
                                   decoration: const BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
@@ -1594,11 +1663,9 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                     ),
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 2.0)),
+                              ].divide(const SizedBox(height: 12.0)),
                             ),
-                          ]
-                              .divide(const SizedBox(height: 10.0))
-                              .addToStart(const SizedBox(height: 0.0)),
+                          ].addToStart(const SizedBox(height: 0.0)),
                         ),
                       ]
                           .divide(SizedBox(width: () {
