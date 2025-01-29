@@ -209,6 +209,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                     alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: Container(
                                       width: 20.0,
+                                      height: 20.0,
                                       decoration: const BoxDecoration(),
                                       child: Theme(
                                         data: ThemeData(
@@ -271,6 +272,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                 ),
                                 Container(
                                   width: 20.0,
+                                  height: 20.0,
                                   decoration: const BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
@@ -325,6 +327,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                 ),
                                 Container(
                                   width: 20.0,
+                                  height: 20.0,
                                   decoration: const BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
@@ -378,7 +381,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                     ),
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 2.0)),
+                              ].divide(const SizedBox(height: 14.0)),
                             ),
                           ]
                               .divide(const SizedBox(height: 10.0))
@@ -413,6 +416,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                     alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: Container(
                                       width: 20.0,
+                                      height: 20.0,
                                       decoration: const BoxDecoration(),
                                       child: Theme(
                                         data: ThemeData(
@@ -475,6 +479,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                 ),
                                 Container(
                                   width: 20.0,
+                                  height: 20.0,
                                   decoration: const BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
@@ -529,6 +534,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                 ),
                                 Container(
                                   width: 20.0,
+                                  height: 20.0,
                                   decoration: const BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
@@ -582,7 +588,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                     ),
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 2.0)),
+                              ].divide(const SizedBox(height: 14.0)),
                             ),
                           ]
                               .divide(const SizedBox(height: 10.0))
@@ -617,6 +623,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                     alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: Container(
                                       width: 20.0,
+                                      height: 20.0,
                                       decoration: const BoxDecoration(),
                                       child: Theme(
                                         data: ThemeData(
@@ -679,6 +686,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                 ),
                                 Container(
                                   width: 20.0,
+                                  height: 20.0,
                                   decoration: const BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
@@ -733,6 +741,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                 ),
                                 Container(
                                   width: 20.0,
+                                  height: 20.0,
                                   decoration: const BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
@@ -786,7 +795,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                     ),
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 2.0)),
+                              ].divide(const SizedBox(height: 14.0)),
                             ),
                           ]
                               .divide(const SizedBox(height: 10.0))
@@ -821,6 +830,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                     alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: Container(
                                       width: 20.0,
+                                      height: 20.0,
                                       decoration: const BoxDecoration(),
                                       child: Theme(
                                         data: ThemeData(
@@ -883,6 +893,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                 ),
                                 Container(
                                   width: 20.0,
+                                  height: 20.0,
                                   decoration: const BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
@@ -937,6 +948,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                 ),
                                 Container(
                                   width: 20.0,
+                                  height: 20.0,
                                   decoration: const BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
@@ -990,7 +1002,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                     ),
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 2.0)),
+                              ].divide(const SizedBox(height: 14.0)),
                             ),
                           ]
                               .divide(const SizedBox(height: 10.0))
@@ -1025,6 +1037,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                     alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: Container(
                                       width: 20.0,
+                                      height: 20.0,
                                       decoration: const BoxDecoration(),
                                       child: Theme(
                                         data: ThemeData(
@@ -1087,6 +1100,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                 ),
                                 Container(
                                   width: 20.0,
+                                  height: 20.0,
                                   decoration: const BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
@@ -1141,6 +1155,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                 ),
                                 Container(
                                   width: 20.0,
+                                  height: 20.0,
                                   decoration: const BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
@@ -1194,7 +1209,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                     ),
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 2.0)),
+                              ].divide(const SizedBox(height: 14.0)),
                             ),
                           ]
                               .divide(const SizedBox(height: 10.0))
@@ -1226,6 +1241,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                 Expanded(
                                   child: Container(
                                     width: 20.0,
+                                    height: 20.0,
                                     decoration: const BoxDecoration(),
                                     child: Theme(
                                       data: ThemeData(
@@ -1285,6 +1301,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                 ),
                                 Container(
                                   width: 20.0,
+                                  height: 20.0,
                                   decoration: const BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
@@ -1339,6 +1356,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                 ),
                                 Container(
                                   width: 20.0,
+                                  height: 20.0,
                                   decoration: const BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
@@ -1392,7 +1410,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                     ),
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 2.0)),
+                              ].divide(const SizedBox(height: 14.0)),
                             ),
                           ]
                               .divide(const SizedBox(height: 10.0))
@@ -1424,6 +1442,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                 Expanded(
                                   child: Container(
                                     width: 20.0,
+                                    height: 20.0,
                                     decoration: const BoxDecoration(),
                                     child: Theme(
                                       data: ThemeData(
@@ -1483,6 +1502,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                 ),
                                 Container(
                                   width: 20.0,
+                                  height: 20.0,
                                   decoration: const BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
@@ -1537,6 +1557,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                 ),
                                 Container(
                                   width: 20.0,
+                                  height: 20.0,
                                   decoration: const BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
@@ -1590,7 +1611,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                     ),
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 2.0)),
+                              ].divide(const SizedBox(height: 14.0)),
                             ),
                           ]
                               .divide(const SizedBox(height: 10.0))
