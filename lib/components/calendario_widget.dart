@@ -1601,7 +1601,22 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                               .addToStart(const SizedBox(height: 0.0)),
                         ),
                       ]
-                          .divide(const SizedBox(width: 6.0))
+                          .divide(SizedBox(width: () {
+                            if (MediaQuery.sizeOf(context).width < 300.0) {
+                              return 5.0;
+                            } else if (MediaQuery.sizeOf(context).width <
+                                kBreakpointSmall) {
+                              return 7.0;
+                            } else if (MediaQuery.sizeOf(context).width <
+                                kBreakpointMedium) {
+                              return 15.0;
+                            } else if (MediaQuery.sizeOf(context).width <
+                                kBreakpointLarge) {
+                              return 15.0;
+                            } else {
+                              return 5.0;
+                            }
+                          }()))
                           .addToStart(const SizedBox(width: 1.0))
                           .addToEnd(const SizedBox(width: 1.0)),
                     ),
