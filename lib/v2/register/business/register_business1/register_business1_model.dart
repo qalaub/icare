@@ -23,6 +23,8 @@ class RegisterBusiness1Model extends FlutterFlowModel<RegisterBusiness1Widget> {
 
   String? newUbication;
 
+  bool isAbn = false;
+
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
@@ -89,6 +91,10 @@ class RegisterBusiness1Model extends FlutterFlowModel<RegisterBusiness1Widget> {
   FocusNode? emailFocusNode2;
   TextEditingController? emailTextController2;
   String? Function(BuildContext, String?)? emailTextController2Validator;
+  // State field(s) for abn widget.
+  FocusNode? abnFocusNode;
+  TextEditingController? abnTextController;
+  String? Function(BuildContext, String?)? abnTextControllerValidator;
   // State field(s) for phone widget.
   FocusNode? phoneFocusNode;
   TextEditingController? phoneTextController;
@@ -152,6 +158,9 @@ class RegisterBusiness1Model extends FlutterFlowModel<RegisterBusiness1Widget> {
 
     emailFocusNode2?.dispose();
     emailTextController2?.dispose();
+
+    abnFocusNode?.dispose();
+    abnTextController?.dispose();
 
     phoneFocusNode?.dispose();
     phoneTextController?.dispose();

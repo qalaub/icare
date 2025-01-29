@@ -22,6 +22,8 @@ class RegisterProfessional1Model
           int index, Function(QueryResultsStruct) updateFn) =>
       queryResults[index] = updateFn(queryResults[index]);
 
+  bool isAbn = false;
+
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
@@ -88,6 +90,10 @@ class RegisterProfessional1Model
   FocusNode? email2FocusNode;
   TextEditingController? email2TextController;
   String? Function(BuildContext, String?)? email2TextControllerValidator;
+  // State field(s) for abn widget.
+  FocusNode? abnFocusNode;
+  TextEditingController? abnTextController;
+  String? Function(BuildContext, String?)? abnTextControllerValidator;
   // State field(s) for phone widget.
   FocusNode? phoneFocusNode;
   TextEditingController? phoneTextController;
@@ -151,6 +157,9 @@ class RegisterProfessional1Model
 
     email2FocusNode?.dispose();
     email2TextController?.dispose();
+
+    abnFocusNode?.dispose();
+    abnTextController?.dispose();
 
     phoneFocusNode?.dispose();
     phoneTextController?.dispose();

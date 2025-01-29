@@ -1107,19 +1107,25 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
                                     builder: (context) {
                                       final chatClip = containerChatsRecordList
                                           .where((e) =>
-                                              ((currentUserDocument
-                                                              ?.professionals
-                                                              .toList() ??
-                                                          [])
-                                                      .contains(e.userB) ==
-                                                  true) ||
-                                              ((currentUserDocument
-                                                              ?.professionals
+                                              (((currentUserDocument
+                                                                  ?.professionals
+                                                                  .toList() ??
+                                                              [])
+                                                          .contains(e.userB) ==
+                                                      true) ||
+                                                  ((currentUserDocument
+                                                                  ?.professionals
+                                                                  .toList() ??
+                                                              [])
+                                                          .contains(e.userA) ==
+                                                      true) ||
+                                                  (e.userB ==
+                                                      currentUserReference)) &&
+                                              ((currentUserDocument?.blockList
                                                               .toList() ??
                                                           [])
                                                       .contains(e.userA) ==
-                                                  true) ||
-                                              (e.userB == currentUserReference))
+                                                  false))
                                           .toList()
                                           .take(4)
                                           .toList()
@@ -1315,10 +1321,9 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
                                 child: AuthUserStreamWidget(
                                   builder: (context) => Builder(
                                     builder: (context) {
-                                      final chat2Bussines =
-                                          containerChatsRecordList
-                                              .where((e) =>
-                                                  ((currentUserDocument
+                                      final chat2Bussines = containerChatsRecordList
+                                          .where((e) =>
+                                              (((currentUserDocument
                                                                   ?.professionals
                                                                   .toList() ??
                                                               [])
@@ -1331,8 +1336,13 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
                                                           .contains(e.userA) ==
                                                       true) ||
                                                   (e.userB ==
-                                                      currentUserReference))
-                                              .toList();
+                                                      currentUserReference)) &&
+                                              ((currentUserDocument?.blockList
+                                                              .toList() ??
+                                                          [])
+                                                      .contains(e.userA) ==
+                                                  false))
+                                          .toList();
                                       if (chat2Bussines.isEmpty) {
                                         return Center(
                                           child: SizedBox(

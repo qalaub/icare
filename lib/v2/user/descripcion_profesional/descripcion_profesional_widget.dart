@@ -20,6 +20,7 @@ class DescripcionProfesionalWidget extends StatefulWidget {
     this.morning,
     this.noon,
     this.afternoon,
+    this.abn,
   })  : video = video ??
             'https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.mp4',
         company = company ?? 'default230';
@@ -33,6 +34,7 @@ class DescripcionProfesionalWidget extends StatefulWidget {
   final List<bool>? morning;
   final List<bool>? noon;
   final List<bool>? afternoon;
+  final String? abn;
 
   @override
   State<DescripcionProfesionalWidget> createState() =>
@@ -201,6 +203,9 @@ class _DescripcionProfesionalWidgetState
             child: Container(
               width: MediaQuery.sizeOf(context).width * 1.0,
               height: 235.0,
+              constraints: const BoxConstraints(
+                maxWidth: 355.0,
+              ),
               decoration: const BoxDecoration(),
               child: wrapWithModel(
                 model: _model.imganesModel,
@@ -261,16 +266,13 @@ class _DescripcionProfesionalWidgetState
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 8.0),
-            child: wrapWithModel(
-              model: _model.calendarioModel,
-              updateCallback: () => safeSetState(() {}),
-              child: CalendarioWidget(
-                morning: widget.morning,
-                noon: widget.noon,
-                afternoon: widget.afternoon,
-              ),
+          wrapWithModel(
+            model: _model.calendarioModel,
+            updateCallback: () => safeSetState(() {}),
+            child: CalendarioWidget(
+              morning: widget.morning,
+              noon: widget.noon,
+              afternoon: widget.afternoon,
             ),
           ),
           Align(
@@ -718,7 +720,7 @@ class _DescripcionProfesionalWidgetState
                                         alignment:
                                             const AlignmentDirectional(-1.0, 0.0),
                                         child: Text(
-                                          'Official ID document, name\n provide your ID correctly',
+                                          'NDIS Registration',
                                           textAlign: TextAlign.start,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
@@ -738,6 +740,99 @@ class _DescripcionProfesionalWidgetState
                           ),
                         ),
                       ),
+                      Divider(
+                        height: 16.0,
+                        thickness: 3.0,
+                        color: FlutterFlowTheme.of(context).alternate,
+                      ),
+                      if (widget.abn != '')
+                        Align(
+                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                25.0, 8.0, 0.0, 0.0),
+                            child: Container(
+                              width: 300.0,
+                              height: 50.0,
+                              decoration: const BoxDecoration(),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              child: Stack(
+                                children: [
+                                  Align(
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        const Align(
+                                          alignment:
+                                              AlignmentDirectional(-1.0, 0.0),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 3.0),
+                                            child: Icon(
+                                              Icons.check_circle,
+                                              color: Color(0xFFE069BF),
+                                              size: 22.0,
+                                            ),
+                                          ),
+                                        ),
+                                        Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Align(
+                                              alignment: const AlignmentDirectional(
+                                                  -1.0, 0.0),
+                                              child: Text(
+                                                'ABN Registration',
+                                                textAlign: TextAlign.start,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Montserrat',
+                                                          color: Colors.black,
+                                                          fontSize: 17.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                              ),
+                                            ),
+                                            Align(
+                                              alignment: const AlignmentDirectional(
+                                                  -1.0, 0.0),
+                                              child: Text(
+                                                valueOrDefault<String>(
+                                                  widget.abn,
+                                                  '53346346',
+                                                ),
+                                                textAlign: TextAlign.start,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Montserrat',
+                                                          color: Colors.black,
+                                                          fontSize: 17.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ].divide(const SizedBox(width: 12.0)),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
                     ]
                         .addToStart(const SizedBox(height: 8.0))
                         .addToEnd(const SizedBox(height: 32.0)),

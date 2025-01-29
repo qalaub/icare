@@ -37,6 +37,7 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
     List<bool>? morning,
     List<bool>? noon,
     List<bool>? afternoon,
+    String? abn,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _firstName = firstName,
         _lastName = lastName,
@@ -64,6 +65,7 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
         _morning = morning,
         _noon = noon,
         _afternoon = afternoon,
+        _abn = abn,
         super(firestoreUtilData);
 
   // "firstName" field.
@@ -278,6 +280,13 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
 
   bool hasAfternoon() => _afternoon != null;
 
+  // "abn" field.
+  String? _abn;
+  String get abn => _abn ?? '';
+  set abn(String? val) => _abn = val;
+
+  bool hasAbn() => _abn != null;
+
   static RegisterProviderTypeStruct fromMap(Map<String, dynamic> data) =>
       RegisterProviderTypeStruct(
         firstName: data['firstName'] as String?,
@@ -310,6 +319,7 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
         morning: getDataList(data['morning']),
         noon: getDataList(data['noon']),
         afternoon: getDataList(data['afternoon']),
+        abn: data['abn'] as String?,
       );
 
   static RegisterProviderTypeStruct? maybeFromMap(dynamic data) => data is Map
@@ -343,6 +353,7 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
         'morning': _morning,
         'noon': _noon,
         'afternoon': _afternoon,
+        'abn': _abn,
       }.withoutNulls;
 
   @override
@@ -457,6 +468,10 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
           _afternoon,
           ParamType.bool,
           isList: true,
+        ),
+        'abn': serializeParam(
+          _abn,
+          ParamType.String,
         ),
       }.withoutNulls;
 
@@ -594,6 +609,11 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
           ParamType.bool,
           true,
         ),
+        abn: deserializeParam(
+          data['abn'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -628,7 +648,8 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
         listEquality.equals(schedule, other.schedule) &&
         listEquality.equals(morning, other.morning) &&
         listEquality.equals(noon, other.noon) &&
-        listEquality.equals(afternoon, other.afternoon);
+        listEquality.equals(afternoon, other.afternoon) &&
+        abn == other.abn;
   }
 
   @override
@@ -658,7 +679,8 @@ class RegisterProviderTypeStruct extends FFFirebaseStruct {
         schedule,
         morning,
         noon,
-        afternoon
+        afternoon,
+        abn
       ]);
 }
 
@@ -682,6 +704,7 @@ RegisterProviderTypeStruct createRegisterProviderTypeStruct({
   Plan? plan,
   DateTime? updateTime,
   DocumentReference? business,
+  String? abn,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
@@ -707,6 +730,7 @@ RegisterProviderTypeStruct createRegisterProviderTypeStruct({
       plan: plan,
       updateTime: updateTime,
       business: business,
+      abn: abn,
       firestoreUtilData: FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,

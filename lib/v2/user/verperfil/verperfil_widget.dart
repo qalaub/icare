@@ -60,6 +60,10 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
         text: valueOrDefault(currentUserDocument?.lastName, ''));
     _model.lastNameFocusNode ??= FocusNode();
 
+    _model.abnTextController ??= TextEditingController(
+        text: valueOrDefault(currentUserDocument?.abn, ''));
+    _model.abnFocusNode ??= FocusNode();
+
     _model.phoneTextController ??=
         TextEditingController(text: currentPhoneNumber);
     _model.phoneFocusNode ??= FocusNode();
@@ -68,7 +72,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
         text: functions.formatnameStreet(widget.initialSurb));
     _model.queryFocusNode ??= FocusNode();
 
-    _model.textController5 ??= TextEditingController(text: currentUserEmail);
+    _model.textController6 ??= TextEditingController(text: currentUserEmail);
     _model.textFieldFocusNode ??= FocusNode();
 
     _model.descriptionTextController ??= TextEditingController(
@@ -196,7 +200,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                   0.0, 0.0),
                                               child: Text(
                                                 'In this section you can see your avatar as your potential caregivers see it.',
-                                                textAlign: TextAlign.justify,
+                                                textAlign: TextAlign.start,
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -228,7 +232,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                             borderRadius:
                                                 BorderRadius.circular(8.0),
                                             child: Image.network(
-                                              'https://picsum.photos/seed/506/600',
+                                              currentUserPhoto,
                                               width: 200.0,
                                               height: 243.0,
                                               fit: BoxFit.cover,
@@ -297,7 +301,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                   0.0, 0.0),
                                               child: Text(
                                                 'In this section you can see your photos as your potential clients do.',
-                                                textAlign: TextAlign.justify,
+                                                textAlign: TextAlign.start,
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -317,7 +321,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                     ),
                                     Padding(
                                       padding: const EdgeInsetsDirectional.fromSTEB(
-                                          12.0, 16.0, 12.0, 16.0),
+                                          0.0, 16.0, 0.0, 16.0),
                                       child: Container(
                                         width:
                                             MediaQuery.sizeOf(context).width *
@@ -347,21 +351,21 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                         if (currentUserDocument?.rol != Roles.user)
                           Align(
                             alignment: const AlignmentDirectional(0.0, 0.0),
-                            child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 16.0, 0.0),
-                              child: AuthUserStreamWidget(
-                                builder: (context) => Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Row(
+                            child: AuthUserStreamWidget(
+                              builder: (context) => Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        16.0, 0.0, 16.0, 0.0),
+                                    child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'schedule',
+                                          'Schedule',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -374,15 +378,19 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                         ),
                                       ],
                                     ),
-                                    Align(
-                                      alignment:
-                                          const AlignmentDirectional(-1.0, 0.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: [
-                                          Container(
+                                  ),
+                                  Align(
+                                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  16.0, 0.0, 16.0, 0.0),
+                                          child: Container(
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
                                                 0.9,
@@ -397,7 +405,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                   0.0, 0.0),
                                               child: Text(
                                                 'In this section you can establish which days you work per week and at what times of the day',
-                                                textAlign: TextAlign.justify,
+                                                textAlign: TextAlign.start,
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -412,27 +420,26 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                               ),
                                             ),
                                           ),
-                                        ],
-                                      ),
+                                        ),
+                                      ],
                                     ),
-                                    wrapWithModel(
-                                      model: _model.calendarioModel,
-                                      updateCallback: () => safeSetState(() {}),
-                                      child: CalendarioWidget(
-                                        morning: (currentUserDocument?.morning
-                                                .toList() ??
-                                            []),
-                                        noon: (currentUserDocument?.noon
-                                                .toList() ??
-                                            []),
-                                        afternoon: (currentUserDocument
-                                                ?.afternoon
-                                                .toList() ??
-                                            []),
-                                      ),
+                                  ),
+                                  wrapWithModel(
+                                    model: _model.calendarioModel,
+                                    updateCallback: () => safeSetState(() {}),
+                                    child: CalendarioWidget(
+                                      morning: (currentUserDocument?.morning
+                                              .toList() ??
+                                          []),
+                                      noon: (currentUserDocument?.noon
+                                              .toList() ??
+                                          []),
+                                      afternoon: (currentUserDocument?.afternoon
+                                              .toList() ??
+                                          []),
                                     ),
-                                  ].divide(const SizedBox(height: 8.0)),
-                                ),
+                                  ),
+                                ].divide(const SizedBox(height: 8.0)),
                               ),
                             ),
                           ),
@@ -483,7 +490,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                               const AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             'You can modify your username with the one you feel  most comfortable with.',
-                                            textAlign: TextAlign.justify,
+                                            textAlign: TextAlign.start,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -525,141 +532,140 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                             ),
                                             child: Stack(
                                               alignment: const AlignmentDirectional(
-                                                  0.0, 0.0),
+                                                  -1.0, 0.0),
                                               children: [
                                                 Align(
                                                   alignment:
                                                       const AlignmentDirectional(
-                                                          0.0, 0.0),
-                                                  child: Padding(
-                                                    padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(8.0, 0.0,
-                                                                8.0, 0.0),
-                                                    child: AuthUserStreamWidget(
-                                                      builder: (context) =>
-                                                          SizedBox(
-                                                        width:
-                                                            MediaQuery.sizeOf(
-                                                                        context)
-                                                                    .width *
-                                                                0.6,
-                                                        child: TextFormField(
-                                                          key: const ValueKey('name'),
-                                                          controller: _model
-                                                              .nameTextController,
-                                                          focusNode: _model
-                                                              .nameFocusNode,
-                                                          autofocus: false,
-                                                          textCapitalization:
-                                                              TextCapitalization
-                                                                  .words,
-                                                          readOnly: true,
-                                                          obscureText: false,
-                                                          decoration:
-                                                              InputDecoration(
-                                                            labelStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Montserrat',
-                                                                      fontSize:
-                                                                          15.0,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w600,
-                                                                    ),
-                                                            hintText: 'name',
-                                                            hintStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Readex Pro',
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                    ),
-                                                            enabledBorder:
-                                                                UnderlineInputBorder(
-                                                              borderSide:
-                                                                  const BorderSide(
-                                                                color: Color(
-                                                                    0x00000000),
-                                                                width: 1.0,
-                                                              ),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          8.0),
+                                                          -1.0, 0.0),
+                                                  child: AuthUserStreamWidget(
+                                                    builder: (context) =>
+                                                        SizedBox(
+                                                      width: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width *
+                                                          0.6,
+                                                      child: TextFormField(
+                                                        key: const ValueKey('name'),
+                                                        controller: _model
+                                                            .nameTextController,
+                                                        focusNode: _model
+                                                            .nameFocusNode,
+                                                        autofocus: false,
+                                                        textCapitalization:
+                                                            TextCapitalization
+                                                                .words,
+                                                        readOnly: true,
+                                                        obscureText: false,
+                                                        decoration:
+                                                            InputDecoration(
+                                                          labelStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Montserrat',
+                                                                    fontSize:
+                                                                        15.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                  ),
+                                                          hintText: 'name',
+                                                          hintStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Readex Pro',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
+                                                          enabledBorder:
+                                                              UnderlineInputBorder(
+                                                            borderSide:
+                                                                const BorderSide(
+                                                              color: Color(
+                                                                  0x00000000),
+                                                              width: 1.0,
                                                             ),
-                                                            focusedBorder:
-                                                                UnderlineInputBorder(
-                                                              borderSide:
-                                                                  const BorderSide(
-                                                                color: Color(
-                                                                    0x00000000),
-                                                                width: 1.0,
-                                                              ),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          8.0),
-                                                            ),
-                                                            errorBorder:
-                                                                UnderlineInputBorder(
-                                                              borderSide:
-                                                                  const BorderSide(
-                                                                color: Color(
-                                                                    0x00000000),
-                                                                width: 1.0,
-                                                              ),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          8.0),
-                                                            ),
-                                                            focusedErrorBorder:
-                                                                UnderlineInputBorder(
-                                                              borderSide:
-                                                                  const BorderSide(
-                                                                color: Color(
-                                                                    0x00000000),
-                                                                width: 1.0,
-                                                              ),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          8.0),
-                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
                                                           ),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Montserrat',
-                                                                fontSize: 15.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                              ),
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          keyboardType:
-                                                              TextInputType
-                                                                  .name,
-                                                          validator: _model
-                                                              .nameTextControllerValidator
-                                                              .asValidator(
-                                                                  context),
+                                                          focusedBorder:
+                                                              UnderlineInputBorder(
+                                                            borderSide:
+                                                                const BorderSide(
+                                                              color: Color(
+                                                                  0x00000000),
+                                                              width: 1.0,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
+                                                          ),
+                                                          errorBorder:
+                                                              UnderlineInputBorder(
+                                                            borderSide:
+                                                                const BorderSide(
+                                                              color: Color(
+                                                                  0x00000000),
+                                                              width: 1.0,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
+                                                          ),
+                                                          focusedErrorBorder:
+                                                              UnderlineInputBorder(
+                                                            borderSide:
+                                                                const BorderSide(
+                                                              color: Color(
+                                                                  0x00000000),
+                                                              width: 1.0,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
+                                                          ),
+                                                          contentPadding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      10.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
                                                         ),
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Montserrat',
+                                                              fontSize: 14.0,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .normal,
+                                                            ),
+                                                        textAlign:
+                                                            TextAlign.start,
+                                                        keyboardType:
+                                                            TextInputType.name,
+                                                        validator: _model
+                                                            .nameTextControllerValidator
+                                                            .asValidator(
+                                                                context),
                                                       ),
                                                     ),
                                                   ),
@@ -733,7 +739,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                               const AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             'In this section you can change your last name if it is different now.',
-                                            textAlign: TextAlign.justify,
+                                            textAlign: TextAlign.start,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -870,10 +876,10 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                         fontFamily:
                                                             'Montserrat',
                                                         color: Colors.black,
-                                                        fontSize: 15.0,
+                                                        fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
-                                                            FontWeight.w500,
+                                                            FontWeight.normal,
                                                       ),
                                                   maxLines: null,
                                                   keyboardType:
@@ -894,6 +900,240 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                             ),
                           ),
                         ),
+                        if (currentUserDocument?.rol == Roles.business)
+                          Align(
+                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 0.0, 16.0, 0.0),
+                              child: AuthUserStreamWidget(
+                                builder: (context) => Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'ABN Registration',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Montserrat',
+                                                color: const Color(0xFFC14BBC),
+                                                fontSize: 15.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                        ),
+                                      ],
+                                    ),
+                                    Align(
+                                      alignment:
+                                          const AlignmentDirectional(-1.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                0.9,
+                                            height: 39.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                            ),
+                                            child: Align(
+                                              alignment: const AlignmentDirectional(
+                                                  -1.0, 0.0),
+                                              child: Text(
+                                                'Australian business number you are registered under',
+                                                textAlign: TextAlign.start,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Montserrat',
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Align(
+                                      alignment:
+                                          const AlignmentDirectional(-1.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          Expanded(
+                                            child: Material(
+                                              color: Colors.transparent,
+                                              elevation: 2.0,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(12.0),
+                                              ),
+                                              child: Container(
+                                                width: double.infinity,
+                                                height: 52.0,
+                                                decoration: BoxDecoration(
+                                                  color: const Color(0xFFF0F0F0),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          12.0),
+                                                  border: Border.all(
+                                                    color: const Color(0xFFC14BBC),
+                                                    width: 3.0,
+                                                  ),
+                                                ),
+                                                child: Align(
+                                                  alignment:
+                                                      const AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: TextFormField(
+                                                    key: const ValueKey('phone'),
+                                                    controller: _model
+                                                        .abnTextController,
+                                                    focusNode:
+                                                        _model.abnFocusNode,
+                                                    autofocus: false,
+                                                    obscureText: false,
+                                                    decoration: InputDecoration(
+                                                      isDense: true,
+                                                      labelStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                fontSize: 10.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                      hintText:
+                                                          'Example:  0400345234',
+                                                      hintStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Montserrat',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                      errorStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .error,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                      enabledBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: const BorderSide(
+                                                          color:
+                                                              Color(0x00000000),
+                                                          width: 0.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(12.0),
+                                                      ),
+                                                      focusedBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: const BorderSide(
+                                                          color:
+                                                              Color(0x00000000),
+                                                          width: 0.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(12.0),
+                                                      ),
+                                                      errorBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .error,
+                                                          width: 0.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(12.0),
+                                                      ),
+                                                      focusedErrorBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .error,
+                                                          width: 0.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(12.0),
+                                                      ),
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Montserrat',
+                                                          color: Colors.black,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                    maxLines: null,
+                                                    maxLength: 14,
+                                                    buildCounter: (context,
+                                                            {required currentLength,
+                                                            required isFocused,
+                                                            maxLength}) =>
+                                                        null,
+                                                    keyboardType:
+                                                        TextInputType.number,
+                                                    validator: _model
+                                                        .abnTextControllerValidator
+                                                        .asValidator(context),
+                                                    inputFormatters: [
+                                                      FilteringTextInputFormatter
+                                                          .allow(
+                                                              RegExp('[0-9]'))
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ].divide(const SizedBox(height: 8.0)),
+                                ),
+                              ),
+                            ),
+                          ),
                         Align(
                           alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Padding(
@@ -941,7 +1181,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                               const AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             'You can modify your phone number in case you have changed it.',
-                                            textAlign: TextAlign.justify,
+                                            textAlign: TextAlign.start,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -1154,7 +1394,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                               const AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             'You can change your location so you can always keep your profile updated.',
-                                            textAlign: TextAlign.justify,
+                                            textAlign: TextAlign.start,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -1197,7 +1437,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                             child: Padding(
                                               padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
-                                                      10.0, 4.0, 10.0, 4.0),
+                                                      10.0, 0.0, 10.0, 0.0),
                                               child: TextFormField(
                                                 key: const ValueKey('query'),
                                                 controller:
@@ -1248,10 +1488,10 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                           fontFamily:
                                                               'Montserrat',
                                                           color: Colors.black,
-                                                          fontSize: 13.0,
+                                                          fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
-                                                              FontWeight.w500,
+                                                              FontWeight.normal,
                                                         ),
                                                 textAlign: TextAlign.start,
                                                 validator: _model
@@ -1318,7 +1558,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                 const AlignmentDirectional(0.0, 0.0),
                                             child: Text(
                                               'In this section you can change your email address if it is different now.',
-                                              textAlign: TextAlign.justify,
+                                              textAlign: TextAlign.start,
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
@@ -1363,7 +1603,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                               ),
                                               child: TextFormField(
                                                 controller:
-                                                    _model.textController5,
+                                                    _model.textController6,
                                                 focusNode:
                                                     _model.textFieldFocusNode,
                                                 autofocus: false,
@@ -1430,7 +1670,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                           letterSpacing: 0.0,
                                                         ),
                                                 validator: _model
-                                                    .textController5Validator
+                                                    .textController6Validator
                                                     .asValidator(context),
                                               ),
                                             ),
@@ -1496,7 +1736,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                   0.0, 0.0),
                                               child: Text(
                                                 'You can modify what your service is offered to participants',
-                                                textAlign: TextAlign.justify,
+                                                textAlign: TextAlign.start,
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -1688,12 +1928,12 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                                     fontFamily:
                                                                         'Montserrat',
                                                                     fontSize:
-                                                                        13.0,
+                                                                        14.0,
                                                                     letterSpacing:
                                                                         0.0,
                                                                     fontWeight:
                                                                         FontWeight
-                                                                            .w500,
+                                                                            .normal,
                                                                   ),
                                                           hintText:
                                                               'Please select...',
@@ -1804,7 +2044,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                 const AlignmentDirectional(0.0, 0.0),
                                             child: Text(
                                               'You can modify the disability you suffer from in case you made a mistake when registering.',
-                                              textAlign: TextAlign.justify,
+                                              textAlign: TextAlign.start,
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
@@ -1853,7 +2093,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                 child: Padding(
                                                   padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                          10.0, 4.0, 10.0, 4.0),
+                                                          10.0, 0.0, 10.0, 0.0),
                                                   child: AuthUserStreamWidget(
                                                     builder: (context) =>
                                                         FlutterFlowDropDown<
@@ -1891,12 +2131,12 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                                     'Montserrat',
                                                                 color: Colors
                                                                     .black,
-                                                                fontSize: 13.0,
+                                                                fontSize: 14.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
                                                                     FontWeight
-                                                                        .w500,
+                                                                        .normal,
                                                               ),
                                                       hintText:
                                                           'Type of disability',
@@ -1990,7 +2230,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                   -1.0, 0.0),
                                               child: Text(
                                                 'Select your age group',
-                                                textAlign: TextAlign.justify,
+                                                textAlign: TextAlign.start,
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -2068,10 +2308,10 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                         .override(
                                                           fontFamily:
                                                               'Montserrat',
-                                                          fontSize: 13.0,
+                                                          fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
-                                                              FontWeight.w500,
+                                                              FontWeight.normal,
                                                         ),
                                                     hintText:
                                                         'Please select...',
@@ -2274,7 +2514,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
-                                                              'Readex Pro',
+                                                              'Montserrat',
                                                           letterSpacing: 0.0,
                                                         ),
                                                     maxLines: null,

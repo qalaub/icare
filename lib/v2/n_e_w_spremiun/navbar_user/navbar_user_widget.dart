@@ -70,7 +70,6 @@ class _NavbarUserWidgetState extends State<NavbarUserWidget> {
                             borderColor: Colors.transparent,
                             buttonSize: 52.0,
                             icon: const FaIcon(
-                              key: ValueKey('home'),
                               FontAwesomeIcons.houseUser,
                               color: Colors.white,
                               size: 33.0,
@@ -315,7 +314,6 @@ class _NavbarUserWidgetState extends State<NavbarUserWidget> {
                           borderRadius: 34.0,
                           buttonSize: 50.0,
                           icon: const FaIcon(
-                            key: ValueKey('maps'),
                             FontAwesomeIcons.mapMarkedAlt,
                             color: Colors.white,
                             size: 30.0,

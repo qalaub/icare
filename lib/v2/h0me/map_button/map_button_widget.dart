@@ -142,6 +142,8 @@ class _MapButtonWidgetState extends State<MapButtonWidget> {
                       service: FFAppState().filtersPage.services,
                       isProfessional: widget.isProfessional,
                       schedule: FFAppState().filtersPage.schedule,
+                      selectProfesional:
+                          FFAppState().currentProfesionalUbication,
                     ),
                   );
                 },

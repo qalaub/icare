@@ -55,6 +55,10 @@ class VerperfilModel extends FlutterFlowModel<VerperfilWidget> {
   FocusNode? lastNameFocusNode;
   TextEditingController? lastNameTextController;
   String? Function(BuildContext, String?)? lastNameTextControllerValidator;
+  // State field(s) for abn widget.
+  FocusNode? abnFocusNode;
+  TextEditingController? abnTextController;
+  String? Function(BuildContext, String?)? abnTextControllerValidator;
   // State field(s) for phone widget.
   FocusNode? phoneFocusNode;
   TextEditingController? phoneTextController;
@@ -65,8 +69,8 @@ class VerperfilModel extends FlutterFlowModel<VerperfilWidget> {
   String? Function(BuildContext, String?)? queryTextControllerValidator;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
-  TextEditingController? textController5;
-  String? Function(BuildContext, String?)? textController5Validator;
+  TextEditingController? textController6;
+  String? Function(BuildContext, String?)? textController6Validator;
   // State field(s) for services widget.
   String? servicesValue;
   FormFieldController<String>? servicesValueController;
@@ -109,6 +113,9 @@ class VerperfilModel extends FlutterFlowModel<VerperfilWidget> {
     lastNameFocusNode?.dispose();
     lastNameTextController?.dispose();
 
+    abnFocusNode?.dispose();
+    abnTextController?.dispose();
+
     phoneFocusNode?.dispose();
     phoneTextController?.dispose();
 
@@ -116,7 +123,7 @@ class VerperfilModel extends FlutterFlowModel<VerperfilWidget> {
     queryTextController?.dispose();
 
     textFieldFocusNode?.dispose();
-    textController5?.dispose();
+    textController6?.dispose();
 
     descriptionFocusNode?.dispose();
     descriptionTextController?.dispose();

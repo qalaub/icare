@@ -171,6 +171,19 @@ class FFAppState extends ChangeNotifier {
     _distanceToShow = value;
   }
 
+  CurrentProfesionalMapStruct _currentProfesionalUbication =
+      CurrentProfesionalMapStruct();
+  CurrentProfesionalMapStruct get currentProfesionalUbication =>
+      _currentProfesionalUbication;
+  set currentProfesionalUbication(CurrentProfesionalMapStruct value) {
+    _currentProfesionalUbication = value;
+  }
+
+  void updateCurrentProfesionalUbicationStruct(
+      Function(CurrentProfesionalMapStruct) updateFn) {
+    updateFn(_currentProfesionalUbication);
+  }
+
   final _userDocQueryManager = FutureRequestManager<UsersRecord>();
   Future<UsersRecord> userDocQuery({
     String? uniqueQueryKey,

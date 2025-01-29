@@ -102,6 +102,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                               decoration: const BoxDecoration(),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   Container(
                                     width:
@@ -239,6 +240,8 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                       ),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
                                         children: [
                                           Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -454,7 +457,8 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                           ),
                                         ]
                                             .divide(const SizedBox(height: 13.0))
-                                            .addToStart(const SizedBox(height: 6.0)),
+                                            .addToStart(const SizedBox(height: 6.0))
+                                            .addToEnd(const SizedBox(height: 6.0)),
                                       ),
                                     ),
                                   ),
@@ -598,6 +602,8 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                     ),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
                                         Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -821,7 +827,8 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                         ),
                                       ]
                                           .divide(const SizedBox(height: 11.0))
-                                          .addToStart(const SizedBox(height: 4.0)),
+                                          .addToStart(const SizedBox(height: 4.0))
+                                          .addToEnd(const SizedBox(height: 4.0)),
                                     ),
                                   ),
                                 ),
@@ -963,6 +970,8 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                     ),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
                                         Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -1168,7 +1177,8 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                         ),
                                       ]
                                           .divide(const SizedBox(height: 13.0))
-                                          .addToStart(const SizedBox(height: 4.0)),
+                                          .addToStart(const SizedBox(height: 4.0))
+                                          .addToEnd(const SizedBox(height: 4.0)),
                                     ),
                                   ),
                                 ),

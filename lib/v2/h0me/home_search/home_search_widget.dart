@@ -110,6 +110,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
         FFAppState().tempLocation = currentUserLocationValue;
         safeSetState(() {});
       }
+      FFAppState().currentProfesionalUbication = CurrentProfesionalMapStruct();
     });
   }
 

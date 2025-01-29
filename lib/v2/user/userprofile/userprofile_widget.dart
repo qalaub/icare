@@ -128,8 +128,13 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                 0.0, 15.0, 0.0, 0.0),
                             child: AuthUserStreamWidget(
                               builder: (context) => Text(
-                                functions.upperCaseFirstLetter(valueOrDefault(
-                                    currentUserDocument?.firtsName, '')),
+                                functions.upperCaseFirstLetter(
+                                    currentUserDocument?.rol == Roles.business
+                                        ? valueOrDefault(
+                                            currentUserDocument?.comapny, '')
+                                        : valueOrDefault(
+                                            currentUserDocument?.firtsName,
+                                            '')),
                                 style: FlutterFlowTheme.of(context)
                                     .titleLarge
                                     .override(

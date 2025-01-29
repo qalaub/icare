@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'menjsa_de_alerta_model.dart';
 export 'menjsa_de_alerta_model.dart';
 
+/// mensaje para fotos
 class MenjsaDeAlertaWidget extends StatefulWidget {
-  /// mensaje para fotos
   const MenjsaDeAlertaWidget({super.key});
 
   @override

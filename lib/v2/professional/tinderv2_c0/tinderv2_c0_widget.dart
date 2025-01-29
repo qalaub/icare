@@ -304,10 +304,18 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                                         children: [
                                           Text(
                                             functions.upperCaseFirstLetter(
-                                                valueOrDefault<String>(
-                                              widget.professional?.firtsName,
-                                              'sandra',
-                                            )),
+                                                widget.professional?.rol ==
+                                                        Roles.business
+                                                    ? valueOrDefault<String>(
+                                                        widget.professional
+                                                            ?.comapny,
+                                                        'sandra',
+                                                      )
+                                                    : valueOrDefault<String>(
+                                                        widget.professional
+                                                            ?.firtsName,
+                                                        'sandra',
+                                                      )),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -413,13 +421,11 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                                                 text: TextSpan(
                                                   children: [
                                                     TextSpan(
-                                                      text: valueOrDefault<
-                                                          String>(
-                                                        widget
-                                                            .professional?.years
-                                                            .toString(),
-                                                        '4',
-                                                      ),
+                                                      text: widget.professional
+                                                                  ?.ndis !=
+                                                              ''
+                                                          ? 'Registered '
+                                                          : 'Unregistered',
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .labelSmall
@@ -432,10 +438,6 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                                                             fontWeight:
                                                                 FontWeight.w600,
                                                           ),
-                                                    ),
-                                                    const TextSpan(
-                                                      text: ' years of Exp',
-                                                      style: TextStyle(),
                                                     )
                                                   ],
                                                   style: FlutterFlowTheme.of(
@@ -610,7 +612,7 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                             model: _model.membresiaLogoModel,
                             updateCallback: () => safeSetState(() {}),
                             child: MembresiaLogoWidget(
-                              width: 60,
+                              width: 50,
                               heigth: 60,
                               professional: widget.professional!.reference,
                             ),

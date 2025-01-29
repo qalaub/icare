@@ -69,10 +69,14 @@ class ProfilesettingsModel extends FlutterFlowModel<ProfilesettingsWidget> {
   FocusNode? phoneFocusNode;
   TextEditingController? phoneTextController;
   String? Function(BuildContext, String?)? phoneTextControllerValidator;
+  // State field(s) for abn widget.
+  FocusNode? abnFocusNode;
+  TextEditingController? abnTextController;
+  String? Function(BuildContext, String?)? abnTextControllerValidator;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
-  TextEditingController? textController4;
-  String? Function(BuildContext, String?)? textController4Validator;
+  TextEditingController? textController5;
+  String? Function(BuildContext, String?)? textController5Validator;
   // State field(s) for query widget.
   FocusNode? queryFocusNode;
   TextEditingController? queryTextController;
@@ -138,8 +142,11 @@ class ProfilesettingsModel extends FlutterFlowModel<ProfilesettingsWidget> {
     phoneFocusNode?.dispose();
     phoneTextController?.dispose();
 
+    abnFocusNode?.dispose();
+    abnTextController?.dispose();
+
     textFieldFocusNode?.dispose();
-    textController4?.dispose();
+    textController5?.dispose();
 
     queryFocusNode?.dispose();
     queryTextController?.dispose();

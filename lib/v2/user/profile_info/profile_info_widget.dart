@@ -361,15 +361,21 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                               decoration: const BoxDecoration(),
                                               child: Text(
                                                 functions.upperCaseFirstLetter(
-                                                    valueOrDefault<String>(
-                                                  functions.concatStrings(
-                                                      profileInfoUsersRecord
-                                                          .firtsName,
-                                                      profileInfoUsersRecord
-                                                          .lastName,
-                                                      ' '),
-                                                  'last name',
-                                                )),
+                                                    profileInfoUsersRecord
+                                                                .rol ==
+                                                            Roles.business
+                                                        ? profileInfoUsersRecord
+                                                            .comapny
+                                                        : valueOrDefault<
+                                                            String>(
+                                                            functions.concatStrings(
+                                                                profileInfoUsersRecord
+                                                                    .firtsName,
+                                                                profileInfoUsersRecord
+                                                                    .lastName,
+                                                                ' '),
+                                                            'last name',
+                                                          )),
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .headlineLarge
@@ -766,6 +772,7 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                           morning: profileInfoUsersRecord.morning,
                           noon: profileInfoUsersRecord.noon,
                           afternoon: profileInfoUsersRecord.afternoon,
+                          abn: profileInfoUsersRecord.abn,
                         ),
                       ),
                     ].addToEnd(const SizedBox(height: 32.0)),

@@ -55,6 +55,9 @@ class _RegisterProfessional1WidgetState
     _model.email2TextController ??= TextEditingController();
     _model.email2FocusNode ??= FocusNode();
 
+    _model.abnTextController ??= TextEditingController();
+    _model.abnFocusNode ??= FocusNode();
+
     _model.phoneTextController ??= TextEditingController();
     _model.phoneFocusNode ??= FocusNode();
 
@@ -1147,6 +1150,164 @@ class _RegisterProfessional1WidgetState
                                         ),
                                         Align(
                                           alignment: const AlignmentDirectional(
+                                              -0.84, -0.73),
+                                          child: Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 15.0, 0.0, 15.0),
+                                            child: Text(
+                                              '  * ABN Registration',
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Montserrat',
+                                                    color: Colors.black,
+                                                    fontSize: 15.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
+                                            ),
+                                          ),
+                                        ),
+                                        Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Align(
+                                              alignment: const AlignmentDirectional(
+                                                  -0.01, -0.69),
+                                              child: Container(
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        0.8,
+                                                decoration: const BoxDecoration(
+                                                  color: Color(0xFFFFFEFE),
+                                                  borderRadius:
+                                                      BorderRadius.only(
+                                                    bottomLeft:
+                                                        Radius.circular(12.0),
+                                                    bottomRight:
+                                                        Radius.circular(12.0),
+                                                    topLeft:
+                                                        Radius.circular(12.0),
+                                                    topRight:
+                                                        Radius.circular(12.0),
+                                                  ),
+                                                ),
+                                                child: TextFormField(
+                                                  key: const ValueKey('ndis'),
+                                                  controller:
+                                                      _model.abnTextController,
+                                                  focusNode:
+                                                      _model.abnFocusNode,
+                                                  autofocus: true,
+                                                  obscureText: false,
+                                                  decoration: InputDecoration(
+                                                    isDense: true,
+                                                    labelStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                    hintText:
+                                                        'Enter your ABN  (XXXXXXXXX)',
+                                                    hintStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Montserrat',
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                                    errorStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .error,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                    enabledBorder:
+                                                        OutlineInputBorder(
+                                                      borderSide: const BorderSide(
+                                                        color:
+                                                            Color(0xFFBB33B9),
+                                                        width: 0.0,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              12.0),
+                                                    ),
+                                                    focusedBorder:
+                                                        OutlineInputBorder(
+                                                      borderSide: const BorderSide(
+                                                        color:
+                                                            Color(0xFF762075),
+                                                        width: 0.0,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              12.0),
+                                                    ),
+                                                    errorBorder:
+                                                        OutlineInputBorder(
+                                                      borderSide: BorderSide(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .error,
+                                                        width: 0.0,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              12.0),
+                                                    ),
+                                                    focusedErrorBorder:
+                                                        OutlineInputBorder(
+                                                      borderSide: BorderSide(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .error,
+                                                        width: 0.0,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              12.0),
+                                                    ),
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Montserrat',
+                                                        color: Colors.black,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                  maxLines: null,
+                                                  maxLength: 11,
+                                                  keyboardType:
+                                                      TextInputType.number,
+                                                  validator: _model
+                                                      .abnTextControllerValidator
+                                                      .asValidator(context),
+                                                ),
+                                              ),
+                                            ),
+                                          ].divide(const SizedBox(height: 5.0)),
+                                        ),
+                                        Align(
+                                          alignment: const AlignmentDirectional(
                                               -0.54, -0.73),
                                           child: Padding(
                                             padding:
@@ -1621,7 +1782,10 @@ class _RegisterProfessional1WidgetState
                                                       ..lastName = _model
                                                           .lastNameTextController
                                                           .text
-                                                      ..images = [],
+                                                      ..images = []
+                                                      ..abn = _model
+                                                          .abnTextController
+                                                          .text,
                                                   );
                                                   FFAppState().verifyForm =
                                                       FormVerifyStruct();

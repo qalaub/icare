@@ -36,6 +36,8 @@ class MapsAustralian extends StatefulWidget {
     this.language,
     this.isProfessional,
     this.schedule,
+    this.selectProfesional,
+    this.selectProfesionalRecord,
   });
 
   final double? width;
@@ -50,6 +52,8 @@ class MapsAustralian extends StatefulWidget {
   final String? language;
   final bool? isProfessional;
   final List<String>? schedule;
+  final CurrentProfesionalMapStruct? selectProfesional;
+  final UsersRecord? selectProfesionalRecord;
 
   @override
   State<MapsAustralian> createState() => _MapsAustralianState();
@@ -58,6 +62,7 @@ class MapsAustralian extends StatefulWidget {
 class _MapsAustralianState extends State<MapsAustralian> {
   google_maps.GoogleMapController? mapController;
   google_maps.BitmapDescriptor? userMarkerIcon;
+  google_maps.BitmapDescriptor? profesionalMarkerIcon;
   google_maps.BitmapDescriptor? currentLocationMarkerIcon;
   ValueNotifier<LatLng?> newUbicationNotifier = ValueNotifier(null);
 
@@ -66,6 +71,9 @@ class _MapsAustralianState extends State<MapsAustralian> {
 
   double? _lastZoom;
 
+  // Guardar la ubicación inicial de "current"
+  late final google_maps.LatLng _initialCurrentLocation;
+
   @override
   void initState() {
     super.initState();
@@ -73,6 +81,19 @@ class _MapsAustralianState extends State<MapsAustralian> {
 
     if (widget.newUbication != null) {
       newUbicationNotifier.value = _parseLatLng(widget.newUbication!);
+    }
+
+    if (widget.current != null) {
+      _initialCurrentLocation = google_maps.LatLng(
+        widget.current!.latitude,
+        widget.current!.longitude,
+      );
+    }
+
+    // Verificamos si `selectProfesional` tiene valor antes de asignarlo
+    if (widget.selectProfesional != null &&
+        widget.selectProfesional!.sub != null) {
+      newUbicationNotifier.value = widget.selectProfesional!.sub!;
     }
 
     newUbicationNotifier.addListener(() {
@@ -99,6 +120,14 @@ class _MapsAustralianState extends State<MapsAustralian> {
     if (widget.newUbication != oldWidget.newUbication) {
       newUbicationNotifier.value = _parseLatLng(widget.newUbication!);
     }
+
+    // Verificamos si `selectProfesional` ha cambiado
+    if (widget.selectProfesional != oldWidget.selectProfesional) {
+      if (widget.selectProfesional != null &&
+          widget.selectProfesional!.sub != null) {
+        newUbicationNotifier.value = widget.selectProfesional!.sub!;
+      }
+    }
   }
 
   LatLng _parseLatLng(String latLngString) {
@@ -111,8 +140,12 @@ class _MapsAustralianState extends State<MapsAustralian> {
   Future<void> _loadCustomMarkers() async {
     if (widget.markersImage != null) {
       final markerIcon = await _buildMarkerIcon(widget.markersImage!, 100);
+      final markerIconP = await _buildMarkerIcon(
+          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/7wzzhll9km4s/pin_rosa_blanco.png',
+          100);
       setState(() {
         userMarkerIcon = markerIcon;
+        profesionalMarkerIcon = markerIconP;
       });
     } else {
       setState(() {
@@ -220,13 +253,13 @@ class _MapsAustralianState extends State<MapsAustralian> {
     return ageMatch || serviceMatch || languageMatch || scheduleMatch;
   }
 
-  void navigateToProfileInfo(UsersRecord user) {
+  void navigateToProfileInfo(user) {
     if (widget.isProfessional != true) {
       Navigator.push(
           context,
           MaterialPageRoute(
               builder: (context) => ProfileInfoWidget(
-                    professional: user.reference,
+                    professional: user,
                   )));
     }
   }
@@ -235,14 +268,32 @@ class _MapsAustralianState extends State<MapsAustralian> {
   Widget build(BuildContext context) {
     final Set<google_maps.Marker> markers = {};
 
+    // Manejamos la ubicación inicial (si `selectProfesional` no es null)
+    if (widget.selectProfesional != null &&
+        widget.selectProfesional!.sub != null) {
+      markers.add(
+        google_maps.Marker(
+          markerId: google_maps.MarkerId('selectedProfessional'),
+          position: google_maps.LatLng(
+            widget.selectProfesional!.sub!.latitude,
+            widget.selectProfesional!.sub!.longitude,
+          ),
+          icon: profesionalMarkerIcon ??
+              google_maps.BitmapDescriptor.defaultMarkerWithHue(
+                  google_maps.BitmapDescriptor.hueViolet),
+          onTap: () {
+            // AccFFión al hacer clic en el marcador
+            navigateToProfileInfo(widget.selectProfesional!.id!);
+          },
+        ),
+      );
+    }
+
     if (widget.current != null) {
       markers.add(
         google_maps.Marker(
           markerId: google_maps.MarkerId('currentLocation'),
-          position: google_maps.LatLng(
-            widget.current!.latitude,
-            widget.current!.longitude,
-          ),
+          position: _initialCurrentLocation, // Fija la ubicación inicial
           icon: currentLocationMarkerIcon ??
               google_maps.BitmapDescriptor.defaultMarkerWithHue(
                   google_maps.BitmapDescriptor.hueRed),
@@ -275,7 +326,7 @@ class _MapsAustralianState extends State<MapsAustralian> {
                             google_maps.BitmapDescriptor.hueViolet),
                     onTap: () {
                       // Acción al hacer clic en el marcador
-                      navigateToProfileInfo(user);
+                      navigateToProfileInfo(user.reference);
                     },
                   ),
                 );
@@ -293,7 +344,7 @@ class _MapsAustralianState extends State<MapsAustralian> {
                           google_maps.BitmapDescriptor.hueViolet),
                   onTap: () {
                     // Acción al hacer clic en el marcador
-                    navigateToProfileInfo(user);
+                    navigateToProfileInfo(user.reference);
                   },
                 ),
               );
@@ -303,7 +354,6 @@ class _MapsAustralianState extends State<MapsAustralian> {
       }
     }
 
-    // Al finalizar la carga, cambiar el estado para que las próximas cargas sí apliquen filtros
     if (isFirstLoad) {
       setState(() {
         isFirstLoad = false;
@@ -333,6 +383,22 @@ class _MapsAustralianState extends State<MapsAustralian> {
                       target: google_maps.LatLng(
                         widget.current!.latitude,
                         widget.current!.longitude,
+                      ),
+                      zoom: 14,
+                    ),
+                  ),
+                );
+              }
+
+              // Si selectProfesional no es null, mueve el mapa a esa ubicación
+              if (widget.selectProfesional != null &&
+                  widget.selectProfesional!.sub != null) {
+                mapController!.animateCamera(
+                  google_maps.CameraUpdate.newCameraPosition(
+                    google_maps.CameraPosition(
+                      target: google_maps.LatLng(
+                        widget.selectProfesional!.sub!.latitude,
+                        widget.selectProfesional!.sub!.longitude,
                       ),
                       zoom: 14,
                     ),

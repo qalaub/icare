@@ -70,7 +70,7 @@ class _Cadari0WidgetState extends State<Cadari0Widget> {
                   Align(
                     alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Container(
-                      width: MediaQuery.sizeOf(context).width * 0.96,
+                      width: 384.0,
                       height: 384.0,
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -112,13 +112,10 @@ class _Cadari0WidgetState extends State<Cadari0Widget> {
                             thickness: 2.0,
                             color: Color(0xFFF0DFEF),
                           ),
-                          Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
-                            child: wrapWithModel(
-                              model: _model.calendarioCopyModel,
-                              updateCallback: () => safeSetState(() {}),
-                              child: const CalendarioCopyWidget(),
-                            ),
+                          wrapWithModel(
+                            model: _model.calendarioCopyModel,
+                            updateCallback: () => safeSetState(() {}),
+                            child: const CalendarioCopyWidget(),
                           ),
                           Align(
                             alignment: const AlignmentDirectional(0.0, 0.0),

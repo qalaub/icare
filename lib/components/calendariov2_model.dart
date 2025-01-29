@@ -1,12 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'calendario_widget.dart' show CalendarioWidget;
+import 'calendariov2_widget.dart' show Calendariov2Widget;
 import 'package:flutter/material.dart';
 
-class CalendarioModel extends FlutterFlowModel<CalendarioWidget> {
-  ///  Local state fields for this component.
-
-  bool trueS = true;
-
+class Calendariov2Model extends FlutterFlowModel<Calendariov2Widget> {
   ///  State fields for stateful widgets in this component.
 
   // State field(s) for Checkbox widget.

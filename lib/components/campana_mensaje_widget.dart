@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'campana_mensaje_model.dart';
 export 'campana_mensaje_model.dart';
 
+/// mensaje para fotos
 class CampanaMensajeWidget extends StatefulWidget {
-  /// mensaje para fotos
   const CampanaMensajeWidget({super.key});
 
   @override

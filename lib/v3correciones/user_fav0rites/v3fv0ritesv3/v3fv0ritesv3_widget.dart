@@ -2,7 +2,9 @@ import '/auth/base_auth_user_provider.dart';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
+import '/backend/schema/enums/enums.dart';
 import '/components/estrellas_widget.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/v2/block_list/favoritesv2/add_favorites/add_favorites_widget.dart';
@@ -129,7 +131,7 @@ class _V3fv0ritesv3WidgetState extends State<V3fv0ritesv3Widget> {
               ),
               child: Container(
                 width: 285.0,
-                height: 139.0,
+                height: 149.0,
                 decoration: BoxDecoration(
                   color: const Color(0xFFBB3FBB),
                   borderRadius: BorderRadius.circular(20.0),
@@ -243,47 +245,57 @@ class _V3fv0ritesv3WidgetState extends State<V3fv0ritesv3Widget> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Align(
-                          alignment: const AlignmentDirectional(0.06, -1.23),
-                          child: Container(
-                            width: 160.0,
-                            decoration: const BoxDecoration(),
-                            child: Align(
-                              alignment: const AlignmentDirectional(0.0, -1.0),
-                              child: Text(
-                                functions.upperCaseFirstLetter(
-                                    containerUsersRecord.firtsName),
-                                style: FlutterFlowTheme.of(context)
-                                    .headlineLarge
-                                    .override(
-                                      fontFamily: 'Montserrat',
-                                      color: Colors.white,
-                                      fontSize: 19.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w600,
-                                    ),
+                          alignment: const AlignmentDirectional(-1.0, 0.0),
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                10.0, 0.0, 0.0, 0.0),
+                            child: Container(
+                              width: 130.0,
+                              decoration: const BoxDecoration(),
+                              child: Align(
+                                alignment: const AlignmentDirectional(-1.0, 0.0),
+                                child: Text(
+                                  functions.upperCaseFirstLetter(
+                                      containerUsersRecord.rol == Roles.business
+                                          ? containerUsersRecord.comapny
+                                          : containerUsersRecord.firtsName),
+                                  style: FlutterFlowTheme.of(context)
+                                      .headlineLarge
+                                      .override(
+                                        fontFamily: 'Montserrat',
+                                        color: Colors.white,
+                                        fontSize: 16.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                ),
                               ),
                             ),
                           ),
                         ),
                         Align(
                           alignment: const AlignmentDirectional(0.05, -0.19),
-                          child: Container(
-                            width: 160.0,
-                            height: 18.0,
-                            decoration: const BoxDecoration(),
-                            child: Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
-                              child: Text(
-                                containerUsersRecord.serviceType.firstOrNull!,
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Montserrat',
-                                      color: Colors.white,
-                                      fontSize: 11.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w500,
-                                    ),
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                11.0, 0.0, 0.0, 0.0),
+                            child: Container(
+                              width: 130.0,
+                              height: 18.0,
+                              decoration: const BoxDecoration(),
+                              child: Align(
+                                alignment: const AlignmentDirectional(-1.0, 0.0),
+                                child: Text(
+                                  containerUsersRecord.serviceType.firstOrNull!,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Montserrat',
+                                        color: Colors.white,
+                                        fontSize: 11.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                ),
                               ),
                             ),
                           ),
@@ -383,7 +395,7 @@ class _V3fv0ritesv3WidgetState extends State<V3fv0ritesv3Widget> {
                                               child: Icon(
                                                 Icons.business_center_outlined,
                                                 color: Color(0xFF0143A4),
-                                                size: 14.0,
+                                                size: 15.0,
                                               ),
                                             ),
                                             Align(
@@ -467,7 +479,7 @@ class _V3fv0ritesv3WidgetState extends State<V3fv0ritesv3Widget> {
                                               child: Icon(
                                                 FFIcons.kubication,
                                                 color: Color(0xFF0143A4),
-                                                size: 13.0,
+                                                size: 14.0,
                                               ),
                                             ),
                                           ),
@@ -512,7 +524,7 @@ class _V3fv0ritesv3WidgetState extends State<V3fv0ritesv3Widget> {
                     Column(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Align(
                           alignment: const AlignmentDirectional(-1.0, 0.0),
@@ -551,14 +563,44 @@ class _V3fv0ritesv3WidgetState extends State<V3fv0ritesv3Widget> {
                             ),
                           ),
                         ),
+                        Align(
+                          alignment: const AlignmentDirectional(-1.0, 0.0),
+                          child: Container(
+                            decoration: const BoxDecoration(),
+                            child: Align(
+                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              child: FlutterFlowIconButton(
+                                borderRadius: 118.0,
+                                buttonSize: 35.0,
+                                fillColor: Colors.white,
+                                icon: const Icon(
+                                  FFIcons.kubicationplane,
+                                  color: Color(0xFFC14BBC),
+                                  size: 20.0,
+                                ),
+                                onPressed: () async {
+                                  FFAppState().currentProfesionalUbication =
+                                      CurrentProfesionalMapStruct();
+                                  FFAppState().update(() {});
+                                  FFAppState().currentProfesionalUbication =
+                                      CurrentProfesionalMapStruct(
+                                    sub: containerUsersRecord.suburb,
+                                    id: widget.profesionalId,
+                                  );
+                                  FFAppState().update(() {});
+                                },
+                              ),
+                            ),
+                          ),
+                        ),
                         if (!widget.isCollaborator)
                           Align(
-                            alignment: const AlignmentDirectional(1.0, -0.19),
-                            child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 16.0),
-                              child: Container(
-                                decoration: const BoxDecoration(),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            child: Container(
+                              decoration: const BoxDecoration(),
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 4.0, 0.0, 0.0),
                                 child: wrapWithModel(
                                   model: _model.membresiaLogoModel,
                                   updateCallback: () => safeSetState(() {}),
@@ -572,7 +614,9 @@ class _V3fv0ritesv3WidgetState extends State<V3fv0ritesv3Widget> {
                               ),
                             ),
                           ),
-                      ],
+                      ]
+                          .divide(const SizedBox(height: 2.0))
+                          .addToEnd(const SizedBox(height: 8.0)),
                     ),
                   ],
                 ),
