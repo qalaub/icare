@@ -136,6 +136,7 @@ class _FavV3CopyWidgetState extends State<FavV3CopyWidget> {
                                       profesionalId: userListItem,
                                       isCollaborator: false,
                                       isReview: true,
+                                      isMap: false,
                                     );
                                   },
                                 );

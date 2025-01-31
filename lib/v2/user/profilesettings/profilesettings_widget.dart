@@ -82,11 +82,14 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
         TextEditingController(text: currentPhoneNumber);
     _model.phoneFocusNode ??= FocusNode();
 
+    _model.dateTextController ??= TextEditingController();
+    _model.dateFocusNode ??= FocusNode();
+
     _model.abnTextController ??= TextEditingController(
         text: valueOrDefault(currentUserDocument?.abn, ''));
     _model.abnFocusNode ??= FocusNode();
 
-    _model.textController5 ??= TextEditingController();
+    _model.textController6 ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
 
     _model.queryTextController ??= TextEditingController(
@@ -403,9 +406,8 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                       const AlignmentDirectional(
                                                           0.0, 0.0),
                                                   child: Text(
-                                                    'In this section you can see your photos as your potential clients do.',
-                                                    textAlign:
-                                                        TextAlign.justify,
+                                                    'In this section you can see your photos as your potential clients do',
+                                                    textAlign: TextAlign.start,
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
@@ -451,7 +453,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                             ),
                                           ),
                                         ),
-                                      ].divide(const SizedBox(height: 8.0)),
+                                      ].divide(const SizedBox(height: 4.0)),
                                     ),
                                   ),
                                 ),
@@ -467,6 +469,8 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceEvenly,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
                                       children: [
                                         Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -513,8 +517,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                           0.0, 0.0),
                                                   child: Text(
                                                     'In this section you can establish which days you work per week and at what times of the day',
-                                                    textAlign:
-                                                        TextAlign.justify,
+                                                    textAlign: TextAlign.start,
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
@@ -594,8 +597,8 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                               alignment: const AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Text(
-                                                'You can modify your username with the one you feel  most comfortable with.',
-                                                textAlign: TextAlign.justify,
+                                                'You can modify your username with the one you feel  most comfortable with',
+                                                textAlign: TextAlign.start,
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -803,7 +806,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                         ],
                                       ),
                                     ),
-                                  ].divide(const SizedBox(height: 8.0)),
+                                  ].divide(const SizedBox(height: 4.0)),
                                 ),
                               ),
                             ),
@@ -857,8 +860,8 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                               alignment: const AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Text(
-                                                'In this section you can change your last name if it is different now.',
-                                                textAlign: TextAlign.justify,
+                                                'In this section you can change your last name if it is different now',
+                                                textAlign: TextAlign.start,
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -1027,7 +1030,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                         ],
                                       ),
                                     ),
-                                  ].divide(const SizedBox(height: 8.0)),
+                                  ].divide(const SizedBox(height: 4.0)),
                                 ),
                               ),
                             ),
@@ -1081,8 +1084,8 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                               alignment: const AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Text(
-                                                'You can modify your phone number in case you have changed it.',
-                                                textAlign: TextAlign.justify,
+                                                'You can modify your phone number in case you have changed it',
+                                                textAlign: TextAlign.start,
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -1271,7 +1274,251 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                         ],
                                       ),
                                     ),
-                                  ].divide(const SizedBox(height: 8.0)),
+                                  ].divide(const SizedBox(height: 4.0)),
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 0.0, 16.0, 0.0),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Birthdate',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Montserrat',
+                                                color: const Color(0xFFC14BBC),
+                                                fontSize: 15.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                        ),
+                                      ],
+                                    ),
+                                    Align(
+                                      alignment:
+                                          const AlignmentDirectional(-1.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                0.9,
+                                            height: 39.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                            ),
+                                            child: Align(
+                                              alignment: const AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: Text(
+                                                'You can modify the date of birth in case you put it wrong in the registry',
+                                                textAlign: TextAlign.start,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Montserrat',
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Align(
+                                      alignment:
+                                          const AlignmentDirectional(-1.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          Expanded(
+                                            child: Align(
+                                              alignment: const AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: Material(
+                                                color: Colors.transparent,
+                                                elevation: 2.0,
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          12.0),
+                                                ),
+                                                child: Container(
+                                                  width: double.infinity,
+                                                  height: 52.0,
+                                                  decoration: BoxDecoration(
+                                                    color: const Color(0xFFF0F0F0),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            12.0),
+                                                    border: Border.all(
+                                                      color: const Color(0xFFC14BBC),
+                                                      width: 3.0,
+                                                    ),
+                                                  ),
+                                                  child: Align(
+                                                    alignment:
+                                                        const AlignmentDirectional(
+                                                            0.0, 0.0),
+                                                    child: TextFormField(
+                                                      key: const ValueKey('date'),
+                                                      controller: _model
+                                                          .dateTextController,
+                                                      focusNode:
+                                                          _model.dateFocusNode,
+                                                      autofocus: true,
+                                                      textCapitalization:
+                                                          TextCapitalization
+                                                              .none,
+                                                      obscureText: false,
+                                                      decoration:
+                                                          InputDecoration(
+                                                        isDense: true,
+                                                        labelStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Montserrat',
+                                                                  color: const Color(
+                                                                      0xFF030404),
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                        hintText: 'DD/MM/YYYY',
+                                                        hintStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Montserrat',
+                                                                  color: Colors
+                                                                      .black,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                        errorStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Readex Pro',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .error,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                        enabledBorder:
+                                                            OutlineInputBorder(
+                                                          borderSide:
+                                                              const BorderSide(
+                                                            color: Color(
+                                                                0x00000000),
+                                                            width: 0.0,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      12.0),
+                                                        ),
+                                                        focusedBorder:
+                                                            OutlineInputBorder(
+                                                          borderSide:
+                                                              const BorderSide(
+                                                            color: Color(
+                                                                0x00000000),
+                                                            width: 0.0,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      12.0),
+                                                        ),
+                                                        errorBorder:
+                                                            OutlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .error,
+                                                            width: 0.0,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      12.0),
+                                                        ),
+                                                        focusedErrorBorder:
+                                                            OutlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .error,
+                                                            width: 0.0,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      12.0),
+                                                        ),
+                                                      ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Montserrat',
+                                                            color: Colors.black,
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                      maxLines: null,
+                                                      keyboardType:
+                                                          TextInputType
+                                                              .datetime,
+                                                      validator: _model
+                                                          .dateTextControllerValidator
+                                                          .asValidator(context),
+                                                      inputFormatters: [
+                                                        _model.dateMask
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ].divide(const SizedBox(height: 4.0)),
                                 ),
                               ),
                             ),
@@ -1525,7 +1772,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                             ],
                                           ),
                                         ),
-                                      ].divide(const SizedBox(height: 8.0)),
+                                      ].divide(const SizedBox(height: 4.0)),
                                     ),
                                   ),
                                 ),
@@ -1630,7 +1877,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                   ),
                                                   child: TextFormField(
                                                     controller:
-                                                        _model.textController5,
+                                                        _model.textController6,
                                                     focusNode: _model
                                                         .textFieldFocusNode,
                                                     autofocus: false,
@@ -1701,7 +1948,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                           letterSpacing: 0.0,
                                                         ),
                                                     validator: _model
-                                                        .textController5Validator
+                                                        .textController6Validator
                                                         .asValidator(context),
                                                   ),
                                                 ),
@@ -1762,10 +2009,10 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                             ),
                                             child: Align(
                                               alignment: const AlignmentDirectional(
-                                                  0.0, 0.0),
+                                                  -1.0, 0.0),
                                               child: Text(
-                                                'You can change your location so you can always keep your profile updated.',
-                                                textAlign: TextAlign.justify,
+                                                'You can change your location so you can always keep your profile updated',
+                                                textAlign: TextAlign.start,
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -1917,7 +2164,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                         ],
                                       ),
                                     ),
-                                  ].divide(const SizedBox(height: 8.0)),
+                                  ].divide(const SizedBox(height: 4.0)),
                                 ),
                               ),
                             ),
@@ -1975,11 +2222,10 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                 child: Align(
                                                   alignment:
                                                       const AlignmentDirectional(
-                                                          0.0, 0.0),
+                                                          -1.0, 0.0),
                                                   child: Text(
                                                     'You can modify what your service is offered to participants',
-                                                    textAlign:
-                                                        TextAlign.justify,
+                                                    textAlign: TextAlign.start,
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
@@ -2250,7 +2496,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                             ],
                                           ),
                                         ),
-                                      ].divide(const SizedBox(height: 8.0)),
+                                      ].divide(const SizedBox(height: 4.0)),
                                     ),
                                   ),
                                 ),
@@ -2304,10 +2550,10 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                               ),
                                               child: Align(
                                                 alignment: const AlignmentDirectional(
-                                                    0.0, 0.0),
+                                                    -1.0, 0.0),
                                                 child: Text(
-                                                  'You can modify the disability you suffer from in case you made a mistake when registering.',
-                                                  textAlign: TextAlign.justify,
+                                                  'You can modify the disability you suffer from in case you made a mistake when registering',
+                                                  textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -2454,7 +2700,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                           ],
                                         ),
                                       ),
-                                    ].divide(const SizedBox(height: 8.0)),
+                                    ].divide(const SizedBox(height: 4.0)),
                                   ),
                                 ),
                               ),
@@ -2662,7 +2908,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                             ],
                                           ),
                                         ),
-                                      ].divide(const SizedBox(height: 8.0)),
+                                      ].divide(const SizedBox(height: 4.0)),
                                     ),
                                   ),
                                 ),
@@ -2860,7 +3106,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                         ),
                                       ),
                                     ),
-                                  ].divide(const SizedBox(height: 8.0)),
+                                  ].divide(const SizedBox(height: 4.0)),
                                 ),
                               ),
                             if (currentUserDocument?.rol != Roles.user)
@@ -3097,7 +3343,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                                 BorderRadius.circular(16.0),
                                           ),
                                         ),
-                                      ].divide(const SizedBox(height: 8.0)),
+                                      ].divide(const SizedBox(height: 4.0)),
                                     ),
                                   ),
                                 ),
@@ -3167,10 +3413,9 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                         .description,
                                     age: FFAppState().registerProviderForm.age,
                                     abn: _model.abnTextController.text,
-                                    displayName:
+                                    lastName:
                                         _model.lastNameTextController.text,
-                                    phoneNumber:
-                                        _model.phoneTextController.text,
+                                    photoUrl: _model.phoneTextController.text,
                                   ),
                                   ...mapToFirestore(
                                     {
@@ -3316,7 +3561,7 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                               ),
                             ),
                           ]
-                              .divide(const SizedBox(height: 16.0))
+                              .divide(const SizedBox(height: 10.0))
                               .addToEnd(const SizedBox(height: 16.0)),
                         ),
                       ),

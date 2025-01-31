@@ -78,3 +78,5 @@ export '/v2/register/professional/user/avatars/avatars_widget.dart'
     show AvatarsWidget;
 export '/rejected/dislike_page/dislike_page_widget.dart' show DislikePageWidget;
 export '/v2/user/verperfil/verperfil_widget.dart' show VerperfilWidget;
+export '/v2/register/professional/register_pfofesional5/register_pfofesional5_widget.dart'
+    show RegisterPfofesional5Widget;

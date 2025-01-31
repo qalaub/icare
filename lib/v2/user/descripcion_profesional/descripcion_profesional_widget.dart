@@ -69,6 +69,7 @@ class _DescripcionProfesionalWidgetState
     return SingleChildScrollView(
       child: Column(
         mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Align(
             alignment: const AlignmentDirectional(0.0, 0.0),
@@ -297,179 +298,202 @@ class _DescripcionProfesionalWidgetState
             alignment: const AlignmentDirectional(-0.03, -0.86),
             child: Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 8.0),
-              child: Container(
-                width: 355.0,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: const BorderRadius.only(
+              child: Material(
+                color: Colors.transparent,
+                elevation: 2.0,
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(12.0),
                     bottomRight: Radius.circular(12.0),
                     topLeft: Radius.circular(12.0),
                     topRight: Radius.circular(12.0),
                   ),
-                  border: Border.all(
-                    color: Colors.white,
-                  ),
                 ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Align(
-                      alignment: const AlignmentDirectional(0.0, -0.98),
-                      child: CheckboxListTile(
-                        key: const ValueKey('supportWorkers'),
-                        value: _model.supportValue ??= widget.services
-                                ?.contains(FFAppConstants.servicesType
-                                    .elementAtOrNull(0)) ==
-                            true,
-                        onChanged: _model.services
-                            ? null
-                            : (newValue) async {
-                                safeSetState(
-                                    () => _model.supportValue = newValue!);
-                              },
-                        title: Text(
-                          'Support Workers',
-                          style:
-                              FlutterFlowTheme.of(context).titleLarge.override(
-                                    fontFamily: 'Montserrat',
-                                    color: Colors.black,
-                                    fontSize: 14.0,
-                                    letterSpacing: 0.0,
-                                  ),
-                        ),
-                        activeColor: const Color(0xFFBD39BA),
-                        checkColor:
-                            _model.services ? const Color(0xFFBD39BA) : Colors.white,
-                        dense: false,
-                        controlAffinity: ListTileControlAffinity.trailing,
-                      ),
+                child: Container(
+                  width: 320.0,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: const BorderRadius.only(
+                      bottomLeft: Radius.circular(12.0),
+                      bottomRight: Radius.circular(12.0),
+                      topLeft: Radius.circular(12.0),
+                      topRight: Radius.circular(12.0),
                     ),
-                    Align(
-                      alignment: const AlignmentDirectional(0.0, -0.46),
-                      child: CheckboxListTile(
-                        key: const ValueKey('supportCoordinators'),
-                        value: _model.coordinatorsValue ??= widget.services
-                                ?.contains(FFAppConstants.servicesType
-                                    .elementAtOrNull(1)) ==
-                            true,
-                        onChanged: _model.services
-                            ? null
-                            : (newValue) async {
-                                safeSetState(
-                                    () => _model.coordinatorsValue = newValue!);
-                              },
-                        title: Text(
-                          'Support Coordinators',
-                          style:
-                              FlutterFlowTheme.of(context).titleLarge.override(
-                                    fontFamily: 'Montserrat',
-                                    color: Colors.black,
-                                    fontSize: 14.0,
-                                    letterSpacing: 0.0,
-                                  ),
-                        ),
-                        activeColor: const Color(0xFFBD39BA),
-                        checkColor:
-                            _model.services ? const Color(0xFFBD39BA) : Colors.white,
-                        dense: false,
-                        controlAffinity: ListTileControlAffinity.trailing,
-                      ),
+                    border: Border.all(
+                      color: const Color(0xFFC55EBE),
+                      width: 3.0,
                     ),
-                    Align(
-                      alignment: const AlignmentDirectional(0.0, -0.98),
-                      child: CheckboxListTile(
-                        key: const ValueKey('recoveryCoaches'),
-                        value: _model.recoveryValue ??= widget.services
-                                ?.contains(FFAppConstants.servicesType
-                                    .elementAtOrNull(4)) ==
-                            true,
-                        onChanged: _model.services
-                            ? null
-                            : (newValue) async {
-                                safeSetState(
-                                    () => _model.recoveryValue = newValue!);
-                              },
-                        title: Text(
-                          'Recovery Coaches',
-                          style:
-                              FlutterFlowTheme.of(context).titleLarge.override(
-                                    fontFamily: 'Montserrat',
-                                    color: Colors.black,
-                                    fontSize: 14.0,
-                                    letterSpacing: 0.0,
-                                  ),
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Align(
+                        alignment: const AlignmentDirectional(0.0, -0.98),
+                        child: CheckboxListTile(
+                          key: const ValueKey('supportWorkers'),
+                          value: _model.supportValue ??= widget.services
+                                  ?.contains(FFAppConstants.servicesType
+                                      .elementAtOrNull(0)) ==
+                              true,
+                          onChanged: _model.services
+                              ? null
+                              : (newValue) async {
+                                  safeSetState(
+                                      () => _model.supportValue = newValue!);
+                                },
+                          title: Text(
+                            'Support Workers',
+                            style: FlutterFlowTheme.of(context)
+                                .titleLarge
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  color: Colors.black,
+                                  fontSize: 14.0,
+                                  letterSpacing: 0.0,
+                                ),
+                          ),
+                          activeColor: const Color(0xFFBD39BA),
+                          checkColor: _model.services
+                              ? const Color(0xFFBD39BA)
+                              : Colors.white,
+                          dense: false,
+                          controlAffinity: ListTileControlAffinity.trailing,
                         ),
-                        activeColor: const Color(0xFFBD39BA),
-                        checkColor:
-                            _model.services ? const Color(0xFFBD39BA) : Colors.white,
-                        dense: false,
-                        controlAffinity: ListTileControlAffinity.trailing,
                       ),
-                    ),
-                    Align(
-                      alignment: const AlignmentDirectional(0.0, 0.13),
-                      child: CheckboxListTile(
-                        key: const ValueKey('therapeuticSupports'),
-                        value: _model.therapeuticValue ??= widget.services
-                                ?.contains(FFAppConstants.servicesType
-                                    .elementAtOrNull(2)) ==
-                            true,
-                        onChanged: _model.services
-                            ? null
-                            : (newValue) async {
-                                safeSetState(
-                                    () => _model.therapeuticValue = newValue!);
-                              },
-                        title: Text(
-                          'Therapeutic Supports',
-                          style:
-                              FlutterFlowTheme.of(context).titleLarge.override(
-                                    fontFamily: 'Montserrat',
-                                    color: Colors.black,
-                                    fontSize: 14.0,
-                                    letterSpacing: 0.0,
-                                  ),
+                      Align(
+                        alignment: const AlignmentDirectional(0.0, -0.46),
+                        child: CheckboxListTile(
+                          key: const ValueKey('supportCoordinators'),
+                          value: _model.coordinatorsValue ??= widget.services
+                                  ?.contains(FFAppConstants.servicesType
+                                      .elementAtOrNull(1)) ==
+                              true,
+                          onChanged: _model.services
+                              ? null
+                              : (newValue) async {
+                                  safeSetState(() =>
+                                      _model.coordinatorsValue = newValue!);
+                                },
+                          title: Text(
+                            'Support Coordinators',
+                            style: FlutterFlowTheme.of(context)
+                                .titleLarge
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  color: Colors.black,
+                                  fontSize: 14.0,
+                                  letterSpacing: 0.0,
+                                ),
+                          ),
+                          activeColor: const Color(0xFFBD39BA),
+                          checkColor: _model.services
+                              ? const Color(0xFFBD39BA)
+                              : Colors.white,
+                          dense: false,
+                          controlAffinity: ListTileControlAffinity.trailing,
                         ),
-                        activeColor: const Color(0xFFBD39BA),
-                        checkColor:
-                            _model.services ? const Color(0xFFBD39BA) : Colors.white,
-                        dense: false,
-                        controlAffinity: ListTileControlAffinity.trailing,
                       ),
-                    ),
-                    Align(
-                      alignment: const AlignmentDirectional(0.0, 0.77),
-                      child: CheckboxListTile(
-                        key: const ValueKey('homeMaintenance'),
-                        value: _model.homeValue ??= widget.services?.contains(
-                                FFAppConstants.servicesType
-                                    .elementAtOrNull(3)) ==
-                            true,
-                        onChanged: _model.services
-                            ? null
-                            : (newValue) async {
-                                safeSetState(
-                                    () => _model.homeValue = newValue!);
-                              },
-                        title: Text(
-                          'Home Maintenance ',
-                          style:
-                              FlutterFlowTheme.of(context).titleLarge.override(
-                                    fontFamily: 'Montserrat',
-                                    color: Colors.black,
-                                    fontSize: 14.0,
-                                    letterSpacing: 0.0,
-                                  ),
+                      Align(
+                        alignment: const AlignmentDirectional(0.0, -0.98),
+                        child: CheckboxListTile(
+                          key: const ValueKey('recoveryCoaches'),
+                          value: _model.recoveryValue ??= widget.services
+                                  ?.contains(FFAppConstants.servicesType
+                                      .elementAtOrNull(4)) ==
+                              true,
+                          onChanged: _model.services
+                              ? null
+                              : (newValue) async {
+                                  safeSetState(
+                                      () => _model.recoveryValue = newValue!);
+                                },
+                          title: Text(
+                            'Recovery Coaches',
+                            style: FlutterFlowTheme.of(context)
+                                .titleLarge
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  color: Colors.black,
+                                  fontSize: 14.0,
+                                  letterSpacing: 0.0,
+                                ),
+                          ),
+                          activeColor: const Color(0xFFBD39BA),
+                          checkColor: _model.services
+                              ? const Color(0xFFBD39BA)
+                              : Colors.white,
+                          dense: false,
+                          controlAffinity: ListTileControlAffinity.trailing,
                         ),
-                        activeColor: const Color(0xFFBD39BA),
-                        checkColor:
-                            _model.services ? const Color(0xFFBD39BA) : Colors.white,
-                        dense: false,
-                        controlAffinity: ListTileControlAffinity.trailing,
                       ),
-                    ),
-                  ],
+                      Align(
+                        alignment: const AlignmentDirectional(0.0, 0.13),
+                        child: CheckboxListTile(
+                          key: const ValueKey('therapeuticSupports'),
+                          value: _model.therapeuticValue ??= widget.services
+                                  ?.contains(FFAppConstants.servicesType
+                                      .elementAtOrNull(2)) ==
+                              true,
+                          onChanged: _model.services
+                              ? null
+                              : (newValue) async {
+                                  safeSetState(() =>
+                                      _model.therapeuticValue = newValue!);
+                                },
+                          title: Text(
+                            'Therapeutic Supports',
+                            style: FlutterFlowTheme.of(context)
+                                .titleLarge
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  color: Colors.black,
+                                  fontSize: 14.0,
+                                  letterSpacing: 0.0,
+                                ),
+                          ),
+                          activeColor: const Color(0xFFBD39BA),
+                          checkColor: _model.services
+                              ? const Color(0xFFBD39BA)
+                              : Colors.white,
+                          dense: false,
+                          controlAffinity: ListTileControlAffinity.trailing,
+                        ),
+                      ),
+                      Align(
+                        alignment: const AlignmentDirectional(0.0, 0.77),
+                        child: CheckboxListTile(
+                          key: const ValueKey('homeMaintenance'),
+                          value: _model.homeValue ??= widget.services
+                                  ?.contains(FFAppConstants.servicesType
+                                      .elementAtOrNull(3)) ==
+                              true,
+                          onChanged: _model.services
+                              ? null
+                              : (newValue) async {
+                                  safeSetState(
+                                      () => _model.homeValue = newValue!);
+                                },
+                          title: Text(
+                            'Home Maintenance ',
+                            style: FlutterFlowTheme.of(context)
+                                .titleLarge
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  color: Colors.black,
+                                  fontSize: 14.0,
+                                  letterSpacing: 0.0,
+                                ),
+                          ),
+                          activeColor: const Color(0xFFBD39BA),
+                          checkColor: _model.services
+                              ? const Color(0xFFBD39BA)
+                              : Colors.white,
+                          dense: false,
+                          controlAffinity: ListTileControlAffinity.trailing,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -496,144 +520,105 @@ class _DescripcionProfesionalWidgetState
             alignment: const AlignmentDirectional(0.0, 0.0),
             child: Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 16.0),
-              child: Container(
-                width: 355.0,
-                decoration: BoxDecoration(
-                  color: Colors.white,
+              child: Material(
+                color: Colors.transparent,
+                elevation: 2.0,
+                shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12.0),
                 ),
-                child: Align(
-                  alignment: const AlignmentDirectional(0.0, 0.0),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
-                        child: Container(
-                          width: 270.0,
-                          height: 50.0,
-                          decoration: const BoxDecoration(),
-                          child: Stack(
-                            children: [
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      const Align(
-                                        alignment:
-                                            AlignmentDirectional(-1.0, 0.0),
-                                        child: Icon(
-                                          Icons.business_center_outlined,
-                                          color: Color(0xFF0E70DF),
-                                          size: 22.0,
-                                        ),
-                                      ),
-                                      Align(
-                                        alignment:
-                                            const AlignmentDirectional(-1.0, 0.0),
-                                        child: Text(
-                                          'Experience',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Montserrat',
-                                                color: Colors.black,
-                                                fontSize: 17.0,
-                                                letterSpacing: 0.0,
-                                              ),
-                                        ),
-                                      ),
-                                    ].divide(const SizedBox(width: 12.0)),
-                                  ),
-                                  Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      Align(
-                                        alignment:
-                                            const AlignmentDirectional(-1.0, 0.0),
-                                        child: Text(
-                                          widget.parameter2!,
-                                          maxLines: 1,
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Montserrat',
-                                                color: Colors.black,
-                                                fontSize: 17.0,
-                                                letterSpacing: 0.0,
-                                              ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ].divide(const SizedBox(width: 4.0)),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Divider(
-                        height: 16.0,
-                        thickness: 3.0,
-                        color: FlutterFlowTheme.of(context).alternate,
-                      ),
-                      Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
-                        child: Container(
-                          width: 270.0,
-                          height: 50.0,
-                          decoration: const BoxDecoration(),
-                          child: Stack(
-                            children: [
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  const Align(
-                                    alignment: AlignmentDirectional(-1.0, 0.0),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 3.0),
-                                      child: Icon(
-                                        Icons.edit_document,
-                                        color: Color(0xFF0E70DF),
-                                        size: 22.0,
-                                      ),
-                                    ),
-                                  ),
-                                  Align(
-                                    alignment: const AlignmentDirectional(-1.0, 0.0),
-                                    child: Text(
-                                      'Qualified And Certified \nPersonnel',
-                                      textAlign: TextAlign.start,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Montserrat',
-                                            color: Colors.black,
-                                            fontSize: 17.0,
-                                            letterSpacing: 0.0,
+                child: Container(
+                  width: 320.0,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(12.0),
+                    border: Border.all(
+                      color: const Color(0xFFC55EBE),
+                      width: 3.0,
+                    ),
+                  ),
+                  child: Align(
+                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Align(
+                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          child: Container(
+                            width: 270.0,
+                            height: 50.0,
+                            decoration: const BoxDecoration(),
+                            child: Stack(
+                              children: [
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        const Align(
+                                          alignment:
+                                              AlignmentDirectional(-1.0, 0.0),
+                                          child: Icon(
+                                            Icons.business_center_outlined,
+                                            color: Color(0xFF0E70DF),
+                                            size: 22.0,
                                           ),
+                                        ),
+                                        Align(
+                                          alignment:
+                                              const AlignmentDirectional(-1.0, 0.0),
+                                          child: Text(
+                                            'Experience',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Montserrat',
+                                                  color: Colors.black,
+                                                  fontSize: 17.0,
+                                                  letterSpacing: 0.0,
+                                                ),
+                                          ),
+                                        ),
+                                      ].divide(const SizedBox(width: 12.0)),
                                     ),
-                                  ),
-                                ].divide(const SizedBox(width: 12.0)),
-                              ),
-                            ],
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        Align(
+                                          alignment:
+                                              const AlignmentDirectional(-1.0, 0.0),
+                                          child: Text(
+                                            widget.parameter2!,
+                                            maxLines: 1,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Montserrat',
+                                                  color: Colors.black,
+                                                  fontSize: 17.0,
+                                                  letterSpacing: 0.0,
+                                                ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ].divide(const SizedBox(width: 4.0)),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                      Divider(
-                        height: 16.0,
-                        thickness: 3.0,
-                        color: FlutterFlowTheme.of(context).alternate,
-                      ),
-                      if (widget.company != 'default230')
+                        Divider(
+                          height: 16.0,
+                          thickness: 3.0,
+                          color: FlutterFlowTheme.of(context).alternate,
+                        ),
                         Align(
                           alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Container(
@@ -652,7 +637,7 @@ class _DescripcionProfesionalWidgetState
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 3.0),
                                         child: Icon(
-                                          Icons.add_business,
+                                          Icons.edit_document,
                                           color: Color(0xFF0E70DF),
                                           size: 22.0,
                                         ),
@@ -662,7 +647,7 @@ class _DescripcionProfesionalWidgetState
                                       alignment:
                                           const AlignmentDirectional(-1.0, 0.0),
                                       child: Text(
-                                        widget.company,
+                                        'Qualified And Certified \nPersonnel',
                                         textAlign: TextAlign.start,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
@@ -680,26 +665,21 @@ class _DescripcionProfesionalWidgetState
                             ),
                           ),
                         ),
-                      Divider(
-                        height: 16.0,
-                        thickness: 3.0,
-                        color: FlutterFlowTheme.of(context).alternate,
-                      ),
-                      Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
-                        child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              25.0, 8.0, 0.0, 0.0),
-                          child: Container(
-                            width: 300.0,
-                            height: 50.0,
-                            decoration: const BoxDecoration(),
+                        Divider(
+                          height: 16.0,
+                          thickness: 3.0,
+                          color: FlutterFlowTheme.of(context).alternate,
+                        ),
+                        if (widget.company != 'default230')
+                          Align(
                             alignment: const AlignmentDirectional(0.0, 0.0),
-                            child: Stack(
-                              children: [
-                                Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
-                                  child: Row(
+                            child: Container(
+                              width: 270.0,
+                              height: 50.0,
+                              decoration: const BoxDecoration(),
+                              child: Stack(
+                                children: [
+                                  Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       const Align(
@@ -710,8 +690,8 @@ class _DescripcionProfesionalWidgetState
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 3.0),
                                           child: Icon(
-                                            Icons.check_circle,
-                                            color: Color(0xFFE069BF),
+                                            Icons.add_business,
+                                            color: Color(0xFF0E70DF),
                                             size: 22.0,
                                           ),
                                         ),
@@ -720,7 +700,7 @@ class _DescripcionProfesionalWidgetState
                                         alignment:
                                             const AlignmentDirectional(-1.0, 0.0),
                                         child: Text(
-                                          'NDIS Registration',
+                                          widget.company,
                                           textAlign: TextAlign.start,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
@@ -734,23 +714,20 @@ class _DescripcionProfesionalWidgetState
                                       ),
                                     ].divide(const SizedBox(width: 12.0)),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
+                        Divider(
+                          height: 16.0,
+                          thickness: 3.0,
+                          color: FlutterFlowTheme.of(context).alternate,
                         ),
-                      ),
-                      Divider(
-                        height: 16.0,
-                        thickness: 3.0,
-                        color: FlutterFlowTheme.of(context).alternate,
-                      ),
-                      if (widget.abn != '')
                         Align(
                           alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
-                                25.0, 8.0, 0.0, 0.0),
+                                25.0, 0.0, 0.0, 0.0),
                             child: Container(
                               width: 300.0,
                               height: 50.0,
@@ -762,8 +739,6 @@ class _DescripcionProfesionalWidgetState
                                     alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
                                       children: [
                                         const Align(
                                           alignment:
@@ -779,51 +754,21 @@ class _DescripcionProfesionalWidgetState
                                             ),
                                           ),
                                         ),
-                                        Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Align(
-                                              alignment: const AlignmentDirectional(
-                                                  -1.0, 0.0),
-                                              child: Text(
-                                                'ABN Registration',
-                                                textAlign: TextAlign.start,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Montserrat',
-                                                          color: Colors.black,
-                                                          fontSize: 17.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                              ),
-                                            ),
-                                            Align(
-                                              alignment: const AlignmentDirectional(
-                                                  -1.0, 0.0),
-                                              child: Text(
-                                                valueOrDefault<String>(
-                                                  widget.abn,
-                                                  '53346346',
+                                        Align(
+                                          alignment:
+                                              const AlignmentDirectional(-1.0, 0.0),
+                                          child: Text(
+                                            'NDIS Registration',
+                                            textAlign: TextAlign.start,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Montserrat',
+                                                  color: Colors.black,
+                                                  fontSize: 17.0,
+                                                  letterSpacing: 0.0,
                                                 ),
-                                                textAlign: TextAlign.start,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Montserrat',
-                                                          color: Colors.black,
-                                                          fontSize: 17.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                              ),
-                                            ),
-                                          ],
+                                          ),
                                         ),
                                       ].divide(const SizedBox(width: 12.0)),
                                     ),
@@ -833,9 +778,101 @@ class _DescripcionProfesionalWidgetState
                             ),
                           ),
                         ),
-                    ]
-                        .addToStart(const SizedBox(height: 8.0))
-                        .addToEnd(const SizedBox(height: 32.0)),
+                        if (widget.abn != '')
+                          Divider(
+                            height: 16.0,
+                            thickness: 3.0,
+                            color: FlutterFlowTheme.of(context).alternate,
+                          ),
+                        if (widget.abn != '')
+                          Align(
+                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  25.0, 8.0, 0.0, 10.0),
+                              child: Container(
+                                width: 300.0,
+                                height: 50.0,
+                                decoration: const BoxDecoration(),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                child: Stack(
+                                  children: [
+                                    Align(
+                                      alignment: const AlignmentDirectional(0.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          const Align(
+                                            alignment:
+                                                AlignmentDirectional(-1.0, 0.0),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 3.0),
+                                              child: Icon(
+                                                Icons.check_circle,
+                                                color: Color(0xFFE069BF),
+                                                size: 22.0,
+                                              ),
+                                            ),
+                                          ),
+                                          Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Align(
+                                                alignment: const AlignmentDirectional(
+                                                    -1.0, 0.0),
+                                                child: Text(
+                                                  'ABN Registration',
+                                                  textAlign: TextAlign.start,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Montserrat',
+                                                        color: Colors.black,
+                                                        fontSize: 17.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                ),
+                                              ),
+                                              Align(
+                                                alignment: const AlignmentDirectional(
+                                                    -1.0, 0.0),
+                                                child: Text(
+                                                  valueOrDefault<String>(
+                                                    widget.abn,
+                                                    '53346346',
+                                                  ),
+                                                  textAlign: TextAlign.start,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Montserrat',
+                                                        color: Colors.black,
+                                                        fontSize: 17.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ].divide(const SizedBox(width: 12.0)),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                      ].addToStart(const SizedBox(height: 8.0)),
+                    ),
                   ),
                 ),
               ),

@@ -197,9 +197,9 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                             ),
                                             child: Align(
                                               alignment: const AlignmentDirectional(
-                                                  0.0, 0.0),
+                                                  -1.0, 0.0),
                                               child: Text(
-                                                'In this section you can see your avatar as your potential caregivers see it.',
+                                                'This is your avatar, you can choose another one in edit profile',
                                                 textAlign: TextAlign.start,
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -298,7 +298,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                             ),
                                             child: Align(
                                               alignment: const AlignmentDirectional(
-                                                  0.0, 0.0),
+                                                  -1.0, 0.0),
                                               child: Text(
                                                 'In this section you can see your photos as your potential clients do.',
                                                 textAlign: TextAlign.start,
@@ -343,7 +343,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                         ),
                                       ),
                                     ),
-                                  ].divide(const SizedBox(height: 8.0)),
+                                  ].divide(const SizedBox(height: 4.0)),
                                 ),
                               ),
                             ),
@@ -351,102 +351,96 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                         if (currentUserDocument?.rol != Roles.user)
                           Align(
                             alignment: const AlignmentDirectional(0.0, 0.0),
-                            child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 16.0, 0.0),
-                              child: AuthUserStreamWidget(
-                                builder: (context) => Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          16.0, 0.0, 16.0, 0.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            'Schedule',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Montserrat',
-                                                  color: const Color(0xFFC14BBC),
-                                                  fontSize: 15.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w600,
-                                                ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Align(
-                                      alignment:
-                                          const AlignmentDirectional(-1.0, 0.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 16.0, 0.0),
-                                            child: Container(
-                                              width: MediaQuery.sizeOf(context)
-                                                      .width *
-                                                  0.9,
-                                              height: 39.0,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
+                            child: AuthUserStreamWidget(
+                              builder: (context) => Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        16.0, 0.0, 16.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Schedule',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Montserrat',
+                                                color: const Color(0xFFC14BBC),
+                                                fontSize: 15.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w600,
                                               ),
-                                              child: Align(
-                                                alignment: const AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: Text(
-                                                  'In this section you can establish which days you work per week and at what times of the day',
-                                                  textAlign: TextAlign.start,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Montserrat',
-                                                        fontSize: 12.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                      ),
-                                                ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Align(
+                                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  16.0, 0.0, 16.0, 0.0),
+                                          child: Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                0.9,
+                                            height: 39.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                            ),
+                                            child: Align(
+                                              alignment: const AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: Text(
+                                                'In this section you can establish which days you work per week and at what times of the day',
+                                                textAlign: TextAlign.start,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Montserrat',
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
                                               ),
                                             ),
                                           ),
-                                        ],
-                                      ),
+                                        ),
+                                      ],
                                     ),
-                                    wrapWithModel(
-                                      model: _model.calendarioModel,
-                                      updateCallback: () => safeSetState(() {}),
-                                      child: CalendarioWidget(
-                                        morning: (currentUserDocument?.morning
-                                                .toList() ??
-                                            []),
-                                        noon: (currentUserDocument?.noon
-                                                .toList() ??
-                                            []),
-                                        afternoon: (currentUserDocument
-                                                ?.afternoon
-                                                .toList() ??
-                                            []),
-                                      ),
+                                  ),
+                                  wrapWithModel(
+                                    model: _model.calendarioModel,
+                                    updateCallback: () => safeSetState(() {}),
+                                    child: CalendarioWidget(
+                                      morning: (currentUserDocument?.morning
+                                              .toList() ??
+                                          []),
+                                      noon: (currentUserDocument?.noon
+                                              .toList() ??
+                                          []),
+                                      afternoon: (currentUserDocument?.afternoon
+                                              .toList() ??
+                                          []),
                                     ),
-                                  ].divide(const SizedBox(height: 8.0)),
-                                ),
+                                  ),
+                                ].divide(const SizedBox(height: 8.0)),
                               ),
                             ),
                           ),
@@ -496,7 +490,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                           alignment:
                                               const AlignmentDirectional(0.0, 0.0),
                                           child: Text(
-                                            'You can modify your username with the one you feel  most comfortable with.',
+                                            'This is your username but you can change it in edit profile as you feel more comfortable',
                                             textAlign: TextAlign.start,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
@@ -695,7 +689,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                     ],
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 8.0)),
+                              ].divide(const SizedBox(height: 4.0)),
                             ),
                           ),
                         ),
@@ -745,7 +739,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                           alignment:
                                               const AlignmentDirectional(0.0, 0.0),
                                           child: Text(
-                                            'In this section you can change your last name if it is different now.',
+                                            'This is your last name but you can change it in edit profile as you feel more comfortable',
                                             textAlign: TextAlign.start,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
@@ -903,7 +897,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                     ],
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 8.0)),
+                              ].divide(const SizedBox(height: 4.0)),
                             ),
                           ),
                         ),
@@ -1137,7 +1131,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                         ],
                                       ),
                                     ),
-                                  ].divide(const SizedBox(height: 8.0)),
+                                  ].divide(const SizedBox(height: 4.0)),
                                 ),
                               ),
                             ),
@@ -1186,9 +1180,9 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                         ),
                                         child: Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                              const AlignmentDirectional(-1.0, 0.0),
                                           child: Text(
-                                            'You can modify your phone number in case you have changed it.',
+                                            'This is your registered phone number',
                                             textAlign: TextAlign.start,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
@@ -1250,7 +1244,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                         .labelMedium
                                                         .override(
                                                           fontFamily:
-                                                              'Readex Pro',
+                                                              'Montserrat',
                                                           letterSpacing: 0.0,
                                                         ),
                                                     hintText:
@@ -1268,7 +1262,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
-                                                              'Readex Pro',
+                                                              'Montserrat',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .error,
@@ -1351,7 +1345,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                     ],
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 8.0)),
+                              ].divide(const SizedBox(height: 4.0)),
                             ),
                           ),
                         ),
@@ -1399,9 +1393,9 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                         ),
                                         child: Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                              const AlignmentDirectional(-1.0, 0.0),
                                           child: Text(
-                                            'You can change your location so you can always keep your profile updated.',
+                                            'This is your location you can modify in edit profile',
                                             textAlign: TextAlign.start,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
@@ -1513,7 +1507,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                     ],
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 8.0)),
+                              ].divide(const SizedBox(height: 4.0)),
                             ),
                           ),
                         ),
@@ -1563,7 +1557,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                           ),
                                           child: Align(
                                             alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
+                                                const AlignmentDirectional(-1.0, 0.0),
                                             child: Text(
                                               'In this section you can change your email address if it is different now.',
                                               textAlign: TextAlign.start,
@@ -1741,9 +1735,9 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                             ),
                                             child: Align(
                                               alignment: const AlignmentDirectional(
-                                                  0.0, 0.0),
+                                                  -1.0, 0.0),
                                               child: Text(
-                                                'You can modify what your service is offered to participants',
+                                                'These are your registered services that you wish to offer',
                                                 textAlign: TextAlign.start,
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -1998,7 +1992,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                         ],
                                       ),
                                     ),
-                                  ].divide(const SizedBox(height: 8.0)),
+                                  ].divide(const SizedBox(height: 4.0)),
                                 ),
                               ),
                             ),
@@ -2049,9 +2043,9 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                           ),
                                           child: Align(
                                             alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
+                                                const AlignmentDirectional(-1.0, 0.0),
                                             child: Text(
-                                              'You can modify the disability you suffer from in case you made a mistake when registering.',
+                                              'These are the disabilities you suffer from',
                                               textAlign: TextAlign.start,
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -2181,7 +2175,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                       ],
                                     ),
                                   ),
-                                ].divide(const SizedBox(height: 8.0)),
+                                ].divide(const SizedBox(height: 4.0)),
                               ),
                             ),
                           ),
@@ -2365,7 +2359,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                         ],
                                       ),
                                     ),
-                                  ].divide(const SizedBox(height: 8.0)),
+                                  ].divide(const SizedBox(height: 4.0)),
                                 ),
                               ),
                             ),
@@ -2546,7 +2540,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                     ),
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 8.0)),
+                              ].divide(const SizedBox(height: 4.0)),
                             ),
                           ),
                         if (currentUserDocument?.rol != Roles.user)
@@ -2644,7 +2638,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                         lazyLoad: false,
                                       ),
                                     ),
-                                  ].divide(const SizedBox(height: 8.0)),
+                                  ].divide(const SizedBox(height: 4.0)),
                                 ),
                               ),
                             ),
@@ -2702,7 +2696,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                           ),
                         ),
                       ]
-                          .divide(const SizedBox(height: 16.0))
+                          .divide(const SizedBox(height: 10.0))
                           .addToEnd(const SizedBox(height: 16.0)),
                     ),
                   ),

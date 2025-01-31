@@ -23,12 +23,15 @@ class V3fv0ritesv3Widget extends StatefulWidget {
     required this.profesionalId,
     bool? isCollaborator,
     bool? isReview,
+    bool? isMap,
   })  : isCollaborator = isCollaborator ?? false,
-        isReview = isReview ?? false;
+        isReview = isReview ?? false,
+        isMap = isMap ?? false;
 
   final DocumentReference? profesionalId;
   final bool isCollaborator;
   final bool isReview;
+  final bool isMap;
 
   @override
   State<V3fv0ritesv3Widget> createState() => _V3fv0ritesv3WidgetState();
@@ -563,36 +566,37 @@ class _V3fv0ritesv3WidgetState extends State<V3fv0ritesv3Widget> {
                             ),
                           ),
                         ),
-                        Align(
-                          alignment: const AlignmentDirectional(-1.0, 0.0),
-                          child: Container(
-                            decoration: const BoxDecoration(),
-                            child: Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
-                              child: FlutterFlowIconButton(
-                                borderRadius: 118.0,
-                                buttonSize: 35.0,
-                                fillColor: Colors.white,
-                                icon: const Icon(
-                                  FFIcons.kubicationplane,
-                                  color: Color(0xFFC14BBC),
-                                  size: 20.0,
+                        if (widget.isMap)
+                          Align(
+                            alignment: const AlignmentDirectional(-1.0, 0.0),
+                            child: Container(
+                              decoration: const BoxDecoration(),
+                              child: Align(
+                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                child: FlutterFlowIconButton(
+                                  borderRadius: 118.0,
+                                  buttonSize: 35.0,
+                                  fillColor: Colors.white,
+                                  icon: const Icon(
+                                    FFIcons.kubicationplane,
+                                    color: Color(0xFFC14BBC),
+                                    size: 20.0,
+                                  ),
+                                  onPressed: () async {
+                                    FFAppState().currentProfesionalUbication =
+                                        CurrentProfesionalMapStruct();
+                                    FFAppState().update(() {});
+                                    FFAppState().currentProfesionalUbication =
+                                        CurrentProfesionalMapStruct(
+                                      sub: containerUsersRecord.suburb,
+                                      id: widget.profesionalId,
+                                    );
+                                    FFAppState().update(() {});
+                                  },
                                 ),
-                                onPressed: () async {
-                                  FFAppState().currentProfesionalUbication =
-                                      CurrentProfesionalMapStruct();
-                                  FFAppState().update(() {});
-                                  FFAppState().currentProfesionalUbication =
-                                      CurrentProfesionalMapStruct(
-                                    sub: containerUsersRecord.suburb,
-                                    id: widget.profesionalId,
-                                  );
-                                  FFAppState().update(() {});
-                                },
                               ),
                             ),
                           ),
-                        ),
                         if (!widget.isCollaborator)
                           Align(
                             alignment: const AlignmentDirectional(0.0, 0.0),

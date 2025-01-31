@@ -184,6 +184,12 @@ class FFAppState extends ChangeNotifier {
     updateFn(_currentProfesionalUbication);
   }
 
+  bool _isCreatedProfesional = false;
+  bool get isCreatedProfesional => _isCreatedProfesional;
+  set isCreatedProfesional(bool value) {
+    _isCreatedProfesional = value;
+  }
+
   final _userDocQueryManager = FutureRequestManager<UsersRecord>();
   Future<UsersRecord> userDocQuery({
     String? uniqueQueryKey,

@@ -258,6 +258,7 @@ class _AvatarsWidgetState extends State<AvatarsWidget> {
                                     paymentDate: getCurrentTimestamp,
                                     freeTrial: true,
                                     displayName: '',
+                                    abn: FFAppState().registerProviderForm.abn,
                                   ),
                                   ...mapToFirestore(
                                     {

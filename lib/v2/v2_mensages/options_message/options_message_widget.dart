@@ -71,7 +71,7 @@ class _OptionsMessageWidgetState extends State<OptionsMessageWidget> {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               InkWell(
                 splashColor: Colors.transparent,
@@ -125,39 +125,47 @@ class _OptionsMessageWidgetState extends State<OptionsMessageWidget> {
                   color: Color(0xFFBDBDBD),
                 ),
               if (currentUserDocument?.rol == Roles.user)
-                InkWell(
-                  splashColor: Colors.transparent,
-                  focusColor: Colors.transparent,
-                  hoverColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  onTap: () async {
-                    context.pushNamed(
-                      'ProfileInfo',
-                      queryParameters: {
-                        'professional': serializeParam(
-                          widget.userRef?.reference,
-                          ParamType.DocumentReference,
+                Align(
+                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                  child: InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      context.pushNamed(
+                        'ProfileInfo',
+                        queryParameters: {
+                          'professional': serializeParam(
+                            widget.userRef?.reference,
+                            ParamType.DocumentReference,
+                          ),
+                        }.withoutNulls,
+                      );
+                    },
+                    child: Row(
+                      key: const ValueKey('view'),
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Align(
+                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          child: Text(
+                            'View Profile',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  color: const Color(0xFF0F0E0F),
+                                  fontSize: 18.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                          ),
                         ),
-                      }.withoutNulls,
-                    );
-                  },
-                  child: Row(
-                    key: const ValueKey('view'),
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        'View Profile',
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Montserrat',
-                              color: const Color(0xFF0F0E0F),
-                              fontSize: 18.0,
-                              letterSpacing: 0.0,
-                              fontWeight: FontWeight.w500,
-                            ),
-                      ),
-                    ].addToStart(const SizedBox(width: 16.0)),
+                      ].addToStart(const SizedBox(width: 16.0)),
+                    ),
                   ),
                 ),
               const Divider(
@@ -187,18 +195,21 @@ class _OptionsMessageWidgetState extends State<OptionsMessageWidget> {
                 child: Row(
                   key: const ValueKey('report'),
                   mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Text(
-                      'Report User',
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Montserrat',
-                            fontSize: 18.0,
-                            letterSpacing: 0.0,
-                            fontWeight: FontWeight.w500,
-                          ),
+                    Align(
+                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      child: Text(
+                        'Report User',
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Montserrat',
+                              fontSize: 18.0,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.w500,
+                            ),
+                      ),
                     ),
-                  ],
+                  ].addToStart(const SizedBox(width: 16.0)),
                 ),
               ),
             ].addToStart(const SizedBox(height: 16.0)),

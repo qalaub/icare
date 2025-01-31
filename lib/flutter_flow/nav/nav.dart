@@ -563,6 +563,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   ParamType.String,
                 ),
               ),
+            ),
+            FFRoute(
+              name: 'RegisterPfofesional5',
+              path: 'registerPfofesional5',
+              builder: (context, params) => RegisterPfofesional5Widget(
+                isProfesional: params.getParam(
+                  'isProfesional',
+                  ParamType.bool,
+                ),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

@@ -1186,7 +1186,8 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                           .verifyForm
                                                           .same ==
                                                       true) &&
-                                                  _model.formV!) {
+                                                  _model.formV! &&
+                                                  (_model.dropDownValue!.isNotEmpty)) {
                                                 FFAppState().verifyForm =
                                                     FormVerifyStruct();
                                                 FFAppState().counter = 0;

@@ -691,6 +691,9 @@ class _RegisterPfofesional4WidgetState
                                                           getCurrentTimestamp,
                                                       freeTrial: true,
                                                       displayName: '',
+                                                      abn: FFAppState()
+                                                          .registerProviderForm
+                                                          .abn,
                                                     ),
                                                     ...mapToFirestore(
                                                       {
@@ -729,18 +732,14 @@ class _RegisterPfofesional4WidgetState
                                                         },
                                                       ),
                                                     });
+                                                    FFAppState()
+                                                            .isCreatedProfesional =
+                                                        true;
+                                                    safeSetState(() {});
 
                                                     context.goNamedAuth(
-                                                      'HomeSearch',
-                                                      context.mounted,
-                                                      queryParameters: {
-                                                        'authUser':
-                                                            serializeParam(
-                                                          true,
-                                                          ParamType.bool,
-                                                        ),
-                                                      }.withoutNulls,
-                                                    );
+                                                        'RegisterPfofesional5',
+                                                        context.mounted);
                                                   } else {
                                                     final paymentResponse =
                                                         await processStripePayment(
@@ -811,19 +810,14 @@ class _RegisterPfofesional4WidgetState
                                                       FFAppState()
                                                               .authUserFireBase =
                                                           true;
+                                                      FFAppState()
+                                                              .isCreatedProfesional =
+                                                          true;
                                                       safeSetState(() {});
 
                                                       context.goNamedAuth(
-                                                        'HomeSearch',
-                                                        context.mounted,
-                                                        queryParameters: {
-                                                          'authUser':
-                                                              serializeParam(
-                                                            true,
-                                                            ParamType.bool,
-                                                          ),
-                                                        }.withoutNulls,
-                                                      );
+                                                          'RegisterPfofesional5',
+                                                          context.mounted);
                                                     } else {
                                                       await authManager
                                                           .deleteUser(context);

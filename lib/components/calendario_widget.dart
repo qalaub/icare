@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
 import 'calendario_model.dart';
 export 'calendario_model.dart';
@@ -34,6 +35,17 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => CalendarioModel());
+
+    // On component load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      FFAppState().updateRegisterProviderFormStruct(
+        (e) => e
+          ..morning = widget.morning!.toList()
+          ..noon = widget.noon!.toList()
+          ..afternoon = widget.afternoon!.toList(),
+      );
+      safeSetState(() {});
+    });
   }
 
   @override
@@ -56,6 +68,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
           borderRadius: BorderRadius.circular(20.0),
         ),
         child: Container(
+          width: 320.0,
           height: 190.0,
           constraints: const BoxConstraints(
             minHeight: 190.0,
@@ -164,7 +177,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                 ),
               ),
               Container(
-                width: MediaQuery.sizeOf(context).width * 0.5,
+                width: MediaQuery.sizeOf(context).width * 0.48,
                 height: 190.0,
                 constraints: const BoxConstraints(
                   minWidth: 200.0,

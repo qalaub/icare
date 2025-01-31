@@ -45,6 +45,11 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       currentUserLocationValue =
           await getCurrentUserLocation(defaultLocation: const LatLng(0.0, 0.0));
+      if (FFAppState().isCreatedProfesional) {
+        FFAppState().isCreatedProfesional = false;
+
+        context.pushNamed('RegisterPfofesional5');
+      }
       if (!(await getPermissionStatus(locationPermission))) {
         FFAppState().registerProviderForm =
             RegisterProviderTypeStruct.fromSerializableMap(jsonDecode(
@@ -250,6 +255,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
                                                 profesionalId:
                                                     containerVarItem.reference,
                                                 isReview: false,
+                                                isMap: true,
                                               );
                                             },
                                           );

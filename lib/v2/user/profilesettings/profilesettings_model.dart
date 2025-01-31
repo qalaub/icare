@@ -10,6 +10,7 @@ import '/v2/professional/imagenesfotos_users/imagenesfotos_users_widget.dart';
 import '/v2/user/upload_profile_image/upload_profile_image_widget.dart';
 import 'profilesettings_widget.dart' show ProfilesettingsWidget;
 import 'package:flutter/material.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class ProfilesettingsModel extends FlutterFlowModel<ProfilesettingsWidget> {
   ///  Local state fields for this page.
@@ -69,14 +70,19 @@ class ProfilesettingsModel extends FlutterFlowModel<ProfilesettingsWidget> {
   FocusNode? phoneFocusNode;
   TextEditingController? phoneTextController;
   String? Function(BuildContext, String?)? phoneTextControllerValidator;
+  // State field(s) for date widget.
+  FocusNode? dateFocusNode;
+  TextEditingController? dateTextController;
+  final dateMask = MaskTextInputFormatter(mask: '##/##/####');
+  String? Function(BuildContext, String?)? dateTextControllerValidator;
   // State field(s) for abn widget.
   FocusNode? abnFocusNode;
   TextEditingController? abnTextController;
   String? Function(BuildContext, String?)? abnTextControllerValidator;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
-  TextEditingController? textController5;
-  String? Function(BuildContext, String?)? textController5Validator;
+  TextEditingController? textController6;
+  String? Function(BuildContext, String?)? textController6Validator;
   // State field(s) for query widget.
   FocusNode? queryFocusNode;
   TextEditingController? queryTextController;
@@ -142,11 +148,14 @@ class ProfilesettingsModel extends FlutterFlowModel<ProfilesettingsWidget> {
     phoneFocusNode?.dispose();
     phoneTextController?.dispose();
 
+    dateFocusNode?.dispose();
+    dateTextController?.dispose();
+
     abnFocusNode?.dispose();
     abnTextController?.dispose();
 
     textFieldFocusNode?.dispose();
-    textController5?.dispose();
+    textController6?.dispose();
 
     queryFocusNode?.dispose();
     queryTextController?.dispose();
