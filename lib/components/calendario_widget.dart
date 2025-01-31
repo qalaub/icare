@@ -250,11 +250,9 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                               .alternate,
                                     ),
                                     child: Checkbox(
-                                      value: _model.checkboxValue1 ??=
-                                          FFAppState()
-                                              .registerProviderForm
-                                              .morning
-                                              .elementAtOrNull(0)!,
+                                      value: _model.checkboxValue1 ??= (widget
+                                          .morning!
+                                          .elementAtOrNull(0))!,
                                       onChanged: _model.trueS
                                           ? null
                                           : (newValue) async {
@@ -309,10 +307,8 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                               .alternate,
                                     ),
                                     child: Checkbox(
-                                      value: _model.noonValue1 ??= FFAppState()
-                                          .registerProviderForm
-                                          .noon
-                                          .elementAtOrNull(0)!,
+                                      value: _model.noonValue1 ??=
+                                          (widget.noon!.elementAtOrNull(0))!,
                                       onChanged: _model.trueS
                                           ? null
                                           : (newValue) async {
@@ -367,11 +363,9 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                               .alternate,
                                     ),
                                     child: Checkbox(
-                                      value: _model.afternoonValue1 ??=
-                                          FFAppState()
-                                              .registerProviderForm
-                                              .afternoon
-                                              .elementAtOrNull(0)!,
+                                      value: _model.afternoonValue1 ??= (widget
+                                          .afternoon!
+                                          .elementAtOrNull(0))!,
                                       onChanged: _model.trueS
                                           ? null
                                           : (newValue) async {
@@ -461,11 +455,9 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                               .alternate,
                                     ),
                                     child: Checkbox(
-                                      value: _model.checkboxValue2 ??=
-                                          FFAppState()
-                                              .registerProviderForm
-                                              .morning
-                                              .elementAtOrNull(1)!,
+                                      value: _model.checkboxValue2 ??= (widget
+                                          .morning!
+                                          .elementAtOrNull(1))!,
                                       onChanged: _model.trueS
                                           ? null
                                           : (newValue) async {
@@ -520,10 +512,8 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                               .alternate,
                                     ),
                                     child: Checkbox(
-                                      value: _model.noonValue2 ??= FFAppState()
-                                          .registerProviderForm
-                                          .noon
-                                          .elementAtOrNull(1)!,
+                                      value: _model.noonValue2 ??=
+                                          (widget.noon!.elementAtOrNull(1))!,
                                       onChanged: _model.trueS
                                           ? null
                                           : (newValue) async {
@@ -578,11 +568,9 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                               .alternate,
                                     ),
                                     child: Checkbox(
-                                      value: _model.afternoonValue2 ??=
-                                          FFAppState()
-                                              .registerProviderForm
-                                              .afternoon
-                                              .elementAtOrNull(1)!,
+                                      value: _model.afternoonValue2 ??= (widget
+                                          .afternoon!
+                                          .elementAtOrNull(1))!,
                                       onChanged: _model.trueS
                                           ? null
                                           : (newValue) async {
@@ -672,11 +660,9 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                               .alternate,
                                     ),
                                     child: Checkbox(
-                                      value: _model.checkboxValue3 ??=
-                                          FFAppState()
-                                              .registerProviderForm
-                                              .morning
-                                              .elementAtOrNull(2)!,
+                                      value: _model.checkboxValue3 ??= (widget
+                                          .morning!
+                                          .elementAtOrNull(2))!,
                                       onChanged: _model.trueS
                                           ? null
                                           : (newValue) async {
@@ -731,10 +717,8 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                               .alternate,
                                     ),
                                     child: Checkbox(
-                                      value: _model.noonValue3 ??= FFAppState()
-                                          .registerProviderForm
-                                          .noon
-                                          .elementAtOrNull(2)!,
+                                      value: _model.noonValue3 ??=
+                                          (widget.noon!.elementAtOrNull(2))!,
                                       onChanged: _model.trueS
                                           ? null
                                           : (newValue) async {
@@ -789,11 +773,9 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                               .alternate,
                                     ),
                                     child: Checkbox(
-                                      value: _model.afternoonValue3 ??=
-                                          FFAppState()
-                                              .registerProviderForm
-                                              .afternoon
-                                              .elementAtOrNull(2)!,
+                                      value: _model.afternoonValue3 ??= (widget
+                                          .afternoon!
+                                          .elementAtOrNull(2))!,
                                       onChanged: _model.trueS
                                           ? null
                                           : (newValue) async {
@@ -883,11 +865,9 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                               .alternate,
                                     ),
                                     child: Checkbox(
-                                      value: _model.checkboxValue4 ??=
-                                          FFAppState()
-                                              .registerProviderForm
-                                              .morning
-                                              .elementAtOrNull(3)!,
+                                      value: _model.checkboxValue4 ??= (widget
+                                          .morning!
+                                          .elementAtOrNull(3))!,
                                       onChanged: _model.trueS
                                           ? null
                                           : (newValue) async {
@@ -942,10 +922,8 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                               .alternate,
                                     ),
                                     child: Checkbox(
-                                      value: _model.noonValue4 ??= FFAppState()
-                                          .registerProviderForm
-                                          .noon
-                                          .elementAtOrNull(3)!,
+                                      value: _model.noonValue4 ??=
+                                          (widget.noon!.elementAtOrNull(3))!,
                                       onChanged: _model.trueS
                                           ? null
                                           : (newValue) async {
@@ -1000,11 +978,9 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                               .alternate,
                                     ),
                                     child: Checkbox(
-                                      value: _model.afternoonValue4 ??=
-                                          FFAppState()
-                                              .registerProviderForm
-                                              .afternoon
-                                              .elementAtOrNull(3)!,
+                                      value: _model.afternoonValue4 ??= (widget
+                                          .afternoon!
+                                          .elementAtOrNull(3))!,
                                       onChanged: _model.trueS
                                           ? null
                                           : (newValue) async {
@@ -1095,11 +1071,9 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                               .alternate,
                                     ),
                                     child: Checkbox(
-                                      value: _model.checkboxValue5 ??=
-                                          FFAppState()
-                                              .registerProviderForm
-                                              .morning
-                                              .elementAtOrNull(4)!,
+                                      value: _model.checkboxValue5 ??= (widget
+                                          .morning!
+                                          .elementAtOrNull(4))!,
                                       onChanged: _model.trueS
                                           ? null
                                           : (newValue) async {
@@ -1154,10 +1128,8 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                               .alternate,
                                     ),
                                     child: Checkbox(
-                                      value: _model.noonValue5 ??= FFAppState()
-                                          .registerProviderForm
-                                          .noon
-                                          .elementAtOrNull(4)!,
+                                      value: _model.noonValue5 ??=
+                                          (widget.noon!.elementAtOrNull(4))!,
                                       onChanged: _model.trueS
                                           ? null
                                           : (newValue) async {
@@ -1212,11 +1184,9 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                               .alternate,
                                     ),
                                     child: Checkbox(
-                                      value: _model.afternoonValue5 ??=
-                                          FFAppState()
-                                              .registerProviderForm
-                                              .afternoon
-                                              .elementAtOrNull(4)!,
+                                      value: _model.afternoonValue5 ??= (widget
+                                          .afternoon!
+                                          .elementAtOrNull(4))!,
                                       onChanged: _model.trueS
                                           ? null
                                           : (newValue) async {
@@ -1306,11 +1276,9 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                               .alternate,
                                     ),
                                     child: Checkbox(
-                                      value: _model.checkboxValue6 ??=
-                                          FFAppState()
-                                              .registerProviderForm
-                                              .morning
-                                              .elementAtOrNull(5)!,
+                                      value: _model.checkboxValue6 ??= (widget
+                                          .morning!
+                                          .elementAtOrNull(5))!,
                                       onChanged: _model.trueS
                                           ? null
                                           : (newValue) async {
@@ -1365,10 +1333,8 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                               .alternate,
                                     ),
                                     child: Checkbox(
-                                      value: _model.noonValue6 ??= FFAppState()
-                                          .registerProviderForm
-                                          .noon
-                                          .elementAtOrNull(5)!,
+                                      value: _model.noonValue6 ??=
+                                          (widget.noon!.elementAtOrNull(5))!,
                                       onChanged: _model.trueS
                                           ? null
                                           : (newValue) async {
@@ -1423,11 +1389,9 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                               .alternate,
                                     ),
                                     child: Checkbox(
-                                      value: _model.afternoonValue6 ??=
-                                          FFAppState()
-                                              .registerProviderForm
-                                              .afternoon
-                                              .elementAtOrNull(5)!,
+                                      value: _model.afternoonValue6 ??= (widget
+                                          .afternoon!
+                                          .elementAtOrNull(5))!,
                                       onChanged: _model.trueS
                                           ? null
                                           : (newValue) async {
@@ -1517,11 +1481,9 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                               .alternate,
                                     ),
                                     child: Checkbox(
-                                      value: _model.checkboxValue7 ??=
-                                          FFAppState()
-                                              .registerProviderForm
-                                              .morning
-                                              .elementAtOrNull(6)!,
+                                      value: _model.checkboxValue7 ??= (widget
+                                          .morning!
+                                          .elementAtOrNull(6))!,
                                       onChanged: _model.trueS
                                           ? null
                                           : (newValue) async {
@@ -1576,10 +1538,8 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                               .alternate,
                                     ),
                                     child: Checkbox(
-                                      value: _model.noonValue7 ??= FFAppState()
-                                          .registerProviderForm
-                                          .noon
-                                          .elementAtOrNull(6)!,
+                                      value: _model.noonValue7 ??=
+                                          (widget.noon!.elementAtOrNull(6))!,
                                       onChanged: _model.trueS
                                           ? null
                                           : (newValue) async {
@@ -1634,11 +1594,9 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                               .alternate,
                                     ),
                                     child: Checkbox(
-                                      value: _model.afternoonValue7 ??=
-                                          FFAppState()
-                                              .registerProviderForm
-                                              .afternoon
-                                              .elementAtOrNull(6)!,
+                                      value: _model.afternoonValue7 ??= (widget
+                                          .afternoon!
+                                          .elementAtOrNull(6))!,
                                       onChanged: _model.trueS
                                           ? null
                                           : (newValue) async {

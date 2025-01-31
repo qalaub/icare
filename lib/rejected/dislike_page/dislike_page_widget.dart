@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/rejected/user_skip/user_skip_widget.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'dislike_page_model.dart';
@@ -86,9 +87,11 @@ class _DislikePageWidgetState extends State<DislikePageWidget> {
                     ),
                     child: Builder(
                       builder: (context) {
-                        final usersSkip =
-                            (currentUserDocument?.dontShow.toList() ?? [])
-                                .toList();
+                        final usersSkip = functions
+                            .reverseArray(
+                                (currentUserDocument?.dontShow.toList() ?? [])
+                                    .toList())
+                            .toList();
 
                         return ListView.separated(
                           padding: EdgeInsets.zero,

@@ -467,3 +467,7 @@ int doubleToInt(double number) {
   // double to int
   return number.toInt();
 }
+
+List<DocumentReference> reverseArray(List<DocumentReference> users) {
+  return users.reversed.toList();
+}
