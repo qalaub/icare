@@ -3440,7 +3440,10 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                         _model.lastNameTextController.text,
                                     photoUrl: _model.phoneTextController.text,
                                     birthdate: functions.convertStringToDate(
-                                        _model.dateTextController.text),
+                                        valueOrDefault<String>(
+                                      _model.dateTextController.text,
+                                      '01/01/2000',
+                                    )),
                                     phoneNumber:
                                         _model.phoneTextController.text,
                                   ),
