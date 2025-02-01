@@ -70,6 +70,7 @@ class _RegisterPfofesional5WidgetState
                     ),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Expanded(
                           child: Stack(
@@ -143,6 +144,8 @@ class _RegisterPfofesional5WidgetState
                                   child: SingleChildScrollView(
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
                                       children: [
                                         Align(
                                           alignment:
@@ -207,10 +210,14 @@ class _RegisterPfofesional5WidgetState
                                         Padding(
                                           padding:
                                               const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 30.0, 0.0, 0.0),
+                                                  0.0, 10.0, 0.0, 0.0),
                                           child: Container(
-                                            width: 350.0,
-                                            height: 210.0,
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                0.9,
+                                            height: MediaQuery.sizeOf(context)
+                                                    .height *
+                                                0.251,
                                             decoration: BoxDecoration(
                                               color: const Color(0xFFFFFEFE),
                                               borderRadius:
@@ -223,21 +230,37 @@ class _RegisterPfofesional5WidgetState
                                             child: Align(
                                               alignment: const AlignmentDirectional(
                                                   0.0, 0.0),
-                                              child: FlutterFlowVideoPlayer(
-                                                path: _model.video != null &&
-                                                        _model.video != ''
-                                                    ? _model.video!
-                                                    : 'https://assets.mixkit.co/videos/51585/51585-720.mp4',
-                                                videoType: VideoType.network,
-                                                width: 417.7,
-                                                height: 250.0,
-                                                aspectRatio: 1.7,
-                                                autoPlay: false,
-                                                looping: false,
-                                                showControls: true,
-                                                allowFullScreen: false,
-                                                allowPlaybackSpeedMenu: false,
-                                                lazyLoad: false,
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Align(
+                                                    alignment:
+                                                        const AlignmentDirectional(
+                                                            0.0, 0.0),
+                                                    child:
+                                                        FlutterFlowVideoPlayer(
+                                                      path: _model.video !=
+                                                                  null &&
+                                                              _model.video != ''
+                                                          ? _model.video!
+                                                          : 'https://assets.mixkit.co/videos/51585/51585-720.mp4',
+                                                      videoType:
+                                                          VideoType.network,
+                                                      width: 417.7,
+                                                      height: 250.0,
+                                                      aspectRatio: 1.7,
+                                                      autoPlay: false,
+                                                      looping: false,
+                                                      showControls: true,
+                                                      allowFullScreen: false,
+                                                      allowPlaybackSpeedMenu:
+                                                          false,
+                                                      lazyLoad: false,
+                                                    ),
+                                                  ),
+                                                ],
                                               ),
                                             ),
                                           ),
@@ -536,7 +559,9 @@ class _RegisterPfofesional5WidgetState
                                             ),
                                           ),
                                         ),
-                                      ],
+                                      ]
+                                          .addToStart(const SizedBox(height: 10.0))
+                                          .addToEnd(const SizedBox(height: 16.0)),
                                     ),
                                   ),
                                 ),

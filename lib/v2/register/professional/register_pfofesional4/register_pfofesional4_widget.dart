@@ -132,12 +132,12 @@ class _RegisterPfofesional4WidgetState
                                 ),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(0.0, 0.4),
+                                alignment: const AlignmentDirectional(0.0, 0.3),
                                 child: Container(
                                   width:
                                       MediaQuery.sizeOf(context).width * 0.96,
                                   height:
-                                      MediaQuery.sizeOf(context).height * 0.7,
+                                      MediaQuery.sizeOf(context).height * 0.65,
                                   decoration: BoxDecoration(
                                     color: const Color(0xFFFFFEFE),
                                     borderRadius: const BorderRadius.only(
@@ -593,7 +593,7 @@ class _RegisterPfofesional4WidgetState
                                           child: Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 10.0, 0.0, 10.0),
+                                                    0.0, 20.0, 0.0, 10.0),
                                             child: FFButtonWidget(
                                               onPressed: () async {
                                                 if (FFAppState()

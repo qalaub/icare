@@ -258,10 +258,17 @@ class _V3fv0ritesv3WidgetState extends State<V3fv0ritesv3Widget> {
                               child: Align(
                                 alignment: const AlignmentDirectional(-1.0, 0.0),
                                 child: Text(
-                                  functions.upperCaseFirstLetter(
-                                      containerUsersRecord.rol == Roles.business
-                                          ? containerUsersRecord.comapny
-                                          : containerUsersRecord.firtsName),
+                                  functions
+                                      .upperCaseFirstLetter(
+                                          containerUsersRecord.rol ==
+                                                  Roles.business
+                                              ? containerUsersRecord.comapny
+                                              : containerUsersRecord.firtsName)
+                                      .maybeHandleOverflow(
+                                        maxChars: 10,
+                                        replacement: '…',
+                                      ),
+                                  maxLines: 1,
                                   style: FlutterFlowTheme.of(context)
                                       .headlineLarge
                                       .override(

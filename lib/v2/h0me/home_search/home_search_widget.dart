@@ -46,9 +46,11 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
       currentUserLocationValue =
           await getCurrentUserLocation(defaultLocation: const LatLng(0.0, 0.0));
       if (FFAppState().isCreatedProfesional) {
-        FFAppState().isCreatedProfesional = false;
+        if (currentUserDocument?.rol != Roles.user) {
+          FFAppState().isCreatedProfesional = false;
 
-        context.pushNamed('RegisterPfofesional5');
+          context.pushNamed('RegisterPfofesional5');
+        }
       }
       if (!(await getPermissionStatus(locationPermission))) {
         FFAppState().registerProviderForm =
