@@ -14,6 +14,9 @@ export 'fav_v2_model.dart';
 class FavV2Widget extends StatefulWidget {
   const FavV2Widget({super.key});
 
+  static String routeName = 'favV2';
+  static String routePath = 'favV2';
+
   @override
   State<FavV2Widget> createState() => _FavV2WidgetState();
 }
@@ -42,14 +45,14 @@ class _FavV2WidgetState extends State<FavV2Widget> {
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: AppBar(
-        backgroundColor: const Color(0xFFBD39BA),
+        backgroundColor: Color(0xFFBD39BA),
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
           borderColor: Colors.transparent,
           borderRadius: 30.0,
           borderWidth: 1.0,
           buttonSize: 60.0,
-          icon: const FaIcon(
+          icon: FaIcon(
             FontAwesomeIcons.angleLeft,
             color: Colors.white,
             size: 30.0,
@@ -62,13 +65,13 @@ class _FavV2WidgetState extends State<FavV2Widget> {
           'Favorites',
           style: FlutterFlowTheme.of(context).headlineMedium.override(
                 fontFamily: 'Montserrat',
-                color: const Color(0xFFEFECF3),
+                color: Color(0xFFEFECF3),
                 fontSize: 25.0,
                 letterSpacing: 0.0,
                 fontWeight: FontWeight.bold,
               ),
         ),
-        actions: const [],
+        actions: [],
         centerTitle: true,
         elevation: 2.0,
       ),
@@ -94,7 +97,7 @@ class _FavV2WidgetState extends State<FavV2Widget> {
                     constraints: BoxConstraints(
                       maxHeight: MediaQuery.sizeOf(context).height * 0.75,
                     ),
-                    decoration: const BoxDecoration(),
+                    decoration: BoxDecoration(),
                     child: SingleChildScrollView(
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
@@ -115,7 +118,7 @@ class _FavV2WidgetState extends State<FavV2Widget> {
                                         .toList();
 
                                 return ListView.separated(
-                                  padding: const EdgeInsets.fromLTRB(
+                                  padding: EdgeInsets.fromLTRB(
                                     0,
                                     16.0,
                                     0,
@@ -126,7 +129,7 @@ class _FavV2WidgetState extends State<FavV2Widget> {
                                   scrollDirection: Axis.vertical,
                                   itemCount: userList.length,
                                   separatorBuilder: (_, __) =>
-                                      const SizedBox(height: 16.0),
+                                      SizedBox(height: 16.0),
                                   itemBuilder: (context, userListIndex) {
                                     final userListItem =
                                         userList[userListIndex];
@@ -145,10 +148,10 @@ class _FavV2WidgetState extends State<FavV2Widget> {
                     ),
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(0.0, 1.0),
+                    alignment: AlignmentDirectional(0.0, 1.0),
                     child: Container(
                       height: 69.0,
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                         color: Color(0xB3B928B8),
                       ),
                       child: Builder(
@@ -157,13 +160,13 @@ class _FavV2WidgetState extends State<FavV2Widget> {
                             return wrapWithModel(
                               model: _model.navbarModel,
                               updateCallback: () => safeSetState(() {}),
-                              child: const NavbarWidget(),
+                              child: NavbarWidget(),
                             );
                           } else {
                             return wrapWithModel(
                               model: _model.navbarPremiunModel,
                               updateCallback: () => safeSetState(() {}),
-                              child: const NavbarPremiunWidget(),
+                              child: NavbarPremiunWidget(),
                             );
                           }
                         },

@@ -1,3 +1,4 @@
+import '';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
@@ -9,6 +10,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/v2/user/mapbuscar/mapbuscar_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/random_data_util.dart' as random_data;
+import '/index.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -20,6 +22,9 @@ export 'register_user1_model.dart';
 
 class RegisterUser1Widget extends StatefulWidget {
   const RegisterUser1Widget({super.key});
+
+  static String routeName = 'RegisterUser1';
+  static String routePath = 'registerUser1';
 
   @override
   State<RegisterUser1Widget> createState() => _RegisterUser1WidgetState();
@@ -64,11 +69,11 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
     _model.dateTextController ??= TextEditingController();
     _model.dateFocusNode ??= FocusNode();
 
-    _model.emailTextController1 ??= TextEditingController();
-    _model.emailFocusNode1 ??= FocusNode();
+    _model.email2TextController ??= TextEditingController();
+    _model.email2FocusNode ??= FocusNode();
 
-    _model.emailTextController2 ??= TextEditingController();
-    _model.emailFocusNode2 ??= FocusNode();
+    _model.emailconfirm2TextController ??= TextEditingController();
+    _model.emailconfirm2FocusNode ??= FocusNode();
 
     _model.phoneTextController ??= TextEditingController();
     _model.phoneFocusNode ??= FocusNode();
@@ -84,8 +89,8 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, -11.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, -11.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -96,8 +101,8 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, -11.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, -11.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -108,8 +113,8 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, -11.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, -11.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -120,8 +125,8 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, -11.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, -11.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -148,11 +153,11 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(0.0),
+          preferredSize: Size.fromHeight(0.0),
           child: AppBar(
-            backgroundColor: const Color(0xFFFFFEFE),
+            backgroundColor: Color(0xFFFFFEFE),
             automaticallyImplyLeading: false,
-            actions: const [],
+            actions: [],
             centerTitle: false,
             toolbarHeight: 0.0,
             elevation: 0.0,
@@ -177,7 +182,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                         child: Stack(
                           children: [
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(0.0),
                                 child: Image.asset(
@@ -189,12 +194,12 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(-0.91, -0.96),
+                              alignment: AlignmentDirectional(-0.91, -0.96),
                               child: FlutterFlowIconButton(
                                 borderRadius: 20.0,
                                 borderWidth: 1.0,
                                 buttonSize: 40.0,
-                                icon: const Icon(
+                                icon: Icon(
                                   Icons.arrow_back_ios_new,
                                   color: Color(0xFFEEEBEB),
                                   size: 24.0,
@@ -205,9 +210,9 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.0, -1.0),
+                              alignment: AlignmentDirectional(0.0, -1.0),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 6.0, 0.0, 0.0),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(8.0),
@@ -221,13 +226,13 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 0.3),
+                              alignment: AlignmentDirectional(0.0, 0.3),
                               child: Container(
                                 width: MediaQuery.sizeOf(context).width * 0.96,
                                 height: MediaQuery.sizeOf(context).height * 0.7,
                                 decoration: BoxDecoration(
-                                  color: const Color(0xFFFFFEFE),
-                                  borderRadius: const BorderRadius.only(
+                                  color: Color(0xFFFFFEFE),
+                                  borderRadius: BorderRadius.only(
                                     bottomLeft: Radius.circular(24.0),
                                     bottomRight: Radius.circular(24.0),
                                     topLeft: Radius.circular(24.0),
@@ -248,10 +253,10 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                       children: [
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, -1.0),
+                                              AlignmentDirectional(0.0, -1.0),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 10.0, 0.0, 0.0),
                                             child: Text(
                                               'Create Account',
@@ -261,7 +266,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                   .bodyMedium
                                                   .override(
                                                     fontFamily: 'Montserrat',
-                                                    color: const Color(0xFF8E058A),
+                                                    color: Color(0xFF8E058A),
                                                     fontSize: 20.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
@@ -271,32 +276,33 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 10.0, 0.0, 0.0),
                                             child: Container(
                                               width: 327.0,
                                               height: 1.0,
                                               decoration: BoxDecoration(
-                                                color: const Color(0xFFF0DFEF),
+                                                color: Color(0xFFF0DFEF),
                                                 border: Border.all(
-                                                  color: const Color(0xFFF0DFEF),
+                                                  color: Color(0xFFF0DFEF),
                                                 ),
                                               ),
                                             ),
                                           ),
                                         ),
                                         Align(
-                                          alignment: const AlignmentDirectional(
+                                          alignment: AlignmentDirectional(
                                               -0.84, -0.73),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 15.0, 0.0, 15.0),
                                             child: Text(
                                               '* First name',
+                                              textAlign: TextAlign.start,
                                               style: FlutterFlowTheme.of(
                                                       context)
                                                   .bodyMedium
@@ -311,14 +317,14 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                           ),
                                         ),
                                         Align(
-                                          alignment: const AlignmentDirectional(
+                                          alignment: AlignmentDirectional(
                                               -0.01, -0.69),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
                                                 0.8,
                                             height: 70.0,
-                                            decoration: const BoxDecoration(
+                                            decoration: BoxDecoration(
                                               color: Color(0xFFFFFEFE),
                                               borderRadius: BorderRadius.only(
                                                 bottomLeft:
@@ -330,14 +336,20 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                               ),
                                             ),
                                             child: Align(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   0.0, -1.0),
                                               child: TextFormField(
-                                                key: const ValueKey('firstName'),
+                                                key: ValueKey('firstName'),
                                                 controller: _model
                                                     .firstNameTextController,
                                                 focusNode:
                                                     _model.firstNameFocusNode,
+                                                onChanged: (_) =>
+                                                    EasyDebounce.debounce(
+                                                  '_model.firstNameTextController',
+                                                  Duration(milliseconds: 10),
+                                                  () => safeSetState(() {}),
+                                                ),
                                                 autofocus: true,
                                                 textCapitalization:
                                                     TextCapitalization.words,
@@ -353,6 +365,8 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                 'Readex Pro',
                                                             letterSpacing: 0.0,
                                                           ),
+                                                  hintText:
+                                                      'Do not leave this field empty',
                                                   hintStyle:
                                                       FlutterFlowTheme.of(
                                                               context)
@@ -377,9 +391,9 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                       ),
                                                   enabledBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: const BorderSide(
+                                                    borderSide: BorderSide(
                                                       color: Color(0xFFBB33B9),
-                                                      width: 0.0,
+                                                      width: 2.0,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
@@ -387,9 +401,9 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                   ),
                                                   focusedBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: const BorderSide(
+                                                    borderSide: BorderSide(
                                                       color: Color(0xFF762075),
-                                                      width: 0.0,
+                                                      width: 2.0,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
@@ -402,7 +416,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .error,
-                                                      width: 0.0,
+                                                      width: 2.0,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
@@ -415,7 +429,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .error,
-                                                      width: 0.0,
+                                                      width: 2.0,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
@@ -442,11 +456,11 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                           ),
                                         ),
                                         Align(
-                                          alignment: const AlignmentDirectional(
+                                          alignment: AlignmentDirectional(
                                               -0.84, -0.73),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 15.0, 0.0, 15.0),
                                             child: Text(
                                               '* Last name',
@@ -464,14 +478,14 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                           ),
                                         ),
                                         Align(
-                                          alignment: const AlignmentDirectional(
+                                          alignment: AlignmentDirectional(
                                               -0.01, -0.69),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
                                                 0.8,
                                             height: 70.0,
-                                            decoration: const BoxDecoration(
+                                            decoration: BoxDecoration(
                                               color: Color(0xFFFFFEFE),
                                               borderRadius: BorderRadius.only(
                                                 bottomLeft:
@@ -483,14 +497,20 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                               ),
                                             ),
                                             child: Align(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   0.0, -1.0),
                                               child: TextFormField(
-                                                key: const ValueKey('lastName'),
+                                                key: ValueKey('lastName'),
                                                 controller: _model
                                                     .lastnameTextController,
                                                 focusNode:
                                                     _model.lastnameFocusNode,
+                                                onChanged: (_) =>
+                                                    EasyDebounce.debounce(
+                                                  '_model.lastnameTextController',
+                                                  Duration(milliseconds: 10),
+                                                  () => safeSetState(() {}),
+                                                ),
                                                 autofocus: true,
                                                 textCapitalization:
                                                     TextCapitalization.words,
@@ -506,6 +526,8 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                 'Readex Pro',
                                                             letterSpacing: 0.0,
                                                           ),
+                                                  hintText:
+                                                      'Do not leave this field empty',
                                                   hintStyle:
                                                       FlutterFlowTheme.of(
                                                               context)
@@ -530,9 +552,9 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                       ),
                                                   enabledBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: const BorderSide(
+                                                    borderSide: BorderSide(
                                                       color: Color(0xFFBB33B9),
-                                                      width: 0.0,
+                                                      width: 2.0,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
@@ -540,9 +562,9 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                   ),
                                                   focusedBorder:
                                                       OutlineInputBorder(
-                                                    borderSide: const BorderSide(
+                                                    borderSide: BorderSide(
                                                       color: Color(0xFF762075),
-                                                      width: 0.0,
+                                                      width: 2.0,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
@@ -555,7 +577,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .error,
-                                                      width: 0.0,
+                                                      width: 2.0,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
@@ -568,7 +590,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .error,
-                                                      width: 0.0,
+                                                      width: 2.0,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
@@ -595,11 +617,11 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                           ),
                                         ),
                                         Align(
-                                          alignment: const AlignmentDirectional(
+                                          alignment: AlignmentDirectional(
                                               -0.84, -0.73),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 15.0, 0.0, 15.0),
                                             child: Text(
                                               '* Date of birth',
@@ -618,27 +640,27 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Container(
                                             height: 90.0,
-                                            decoration: const BoxDecoration(),
+                                            decoration: BoxDecoration(),
                                             child: Align(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   0.0, -1.0),
                                               child: Stack(
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.0, -1.0),
                                                 children: [
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             -0.01, -0.69),
                                                     child: Container(
                                                       width: MediaQuery.sizeOf(
                                                                   context)
                                                               .width *
                                                           0.8,
-                                                      decoration: const BoxDecoration(
+                                                      decoration: BoxDecoration(
                                                         color:
                                                             Color(0xFFFFFEFE),
                                                         borderRadius:
@@ -656,9 +678,14 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                               Radius.circular(
                                                                   12.0),
                                                         ),
+                                                        border: Border.all(
+                                                          color:
+                                                              Color(0xFFBB33B9),
+                                                          width: 2.0,
+                                                        ),
                                                       ),
                                                       child: TextFormField(
-                                                        key: const ValueKey('date'),
+                                                        key: ValueKey('date'),
                                                         controller: _model
                                                             .dateTextController,
                                                         focusNode: _model
@@ -709,9 +736,9 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                           enabledBorder:
                                                               OutlineInputBorder(
                                                             borderSide:
-                                                                const BorderSide(
+                                                                BorderSide(
                                                               color: Color(
-                                                                  0xFFBB33B9),
+                                                                  0x00000000),
                                                               width: 0.0,
                                                             ),
                                                             borderRadius:
@@ -722,9 +749,9 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                           focusedBorder:
                                                               OutlineInputBorder(
                                                             borderSide:
-                                                                const BorderSide(
+                                                                BorderSide(
                                                               color: Color(
-                                                                  0xFF762075),
+                                                                  0x00000000),
                                                               width: 0.0,
                                                             ),
                                                             borderRadius:
@@ -736,9 +763,8 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                               OutlineInputBorder(
                                                             borderSide:
                                                                 BorderSide(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .error,
+                                                              color: Color(
+                                                                  0x00000000),
                                                               width: 0.0,
                                                             ),
                                                             borderRadius:
@@ -750,9 +776,8 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                               OutlineInputBorder(
                                                             borderSide:
                                                                 BorderSide(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .error,
+                                                              color: Color(
+                                                                  0x00000000),
                                                               width: 0.0,
                                                             ),
                                                             borderRadius:
@@ -788,7 +813,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                   ),
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             0.0, 0.0),
                                                     child: Builder(
                                                       builder: (context) {
@@ -800,10 +825,10 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                 2)) {
                                                           return Align(
                                                             alignment:
-                                                                const AlignmentDirectional(
+                                                                AlignmentDirectional(
                                                                     -0.72, 0.6),
                                                             child: Text(
-                                                              key: const ValueKey(
+                                                              key: ValueKey(
                                                                   'dateError'),
                                                               _model.dateError,
                                                               style: FlutterFlowTheme
@@ -812,7 +837,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Montserrat',
-                                                                    color: const Color(
+                                                                    color: Color(
                                                                         0xFFFF5963),
                                                                     letterSpacing:
                                                                         0.0,
@@ -847,14 +872,14 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                           ),
                                         ),
                                         Align(
-                                          alignment: const AlignmentDirectional(
+                                          alignment: AlignmentDirectional(
                                               -0.84, -0.73),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 15.0, 0.0, 15.0),
                                             child: Text(
-                                              '* Email address',
+                                              '*Email address',
                                               style: FlutterFlowTheme.of(
                                                       context)
                                                   .bodyMedium
@@ -869,14 +894,14 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                           ),
                                         ),
                                         Align(
-                                          alignment: const AlignmentDirectional(
+                                          alignment: AlignmentDirectional(
                                               -0.01, -0.69),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
                                                 0.8,
                                             height: 70.0,
-                                            decoration: const BoxDecoration(
+                                            decoration: BoxDecoration(
                                               color: Color(0xFFFFFEFE),
                                               borderRadius: BorderRadius.only(
                                                 bottomLeft:
@@ -891,18 +916,18 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                               children: [
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           0.0, -1.0),
                                                   child: TextFormField(
-                                                    key: const ValueKey('email'),
+                                                    key: ValueKey('email'),
                                                     controller: _model
-                                                        .emailTextController1,
+                                                        .email2TextController,
                                                     focusNode:
-                                                        _model.emailFocusNode1,
+                                                        _model.email2FocusNode,
                                                     onChanged: (_) =>
                                                         EasyDebounce.debounce(
-                                                      '_model.emailTextController1',
-                                                      const Duration(
+                                                      '_model.email2TextController',
+                                                      Duration(
                                                           milliseconds: 10),
                                                       () async {
                                                         _model.emailExists =
@@ -913,7 +938,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                       .where(
                                                             'email',
                                                             isEqualTo: _model
-                                                                .emailTextController1
+                                                                .email2TextController
                                                                 .text,
                                                           ),
                                                         );
@@ -935,6 +960,8 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
+                                                      hintText:
+                                                          'Do not leave this field empty',
                                                       hintStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -961,10 +988,10 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                               ),
                                                       enabledBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: const BorderSide(
+                                                        borderSide: BorderSide(
                                                           color:
                                                               Color(0xFFBB33B9),
-                                                          width: 0.0,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
@@ -972,10 +999,10 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                       ),
                                                       focusedBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: const BorderSide(
+                                                        borderSide: BorderSide(
                                                           color:
                                                               Color(0xFF762075),
-                                                          width: 0.0,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
@@ -987,7 +1014,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .error,
-                                                          width: 0.0,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
@@ -999,7 +1026,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .error,
-                                                          width: 0.0,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
@@ -1017,7 +1044,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                         ),
                                                     maxLines: null,
                                                     validator: _model
-                                                        .emailTextController1Validator
+                                                        .email2TextControllerValidator
                                                         .asValidator(context),
                                                   ),
                                                 ),
@@ -1026,10 +1053,10 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                     (_model.emailExists! > 0))
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             0.0, 1.9),
                                                     child: Text(
-                                                      key: const ValueKey(
+                                                      key: ValueKey(
                                                           'emailVerify'),
                                                       'This email already has an account, use another email',
                                                       style: FlutterFlowTheme
@@ -1038,7 +1065,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                           .override(
                                                             fontFamily:
                                                                 'Montserrat',
-                                                            color: const Color(
+                                                            color: Color(
                                                                 0xFFFF5963),
                                                             letterSpacing: 0.0,
                                                             fontWeight:
@@ -1053,11 +1080,11 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                           ),
                                         ),
                                         Align(
-                                          alignment: const AlignmentDirectional(
+                                          alignment: AlignmentDirectional(
                                               -0.84, -0.73),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 15.0, 0.0, 15.0),
                                             child: Text(
                                               '  * Confirm email address',
@@ -1075,14 +1102,14 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                           ),
                                         ),
                                         Align(
-                                          alignment: const AlignmentDirectional(
+                                          alignment: AlignmentDirectional(
                                               -0.01, -0.69),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
                                                 0.8,
                                             height: 70.0,
-                                            decoration: const BoxDecoration(
+                                            decoration: BoxDecoration(
                                               color: Color(0xFFFFFEFE),
                                               borderRadius: BorderRadius.only(
                                                 bottomLeft:
@@ -1097,14 +1124,53 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                               children: [
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           0.0, -1.0),
                                                   child: TextFormField(
-                                                    key: const ValueKey('email'),
+                                                    key: ValueKey('email'),
                                                     controller: _model
-                                                        .emailTextController2,
-                                                    focusNode:
-                                                        _model.emailFocusNode2,
+                                                        .emailconfirm2TextController,
+                                                    focusNode: _model
+                                                        .emailconfirm2FocusNode,
+                                                    onFieldSubmitted:
+                                                        (_) async {
+                                                      if (_model
+                                                              .emailconfirm2TextController
+                                                              .text ==
+                                                          _model
+                                                              .email2TextController
+                                                              .text) {
+                                                        return;
+                                                      }
+
+                                                      ScaffoldMessenger.of(
+                                                              context)
+                                                          .showSnackBar(
+                                                        SnackBar(
+                                                          content: Text(
+                                                            'Email has to be the same',
+                                                            style: TextStyle(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primaryText,
+                                                            ),
+                                                          ),
+                                                          duration: Duration(
+                                                              milliseconds:
+                                                                  4000),
+                                                          backgroundColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .secondary,
+                                                        ),
+                                                      );
+                                                      safeSetState(() {
+                                                        _model
+                                                            .emailconfirm2TextController
+                                                            ?.clear();
+                                                      });
+                                                      return;
+                                                    },
                                                     autofocus: true,
                                                     obscureText: false,
                                                     decoration: InputDecoration(
@@ -1119,6 +1185,8 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
+                                                      hintText:
+                                                          'Do not leave this field empty',
                                                       hintStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -1145,10 +1213,10 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                               ),
                                                       enabledBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: const BorderSide(
+                                                        borderSide: BorderSide(
                                                           color:
                                                               Color(0xFFBB33B9),
-                                                          width: 0.0,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
@@ -1156,10 +1224,10 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                       ),
                                                       focusedBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: const BorderSide(
+                                                        borderSide: BorderSide(
                                                           color:
                                                               Color(0xFF762075),
-                                                          width: 0.0,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
@@ -1171,7 +1239,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .error,
-                                                          width: 0.0,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
@@ -1183,7 +1251,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .error,
-                                                          width: 0.0,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
@@ -1201,7 +1269,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                         ),
                                                     maxLines: null,
                                                     validator: _model
-                                                        .emailTextController2Validator
+                                                        .emailconfirm2TextControllerValidator
                                                         .asValidator(context),
                                                   ),
                                                 ),
@@ -1211,10 +1279,10 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                     false)
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             -0.8, 0.9),
                                                     child: Text(
-                                                      key: const ValueKey(
+                                                      key: ValueKey(
                                                           'emailVerify'),
                                                       'Email has to be the same',
                                                       style: FlutterFlowTheme
@@ -1223,7 +1291,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                           .override(
                                                             fontFamily:
                                                                 'Montserrat',
-                                                            color: const Color(
+                                                            color: Color(
                                                                 0xFFFF5963),
                                                             letterSpacing: 0.0,
                                                             fontWeight:
@@ -1238,11 +1306,11 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                           ),
                                         ),
                                         Align(
-                                          alignment: const AlignmentDirectional(
+                                          alignment: AlignmentDirectional(
                                               -0.54, -0.73),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 15.0, 0.0, 15.0),
                                             child: Text(
                                               '* Enter your 10-digit mobile number',
@@ -1260,14 +1328,14 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                           ),
                                         ),
                                         Align(
-                                          alignment: const AlignmentDirectional(
+                                          alignment: AlignmentDirectional(
                                               -0.01, -0.69),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
                                                 0.8,
                                             height: 80.0,
-                                            decoration: const BoxDecoration(
+                                            decoration: BoxDecoration(
                                               color: Color(0xFFFFFEFE),
                                               borderRadius: BorderRadius.only(
                                                 bottomLeft:
@@ -1279,10 +1347,16 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                               ),
                                             ),
                                             child: TextFormField(
-                                              key: const ValueKey('phone'),
+                                              key: ValueKey('phone'),
                                               controller:
                                                   _model.phoneTextController,
                                               focusNode: _model.phoneFocusNode,
+                                              onChanged: (_) =>
+                                                  EasyDebounce.debounce(
+                                                '_model.phoneTextController',
+                                                Duration(milliseconds: 10),
+                                                () => safeSetState(() {}),
+                                              ),
                                               autofocus: true,
                                               obscureText: false,
                                               decoration: InputDecoration(
@@ -1296,7 +1370,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                           letterSpacing: 0.0,
                                                         ),
                                                 hintText:
-                                                    'Example:  0400345234',
+                                                    'Do not leave this field empty',
                                                 hintStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .labelMedium
@@ -1318,9 +1392,9 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                     ),
                                                 enabledBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: const BorderSide(
+                                                  borderSide: BorderSide(
                                                     color: Color(0xFFBB33B9),
-                                                    width: 0.0,
+                                                    width: 2.0,
                                                   ),
                                                   borderRadius:
                                                       BorderRadius.circular(
@@ -1328,9 +1402,9 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: const BorderSide(
+                                                  borderSide: BorderSide(
                                                     color: Color(0xFF762075),
-                                                    width: 0.0,
+                                                    width: 2.0,
                                                   ),
                                                   borderRadius:
                                                       BorderRadius.circular(
@@ -1341,7 +1415,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .error,
-                                                    width: 0.0,
+                                                    width: 2.0,
                                                   ),
                                                   borderRadius:
                                                       BorderRadius.circular(
@@ -1353,7 +1427,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .error,
-                                                    width: 0.0,
+                                                    width: 2.0,
                                                   ),
                                                   borderRadius:
                                                       BorderRadius.circular(
@@ -1384,11 +1458,11 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                           ),
                                         ),
                                         Align(
-                                          alignment: const AlignmentDirectional(
+                                          alignment: AlignmentDirectional(
                                               -0.84, -0.73),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 15.0),
                                             child: Text(
                                               '* Select your suburb',
@@ -1407,20 +1481,20 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Container(
                                             height: 90.0,
-                                            decoration: const BoxDecoration(),
+                                            decoration: BoxDecoration(),
                                             child: Align(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   0.0, -1.0),
                                               child: Stack(
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.0, -1.0),
                                                 children: [
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             0.0, -1.0),
                                                     child: Container(
                                                       width: MediaQuery.sizeOf(
@@ -1431,7 +1505,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                       decoration: BoxDecoration(
                                                         color: Colors.white,
                                                         borderRadius:
-                                                            const BorderRadius.only(
+                                                            BorderRadius.only(
                                                           bottomLeft:
                                                               Radius.circular(
                                                                   12.0),
@@ -1446,23 +1520,14 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                   12.0),
                                                         ),
                                                         border: Border.all(
-                                                          color: valueOrDefault<
-                                                              Color>(
-                                                            FFAppState()
-                                                                        .verifyForm
-                                                                        .subur ==
-                                                                    true
-                                                                ? const Color(
-                                                                    0xFFBB33B9)
-                                                                : const Color(
-                                                                    0xFFFF5963),
-                                                            const Color(0xFFBB33B9),
-                                                          ),
+                                                          color:
+                                                              Color(0xFFBB33B9),
+                                                          width: 2.0,
                                                         ),
                                                       ),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     8.0,
                                                                     0.0,
@@ -1470,7 +1535,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                     0.0),
                                                         child: TextFormField(
                                                           key:
-                                                              const ValueKey('query'),
+                                                              ValueKey('query'),
                                                           controller: _model
                                                               .queryTextController,
                                                           focusNode: _model
@@ -1479,7 +1544,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                               EasyDebounce
                                                                   .debounce(
                                                             '_model.queryTextController',
-                                                            const Duration(
+                                                            Duration(
                                                                 milliseconds:
                                                                     100),
                                                             () async {
@@ -1576,7 +1641,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                   ),
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             0.0, 0.0),
                                                     child: Builder(
                                                       builder: (context) {
@@ -1588,10 +1653,10 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                 2)) {
                                                           return Align(
                                                             alignment:
-                                                                const AlignmentDirectional(
+                                                                AlignmentDirectional(
                                                                     -0.62, 0.7),
                                                             child: Text(
-                                                              key: const ValueKey(
+                                                              key: ValueKey(
                                                                   'indalidSuburb'),
                                                               'Invalid suburb',
                                                               style: FlutterFlowTheme
@@ -1600,7 +1665,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Montserrat',
-                                                                    color: const Color(
+                                                                    color: Color(
                                                                         0xFFFF5963),
                                                                     letterSpacing:
                                                                         0.0,
@@ -1636,18 +1701,18 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 10.0, 0.0, 0.0),
                                             child: Container(
                                               width: 327.0,
                                               height: 1.0,
                                               decoration: BoxDecoration(
-                                                color: const Color(0xFFF0DFEF),
+                                                color: Color(0xFFF0DFEF),
                                                 border: Border.all(
-                                                  color: const Color(0xFFF0DFEF),
+                                                  color: Color(0xFFF0DFEF),
                                                 ),
                                               ),
                                             ),
@@ -1655,11 +1720,11 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, -1.0),
+                                              AlignmentDirectional(0.0, -1.0),
                                           child: Container(
                                             width: 269.0,
                                             height: 93.0,
-                                            decoration: const BoxDecoration(
+                                            decoration: BoxDecoration(
                                               borderRadius: BorderRadius.only(
                                                 bottomLeft:
                                                     Radius.circular(12.0),
@@ -1670,152 +1735,184 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                               ),
                                             ),
                                             child: Align(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 10.0, 0.0, 0.0),
                                                 child: FFButtonWidget(
-                                                  key: const ValueKey('continue'),
-                                                  onPressed: () async {
-                                                    _model.dateError =
-                                                        'Field is required';
-                                                    FFAppState()
-                                                        .updateVerifyFormStruct(
-                                                      (e) => e
-                                                        ..date = _model.dateTextController
-                                                                    .text !=
-                                                                ''
-                                                        ..subur =
-                                                            valueOrDefault<
-                                                                bool>(
+                                                  key: ValueKey('continue'),
+                                                  onPressed: ((_model.firstNameTextController.text ==
+                                                                  '') ||
+                                                          (_model.lastnameTextController.text ==
+                                                                  '') ||
+                                                          (_model.dateTextController.text ==
+                                                                  '') ||
+                                                          (_model.email2TextController.text ==
+                                                                  '') ||
+                                                          (_model
+                                                                      .emailconfirm2TextController
+                                                                      .text ==
+                                                                  '') ||
+                                                          (_model.phoneTextController
+                                                                      .text ==
+                                                                  '') ||
                                                           (_model.queryTextController
+                                                                      .text ==
+                                                                  ''))
+                                                      ? null
+                                                      : () async {
+                                                          _model.dateError =
+                                                              'Field is required';
+                                                          FFAppState()
+                                                              .updateVerifyFormStruct(
+                                                            (e) => e
+                                                              ..date = _model.dateTextController
                                                                           .text !=
-                                                                      '') &&
-                                                              (_model.newUbication !=
-                                                                      null &&
-                                                                  _model.newUbication !=
-                                                                      ''),
-                                                          false,
-                                                        )
-                                                        ..same1 = _model
-                                                                .emailTextController1
-                                                                .text ==
-                                                            _model
-                                                                .emailTextController2
-                                                                .text,
-                                                    );
-                                                    FFAppState().counter = 4;
-                                                    safeSetState(() {});
-                                                    _model.formV = true;
-                                                    if (_model.formKey
-                                                                .currentState ==
-                                                            null ||
-                                                        !_model.formKey
-                                                            .currentState!
-                                                            .validate()) {
-                                                      _model.formV = false;
-                                                    }
-                                                    if (functions.validateDate(
-                                                        _model
-                                                            .dateTextController
-                                                            .text)!) {
-                                                      FFAppState()
-                                                          .updateVerifyFormStruct(
-                                                        (e) => e..date = true,
-                                                      );
-                                                      safeSetState(() {});
-                                                    } else {
-                                                      _model.dateError =
-                                                          'You must be 18 or older';
-                                                      FFAppState()
-                                                          .updateVerifyFormStruct(
-                                                        (e) => e..date = false,
-                                                      );
-                                                      safeSetState(() {});
-                                                    }
-
-                                                    if (FFAppState().verifyForm.subur &&
-                                                        FFAppState()
-                                                            .verifyForm
-                                                            .date &&
-                                                        FFAppState()
-                                                            .verifyForm
-                                                            .same1 &&
-                                                        _model.formV!) {
-                                                      FFAppState().verifyForm =
-                                                          FormVerifyStruct();
-                                                      FFAppState().counter = 0;
-                                                      FFAppState()
-                                                          .updateRegisterProviderFormStruct(
-                                                        (e) => e
-                                                          ..firstName = _model
-                                                              .firstNameTextController
-                                                              .text
-                                                          ..birthdate = functions
-                                                              .convertStringToDate(
+                                                                      ''
+                                                              ..subur =
+                                                                  valueOrDefault<
+                                                                      bool>(
+                                                                (_model.queryTextController.text !=
+                                                                            '') &&
+                                                                    (_model.newUbication !=
+                                                                            null &&
+                                                                        _model.newUbication !=
+                                                                            ''),
+                                                                false,
+                                                              )
+                                                              ..same1 = _model
+                                                                      .email2TextController
+                                                                      .text ==
                                                                   _model
-                                                                      .dateTextController
-                                                                      .text)
-                                                          ..phone = _model
-                                                              .phoneTextController
-                                                              .text
-                                                          ..suburb = functions
-                                                              .changeUbication(functions
-                                                                  .stringToLatLng(
-                                                                      _model
-                                                                          .newUbication!))
-                                                          ..plan = Plan.standar
-                                                          ..lastName = _model
-                                                              .lastnameTextController
-                                                              .text
-                                                          ..email = _model
-                                                              .emailTextController1
-                                                              .text,
-                                                      );
+                                                                      .emailconfirm2TextController
+                                                                      .text,
+                                                          );
+                                                          FFAppState().counter =
+                                                              4;
+                                                          safeSetState(() {});
+                                                          _model.formV = true;
+                                                          if (_model.formKey
+                                                                      .currentState ==
+                                                                  null ||
+                                                              !_model.formKey
+                                                                  .currentState!
+                                                                  .validate()) {
+                                                            _model.formV =
+                                                                false;
+                                                          }
+                                                          if (functions
+                                                              .validateDate(_model
+                                                                  .dateTextController
+                                                                  .text)!) {
+                                                            FFAppState()
+                                                                .updateVerifyFormStruct(
+                                                              (e) => e
+                                                                ..date = true,
+                                                            );
+                                                            safeSetState(() {});
+                                                          } else {
+                                                            _model.dateError =
+                                                                'You must be 18 or older';
+                                                            FFAppState()
+                                                                .updateVerifyFormStruct(
+                                                              (e) => e
+                                                                ..date = false,
+                                                            );
+                                                            safeSetState(() {});
+                                                          }
 
-                                                      context.pushNamed(
-                                                        'RegisterUser2',
-                                                        extra: <String,
-                                                            dynamic>{
-                                                          kTransitionInfoKey:
-                                                              const TransitionInfo(
-                                                            hasTransition: true,
-                                                            transitionType:
-                                                                PageTransitionType
-                                                                    .fade,
-                                                            duration: Duration(
-                                                                milliseconds:
-                                                                    200),
-                                                          ),
+                                                          if (FFAppState().verifyForm.subur &&
+                                                              FFAppState()
+                                                                  .verifyForm
+                                                                  .date &&
+                                                              FFAppState()
+                                                                  .verifyForm
+                                                                  .same1 &&
+                                                              _model.formV! &&
+                                                              (_model.emailconfirm2TextController
+                                                                      .text ==
+                                                                  _model
+                                                                      .email2TextController
+                                                                      .text)) {
+                                                            FFAppState()
+                                                                    .verifyForm =
+                                                                FormVerifyStruct();
+                                                            FFAppState()
+                                                                .counter = 0;
+                                                            FFAppState()
+                                                                .updateRegisterProviderFormStruct(
+                                                              (e) => e
+                                                                ..firstName = _model
+                                                                    .firstNameTextController
+                                                                    .text
+                                                                ..birthdate = functions
+                                                                    .convertStringToDate(_model
+                                                                        .dateTextController
+                                                                        .text)
+                                                                ..phone = _model
+                                                                    .phoneTextController
+                                                                    .text
+                                                                ..suburb = functions
+                                                                    .changeUbication(
+                                                                        functions
+                                                                            .stringToLatLng(_model.newUbication!))
+                                                                ..plan =
+                                                                    Plan.standar
+                                                                ..lastName = _model
+                                                                    .lastnameTextController
+                                                                    .text
+                                                                ..email = _model
+                                                                    .email2TextController
+                                                                    .text,
+                                                            );
+
+                                                            context.pushNamed(
+                                                              RegisterUser2Widget
+                                                                  .routeName,
+                                                              extra: <String,
+                                                                  dynamic>{
+                                                                kTransitionInfoKey:
+                                                                    TransitionInfo(
+                                                                  hasTransition:
+                                                                      true,
+                                                                  transitionType:
+                                                                      PageTransitionType
+                                                                          .fade,
+                                                                  duration: Duration(
+                                                                      milliseconds:
+                                                                          200),
+                                                                ),
+                                                              },
+                                                            );
+                                                          } else {
+                                                            await _model.formC
+                                                                ?.animateTo(
+                                                              0,
+                                                              duration: Duration(
+                                                                  milliseconds:
+                                                                      300),
+                                                              curve:
+                                                                  Curves.ease,
+                                                            );
+                                                          }
+
+                                                          safeSetState(() {});
                                                         },
-                                                      );
-                                                    } else {
-                                                      await _model.formC
-                                                          ?.animateTo(
-                                                        0,
-                                                        duration: const Duration(
-                                                            milliseconds: 300),
-                                                        curve: Curves.ease,
-                                                      );
-                                                    }
-
-                                                    safeSetState(() {});
-                                                  },
                                                   text: 'Continue',
                                                   options: FFButtonOptions(
                                                     width: 275.0,
                                                     height: 45.0,
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(24.0, 0.0,
                                                                 24.0, 0.0),
                                                     iconPadding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 0.0),
-                                                    color: const Color(0xFFB928B8),
+                                                    color: Color(0xFFB928B8),
                                                     textStyle: FlutterFlowTheme
                                                             .of(context)
                                                         .titleSmall
@@ -1827,13 +1924,17 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                           letterSpacing: 0.0,
                                                         ),
                                                     elevation: 5.0,
-                                                    borderSide: const BorderSide(
+                                                    borderSide: BorderSide(
                                                       color: Colors.transparent,
                                                       width: 1.0,
                                                     ),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             24.0),
+                                                    disabledColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryText,
                                                   ),
                                                 ),
                                               ),
@@ -1846,16 +1947,16 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                 ),
                               ),
                             ),
-                            if (_model.queryResults.isNotEmpty)
+                            if (_model.queryResults.length > 0)
                               Align(
-                                alignment: const AlignmentDirectional(0.0, -0.9),
+                                alignment: AlignmentDirectional(0.0, -0.9),
                                 child: Container(
                                   width:
                                       MediaQuery.sizeOf(context).width * 0.96,
                                   height:
                                       MediaQuery.sizeOf(context).height * 0.648,
                                   decoration: BoxDecoration(
-                                    color: const Color(0x33000000),
+                                    color: Color(0x33000000),
                                     borderRadius: BorderRadius.circular(0.0),
                                   ),
                                   child: SingleChildScrollView(
@@ -1865,7 +1966,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                       children: [
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Builder(
                                             builder: (context) {
                                               final newquery =
@@ -1877,7 +1978,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                 scrollDirection: Axis.vertical,
                                                 itemCount: newquery.length,
                                                 separatorBuilder: (_, __) =>
-                                                    const SizedBox(height: 0.0),
+                                                    SizedBox(height: 0.0),
                                                 itemBuilder:
                                                     (context, newqueryIndex) {
                                                   final newqueryItem =
@@ -1936,7 +2037,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                     child: MapbuscarWidget(
                                                       key: Key(
                                                           'Keygju_${newqueryIndex}_of_${newquery.length}'),
-                                                      icon: const Icon(
+                                                      icon: Icon(
                                                         key: ValueKey('search'),
                                                         Icons.location_on,
                                                         color:

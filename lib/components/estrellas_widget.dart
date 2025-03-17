@@ -3,6 +3,7 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -16,7 +17,7 @@ class EstrellasWidget extends StatefulWidget {
     required this.parameter2,
     bool? parameter3,
     this.parameter4,
-  }) : parameter3 = parameter3 ?? false;
+  }) : this.parameter3 = parameter3 ?? false;
 
   final List<ReviewsRecord>? parameter1;
   final DocumentReference? parameter2;
@@ -55,7 +56,7 @@ class _EstrellasWidgetState extends State<EstrellasWidget> {
       mainAxisSize: MainAxisSize.max,
       children: [
         Align(
-          alignment: const AlignmentDirectional(-1.0, 0.0),
+          alignment: AlignmentDirectional(-1.0, 0.0),
           child: Builder(
             builder: (context) {
               if (widget.parameter3) {
@@ -97,7 +98,7 @@ class _EstrellasWidgetState extends State<EstrellasWidget> {
                           if (((_model.chatsM != null &&
                                       (_model.chatsM)!.isNotEmpty) ==
                                   true) &&
-                              (_model.chatsM!.isNotEmpty)) {
+                              (_model.chatsM!.length > 0)) {
                             _model.reviewsC = await queryReviewsRecordOnce(
                               queryBuilder: (reviewsRecord) => reviewsRecord
                                   .where(
@@ -134,8 +135,8 @@ class _EstrellasWidgetState extends State<EstrellasWidget> {
                                         .primaryText,
                                   ),
                                 ),
-                                duration: const Duration(milliseconds: 4000),
-                                backgroundColor: const Color(0xFFD239B4),
+                                duration: Duration(milliseconds: 4000),
+                                backgroundColor: Color(0xFFD239B4),
                               ),
                             );
                           }
@@ -149,18 +150,18 @@ class _EstrellasWidgetState extends State<EstrellasWidget> {
                                       FlutterFlowTheme.of(context).primaryText,
                                 ),
                               ),
-                              duration: const Duration(milliseconds: 4000),
-                              backgroundColor: const Color(0xFFD239B4),
+                              duration: Duration(milliseconds: 4000),
+                              backgroundColor: Color(0xFFD239B4),
                             ),
                           );
                         }
                       } else {
-                        context.pushNamed('Login');
+                        context.pushNamed(LoginWidget.routeName);
                       }
 
                       safeSetState(() {});
                     },
-                    itemBuilder: (context, index) => const Icon(
+                    itemBuilder: (context, index) => Icon(
                       Icons.star_rate,
                       color: Color(0xFFF9BF11),
                     ),
@@ -172,15 +173,15 @@ class _EstrellasWidgetState extends State<EstrellasWidget> {
                           .toDouble(),
                       0.0,
                     ),
-                    unratedColor: const Color(0x4D040202),
+                    unratedColor: Color(0x4D040202),
                     itemCount: 5,
                     itemSize: 12.0,
-                    glowColor: const Color(0xFFF9BF11),
+                    glowColor: Color(0xFFF9BF11),
                   ),
                 );
               } else {
                 return RatingBarIndicator(
-                  itemBuilder: (context, index) => const Icon(
+                  itemBuilder: (context, index) => Icon(
                     Icons.star_rate,
                     color: Color(0xFFF9BF11),
                   ),
@@ -191,7 +192,7 @@ class _EstrellasWidgetState extends State<EstrellasWidget> {
                         .toDouble(),
                     0.0,
                   ),
-                  unratedColor: const Color(0x4D040202),
+                  unratedColor: Color(0x4D040202),
                   itemCount: 5,
                   itemSize: 12.0,
                 );
@@ -200,7 +201,7 @@ class _EstrellasWidgetState extends State<EstrellasWidget> {
           ),
         ),
         Align(
-          alignment: const AlignmentDirectional(0.0, -0.7),
+          alignment: AlignmentDirectional(0.0, -0.7),
           child: Text(
             valueOrDefault<String>(
               functions.concatStrings('(', ')', widget.parameter4?.toString()),

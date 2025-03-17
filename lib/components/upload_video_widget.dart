@@ -35,27 +35,27 @@ class _UploadVideoWidgetState extends State<UploadVideoWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(1.0, -1.0),
+      alignment: AlignmentDirectional(1.0, -1.0),
       child: Container(
         width: 150.0,
         height: 150.0,
         decoration: BoxDecoration(
-          color: const Color(0xFFA49D9D),
-          borderRadius: const BorderRadius.only(
+          color: Color(0xFFA49D9D),
+          borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(12.0),
             bottomRight: Radius.circular(12.0),
             topLeft: Radius.circular(12.0),
             topRight: Radius.circular(12.0),
           ),
           border: Border.all(
-            color: const Color(0xFFA49D9D),
+            color: Color(0xFFA49D9D),
             width: 1.0,
           ),
         ),
         child: Stack(
           children: [
             Align(
-              alignment: const AlignmentDirectional(0.0, 0.0),
+              alignment: AlignmentDirectional(0.0, 0.0),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(8.0),
                 child: Image.asset(
@@ -67,7 +67,7 @@ class _UploadVideoWidgetState extends State<UploadVideoWidget> {
               ),
             ),
             Align(
-              alignment: const AlignmentDirectional(0.0, 0.0),
+              alignment: AlignmentDirectional(0.0, 0.0),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(8.0),
                 child: Image.network(

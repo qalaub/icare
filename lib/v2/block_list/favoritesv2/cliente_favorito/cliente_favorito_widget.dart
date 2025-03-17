@@ -1,3 +1,4 @@
+import '';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -5,6 +6,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/random_data_util.dart' as random_data;
+import '/index.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'cliente_favorito_model.dart';
@@ -49,11 +51,11 @@ class _ClienteFavoritoWidgetState extends State<ClienteFavoritoWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(0.0, 0.0),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Material(
         color: Colors.transparent,
         elevation: 5.0,
-        shape: const RoundedRectangleBorder(
+        shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(32.0),
             bottomRight: Radius.circular(32.0),
@@ -64,7 +66,7 @@ class _ClienteFavoritoWidgetState extends State<ClienteFavoritoWidget> {
         child: Container(
           width: 370.0,
           height: 88.0,
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(32.0),
               bottomRight: Radius.circular(32.0),
@@ -75,7 +77,7 @@ class _ClienteFavoritoWidgetState extends State<ClienteFavoritoWidget> {
           child: Stack(
             children: [
               Align(
-                alignment: const AlignmentDirectional(0.0, 0.0),
+                alignment: AlignmentDirectional(0.0, 0.0),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(24.0),
                   child: Image.asset(
@@ -86,7 +88,7 @@ class _ClienteFavoritoWidgetState extends State<ClienteFavoritoWidget> {
                   ),
                 ),
               ),
-              const Align(
+              Align(
                 alignment: AlignmentDirectional(0.0, 0.0),
                 child: Stack(
                   children: [],
@@ -123,7 +125,7 @@ class _ClienteFavoritoWidgetState extends State<ClienteFavoritoWidget> {
                     ).then((s) => s.firstOrNull);
 
                     context.pushNamed(
-                      'chat_2_Details',
+                      Chat2DetailsWidget.routeName,
                       queryParameters: {
                         'chatRef': serializeParam(
                           _model.newRef,
@@ -172,7 +174,7 @@ class _ClienteFavoritoWidgetState extends State<ClienteFavoritoWidget> {
                     }, chatsRecordReference);
 
                     context.pushNamed(
-                      'chat_2_Details',
+                      Chat2DetailsWidget.routeName,
                       queryParameters: {
                         'chatRef': serializeParam(
                           _model.newChatThread,
@@ -194,18 +196,18 @@ class _ClienteFavoritoWidgetState extends State<ClienteFavoritoWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Align(
-                      alignment: const AlignmentDirectional(-1.0, 0.0),
+                      alignment: AlignmentDirectional(-1.0, 0.0),
                       child: Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
                         child: Container(
                           width: 61.0,
                           height: 61.0,
                           decoration: BoxDecoration(
-                            color: const Color(0xFFD9D9D9),
+                            color: Color(0xFFD9D9D9),
                             shape: BoxShape.circle,
                             border: Border.all(
-                              color: const Color(0xFFD9D9D9),
+                              color: Color(0xFFD9D9D9),
                               width: 1.0,
                             ),
                           ),
@@ -223,10 +225,10 @@ class _ClienteFavoritoWidgetState extends State<ClienteFavoritoWidget> {
                     ),
                     Container(
                       width: MediaQuery.sizeOf(context).width * 0.6,
-                      decoration: const BoxDecoration(),
+                      decoration: BoxDecoration(),
                       child: Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -249,22 +251,22 @@ class _ClienteFavoritoWidgetState extends State<ClienteFavoritoWidget> {
                                   ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.2, 0.9),
+                              alignment: AlignmentDirectional(0.2, 0.9),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 10.0),
                                 child: Container(
                                   width: 240.0,
                                   height: 1.0,
-                                  decoration: const BoxDecoration(
+                                  decoration: BoxDecoration(
                                     color: Colors.black,
                                   ),
                                 ),
                               ),
                             ),
                           ]
-                              .divide(const SizedBox(height: 8.0))
-                              .addToStart(const SizedBox(height: 12.0)),
+                              .divide(SizedBox(height: 8.0))
+                              .addToStart(SizedBox(height: 12.0)),
                         ),
                       ),
                     ),
@@ -273,7 +275,7 @@ class _ClienteFavoritoWidgetState extends State<ClienteFavoritoWidget> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        const Align(
+                        Align(
                           alignment: AlignmentDirectional(0.95, -0.82),
                           child: Icon(
                             Icons.favorite_sharp,
@@ -282,12 +284,12 @@ class _ClienteFavoritoWidgetState extends State<ClienteFavoritoWidget> {
                           ),
                         ),
                         Align(
-                          alignment: const AlignmentDirectional(0.81, -0.05),
+                          alignment: AlignmentDirectional(0.81, -0.05),
                           child: FlutterFlowIconButton(
                             borderRadius: 24.0,
                             borderWidth: 1.0,
                             buttonSize: 40.0,
-                            icon: const Icon(
+                            icon: Icon(
                               Icons.arrow_forward_ios_rounded,
                               color: Colors.black,
                               size: 34.0,

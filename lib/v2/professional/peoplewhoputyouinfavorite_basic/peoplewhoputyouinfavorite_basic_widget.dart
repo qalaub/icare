@@ -9,6 +9,7 @@ import '/v2/block_list/favoritesv2/v2_favoritos_componente/v2_favoritos_componen
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
 import 'dart:ui';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'peoplewhoputyouinfavorite_basic_model.dart';
@@ -16,6 +17,9 @@ export 'peoplewhoputyouinfavorite_basic_model.dart';
 
 class PeoplewhoputyouinfavoriteBasicWidget extends StatefulWidget {
   const PeoplewhoputyouinfavoriteBasicWidget({super.key});
+
+  static String routeName = 'peoplewhoputyouinfavoriteBasic';
+  static String routePath = 'peoplewhoputyouinfavoriteBasic';
 
   @override
   State<PeoplewhoputyouinfavoriteBasicWidget> createState() =>
@@ -52,14 +56,14 @@ class _PeoplewhoputyouinfavoriteBasicWidgetState
         key: scaffoldKey,
         backgroundColor: Colors.white,
         appBar: AppBar(
-          backgroundColor: const Color(0xFFBD39BA),
+          backgroundColor: Color(0xFFBD39BA),
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
             borderColor: Colors.transparent,
             borderRadius: 30.0,
             borderWidth: 1.0,
             buttonSize: 60.0,
-            icon: const FaIcon(
+            icon: FaIcon(
               FontAwesomeIcons.angleLeft,
               color: Colors.white,
               size: 30.0,
@@ -72,13 +76,13 @@ class _PeoplewhoputyouinfavoriteBasicWidgetState
             'Likes',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Montserrat',
-                  color: const Color(0xFFEFECF3),
+                  color: Color(0xFFEFECF3),
                   fontSize: 25.0,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.bold,
                 ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
@@ -91,13 +95,13 @@ class _PeoplewhoputyouinfavoriteBasicWidgetState
                 child: Container(
                   width: double.infinity,
                   height: double.infinity,
-                  decoration: const BoxDecoration(),
+                  decoration: BoxDecoration(),
                   child: Align(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: Stack(
                       children: [
                         Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: ClipRect(
                             child: ImageFiltered(
                               imageFilter: ImageFilter.blur(
@@ -107,7 +111,7 @@ class _PeoplewhoputyouinfavoriteBasicWidgetState
                               child: Container(
                                 width: 390.0,
                                 height: 580.0,
-                                decoration: const BoxDecoration(),
+                                decoration: BoxDecoration(),
                                 child: StreamBuilder<List<UsersRecord>>(
                                   stream: queryUsersRecord(
                                     queryBuilder: (usersRecord) =>
@@ -141,7 +145,7 @@ class _PeoplewhoputyouinfavoriteBasicWidgetState
                                             .toList();
 
                                     return ListView.separated(
-                                      padding: const EdgeInsets.fromLTRB(
+                                      padding: EdgeInsets.fromLTRB(
                                         0,
                                         26.0,
                                         0,
@@ -151,7 +155,7 @@ class _PeoplewhoputyouinfavoriteBasicWidgetState
                                       scrollDirection: Axis.vertical,
                                       itemCount: listViewUsersRecordList.length,
                                       separatorBuilder: (_, __) =>
-                                          const SizedBox(height: 10.0),
+                                          SizedBox(height: 10.0),
                                       itemBuilder: (context, listViewIndex) {
                                         final listViewUsersRecord =
                                             listViewUsersRecordList[
@@ -171,16 +175,16 @@ class _PeoplewhoputyouinfavoriteBasicWidgetState
                         Container(
                           width: double.infinity,
                           height: double.infinity,
-                          decoration: const BoxDecoration(
+                          decoration: BoxDecoration(
                             color: Color(0x7FFFFFFF),
                           ),
                         ),
                         Align(
-                          alignment: const AlignmentDirectional(0.0, -0.5),
+                          alignment: AlignmentDirectional(0.0, -0.5),
                           child: Container(
                             width: 315.0,
                             height: 297.0,
-                            decoration: const BoxDecoration(),
+                            decoration: BoxDecoration(),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
@@ -188,7 +192,7 @@ class _PeoplewhoputyouinfavoriteBasicWidgetState
                               highlightColor: Colors.transparent,
                               onTap: () async {
                                 context.pushNamed(
-                                  'MembresiasV2',
+                                  MembresiasV2Widget.routeName,
                                   queryParameters: {
                                     'professionalUpdate': serializeParam(
                                       currentUserReference,
@@ -218,16 +222,16 @@ class _PeoplewhoputyouinfavoriteBasicWidgetState
                           ),
                         ),
                         Align(
-                          alignment: const AlignmentDirectional(0.0, 0.15),
+                          alignment: AlignmentDirectional(0.0, 0.15),
                           child: Container(
-                            decoration: const BoxDecoration(),
+                            decoration: BoxDecoration(),
                             child: Text(
                               'No new likes',
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Poppins',
-                                    color: const Color(0xFFDB4B9C),
+                                    color: Color(0xFFDB4B9C),
                                     fontSize: 25.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
@@ -236,9 +240,9 @@ class _PeoplewhoputyouinfavoriteBasicWidgetState
                           ),
                         ),
                         Align(
-                          alignment: const AlignmentDirectional(0.0, 0.4),
+                          alignment: AlignmentDirectional(0.0, 0.4),
                           child: Container(
-                            decoration: const BoxDecoration(),
+                            decoration: BoxDecoration(),
                             child: Text(
                               'When someone likes your profile,\n a notification will appear here.\nUdgrade to standard',
                               textAlign: TextAlign.center,
@@ -253,11 +257,11 @@ class _PeoplewhoputyouinfavoriteBasicWidgetState
                           ),
                         ),
                         Align(
-                          alignment: const AlignmentDirectional(0.0, 0.7),
+                          alignment: AlignmentDirectional(0.0, 0.7),
                           child: FFButtonWidget(
                             onPressed: () async {
                               context.pushNamed(
-                                'MembresiasV2',
+                                MembresiasV2Widget.routeName,
                                 queryParameters: {
                                   'professionalUpdate': serializeParam(
                                     currentUserReference,
@@ -278,11 +282,11 @@ class _PeoplewhoputyouinfavoriteBasicWidgetState
                             options: FFButtonOptions(
                               width: 150.0,
                               height: 45.0,
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 16.0, 0.0),
-                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              color: const Color(0xFFA00BAB),
+                              color: Color(0xFFA00BAB),
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
@@ -291,7 +295,7 @@ class _PeoplewhoputyouinfavoriteBasicWidgetState
                                     letterSpacing: 0.0,
                                   ),
                               elevation: 5.0,
-                              borderSide: const BorderSide(
+                              borderSide: BorderSide(
                                 color: Colors.white,
                               ),
                               borderRadius: BorderRadius.circular(8.0),
@@ -304,10 +308,10 @@ class _PeoplewhoputyouinfavoriteBasicWidgetState
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(0.0, 1.01),
+                alignment: AlignmentDirectional(0.0, 1.01),
                 child: Container(
                   height: 73.0,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     color: Color(0xB3B928B8),
                   ),
                   child: Builder(
@@ -316,13 +320,13 @@ class _PeoplewhoputyouinfavoriteBasicWidgetState
                         return wrapWithModel(
                           model: _model.navbarModel,
                           updateCallback: () => safeSetState(() {}),
-                          child: const NavbarWidget(),
+                          child: NavbarWidget(),
                         );
                       } else {
                         return wrapWithModel(
                           model: _model.navbarPremiunModel,
                           updateCallback: () => safeSetState(() {}),
-                          child: const NavbarPremiunWidget(),
+                          child: NavbarPremiunWidget(),
                         );
                       }
                     },

@@ -43,38 +43,38 @@ class _UploadProfileImageWidgetState extends State<UploadProfileImageWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(-1.0, -1.0),
+      alignment: AlignmentDirectional(-1.0, -1.0),
       child: Container(
         width: MediaQuery.sizeOf(context).width * 0.9,
-        constraints: const BoxConstraints(
+        constraints: BoxConstraints(
           minHeight: 225.0,
           maxHeight: 245.0,
         ),
         decoration: BoxDecoration(
-          color: const Color(0xFFC9DEFF),
-          borderRadius: const BorderRadius.only(
+          color: Color(0xFFC9DEFF),
+          borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(12.0),
             bottomRight: Radius.circular(12.0),
             topLeft: Radius.circular(12.0),
             topRight: Radius.circular(12.0),
           ),
           border: Border.all(
-            color: const Color(0xFFD9D9D9),
+            color: Color(0xFFD9D9D9),
             width: 1.0,
           ),
         ),
         child: Align(
-          alignment: const AlignmentDirectional(0.0, 0.0),
+          alignment: AlignmentDirectional(0.0, 0.0),
           child: Padding(
-            padding: const EdgeInsets.all(6.0),
+            padding: EdgeInsets.all(6.0),
             child: GridView(
-              padding: const EdgeInsets.fromLTRB(
+              padding: EdgeInsets.fromLTRB(
                 0,
                 6.0,
                 0,
                 0,
               ),
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 3,
                 crossAxisSpacing: 10.0,
                 mainAxisSpacing: 9.0,
@@ -87,9 +87,10 @@ class _UploadProfileImageWidgetState extends State<UploadProfileImageWidget> {
                     model: _model.imageUploadModel1,
                     updateCallback: () => safeSetState(() {}),
                     child: ImageUploadWidget(
-                      key: const ValueKey('image1'),
+                      key: ValueKey('image1'),
                       img:
-                          (currentUserDocument?.images.toList() ?? []).isNotEmpty
+                          (currentUserDocument?.images.toList() ?? []).length >
+                                  0
                               ? (currentUserDocument?.images.toList() ?? [])
                                   .elementAtOrNull(0)
                               : ' ',
@@ -102,7 +103,7 @@ class _UploadProfileImageWidgetState extends State<UploadProfileImageWidget> {
                     model: _model.imageUploadModel2,
                     updateCallback: () => safeSetState(() {}),
                     child: ImageUploadWidget(
-                      key: const ValueKey('image2'),
+                      key: ValueKey('image2'),
                       img:
                           (currentUserDocument?.images.toList() ?? []).length >
                                   1
@@ -118,7 +119,7 @@ class _UploadProfileImageWidgetState extends State<UploadProfileImageWidget> {
                     model: _model.imageUploadModel3,
                     updateCallback: () => safeSetState(() {}),
                     child: ImageUploadWidget(
-                      key: const ValueKey('image3'),
+                      key: ValueKey('image3'),
                       img:
                           (currentUserDocument?.images.toList() ?? []).length >
                                   2
@@ -134,7 +135,7 @@ class _UploadProfileImageWidgetState extends State<UploadProfileImageWidget> {
                     model: _model.imageUploadModel4,
                     updateCallback: () => safeSetState(() {}),
                     child: ImageUploadWidget(
-                      key: const ValueKey('image4'),
+                      key: ValueKey('image4'),
                       img:
                           (currentUserDocument?.images.toList() ?? []).length >
                                   3
@@ -150,7 +151,7 @@ class _UploadProfileImageWidgetState extends State<UploadProfileImageWidget> {
                     model: _model.imageUploadModel5,
                     updateCallback: () => safeSetState(() {}),
                     child: ImageUploadWidget(
-                      key: const ValueKey('image5'),
+                      key: ValueKey('image5'),
                       img:
                           (currentUserDocument?.images.toList() ?? []).length >
                                   4
@@ -166,7 +167,7 @@ class _UploadProfileImageWidgetState extends State<UploadProfileImageWidget> {
                     model: _model.imageUploadModel6,
                     updateCallback: () => safeSetState(() {}),
                     child: ImageUploadWidget(
-                      key: const ValueKey('image6'),
+                      key: ValueKey('image6'),
                       img:
                           (currentUserDocument?.images.toList() ?? []).length >
                                   5

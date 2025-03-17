@@ -1,3 +1,4 @@
+import '';
 import '/auth/firebase_auth/auth_util.dart';
 import '/components/favorites_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -11,6 +12,9 @@ export 'favorites1_model.dart';
 
 class Favorites1Widget extends StatefulWidget {
   const Favorites1Widget({super.key});
+
+  static String routeName = 'Favorites1';
+  static String routePath = 'favorites1';
 
   @override
   State<Favorites1Widget> createState() => _Favorites1WidgetState();
@@ -45,14 +49,14 @@ class _Favorites1WidgetState extends State<Favorites1Widget> {
         key: scaffoldKey,
         backgroundColor: Colors.white,
         appBar: AppBar(
-          backgroundColor: const Color(0xFFBD39BA),
+          backgroundColor: Color(0xFFBD39BA),
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
             borderColor: Colors.transparent,
             borderRadius: 30.0,
             borderWidth: 1.0,
             buttonSize: 60.0,
-            icon: const FaIcon(
+            icon: FaIcon(
               FontAwesomeIcons.angleLeft,
               color: Colors.white,
               size: 30.0,
@@ -65,13 +69,13 @@ class _Favorites1WidgetState extends State<Favorites1Widget> {
             'Favorites',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Montserrat',
-                  color: const Color(0xFFEFECF3),
+                  color: Color(0xFFEFECF3),
                   fontSize: 25.0,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.bold,
                 ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
@@ -82,7 +86,7 @@ class _Favorites1WidgetState extends State<Favorites1Widget> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Align(
-                alignment: const AlignmentDirectional(0.0, 0.0),
+                alignment: AlignmentDirectional(0.0, 0.0),
                 child: AuthUserStreamWidget(
                   builder: (context) => Builder(
                     builder: (context) {
@@ -91,7 +95,7 @@ class _Favorites1WidgetState extends State<Favorites1Widget> {
                               .toList();
 
                       return ListView.separated(
-                        padding: const EdgeInsets.fromLTRB(
+                        padding: EdgeInsets.fromLTRB(
                           0,
                           35.0,
                           0,
@@ -100,7 +104,7 @@ class _Favorites1WidgetState extends State<Favorites1Widget> {
                         shrinkWrap: true,
                         scrollDirection: Axis.vertical,
                         itemCount: userList.length,
-                        separatorBuilder: (_, __) => const SizedBox(height: 15.0),
+                        separatorBuilder: (_, __) => SizedBox(height: 15.0),
                         itemBuilder: (context, userListIndex) {
                           final userListItem = userList[userListIndex];
                           return FavoritesWidget(
@@ -115,11 +119,11 @@ class _Favorites1WidgetState extends State<Favorites1Widget> {
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(0.0, 0.8),
+                alignment: AlignmentDirectional(0.0, 0.8),
                 child: wrapWithModel(
                   model: _model.navbarModel,
                   updateCallback: () => safeSetState(() {}),
-                  child: const NavbarWidget(),
+                  child: NavbarWidget(),
                 ),
               ),
             ],

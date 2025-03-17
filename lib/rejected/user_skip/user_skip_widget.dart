@@ -2,6 +2,7 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'user_skip_model.dart';
 export 'user_skip_model.dart';
@@ -11,7 +12,7 @@ class UserSkipWidget extends StatefulWidget {
     super.key,
     Color? background,
     required this.ref,
-  }) : background = background ?? Colors.white;
+  }) : this.background = background ?? Colors.white;
 
   final Color background;
   final DocumentReference? ref;
@@ -71,7 +72,7 @@ class _UserSkipWidgetState extends State<UserSkipWidget> {
           highlightColor: Colors.transparent,
           onTap: () async {
             context.pushNamed(
-              'ProfileInfo',
+              ProfileInfoWidget.routeName,
               queryParameters: {
                 'professional': serializeParam(
                   widget.ref,
@@ -84,11 +85,11 @@ class _UserSkipWidgetState extends State<UserSkipWidget> {
             width: MediaQuery.sizeOf(context).width * 1.0,
             height: 90.0,
             decoration: BoxDecoration(
-              color: const Color(0xFFECD5FF),
+              color: Color(0xFFECD5FF),
               borderRadius: BorderRadius.circular(0.0),
             ),
             child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -100,7 +101,7 @@ class _UserSkipWidgetState extends State<UserSkipWidget> {
                         width: 75.0,
                         height: 75.0,
                         clipBehavior: Clip.antiAlias,
-                        decoration: const BoxDecoration(
+                        decoration: BoxDecoration(
                           shape: BoxShape.circle,
                         ),
                         child: Image.network(
@@ -109,16 +110,16 @@ class _UserSkipWidgetState extends State<UserSkipWidget> {
                         ),
                       ),
                       Align(
-                        alignment: const AlignmentDirectional(-1.0, 0.0),
+                        alignment: AlignmentDirectional(-1.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Container(
-                                decoration: const BoxDecoration(),
+                                decoration: BoxDecoration(),
                                 child: Text(
                                   functions.upperCaseFirstLetter(
                                       usera1UsersRecord.firtsName),
@@ -133,9 +134,9 @@ class _UserSkipWidgetState extends State<UserSkipWidget> {
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Container(
-                                decoration: const BoxDecoration(),
+                                decoration: BoxDecoration(),
                                 child: Text(
                                   usera1UsersRecord.serviceType.firstOrNull!,
                                   style: FlutterFlowTheme.of(context)
@@ -148,10 +149,10 @@ class _UserSkipWidgetState extends State<UserSkipWidget> {
                                 ),
                               ),
                             ),
-                          ].divide(const SizedBox(height: 8.0)),
+                          ].divide(SizedBox(height: 8.0)),
                         ),
                       ),
-                    ].divide(const SizedBox(width: 12.0)),
+                    ].divide(SizedBox(width: 12.0)),
                   ),
                 ],
               ),

@@ -44,7 +44,7 @@ class _MapbuscarWidgetState extends State<MapbuscarWidget> {
   Widget build(BuildContext context) {
     return Container(
       height: 70.0,
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         color: Color(0xDAFFFFFF),
         boxShadow: [
           BoxShadow(
@@ -67,14 +67,14 @@ class _MapbuscarWidgetState extends State<MapbuscarWidget> {
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          const Icon(
+          Icon(
             Icons.location_on,
             color: Color(0xFFD26AD2),
             size: 32.0,
           ),
           Container(
             width: MediaQuery.sizeOf(context).width * 0.5,
-            decoration: const BoxDecoration(),
+            decoration: BoxDecoration(),
             child: Text(
               valueOrDefault<String>(
                 widget.text,

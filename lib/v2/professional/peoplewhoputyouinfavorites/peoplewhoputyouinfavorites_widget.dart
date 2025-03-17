@@ -8,6 +8,7 @@ import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
 import '/v3correciones/likes_v3/likes_v3/likes_v3_widget.dart';
 import 'dart:async';
+import '/index.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -17,6 +18,9 @@ export 'peoplewhoputyouinfavorites_model.dart';
 
 class PeoplewhoputyouinfavoritesWidget extends StatefulWidget {
   const PeoplewhoputyouinfavoritesWidget({super.key});
+
+  static String routeName = 'peoplewhoputyouinfavorites';
+  static String routePath = 'peoplewhoputyouinfavorites';
 
   @override
   State<PeoplewhoputyouinfavoritesWidget> createState() =>
@@ -53,7 +57,7 @@ class _PeoplewhoputyouinfavoritesWidgetState
         await currentUserReference!.delete();
         await authManager.deleteUser(context);
 
-        context.goNamed('Login');
+        context.goNamed(LoginWidget.routeName);
       }
     });
   }
@@ -76,14 +80,14 @@ class _PeoplewhoputyouinfavoritesWidgetState
         key: scaffoldKey,
         backgroundColor: Colors.white,
         appBar: AppBar(
-          backgroundColor: const Color(0xFFBD39BA),
+          backgroundColor: Color(0xFFBD39BA),
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
             borderColor: Colors.transparent,
             borderRadius: 30.0,
             borderWidth: 1.0,
             buttonSize: 60.0,
-            icon: const FaIcon(
+            icon: FaIcon(
               FontAwesomeIcons.angleLeft,
               color: Colors.white,
               size: 30.0,
@@ -93,19 +97,19 @@ class _PeoplewhoputyouinfavoritesWidgetState
             },
           ),
           title: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
             child: Text(
               'Likes',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Montserrat',
-                    color: const Color(0xFFEFECF3),
+                    color: Color(0xFFEFECF3),
                     fontSize: 25.0,
                     letterSpacing: 0.0,
                     fontWeight: FontWeight.bold,
                   ),
             ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
@@ -119,7 +123,7 @@ class _PeoplewhoputyouinfavoritesWidgetState
                   width: double.infinity,
                   height: double.infinity,
                   decoration: BoxDecoration(
-                    color: const Color(0xFF9F2525),
+                    color: Color(0xFF9F2525),
                     image: DecorationImage(
                       fit: BoxFit.cover,
                       image: Image.asset(
@@ -128,15 +132,15 @@ class _PeoplewhoputyouinfavoritesWidgetState
                     ),
                   ),
                   child: Align(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: Stack(
                       children: [
                         Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Container(
                             width: 390.0,
                             height: 580.0,
-                            decoration: const BoxDecoration(),
+                            decoration: BoxDecoration(),
                             child: FutureBuilder<List<UsersRecord>>(
                               future: queryUsersRecordOnce(
                                 queryBuilder: (usersRecord) =>
@@ -165,7 +169,7 @@ class _PeoplewhoputyouinfavoritesWidgetState
                                     snapshot.data!;
 
                                 return ListView.separated(
-                                  padding: const EdgeInsets.fromLTRB(
+                                  padding: EdgeInsets.fromLTRB(
                                     0,
                                     26.0,
                                     0,
@@ -175,7 +179,7 @@ class _PeoplewhoputyouinfavoritesWidgetState
                                   scrollDirection: Axis.vertical,
                                   itemCount: listViewUsersRecordList.length,
                                   separatorBuilder: (_, __) =>
-                                      const SizedBox(height: 10.0),
+                                      SizedBox(height: 10.0),
                                   itemBuilder: (context, listViewIndex) {
                                     final listViewUsersRecord =
                                         listViewUsersRecordList[listViewIndex];
@@ -197,10 +201,10 @@ class _PeoplewhoputyouinfavoritesWidgetState
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(0.0, 1.01),
+                alignment: AlignmentDirectional(0.0, 1.01),
                 child: Container(
                   height: 73.0,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     color: Color(0xB3B928B8),
                   ),
                   child: Builder(
@@ -209,13 +213,13 @@ class _PeoplewhoputyouinfavoritesWidgetState
                         return wrapWithModel(
                           model: _model.navbarModel,
                           updateCallback: () => safeSetState(() {}),
-                          child: const NavbarWidget(),
+                          child: NavbarWidget(),
                         );
                       } else {
                         return wrapWithModel(
                           model: _model.navbarPremiunModel,
                           updateCallback: () => safeSetState(() {}),
-                          child: const NavbarPremiunWidget(),
+                          child: NavbarPremiunWidget(),
                         );
                       }
                     },

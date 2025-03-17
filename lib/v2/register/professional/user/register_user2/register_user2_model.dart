@@ -1,5 +1,6 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/index.dart';
 import 'register_user2_widget.dart' show RegisterUser2Widget;
 import 'package:flutter/material.dart';
 

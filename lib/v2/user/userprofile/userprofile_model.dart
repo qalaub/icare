@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/v2/account_option/account_option_widget.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
+import '/index.dart';
 import 'userprofile_widget.dart' show UserprofileWidget;
 import 'package:flutter/material.dart';
 

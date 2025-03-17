@@ -30,13 +30,11 @@ void main() async {
 
   runApp(ChangeNotifierProvider(
     create: (context) => appState,
-    child: const MyApp(),
+    child: MyApp(),
   ));
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({super.key});
-
   // This widget is the root of your application.
   @override
   State<MyApp> createState() => _MyAppState();
@@ -61,6 +59,11 @@ class _MyAppState extends State<MyApp> {
     return matchList.uri.toString();
   }
 
+  List<String> getRouteStack() =>
+      _router.routerDelegate.currentConfiguration.matches
+          .map((e) => getRoute(e))
+          .toList();
+
   late Stream<BaseAuthUser> userStream;
 
   final authUserSub = authenticatedUserStream.listen((_) {});
@@ -77,7 +80,7 @@ class _MyAppState extends State<MyApp> {
       });
     jwtTokenStream.listen((_) {});
     Future.delayed(
-      const Duration(milliseconds: 1000),
+      Duration(milliseconds: 1000),
       () => _appStateNotifier.stopShowingSplashImage(),
     );
   }
@@ -100,8 +103,9 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
       title: 'iCare',
-      localizationsDelegates: const [
+      localizationsDelegates: [
         FFLocalizationsDelegate(),
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
@@ -127,7 +131,7 @@ class _MyAppState extends State<MyApp> {
 }
 
 class NavBarPage extends StatefulWidget {
-  const NavBarPage({super.key, this.initialPage, this.page});
+  NavBarPage({Key? key, this.initialPage, this.page}) : super(key: key);
 
   final String? initialPage;
   final Widget? page;
@@ -151,8 +155,8 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
-      'User': const UserWidget(),
-      'Favorites1': const Favorites1Widget(),
+      'User': UserWidget(),
+      'Favorites1': Favorites1Widget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -171,14 +175,14 @@ class _NavBarPageState extends State<NavBarPage> {
           _currentPage = null;
           _currentPageName = tabs.keys.toList()[i];
         }),
-        backgroundColor: const Color(0xB3B928B8),
+        backgroundColor: Color(0xB3B928B8),
         selectedItemColor: Colors.white,
-        unselectedItemColor: const Color(0xFFEFECF3),
-        selectedBackgroundColor: const Color(0x00000000),
+        unselectedItemColor: Color(0xFFEFECF3),
+        selectedBackgroundColor: Color(0x00000000),
         borderRadius: 8.0,
         itemBorderRadius: 8.0,
-        margin: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+        margin: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+        padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
         width: double.infinity,
         elevation: 0.0,
         items: [
@@ -188,14 +192,14 @@ class _NavBarPageState extends State<NavBarPage> {
               children: [
                 Icon(
                   Icons.person_outline,
-                  color: currentIndex == 0 ? Colors.white : const Color(0xFFEFECF3),
+                  color: currentIndex == 0 ? Colors.white : Color(0xFFEFECF3),
                   size: 35.0,
                 ),
                 Text(
                   'User',
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                    color: currentIndex == 0 ? Colors.white : const Color(0xFFEFECF3),
+                    color: currentIndex == 0 ? Colors.white : Color(0xFFEFECF3),
                     fontSize: 11.0,
                   ),
                 ),
@@ -208,14 +212,14 @@ class _NavBarPageState extends State<NavBarPage> {
               children: [
                 Icon(
                   Icons.favorite_border,
-                  color: currentIndex == 1 ? Colors.white : const Color(0xFFEFECF3),
+                  color: currentIndex == 1 ? Colors.white : Color(0xFFEFECF3),
                   size: 35.0,
                 ),
                 Text(
                   'Favorites',
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                    color: currentIndex == 1 ? Colors.white : const Color(0xFFEFECF3),
+                    color: currentIndex == 1 ? Colors.white : Color(0xFFEFECF3),
                     fontSize: 11.0,
                   ),
                 ),

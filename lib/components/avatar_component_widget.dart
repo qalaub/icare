@@ -47,7 +47,7 @@ class _AvatarComponentWidgetState extends State<AvatarComponentWidget> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8.0),
         border: Border.all(
-          color: widget.isActive! ? const Color(0xFF00FF0A) : const Color(0x00000000),
+          color: widget.isActive! ? Color(0xFF00FF0A) : Color(0x00000000),
           width: valueOrDefault<double>(
             widget.isActive! ? 4.0 : 0.0,
             4.0,

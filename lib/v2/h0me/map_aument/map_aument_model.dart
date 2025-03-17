@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/v2/h0me/map_button/map_button_widget.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
+import '/index.dart';
 import 'map_aument_widget.dart' show MapAumentWidget;
 import 'package:flutter/material.dart';
 

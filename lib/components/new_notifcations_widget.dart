@@ -68,11 +68,11 @@ class _NewNotifcationsWidgetState extends State<NewNotifcationsWidget> {
 
         return Container(
           height: 100.0,
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             color: Color(0xB2CB93E5),
           ),
           child: Align(
-            alignment: const AlignmentDirectional(-1.0, 0.0),
+            alignment: AlignmentDirectional(-1.0, 0.0),
             child: StreamBuilder<UsersRecord>(
               stream: UsersRecord.getDocument(widget.professional!),
               builder: (context, snapshot) {
@@ -97,22 +97,22 @@ class _NewNotifcationsWidgetState extends State<NewNotifcationsWidget> {
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    SizedBox(
+                    Container(
                       width: MediaQuery.sizeOf(context).width * 0.19,
                       child: Stack(
                         children: [
                           Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Container(
                               width: MediaQuery.sizeOf(context).width * 0.16,
                               height: MediaQuery.sizeOf(context).width * 0.16,
                               clipBehavior: Clip.antiAlias,
-                              decoration: const BoxDecoration(
+                              decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                               ),
                               child: CachedNetworkImage(
-                                fadeInDuration: const Duration(milliseconds: 500),
-                                fadeOutDuration: const Duration(milliseconds: 500),
+                                fadeInDuration: Duration(milliseconds: 500),
+                                fadeOutDuration: Duration(milliseconds: 500),
                                 imageUrl: valueOrDefault<String>(
                                   containerUsersRecord.photoUrl,
                                   'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
@@ -121,7 +121,7 @@ class _NewNotifcationsWidgetState extends State<NewNotifcationsWidget> {
                               ),
                             ),
                           ),
-                          const Align(
+                          Align(
                             alignment: AlignmentDirectional(1.25, 0.7),
                             child: Icon(
                               Icons.favorite_sharp,
@@ -137,13 +137,13 @@ class _NewNotifcationsWidgetState extends State<NewNotifcationsWidget> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Container(
                             width: MediaQuery.sizeOf(context).width * 0.71,
                             height: 50.0,
-                            decoration: const BoxDecoration(),
+                            decoration: BoxDecoration(),
                             child: Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: RichText(
                                 textScaler: MediaQuery.of(context).textScaler,
                                 text: TextSpan(
@@ -191,7 +191,7 @@ class _NewNotifcationsWidgetState extends State<NewNotifcationsWidget> {
                         ),
                       ],
                     ),
-                  ].divide(const SizedBox(width: 12.0)),
+                  ].divide(SizedBox(width: 12.0)),
                 );
               },
             ),

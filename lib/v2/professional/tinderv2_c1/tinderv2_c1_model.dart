@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
 import '/v2/professional/mensage_tinder/mensage_tinder_widget.dart';
+import '/index.dart';
 import 'tinderv2_c1_widget.dart' show Tinderv2C1Widget;
 import 'package:flutter/material.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';

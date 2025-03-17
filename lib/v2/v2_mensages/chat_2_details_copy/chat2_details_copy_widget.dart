@@ -1,3 +1,4 @@
+import '';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
@@ -25,6 +26,9 @@ class Chat2DetailsCopyWidget extends StatefulWidget {
   final ChatsRecord? chatRef;
   final DocumentReference? chatRefTotal;
   final DocumentReference? professional;
+
+  static String routeName = 'chat_2_DetailsCopy';
+  static String routePath = 'chat2DetailsCopy';
 
   @override
   State<Chat2DetailsCopyWidget> createState() => _Chat2DetailsCopyWidgetState();
@@ -75,7 +79,7 @@ class _Chat2DetailsCopyWidgetState extends State<Chat2DetailsCopyWidget> {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
           return Scaffold(
-            backgroundColor: const Color(0xFFC047BB),
+            backgroundColor: Color(0xFFC047BB),
             body: Center(
               child: SizedBox(
                 width: 50.0,
@@ -94,9 +98,9 @@ class _Chat2DetailsCopyWidgetState extends State<Chat2DetailsCopyWidget> {
 
         return Scaffold(
           key: scaffoldKey,
-          backgroundColor: const Color(0xFFC047BB),
+          backgroundColor: Color(0xFFC047BB),
           body: Container(
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               color: Colors.white,
             ),
             child: Column(
@@ -105,7 +109,7 @@ class _Chat2DetailsCopyWidgetState extends State<Chat2DetailsCopyWidget> {
                 Container(
                   width: MediaQuery.sizeOf(context).width * 1.0,
                   height: 110.0,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     gradient: LinearGradient(
                       colors: [Color(0xFFC047BB), Color(0xFFCB77C1)],
                       stops: [0.0, 1.0],
@@ -119,13 +123,13 @@ class _Chat2DetailsCopyWidgetState extends State<Chat2DetailsCopyWidget> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Align(
-                        alignment: const AlignmentDirectional(-1.05, 0.2),
+                        alignment: AlignmentDirectional(-1.05, 0.2),
                         child: FlutterFlowIconButton(
                           borderColor: Colors.transparent,
                           borderRadius: 20.0,
                           borderWidth: 1.0,
                           buttonSize: 56.0,
-                          icon: const Icon(
+                          icon: Icon(
                             Icons.arrow_back_ios,
                             color: Colors.white,
                             size: 38.0,
@@ -136,26 +140,26 @@ class _Chat2DetailsCopyWidgetState extends State<Chat2DetailsCopyWidget> {
                         ),
                       ),
                       Align(
-                        alignment: const AlignmentDirectional(0.0, 0.42),
+                        alignment: AlignmentDirectional(0.0, 0.42),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               20.0, 0.0, 0.0, 0.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Container(
                                   width: 62.0,
                                   height: 62.0,
                                   clipBehavior: Clip.antiAlias,
-                                  decoration: const BoxDecoration(
+                                  decoration: BoxDecoration(
                                     shape: BoxShape.circle,
                                   ),
                                   child: CachedNetworkImage(
-                                    fadeInDuration: const Duration(milliseconds: 500),
+                                    fadeInDuration: Duration(milliseconds: 500),
                                     fadeOutDuration:
-                                        const Duration(milliseconds: 500),
+                                        Duration(milliseconds: 500),
                                     imageUrl: valueOrDefault<String>(
                                       chat2DetailsCopyUsersRecord.photoUrl,
                                       'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
@@ -183,13 +187,13 @@ class _Chat2DetailsCopyWidgetState extends State<Chat2DetailsCopyWidget> {
                         ),
                       ),
                       Align(
-                        alignment: const AlignmentDirectional(1.02, 0.29),
+                        alignment: AlignmentDirectional(1.02, 0.29),
                         child: FlutterFlowIconButton(
                           borderColor: Colors.transparent,
                           borderRadius: 20.0,
                           borderWidth: 1.0,
                           buttonSize: 64.25,
-                          icon: const Icon(
+                          icon: Icon(
                             Icons.more_vert,
                             color: Color(0xFFF9FCFF),
                             size: 40.25,
@@ -216,7 +220,7 @@ class _Chat2DetailsCopyWidgetState extends State<Chat2DetailsCopyWidget> {
                     child: Stack(
                       children: [
                         Container(
-                          decoration: const BoxDecoration(
+                          decoration: BoxDecoration(
                             color: Colors.white,
                           ),
                           child: wrapWithModel(
@@ -231,18 +235,18 @@ class _Chat2DetailsCopyWidgetState extends State<Chat2DetailsCopyWidget> {
                           ),
                         ),
                         Align(
-                          alignment: const AlignmentDirectional(1.0, -1.0),
+                          alignment: AlignmentDirectional(1.0, -1.0),
                           child: AuthUserStreamWidget(
                             builder: (context) => Container(
                               width: MediaQuery.sizeOf(context).width * 0.4,
                               height: currentUserDocument?.rol == Roles.user
                                   ? 137.0
                                   : 88.0,
-                              constraints: const BoxConstraints(
+                              constraints: BoxConstraints(
                                 minHeight: 100.0,
                                 maxHeight: 140.0,
                               ),
-                              decoration: const BoxDecoration(),
+                              decoration: BoxDecoration(),
                               child: Visibility(
                                 visible: _model.showMenu,
                                 child: wrapWithModel(

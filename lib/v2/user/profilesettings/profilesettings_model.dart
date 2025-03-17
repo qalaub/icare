@@ -8,6 +8,7 @@ import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
 import '/v2/professional/imagenesfotos_users/imagenesfotos_users_widget.dart';
 import '/v2/user/upload_profile_image/upload_profile_image_widget.dart';
+import '/index.dart';
 import 'profilesettings_widget.dart' show ProfilesettingsWidget;
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
@@ -52,6 +53,7 @@ class ProfilesettingsModel extends FlutterFlowModel<ProfilesettingsWidget> {
 
   ///  State fields for stateful widgets in this page.
 
+  final formKey = GlobalKey<FormState>();
   // Model for upload_profile_image component.
   late UploadProfileImageModel uploadProfileImageModel;
   // Model for imagenesfotosUsers component.
@@ -116,6 +118,31 @@ class ProfilesettingsModel extends FlutterFlowModel<ProfilesettingsWidget> {
       FFUploadedFile(bytes: Uint8List.fromList([]));
   String uploadedFileUrl2 = '';
 
+  // State field(s) for TextFieldNewEmail widget.
+  FocusNode? textFieldNewEmailFocusNode;
+  TextEditingController? textFieldNewEmailTextController;
+  String? Function(BuildContext, String?)?
+      textFieldNewEmailTextControllerValidator;
+  // State field(s) for TextFieldCurrent widget.
+  FocusNode? textFieldCurrentFocusNode;
+  TextEditingController? textFieldCurrentTextController;
+  late bool textFieldCurrentVisibility;
+  String? Function(BuildContext, String?)?
+      textFieldCurrentTextControllerValidator;
+  // State field(s) for TextFieldOldPass widget.
+  FocusNode? textFieldOldPassFocusNode;
+  TextEditingController? textFieldOldPassTextController;
+  late bool textFieldOldPassVisibility;
+  String? Function(BuildContext, String?)?
+      textFieldOldPassTextControllerValidator;
+  // State field(s) for TextFieldNewPass widget.
+  FocusNode? textFieldNewPassFocusNode;
+  TextEditingController? textFieldNewPassTextController;
+  late bool textFieldNewPassVisibility;
+  String? Function(BuildContext, String?)?
+      textFieldNewPassTextControllerValidator;
+  // Stores action output result for [Custom Action - changePassword] action in Button widget.
+  bool? isChange;
   // Stores action output result for [Backend Call - API (getPlace)] action in mapbuscar widget.
   ApiCallResponse? newPlace;
   // Model for Navbar component.
@@ -130,6 +157,9 @@ class ProfilesettingsModel extends FlutterFlowModel<ProfilesettingsWidget> {
     imagenesfotosUsersModel =
         createModel(context, () => ImagenesfotosUsersModel());
     calendarioCopyModel = createModel(context, () => CalendarioCopyModel());
+    textFieldCurrentVisibility = false;
+    textFieldOldPassVisibility = false;
+    textFieldNewPassVisibility = false;
     navbarModel = createModel(context, () => NavbarModel());
     navbarPremiunModel = createModel(context, () => NavbarPremiunModel());
   }
@@ -162,6 +192,18 @@ class ProfilesettingsModel extends FlutterFlowModel<ProfilesettingsWidget> {
 
     descriptionFocusNode?.dispose();
     descriptionTextController?.dispose();
+
+    textFieldNewEmailFocusNode?.dispose();
+    textFieldNewEmailTextController?.dispose();
+
+    textFieldCurrentFocusNode?.dispose();
+    textFieldCurrentTextController?.dispose();
+
+    textFieldOldPassFocusNode?.dispose();
+    textFieldOldPassTextController?.dispose();
+
+    textFieldNewPassFocusNode?.dispose();
+    textFieldNewPassTextController?.dispose();
 
     navbarModel.dispose();
     navbarPremiunModel.dispose();

@@ -19,6 +19,9 @@ class ReportSectionWidget extends StatefulWidget {
   final String? user1;
   final String? user2;
 
+  static String routeName = 'reportSection';
+  static String routePath = 'reportSection';
+
   @override
   State<ReportSectionWidget> createState() => _ReportSectionWidgetState();
 }
@@ -54,7 +57,7 @@ class _ReportSectionWidgetState extends State<ReportSectionWidget> {
         body: SafeArea(
           top: true,
           child: Container(
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               color: Color(0xFF272727),
             ),
             child: Column(
@@ -72,10 +75,10 @@ class _ReportSectionWidgetState extends State<ReportSectionWidget> {
                     ),
                   ),
                   child: Align(
-                    alignment: const AlignmentDirectional(-1.0, -1.0),
+                    alignment: AlignmentDirectional(-1.0, -1.0),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 0.0, 0.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -84,7 +87,7 @@ class _ReportSectionWidgetState extends State<ReportSectionWidget> {
                         onTap: () async {
                           context.safePop();
                         },
-                        child: const Icon(
+                        child: Icon(
                           Icons.arrow_back,
                           color: Colors.black,
                           size: 31.0,
@@ -94,14 +97,14 @@ class _ReportSectionWidgetState extends State<ReportSectionWidget> {
                   ),
                 ),
                 Container(
-                  decoration: const BoxDecoration(),
+                  decoration: BoxDecoration(),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.start,
@@ -123,20 +126,20 @@ class _ReportSectionWidgetState extends State<ReportSectionWidget> {
                       ),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Container(
-                              decoration: const BoxDecoration(),
+                              decoration: BoxDecoration(),
                               child: Text(
                                 'A system employee reviews \nmessages to verify if they violate\n community standards, if so the \naccount will be suspended.',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Montserrat',
-                                      color: const Color(0xFFC6C6C6),
+                                      color: Color(0xFFC6C6C6),
                                       fontSize: 20.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w300,
@@ -146,14 +149,14 @@ class _ReportSectionWidgetState extends State<ReportSectionWidget> {
                           ],
                         ),
                       ),
-                    ].divide(const SizedBox(height: 8.0)),
+                    ].divide(SizedBox(height: 8.0)),
                   ),
                 ),
                 Align(
-                  alignment: const AlignmentDirectional(0.01, 0.71),
+                  alignment: AlignmentDirectional(0.01, 0.71),
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 168.0, 0.0, 10.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 168.0, 0.0, 10.0),
                     child: FFButtonWidget(
                       onPressed: () async {
                         await launchUrl(Uri(
@@ -175,11 +178,11 @@ class _ReportSectionWidgetState extends State<ReportSectionWidget> {
                       options: FFButtonOptions(
                         width: 275.0,
                         height: 45.0,
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             24.0, 0.0, 24.0, 0.0),
                         iconPadding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: const Color(0xFFB928B8),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        color: Color(0xFFB928B8),
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Montserrat',
@@ -189,7 +192,7 @@ class _ReportSectionWidgetState extends State<ReportSectionWidget> {
                                   fontWeight: FontWeight.w500,
                                 ),
                         elevation: 5.0,
-                        borderSide: const BorderSide(
+                        borderSide: BorderSide(
                           color: Colors.transparent,
                           width: 1.0,
                         ),
@@ -198,7 +201,7 @@ class _ReportSectionWidgetState extends State<ReportSectionWidget> {
                     ),
                   ),
                 ),
-              ].divide(const SizedBox(height: 32.0)),
+              ].divide(SizedBox(height: 32.0)),
             ),
           ),
         ),

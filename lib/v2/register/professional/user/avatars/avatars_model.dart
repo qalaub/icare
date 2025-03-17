@@ -1,4 +1,5 @@
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'avatars_widget.dart' show AvatarsWidget;
 import 'package:flutter/material.dart';
 

@@ -1,3 +1,4 @@
+import '';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
@@ -8,6 +9,7 @@ import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import '/custom_code/actions/index.dart' as actions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'register_pfofesional5_model.dart';
 export 'register_pfofesional5_model.dart';
@@ -16,9 +18,12 @@ class RegisterPfofesional5Widget extends StatefulWidget {
   const RegisterPfofesional5Widget({
     super.key,
     bool? isProfesional,
-  }) : isProfesional = isProfesional ?? false;
+  }) : this.isProfesional = isProfesional ?? false;
 
   final bool isProfesional;
+
+  static String routeName = 'RegisterPfofesional5';
+  static String routePath = 'registerPfofesional5';
 
   @override
   State<RegisterPfofesional5Widget> createState() =>
@@ -55,7 +60,7 @@ class _RegisterPfofesional5WidgetState
         onWillPop: () async => false,
         child: Scaffold(
           key: scaffoldKey,
-          backgroundColor: const Color(0xFFFFFEFE),
+          backgroundColor: Color(0xFFFFFEFE),
           body: SafeArea(
             top: true,
             child: Column(
@@ -76,7 +81,7 @@ class _RegisterPfofesional5WidgetState
                           child: Stack(
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(0.0),
                                   child: Image.asset(
@@ -88,13 +93,13 @@ class _RegisterPfofesional5WidgetState
                                 ),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(-0.91, -0.96),
+                                alignment: AlignmentDirectional(-0.91, -0.96),
                                 child: FlutterFlowIconButton(
                                   borderColor: Colors.transparent,
                                   borderRadius: 20.0,
                                   borderWidth: 1.0,
                                   buttonSize: 40.0,
-                                  icon: const Icon(
+                                  icon: Icon(
                                     Icons.arrow_back_ios_new,
                                     color: Color(0xFFF8F6F6),
                                     size: 24.0,
@@ -105,9 +110,9 @@ class _RegisterPfofesional5WidgetState
                                 ),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(0.0, -1.0),
+                                alignment: AlignmentDirectional(0.0, -1.0),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 6.0, 0.0, 0.0),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(8.0),
@@ -116,21 +121,21 @@ class _RegisterPfofesional5WidgetState
                                       width: 110.0,
                                       height: 116.0,
                                       fit: BoxFit.fitWidth,
-                                      alignment: const Alignment(0.0, 0.0),
+                                      alignment: Alignment(0.0, 0.0),
                                     ),
                                   ),
                                 ),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Container(
                                   width:
                                       MediaQuery.sizeOf(context).width * 0.96,
                                   height:
                                       MediaQuery.sizeOf(context).height * 0.6,
                                   decoration: BoxDecoration(
-                                    color: const Color(0xFFFFFEFE),
-                                    borderRadius: const BorderRadius.only(
+                                    color: Color(0xFFFFFEFE),
+                                    borderRadius: BorderRadius.only(
                                       bottomLeft: Radius.circular(24.0),
                                       bottomRight: Radius.circular(24.0),
                                       topLeft: Radius.circular(24.0),
@@ -149,10 +154,10 @@ class _RegisterPfofesional5WidgetState
                                       children: [
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, -1.0),
+                                              AlignmentDirectional(0.0, -1.0),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 10.0, 0.0, 0.0),
                                             child: Text(
                                               'Add video',
@@ -162,7 +167,7 @@ class _RegisterPfofesional5WidgetState
                                                   .bodyMedium
                                                   .override(
                                                     fontFamily: 'Montserrat',
-                                                    color: const Color(0xFF8E058A),
+                                                    color: Color(0xFF8E058A),
                                                     fontSize: 20.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
@@ -172,10 +177,10 @@ class _RegisterPfofesional5WidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, -1.0),
+                                              AlignmentDirectional(0.0, -1.0),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     10.0, 10.0, 10.0, 10.0),
                                             child: Text(
                                               'Complete your profile! Upload a video that clearly shows your face. Don\'t forget to review it before sending it! This is optional.',
@@ -185,7 +190,7 @@ class _RegisterPfofesional5WidgetState
                                                   .bodyMedium
                                                   .override(
                                                     fontFamily: 'Montserrat',
-                                                    color: const Color(0xFF6F6F6F),
+                                                    color: Color(0xFF6F6F6F),
                                                     fontSize: 13.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
@@ -195,21 +200,21 @@ class _RegisterPfofesional5WidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Container(
                                             width: 380.0,
                                             height: 1.0,
                                             decoration: BoxDecoration(
-                                              color: const Color(0xFFF0DFEF),
+                                              color: Color(0xFFF0DFEF),
                                               border: Border.all(
-                                                color: const Color(0xFFF0DFEF),
+                                                color: Color(0xFFF0DFEF),
                                               ),
                                             ),
                                           ),
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 10.0, 0.0, 0.0),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
@@ -219,16 +224,16 @@ class _RegisterPfofesional5WidgetState
                                                     .height *
                                                 0.251,
                                             decoration: BoxDecoration(
-                                              color: const Color(0xFFFFFEFE),
+                                              color: Color(0xFFFFFEFE),
                                               borderRadius:
                                                   BorderRadius.circular(4.0),
                                               border: Border.all(
-                                                color: const Color(0xFFC45ABE),
+                                                color: Color(0xFFC45ABE),
                                                 width: 1.0,
                                               ),
                                             ),
                                             child: Align(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
@@ -237,27 +242,28 @@ class _RegisterPfofesional5WidgetState
                                                 children: [
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             0.0, 0.0),
-                                                    child:
-                                                        FlutterFlowVideoPlayer(
-                                                      path: _model.video !=
-                                                                  null &&
-                                                              _model.video != ''
-                                                          ? _model.video!
-                                                          : 'https://assets.mixkit.co/videos/51585/51585-720.mp4',
-                                                      videoType:
-                                                          VideoType.network,
-                                                      width: 417.7,
-                                                      height: 250.0,
-                                                      aspectRatio: 1.7,
-                                                      autoPlay: false,
-                                                      looping: false,
-                                                      showControls: true,
-                                                      allowFullScreen: false,
-                                                      allowPlaybackSpeedMenu:
-                                                          false,
-                                                      lazyLoad: false,
+                                                    child: AuthUserStreamWidget(
+                                                      builder: (context) =>
+                                                          FlutterFlowVideoPlayer(
+                                                        path: valueOrDefault(
+                                                            currentUserDocument
+                                                                ?.video,
+                                                            ''),
+                                                        videoType:
+                                                            VideoType.network,
+                                                        width: 417.7,
+                                                        height: 250.0,
+                                                        aspectRatio: 1.7,
+                                                        autoPlay: false,
+                                                        looping: false,
+                                                        showControls: true,
+                                                        allowFullScreen: false,
+                                                        allowPlaybackSpeedMenu:
+                                                            false,
+                                                        lazyLoad: false,
+                                                      ),
                                                     ),
                                                   ),
                                                 ],
@@ -267,10 +273,10 @@ class _RegisterPfofesional5WidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.01, 0.71),
+                                              AlignmentDirectional(0.01, 0.71),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 20.0, 0.0, 0.0),
                                             child: FFButtonWidget(
                                               onPressed: () async {
@@ -343,7 +349,7 @@ class _RegisterPfofesional5WidgetState
                                                 }
 
                                                 _model.verifyVideo =
-                                                    actions
+                                                    await actions
                                                         .verifySizeVideo(
                                                   _model.uploadedLocalFile1,
                                                 );
@@ -359,10 +365,10 @@ class _RegisterPfofesional5WidgetState
                                                               .primaryText,
                                                         ),
                                                       ),
-                                                      duration: const Duration(
+                                                      duration: Duration(
                                                           milliseconds: 4000),
                                                       backgroundColor:
-                                                          const Color(0xFFD2395B),
+                                                          Color(0xFFD2395B),
                                                     ),
                                                   );
                                                   safeSetState(() {
@@ -381,14 +387,14 @@ class _RegisterPfofesional5WidgetState
                                               options: FFButtonOptions(
                                                 width: 275.0,
                                                 height: 45.0,
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         24.0, 0.0, 24.0, 0.0),
                                                 iconPadding:
-                                                    const EdgeInsetsDirectional
+                                                    EdgeInsetsDirectional
                                                         .fromSTEB(
                                                             0.0, 0.0, 0.0, 0.0),
-                                                color: const Color(0xFFB928B8),
+                                                color: Color(0xFFB928B8),
                                                 textStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .titleSmall
@@ -400,7 +406,7 @@ class _RegisterPfofesional5WidgetState
                                                           letterSpacing: 0.0,
                                                         ),
                                                 elevation: 5.0,
-                                                borderSide: const BorderSide(
+                                                borderSide: BorderSide(
                                                   color: Colors.transparent,
                                                   width: 1.0,
                                                 ),
@@ -412,18 +418,18 @@ class _RegisterPfofesional5WidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 10.0, 0.0, 0.0),
                                             child: Container(
                                               width: 380.0,
                                               height: 1.0,
                                               decoration: BoxDecoration(
-                                                color: const Color(0xFFF0DFEF),
+                                                color: Color(0xFFF0DFEF),
                                                 border: Border.all(
-                                                  color: const Color(0xFFF0DFEF),
+                                                  color: Color(0xFFF0DFEF),
                                                 ),
                                               ),
                                             ),
@@ -431,10 +437,10 @@ class _RegisterPfofesional5WidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.01, 0.71),
+                                              AlignmentDirectional(0.01, 0.71),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 20.0, 0.0, 10.0),
                                             child: FFButtonWidget(
                                               onPressed: () async {
@@ -517,7 +523,7 @@ class _RegisterPfofesional5WidgetState
                                                 }
 
                                                 context.goNamed(
-                                                  'HomeSearch',
+                                                  HomeSearchWidget.routeName,
                                                   queryParameters: {
                                                     'authUser': serializeParam(
                                                       true,
@@ -530,14 +536,14 @@ class _RegisterPfofesional5WidgetState
                                               options: FFButtonOptions(
                                                 width: 275.0,
                                                 height: 45.0,
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         24.0, 0.0, 24.0, 0.0),
                                                 iconPadding:
-                                                    const EdgeInsetsDirectional
+                                                    EdgeInsetsDirectional
                                                         .fromSTEB(
                                                             0.0, 0.0, 0.0, 0.0),
-                                                color: const Color(0xFFB928B8),
+                                                color: Color(0xFFB928B8),
                                                 textStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .titleSmall
@@ -549,7 +555,7 @@ class _RegisterPfofesional5WidgetState
                                                           letterSpacing: 0.0,
                                                         ),
                                                 elevation: 5.0,
-                                                borderSide: const BorderSide(
+                                                borderSide: BorderSide(
                                                   color: Colors.transparent,
                                                   width: 1.0,
                                                 ),
@@ -560,8 +566,8 @@ class _RegisterPfofesional5WidgetState
                                           ),
                                         ),
                                       ]
-                                          .addToStart(const SizedBox(height: 10.0))
-                                          .addToEnd(const SizedBox(height: 16.0)),
+                                          .addToStart(SizedBox(height: 10.0))
+                                          .addToEnd(SizedBox(height: 16.0)),
                                     ),
                                   ),
                                 ),

@@ -1,3 +1,4 @@
+import '';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
@@ -6,6 +7,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
+import '/index.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'deleteaccount_model.dart';
@@ -13,6 +15,9 @@ export 'deleteaccount_model.dart';
 
 class DeleteaccountWidget extends StatefulWidget {
   const DeleteaccountWidget({super.key});
+
+  static String routeName = 'Deleteaccount';
+  static String routePath = 'deleteaccount';
 
   @override
   State<DeleteaccountWidget> createState() => _DeleteaccountWidgetState();
@@ -49,7 +54,7 @@ class _DeleteaccountWidgetState extends State<DeleteaccountWidget> {
         body: SafeArea(
           top: true,
           child: Align(
-            alignment: const AlignmentDirectional(0.0, 0.0),
+            alignment: AlignmentDirectional(0.0, 0.0),
             child: Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
@@ -67,16 +72,16 @@ class _DeleteaccountWidgetState extends State<DeleteaccountWidget> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 230.0, 0.0, 0.0),
                           child: Container(
                             width: MediaQuery.sizeOf(context).width * 0.96,
                             height: 254.0,
                             decoration: BoxDecoration(
                               color: Colors.white,
-                              borderRadius: const BorderRadius.only(
+                              borderRadius: BorderRadius.only(
                                 bottomLeft: Radius.circular(24.0),
                                 bottomRight: Radius.circular(24.0),
                                 topLeft: Radius.circular(24.0),
@@ -91,7 +96,7 @@ class _DeleteaccountWidgetState extends State<DeleteaccountWidget> {
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 8.0, 0.0, 0.0),
                                   child: Text(
                                     'Delete account',
@@ -105,16 +110,16 @@ class _DeleteaccountWidgetState extends State<DeleteaccountWidget> {
                                         ),
                                   ),
                                 ),
-                                const Divider(
+                                Divider(
                                   height: 23.0,
                                   thickness: 2.0,
                                   color: Color(0xFFF0DFEF),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       8.0, 0.0, 8.0, 0.0),
                                   child: Container(
-                                    decoration: const BoxDecoration(),
+                                    decoration: BoxDecoration(),
                                     child: RichText(
                                       textScaler:
                                           MediaQuery.of(context).textScaler,
@@ -132,7 +137,7 @@ class _DeleteaccountWidgetState extends State<DeleteaccountWidget> {
                                                   fontWeight: FontWeight.normal,
                                                 ),
                                           ),
-                                          const TextSpan(
+                                          TextSpan(
                                             text:
                                                 '  Are you sure you want to delete your account?',
                                             style: TextStyle(
@@ -155,7 +160,7 @@ class _DeleteaccountWidgetState extends State<DeleteaccountWidget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 32.0, 0.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -164,7 +169,7 @@ class _DeleteaccountWidgetState extends State<DeleteaccountWidget> {
                                     children: [
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(1.0, 1.0),
+                                            AlignmentDirectional(1.0, 1.0),
                                         child: FFButtonWidget(
                                           onPressed: () async {
                                             _model.chats =
@@ -211,7 +216,8 @@ class _DeleteaccountWidgetState extends State<DeleteaccountWidget> {
                                             await authManager
                                                 .deleteUser(context);
 
-                                            context.goNamed('Login');
+                                            context
+                                                .goNamed(LoginWidget.routeName);
 
                                             safeSetState(() {});
                                           },
@@ -220,10 +226,10 @@ class _DeleteaccountWidgetState extends State<DeleteaccountWidget> {
                                             width: 159.0,
                                             height: 45.0,
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
                                             iconPadding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
                                             color: Colors.white,
                                             textStyle:
@@ -231,11 +237,11 @@ class _DeleteaccountWidgetState extends State<DeleteaccountWidget> {
                                                     .titleSmall
                                                     .override(
                                                       fontFamily: 'Montserrat',
-                                                      color: const Color(0xFFB928B8),
+                                                      color: Color(0xFFB928B8),
                                                       letterSpacing: 0.0,
                                                     ),
                                             elevation: 3.0,
-                                            borderSide: const BorderSide(
+                                            borderSide: BorderSide(
                                               color: Color(0xFFB928B8),
                                               width: 1.0,
                                             ),
@@ -246,7 +252,7 @@ class _DeleteaccountWidgetState extends State<DeleteaccountWidget> {
                                       ),
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(1.0, 1.0),
+                                            AlignmentDirectional(1.0, 1.0),
                                         child: FFButtonWidget(
                                           onPressed: () async {
                                             context.safePop();
@@ -256,12 +262,12 @@ class _DeleteaccountWidgetState extends State<DeleteaccountWidget> {
                                             width: 159.0,
                                             height: 45.0,
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
                                             iconPadding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
-                                            color: const Color(0xFFB928B8),
+                                            color: Color(0xFFB928B8),
                                             textStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .titleSmall
@@ -271,7 +277,7 @@ class _DeleteaccountWidgetState extends State<DeleteaccountWidget> {
                                                       letterSpacing: 0.0,
                                                     ),
                                             elevation: 3.0,
-                                            borderSide: const BorderSide(
+                                            borderSide: BorderSide(
                                               width: 1.0,
                                             ),
                                             borderRadius:
@@ -290,10 +296,10 @@ class _DeleteaccountWidgetState extends State<DeleteaccountWidget> {
                     ],
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(0.0, -1.0),
+                    alignment: AlignmentDirectional(0.0, -1.0),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(8.0),
                         child: Image.asset(
@@ -306,13 +312,13 @@ class _DeleteaccountWidgetState extends State<DeleteaccountWidget> {
                     ),
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(-0.91, -0.96),
+                    alignment: AlignmentDirectional(-0.91, -0.96),
                     child: FlutterFlowIconButton(
                       borderColor: Colors.transparent,
                       borderRadius: 20.0,
                       borderWidth: 1.0,
                       buttonSize: 40.0,
-                      icon: const Icon(
+                      icon: Icon(
                         Icons.arrow_back_ios_new,
                         color: Colors.white,
                         size: 24.0,

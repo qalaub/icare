@@ -52,9 +52,9 @@ class _Calendariov2WidgetState extends State<Calendariov2Widget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Align(
-                alignment: const AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.0, 0.0),
                 child: Container(
-                  decoration: const BoxDecoration(),
+                  decoration: BoxDecoration(),
                   child: Text(
                     'Morning',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -68,9 +68,9 @@ class _Calendariov2WidgetState extends State<Calendariov2Widget> {
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.0, 0.0),
                 child: Container(
-                  decoration: const BoxDecoration(),
+                  decoration: BoxDecoration(),
                   child: Text(
                     'Afternoon',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -84,12 +84,12 @@ class _Calendariov2WidgetState extends State<Calendariov2Widget> {
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.0, 0.0),
                 child: Container(
-                  decoration: const BoxDecoration(),
+                  decoration: BoxDecoration(),
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 15.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 15.0, 0.0),
                     child: Text(
                       'Evening',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -104,9 +104,9 @@ class _Calendariov2WidgetState extends State<Calendariov2Widget> {
                 ),
               ),
             ]
-                .divide(const SizedBox(width: 16.0))
-                .addToStart(const SizedBox(width: 64.0))
-                .addToEnd(const SizedBox(width: 64.0)),
+                .divide(SizedBox(width: 16.0))
+                .addToStart(SizedBox(width: 64.0))
+                .addToEnd(SizedBox(width: 64.0)),
           ),
           Column(
             mainAxisSize: MainAxisSize.max,
@@ -115,12 +115,12 @@ class _Calendariov2WidgetState extends State<Calendariov2Widget> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Container(
-                    decoration: const BoxDecoration(),
+                    decoration: BoxDecoration(),
                     child: Text(
                       'Mo',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Montserrat',
-                            color: const Color(0xFFC14BBC),
+                            color: Color(0xFFC14BBC),
                             fontSize: 15.0,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w600,
@@ -170,7 +170,7 @@ class _Calendariov2WidgetState extends State<Calendariov2Widget> {
                             width: 2,
                             color: FlutterFlowTheme.of(context).alternate,
                           ),
-                          activeColor: const Color(0xFFC14BBC),
+                          activeColor: Color(0xFFC14BBC),
                           checkColor: FlutterFlowTheme.of(context).info,
                         ),
                       ),
@@ -213,7 +213,7 @@ class _Calendariov2WidgetState extends State<Calendariov2Widget> {
                             width: 2,
                             color: FlutterFlowTheme.of(context).alternate,
                           ),
-                          activeColor: const Color(0xFFC14BBC),
+                          activeColor: Color(0xFFC14BBC),
                           checkColor: FlutterFlowTheme.of(context).info,
                         ),
                       ),
@@ -257,27 +257,27 @@ class _Calendariov2WidgetState extends State<Calendariov2Widget> {
                             width: 2,
                             color: FlutterFlowTheme.of(context).alternate,
                           ),
-                          activeColor: const Color(0xFFC14BBC),
+                          activeColor: Color(0xFFC14BBC),
                           checkColor: FlutterFlowTheme.of(context).info,
                         ),
                       ),
-                    ].divide(const SizedBox(width: 62.0)),
+                    ].divide(SizedBox(width: 62.0)),
                   ),
                 ]
-                    .divide(const SizedBox(width: 34.0))
-                    .addToStart(const SizedBox(width: 16.0))
-                    .addToEnd(const SizedBox(width: 16.0)),
+                    .divide(SizedBox(width: 34.0))
+                    .addToStart(SizedBox(width: 16.0))
+                    .addToEnd(SizedBox(width: 16.0)),
               ),
               Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Container(
-                    decoration: const BoxDecoration(),
+                    decoration: BoxDecoration(),
                     child: Text(
                       'Tu',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Montserrat',
-                            color: const Color(0xFFC14BBC),
+                            color: Color(0xFFC14BBC),
                             fontSize: 15.0,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w600,
@@ -327,7 +327,7 @@ class _Calendariov2WidgetState extends State<Calendariov2Widget> {
                             width: 2,
                             color: FlutterFlowTheme.of(context).alternate,
                           ),
-                          activeColor: const Color(0xFFC14BBC),
+                          activeColor: Color(0xFFC14BBC),
                           checkColor: FlutterFlowTheme.of(context).info,
                         ),
                       ),
@@ -370,7 +370,7 @@ class _Calendariov2WidgetState extends State<Calendariov2Widget> {
                             width: 2,
                             color: FlutterFlowTheme.of(context).alternate,
                           ),
-                          activeColor: const Color(0xFFC14BBC),
+                          activeColor: Color(0xFFC14BBC),
                           checkColor: FlutterFlowTheme.of(context).info,
                         ),
                       ),
@@ -414,27 +414,27 @@ class _Calendariov2WidgetState extends State<Calendariov2Widget> {
                             width: 2,
                             color: FlutterFlowTheme.of(context).alternate,
                           ),
-                          activeColor: const Color(0xFFC14BBC),
+                          activeColor: Color(0xFFC14BBC),
                           checkColor: FlutterFlowTheme.of(context).info,
                         ),
                       ),
-                    ].divide(const SizedBox(width: 62.0)),
+                    ].divide(SizedBox(width: 62.0)),
                   ),
                 ]
-                    .divide(const SizedBox(width: 39.0))
-                    .addToStart(const SizedBox(width: 16.0))
-                    .addToEnd(const SizedBox(width: 16.0)),
+                    .divide(SizedBox(width: 39.0))
+                    .addToStart(SizedBox(width: 16.0))
+                    .addToEnd(SizedBox(width: 16.0)),
               ),
               Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Container(
-                    decoration: const BoxDecoration(),
+                    decoration: BoxDecoration(),
                     child: Text(
                       'We',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Montserrat',
-                            color: const Color(0xFFC14BBC),
+                            color: Color(0xFFC14BBC),
                             fontSize: 15.0,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w600,
@@ -484,7 +484,7 @@ class _Calendariov2WidgetState extends State<Calendariov2Widget> {
                             width: 2,
                             color: FlutterFlowTheme.of(context).alternate,
                           ),
-                          activeColor: const Color(0xFFC14BBC),
+                          activeColor: Color(0xFFC14BBC),
                           checkColor: FlutterFlowTheme.of(context).info,
                         ),
                       ),
@@ -527,7 +527,7 @@ class _Calendariov2WidgetState extends State<Calendariov2Widget> {
                             width: 2,
                             color: FlutterFlowTheme.of(context).alternate,
                           ),
-                          activeColor: const Color(0xFFC14BBC),
+                          activeColor: Color(0xFFC14BBC),
                           checkColor: FlutterFlowTheme.of(context).info,
                         ),
                       ),
@@ -571,27 +571,27 @@ class _Calendariov2WidgetState extends State<Calendariov2Widget> {
                             width: 2,
                             color: FlutterFlowTheme.of(context).alternate,
                           ),
-                          activeColor: const Color(0xFFC14BBC),
+                          activeColor: Color(0xFFC14BBC),
                           checkColor: FlutterFlowTheme.of(context).info,
                         ),
                       ),
-                    ].divide(const SizedBox(width: 62.0)),
+                    ].divide(SizedBox(width: 62.0)),
                   ),
                 ]
-                    .divide(const SizedBox(width: 33.0))
-                    .addToStart(const SizedBox(width: 16.0))
-                    .addToEnd(const SizedBox(width: 16.0)),
+                    .divide(SizedBox(width: 33.0))
+                    .addToStart(SizedBox(width: 16.0))
+                    .addToEnd(SizedBox(width: 16.0)),
               ),
               Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Container(
-                    decoration: const BoxDecoration(),
+                    decoration: BoxDecoration(),
                     child: Text(
                       'Th',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Montserrat',
-                            color: const Color(0xFFC14BBC),
+                            color: Color(0xFFC14BBC),
                             fontSize: 15.0,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w600,
@@ -641,7 +641,7 @@ class _Calendariov2WidgetState extends State<Calendariov2Widget> {
                             width: 2,
                             color: FlutterFlowTheme.of(context).alternate,
                           ),
-                          activeColor: const Color(0xFFC14BBC),
+                          activeColor: Color(0xFFC14BBC),
                           checkColor: FlutterFlowTheme.of(context).info,
                         ),
                       ),
@@ -684,7 +684,7 @@ class _Calendariov2WidgetState extends State<Calendariov2Widget> {
                             width: 2,
                             color: FlutterFlowTheme.of(context).alternate,
                           ),
-                          activeColor: const Color(0xFFC14BBC),
+                          activeColor: Color(0xFFC14BBC),
                           checkColor: FlutterFlowTheme.of(context).info,
                         ),
                       ),
@@ -728,27 +728,27 @@ class _Calendariov2WidgetState extends State<Calendariov2Widget> {
                             width: 2,
                             color: FlutterFlowTheme.of(context).alternate,
                           ),
-                          activeColor: const Color(0xFFC14BBC),
+                          activeColor: Color(0xFFC14BBC),
                           checkColor: FlutterFlowTheme.of(context).info,
                         ),
                       ),
-                    ].divide(const SizedBox(width: 62.0)),
+                    ].divide(SizedBox(width: 62.0)),
                   ),
                 ]
-                    .divide(const SizedBox(width: 40.0))
-                    .addToStart(const SizedBox(width: 16.0))
-                    .addToEnd(const SizedBox(width: 16.0)),
+                    .divide(SizedBox(width: 40.0))
+                    .addToStart(SizedBox(width: 16.0))
+                    .addToEnd(SizedBox(width: 16.0)),
               ),
               Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Container(
-                    decoration: const BoxDecoration(),
+                    decoration: BoxDecoration(),
                     child: Text(
                       'Fr',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Montserrat',
-                            color: const Color(0xFFC14BBC),
+                            color: Color(0xFFC14BBC),
                             fontSize: 15.0,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w600,
@@ -798,7 +798,7 @@ class _Calendariov2WidgetState extends State<Calendariov2Widget> {
                             width: 2,
                             color: FlutterFlowTheme.of(context).alternate,
                           ),
-                          activeColor: const Color(0xFFC14BBC),
+                          activeColor: Color(0xFFC14BBC),
                           checkColor: FlutterFlowTheme.of(context).info,
                         ),
                       ),
@@ -841,7 +841,7 @@ class _Calendariov2WidgetState extends State<Calendariov2Widget> {
                             width: 2,
                             color: FlutterFlowTheme.of(context).alternate,
                           ),
-                          activeColor: const Color(0xFFC14BBC),
+                          activeColor: Color(0xFFC14BBC),
                           checkColor: FlutterFlowTheme.of(context).info,
                         ),
                       ),
@@ -885,27 +885,27 @@ class _Calendariov2WidgetState extends State<Calendariov2Widget> {
                             width: 2,
                             color: FlutterFlowTheme.of(context).alternate,
                           ),
-                          activeColor: const Color(0xFFC14BBC),
+                          activeColor: Color(0xFFC14BBC),
                           checkColor: FlutterFlowTheme.of(context).info,
                         ),
                       ),
-                    ].divide(const SizedBox(width: 62.0)),
+                    ].divide(SizedBox(width: 62.0)),
                   ),
                 ]
-                    .divide(const SizedBox(width: 44.0))
-                    .addToStart(const SizedBox(width: 16.0))
-                    .addToEnd(const SizedBox(width: 16.0)),
+                    .divide(SizedBox(width: 44.0))
+                    .addToStart(SizedBox(width: 16.0))
+                    .addToEnd(SizedBox(width: 16.0)),
               ),
               Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Container(
-                    decoration: const BoxDecoration(),
+                    decoration: BoxDecoration(),
                     child: Text(
                       'Sa',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Montserrat',
-                            color: const Color(0xFFC14BBC),
+                            color: Color(0xFFC14BBC),
                             fontSize: 15.0,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w600,
@@ -955,7 +955,7 @@ class _Calendariov2WidgetState extends State<Calendariov2Widget> {
                             width: 2,
                             color: FlutterFlowTheme.of(context).alternate,
                           ),
-                          activeColor: const Color(0xFFC14BBC),
+                          activeColor: Color(0xFFC14BBC),
                           checkColor: FlutterFlowTheme.of(context).info,
                         ),
                       ),
@@ -998,7 +998,7 @@ class _Calendariov2WidgetState extends State<Calendariov2Widget> {
                             width: 2,
                             color: FlutterFlowTheme.of(context).alternate,
                           ),
-                          activeColor: const Color(0xFFC14BBC),
+                          activeColor: Color(0xFFC14BBC),
                           checkColor: FlutterFlowTheme.of(context).info,
                         ),
                       ),
@@ -1042,27 +1042,27 @@ class _Calendariov2WidgetState extends State<Calendariov2Widget> {
                             width: 2,
                             color: FlutterFlowTheme.of(context).alternate,
                           ),
-                          activeColor: const Color(0xFFC14BBC),
+                          activeColor: Color(0xFFC14BBC),
                           checkColor: FlutterFlowTheme.of(context).info,
                         ),
                       ),
-                    ].divide(const SizedBox(width: 62.0)),
+                    ].divide(SizedBox(width: 62.0)),
                   ),
                 ]
-                    .divide(const SizedBox(width: 42.0))
-                    .addToStart(const SizedBox(width: 16.0))
-                    .addToEnd(const SizedBox(width: 16.0)),
+                    .divide(SizedBox(width: 42.0))
+                    .addToStart(SizedBox(width: 16.0))
+                    .addToEnd(SizedBox(width: 16.0)),
               ),
               Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Container(
-                    decoration: const BoxDecoration(),
+                    decoration: BoxDecoration(),
                     child: Text(
                       'Su',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Montserrat',
-                            color: const Color(0xFFC14BBC),
+                            color: Color(0xFFC14BBC),
                             fontSize: 15.0,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w600,
@@ -1112,7 +1112,7 @@ class _Calendariov2WidgetState extends State<Calendariov2Widget> {
                             width: 2,
                             color: FlutterFlowTheme.of(context).alternate,
                           ),
-                          activeColor: const Color(0xFFC14BBC),
+                          activeColor: Color(0xFFC14BBC),
                           checkColor: FlutterFlowTheme.of(context).info,
                         ),
                       ),
@@ -1155,7 +1155,7 @@ class _Calendariov2WidgetState extends State<Calendariov2Widget> {
                             width: 2,
                             color: FlutterFlowTheme.of(context).alternate,
                           ),
-                          activeColor: const Color(0xFFC14BBC),
+                          activeColor: Color(0xFFC14BBC),
                           checkColor: FlutterFlowTheme.of(context).info,
                         ),
                       ),
@@ -1199,18 +1199,18 @@ class _Calendariov2WidgetState extends State<Calendariov2Widget> {
                             width: 2,
                             color: FlutterFlowTheme.of(context).alternate,
                           ),
-                          activeColor: const Color(0xFFC14BBC),
+                          activeColor: Color(0xFFC14BBC),
                           checkColor: FlutterFlowTheme.of(context).info,
                         ),
                       ),
-                    ].divide(const SizedBox(width: 62.0)),
+                    ].divide(SizedBox(width: 62.0)),
                   ),
                 ]
-                    .divide(const SizedBox(width: 41.0))
-                    .addToStart(const SizedBox(width: 16.0))
-                    .addToEnd(const SizedBox(width: 16.0)),
+                    .divide(SizedBox(width: 41.0))
+                    .addToStart(SizedBox(width: 16.0))
+                    .addToEnd(SizedBox(width: 16.0)),
               ),
-            ].addToStart(const SizedBox(height: 8.0)),
+            ].addToStart(SizedBox(height: 8.0)),
           ),
         ],
       ),

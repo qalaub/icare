@@ -16,7 +16,7 @@ class ImageUploadWidget extends StatefulWidget {
     this.img,
     this.index,
     String? background,
-  }) : background = background ??
+  }) : this.background = background ??
             'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/xokotouxb9hk/imageText.png';
 
   final String? img;
@@ -90,13 +90,13 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
           builder: (context) {
             if (_model.uploadedFileUrl == '') {
               return Align(
-                alignment: const AlignmentDirectional(1.0, 1.0),
+                alignment: AlignmentDirectional(1.0, 1.0),
                 child: FlutterFlowIconButton(
                   borderRadius: 20.0,
                   borderWidth: 1.0,
                   buttonSize: 40.0,
-                  fillColor: const Color(0xFFED2AF1),
-                  icon: const Icon(
+                  fillColor: Color(0xFFED2AF1),
+                  icon: Icon(
                     Icons.add,
                     color: Color(0xFFFFFEFE),
                     size: 24.0,
@@ -176,14 +176,14 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
               );
             } else {
               return Align(
-                alignment: const AlignmentDirectional(1.0, 1.0),
+                alignment: AlignmentDirectional(1.0, 1.0),
                 child: FlutterFlowIconButton(
                   borderColor: FlutterFlowTheme.of(context).primary,
                   borderRadius: 20.0,
                   borderWidth: 1.0,
                   buttonSize: 40.0,
-                  fillColor: const Color(0xFFED2AF1),
-                  icon: const Icon(
+                  fillColor: Color(0xFFED2AF1),
+                  icon: Icon(
                     Icons.close,
                     color: Color(0xFFFFFEFE),
                     size: 24.0,

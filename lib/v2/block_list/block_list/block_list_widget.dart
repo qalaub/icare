@@ -13,6 +13,9 @@ export 'block_list_model.dart';
 class BlockListWidget extends StatefulWidget {
   const BlockListWidget({super.key});
 
+  static String routeName = 'BlockList';
+  static String routePath = 'blockList';
+
   @override
   State<BlockListWidget> createState() => _BlockListWidgetState();
 }
@@ -46,14 +49,14 @@ class _BlockListWidgetState extends State<BlockListWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: AppBar(
-          backgroundColor: const Color(0xFFBD39BA),
+          backgroundColor: Color(0xFFBD39BA),
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
             borderColor: Colors.transparent,
             borderRadius: 30.0,
             borderWidth: 1.0,
             buttonSize: 60.0,
-            icon: const FaIcon(
+            icon: FaIcon(
               FontAwesomeIcons.angleLeft,
               color: Colors.white,
               size: 30.0,
@@ -72,7 +75,7 @@ class _BlockListWidgetState extends State<BlockListWidget> {
                   fontWeight: FontWeight.bold,
                 ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
@@ -80,7 +83,7 @@ class _BlockListWidgetState extends State<BlockListWidget> {
           top: true,
           child: Stack(
             children: [
-              if ((currentUserDocument?.blockUser.toList() ?? []).isNotEmpty)
+              if ((currentUserDocument?.blockUser.toList() ?? []).length > 0)
                 AuthUserStreamWidget(
                   builder: (context) => StreamBuilder<List<UsersRecord>>(
                     stream: queryUsersRecord(
@@ -122,7 +125,7 @@ class _BlockListWidgetState extends State<BlockListWidget> {
                           .toList();
 
                       return Container(
-                        decoration: const BoxDecoration(
+                        decoration: BoxDecoration(
                           color: Colors.white,
                         ),
                         child: Builder(

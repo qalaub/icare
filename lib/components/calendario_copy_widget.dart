@@ -39,7 +39,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: const AlignmentDirectional(0.0, 0.0),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Material(
         color: Colors.transparent,
         elevation: 2.0,
@@ -48,16 +48,16 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
         ),
         child: Container(
           height: 190.0,
-          constraints: const BoxConstraints(
+          constraints: BoxConstraints(
             minHeight: 190.0,
             maxWidth: 392.0,
             maxHeight: 190.0,
           ),
           decoration: BoxDecoration(
-            color: const Color(0xFFF3F3F3),
+            color: Color(0xFFF3F3F3),
             borderRadius: BorderRadius.circular(20.0),
             border: Border.all(
-              color: const Color(0xFFC55EBE),
+              color: Color(0xFFC55EBE),
               width: 3.0,
             ),
           ),
@@ -66,16 +66,16 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(8.0, 16.0, 8.0, 14.0),
+                padding: EdgeInsetsDirectional.fromSTEB(8.0, 16.0, 8.0, 14.0),
                 child: Container(
                   width: MediaQuery.sizeOf(context).width * 0.2,
-                  constraints: const BoxConstraints(
+                  constraints: BoxConstraints(
                     minWidth: 90.0,
                     minHeight: 190.0,
                     maxWidth: 90.0,
                     maxHeight: 190.0,
                   ),
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     color: Color(0xFFF3F3F3),
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(20.0),
@@ -85,19 +85,19 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                     ),
                   ),
                   child: Align(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 2.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 2.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Align(
-                            alignment: const AlignmentDirectional(-1.0, 0.0),
+                            alignment: AlignmentDirectional(-1.0, 0.0),
                             child: Container(
-                              decoration: const BoxDecoration(),
+                              decoration: BoxDecoration(),
                               child: Text(
                                 'Morning',
                                 style: FlutterFlowTheme.of(context)
@@ -107,15 +107,15 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                       color: Colors.black,
                                       fontSize: 15.0,
                                       letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w600,
+                                      fontWeight: FontWeight.w500,
                                     ),
                               ),
                             ),
                           ),
                           Align(
-                            alignment: const AlignmentDirectional(-1.0, 0.0),
+                            alignment: AlignmentDirectional(-1.0, 0.0),
                             child: Container(
-                              decoration: const BoxDecoration(),
+                              decoration: BoxDecoration(),
                               child: Text(
                                 'Afternoon',
                                 style: FlutterFlowTheme.of(context)
@@ -125,15 +125,15 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                       color: Colors.black,
                                       fontSize: 15.0,
                                       letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w600,
+                                      fontWeight: FontWeight.w500,
                                     ),
                               ),
                             ),
                           ),
                           Align(
-                            alignment: const AlignmentDirectional(-1.0, 0.0),
+                            alignment: AlignmentDirectional(-1.0, 0.0),
                             child: Container(
-                              decoration: const BoxDecoration(),
+                              decoration: BoxDecoration(),
                               child: Text(
                                 'Evening',
                                 style: FlutterFlowTheme.of(context)
@@ -143,12 +143,12 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                       color: Colors.black,
                                       fontSize: 15.0,
                                       letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w600,
+                                      fontWeight: FontWeight.w500,
                                     ),
                               ),
                             ),
                           ),
-                        ].divide(const SizedBox(height: 14.0)),
+                        ].divide(SizedBox(height: 14.0)),
                       ),
                     ),
                   ),
@@ -157,13 +157,13 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
               Container(
                 width: MediaQuery.sizeOf(context).width * 0.5,
                 height: 190.0,
-                constraints: const BoxConstraints(
+                constraints: BoxConstraints(
                   minWidth: 200.0,
                   minHeight: 190.0,
                   maxWidth: 400.0,
                   maxHeight: 190.0,
                 ),
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   color: Color(0xFFF3F3F3),
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(0.0),
@@ -173,7 +173,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                   ),
                 ),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 16.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 16.0),
                   child: SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
@@ -186,14 +186,14 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Container(
-                              decoration: const BoxDecoration(),
+                              decoration: BoxDecoration(),
                               child: Text(
                                 'Mo',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Montserrat',
-                                      color: const Color(0xFFC14BBC),
+                                      color: Color(0xFFC14BBC),
                                       fontSize: 15.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
@@ -206,11 +206,11 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                               children: [
                                 Expanded(
                                   child: Align(
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Container(
                                       width: 20.0,
                                       height: 20.0,
-                                      decoration: const BoxDecoration(),
+                                      decoration: BoxDecoration(),
                                       child: Theme(
                                         data: ThemeData(
                                           checkboxTheme: CheckboxThemeData(
@@ -262,7 +262,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                             color: FlutterFlowTheme.of(context)
                                                 .alternate,
                                           ),
-                                          activeColor: const Color(0xFFC14BBC),
+                                          activeColor: Color(0xFFC14BBC),
                                           checkColor:
                                               FlutterFlowTheme.of(context).info,
                                         ),
@@ -273,7 +273,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                 Container(
                                   width: 20.0,
                                   height: 20.0,
-                                  decoration: const BoxDecoration(),
+                                  decoration: BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
                                       checkboxTheme: CheckboxThemeData(
@@ -319,7 +319,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
                                       ),
-                                      activeColor: const Color(0xFFC14BBC),
+                                      activeColor: Color(0xFFC14BBC),
                                       checkColor:
                                           FlutterFlowTheme.of(context).info,
                                     ),
@@ -328,7 +328,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                 Container(
                                   width: 20.0,
                                   height: 20.0,
-                                  decoration: const BoxDecoration(),
+                                  decoration: BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
                                       checkboxTheme: CheckboxThemeData(
@@ -375,17 +375,17 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
                                       ),
-                                      activeColor: const Color(0xFFC14BBC),
+                                      activeColor: Color(0xFFC14BBC),
                                       checkColor:
                                           FlutterFlowTheme.of(context).info,
                                     ),
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 14.0)),
+                              ].divide(SizedBox(height: 14.0)),
                             ),
                           ]
-                              .divide(const SizedBox(height: 10.0))
-                              .addToStart(const SizedBox(height: 0.0)),
+                              .divide(SizedBox(height: 10.0))
+                              .addToStart(SizedBox(height: 0.0)),
                         ),
                         Column(
                           mainAxisSize: MainAxisSize.max,
@@ -393,14 +393,14 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Container(
-                              decoration: const BoxDecoration(),
+                              decoration: BoxDecoration(),
                               child: Text(
                                 'Tu',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Montserrat',
-                                      color: const Color(0xFFC14BBC),
+                                      color: Color(0xFFC14BBC),
                                       fontSize: 15.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
@@ -413,11 +413,11 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                               children: [
                                 Expanded(
                                   child: Align(
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Container(
                                       width: 20.0,
                                       height: 20.0,
-                                      decoration: const BoxDecoration(),
+                                      decoration: BoxDecoration(),
                                       child: Theme(
                                         data: ThemeData(
                                           checkboxTheme: CheckboxThemeData(
@@ -469,7 +469,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                             color: FlutterFlowTheme.of(context)
                                                 .alternate,
                                           ),
-                                          activeColor: const Color(0xFFC14BBC),
+                                          activeColor: Color(0xFFC14BBC),
                                           checkColor:
                                               FlutterFlowTheme.of(context).info,
                                         ),
@@ -480,7 +480,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                 Container(
                                   width: 20.0,
                                   height: 20.0,
-                                  decoration: const BoxDecoration(),
+                                  decoration: BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
                                       checkboxTheme: CheckboxThemeData(
@@ -526,7 +526,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
                                       ),
-                                      activeColor: const Color(0xFFC14BBC),
+                                      activeColor: Color(0xFFC14BBC),
                                       checkColor:
                                           FlutterFlowTheme.of(context).info,
                                     ),
@@ -535,7 +535,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                 Container(
                                   width: 20.0,
                                   height: 20.0,
-                                  decoration: const BoxDecoration(),
+                                  decoration: BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
                                       checkboxTheme: CheckboxThemeData(
@@ -582,17 +582,17 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
                                       ),
-                                      activeColor: const Color(0xFFC14BBC),
+                                      activeColor: Color(0xFFC14BBC),
                                       checkColor:
                                           FlutterFlowTheme.of(context).info,
                                     ),
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 14.0)),
+                              ].divide(SizedBox(height: 14.0)),
                             ),
                           ]
-                              .divide(const SizedBox(height: 10.0))
-                              .addToStart(const SizedBox(height: 0.0)),
+                              .divide(SizedBox(height: 10.0))
+                              .addToStart(SizedBox(height: 0.0)),
                         ),
                         Column(
                           mainAxisSize: MainAxisSize.max,
@@ -600,14 +600,14 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Container(
-                              decoration: const BoxDecoration(),
+                              decoration: BoxDecoration(),
                               child: Text(
                                 'We',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Montserrat',
-                                      color: const Color(0xFFC14BBC),
+                                      color: Color(0xFFC14BBC),
                                       fontSize: 15.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
@@ -620,11 +620,11 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                               children: [
                                 Expanded(
                                   child: Align(
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Container(
                                       width: 20.0,
                                       height: 20.0,
-                                      decoration: const BoxDecoration(),
+                                      decoration: BoxDecoration(),
                                       child: Theme(
                                         data: ThemeData(
                                           checkboxTheme: CheckboxThemeData(
@@ -676,7 +676,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                             color: FlutterFlowTheme.of(context)
                                                 .alternate,
                                           ),
-                                          activeColor: const Color(0xFFC14BBC),
+                                          activeColor: Color(0xFFC14BBC),
                                           checkColor:
                                               FlutterFlowTheme.of(context).info,
                                         ),
@@ -687,7 +687,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                 Container(
                                   width: 20.0,
                                   height: 20.0,
-                                  decoration: const BoxDecoration(),
+                                  decoration: BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
                                       checkboxTheme: CheckboxThemeData(
@@ -733,7 +733,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
                                       ),
-                                      activeColor: const Color(0xFFC14BBC),
+                                      activeColor: Color(0xFFC14BBC),
                                       checkColor:
                                           FlutterFlowTheme.of(context).info,
                                     ),
@@ -742,7 +742,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                 Container(
                                   width: 20.0,
                                   height: 20.0,
-                                  decoration: const BoxDecoration(),
+                                  decoration: BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
                                       checkboxTheme: CheckboxThemeData(
@@ -789,17 +789,17 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
                                       ),
-                                      activeColor: const Color(0xFFC14BBC),
+                                      activeColor: Color(0xFFC14BBC),
                                       checkColor:
                                           FlutterFlowTheme.of(context).info,
                                     ),
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 14.0)),
+                              ].divide(SizedBox(height: 14.0)),
                             ),
                           ]
-                              .divide(const SizedBox(height: 10.0))
-                              .addToStart(const SizedBox(height: 0.0)),
+                              .divide(SizedBox(height: 10.0))
+                              .addToStart(SizedBox(height: 0.0)),
                         ),
                         Column(
                           mainAxisSize: MainAxisSize.max,
@@ -807,14 +807,14 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Container(
-                              decoration: const BoxDecoration(),
+                              decoration: BoxDecoration(),
                               child: Text(
                                 'Th',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Montserrat',
-                                      color: const Color(0xFFC14BBC),
+                                      color: Color(0xFFC14BBC),
                                       fontSize: 15.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
@@ -827,11 +827,11 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                               children: [
                                 Expanded(
                                   child: Align(
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Container(
                                       width: 20.0,
                                       height: 20.0,
-                                      decoration: const BoxDecoration(),
+                                      decoration: BoxDecoration(),
                                       child: Theme(
                                         data: ThemeData(
                                           checkboxTheme: CheckboxThemeData(
@@ -883,7 +883,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                             color: FlutterFlowTheme.of(context)
                                                 .alternate,
                                           ),
-                                          activeColor: const Color(0xFFC14BBC),
+                                          activeColor: Color(0xFFC14BBC),
                                           checkColor:
                                               FlutterFlowTheme.of(context).info,
                                         ),
@@ -894,7 +894,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                 Container(
                                   width: 20.0,
                                   height: 20.0,
-                                  decoration: const BoxDecoration(),
+                                  decoration: BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
                                       checkboxTheme: CheckboxThemeData(
@@ -940,7 +940,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
                                       ),
-                                      activeColor: const Color(0xFFC14BBC),
+                                      activeColor: Color(0xFFC14BBC),
                                       checkColor:
                                           FlutterFlowTheme.of(context).info,
                                     ),
@@ -949,7 +949,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                 Container(
                                   width: 20.0,
                                   height: 20.0,
-                                  decoration: const BoxDecoration(),
+                                  decoration: BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
                                       checkboxTheme: CheckboxThemeData(
@@ -996,17 +996,17 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
                                       ),
-                                      activeColor: const Color(0xFFC14BBC),
+                                      activeColor: Color(0xFFC14BBC),
                                       checkColor:
                                           FlutterFlowTheme.of(context).info,
                                     ),
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 14.0)),
+                              ].divide(SizedBox(height: 14.0)),
                             ),
                           ]
-                              .divide(const SizedBox(height: 10.0))
-                              .addToStart(const SizedBox(height: 0.0)),
+                              .divide(SizedBox(height: 10.0))
+                              .addToStart(SizedBox(height: 0.0)),
                         ),
                         Column(
                           mainAxisSize: MainAxisSize.max,
@@ -1014,14 +1014,14 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Container(
-                              decoration: const BoxDecoration(),
+                              decoration: BoxDecoration(),
                               child: Text(
                                 'Fr',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Montserrat',
-                                      color: const Color(0xFFC14BBC),
+                                      color: Color(0xFFC14BBC),
                                       fontSize: 15.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
@@ -1034,11 +1034,11 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                               children: [
                                 Expanded(
                                   child: Align(
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Container(
                                       width: 20.0,
                                       height: 20.0,
-                                      decoration: const BoxDecoration(),
+                                      decoration: BoxDecoration(),
                                       child: Theme(
                                         data: ThemeData(
                                           checkboxTheme: CheckboxThemeData(
@@ -1090,7 +1090,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                             color: FlutterFlowTheme.of(context)
                                                 .alternate,
                                           ),
-                                          activeColor: const Color(0xFFC14BBC),
+                                          activeColor: Color(0xFFC14BBC),
                                           checkColor:
                                               FlutterFlowTheme.of(context).info,
                                         ),
@@ -1101,7 +1101,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                 Container(
                                   width: 20.0,
                                   height: 20.0,
-                                  decoration: const BoxDecoration(),
+                                  decoration: BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
                                       checkboxTheme: CheckboxThemeData(
@@ -1147,7 +1147,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
                                       ),
-                                      activeColor: const Color(0xFFC14BBC),
+                                      activeColor: Color(0xFFC14BBC),
                                       checkColor:
                                           FlutterFlowTheme.of(context).info,
                                     ),
@@ -1156,7 +1156,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                 Container(
                                   width: 20.0,
                                   height: 20.0,
-                                  decoration: const BoxDecoration(),
+                                  decoration: BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
                                       checkboxTheme: CheckboxThemeData(
@@ -1203,31 +1203,31 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
                                       ),
-                                      activeColor: const Color(0xFFC14BBC),
+                                      activeColor: Color(0xFFC14BBC),
                                       checkColor:
                                           FlutterFlowTheme.of(context).info,
                                     ),
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 14.0)),
+                              ].divide(SizedBox(height: 14.0)),
                             ),
                           ]
-                              .divide(const SizedBox(height: 10.0))
-                              .addToStart(const SizedBox(height: 0.0)),
+                              .divide(SizedBox(height: 10.0))
+                              .addToStart(SizedBox(height: 0.0)),
                         ),
                         Column(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Container(
-                              decoration: const BoxDecoration(),
+                              decoration: BoxDecoration(),
                               child: Text(
                                 'Sa',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Montserrat',
-                                      color: const Color(0xFFC14BBC),
+                                      color: Color(0xFFC14BBC),
                                       fontSize: 15.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
@@ -1242,7 +1242,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                   child: Container(
                                     width: 20.0,
                                     height: 20.0,
-                                    decoration: const BoxDecoration(),
+                                    decoration: BoxDecoration(),
                                     child: Theme(
                                       data: ThemeData(
                                         checkboxTheme: CheckboxThemeData(
@@ -1292,7 +1292,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                           color: FlutterFlowTheme.of(context)
                                               .alternate,
                                         ),
-                                        activeColor: const Color(0xFFC14BBC),
+                                        activeColor: Color(0xFFC14BBC),
                                         checkColor:
                                             FlutterFlowTheme.of(context).info,
                                       ),
@@ -1302,7 +1302,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                 Container(
                                   width: 20.0,
                                   height: 20.0,
-                                  decoration: const BoxDecoration(),
+                                  decoration: BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
                                       checkboxTheme: CheckboxThemeData(
@@ -1348,7 +1348,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
                                       ),
-                                      activeColor: const Color(0xFFC14BBC),
+                                      activeColor: Color(0xFFC14BBC),
                                       checkColor:
                                           FlutterFlowTheme.of(context).info,
                                     ),
@@ -1357,7 +1357,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                 Container(
                                   width: 20.0,
                                   height: 20.0,
-                                  decoration: const BoxDecoration(),
+                                  decoration: BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
                                       checkboxTheme: CheckboxThemeData(
@@ -1404,31 +1404,31 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
                                       ),
-                                      activeColor: const Color(0xFFC14BBC),
+                                      activeColor: Color(0xFFC14BBC),
                                       checkColor:
                                           FlutterFlowTheme.of(context).info,
                                     ),
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 14.0)),
+                              ].divide(SizedBox(height: 14.0)),
                             ),
                           ]
-                              .divide(const SizedBox(height: 10.0))
-                              .addToStart(const SizedBox(height: 0.0)),
+                              .divide(SizedBox(height: 10.0))
+                              .addToStart(SizedBox(height: 0.0)),
                         ),
                         Column(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Container(
-                              decoration: const BoxDecoration(),
+                              decoration: BoxDecoration(),
                               child: Text(
                                 'Su',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Montserrat',
-                                      color: const Color(0xFFC14BBC),
+                                      color: Color(0xFFC14BBC),
                                       fontSize: 15.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
@@ -1443,7 +1443,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                   child: Container(
                                     width: 20.0,
                                     height: 20.0,
-                                    decoration: const BoxDecoration(),
+                                    decoration: BoxDecoration(),
                                     child: Theme(
                                       data: ThemeData(
                                         checkboxTheme: CheckboxThemeData(
@@ -1493,7 +1493,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                           color: FlutterFlowTheme.of(context)
                                               .alternate,
                                         ),
-                                        activeColor: const Color(0xFFC14BBC),
+                                        activeColor: Color(0xFFC14BBC),
                                         checkColor:
                                             FlutterFlowTheme.of(context).info,
                                       ),
@@ -1503,7 +1503,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                 Container(
                                   width: 20.0,
                                   height: 20.0,
-                                  decoration: const BoxDecoration(),
+                                  decoration: BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
                                       checkboxTheme: CheckboxThemeData(
@@ -1549,7 +1549,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
                                       ),
-                                      activeColor: const Color(0xFFC14BBC),
+                                      activeColor: Color(0xFFC14BBC),
                                       checkColor:
                                           FlutterFlowTheme.of(context).info,
                                     ),
@@ -1558,7 +1558,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                 Container(
                                   width: 20.0,
                                   height: 20.0,
-                                  decoration: const BoxDecoration(),
+                                  decoration: BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
                                       checkboxTheme: CheckboxThemeData(
@@ -1605,17 +1605,17 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
                                       ),
-                                      activeColor: const Color(0xFFC14BBC),
+                                      activeColor: Color(0xFFC14BBC),
                                       checkColor:
                                           FlutterFlowTheme.of(context).info,
                                     ),
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 14.0)),
+                              ].divide(SizedBox(height: 14.0)),
                             ),
                           ]
-                              .divide(const SizedBox(height: 10.0))
-                              .addToStart(const SizedBox(height: 0.0)),
+                              .divide(SizedBox(height: 10.0))
+                              .addToStart(SizedBox(height: 0.0)),
                         ),
                       ]
                           .divide(SizedBox(width: () {
@@ -1634,8 +1634,8 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                               return 5.0;
                             }
                           }()))
-                          .addToStart(const SizedBox(width: 1.0))
-                          .addToEnd(const SizedBox(width: 1.0)),
+                          .addToStart(SizedBox(width: 1.0))
+                          .addToEnd(SizedBox(width: 1.0)),
                     ),
                   ),
                 ),

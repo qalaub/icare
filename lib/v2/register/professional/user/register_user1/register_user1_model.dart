@@ -2,6 +2,7 @@ import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'register_user1_widget.dart' show RegisterUser1Widget;
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
@@ -61,11 +62,11 @@ class RegisterUser1Model extends FlutterFlowModel<RegisterUser1Widget> {
   TextEditingController? dateTextController;
   final dateMask = MaskTextInputFormatter(mask: '##/##/####');
   String? Function(BuildContext, String?)? dateTextControllerValidator;
-  // State field(s) for email widget.
-  FocusNode? emailFocusNode1;
-  TextEditingController? emailTextController1;
-  String? Function(BuildContext, String?)? emailTextController1Validator;
-  String? _emailTextController1Validator(BuildContext context, String? val) {
+  // State field(s) for email2 widget.
+  FocusNode? email2FocusNode;
+  TextEditingController? email2TextController;
+  String? Function(BuildContext, String?)? email2TextControllerValidator;
+  String? _email2TextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return 'Field is required';
     }
@@ -76,12 +77,12 @@ class RegisterUser1Model extends FlutterFlowModel<RegisterUser1Widget> {
     return null;
   }
 
-  // Stores action output result for [Firestore Query - Query a collection] action in email widget.
+  // Stores action output result for [Firestore Query - Query a collection] action in email2 widget.
   int? emailExists;
-  // State field(s) for email widget.
-  FocusNode? emailFocusNode2;
-  TextEditingController? emailTextController2;
-  String? Function(BuildContext, String?)? emailTextController2Validator;
+  // State field(s) for emailconfirm2 widget.
+  FocusNode? emailconfirm2FocusNode;
+  TextEditingController? emailconfirm2TextController;
+  String? Function(BuildContext, String?)? emailconfirm2TextControllerValidator;
   // State field(s) for phone widget.
   FocusNode? phoneFocusNode;
   TextEditingController? phoneTextController;
@@ -121,7 +122,7 @@ class RegisterUser1Model extends FlutterFlowModel<RegisterUser1Widget> {
     formC = ScrollController();
     firstNameTextControllerValidator = _firstNameTextControllerValidator;
     lastnameTextControllerValidator = _lastnameTextControllerValidator;
-    emailTextController1Validator = _emailTextController1Validator;
+    email2TextControllerValidator = _email2TextControllerValidator;
     phoneTextControllerValidator = _phoneTextControllerValidator;
     columnController = ScrollController();
     listViewController = ScrollController();
@@ -139,11 +140,11 @@ class RegisterUser1Model extends FlutterFlowModel<RegisterUser1Widget> {
     dateFocusNode?.dispose();
     dateTextController?.dispose();
 
-    emailFocusNode1?.dispose();
-    emailTextController1?.dispose();
+    email2FocusNode?.dispose();
+    email2TextController?.dispose();
 
-    emailFocusNode2?.dispose();
-    emailTextController2?.dispose();
+    emailconfirm2FocusNode?.dispose();
+    emailconfirm2TextController?.dispose();
 
     phoneFocusNode?.dispose();
     phoneTextController?.dispose();

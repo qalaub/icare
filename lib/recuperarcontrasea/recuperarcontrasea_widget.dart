@@ -3,12 +3,16 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'recuperarcontrasea_model.dart';
 export 'recuperarcontrasea_model.dart';
 
 class RecuperarcontraseaWidget extends StatefulWidget {
   const RecuperarcontraseaWidget({super.key});
+
+  static String routeName = 'recuperarcontrasea';
+  static String routePath = 'recuperarcontrasea';
 
   @override
   State<RecuperarcontraseaWidget> createState() =>
@@ -49,7 +53,7 @@ class _RecuperarcontraseaWidgetState extends State<RecuperarcontraseaWidget> {
         body: SafeArea(
           top: true,
           child: Align(
-            alignment: const AlignmentDirectional(0.0, 0.0),
+            alignment: AlignmentDirectional(0.0, 0.0),
             child: Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
@@ -67,16 +71,16 @@ class _RecuperarcontraseaWidgetState extends State<RecuperarcontraseaWidget> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 230.0, 0.0, 0.0),
                           child: Container(
                             width: MediaQuery.sizeOf(context).width * 0.96,
                             height: 234.0,
                             decoration: BoxDecoration(
                               color: Colors.white,
-                              borderRadius: const BorderRadius.only(
+                              borderRadius: BorderRadius.only(
                                 bottomLeft: Radius.circular(24.0),
                                 bottomRight: Radius.circular(24.0),
                                 topLeft: Radius.circular(24.0),
@@ -91,7 +95,7 @@ class _RecuperarcontraseaWidgetState extends State<RecuperarcontraseaWidget> {
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 8.0, 0.0, 0.0),
                                   child: Text(
                                     'Password Recovery',
@@ -105,7 +109,7 @@ class _RecuperarcontraseaWidgetState extends State<RecuperarcontraseaWidget> {
                                         ),
                                   ),
                                 ),
-                                const Divider(
+                                Divider(
                                   height: 23.0,
                                   thickness: 2.0,
                                   color: Color(0xFFF0DFEF),
@@ -114,7 +118,7 @@ class _RecuperarcontraseaWidgetState extends State<RecuperarcontraseaWidget> {
                                   key: _model.formKey,
                                   autovalidateMode: AutovalidateMode.disabled,
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         16.0, 16.0, 16.0, 0.0),
                                     child: TextFormField(
                                       controller: _model.emailTextController,
@@ -131,7 +135,7 @@ class _RecuperarcontraseaWidgetState extends State<RecuperarcontraseaWidget> {
                                               letterSpacing: 0.0,
                                             ),
                                         enabledBorder: OutlineInputBorder(
-                                          borderSide: const BorderSide(
+                                          borderSide: BorderSide(
                                             color: Color(0xFFBB33B9),
                                             width: 2.0,
                                           ),
@@ -139,7 +143,7 @@ class _RecuperarcontraseaWidgetState extends State<RecuperarcontraseaWidget> {
                                               BorderRadius.circular(12.0),
                                         ),
                                         focusedBorder: OutlineInputBorder(
-                                          borderSide: const BorderSide(
+                                          borderSide: BorderSide(
                                             color: Color(0xFFBB33B9),
                                             width: 2.0,
                                           ),
@@ -147,7 +151,7 @@ class _RecuperarcontraseaWidgetState extends State<RecuperarcontraseaWidget> {
                                               BorderRadius.circular(12.0),
                                         ),
                                         errorBorder: OutlineInputBorder(
-                                          borderSide: const BorderSide(
+                                          borderSide: BorderSide(
                                             color: Color(0xFFDA0000),
                                             width: 2.0,
                                           ),
@@ -155,7 +159,7 @@ class _RecuperarcontraseaWidgetState extends State<RecuperarcontraseaWidget> {
                                               BorderRadius.circular(12.0),
                                         ),
                                         focusedErrorBorder: OutlineInputBorder(
-                                          borderSide: const BorderSide(
+                                          borderSide: BorderSide(
                                             color: Color(0xFFDA0000),
                                             width: 2.0,
                                           ),
@@ -176,7 +180,7 @@ class _RecuperarcontraseaWidgetState extends State<RecuperarcontraseaWidget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 32.0, 0.0, 16.0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
@@ -189,7 +193,7 @@ class _RecuperarcontraseaWidgetState extends State<RecuperarcontraseaWidget> {
                                           .emailTextController.text.isEmpty) {
                                         ScaffoldMessenger.of(context)
                                             .showSnackBar(
-                                          const SnackBar(
+                                          SnackBar(
                                             content: Text(
                                               'Email required!',
                                             ),
@@ -202,18 +206,18 @@ class _RecuperarcontraseaWidgetState extends State<RecuperarcontraseaWidget> {
                                         context: context,
                                       );
 
-                                      context.pushNamed('Login');
+                                      context.pushNamed(LoginWidget.routeName);
                                     },
                                     text: 'Give link',
                                     options: FFButtonOptions(
                                       width: 279.0,
                                       height: 45.0,
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 0.0),
                                       iconPadding:
-                                          const EdgeInsetsDirectional.fromSTEB(
+                                          EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
-                                      color: const Color(0xFFB928B8),
+                                      color: Color(0xFFB928B8),
                                       textStyle: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .override(
@@ -222,7 +226,7 @@ class _RecuperarcontraseaWidgetState extends State<RecuperarcontraseaWidget> {
                                             letterSpacing: 0.0,
                                           ),
                                       elevation: 3.0,
-                                      borderSide: const BorderSide(
+                                      borderSide: BorderSide(
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(24.0),
@@ -237,10 +241,10 @@ class _RecuperarcontraseaWidgetState extends State<RecuperarcontraseaWidget> {
                     ],
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(0.0, -1.0),
+                    alignment: AlignmentDirectional(0.0, -1.0),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(8.0),
                         child: Image.asset(
@@ -253,13 +257,13 @@ class _RecuperarcontraseaWidgetState extends State<RecuperarcontraseaWidget> {
                     ),
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(-0.91, -0.96),
+                    alignment: AlignmentDirectional(-0.91, -0.96),
                     child: FlutterFlowIconButton(
                       borderColor: Colors.transparent,
                       borderRadius: 20.0,
                       borderWidth: 1.0,
                       buttonSize: 40.0,
-                      icon: const Icon(
+                      icon: Icon(
                         Icons.arrow_back_ios_new,
                         color: Colors.white,
                         size: 24.0,

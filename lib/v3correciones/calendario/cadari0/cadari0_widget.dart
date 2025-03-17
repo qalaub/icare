@@ -1,8 +1,10 @@
+import '';
 import '/components/calendario_copy_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'cadari0_model.dart';
@@ -13,10 +15,13 @@ class Cadari0Widget extends StatefulWidget {
     super.key,
     this.bussinesRef,
     bool? isBussines,
-  }) : isBussines = isBussines ?? false;
+  }) : this.isBussines = isBussines ?? false;
 
   final DocumentReference? bussinesRef;
   final bool isBussines;
+
+  static String routeName = 'cadari0';
+  static String routePath = 'cadari0';
 
   @override
   State<Cadari0Widget> createState() => _Cadari0WidgetState();
@@ -55,7 +60,7 @@ class _Cadari0WidgetState extends State<Cadari0Widget> {
         body: SafeArea(
           top: true,
           child: Align(
-            alignment: const AlignmentDirectional(0.0, 0.0),
+            alignment: AlignmentDirectional(0.0, 0.0),
             child: Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
@@ -68,13 +73,13 @@ class _Cadari0WidgetState extends State<Cadari0Widget> {
               child: Stack(
                 children: [
                   Align(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: Container(
                       width: 384.0,
                       height: 384.0,
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: const BorderRadius.only(
+                        borderRadius: BorderRadius.only(
                           bottomLeft: Radius.circular(24.0),
                           bottomRight: Radius.circular(24.0),
                           topLeft: Radius.circular(24.0),
@@ -90,9 +95,9 @@ class _Cadari0WidgetState extends State<Cadari0Widget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 8.0, 0.0, 0.0),
                               child: Text(
                                 'Select work days',
@@ -107,7 +112,7 @@ class _Cadari0WidgetState extends State<Cadari0Widget> {
                               ),
                             ),
                           ),
-                          const Divider(
+                          Divider(
                             height: 23.0,
                             thickness: 2.0,
                             color: Color(0xFFF0DFEF),
@@ -115,12 +120,12 @@ class _Cadari0WidgetState extends State<Cadari0Widget> {
                           wrapWithModel(
                             model: _model.calendarioCopyModel,
                             updateCallback: () => safeSetState(() {}),
-                            child: const CalendarioCopyWidget(),
+                            child: CalendarioCopyWidget(),
                           ),
                           Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 32.0, 0.0, 16.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
@@ -140,10 +145,11 @@ class _Cadari0WidgetState extends State<Cadari0Widget> {
                                               .contains(_model.trueS) ==
                                           true)) {
                                     if (widget.isBussines) {
-                                      context.pushNamed('RegisterBusiness4');
+                                      context.pushNamed(
+                                          RegisterBusiness4Widget.routeName);
                                     } else {
                                       context.pushNamed(
-                                        'RegisterPfofesional4',
+                                        RegisterPfofesional4Widget.routeName,
                                         queryParameters: {
                                           'businessRef': serializeParam(
                                             widget.bussinesRef,
@@ -162,8 +168,8 @@ class _Cadari0WidgetState extends State<Cadari0Widget> {
                                                 .primaryText,
                                           ),
                                         ),
-                                        duration: const Duration(milliseconds: 4000),
-                                        backgroundColor: const Color(0xFFBE39D2),
+                                        duration: Duration(milliseconds: 4000),
+                                        backgroundColor: Color(0xFFBE39D2),
                                       ),
                                     );
                                   }
@@ -172,11 +178,11 @@ class _Cadari0WidgetState extends State<Cadari0Widget> {
                                 options: FFButtonOptions(
                                   width: 279.0,
                                   height: 45.0,
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  color: const Color(0xFFB928B8),
+                                  color: Color(0xFFB928B8),
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
@@ -185,7 +191,7 @@ class _Cadari0WidgetState extends State<Cadari0Widget> {
                                         letterSpacing: 0.0,
                                       ),
                                   elevation: 3.0,
-                                  borderSide: const BorderSide(
+                                  borderSide: BorderSide(
                                     width: 1.0,
                                   ),
                                   borderRadius: BorderRadius.circular(24.0),
@@ -198,10 +204,10 @@ class _Cadari0WidgetState extends State<Cadari0Widget> {
                     ),
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(0.0, -1.0),
+                    alignment: AlignmentDirectional(0.0, -1.0),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(8.0),
                         child: Image.asset(
@@ -214,13 +220,13 @@ class _Cadari0WidgetState extends State<Cadari0Widget> {
                     ),
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(-0.91, -0.96),
+                    alignment: AlignmentDirectional(-0.91, -0.96),
                     child: FlutterFlowIconButton(
                       borderColor: Colors.transparent,
                       borderRadius: 20.0,
                       borderWidth: 1.0,
                       buttonSize: 40.0,
-                      icon: const Icon(
+                      icon: Icon(
                         Icons.arrow_back_ios_new,
                         color: Colors.white,
                         size: 24.0,

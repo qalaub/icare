@@ -1,3 +1,4 @@
+import '';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
@@ -8,6 +9,7 @@ import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
@@ -19,10 +21,13 @@ class MapAumentWidget extends StatefulWidget {
     super.key,
     this.currentLatLng,
     bool? authUser,
-  }) : authUser = authUser ?? true;
+  }) : this.authUser = authUser ?? true;
 
   final List<LatLng>? currentLatLng;
   final bool authUser;
+
+  static String routeName = 'MapAument';
+  static String routePath = 'mapAument';
 
   @override
   State<MapAumentWidget> createState() => _MapAumentWidgetState();
@@ -64,7 +69,7 @@ class _MapAumentWidgetState extends State<MapAumentWidget> {
                     currentUserDocument!.paymentDate!.secondsSinceEpoch, 1) <
                 getCurrentTimestamp.secondsSinceEpoch) {
               context.pushNamed(
-                'MembresiasV2',
+                MembresiasV2Widget.routeName,
                 queryParameters: {
                   'professionalUpdate': serializeParam(
                     currentUserReference,
@@ -110,52 +115,52 @@ class _MapAumentWidgetState extends State<MapAumentWidget> {
           backgroundColor: Colors.white,
           body: SafeArea(
             top: true,
-            child: SizedBox(
+            child: Container(
               height: MediaQuery.sizeOf(context).height * 1.0,
               child: Stack(
                 children: [
                   Align(
-                    alignment: const AlignmentDirectional(0.0, -1.0),
+                    alignment: AlignmentDirectional(0.0, -1.0),
                     child: Container(
                       width: MediaQuery.sizeOf(context).width * 1.0,
                       height: MediaQuery.sizeOf(context).height * 0.865,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                       ),
-                      alignment: const AlignmentDirectional(0.0, -1.0),
+                      alignment: AlignmentDirectional(0.0, -1.0),
                       child: wrapWithModel(
                         model: _model.mapButtonModel,
                         updateCallback: () => safeSetState(() {}),
-                        child: const MapButtonWidget(),
+                        child: MapButtonWidget(),
                       ),
                     ),
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(0.0, 1.01),
+                    alignment: AlignmentDirectional(0.0, 1.01),
                     child: Container(
                       height: 73.0,
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                         color: Color(0xD7B928B8),
                       ),
-                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: Builder(
                         builder: (context) {
                           if (currentUserDocument?.rol != Roles.business) {
                             return Align(
-                              alignment: const AlignmentDirectional(0.0, 1.0),
+                              alignment: AlignmentDirectional(0.0, 1.0),
                               child: wrapWithModel(
                                 model: _model.navbarModel,
                                 updateCallback: () => safeSetState(() {}),
-                                child: const NavbarWidget(),
+                                child: NavbarWidget(),
                               ),
                             );
                           } else {
                             return Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: wrapWithModel(
                                 model: _model.navbarPremiunModel,
                                 updateCallback: () => safeSetState(() {}),
-                                child: const NavbarPremiunWidget(),
+                                child: NavbarPremiunWidget(),
                               ),
                             );
                           }

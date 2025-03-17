@@ -38,7 +38,7 @@ class _CampanaMensajeWidgetState extends State<CampanaMensajeWidget> {
     return Container(
       width: 76.6,
       height: 76.6,
-      decoration: const BoxDecoration(),
+      decoration: BoxDecoration(),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(8.0),
         child: Image.asset(

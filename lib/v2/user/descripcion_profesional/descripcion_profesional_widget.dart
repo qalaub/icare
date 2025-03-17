@@ -1,3 +1,4 @@
+import '';
 import '/components/calendario_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -21,9 +22,9 @@ class DescripcionProfesionalWidget extends StatefulWidget {
     this.noon,
     this.afternoon,
     this.abn,
-  })  : video = video ??
+  })  : this.video = video ??
             'https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.mp4',
-        company = company ?? 'default230';
+        this.company = company ?? 'default230';
 
   final String? parameter1;
   final String? parameter2;
@@ -72,35 +73,35 @@ class _DescripcionProfesionalWidgetState
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Align(
-            alignment: const AlignmentDirectional(0.0, 0.0),
+            alignment: AlignmentDirectional(0.0, 0.0),
             child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+              padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
               child: Container(
                 width: MediaQuery.sizeOf(context).width * 1.0,
-                decoration: const BoxDecoration(),
+                decoration: BoxDecoration(),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Align(
-                      alignment: const AlignmentDirectional(-1.0, -1.0),
+                      alignment: AlignmentDirectional(-1.0, -1.0),
                       child: Text(
                         'Description',
                         style:
                             FlutterFlowTheme.of(context).displaySmall.override(
                                   fontFamily: 'Montserrat',
-                                  color: const Color(0xFFC14BBC),
+                                  color: Color(0xFFC14BBC),
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,
                                 ),
                       ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: Container(
                         width: double.infinity,
-                        decoration: const BoxDecoration(
+                        decoration: BoxDecoration(
                           borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(0.0),
                             bottomRight: Radius.circular(0.0),
@@ -109,12 +110,12 @@ class _DescripcionProfesionalWidgetState
                           ),
                         ),
                         child: Align(
-                          alignment: const AlignmentDirectional(-1.0, -1.0),
+                          alignment: AlignmentDirectional(-1.0, -1.0),
                           child: Builder(
                             builder: (context) {
                               if (!_model.more) {
                                 return Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       2.0, 2.0, 0.0, 0.0),
                                   child: Text(
                                     valueOrDefault<String>(
@@ -138,7 +139,7 @@ class _DescripcionProfesionalWidgetState
                                 );
                               } else {
                                 return Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       2.0, 2.0, 0.0, 0.0),
                                   child: Text(
                                     widget.parameter1!.maybeHandleOverflow(
@@ -165,7 +166,7 @@ class _DescripcionProfesionalWidgetState
                     ),
                     if (functions.getLengthString(widget.parameter1!) > 200)
                       Align(
-                        alignment: const AlignmentDirectional(1.0, 0.0),
+                        alignment: AlignmentDirectional(1.0, 0.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -181,18 +182,18 @@ class _DescripcionProfesionalWidgetState
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Montserrat',
-                                  color: const Color(0xFFC14BBC),
+                                  color: Color(0xFFC14BBC),
                                   letterSpacing: 0.0,
                                 ),
                           ),
                         ),
                       ),
-                  ].divide(const SizedBox(height: 16.0)),
+                  ].divide(SizedBox(height: 16.0)),
                 ),
               ),
             ),
           ),
-          const SizedBox(
+          SizedBox(
             width: 500.0,
             child: Divider(
               thickness: 1.0,
@@ -200,14 +201,14 @@ class _DescripcionProfesionalWidgetState
             ),
           ),
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+            padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
             child: Container(
               width: MediaQuery.sizeOf(context).width * 1.0,
               height: 235.0,
-              constraints: const BoxConstraints(
+              constraints: BoxConstraints(
                 maxWidth: 355.0,
               ),
-              decoration: const BoxDecoration(),
+              decoration: BoxDecoration(),
               child: wrapWithModel(
                 model: _model.imganesModel,
                 updateCallback: () => safeSetState(() {}),
@@ -217,7 +218,7 @@ class _DescripcionProfesionalWidgetState
               ),
             ),
           ),
-          const SizedBox(
+          SizedBox(
             width: 500.0,
             child: Divider(
               thickness: 1.0,
@@ -225,7 +226,7 @@ class _DescripcionProfesionalWidgetState
             ),
           ),
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+            padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
             child: FlutterFlowVideoPlayer(
               path: widget.video != ''
                   ? widget.video
@@ -242,7 +243,7 @@ class _DescripcionProfesionalWidgetState
               lazyLoad: false,
             ),
           ),
-          const SizedBox(
+          SizedBox(
             width: 500.0,
             child: Divider(
               thickness: 1.0,
@@ -250,19 +251,22 @@ class _DescripcionProfesionalWidgetState
             ),
           ),
           Align(
-            alignment: const AlignmentDirectional(-1.0, -1.0),
-            child: Container(
-              decoration: const BoxDecoration(),
-              child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(40.0, 8.0, 0.0, 8.0),
-                child: Text(
-                  'Availability',
-                  style: FlutterFlowTheme.of(context).displaySmall.override(
-                        fontFamily: 'Montserrat',
-                        color: const Color(0xFFC14BBC),
-                        fontSize: 16.0,
-                        letterSpacing: 0.0,
-                      ),
+            alignment: AlignmentDirectional(-1.0, -1.0),
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+              child: Container(
+                decoration: BoxDecoration(),
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 8.0, 0.0, 8.0),
+                  child: Text(
+                    'Availability',
+                    style: FlutterFlowTheme.of(context).displaySmall.override(
+                          fontFamily: 'Montserrat',
+                          color: Color(0xFFC14BBC),
+                          fontSize: 16.0,
+                          letterSpacing: 0.0,
+                        ),
+                  ),
                 ),
               ),
             ),
@@ -277,31 +281,38 @@ class _DescripcionProfesionalWidgetState
             ),
           ),
           Align(
-            alignment: const AlignmentDirectional(-1.0, -1.0),
-            child: Container(
-              decoration: const BoxDecoration(),
-              child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(40.0, 8.0, 0.0, 8.0),
-                child: Text(
-                  'Services Provided',
-                  style: FlutterFlowTheme.of(context).displaySmall.override(
-                        fontFamily: 'Montserrat',
-                        color: const Color(0xFFC14BBC),
-                        fontSize: 16.0,
-                        letterSpacing: 0.0,
-                      ),
+            alignment: AlignmentDirectional(-1.0, -1.0),
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+              child: Container(
+                decoration: BoxDecoration(),
+                child: Align(
+                  alignment: AlignmentDirectional(-1.0, 0.0),
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 8.0, 0.0, 8.0),
+                    child: Text(
+                      'Services Provided',
+                      style: FlutterFlowTheme.of(context).displaySmall.override(
+                            fontFamily: 'Montserrat',
+                            color: Color(0xFFC14BBC),
+                            fontSize: 16.0,
+                            letterSpacing: 0.0,
+                          ),
+                    ),
+                  ),
                 ),
               ),
             ),
           ),
           Align(
-            alignment: const AlignmentDirectional(-0.03, -0.86),
+            alignment: AlignmentDirectional(-0.03, -0.86),
             child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 8.0),
+              padding: EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 8.0),
               child: Material(
                 color: Colors.transparent,
                 elevation: 2.0,
-                shape: const RoundedRectangleBorder(
+                shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(12.0),
                     bottomRight: Radius.circular(12.0),
@@ -313,14 +324,14 @@ class _DescripcionProfesionalWidgetState
                   width: 320.0,
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: const BorderRadius.only(
+                    borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(12.0),
                       bottomRight: Radius.circular(12.0),
                       topLeft: Radius.circular(12.0),
                       topRight: Radius.circular(12.0),
                     ),
                     border: Border.all(
-                      color: const Color(0xFFC55EBE),
+                      color: Color(0xFFC55EBE),
                       width: 3.0,
                     ),
                   ),
@@ -328,9 +339,9 @@ class _DescripcionProfesionalWidgetState
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Align(
-                        alignment: const AlignmentDirectional(0.0, -0.98),
+                        alignment: AlignmentDirectional(0.0, -0.98),
                         child: CheckboxListTile(
-                          key: const ValueKey('supportWorkers'),
+                          key: ValueKey('supportWorkers'),
                           value: _model.supportValue ??= widget.services
                                   ?.contains(FFAppConstants.servicesType
                                       .elementAtOrNull(0)) ==
@@ -352,18 +363,18 @@ class _DescripcionProfesionalWidgetState
                                   letterSpacing: 0.0,
                                 ),
                           ),
-                          activeColor: const Color(0xFFBD39BA),
+                          activeColor: Color(0xFFBD39BA),
                           checkColor: _model.services
-                              ? const Color(0xFFBD39BA)
+                              ? Color(0xFFBD39BA)
                               : Colors.white,
                           dense: false,
                           controlAffinity: ListTileControlAffinity.trailing,
                         ),
                       ),
                       Align(
-                        alignment: const AlignmentDirectional(0.0, -0.46),
+                        alignment: AlignmentDirectional(0.0, -0.46),
                         child: CheckboxListTile(
-                          key: const ValueKey('supportCoordinators'),
+                          key: ValueKey('supportCoordinators'),
                           value: _model.coordinatorsValue ??= widget.services
                                   ?.contains(FFAppConstants.servicesType
                                       .elementAtOrNull(1)) ==
@@ -385,18 +396,18 @@ class _DescripcionProfesionalWidgetState
                                   letterSpacing: 0.0,
                                 ),
                           ),
-                          activeColor: const Color(0xFFBD39BA),
+                          activeColor: Color(0xFFBD39BA),
                           checkColor: _model.services
-                              ? const Color(0xFFBD39BA)
+                              ? Color(0xFFBD39BA)
                               : Colors.white,
                           dense: false,
                           controlAffinity: ListTileControlAffinity.trailing,
                         ),
                       ),
                       Align(
-                        alignment: const AlignmentDirectional(0.0, -0.98),
+                        alignment: AlignmentDirectional(0.0, -0.98),
                         child: CheckboxListTile(
-                          key: const ValueKey('recoveryCoaches'),
+                          key: ValueKey('recoveryCoaches'),
                           value: _model.recoveryValue ??= widget.services
                                   ?.contains(FFAppConstants.servicesType
                                       .elementAtOrNull(4)) ==
@@ -418,18 +429,18 @@ class _DescripcionProfesionalWidgetState
                                   letterSpacing: 0.0,
                                 ),
                           ),
-                          activeColor: const Color(0xFFBD39BA),
+                          activeColor: Color(0xFFBD39BA),
                           checkColor: _model.services
-                              ? const Color(0xFFBD39BA)
+                              ? Color(0xFFBD39BA)
                               : Colors.white,
                           dense: false,
                           controlAffinity: ListTileControlAffinity.trailing,
                         ),
                       ),
                       Align(
-                        alignment: const AlignmentDirectional(0.0, 0.13),
+                        alignment: AlignmentDirectional(0.0, 0.13),
                         child: CheckboxListTile(
-                          key: const ValueKey('therapeuticSupports'),
+                          key: ValueKey('therapeuticSupports'),
                           value: _model.therapeuticValue ??= widget.services
                                   ?.contains(FFAppConstants.servicesType
                                       .elementAtOrNull(2)) ==
@@ -451,18 +462,18 @@ class _DescripcionProfesionalWidgetState
                                   letterSpacing: 0.0,
                                 ),
                           ),
-                          activeColor: const Color(0xFFBD39BA),
+                          activeColor: Color(0xFFBD39BA),
                           checkColor: _model.services
-                              ? const Color(0xFFBD39BA)
+                              ? Color(0xFFBD39BA)
                               : Colors.white,
                           dense: false,
                           controlAffinity: ListTileControlAffinity.trailing,
                         ),
                       ),
                       Align(
-                        alignment: const AlignmentDirectional(0.0, 0.77),
+                        alignment: AlignmentDirectional(0.0, 0.77),
                         child: CheckboxListTile(
-                          key: const ValueKey('homeMaintenance'),
+                          key: ValueKey('homeMaintenance'),
                           value: _model.homeValue ??= widget.services
                                   ?.contains(FFAppConstants.servicesType
                                       .elementAtOrNull(3)) ==
@@ -484,9 +495,9 @@ class _DescripcionProfesionalWidgetState
                                   letterSpacing: 0.0,
                                 ),
                           ),
-                          activeColor: const Color(0xFFBD39BA),
+                          activeColor: Color(0xFFBD39BA),
                           checkColor: _model.services
-                              ? const Color(0xFFBD39BA)
+                              ? Color(0xFFBD39BA)
                               : Colors.white,
                           dense: false,
                           controlAffinity: ListTileControlAffinity.trailing,
@@ -499,16 +510,16 @@ class _DescripcionProfesionalWidgetState
             ),
           ),
           Align(
-            alignment: const AlignmentDirectional(-1.0, -1.0),
+            alignment: AlignmentDirectional(-1.0, -1.0),
             child: Container(
-              decoration: const BoxDecoration(),
+              decoration: BoxDecoration(),
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(40.0, 8.0, 0.0, 8.0),
+                padding: EdgeInsetsDirectional.fromSTEB(20.0, 8.0, 0.0, 8.0),
                 child: Text(
                   'Provider details',
                   style: FlutterFlowTheme.of(context).displaySmall.override(
                         fontFamily: 'Montserrat',
-                        color: const Color(0xFFC14BBC),
+                        color: Color(0xFFC14BBC),
                         fontSize: 16.0,
                         letterSpacing: 0.0,
                       ),
@@ -517,9 +528,9 @@ class _DescripcionProfesionalWidgetState
             ),
           ),
           Align(
-            alignment: const AlignmentDirectional(0.0, 0.0),
+            alignment: AlignmentDirectional(0.0, 0.0),
             child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 16.0),
+              padding: EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 16.0),
               child: Material(
                 color: Colors.transparent,
                 elevation: 2.0,
@@ -532,23 +543,23 @@ class _DescripcionProfesionalWidgetState
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(12.0),
                     border: Border.all(
-                      color: const Color(0xFFC55EBE),
+                      color: Color(0xFFC55EBE),
                       width: 3.0,
                     ),
                   ),
                   child: Align(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Container(
                             width: 270.0,
                             height: 50.0,
-                            decoration: const BoxDecoration(),
+                            decoration: BoxDecoration(),
                             child: Stack(
                               children: [
                                 Row(
@@ -560,7 +571,7 @@ class _DescripcionProfesionalWidgetState
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
                                       children: [
-                                        const Align(
+                                        Align(
                                           alignment:
                                               AlignmentDirectional(-1.0, 0.0),
                                           child: Icon(
@@ -571,7 +582,7 @@ class _DescripcionProfesionalWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-1.0, 0.0),
+                                              AlignmentDirectional(-1.0, 0.0),
                                           child: Text(
                                             'Experience',
                                             style: FlutterFlowTheme.of(context)
@@ -584,7 +595,7 @@ class _DescripcionProfesionalWidgetState
                                                 ),
                                           ),
                                         ),
-                                      ].divide(const SizedBox(width: 12.0)),
+                                      ].divide(SizedBox(width: 12.0)),
                                     ),
                                     Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -592,7 +603,7 @@ class _DescripcionProfesionalWidgetState
                                       children: [
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-1.0, 0.0),
+                                              AlignmentDirectional(-1.0, 0.0),
                                           child: Text(
                                             widget.parameter2!,
                                             maxLines: 1,
@@ -608,7 +619,7 @@ class _DescripcionProfesionalWidgetState
                                         ),
                                       ],
                                     ),
-                                  ].divide(const SizedBox(width: 4.0)),
+                                  ].divide(SizedBox(width: 4.0)),
                                 ),
                               ],
                             ),
@@ -620,17 +631,17 @@ class _DescripcionProfesionalWidgetState
                           color: FlutterFlowTheme.of(context).alternate,
                         ),
                         Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Container(
                             width: 270.0,
                             height: 50.0,
-                            decoration: const BoxDecoration(),
+                            decoration: BoxDecoration(),
                             child: Stack(
                               children: [
                                 Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    const Align(
+                                    Align(
                                       alignment:
                                           AlignmentDirectional(-1.0, 0.0),
                                       child: Padding(
@@ -645,7 +656,7 @@ class _DescripcionProfesionalWidgetState
                                     ),
                                     Align(
                                       alignment:
-                                          const AlignmentDirectional(-1.0, 0.0),
+                                          AlignmentDirectional(-1.0, 0.0),
                                       child: Text(
                                         'Qualified And Certified \nPersonnel',
                                         textAlign: TextAlign.start,
@@ -659,7 +670,7 @@ class _DescripcionProfesionalWidgetState
                                             ),
                                       ),
                                     ),
-                                  ].divide(const SizedBox(width: 12.0)),
+                                  ].divide(SizedBox(width: 12.0)),
                                 ),
                               ],
                             ),
@@ -672,17 +683,17 @@ class _DescripcionProfesionalWidgetState
                         ),
                         if (widget.company != 'default230')
                           Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Container(
                               width: 270.0,
                               height: 50.0,
-                              decoration: const BoxDecoration(),
+                              decoration: BoxDecoration(),
                               child: Stack(
                                 children: [
                                   Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
-                                      const Align(
+                                      Align(
                                         alignment:
                                             AlignmentDirectional(-1.0, 0.0),
                                         child: Padding(
@@ -698,7 +709,7 @@ class _DescripcionProfesionalWidgetState
                                       ),
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(-1.0, 0.0),
+                                            AlignmentDirectional(-1.0, 0.0),
                                         child: Text(
                                           widget.company,
                                           textAlign: TextAlign.start,
@@ -712,7 +723,7 @@ class _DescripcionProfesionalWidgetState
                                               ),
                                         ),
                                       ),
-                                    ].divide(const SizedBox(width: 12.0)),
+                                    ].divide(SizedBox(width: 12.0)),
                                   ),
                                 ],
                               ),
@@ -724,23 +735,23 @@ class _DescripcionProfesionalWidgetState
                           color: FlutterFlowTheme.of(context).alternate,
                         ),
                         Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 25.0, 0.0, 0.0, 0.0),
                             child: Container(
                               width: 300.0,
                               height: 50.0,
-                              decoration: const BoxDecoration(),
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              decoration: BoxDecoration(),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Stack(
                                 children: [
                                   Align(
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
-                                        const Align(
+                                        Align(
                                           alignment:
                                               AlignmentDirectional(-1.0, 0.0),
                                           child: Padding(
@@ -756,7 +767,7 @@ class _DescripcionProfesionalWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-1.0, 0.0),
+                                              AlignmentDirectional(-1.0, 0.0),
                                           child: Text(
                                             'NDIS Registration',
                                             textAlign: TextAlign.start,
@@ -770,7 +781,7 @@ class _DescripcionProfesionalWidgetState
                                                 ),
                                           ),
                                         ),
-                                      ].divide(const SizedBox(width: 12.0)),
+                                      ].divide(SizedBox(width: 12.0)),
                                     ),
                                   ),
                                 ],
@@ -786,25 +797,25 @@ class _DescripcionProfesionalWidgetState
                           ),
                         if (widget.abn != '')
                           Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   25.0, 8.0, 0.0, 10.0),
                               child: Container(
                                 width: 300.0,
                                 height: 50.0,
-                                decoration: const BoxDecoration(),
-                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                decoration: BoxDecoration(),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Stack(
                                   children: [
                                     Align(
-                                      alignment: const AlignmentDirectional(0.0, 0.0),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         crossAxisAlignment:
                                             CrossAxisAlignment.center,
                                         children: [
-                                          const Align(
+                                          Align(
                                             alignment:
                                                 AlignmentDirectional(-1.0, 0.0),
                                             child: Padding(
@@ -823,7 +834,7 @@ class _DescripcionProfesionalWidgetState
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Align(
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     -1.0, 0.0),
                                                 child: Text(
                                                   'ABN Registration',
@@ -841,7 +852,7 @@ class _DescripcionProfesionalWidgetState
                                                 ),
                                               ),
                                               Align(
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     -1.0, 0.0),
                                                 child: Text(
                                                   valueOrDefault<String>(
@@ -863,7 +874,7 @@ class _DescripcionProfesionalWidgetState
                                               ),
                                             ],
                                           ),
-                                        ].divide(const SizedBox(width: 12.0)),
+                                        ].divide(SizedBox(width: 12.0)),
                                       ),
                                     ),
                                   ],
@@ -871,7 +882,7 @@ class _DescripcionProfesionalWidgetState
                               ),
                             ),
                           ),
-                      ].addToStart(const SizedBox(height: 8.0)),
+                      ].addToStart(SizedBox(height: 8.0)),
                     ),
                   ),
                 ),

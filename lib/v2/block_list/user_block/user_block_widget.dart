@@ -15,7 +15,7 @@ class UserBlockWidget extends StatefulWidget {
     required this.username,
     this.service,
     required this.image,
-  }) : background = background ?? Colors.white;
+  }) : this.background = background ?? Colors.white;
 
   final Color background;
   final DocumentReference? userRef;
@@ -56,7 +56,7 @@ class _UserBlockWidgetState extends State<UserBlockWidget> {
       height: 90.0,
       decoration: BoxDecoration(
         color: widget.background,
-        borderRadius: const BorderRadius.only(
+        borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(16.0),
           bottomRight: Radius.circular(16.0),
           topLeft: Radius.circular(16.0),
@@ -64,7 +64,7 @@ class _UserBlockWidgetState extends State<UserBlockWidget> {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+        padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
         child: Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -76,7 +76,7 @@ class _UserBlockWidgetState extends State<UserBlockWidget> {
                   width: 75.0,
                   height: 75.0,
                   clipBehavior: Clip.antiAlias,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     shape: BoxShape.circle,
                   ),
                   child: Image.network(
@@ -88,16 +88,16 @@ class _UserBlockWidgetState extends State<UserBlockWidget> {
                   ),
                 ),
                 Align(
-                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                  alignment: AlignmentDirectional(-1.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: Container(
-                          decoration: const BoxDecoration(),
+                          decoration: BoxDecoration(),
                           child: Text(
                             functions
                                 .upperCaseFirstLetter(valueOrDefault<String>(
@@ -115,9 +115,9 @@ class _UserBlockWidgetState extends State<UserBlockWidget> {
                         ),
                       ),
                       Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: Container(
-                          decoration: const BoxDecoration(),
+                          decoration: BoxDecoration(),
                           child: Text(
                             widget.service!,
                             style: FlutterFlowTheme.of(context)
@@ -130,10 +130,10 @@ class _UserBlockWidgetState extends State<UserBlockWidget> {
                           ),
                         ),
                       ),
-                    ].divide(const SizedBox(height: 8.0)),
+                    ].divide(SizedBox(height: 8.0)),
                   ),
                 ),
-              ].divide(const SizedBox(width: 12.0)),
+              ].divide(SizedBox(width: 12.0)),
             ),
             Builder(
               builder: (context) => InkWell(
@@ -147,14 +147,14 @@ class _UserBlockWidgetState extends State<UserBlockWidget> {
                     context: context,
                     isGlobal: false,
                     avoidOverflow: false,
-                    targetAnchor: const AlignmentDirectional(-1.0, 0.0)
+                    targetAnchor: AlignmentDirectional(-1.0, 0.0)
                         .resolve(Directionality.of(context)),
-                    followerAnchor: const AlignmentDirectional(0.8, -1.2)
+                    followerAnchor: AlignmentDirectional(0.8, -1.2)
                         .resolve(Directionality.of(context)),
                     builder: (dialogContext) {
                       return Material(
                         color: Colors.transparent,
-                        child: SizedBox(
+                        child: Container(
                           height: MediaQuery.sizeOf(context).height * 0.2,
                           width: MediaQuery.sizeOf(context).width * 0.4,
                           child: UserBlockOptionsWidget(
@@ -165,7 +165,7 @@ class _UserBlockWidgetState extends State<UserBlockWidget> {
                     },
                   );
                 },
-                child: const Icon(
+                child: Icon(
                   Icons.more_vert,
                   color: Colors.black,
                   size: 24.0,

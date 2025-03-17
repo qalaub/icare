@@ -5,6 +5,7 @@ import '/flutter_flow/form_field_controller.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
 import '/v2/professional/imagenesfotos_users/imagenesfotos_users_widget.dart';
+import '/index.dart';
 import 'verperfil_widget.dart' show VerperfilWidget;
 import 'package:flutter/material.dart';
 
@@ -55,6 +56,10 @@ class VerperfilModel extends FlutterFlowModel<VerperfilWidget> {
   FocusNode? lastNameFocusNode;
   TextEditingController? lastNameTextController;
   String? Function(BuildContext, String?)? lastNameTextControllerValidator;
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode;
+  TextEditingController? textController3;
+  String? Function(BuildContext, String?)? textController3Validator;
   // State field(s) for abn widget.
   FocusNode? abnFocusNode;
   TextEditingController? abnTextController;
@@ -67,10 +72,6 @@ class VerperfilModel extends FlutterFlowModel<VerperfilWidget> {
   FocusNode? queryFocusNode;
   TextEditingController? queryTextController;
   String? Function(BuildContext, String?)? queryTextControllerValidator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode;
-  TextEditingController? textController6;
-  String? Function(BuildContext, String?)? textController6Validator;
   // State field(s) for services widget.
   String? servicesValue;
   FormFieldController<String>? servicesValueController;
@@ -113,6 +114,9 @@ class VerperfilModel extends FlutterFlowModel<VerperfilWidget> {
     lastNameFocusNode?.dispose();
     lastNameTextController?.dispose();
 
+    textFieldFocusNode?.dispose();
+    textController3?.dispose();
+
     abnFocusNode?.dispose();
     abnTextController?.dispose();
 
@@ -121,9 +125,6 @@ class VerperfilModel extends FlutterFlowModel<VerperfilWidget> {
 
     queryFocusNode?.dispose();
     queryTextController?.dispose();
-
-    textFieldFocusNode?.dispose();
-    textController6?.dispose();
 
     descriptionFocusNode?.dispose();
     descriptionTextController?.dispose();

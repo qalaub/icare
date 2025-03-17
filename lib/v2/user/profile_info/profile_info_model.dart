@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/v2/block_list/favoritesv2/add_favorites/add_favorites_widget.dart';
 import '/v2/menbresiav2/membresia_logo/membresia_logo_widget.dart';
 import '/v2/user/descripcion_profesional/descripcion_profesional_widget.dart';
+import '/index.dart';
 import 'profile_info_widget.dart' show ProfileInfoWidget;
 import 'package:flutter/material.dart';
 

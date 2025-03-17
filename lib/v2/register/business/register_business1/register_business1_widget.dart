@@ -1,3 +1,4 @@
+import '';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -7,6 +8,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/v2/user/mapbuscar/mapbuscar_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -22,6 +24,9 @@ class RegisterBusiness1Widget extends StatefulWidget {
   });
 
   final DocumentReference? businessRef;
+
+  static String routeName = 'RegisterBusiness1';
+  static String routePath = 'registerBusiness1';
 
   @override
   State<RegisterBusiness1Widget> createState() =>
@@ -50,11 +55,11 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
     _model.companyTextController ??= TextEditingController();
     _model.companyFocusNode ??= FocusNode();
 
-    _model.emailTextController1 ??= TextEditingController();
-    _model.emailFocusNode1 ??= FocusNode();
+    _model.email1TextController ??= TextEditingController();
+    _model.email1FocusNode ??= FocusNode();
 
-    _model.emailTextController2 ??= TextEditingController();
-    _model.emailFocusNode2 ??= FocusNode();
+    _model.confirmemail1TextController ??= TextEditingController();
+    _model.confirmemail1FocusNode ??= FocusNode();
 
     _model.abnTextController ??= TextEditingController();
     _model.abnFocusNode ??= FocusNode();
@@ -73,8 +78,8 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, -11.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, -11.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -85,8 +90,8 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, -11.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, -11.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -97,8 +102,8 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, -11.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, -11.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -125,11 +130,11 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(0.0),
+          preferredSize: Size.fromHeight(0.0),
           child: AppBar(
-            backgroundColor: const Color(0xFFFFFEFE),
+            backgroundColor: Color(0xFFFFFEFE),
             automaticallyImplyLeading: false,
-            actions: const [],
+            actions: [],
             centerTitle: false,
             toolbarHeight: 0.0,
             elevation: 0.0,
@@ -154,7 +159,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                         child: Stack(
                           children: [
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(0.0),
                                 child: Image.asset(
@@ -166,12 +171,12 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(-0.91, -0.96),
+                              alignment: AlignmentDirectional(-0.91, -0.96),
                               child: FlutterFlowIconButton(
                                 borderRadius: 20.0,
                                 borderWidth: 1.0,
                                 buttonSize: 40.0,
-                                icon: const Icon(
+                                icon: Icon(
                                   Icons.arrow_back_ios_new,
                                   color: Colors.white,
                                   size: 24.0,
@@ -182,9 +187,9 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.0, -1.0),
+                              alignment: AlignmentDirectional(0.0, -1.0),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 6.0, 0.0, 0.0),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(8.0),
@@ -198,13 +203,13 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 0.3),
+                              alignment: AlignmentDirectional(0.0, 0.3),
                               child: Container(
                                 width: MediaQuery.sizeOf(context).width * 0.96,
                                 height: MediaQuery.sizeOf(context).height * 0.7,
                                 decoration: BoxDecoration(
-                                  color: const Color(0xFFFFFEFE),
-                                  borderRadius: const BorderRadius.only(
+                                  color: Color(0xFFFFFEFE),
+                                  borderRadius: BorderRadius.only(
                                     bottomLeft: Radius.circular(24.0),
                                     bottomRight: Radius.circular(24.0),
                                     topLeft: Radius.circular(24.0),
@@ -225,10 +230,10 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                       children: [
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, -1.0),
+                                              AlignmentDirectional(0.0, -1.0),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 10.0, 0.0, 0.0),
                                             child: Text(
                                               'Create Account',
@@ -238,7 +243,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                   .bodyMedium
                                                   .override(
                                                     fontFamily: 'Montserrat',
-                                                    color: const Color(0xFF8E058A),
+                                                    color: Color(0xFF8E058A),
                                                     fontSize: 20.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
@@ -248,27 +253,27 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Container(
                                             width: 327.0,
                                             height: 1.0,
                                             decoration: BoxDecoration(
-                                              color: const Color(0xFFF0DFEF),
+                                              color: Color(0xFFF0DFEF),
                                               border: Border.all(
-                                                color: const Color(0xFFF0DFEF),
+                                                color: Color(0xFFF0DFEF),
                                               ),
                                             ),
                                           ),
                                         ),
                                         Align(
-                                          alignment: const AlignmentDirectional(
+                                          alignment: AlignmentDirectional(
                                               -0.84, -0.73),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 15.0, 0.0, 15.0),
                                             child: Text(
-                                              '*First name',
+                                              '* First name',
                                               style: FlutterFlowTheme.of(
                                                       context)
                                                   .bodyMedium
@@ -283,14 +288,14 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                           ),
                                         ),
                                         Align(
-                                          alignment: const AlignmentDirectional(
+                                          alignment: AlignmentDirectional(
                                               -0.01, -0.69),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
                                                 0.8,
                                             height: 75.0,
-                                            decoration: const BoxDecoration(
+                                            decoration: BoxDecoration(
                                               color: Color(0xFFFFFEFE),
                                               borderRadius: BorderRadius.only(
                                                 bottomLeft:
@@ -302,11 +307,17 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                               ),
                                             ),
                                             child: TextFormField(
-                                              key: const ValueKey('firstName'),
+                                              key: ValueKey('firstName'),
                                               controller: _model
                                                   .firstNameTextController,
                                               focusNode:
                                                   _model.firstNameFocusNode,
+                                              onChanged: (_) =>
+                                                  EasyDebounce.debounce(
+                                                '_model.firstNameTextController',
+                                                Duration(milliseconds: 10),
+                                                () => safeSetState(() {}),
+                                              ),
                                               autofocus: true,
                                               textCapitalization:
                                                   TextCapitalization.words,
@@ -321,6 +332,8 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                               'Readex Pro',
                                                           letterSpacing: 0.0,
                                                         ),
+                                                hintText:
+                                                    'Do not leave this field empty',
                                                 hintStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .labelMedium
@@ -342,9 +355,9 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                     ),
                                                 enabledBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: const BorderSide(
+                                                  borderSide: BorderSide(
                                                     color: Color(0xFFBB33B9),
-                                                    width: 0.0,
+                                                    width: 2.0,
                                                   ),
                                                   borderRadius:
                                                       BorderRadius.circular(
@@ -352,9 +365,9 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: const BorderSide(
+                                                  borderSide: BorderSide(
                                                     color: Color(0xFF762075),
-                                                    width: 0.0,
+                                                    width: 2.0,
                                                   ),
                                                   borderRadius:
                                                       BorderRadius.circular(
@@ -365,7 +378,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .error,
-                                                    width: 0.0,
+                                                    width: 2.0,
                                                   ),
                                                   borderRadius:
                                                       BorderRadius.circular(
@@ -377,7 +390,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .error,
-                                                    width: 0.0,
+                                                    width: 2.0,
                                                   ),
                                                   borderRadius:
                                                       BorderRadius.circular(
@@ -402,11 +415,11 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                           ),
                                         ),
                                         Align(
-                                          alignment: const AlignmentDirectional(
+                                          alignment: AlignmentDirectional(
                                               -0.84, -0.73),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 15.0, 0.0, 15.0),
                                             child: Text(
                                               '* Last name',
@@ -424,14 +437,14 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                           ),
                                         ),
                                         Align(
-                                          alignment: const AlignmentDirectional(
+                                          alignment: AlignmentDirectional(
                                               -0.01, -0.69),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
                                                 0.8,
                                             height: 75.0,
-                                            decoration: const BoxDecoration(
+                                            decoration: BoxDecoration(
                                               color: Color(0xFFFFFEFE),
                                               borderRadius: BorderRadius.only(
                                                 bottomLeft:
@@ -443,11 +456,17 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                               ),
                                             ),
                                             child: TextFormField(
-                                              key: const ValueKey('lastName'),
+                                              key: ValueKey('lastName'),
                                               controller:
                                                   _model.lastNameTextController,
                                               focusNode:
                                                   _model.lastNameFocusNode,
+                                              onChanged: (_) =>
+                                                  EasyDebounce.debounce(
+                                                '_model.lastNameTextController',
+                                                Duration(milliseconds: 10),
+                                                () => safeSetState(() {}),
+                                              ),
                                               autofocus: true,
                                               textCapitalization:
                                                   TextCapitalization.words,
@@ -462,6 +481,8 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                               'Readex Pro',
                                                           letterSpacing: 0.0,
                                                         ),
+                                                hintText:
+                                                    'Do not leave this field empty',
                                                 hintStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .labelMedium
@@ -483,9 +504,9 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                     ),
                                                 enabledBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: const BorderSide(
+                                                  borderSide: BorderSide(
                                                     color: Color(0xFFBB33B9),
-                                                    width: 0.0,
+                                                    width: 2.0,
                                                   ),
                                                   borderRadius:
                                                       BorderRadius.circular(
@@ -493,9 +514,9 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: const BorderSide(
+                                                  borderSide: BorderSide(
                                                     color: Color(0xFF762075),
-                                                    width: 0.0,
+                                                    width: 2.0,
                                                   ),
                                                   borderRadius:
                                                       BorderRadius.circular(
@@ -506,7 +527,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .error,
-                                                    width: 0.0,
+                                                    width: 2.0,
                                                   ),
                                                   borderRadius:
                                                       BorderRadius.circular(
@@ -518,7 +539,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .error,
-                                                    width: 0.0,
+                                                    width: 2.0,
                                                   ),
                                                   borderRadius:
                                                       BorderRadius.circular(
@@ -543,11 +564,11 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                           ),
                                         ),
                                         Align(
-                                          alignment: const AlignmentDirectional(
+                                          alignment: AlignmentDirectional(
                                               -0.84, -0.73),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 15.0, 0.0, 15.0),
                                             child: Text(
                                               '* Company name',
@@ -565,14 +586,14 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                           ),
                                         ),
                                         Align(
-                                          alignment: const AlignmentDirectional(
+                                          alignment: AlignmentDirectional(
                                               -0.01, -0.69),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
                                                 0.8,
                                             height: 70.0,
-                                            decoration: const BoxDecoration(
+                                            decoration: BoxDecoration(
                                               color: Color(0xFFFFFEFE),
                                               borderRadius: BorderRadius.only(
                                                 bottomLeft:
@@ -584,11 +605,17 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                               ),
                                             ),
                                             child: TextFormField(
-                                              key: const ValueKey('company'),
+                                              key: ValueKey('company'),
                                               controller:
                                                   _model.companyTextController,
                                               focusNode:
                                                   _model.companyFocusNode,
+                                              onChanged: (_) =>
+                                                  EasyDebounce.debounce(
+                                                '_model.companyTextController',
+                                                Duration(milliseconds: 10),
+                                                () => safeSetState(() {}),
+                                              ),
                                               autofocus: true,
                                               textCapitalization:
                                                   TextCapitalization.words,
@@ -603,6 +630,8 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                               'Readex Pro',
                                                           letterSpacing: 0.0,
                                                         ),
+                                                hintText:
+                                                    'Do not leave this field empty',
                                                 hintStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .labelMedium
@@ -624,9 +653,9 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                     ),
                                                 enabledBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: const BorderSide(
+                                                  borderSide: BorderSide(
                                                     color: Color(0xFFBB33B9),
-                                                    width: 0.0,
+                                                    width: 2.0,
                                                   ),
                                                   borderRadius:
                                                       BorderRadius.circular(
@@ -634,9 +663,9 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: const BorderSide(
+                                                  borderSide: BorderSide(
                                                     color: Color(0xFF762075),
-                                                    width: 0.0,
+                                                    width: 2.0,
                                                   ),
                                                   borderRadius:
                                                       BorderRadius.circular(
@@ -647,7 +676,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .error,
-                                                    width: 0.0,
+                                                    width: 2.0,
                                                   ),
                                                   borderRadius:
                                                       BorderRadius.circular(
@@ -659,7 +688,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .error,
-                                                    width: 0.0,
+                                                    width: 2.0,
                                                   ),
                                                   borderRadius:
                                                       BorderRadius.circular(
@@ -683,11 +712,11 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                           ),
                                         ),
                                         Align(
-                                          alignment: const AlignmentDirectional(
+                                          alignment: AlignmentDirectional(
                                               -0.84, -0.73),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 15.0, 0.0, 15.0),
                                             child: Text(
                                               '* Email address',
@@ -705,14 +734,14 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                           ),
                                         ),
                                         Align(
-                                          alignment: const AlignmentDirectional(
+                                          alignment: AlignmentDirectional(
                                               -0.01, -0.69),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
                                                 0.8,
                                             height: 80.0,
-                                            decoration: const BoxDecoration(
+                                            decoration: BoxDecoration(
                                               color: Color(0xFFFFFEFE),
                                               borderRadius: BorderRadius.only(
                                                 bottomLeft:
@@ -727,18 +756,19 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                               children: [
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           0.0, -1.0),
                                                   child: TextFormField(
-                                                    key: const ValueKey('email'),
+                                                    key: ValueKey('email'),
                                                     controller: _model
-                                                        .emailTextController1,
+                                                        .email1TextController,
                                                     focusNode:
-                                                        _model.emailFocusNode1,
+                                                        _model.email1FocusNode,
                                                     onChanged: (_) =>
                                                         EasyDebounce.debounce(
-                                                      '_model.emailTextController1',
-                                                      const Duration(milliseconds: 0),
+                                                      '_model.email1TextController',
+                                                      Duration(
+                                                          milliseconds: 10),
                                                       () async {
                                                         _model.emailExists =
                                                             await queryUsersRecordCount(
@@ -748,7 +778,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                                       .where(
                                                             'email',
                                                             isEqualTo: _model
-                                                                .emailTextController1
+                                                                .email1TextController
                                                                 .text,
                                                           ),
                                                         );
@@ -771,6 +801,8 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                                     0.0,
                                                               ),
                                                       alignLabelWithHint: false,
+                                                      hintText:
+                                                          'Do not leave this field empty',
                                                       hintStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -797,10 +829,10 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                               ),
                                                       enabledBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: const BorderSide(
+                                                        borderSide: BorderSide(
                                                           color:
                                                               Color(0xFFBB33B9),
-                                                          width: 0.0,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
@@ -808,10 +840,10 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                       ),
                                                       focusedBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: const BorderSide(
+                                                        borderSide: BorderSide(
                                                           color:
                                                               Color(0xFF762075),
-                                                          width: 0.0,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
@@ -823,7 +855,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .error,
-                                                          width: 0.0,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
@@ -835,7 +867,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .error,
-                                                          width: 0.0,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
@@ -855,7 +887,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                     keyboardType: TextInputType
                                                         .emailAddress,
                                                     validator: _model
-                                                        .emailTextController1Validator
+                                                        .email1TextControllerValidator
                                                         .asValidator(context),
                                                   ),
                                                 ),
@@ -864,10 +896,10 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                     (_model.emailExists! > 0))
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             0.0, 1.3),
                                                     child: Text(
-                                                      key: const ValueKey(
+                                                      key: ValueKey(
                                                           'emailExists'),
                                                       'This email already has an account, use another email',
                                                       style: FlutterFlowTheme
@@ -876,7 +908,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                           .override(
                                                             fontFamily:
                                                                 'Montserrat',
-                                                            color: const Color(
+                                                            color: Color(
                                                                 0xFFFF5963),
                                                             letterSpacing: 0.0,
                                                             fontWeight:
@@ -891,11 +923,11 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                           ),
                                         ),
                                         Align(
-                                          alignment: const AlignmentDirectional(
+                                          alignment: AlignmentDirectional(
                                               -0.84, -0.73),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 15.0, 0.0, 15.0),
                                             child: Text(
                                               '  * Confirm email address',
@@ -913,14 +945,14 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                           ),
                                         ),
                                         Align(
-                                          alignment: const AlignmentDirectional(
+                                          alignment: AlignmentDirectional(
                                               -0.01, -0.69),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
                                                 0.8,
                                             height: 80.0,
-                                            decoration: const BoxDecoration(
+                                            decoration: BoxDecoration(
                                               color: Color(0xFFFFFEFE),
                                               borderRadius: BorderRadius.only(
                                                 bottomLeft:
@@ -935,14 +967,53 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                               children: [
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           0.0, -1.0),
                                                   child: TextFormField(
-                                                    key: const ValueKey('email'),
+                                                    key: ValueKey('email'),
                                                     controller: _model
-                                                        .emailTextController2,
-                                                    focusNode:
-                                                        _model.emailFocusNode2,
+                                                        .confirmemail1TextController,
+                                                    focusNode: _model
+                                                        .confirmemail1FocusNode,
+                                                    onFieldSubmitted:
+                                                        (_) async {
+                                                      if (_model
+                                                              .confirmemail1TextController
+                                                              .text ==
+                                                          _model
+                                                              .email1TextController
+                                                              .text) {
+                                                        return;
+                                                      }
+
+                                                      ScaffoldMessenger.of(
+                                                              context)
+                                                          .showSnackBar(
+                                                        SnackBar(
+                                                          content: Text(
+                                                            '',
+                                                            style: TextStyle(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primaryText,
+                                                            ),
+                                                          ),
+                                                          duration: Duration(
+                                                              milliseconds:
+                                                                  4000),
+                                                          backgroundColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .secondary,
+                                                        ),
+                                                      );
+                                                      safeSetState(() {
+                                                        _model
+                                                            .confirmemail1TextController
+                                                            ?.clear();
+                                                      });
+                                                      return;
+                                                    },
                                                     autofocus: true,
                                                     obscureText: false,
                                                     decoration: InputDecoration(
@@ -958,6 +1029,8 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                                     0.0,
                                                               ),
                                                       alignLabelWithHint: false,
+                                                      hintText:
+                                                          'Do not leave this field empty',
                                                       hintStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -984,10 +1057,10 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                               ),
                                                       enabledBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: const BorderSide(
+                                                        borderSide: BorderSide(
                                                           color:
                                                               Color(0xFFBB33B9),
-                                                          width: 0.0,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
@@ -995,10 +1068,10 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                       ),
                                                       focusedBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: const BorderSide(
+                                                        borderSide: BorderSide(
                                                           color:
                                                               Color(0xFF762075),
-                                                          width: 0.0,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
@@ -1010,7 +1083,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .error,
-                                                          width: 0.0,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
@@ -1022,7 +1095,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .error,
-                                                          width: 0.0,
+                                                          width: 2.0,
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
@@ -1042,7 +1115,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                     keyboardType: TextInputType
                                                         .emailAddress,
                                                     validator: _model
-                                                        .emailTextController2Validator
+                                                        .confirmemail1TextControllerValidator
                                                         .asValidator(context),
                                                   ),
                                                 ),
@@ -1052,10 +1125,10 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                     false)
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             -0.8, 0.6),
                                                     child: Text(
-                                                      key: const ValueKey(
+                                                      key: ValueKey(
                                                           'emailExists'),
                                                       'Email has to be the same',
                                                       style: FlutterFlowTheme
@@ -1064,7 +1137,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                           .override(
                                                             fontFamily:
                                                                 'Montserrat',
-                                                            color: const Color(
+                                                            color: Color(
                                                                 0xFFFF5963),
                                                             letterSpacing: 0.0,
                                                             fontWeight:
@@ -1079,11 +1152,11 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                           ),
                                         ),
                                         Align(
-                                          alignment: const AlignmentDirectional(
+                                          alignment: AlignmentDirectional(
                                               -0.84, -0.73),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 15.0, 0.0, 15.0),
                                             child: Text(
                                               '  * ABN Registration',
@@ -1104,14 +1177,14 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Align(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   -0.01, -0.69),
                                               child: Container(
                                                 width:
                                                     MediaQuery.sizeOf(context)
                                                             .width *
                                                         0.8,
-                                                decoration: const BoxDecoration(
+                                                decoration: BoxDecoration(
                                                   color: Color(0xFFFFFEFE),
                                                   borderRadius:
                                                       BorderRadius.only(
@@ -1126,11 +1199,17 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                   ),
                                                 ),
                                                 child: TextFormField(
-                                                  key: const ValueKey('ndis'),
+                                                  key: ValueKey('ndis'),
                                                   controller:
                                                       _model.abnTextController,
                                                   focusNode:
                                                       _model.abnFocusNode,
+                                                  onChanged: (_) =>
+                                                      EasyDebounce.debounce(
+                                                    '_model.abnTextController',
+                                                    Duration(milliseconds: 10),
+                                                    () => safeSetState(() {}),
+                                                  ),
                                                   autofocus: true,
                                                   obscureText: false,
                                                   decoration: InputDecoration(
@@ -1144,7 +1223,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                           letterSpacing: 0.0,
                                                         ),
                                                     hintText:
-                                                        'Enter your ABN  (XXXXXXXXX)',
+                                                        'Do not leave this field empty',
                                                     hintStyle: FlutterFlowTheme
                                                             .of(context)
                                                         .labelMedium
@@ -1168,10 +1247,10 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                         ),
                                                     enabledBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0xFFBB33B9),
-                                                        width: 0.0,
+                                                        width: 2.0,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
@@ -1179,10 +1258,10 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                     ),
                                                     focusedBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0xFF762075),
-                                                        width: 0.0,
+                                                        width: 2.0,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
@@ -1195,7 +1274,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .error,
-                                                        width: 0.0,
+                                                        width: 2.0,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
@@ -1208,7 +1287,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .error,
-                                                        width: 0.0,
+                                                        width: 2.0,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
@@ -1234,14 +1313,14 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                 ),
                                               ),
                                             ),
-                                          ].divide(const SizedBox(height: 5.0)),
+                                          ].divide(SizedBox(height: 5.0)),
                                         ),
                                         Align(
-                                          alignment: const AlignmentDirectional(
+                                          alignment: AlignmentDirectional(
                                               -0.54, -0.93),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 15.0, 0.0, 15.0),
                                             child: Text(
                                               '* Enter your 10-digit mobile number',
@@ -1259,14 +1338,14 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                           ),
                                         ),
                                         Align(
-                                          alignment: const AlignmentDirectional(
+                                          alignment: AlignmentDirectional(
                                               -0.01, -0.69),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
                                                 0.8,
                                             height: 80.0,
-                                            decoration: const BoxDecoration(
+                                            decoration: BoxDecoration(
                                               color: Color(0xFFFFFEFE),
                                               borderRadius: BorderRadius.only(
                                                 bottomLeft:
@@ -1278,7 +1357,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                               ),
                                             ),
                                             child: TextFormField(
-                                              key: const ValueKey('phone'),
+                                              key: ValueKey('phone'),
                                               controller:
                                                   _model.phoneTextController,
                                               focusNode: _model.phoneFocusNode,
@@ -1295,7 +1374,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                           letterSpacing: 0.0,
                                                         ),
                                                 hintText:
-                                                    'Example:  0400345234',
+                                                    'Do not leave this field empty',
                                                 hintStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .labelMedium
@@ -1317,9 +1396,9 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                     ),
                                                 enabledBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: const BorderSide(
+                                                  borderSide: BorderSide(
                                                     color: Color(0xFFBB33B9),
-                                                    width: 0.0,
+                                                    width: 2.0,
                                                   ),
                                                   borderRadius:
                                                       BorderRadius.circular(
@@ -1327,9 +1406,9 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
-                                                  borderSide: const BorderSide(
+                                                  borderSide: BorderSide(
                                                     color: Color(0xFF762075),
-                                                    width: 0.0,
+                                                    width: 2.0,
                                                   ),
                                                   borderRadius:
                                                       BorderRadius.circular(
@@ -1340,7 +1419,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .error,
-                                                    width: 0.0,
+                                                    width: 2.0,
                                                   ),
                                                   borderRadius:
                                                       BorderRadius.circular(
@@ -1352,7 +1431,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .error,
-                                                    width: 0.0,
+                                                    width: 2.0,
                                                   ),
                                                   borderRadius:
                                                       BorderRadius.circular(
@@ -1383,11 +1462,11 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                           ),
                                         ),
                                         Align(
-                                          alignment: const AlignmentDirectional(
+                                          alignment: AlignmentDirectional(
                                               -0.84, -0.73),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 15.0, 0.0, 15.0),
                                             child: Text(
                                               '* Select your suburb',
@@ -1406,20 +1485,20 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Container(
                                             height: 88.0,
-                                            decoration: const BoxDecoration(),
+                                            decoration: BoxDecoration(),
                                             child: Align(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   0.0, -1.0),
                                               child: Stack(
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.0, -1.0),
                                                 children: [
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             0.0, -1.0),
                                                     child: Container(
                                                       width: MediaQuery.sizeOf(
@@ -1430,7 +1509,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                       decoration: BoxDecoration(
                                                         color: Colors.white,
                                                         borderRadius:
-                                                            const BorderRadius.only(
+                                                            BorderRadius.only(
                                                           bottomLeft:
                                                               Radius.circular(
                                                                   12.0),
@@ -1445,23 +1524,14 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                                   12.0),
                                                         ),
                                                         border: Border.all(
-                                                          color: valueOrDefault<
-                                                              Color>(
-                                                            FFAppState()
-                                                                        .verifyForm
-                                                                        .subur ==
-                                                                    true
-                                                                ? const Color(
-                                                                    0xFFBB33B9)
-                                                                : const Color(
-                                                                    0xFFFF5963),
-                                                            const Color(0xFFBB33B9),
-                                                          ),
+                                                          color:
+                                                              Color(0xFFBB33B9),
+                                                          width: 2.0,
                                                         ),
                                                       ),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     8.0,
                                                                     0.0,
@@ -1469,7 +1539,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                                     0.0),
                                                         child: TextFormField(
                                                           key:
-                                                              const ValueKey('query'),
+                                                              ValueKey('query'),
                                                           controller: _model
                                                               .queryTextController,
                                                           focusNode: _model
@@ -1478,7 +1548,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                               EasyDebounce
                                                                   .debounce(
                                                             '_model.queryTextController',
-                                                            const Duration(
+                                                            Duration(
                                                                 milliseconds:
                                                                     100),
                                                             () async {
@@ -1584,7 +1654,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                   ),
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             0.0, 0.0),
                                                     child: Builder(
                                                       builder: (context) {
@@ -1596,10 +1666,10 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                                 2)) {
                                                           return Align(
                                                             alignment:
-                                                                const AlignmentDirectional(
+                                                                AlignmentDirectional(
                                                                     -0.62, 0.7),
                                                             child: Text(
-                                                              key: const ValueKey(
+                                                              key: ValueKey(
                                                                   'invalidSuburb'),
                                                               'Invalid suburb',
                                                               style: FlutterFlowTheme
@@ -1608,7 +1678,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Montserrat',
-                                                                    color: const Color(
+                                                                    color: Color(
                                                                         0xFFFF5963),
                                                                     letterSpacing:
                                                                         0.0,
@@ -1644,18 +1714,18 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 10.0, 0.0, 0.0),
                                             child: Container(
                                               width: 327.0,
                                               height: 1.0,
                                               decoration: BoxDecoration(
-                                                color: const Color(0xFFF0DFEF),
+                                                color: Color(0xFFF0DFEF),
                                                 border: Border.all(
-                                                  color: const Color(0xFFF0DFEF),
+                                                  color: Color(0xFFF0DFEF),
                                                 ),
                                               ),
                                             ),
@@ -1663,128 +1733,158 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.01, 0.71),
+                                              AlignmentDirectional(0.01, 0.71),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 10.0, 0.0, 10.0),
                                             child: FFButtonWidget(
-                                              key: const ValueKey('continue'),
-                                              onPressed: () async {
-                                                FFAppState()
-                                                    .updateVerifyFormStruct(
-                                                  (e) => e
-                                                    ..subur = (_model.queryTextController
-                                                                    .text !=
-                                                                '') &&
-                                                        (_model.newUbication !=
-                                                                null &&
-                                                            _model.newUbication !=
-                                                                '')
-                                                    ..same1 = _model
-                                                            .emailTextController1
-                                                            .text ==
-                                                        _model
-                                                            .emailTextController2
-                                                            .text,
-                                                );
-                                                FFAppState().counter = 4;
-                                                safeSetState(() {});
-                                                _model.formV = true;
-                                                if (_model.formKey
-                                                            .currentState ==
-                                                        null ||
-                                                    !_model
-                                                        .formKey.currentState!
-                                                        .validate()) {
-                                                  _model.formV = false;
-                                                }
-                                                if ((FFAppState()
-                                                            .verifyForm
-                                                            .subur ==
-                                                        true) &&
-                                                    FFAppState()
-                                                        .verifyForm
-                                                        .same1 &&
-                                                    _model.formV!) {
-                                                  FFAppState()
-                                                      .updateRegisterProviderFormStruct(
-                                                    (e) => e
-                                                      ..firstName = _model
-                                                          .firstNameTextController
-                                                          .text
-                                                      ..email = _model
-                                                          .emailTextController1
-                                                          .text
-                                                      ..phone = _model
-                                                          .phoneTextController
-                                                          .text
-                                                      ..company = _model
-                                                          .companyTextController
-                                                          .text
-                                                      ..suburb = functions
-                                                          .changeUbication(functions
-                                                              .stringToLatLng(_model
-                                                                  .newUbication!))
-                                                      ..lastName = _model
-                                                          .lastNameTextController
-                                                          .text
-                                                      ..images = []
-                                                      ..abn = _model
-                                                          .abnTextController
-                                                          .text,
-                                                  );
-                                                  FFAppState().verifyForm =
-                                                      FormVerifyStruct();
-                                                  FFAppState().counter = 0;
-                                                  FFAppState()
-                                                      .updateRegisterProviderFormStruct(
-                                                    (e) => e
-                                                      ..suburb = functions
-                                                          .changeUbication(
-                                                              FFAppState()
-                                                                  .registerProviderForm
-                                                                  .suburb!),
-                                                  );
+                                              key: ValueKey('continue'),
+                                              onPressed: ((_model.firstNameTextController.text ==
+                                                              '') ||
+                                                      (_model.lastNameTextController.text ==
+                                                              '') ||
+                                                      (_model.companyTextController.text ==
+                                                              '') ||
+                                                      (_model.email1TextController.text ==
+                                                              '') ||
+                                                      (_model.confirmemail1TextController.text ==
+                                                              '') ||
+                                                      (_model.abnTextController.text ==
+                                                              '') ||
+                                                      (_model.phoneTextController.text ==
+                                                              '') ||
+                                                      (_model.queryTextController.text == ''))
+                                                  ? null
+                                                  : () async {
+                                                      FFAppState()
+                                                          .updateVerifyFormStruct(
+                                                        (e) => e
+                                                          ..subur = (_model.queryTextController
+                                                                          .text !=
+                                                                      '') &&
+                                                              (_model.newUbication !=
+                                                                      null &&
+                                                                  _model.newUbication !=
+                                                                      '')
+                                                          ..same1 = _model
+                                                                  .email1TextController
+                                                                  .text ==
+                                                              _model
+                                                                  .confirmemail1TextController
+                                                                  .text,
+                                                      );
+                                                      FFAppState().counter = 4;
+                                                      safeSetState(() {});
+                                                      _model.formV = true;
+                                                      if (_model.formKey
+                                                                  .currentState ==
+                                                              null ||
+                                                          !_model.formKey
+                                                              .currentState!
+                                                              .validate()) {
+                                                        _model.formV = false;
+                                                      }
+                                                      if ((FFAppState()
+                                                                  .verifyForm
+                                                                  .subur ==
+                                                              true) &&
+                                                          FFAppState()
+                                                              .verifyForm
+                                                              .same1 &&
+                                                          _model.formV! &&
+                                                          (_model.confirmemail1TextController
+                                                                  .text ==
+                                                              _model
+                                                                  .email1TextController
+                                                                  .text)) {
+                                                        FFAppState()
+                                                            .updateRegisterProviderFormStruct(
+                                                          (e) => e
+                                                            ..firstName = _model
+                                                                .firstNameTextController
+                                                                .text
+                                                            ..email = _model
+                                                                .email1TextController
+                                                                .text
+                                                            ..phone = _model
+                                                                .phoneTextController
+                                                                .text
+                                                            ..company = _model
+                                                                .companyTextController
+                                                                .text
+                                                            ..suburb = functions
+                                                                .changeUbication(
+                                                                    functions.stringToLatLng(
+                                                                        _model
+                                                                            .newUbication!))
+                                                            ..lastName = _model
+                                                                .lastNameTextController
+                                                                .text
+                                                            ..images = []
+                                                            ..abn = _model
+                                                                .abnTextController
+                                                                .text,
+                                                        );
+                                                        FFAppState()
+                                                                .verifyForm =
+                                                            FormVerifyStruct();
+                                                        FFAppState().counter =
+                                                            0;
+                                                        FFAppState()
+                                                            .updateRegisterProviderFormStruct(
+                                                          (e) => e
+                                                            ..suburb = functions
+                                                                .changeUbication(
+                                                                    FFAppState()
+                                                                        .registerProviderForm
+                                                                        .suburb!),
+                                                        );
 
-                                                  context.pushNamed(
-                                                    'RegisterBusiness2',
-                                                    extra: <String, dynamic>{
-                                                      kTransitionInfoKey:
-                                                          const TransitionInfo(
-                                                        hasTransition: true,
-                                                        transitionType:
-                                                            PageTransitionType
-                                                                .fade,
-                                                        duration: Duration(
-                                                            milliseconds: 200),
-                                                      ),
+                                                        context.pushNamed(
+                                                          RegisterBusiness2Widget
+                                                              .routeName,
+                                                          extra: <String,
+                                                              dynamic>{
+                                                            kTransitionInfoKey:
+                                                                TransitionInfo(
+                                                              hasTransition:
+                                                                  true,
+                                                              transitionType:
+                                                                  PageTransitionType
+                                                                      .fade,
+                                                              duration: Duration(
+                                                                  milliseconds:
+                                                                      200),
+                                                            ),
+                                                          },
+                                                        );
+                                                      } else {
+                                                        await _model
+                                                            .columnController1
+                                                            ?.animateTo(
+                                                          0,
+                                                          duration: Duration(
+                                                              milliseconds:
+                                                                  300),
+                                                          curve: Curves.ease,
+                                                        );
+                                                      }
+
+                                                      safeSetState(() {});
                                                     },
-                                                  );
-                                                } else {
-                                                  await _model.columnController1
-                                                      ?.animateTo(
-                                                    0,
-                                                    duration: const Duration(
-                                                        milliseconds: 300),
-                                                    curve: Curves.ease,
-                                                  );
-                                                }
-
-                                                safeSetState(() {});
-                                              },
                                               text: 'Continue',
                                               options: FFButtonOptions(
                                                 width: 275.0,
                                                 height: 45.0,
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         24.0, 0.0, 24.0, 0.0),
                                                 iconPadding:
-                                                    const EdgeInsetsDirectional
+                                                    EdgeInsetsDirectional
                                                         .fromSTEB(
                                                             0.0, 0.0, 0.0, 0.0),
-                                                color: const Color(0xFFB928B8),
+                                                color: Color(0xFFB928B8),
                                                 textStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .titleSmall
@@ -1796,12 +1896,15 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                           letterSpacing: 0.0,
                                                         ),
                                                 elevation: 5.0,
-                                                borderSide: const BorderSide(
+                                                borderSide: BorderSide(
                                                   color: Colors.transparent,
                                                   width: 1.0,
                                                 ),
                                                 borderRadius:
                                                     BorderRadius.circular(24.0),
+                                                disabledColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
                                               ),
                                             ),
                                           ),
@@ -1812,16 +1915,16 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                 ),
                               ),
                             ),
-                            if (_model.queryResults.isNotEmpty)
+                            if (_model.queryResults.length > 0)
                               Align(
-                                alignment: const AlignmentDirectional(0.0, -0.9),
+                                alignment: AlignmentDirectional(0.0, -0.9),
                                 child: Container(
                                   width:
                                       MediaQuery.sizeOf(context).width * 0.96,
                                   height:
                                       MediaQuery.sizeOf(context).height * 0.648,
                                   decoration: BoxDecoration(
-                                    color: const Color(0x33000000),
+                                    color: Color(0x33000000),
                                     borderRadius: BorderRadius.circular(0.0),
                                   ),
                                   child: SingleChildScrollView(
@@ -1831,7 +1934,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                       children: [
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Builder(
                                             builder: (context) {
                                               final newquery =
@@ -1843,7 +1946,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                 scrollDirection: Axis.vertical,
                                                 itemCount: newquery.length,
                                                 separatorBuilder: (_, __) =>
-                                                    const SizedBox(height: 0.0),
+                                                    SizedBox(height: 0.0),
                                                 itemBuilder:
                                                     (context, newqueryIndex) {
                                                   final newqueryItem =
@@ -1903,7 +2006,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                     child: MapbuscarWidget(
                                                       key: Key(
                                                           'Keyg9n_${newqueryIndex}_of_${newquery.length}'),
-                                                      icon: const Icon(
+                                                      icon: Icon(
                                                         Icons.location_on,
                                                         color:
                                                             Color(0xFFD26AD2),

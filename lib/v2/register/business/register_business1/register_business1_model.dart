@@ -2,6 +2,7 @@ import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'register_business1_widget.dart' show RegisterBusiness1Widget;
 import 'package:flutter/material.dart';
 
@@ -69,11 +70,11 @@ class RegisterBusiness1Model extends FlutterFlowModel<RegisterBusiness1Widget> {
     return null;
   }
 
-  // State field(s) for email widget.
-  FocusNode? emailFocusNode1;
-  TextEditingController? emailTextController1;
-  String? Function(BuildContext, String?)? emailTextController1Validator;
-  String? _emailTextController1Validator(BuildContext context, String? val) {
+  // State field(s) for email1 widget.
+  FocusNode? email1FocusNode;
+  TextEditingController? email1TextController;
+  String? Function(BuildContext, String?)? email1TextControllerValidator;
+  String? _email1TextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return 'Field is required';
     }
@@ -85,12 +86,12 @@ class RegisterBusiness1Model extends FlutterFlowModel<RegisterBusiness1Widget> {
     return null;
   }
 
-  // Stores action output result for [Firestore Query - Query a collection] action in email widget.
+  // Stores action output result for [Firestore Query - Query a collection] action in email1 widget.
   int? emailExists;
-  // State field(s) for email widget.
-  FocusNode? emailFocusNode2;
-  TextEditingController? emailTextController2;
-  String? Function(BuildContext, String?)? emailTextController2Validator;
+  // State field(s) for confirmemail1 widget.
+  FocusNode? confirmemail1FocusNode;
+  TextEditingController? confirmemail1TextController;
+  String? Function(BuildContext, String?)? confirmemail1TextControllerValidator;
   // State field(s) for abn widget.
   FocusNode? abnFocusNode;
   TextEditingController? abnTextController;
@@ -135,7 +136,7 @@ class RegisterBusiness1Model extends FlutterFlowModel<RegisterBusiness1Widget> {
     firstNameTextControllerValidator = _firstNameTextControllerValidator;
     lastNameTextControllerValidator = _lastNameTextControllerValidator;
     companyTextControllerValidator = _companyTextControllerValidator;
-    emailTextController1Validator = _emailTextController1Validator;
+    email1TextControllerValidator = _email1TextControllerValidator;
     phoneTextControllerValidator = _phoneTextControllerValidator;
     columnController2 = ScrollController();
     listViewController = ScrollController();
@@ -153,11 +154,11 @@ class RegisterBusiness1Model extends FlutterFlowModel<RegisterBusiness1Widget> {
     companyFocusNode?.dispose();
     companyTextController?.dispose();
 
-    emailFocusNode1?.dispose();
-    emailTextController1?.dispose();
+    email1FocusNode?.dispose();
+    email1TextController?.dispose();
 
-    emailFocusNode2?.dispose();
-    emailTextController2?.dispose();
+    confirmemail1FocusNode?.dispose();
+    confirmemail1TextController?.dispose();
 
     abnFocusNode?.dispose();
     abnTextController?.dispose();

@@ -45,13 +45,13 @@ class _NavbarWidgetState extends State<NavbarWidget> {
           return wrapWithModel(
             model: _model.navbarUserModel,
             updateCallback: () => safeSetState(() {}),
-            child: const NavbarUserWidget(),
+            child: NavbarUserWidget(),
           );
         } else {
           return wrapWithModel(
             model: _model.navbarProfessionalModel,
             updateCallback: () => safeSetState(() {}),
-            child: const NavbarProfessionalWidget(),
+            child: NavbarProfessionalWidget(),
           );
         }
       },

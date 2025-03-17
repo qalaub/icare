@@ -1,3 +1,4 @@
+import '';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -60,7 +61,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: const AlignmentDirectional(0.0, 0.0),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Material(
         color: Colors.transparent,
         elevation: 2.0,
@@ -70,16 +71,16 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
         child: Container(
           width: 320.0,
           height: 190.0,
-          constraints: const BoxConstraints(
+          constraints: BoxConstraints(
             minHeight: 190.0,
             maxWidth: 392.0,
             maxHeight: 190.0,
           ),
           decoration: BoxDecoration(
-            color: const Color(0xFFF3F3F3),
+            color: Color(0xFFF3F3F3),
             borderRadius: BorderRadius.circular(20.0),
             border: Border.all(
-              color: const Color(0xFFC55EBE),
+              color: Color(0xFFC55EBE),
               width: 3.0,
             ),
           ),
@@ -88,17 +89,17 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(8.0, 16.0, 8.0, 14.0),
+                padding: EdgeInsetsDirectional.fromSTEB(8.0, 16.0, 8.0, 14.0),
                 child: Container(
                   width: MediaQuery.sizeOf(context).width * 0.2,
                   height: 190.0,
-                  constraints: const BoxConstraints(
+                  constraints: BoxConstraints(
                     minWidth: 90.0,
                     minHeight: 190.0,
                     maxWidth: 90.0,
                     maxHeight: 190.0,
                   ),
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     color: Color(0xFFF3F3F3),
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(20.0),
@@ -109,16 +110,16 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                   ),
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 2.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 2.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Align(
-                          alignment: const AlignmentDirectional(-1.0, 0.0),
+                          alignment: AlignmentDirectional(-1.0, 0.0),
                           child: Container(
-                            decoration: const BoxDecoration(),
+                            decoration: BoxDecoration(),
                             child: Text(
                               'Morning',
                               style: FlutterFlowTheme.of(context)
@@ -128,15 +129,15 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                     color: Colors.black,
                                     fontSize: 15.0,
                                     letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w600,
+                                    fontWeight: FontWeight.w500,
                                   ),
                             ),
                           ),
                         ),
                         Align(
-                          alignment: const AlignmentDirectional(-1.0, 0.0),
+                          alignment: AlignmentDirectional(-1.0, 0.0),
                           child: Container(
-                            decoration: const BoxDecoration(),
+                            decoration: BoxDecoration(),
                             child: Text(
                               'Afternoon',
                               style: FlutterFlowTheme.of(context)
@@ -146,15 +147,15 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                     color: Colors.black,
                                     fontSize: 15.0,
                                     letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w600,
+                                    fontWeight: FontWeight.w500,
                                   ),
                             ),
                           ),
                         ),
                         Align(
-                          alignment: const AlignmentDirectional(-1.0, 0.0),
+                          alignment: AlignmentDirectional(-1.0, 0.0),
                           child: Container(
-                            decoration: const BoxDecoration(),
+                            decoration: BoxDecoration(),
                             child: Text(
                               'Evening',
                               style: FlutterFlowTheme.of(context)
@@ -164,14 +165,14 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                     color: Colors.black,
                                     fontSize: 15.0,
                                     letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w600,
+                                    fontWeight: FontWeight.w500,
                                   ),
                             ),
                           ),
                         ),
                       ]
-                          .divide(const SizedBox(height: 10.0))
-                          .addToStart(const SizedBox(height: 10.0)),
+                          .divide(SizedBox(height: 10.0))
+                          .addToStart(SizedBox(height: 10.0)),
                     ),
                   ),
                 ),
@@ -179,13 +180,13 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
               Container(
                 width: MediaQuery.sizeOf(context).width * 0.48,
                 height: 190.0,
-                constraints: const BoxConstraints(
+                constraints: BoxConstraints(
                   minWidth: 200.0,
                   minHeight: 190.0,
                   maxWidth: 400.0,
                   maxHeight: 190.0,
                 ),
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   color: Color(0xFFF3F3F3),
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(0.0),
@@ -195,7 +196,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                   ),
                 ),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 16.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 16.0),
                   child: SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
@@ -207,12 +208,12 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 10.0),
                               child: Container(
-                                decoration: const BoxDecoration(),
+                                decoration: BoxDecoration(),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 10.0),
                                   child: Text(
                                     'Mo',
@@ -220,7 +221,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Montserrat',
-                                          color: const Color(0xFFC14BBC),
+                                          color: Color(0xFFC14BBC),
                                           fontSize: 15.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
@@ -236,7 +237,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 Container(
                                   width: 20.0,
                                   height: 20.0,
-                                  decoration: const BoxDecoration(),
+                                  decoration: BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
                                       checkboxTheme: CheckboxThemeData(
@@ -283,9 +284,9 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
                                       ),
-                                      activeColor: const Color(0xFFC14BBC),
+                                      activeColor: Color(0xFFC14BBC),
                                       checkColor: _model.trueS
-                                          ? const Color(0xFFC14BBC)
+                                          ? Color(0xFFC14BBC)
                                           : FlutterFlowTheme.of(context).info,
                                     ),
                                   ),
@@ -293,7 +294,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 Container(
                                   width: 20.0,
                                   height: 20.0,
-                                  decoration: const BoxDecoration(),
+                                  decoration: BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
                                       checkboxTheme: CheckboxThemeData(
@@ -339,9 +340,9 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
                                       ),
-                                      activeColor: const Color(0xFFC14BBC),
+                                      activeColor: Color(0xFFC14BBC),
                                       checkColor: _model.trueS
-                                          ? const Color(0xFFC14BBC)
+                                          ? Color(0xFFC14BBC)
                                           : FlutterFlowTheme.of(context).info,
                                     ),
                                   ),
@@ -349,7 +350,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 Container(
                                   width: 20.0,
                                   height: 20.0,
-                                  decoration: const BoxDecoration(),
+                                  decoration: BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
                                       checkboxTheme: CheckboxThemeData(
@@ -396,28 +397,28 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
                                       ),
-                                      activeColor: const Color(0xFFC14BBC),
+                                      activeColor: Color(0xFFC14BBC),
                                       checkColor: _model.trueS
-                                          ? const Color(0xFFC14BBC)
+                                          ? Color(0xFFC14BBC)
                                           : FlutterFlowTheme.of(context).info,
                                     ),
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 12.0)),
+                              ].divide(SizedBox(height: 12.0)),
                             ),
-                          ].addToStart(const SizedBox(height: 0.0)),
+                          ].addToStart(SizedBox(height: 0.0)),
                         ),
                         Column(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 10.0),
                               child: Container(
-                                decoration: const BoxDecoration(),
+                                decoration: BoxDecoration(),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 10.0),
                                   child: Text(
                                     'Tu',
@@ -425,7 +426,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Montserrat',
-                                          color: const Color(0xFFC14BBC),
+                                          color: Color(0xFFC14BBC),
                                           fontSize: 15.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
@@ -441,7 +442,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 Container(
                                   width: 20.0,
                                   height: 20.0,
-                                  decoration: const BoxDecoration(),
+                                  decoration: BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
                                       checkboxTheme: CheckboxThemeData(
@@ -488,9 +489,9 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
                                       ),
-                                      activeColor: const Color(0xFFC14BBC),
+                                      activeColor: Color(0xFFC14BBC),
                                       checkColor: _model.trueS
-                                          ? const Color(0xFFC14BBC)
+                                          ? Color(0xFFC14BBC)
                                           : FlutterFlowTheme.of(context).info,
                                     ),
                                   ),
@@ -498,7 +499,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 Container(
                                   width: 20.0,
                                   height: 20.0,
-                                  decoration: const BoxDecoration(),
+                                  decoration: BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
                                       checkboxTheme: CheckboxThemeData(
@@ -544,9 +545,9 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
                                       ),
-                                      activeColor: const Color(0xFFC14BBC),
+                                      activeColor: Color(0xFFC14BBC),
                                       checkColor: _model.trueS
-                                          ? const Color(0xFFC14BBC)
+                                          ? Color(0xFFC14BBC)
                                           : FlutterFlowTheme.of(context).info,
                                     ),
                                   ),
@@ -554,7 +555,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 Container(
                                   width: 20.0,
                                   height: 20.0,
-                                  decoration: const BoxDecoration(),
+                                  decoration: BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
                                       checkboxTheme: CheckboxThemeData(
@@ -601,28 +602,28 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
                                       ),
-                                      activeColor: const Color(0xFFC14BBC),
+                                      activeColor: Color(0xFFC14BBC),
                                       checkColor: _model.trueS
-                                          ? const Color(0xFFC14BBC)
+                                          ? Color(0xFFC14BBC)
                                           : FlutterFlowTheme.of(context).info,
                                     ),
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 12.0)),
+                              ].divide(SizedBox(height: 12.0)),
                             ),
-                          ].addToStart(const SizedBox(height: 0.0)),
+                          ].addToStart(SizedBox(height: 0.0)),
                         ),
                         Column(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 10.0),
                               child: Container(
-                                decoration: const BoxDecoration(),
+                                decoration: BoxDecoration(),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 10.0),
                                   child: Text(
                                     'We',
@@ -630,7 +631,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Montserrat',
-                                          color: const Color(0xFFC14BBC),
+                                          color: Color(0xFFC14BBC),
                                           fontSize: 15.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
@@ -646,7 +647,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 Container(
                                   width: 20.0,
                                   height: 20.0,
-                                  decoration: const BoxDecoration(),
+                                  decoration: BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
                                       checkboxTheme: CheckboxThemeData(
@@ -693,9 +694,9 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
                                       ),
-                                      activeColor: const Color(0xFFC14BBC),
+                                      activeColor: Color(0xFFC14BBC),
                                       checkColor: _model.trueS
-                                          ? const Color(0xFFC14BBC)
+                                          ? Color(0xFFC14BBC)
                                           : FlutterFlowTheme.of(context).info,
                                     ),
                                   ),
@@ -703,7 +704,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 Container(
                                   width: 20.0,
                                   height: 20.0,
-                                  decoration: const BoxDecoration(),
+                                  decoration: BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
                                       checkboxTheme: CheckboxThemeData(
@@ -749,9 +750,9 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
                                       ),
-                                      activeColor: const Color(0xFFC14BBC),
+                                      activeColor: Color(0xFFC14BBC),
                                       checkColor: _model.trueS
-                                          ? const Color(0xFFC14BBC)
+                                          ? Color(0xFFC14BBC)
                                           : FlutterFlowTheme.of(context).info,
                                     ),
                                   ),
@@ -759,7 +760,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 Container(
                                   width: 20.0,
                                   height: 20.0,
-                                  decoration: const BoxDecoration(),
+                                  decoration: BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
                                       checkboxTheme: CheckboxThemeData(
@@ -806,28 +807,28 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
                                       ),
-                                      activeColor: const Color(0xFFC14BBC),
+                                      activeColor: Color(0xFFC14BBC),
                                       checkColor: _model.trueS
-                                          ? const Color(0xFFC14BBC)
+                                          ? Color(0xFFC14BBC)
                                           : FlutterFlowTheme.of(context).info,
                                     ),
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 12.0)),
+                              ].divide(SizedBox(height: 12.0)),
                             ),
-                          ].addToStart(const SizedBox(height: 0.0)),
+                          ].addToStart(SizedBox(height: 0.0)),
                         ),
                         Column(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 10.0),
                               child: Container(
-                                decoration: const BoxDecoration(),
+                                decoration: BoxDecoration(),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 10.0),
                                   child: Text(
                                     'Th',
@@ -835,7 +836,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Montserrat',
-                                          color: const Color(0xFFC14BBC),
+                                          color: Color(0xFFC14BBC),
                                           fontSize: 15.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
@@ -851,7 +852,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 Container(
                                   width: 20.0,
                                   height: 20.0,
-                                  decoration: const BoxDecoration(),
+                                  decoration: BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
                                       checkboxTheme: CheckboxThemeData(
@@ -898,9 +899,9 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
                                       ),
-                                      activeColor: const Color(0xFFC14BBC),
+                                      activeColor: Color(0xFFC14BBC),
                                       checkColor: _model.trueS
-                                          ? const Color(0xFFC14BBC)
+                                          ? Color(0xFFC14BBC)
                                           : FlutterFlowTheme.of(context).info,
                                     ),
                                   ),
@@ -908,7 +909,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 Container(
                                   width: 20.0,
                                   height: 20.0,
-                                  decoration: const BoxDecoration(),
+                                  decoration: BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
                                       checkboxTheme: CheckboxThemeData(
@@ -954,9 +955,9 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
                                       ),
-                                      activeColor: const Color(0xFFC14BBC),
+                                      activeColor: Color(0xFFC14BBC),
                                       checkColor: _model.trueS
-                                          ? const Color(0xFFC14BBC)
+                                          ? Color(0xFFC14BBC)
                                           : FlutterFlowTheme.of(context).info,
                                     ),
                                   ),
@@ -964,7 +965,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 Container(
                                   width: 20.0,
                                   height: 20.0,
-                                  decoration: const BoxDecoration(),
+                                  decoration: BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
                                       checkboxTheme: CheckboxThemeData(
@@ -1011,14 +1012,14 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
                                       ),
-                                      activeColor: const Color(0xFFC14BBC),
+                                      activeColor: Color(0xFFC14BBC),
                                       checkColor: _model.trueS
-                                          ? const Color(0xFFC14BBC)
+                                          ? Color(0xFFC14BBC)
                                           : FlutterFlowTheme.of(context).info,
                                     ),
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 12.0)),
+                              ].divide(SizedBox(height: 12.0)),
                             ),
                           ],
                         ),
@@ -1028,12 +1029,12 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 10.0),
                               child: Container(
-                                decoration: const BoxDecoration(),
+                                decoration: BoxDecoration(),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 10.0),
                                   child: Text(
                                     'Fr',
@@ -1041,7 +1042,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Montserrat',
-                                          color: const Color(0xFFC14BBC),
+                                          color: Color(0xFFC14BBC),
                                           fontSize: 15.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
@@ -1057,7 +1058,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 Container(
                                   width: 20.0,
                                   height: 20.0,
-                                  decoration: const BoxDecoration(),
+                                  decoration: BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
                                       checkboxTheme: CheckboxThemeData(
@@ -1104,9 +1105,9 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
                                       ),
-                                      activeColor: const Color(0xFFC14BBC),
+                                      activeColor: Color(0xFFC14BBC),
                                       checkColor: _model.trueS
-                                          ? const Color(0xFFC14BBC)
+                                          ? Color(0xFFC14BBC)
                                           : FlutterFlowTheme.of(context).info,
                                     ),
                                   ),
@@ -1114,7 +1115,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 Container(
                                   width: 20.0,
                                   height: 20.0,
-                                  decoration: const BoxDecoration(),
+                                  decoration: BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
                                       checkboxTheme: CheckboxThemeData(
@@ -1160,9 +1161,9 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
                                       ),
-                                      activeColor: const Color(0xFFC14BBC),
+                                      activeColor: Color(0xFFC14BBC),
                                       checkColor: _model.trueS
-                                          ? const Color(0xFFC14BBC)
+                                          ? Color(0xFFC14BBC)
                                           : FlutterFlowTheme.of(context).info,
                                     ),
                                   ),
@@ -1170,7 +1171,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 Container(
                                   width: 20.0,
                                   height: 20.0,
-                                  decoration: const BoxDecoration(),
+                                  decoration: BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
                                       checkboxTheme: CheckboxThemeData(
@@ -1217,28 +1218,28 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
                                       ),
-                                      activeColor: const Color(0xFFC14BBC),
+                                      activeColor: Color(0xFFC14BBC),
                                       checkColor: _model.trueS
-                                          ? const Color(0xFFC14BBC)
+                                          ? Color(0xFFC14BBC)
                                           : FlutterFlowTheme.of(context).info,
                                     ),
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 12.0)),
+                              ].divide(SizedBox(height: 12.0)),
                             ),
-                          ].addToStart(const SizedBox(height: 0.0)),
+                          ].addToStart(SizedBox(height: 0.0)),
                         ),
                         Column(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 10.0),
                               child: Container(
-                                decoration: const BoxDecoration(),
+                                decoration: BoxDecoration(),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 10.0),
                                   child: Text(
                                     'Sa',
@@ -1246,7 +1247,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Montserrat',
-                                          color: const Color(0xFFC14BBC),
+                                          color: Color(0xFFC14BBC),
                                           fontSize: 15.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
@@ -1262,7 +1263,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 Container(
                                   width: 20.0,
                                   height: 20.0,
-                                  decoration: const BoxDecoration(),
+                                  decoration: BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
                                       checkboxTheme: CheckboxThemeData(
@@ -1309,9 +1310,9 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
                                       ),
-                                      activeColor: const Color(0xFFC14BBC),
+                                      activeColor: Color(0xFFC14BBC),
                                       checkColor: _model.trueS
-                                          ? const Color(0xFFC14BBC)
+                                          ? Color(0xFFC14BBC)
                                           : FlutterFlowTheme.of(context).info,
                                     ),
                                   ),
@@ -1319,7 +1320,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 Container(
                                   width: 20.0,
                                   height: 20.0,
-                                  decoration: const BoxDecoration(),
+                                  decoration: BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
                                       checkboxTheme: CheckboxThemeData(
@@ -1365,9 +1366,9 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
                                       ),
-                                      activeColor: const Color(0xFFC14BBC),
+                                      activeColor: Color(0xFFC14BBC),
                                       checkColor: _model.trueS
-                                          ? const Color(0xFFC14BBC)
+                                          ? Color(0xFFC14BBC)
                                           : FlutterFlowTheme.of(context).info,
                                     ),
                                   ),
@@ -1375,7 +1376,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 Container(
                                   width: 20.0,
                                   height: 20.0,
-                                  decoration: const BoxDecoration(),
+                                  decoration: BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
                                       checkboxTheme: CheckboxThemeData(
@@ -1422,28 +1423,28 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
                                       ),
-                                      activeColor: const Color(0xFFC14BBC),
+                                      activeColor: Color(0xFFC14BBC),
                                       checkColor: _model.trueS
-                                          ? const Color(0xFFC14BBC)
+                                          ? Color(0xFFC14BBC)
                                           : FlutterFlowTheme.of(context).info,
                                     ),
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 12.0)),
+                              ].divide(SizedBox(height: 12.0)),
                             ),
-                          ].addToStart(const SizedBox(height: 0.0)),
+                          ].addToStart(SizedBox(height: 0.0)),
                         ),
                         Column(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 10.0),
                               child: Container(
-                                decoration: const BoxDecoration(),
+                                decoration: BoxDecoration(),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 10.0),
                                   child: Text(
                                     'Su',
@@ -1451,7 +1452,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Montserrat',
-                                          color: const Color(0xFFC14BBC),
+                                          color: Color(0xFFC14BBC),
                                           fontSize: 15.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
@@ -1467,7 +1468,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 Container(
                                   width: 20.0,
                                   height: 20.0,
-                                  decoration: const BoxDecoration(),
+                                  decoration: BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
                                       checkboxTheme: CheckboxThemeData(
@@ -1514,9 +1515,9 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
                                       ),
-                                      activeColor: const Color(0xFFC14BBC),
+                                      activeColor: Color(0xFFC14BBC),
                                       checkColor: _model.trueS
-                                          ? const Color(0xFFC14BBC)
+                                          ? Color(0xFFC14BBC)
                                           : FlutterFlowTheme.of(context).info,
                                     ),
                                   ),
@@ -1524,7 +1525,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 Container(
                                   width: 20.0,
                                   height: 20.0,
-                                  decoration: const BoxDecoration(),
+                                  decoration: BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
                                       checkboxTheme: CheckboxThemeData(
@@ -1570,9 +1571,9 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
                                       ),
-                                      activeColor: const Color(0xFFC14BBC),
+                                      activeColor: Color(0xFFC14BBC),
                                       checkColor: _model.trueS
-                                          ? const Color(0xFFC14BBC)
+                                          ? Color(0xFFC14BBC)
                                           : FlutterFlowTheme.of(context).info,
                                     ),
                                   ),
@@ -1580,7 +1581,7 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                 Container(
                                   width: 20.0,
                                   height: 20.0,
-                                  decoration: const BoxDecoration(),
+                                  decoration: BoxDecoration(),
                                   child: Theme(
                                     data: ThemeData(
                                       checkboxTheme: CheckboxThemeData(
@@ -1627,16 +1628,16 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
                                       ),
-                                      activeColor: const Color(0xFFC14BBC),
+                                      activeColor: Color(0xFFC14BBC),
                                       checkColor: _model.trueS
-                                          ? const Color(0xFFC14BBC)
+                                          ? Color(0xFFC14BBC)
                                           : FlutterFlowTheme.of(context).info,
                                     ),
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 12.0)),
+                              ].divide(SizedBox(height: 12.0)),
                             ),
-                          ].addToStart(const SizedBox(height: 0.0)),
+                          ].addToStart(SizedBox(height: 0.0)),
                         ),
                       ]
                           .divide(SizedBox(width: () {
@@ -1655,8 +1656,8 @@ class _CalendarioWidgetState extends State<CalendarioWidget> {
                               return 5.0;
                             }
                           }()))
-                          .addToStart(const SizedBox(width: 1.0))
-                          .addToEnd(const SizedBox(width: 1.0)),
+                          .addToStart(SizedBox(width: 1.0))
+                          .addToEnd(SizedBox(width: 1.0)),
                     ),
                   ),
                 ),

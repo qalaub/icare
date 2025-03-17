@@ -12,8 +12,8 @@ class MembresiaLogoWidget extends StatefulWidget {
     required this.professional,
     int? width,
     int? heigth,
-  })  : width = width ?? 32,
-        heigth = heigth ?? 32;
+  })  : this.width = width ?? 32,
+        this.heigth = heigth ?? 32;
 
   final DocumentReference? professional;
   final int width;
@@ -50,7 +50,7 @@ class _MembresiaLogoWidgetState extends State<MembresiaLogoWidget> {
     return Container(
       width: widget.width.toDouble(),
       height: widget.heigth.toDouble(),
-      decoration: const BoxDecoration(),
+      decoration: BoxDecoration(),
       child: StreamBuilder<UsersRecord>(
         stream: UsersRecord.getDocument(widget.professional!),
         builder: (context, snapshot) {
@@ -76,7 +76,7 @@ class _MembresiaLogoWidgetState extends State<MembresiaLogoWidget> {
             children: [
               if (columnUsersRecord.plan == Plan.basic)
                 Align(
-                  alignment: const AlignmentDirectional(0.67, -0.63),
+                  alignment: AlignmentDirectional(0.67, -0.63),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
                     child: Image.asset(
@@ -89,7 +89,7 @@ class _MembresiaLogoWidgetState extends State<MembresiaLogoWidget> {
                 ),
               if (columnUsersRecord.plan == Plan.standar)
                 Align(
-                  alignment: const AlignmentDirectional(0.67, -0.63),
+                  alignment: AlignmentDirectional(0.67, -0.63),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
                     child: Image.asset(
@@ -103,7 +103,7 @@ class _MembresiaLogoWidgetState extends State<MembresiaLogoWidget> {
               if ((columnUsersRecord.plan == Plan.premiun) &&
                   (columnUsersRecord.business != null))
                 Align(
-                  alignment: const AlignmentDirectional(0.67, -0.63),
+                  alignment: AlignmentDirectional(0.67, -0.63),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
                     child: Image.asset(
@@ -117,7 +117,7 @@ class _MembresiaLogoWidgetState extends State<MembresiaLogoWidget> {
               if ((columnUsersRecord.plan == Plan.premiun) &&
                   (columnUsersRecord.business == null))
                 Align(
-                  alignment: const AlignmentDirectional(0.67, -0.63),
+                  alignment: AlignmentDirectional(0.67, -0.63),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
                     child: Image.asset(

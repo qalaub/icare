@@ -13,7 +13,7 @@ class StarContainerWidget extends StatefulWidget {
     required this.parameter2,
     bool? parameter3,
     this.parameter4,
-  }) : parameter3 = parameter3 ?? false;
+  }) : this.parameter3 = parameter3 ?? false;
 
   final List<ReviewsRecord>? parameter1;
   final DocumentReference? parameter2;
@@ -49,9 +49,9 @@ class _StarContainerWidgetState extends State<StarContainerWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(0.0, 0.0),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 0.0, 0.0),
+        padding: EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 0.0, 0.0),
         child: StreamBuilder<List<ReviewsRecord>>(
           stream: queryReviewsRecord(
             queryBuilder: (reviewsRecord) => reviewsRecord.where(
@@ -77,7 +77,7 @@ class _StarContainerWidgetState extends State<StarContainerWidget> {
             List<ReviewsRecord> containerReviewsRecordList = snapshot.data!;
 
             return Container(
-              decoration: const BoxDecoration(),
+              decoration: BoxDecoration(),
               child: wrapWithModel(
                 model: _model.estrellasModel,
                 updateCallback: () => safeSetState(() {}),

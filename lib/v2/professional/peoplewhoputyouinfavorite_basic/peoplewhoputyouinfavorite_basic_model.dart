@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
+import '/index.dart';
 import 'peoplewhoputyouinfavorite_basic_widget.dart'
     show PeoplewhoputyouinfavoriteBasicWidget;
 import 'package:flutter/material.dart';

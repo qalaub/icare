@@ -123,7 +123,7 @@ class FFAppState extends ChangeNotifier {
     _currentChat = value;
   }
 
-  LatLng? _tempLocation = const LatLng(-26.8357181, 152.963113);
+  LatLng? _tempLocation = LatLng(-26.8357181, 152.963113);
   LatLng? get tempLocation => _tempLocation;
   set tempLocation(LatLng? value) {
     _tempLocation = value;

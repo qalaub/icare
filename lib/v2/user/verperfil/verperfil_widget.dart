@@ -1,3 +1,4 @@
+import '';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/enums/enums.dart';
@@ -13,6 +14,7 @@ import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
 import '/v2/professional/imagenesfotos_users/imagenesfotos_users_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -24,9 +26,12 @@ class VerperfilWidget extends StatefulWidget {
   const VerperfilWidget({
     super.key,
     String? initialSurb,
-  }) : initialSurb = initialSurb ?? 'location';
+  }) : this.initialSurb = initialSurb ?? 'location';
 
   final String initialSurb;
+
+  static String routeName = 'verperfil';
+  static String routePath = 'verperfil';
 
   @override
   State<VerperfilWidget> createState() => _VerperfilWidgetState();
@@ -60,6 +65,9 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
         text: valueOrDefault(currentUserDocument?.lastName, ''));
     _model.lastNameFocusNode ??= FocusNode();
 
+    _model.textController3 ??= TextEditingController(text: currentUserEmail);
+    _model.textFieldFocusNode ??= FocusNode();
+
     _model.abnTextController ??= TextEditingController(
         text: valueOrDefault(currentUserDocument?.abn, ''));
     _model.abnFocusNode ??= FocusNode();
@@ -71,9 +79,6 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
     _model.queryTextController ??= TextEditingController(
         text: functions.formatnameStreet(widget.initialSurb));
     _model.queryFocusNode ??= FocusNode();
-
-    _model.textController6 ??= TextEditingController(text: currentUserEmail);
-    _model.textFieldFocusNode ??= FocusNode();
 
     _model.descriptionTextController ??= TextEditingController(
         text: valueOrDefault(currentUserDocument?.description, ''));
@@ -100,20 +105,20 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
         key: scaffoldKey,
         backgroundColor: Colors.white,
         appBar: AppBar(
-          backgroundColor: const Color(0xFFB928B8),
+          backgroundColor: Color(0xFFB928B8),
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
-            key: const ValueKey('back'),
+            key: ValueKey('back'),
             borderRadius: 20.0,
             borderWidth: 1.0,
             buttonSize: 27.0,
-            icon: const Icon(
+            icon: Icon(
               Icons.arrow_back_ios_new,
               color: Colors.white,
               size: 25.0,
             ),
             onPressed: () async {
-              context.pushNamed('userprofile');
+              context.pushNamed(UserprofileWidget.routeName);
             },
           ),
           title: Text(
@@ -125,7 +130,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                   letterSpacing: 0.0,
                 ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: false,
           elevation: 0.0,
         ),
@@ -138,7 +143,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                 child: Container(
                   width: double.infinity,
                   height: double.infinity,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     color: Colors.white,
                   ),
                   child: SingleChildScrollView(
@@ -147,9 +152,9 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                       children: [
                         if (currentUserDocument?.rol == Roles.user)
                           Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 16.0, 0.0),
                               child: AuthUserStreamWidget(
                                 builder: (context) => Column(
@@ -169,7 +174,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Montserrat',
-                                                color: const Color(0xFFC14BBC),
+                                                color: Color(0xFFC14BBC),
                                                 fontSize: 15.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
@@ -179,7 +184,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                     ),
                                     Align(
                                       alignment:
-                                          const AlignmentDirectional(-1.0, 0.0),
+                                          AlignmentDirectional(-1.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -196,7 +201,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                       .secondaryBackground,
                                             ),
                                             child: Align(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   -1.0, 0.0),
                                               child: Text(
                                                 'This is your avatar, you can choose another one in edit profile',
@@ -219,15 +224,15 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                       ),
                                     ),
                                     Align(
-                                      alignment: const AlignmentDirectional(0.0, 0.0),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             12.0, 16.0, 12.0, 16.0),
                                         child: Container(
                                           width:
                                               MediaQuery.sizeOf(context).width *
                                                   0.9,
-                                          decoration: const BoxDecoration(),
+                                          decoration: BoxDecoration(),
                                           child: ClipRRect(
                                             borderRadius:
                                                 BorderRadius.circular(8.0),
@@ -241,7 +246,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                         ),
                                       ),
                                     ),
-                                  ].addToStart(const SizedBox(height: 11.0)),
+                                  ].addToStart(SizedBox(height: 11.0)),
                                 ),
                               ),
                             ),
@@ -250,9 +255,9 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                             ((currentUserDocument?.plan == Plan.premiun) ||
                                 (currentUserDocument?.plan == Plan.standar)))
                           Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 16.0, 0.0),
                               child: AuthUserStreamWidget(
                                 builder: (context) => Column(
@@ -270,7 +275,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Montserrat',
-                                                color: const Color(0xFFC14BBC),
+                                                color: Color(0xFFC14BBC),
                                                 fontSize: 15.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
@@ -280,7 +285,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                     ),
                                     Align(
                                       alignment:
-                                          const AlignmentDirectional(-1.0, 0.0),
+                                          AlignmentDirectional(-1.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -297,7 +302,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                       .secondaryBackground,
                                             ),
                                             child: Align(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   -1.0, 0.0),
                                               child: Text(
                                                 'In this section you can see your photos as your potential clients do.',
@@ -320,21 +325,23 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 16.0, 0.0, 16.0),
                                       child: Container(
                                         width:
                                             MediaQuery.sizeOf(context).width *
                                                 1.0,
                                         height: 235.0,
-                                        decoration: const BoxDecoration(),
+                                        decoration: BoxDecoration(),
                                         child: wrapWithModel(
                                           model: _model.imagenesfotosUsersModel,
                                           updateCallback: () =>
                                               safeSetState(() {}),
                                           child: ImagenesfotosUsersWidget(
                                             professional: FFAppState()
-                                                        .imagesUserUpload.isNotEmpty
+                                                        .imagesUserUpload
+                                                        .length >
+                                                    0
                                                 ? FFAppState().imagesUserUpload
                                                 : (currentUserDocument?.images
                                                         .toList() ??
@@ -343,14 +350,14 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                         ),
                                       ),
                                     ),
-                                  ].divide(const SizedBox(height: 4.0)),
+                                  ].divide(SizedBox(height: 4.0)),
                                 ),
                               ),
                             ),
                           ),
                         if (currentUserDocument?.rol != Roles.user)
                           Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: AuthUserStreamWidget(
                               builder: (context) => Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -358,7 +365,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         16.0, 0.0, 16.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -371,7 +378,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Montserrat',
-                                                color: const Color(0xFFC14BBC),
+                                                color: Color(0xFFC14BBC),
                                                 fontSize: 15.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
@@ -381,7 +388,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                                    alignment: AlignmentDirectional(-1.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -389,7 +396,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                       children: [
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   16.0, 0.0, 16.0, 0.0),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
@@ -402,7 +409,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                       .secondaryBackground,
                                             ),
                                             child: Align(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Text(
                                                 'In this section you can establish which days you work per week and at what times of the day',
@@ -440,14 +447,14 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                           []),
                                     ),
                                   ),
-                                ].divide(const SizedBox(height: 8.0)),
+                                ].divide(SizedBox(height: 8.0)),
                               ),
                             ),
                           ),
                         Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 0.0, 16.0, 0.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
@@ -463,7 +470,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Montserrat',
-                                            color: const Color(0xFFC14BBC),
+                                            color: Color(0xFFC14BBC),
                                             fontSize: 15.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
@@ -472,7 +479,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                   ],
                                 ),
                                 Align(
-                                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                                  alignment: AlignmentDirectional(-1.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.start,
@@ -488,7 +495,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                         ),
                                         child: Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             'This is your username but you can change it in edit profile as you feel more comfortable',
                                             textAlign: TextAlign.start,
@@ -507,7 +514,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                                  alignment: AlignmentDirectional(-1.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
@@ -523,31 +530,31 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                             width: double.infinity,
                                             height: 52.0,
                                             decoration: BoxDecoration(
-                                              color: const Color(0xFFF0F0F0),
+                                              color: Color(0xFFF0F0F0),
                                               borderRadius:
                                                   BorderRadius.circular(12.0),
                                               border: Border.all(
-                                                color: const Color(0xFFC14BBC),
+                                                color: Color(0xFFC14BBC),
                                                 width: 3.0,
                                               ),
                                             ),
                                             child: Stack(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   -1.0, 0.0),
                                               children: [
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           -1.0, 0.0),
                                                   child: AuthUserStreamWidget(
                                                     builder: (context) =>
-                                                        SizedBox(
+                                                        Container(
                                                       width: MediaQuery.sizeOf(
                                                                   context)
                                                               .width *
                                                           0.6,
                                                       child: TextFormField(
-                                                        key: const ValueKey('name'),
+                                                        key: ValueKey('name'),
                                                         controller: _model
                                                             .nameTextController,
                                                         focusNode: _model
@@ -589,7 +596,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                           enabledBorder:
                                                               UnderlineInputBorder(
                                                             borderSide:
-                                                                const BorderSide(
+                                                                BorderSide(
                                                               color: Color(
                                                                   0x00000000),
                                                               width: 1.0,
@@ -602,7 +609,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                           focusedBorder:
                                                               UnderlineInputBorder(
                                                             borderSide:
-                                                                const BorderSide(
+                                                                BorderSide(
                                                               color: Color(
                                                                   0x00000000),
                                                               width: 1.0,
@@ -615,7 +622,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                           errorBorder:
                                                               UnderlineInputBorder(
                                                             borderSide:
-                                                                const BorderSide(
+                                                                BorderSide(
                                                               color: Color(
                                                                   0x00000000),
                                                               width: 1.0,
@@ -628,7 +635,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                           focusedErrorBorder:
                                                               UnderlineInputBorder(
                                                             borderSide:
-                                                                const BorderSide(
+                                                                BorderSide(
                                                               color: Color(
                                                                   0x00000000),
                                                               width: 1.0,
@@ -639,7 +646,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                                         8.0),
                                                           ),
                                                           contentPadding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       10.0,
                                                                       0.0,
@@ -671,7 +678,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                     ),
                                                   ),
                                                 ),
-                                                const Align(
+                                                Align(
                                                   alignment:
                                                       AlignmentDirectional(
                                                           0.9, 0.0),
@@ -689,14 +696,14 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                     ],
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 4.0)),
+                              ].divide(SizedBox(height: 4.0)),
                             ),
                           ),
                         ),
                         Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 0.0, 16.0, 0.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
@@ -712,7 +719,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Montserrat',
-                                            color: const Color(0xFFC14BBC),
+                                            color: Color(0xFFC14BBC),
                                             fontSize: 15.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
@@ -721,7 +728,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                   ],
                                 ),
                                 Align(
-                                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                                  alignment: AlignmentDirectional(-1.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.start,
@@ -737,7 +744,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                         ),
                                         child: Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             'This is your last name but you can change it in edit profile as you feel more comfortable',
                                             textAlign: TextAlign.start,
@@ -756,7 +763,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                                  alignment: AlignmentDirectional(-1.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
@@ -772,21 +779,21 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                             width: double.infinity,
                                             height: 52.0,
                                             decoration: BoxDecoration(
-                                              color: const Color(0xFFF0F0F0),
+                                              color: Color(0xFFF0F0F0),
                                               borderRadius:
                                                   BorderRadius.circular(12.0),
                                               border: Border.all(
-                                                color: const Color(0xFFC14BBC),
+                                                color: Color(0xFFC14BBC),
                                                 width: 3.0,
                                               ),
                                             ),
                                             child: Align(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: AuthUserStreamWidget(
                                                 builder: (context) =>
                                                     TextFormField(
-                                                  key: const ValueKey('lastName'),
+                                                  key: ValueKey('lastName'),
                                                   controller: _model
                                                       .lastNameTextController,
                                                   focusNode:
@@ -827,7 +834,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                         ),
                                                     enabledBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0x00000000),
                                                         width: 0.0,
@@ -838,7 +845,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                     ),
                                                     focusedBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0x00000000),
                                                         width: 0.0,
@@ -849,7 +856,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                     ),
                                                     errorBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0x00000000),
                                                         width: 0.0,
@@ -860,7 +867,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                     ),
                                                     focusedErrorBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0x00000000),
                                                         width: 0.0,
@@ -897,15 +904,184 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                     ],
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 4.0)),
+                              ].divide(SizedBox(height: 4.0)),
+                            ),
+                          ),
+                        ),
+                        Align(
+                          alignment: AlignmentDirectional(0.0, 0.0),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                16.0, 0.0, 16.0, 0.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Email',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Montserrat',
+                                            color: Color(0xFFC14BBC),
+                                            fontSize: 15.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                    ),
+                                  ],
+                                ),
+                                Align(
+                                  alignment: AlignmentDirectional(-1.0, 0.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.9,
+                                        height: 39.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                        ),
+                                        child: Align(
+                                          alignment:
+                                              AlignmentDirectional(-1.0, 0.0),
+                                          child: Text(
+                                            'This is your email registered',
+                                            textAlign: TextAlign.start,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Montserrat',
+                                                  fontSize: 12.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.normal,
+                                                ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Align(
+                                  alignment: AlignmentDirectional(-1.0, 0.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Expanded(
+                                        child: Material(
+                                          color: Colors.transparent,
+                                          elevation: 2.0,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(12.0),
+                                          ),
+                                          child: Container(
+                                            width: double.infinity,
+                                            height: 52.0,
+                                            decoration: BoxDecoration(
+                                              color: Color(0xFFF0F0F0),
+                                              borderRadius:
+                                                  BorderRadius.circular(12.0),
+                                              border: Border.all(
+                                                color: Color(0xFFC14BBC),
+                                                width: 3.0,
+                                              ),
+                                            ),
+                                            child: TextFormField(
+                                              controller:
+                                                  _model.textController3,
+                                              focusNode:
+                                                  _model.textFieldFocusNode,
+                                              autofocus: false,
+                                              readOnly: true,
+                                              obscureText: false,
+                                              decoration: InputDecoration(
+                                                hintText: 'Email',
+                                                hintStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyLarge
+                                                        .override(
+                                                          fontFamily:
+                                                              'Montserrat',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                enabledBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: Color(0x00000000),
+                                                    width: 2.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          12.0),
+                                                ),
+                                                focusedBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: Color(0x00000000),
+                                                    width: 2.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          12.0),
+                                                ),
+                                                errorBorder: OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: Color(0x00000000),
+                                                    width: 2.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          12.0),
+                                                ),
+                                                focusedErrorBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: Color(0x00000000),
+                                                    width: 2.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          12.0),
+                                                ),
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Montserrat',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                              keyboardType:
+                                                  TextInputType.emailAddress,
+                                              validator: _model
+                                                  .textController3Validator
+                                                  .asValidator(context),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ].divide(SizedBox(height: 8.0)),
                             ),
                           ),
                         ),
                         if (currentUserDocument?.rol == Roles.business)
                           Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 16.0, 0.0),
                               child: AuthUserStreamWidget(
                                 builder: (context) => Column(
@@ -923,7 +1099,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Montserrat',
-                                                color: const Color(0xFFC14BBC),
+                                                color: Color(0xFFC14BBC),
                                                 fontSize: 15.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
@@ -933,7 +1109,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                     ),
                                     Align(
                                       alignment:
-                                          const AlignmentDirectional(-1.0, 0.0),
+                                          AlignmentDirectional(-1.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -950,7 +1126,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                       .secondaryBackground,
                                             ),
                                             child: Align(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   -1.0, 0.0),
                                               child: Text(
                                                 'Australian business number you are registered under',
@@ -974,7 +1150,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                     ),
                                     Align(
                                       alignment:
-                                          const AlignmentDirectional(-1.0, 0.0),
+                                          AlignmentDirectional(-1.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.min,
                                         children: [
@@ -990,21 +1166,21 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                 width: double.infinity,
                                                 height: 52.0,
                                                 decoration: BoxDecoration(
-                                                  color: const Color(0xFFF0F0F0),
+                                                  color: Color(0xFFF0F0F0),
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           12.0),
                                                   border: Border.all(
-                                                    color: const Color(0xFFC14BBC),
+                                                    color: Color(0xFFC14BBC),
                                                     width: 3.0,
                                                   ),
                                                 ),
                                                 child: Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           0.0, 0.0),
                                                   child: TextFormField(
-                                                    key: const ValueKey('phone'),
+                                                    key: ValueKey('phone'),
                                                     controller: _model
                                                         .abnTextController,
                                                     focusNode:
@@ -1052,7 +1228,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                               ),
                                                       enabledBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: const BorderSide(
+                                                        borderSide: BorderSide(
                                                           color:
                                                               Color(0x00000000),
                                                           width: 0.0,
@@ -1063,7 +1239,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                       ),
                                                       focusedBorder:
                                                           OutlineInputBorder(
-                                                        borderSide: const BorderSide(
+                                                        borderSide: BorderSide(
                                                           color:
                                                               Color(0x00000000),
                                                           width: 0.0,
@@ -1131,15 +1307,15 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                         ],
                                       ),
                                     ),
-                                  ].divide(const SizedBox(height: 4.0)),
+                                  ].divide(SizedBox(height: 4.0)),
                                 ),
                               ),
                             ),
                           ),
                         Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 0.0, 16.0, 0.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
@@ -1155,7 +1331,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Montserrat',
-                                            color: const Color(0xFFC14BBC),
+                                            color: Color(0xFFC14BBC),
                                             fontSize: 15.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
@@ -1164,7 +1340,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                   ],
                                 ),
                                 Align(
-                                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                                  alignment: AlignmentDirectional(-1.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.start,
@@ -1180,7 +1356,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                         ),
                                         child: Align(
                                           alignment:
-                                              const AlignmentDirectional(-1.0, 0.0),
+                                              AlignmentDirectional(-1.0, 0.0),
                                           child: Text(
                                             'This is your registered phone number',
                                             textAlign: TextAlign.start,
@@ -1199,7 +1375,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                                  alignment: AlignmentDirectional(-1.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
@@ -1215,21 +1391,21 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                             width: double.infinity,
                                             height: 52.0,
                                             decoration: BoxDecoration(
-                                              color: const Color(0xFFF0F0F0),
+                                              color: Color(0xFFF0F0F0),
                                               borderRadius:
                                                   BorderRadius.circular(12.0),
                                               border: Border.all(
-                                                color: const Color(0xFFC14BBC),
+                                                color: Color(0xFFC14BBC),
                                                 width: 3.0,
                                               ),
                                             ),
                                             child: Align(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: AuthUserStreamWidget(
                                                 builder: (context) =>
                                                     TextFormField(
-                                                  key: const ValueKey('phone'),
+                                                  key: ValueKey('phone'),
                                                   controller: _model
                                                       .phoneTextController,
                                                   focusNode:
@@ -1270,7 +1446,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                         ),
                                                     enabledBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0x00000000),
                                                         width: 0.0,
@@ -1281,7 +1457,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                     ),
                                                     focusedBorder:
                                                         OutlineInputBorder(
-                                                      borderSide: const BorderSide(
+                                                      borderSide: BorderSide(
                                                         color:
                                                             Color(0x00000000),
                                                         width: 0.0,
@@ -1345,14 +1521,14 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                     ],
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 4.0)),
+                              ].divide(SizedBox(height: 4.0)),
                             ),
                           ),
                         ),
                         Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 0.0, 16.0, 0.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
@@ -1368,7 +1544,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Montserrat',
-                                            color: const Color(0xFFC14BBC),
+                                            color: Color(0xFFC14BBC),
                                             fontSize: 15.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
@@ -1377,7 +1553,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                   ],
                                 ),
                                 Align(
-                                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                                  alignment: AlignmentDirectional(-1.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.start,
@@ -1393,7 +1569,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                         ),
                                         child: Align(
                                           alignment:
-                                              const AlignmentDirectional(-1.0, 0.0),
+                                              AlignmentDirectional(-1.0, 0.0),
                                           child: Text(
                                             'This is your location you can modify in edit profile',
                                             textAlign: TextAlign.start,
@@ -1412,7 +1588,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                                  alignment: AlignmentDirectional(-1.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
@@ -1428,20 +1604,20 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                             width: double.infinity,
                                             height: 52.0,
                                             decoration: BoxDecoration(
-                                              color: const Color(0xFFF0F0F0),
+                                              color: Color(0xFFF0F0F0),
                                               borderRadius:
                                                   BorderRadius.circular(12.0),
                                               border: Border.all(
-                                                color: const Color(0xFFC14BBC),
+                                                color: Color(0xFFC14BBC),
                                                 width: 3.0,
                                               ),
                                             ),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       10.0, 0.0, 10.0, 0.0),
                                               child: TextFormField(
-                                                key: const ValueKey('query'),
+                                                key: ValueKey('query'),
                                                 controller:
                                                     _model.queryTextController,
                                                 focusNode:
@@ -1507,189 +1683,15 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                     ],
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 4.0)),
+                              ].divide(SizedBox(height: 4.0)),
                             ),
                           ),
                         ),
-                        if (_model.dontShow)
-                          Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
-                            child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 16.0, 0.0),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'Email',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Montserrat',
-                                              color: const Color(0xFFC14BBC),
-                                              fontSize: 15.0,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                      ),
-                                    ],
-                                  ),
-                                  Align(
-                                    alignment: const AlignmentDirectional(-1.0, 0.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  0.9,
-                                          height: 39.0,
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                          ),
-                                          child: Align(
-                                            alignment:
-                                                const AlignmentDirectional(-1.0, 0.0),
-                                            child: Text(
-                                              'In this section you can change your email address if it is different now.',
-                                              textAlign: TextAlign.start,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Montserrat',
-                                                        fontSize: 12.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                      ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Align(
-                                    alignment: const AlignmentDirectional(-1.0, 0.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        Expanded(
-                                          child: Material(
-                                            color: Colors.transparent,
-                                            elevation: 2.0,
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(12.0),
-                                            ),
-                                            child: Container(
-                                              width: double.infinity,
-                                              height: 52.0,
-                                              decoration: BoxDecoration(
-                                                color: const Color(0xFFF0F0F0),
-                                                borderRadius:
-                                                    BorderRadius.circular(12.0),
-                                                border: Border.all(
-                                                  color: const Color(0xFFC14BBC),
-                                                  width: 3.0,
-                                                ),
-                                              ),
-                                              child: TextFormField(
-                                                controller:
-                                                    _model.textController6,
-                                                focusNode:
-                                                    _model.textFieldFocusNode,
-                                                autofocus: false,
-                                                readOnly: true,
-                                                obscureText: false,
-                                                decoration: InputDecoration(
-                                                  hintText: 'Email',
-                                                  hintStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyLarge
-                                                          .override(
-                                                            fontFamily:
-                                                                'Montserrat',
-                                                            letterSpacing: 0.0,
-                                                          ),
-                                                  enabledBorder:
-                                                      OutlineInputBorder(
-                                                    borderSide: const BorderSide(
-                                                      color: Color(0x00000000),
-                                                      width: 2.0,
-                                                    ),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            12.0),
-                                                  ),
-                                                  focusedBorder:
-                                                      OutlineInputBorder(
-                                                    borderSide: const BorderSide(
-                                                      color: Color(0x00000000),
-                                                      width: 2.0,
-                                                    ),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            12.0),
-                                                  ),
-                                                  errorBorder:
-                                                      OutlineInputBorder(
-                                                    borderSide: const BorderSide(
-                                                      color: Color(0x00000000),
-                                                      width: 2.0,
-                                                    ),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            12.0),
-                                                  ),
-                                                  focusedErrorBorder:
-                                                      OutlineInputBorder(
-                                                    borderSide: const BorderSide(
-                                                      color: Color(0x00000000),
-                                                      width: 2.0,
-                                                    ),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            12.0),
-                                                  ),
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Montserrat',
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                validator: _model
-                                                    .textController6Validator
-                                                    .asValidator(context),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ].divide(const SizedBox(height: 8.0)),
-                              ),
-                            ),
-                          ),
                         if (currentUserDocument?.rol != Roles.user)
                           Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 16.0, 0.0),
                               child: AuthUserStreamWidget(
                                 builder: (context) => Column(
@@ -1707,7 +1709,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Montserrat',
-                                                color: const Color(0xFFC14BBC),
+                                                color: Color(0xFFC14BBC),
                                                 fontSize: 15.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
@@ -1717,7 +1719,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                     ),
                                     Align(
                                       alignment:
-                                          const AlignmentDirectional(-1.0, 0.0),
+                                          AlignmentDirectional(-1.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -1734,7 +1736,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                       .secondaryBackground,
                                             ),
                                             child: Align(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   -1.0, 0.0),
                                               child: Text(
                                                 'These are your registered services that you wish to offer',
@@ -1758,7 +1760,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                     ),
                                     Align(
                                       alignment:
-                                          const AlignmentDirectional(-1.0, 0.0),
+                                          AlignmentDirectional(-1.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.min,
                                         children: [
@@ -1774,12 +1776,12 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                 width: double.infinity,
                                                 height: 52.0,
                                                 decoration: BoxDecoration(
-                                                  color: const Color(0xFFF0F0F0),
+                                                  color: Color(0xFFF0F0F0),
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           12.0),
                                                   border: Border.all(
-                                                    color: const Color(0xFFC14BBC),
+                                                    color: Color(0xFFC14BBC),
                                                     width: 3.0,
                                                   ),
                                                 ),
@@ -1790,7 +1792,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                         Roles.user) {
                                                       return Align(
                                                         alignment:
-                                                            const AlignmentDirectional(
+                                                            AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         child:
                                                             FlutterFlowDropDown<
@@ -1818,7 +1820,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                             'Home Maintence',
                                                             'Recovery Coaches'
                                                           ]),
-                                                          optionLabels: const [
+                                                          optionLabels: [
                                                             'Support Worker',
                                                             'Therapeutic Supports',
                                                             ' Coordinator',
@@ -1866,7 +1868,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                           borderWidth: 0.0,
                                                           borderRadius: 0.0,
                                                           margin:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       16.0,
                                                                       4.0,
@@ -1892,12 +1894,12 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                     } else {
                                                       return Align(
                                                         alignment:
-                                                            const AlignmentDirectional(
+                                                            AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         child:
                                                             FlutterFlowDropDown<
                                                                 String>(
-                                                          key: const ValueKey(
+                                                          key: ValueKey(
                                                               'services'),
                                                           multiSelectController: _model
                                                                   .servicesPremiunValueController ??=
@@ -1953,7 +1955,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                           borderWidth: 0.0,
                                                           borderRadius: 0.0,
                                                           margin:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       16.0,
                                                                       4.0,
@@ -1992,16 +1994,16 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                         ],
                                       ),
                                     ),
-                                  ].divide(const SizedBox(height: 4.0)),
+                                  ].divide(SizedBox(height: 4.0)),
                                 ),
                               ),
                             ),
                           ),
                         if (_model.dontShow)
                           Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 16.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -2017,7 +2019,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Montserrat',
-                                              color: const Color(0xFFC14BBC),
+                                              color: Color(0xFFC14BBC),
                                               fontSize: 15.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
@@ -2026,7 +2028,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                     ],
                                   ),
                                   Align(
-                                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                                    alignment: AlignmentDirectional(-1.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -2043,7 +2045,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                           ),
                                           child: Align(
                                             alignment:
-                                                const AlignmentDirectional(-1.0, 0.0),
+                                                AlignmentDirectional(-1.0, 0.0),
                                             child: Text(
                                               'These are the disabilities you suffer from',
                                               textAlign: TextAlign.start,
@@ -2065,7 +2067,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                                    alignment: AlignmentDirectional(-1.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
@@ -2081,26 +2083,26 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                               width: double.infinity,
                                               height: 52.0,
                                               decoration: BoxDecoration(
-                                                color: const Color(0xFFF0F0F0),
+                                                color: Color(0xFFF0F0F0),
                                                 borderRadius:
                                                     BorderRadius.circular(12.0),
                                                 border: Border.all(
-                                                  color: const Color(0xFFC14BBC),
+                                                  color: Color(0xFFC14BBC),
                                                   width: 3.0,
                                                 ),
                                               ),
                                               child: Align(
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           10.0, 0.0, 10.0, 0.0),
                                                   child: AuthUserStreamWidget(
                                                     builder: (context) =>
                                                         FlutterFlowDropDown<
                                                             String>(
-                                                      key: const ValueKey(
+                                                      key: ValueKey(
                                                           'disability'),
                                                       multiSelectController: _model
                                                               .dropDownValueController ??=
@@ -2142,7 +2144,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                               ),
                                                       hintText:
                                                           'Type of disability',
-                                                      icon: const Icon(
+                                                      icon: Icon(
                                                         Icons
                                                             .keyboard_arrow_down_rounded,
                                                         color: Colors.black,
@@ -2154,7 +2156,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                       borderWidth: 0.0,
                                                       borderRadius: 0.0,
                                                       margin:
-                                                          const EdgeInsets.all(0.0),
+                                                          EdgeInsets.all(0.0),
                                                       hidesUnderline: true,
                                                       disabled: _model.isEdit,
                                                       isOverButton: true,
@@ -2175,15 +2177,15 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                       ],
                                     ),
                                   ),
-                                ].divide(const SizedBox(height: 4.0)),
+                                ].divide(SizedBox(height: 4.0)),
                               ),
                             ),
                           ),
                         if (currentUserDocument?.rol != Roles.user)
                           Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 16.0, 0.0),
                               child: AuthUserStreamWidget(
                                 builder: (context) => Column(
@@ -2201,7 +2203,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Montserrat',
-                                                color: const Color(0xFFC14BBC),
+                                                color: Color(0xFFC14BBC),
                                                 fontSize: 15.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
@@ -2211,7 +2213,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                     ),
                                     Align(
                                       alignment:
-                                          const AlignmentDirectional(-1.0, 0.0),
+                                          AlignmentDirectional(-1.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -2228,7 +2230,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                       .secondaryBackground,
                                             ),
                                             child: Align(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   -1.0, 0.0),
                                               child: Text(
                                                 'Select your age group',
@@ -2252,7 +2254,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                     ),
                                     Align(
                                       alignment:
-                                          const AlignmentDirectional(-1.0, 0.0),
+                                          AlignmentDirectional(-1.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.min,
                                         children: [
@@ -2268,22 +2270,22 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                 width: double.infinity,
                                                 height: 52.0,
                                                 decoration: BoxDecoration(
-                                                  color: const Color(0xFFF0F0F0),
+                                                  color: Color(0xFFF0F0F0),
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           12.0),
                                                   border: Border.all(
-                                                    color: const Color(0xFFC14BBC),
+                                                    color: Color(0xFFC14BBC),
                                                     width: 3.0,
                                                   ),
                                                 ),
                                                 child: Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           0.0, 0.0),
                                                   child: FlutterFlowDropDown<
                                                       String>(
-                                                    key: const ValueKey('age'),
+                                                    key: ValueKey('age'),
                                                     controller: _model
                                                             .ageValueController ??=
                                                         FormFieldController<
@@ -2332,7 +2334,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                     borderWidth: 0.0,
                                                     borderRadius: 0.0,
                                                     margin:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(16.0, 4.0,
                                                                 16.0, 4.0),
                                                     hidesUnderline: true,
@@ -2359,7 +2361,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                         ],
                                       ),
                                     ),
-                                  ].divide(const SizedBox(height: 4.0)),
+                                  ].divide(SizedBox(height: 4.0)),
                                 ),
                               ),
                             ),
@@ -2370,17 +2372,17 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Align(
-                                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                                  alignment: AlignmentDirectional(-1.0, 0.0),
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        20.0, 16.0, 0.0, 0.0),
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        16.0, 16.0, 0.0, 0.0),
                                     child: Text(
                                       'Description',
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
                                             fontFamily: 'Montserrat',
-                                            color: const Color(0xFFC14BBC),
+                                            color: Color(0xFFC14BBC),
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
@@ -2388,10 +2390,10 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        20.0, 10.0, 20.0, 20.0),
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        16.0, 10.0, 20.0, 20.0),
                                     child: Material(
                                       color: Colors.transparent,
                                       elevation: 2.0,
@@ -2403,16 +2405,16 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                         width: double.infinity,
                                         height: 120.0,
                                         decoration: BoxDecoration(
-                                          color: const Color(0xFFF0F0F0),
+                                          color: Color(0xFFF0F0F0),
                                           borderRadius:
                                               BorderRadius.circular(12.0),
                                           border: Border.all(
-                                            color: const Color(0xFFC45ABE),
+                                            color: Color(0xFFC45ABE),
                                             width: 3.0,
                                           ),
                                         ),
                                         alignment:
-                                            const AlignmentDirectional(0.0, 0.0),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -2420,15 +2422,15 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                           children: [
                                             Expanded(
                                               child: Align(
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.0, -0.9),
                                                 child: Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           4.0, 0.0, 4.0, 0.0),
                                                   child: TextFormField(
                                                     key:
-                                                        const ValueKey('description'),
+                                                        ValueKey('description'),
                                                     controller: _model
                                                         .descriptionTextController,
                                                     focusNode: _model
@@ -2468,7 +2470,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                               ),
                                                       enabledBorder:
                                                           UnderlineInputBorder(
-                                                        borderSide: const BorderSide(
+                                                        borderSide: BorderSide(
                                                           color:
                                                               Color(0x00000000),
                                                           width: 1.0,
@@ -2479,7 +2481,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                       ),
                                                       focusedBorder:
                                                           UnderlineInputBorder(
-                                                        borderSide: const BorderSide(
+                                                        borderSide: BorderSide(
                                                           color:
                                                               Color(0x00000000),
                                                           width: 1.0,
@@ -2490,7 +2492,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                       ),
                                                       errorBorder:
                                                           UnderlineInputBorder(
-                                                        borderSide: const BorderSide(
+                                                        borderSide: BorderSide(
                                                           color:
                                                               Color(0x00000000),
                                                           width: 1.0,
@@ -2501,7 +2503,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                       ),
                                                       focusedErrorBorder:
                                                           UnderlineInputBorder(
-                                                        borderSide: const BorderSide(
+                                                        borderSide: BorderSide(
                                                           color:
                                                               Color(0x00000000),
                                                           width: 1.0,
@@ -2540,14 +2542,14 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                     ),
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 4.0)),
+                              ].divide(SizedBox(height: 4.0)),
                             ),
                           ),
                         if (currentUserDocument?.rol != Roles.user)
                           Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 16.0, 0.0),
                               child: AuthUserStreamWidget(
                                 builder: (context) => Column(
@@ -2565,7 +2567,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Montserrat',
-                                                color: const Color(0xFFC14BBC),
+                                                color: Color(0xFFC14BBC),
                                                 fontSize: 15.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
@@ -2575,7 +2577,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                     ),
                                     Align(
                                       alignment:
-                                          const AlignmentDirectional(-1.0, 0.0),
+                                          AlignmentDirectional(-1.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -2592,7 +2594,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                       .secondaryBackground,
                                             ),
                                             child: Align(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Text(
                                                 'In this video you can make a short presentation of yourself, it will help you meet more participants',
@@ -2615,17 +2617,11 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 8.0, 0.0, 0.0),
                                       child: FlutterFlowVideoPlayer(
                                         path: valueOrDefault(
-                                                        currentUserDocument
-                                                            ?.video,
-                                                        '') !=
-                                                    ''
-                                            ? valueOrDefault(
-                                                currentUserDocument?.video, '')
-                                            : 'https://assets.mixkit.co/videos/51585/51585-720.mp4',
+                                            currentUserDocument?.video, ''),
                                         videoType: VideoType.network,
                                         width: 400.0,
                                         height: 250.0,
@@ -2638,13 +2634,13 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                         lazyLoad: false,
                                       ),
                                     ),
-                                  ].divide(const SizedBox(height: 4.0)),
+                                  ].divide(SizedBox(height: 4.0)),
                                 ),
                               ),
                             ),
                           ),
                         FFButtonWidget(
-                          key: const ValueKey('save'),
+                          key: ValueKey('save'),
                           onPressed: () async {
                             _model.apiResult23d = await GetNamePlaceCall.call(
                               lat: functions
@@ -2653,7 +2649,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
 
                             if ((_model.apiResult23d?.succeeded ?? true)) {
                               context.pushNamed(
-                                'Profilesettings',
+                                ProfilesettingsWidget.routeName,
                                 queryParameters: {
                                   'initialSur': serializeParam(
                                     GetNamePlaceCall.street(
@@ -2664,7 +2660,8 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                 }.withoutNulls,
                               );
                             } else {
-                              context.pushNamed('Profilesettings');
+                              context
+                                  .pushNamed(ProfilesettingsWidget.routeName);
                             }
 
                             safeSetState(() {});
@@ -2673,11 +2670,11 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                           options: FFButtonOptions(
                             width: 167.0,
                             height: 50.0,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 12.0, 0.0, 12.0, 0.0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            color: const Color(0xFFB928B8),
+                            color: Color(0xFFB928B8),
                             textStyle: FlutterFlowTheme.of(context)
                                 .headlineLarge
                                 .override(
@@ -2688,7 +2685,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                   fontWeight: FontWeight.w500,
                                 ),
                             elevation: 3.0,
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Color(0x001C1818),
                               width: 1.0,
                             ),
@@ -2696,17 +2693,17 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                           ),
                         ),
                       ]
-                          .divide(const SizedBox(height: 10.0))
-                          .addToEnd(const SizedBox(height: 16.0)),
+                          .divide(SizedBox(height: 10.0))
+                          .addToEnd(SizedBox(height: 16.0)),
                     ),
                   ),
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(0.0, 1.0),
+                alignment: AlignmentDirectional(0.0, 1.0),
                 child: Container(
                   height: 73.0,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     color: Color(0xB3B928B8),
                   ),
                   child: Builder(
@@ -2715,13 +2712,13 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                         return wrapWithModel(
                           model: _model.navbarModel,
                           updateCallback: () => safeSetState(() {}),
-                          child: const NavbarWidget(),
+                          child: NavbarWidget(),
                         );
                       } else {
                         return wrapWithModel(
                           model: _model.navbarPremiunModel,
                           updateCallback: () => safeSetState(() {}),
-                          child: const NavbarPremiunWidget(),
+                          child: NavbarPremiunWidget(),
                         );
                       }
                     },

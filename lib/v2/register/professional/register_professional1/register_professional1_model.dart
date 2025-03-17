@@ -2,6 +2,7 @@ import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'register_professional1_widget.dart' show RegisterProfessional1Widget;
 import 'package:flutter/material.dart';
 
@@ -68,11 +69,11 @@ class RegisterProfessional1Model
     return null;
   }
 
-  // State field(s) for email widget.
-  FocusNode? emailFocusNode;
-  TextEditingController? emailTextController;
-  String? Function(BuildContext, String?)? emailTextControllerValidator;
-  String? _emailTextControllerValidator(BuildContext context, String? val) {
+  // State field(s) for email3 widget.
+  FocusNode? email3FocusNode;
+  TextEditingController? email3TextController;
+  String? Function(BuildContext, String?)? email3TextControllerValidator;
+  String? _email3TextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return 'Field is required';
     }
@@ -84,12 +85,12 @@ class RegisterProfessional1Model
     return null;
   }
 
-  // Stores action output result for [Firestore Query - Query a collection] action in email widget.
+  // Stores action output result for [Firestore Query - Query a collection] action in email3 widget.
   int? emailExists;
-  // State field(s) for email2 widget.
-  FocusNode? email2FocusNode;
-  TextEditingController? email2TextController;
-  String? Function(BuildContext, String?)? email2TextControllerValidator;
+  // State field(s) for emailconfirm3 widget.
+  FocusNode? emailconfirm3FocusNode;
+  TextEditingController? emailconfirm3TextController;
+  String? Function(BuildContext, String?)? emailconfirm3TextControllerValidator;
   // State field(s) for abn widget.
   FocusNode? abnFocusNode;
   TextEditingController? abnTextController;
@@ -134,7 +135,7 @@ class RegisterProfessional1Model
     firstNameTextControllerValidator = _firstNameTextControllerValidator;
     lastNameTextControllerValidator = _lastNameTextControllerValidator;
     companyTextControllerValidator = _companyTextControllerValidator;
-    emailTextControllerValidator = _emailTextControllerValidator;
+    email3TextControllerValidator = _email3TextControllerValidator;
     phoneTextControllerValidator = _phoneTextControllerValidator;
     columnController = ScrollController();
     listViewController = ScrollController();
@@ -152,11 +153,11 @@ class RegisterProfessional1Model
     companyFocusNode?.dispose();
     companyTextController?.dispose();
 
-    emailFocusNode?.dispose();
-    emailTextController?.dispose();
+    email3FocusNode?.dispose();
+    email3TextController?.dispose();
 
-    email2FocusNode?.dispose();
-    email2TextController?.dispose();
+    emailconfirm3FocusNode?.dispose();
+    emailconfirm3TextController?.dispose();
 
     abnFocusNode?.dispose();
     abnTextController?.dispose();

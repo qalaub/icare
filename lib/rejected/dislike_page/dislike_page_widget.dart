@@ -12,6 +12,9 @@ export 'dislike_page_model.dart';
 class DislikePageWidget extends StatefulWidget {
   const DislikePageWidget({super.key});
 
+  static String routeName = 'DislikePage';
+  static String routePath = 'dislikePage';
+
   @override
   State<DislikePageWidget> createState() => _DislikePageWidgetState();
 }
@@ -45,14 +48,14 @@ class _DislikePageWidgetState extends State<DislikePageWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: AppBar(
-          backgroundColor: const Color(0xFFBD39BA),
+          backgroundColor: Color(0xFFBD39BA),
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
             borderColor: Colors.transparent,
             borderRadius: 30.0,
             borderWidth: 1.0,
             buttonSize: 60.0,
-            icon: const FaIcon(
+            icon: FaIcon(
               FontAwesomeIcons.angleLeft,
               color: Colors.white,
               size: 30.0,
@@ -71,7 +74,7 @@ class _DislikePageWidgetState extends State<DislikePageWidget> {
                   fontWeight: FontWeight.bold,
                 ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
@@ -79,10 +82,10 @@ class _DislikePageWidgetState extends State<DislikePageWidget> {
           top: true,
           child: Stack(
             children: [
-              if ((currentUserDocument?.dontShow.toList() ?? []).isNotEmpty)
+              if ((currentUserDocument?.dontShow.toList() ?? []).length > 0)
                 AuthUserStreamWidget(
                   builder: (context) => Container(
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       color: Colors.white,
                     ),
                     child: Builder(
@@ -97,7 +100,7 @@ class _DislikePageWidgetState extends State<DislikePageWidget> {
                           padding: EdgeInsets.zero,
                           scrollDirection: Axis.vertical,
                           itemCount: usersSkip.length,
-                          separatorBuilder: (_, __) => const SizedBox(height: 1.0),
+                          separatorBuilder: (_, __) => SizedBox(height: 1.0),
                           itemBuilder: (context, usersSkipIndex) {
                             final usersSkipItem = usersSkip[usersSkipIndex];
                             return UserSkipWidget(

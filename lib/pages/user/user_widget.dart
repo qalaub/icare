@@ -1,6 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'user_model.dart';
@@ -8,6 +9,9 @@ export 'user_model.dart';
 
 class UserWidget extends StatefulWidget {
   const UserWidget({super.key});
+
+  static String routeName = 'User';
+  static String routePath = 'user';
 
   @override
   State<UserWidget> createState() => _UserWidgetState();
@@ -26,9 +30,9 @@ class _UserWidgetState extends State<UserWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       if (currentUserDocument?.rol == Roles.user) {
-        context.pushNamed('tinderv2C1');
+        context.pushNamed(Tinderv2C1Widget.routeName);
       } else {
-        context.pushNamed('HomeSearch');
+        context.pushNamed(HomeSearchWidget.routeName);
       }
     });
   }

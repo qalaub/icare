@@ -46,7 +46,7 @@ class _V2FavoritosComponenteWidgetState
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(0.0, -0.9),
+      alignment: AlignmentDirectional(0.0, -0.9),
       child: StreamBuilder<List<UsersRecord>>(
         stream: queryUsersRecord(
           queryBuilder: (usersRecord) => usersRecord.where(
@@ -90,7 +90,7 @@ class _V2FavoritosComponenteWidgetState
             child: Stack(
               children: [
                 Align(
-                  alignment: const AlignmentDirectional(0.0, 0.0),
+                  alignment: AlignmentDirectional(0.0, 0.0),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(22.0),
                     child: Image.asset(
@@ -98,7 +98,7 @@ class _V2FavoritosComponenteWidgetState
                       width: MediaQuery.sizeOf(context).width * 0.95,
                       height: 105.0,
                       fit: BoxFit.none,
-                      alignment: const Alignment(0.0, 0.0),
+                      alignment: Alignment(0.0, 0.0),
                     ),
                   ),
                 ),
@@ -106,15 +106,15 @@ class _V2FavoritosComponenteWidgetState
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Align(
-                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8.0),
                           child: CachedNetworkImage(
-                            fadeInDuration: const Duration(milliseconds: 500),
-                            fadeOutDuration: const Duration(milliseconds: 500),
+                            fadeInDuration: Duration(milliseconds: 500),
+                            fadeOutDuration: Duration(milliseconds: 500),
                             imageUrl:
                                 'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
                             width: MediaQuery.sizeOf(context).width * 0.18,
@@ -126,15 +126,15 @@ class _V2FavoritosComponenteWidgetState
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                       child: Container(
                         width: MediaQuery.sizeOf(context).width * 0.5,
                         height: 100.0,
-                        decoration: const BoxDecoration(),
+                        decoration: BoxDecoration(),
                         child: Stack(
                           children: [
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment:
@@ -142,7 +142,7 @@ class _V2FavoritosComponenteWidgetState
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Align(
-                                    alignment: const AlignmentDirectional(0.0, -0.1),
+                                    alignment: AlignmentDirectional(0.0, -0.1),
                                     child: Text(
                                       functions.upperCaseFirstLetter(
                                           valueOrDefault<String>(
@@ -166,15 +166,15 @@ class _V2FavoritosComponenteWidgetState
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(-1.0, 1.0),
+                              alignment: AlignmentDirectional(-1.0, 1.0),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 32.0),
                                 child: Container(
                                   width:
                                       MediaQuery.sizeOf(context).width * 0.56,
                                   height: 1.0,
-                                  decoration: const BoxDecoration(
+                                  decoration: BoxDecoration(
                                     color: Colors.white,
                                   ),
                                 ),
@@ -185,10 +185,10 @@ class _V2FavoritosComponenteWidgetState
                       ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(0.81, -0.05),
+                      alignment: AlignmentDirectional(0.81, -0.05),
                       child: Container(
-                        decoration: const BoxDecoration(),
-                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        decoration: BoxDecoration(),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                       ),
                     ),
                   ],

@@ -46,8 +46,8 @@ class _AccountOptionWidgetState extends State<AccountOptionWidget> {
       width: MediaQuery.sizeOf(context).width * 0.9,
       height: 52.0,
       decoration: BoxDecoration(
-        color: const Color(0xFFF3F3F3),
-        boxShadow: const [
+        color: Color(0xFFF3F3F3),
+        boxShadow: [
           BoxShadow(
             blurRadius: 4.0,
             color: Color(0x33000000),
@@ -66,7 +66,7 @@ class _AccountOptionWidgetState extends State<AccountOptionWidget> {
           widget.icon!,
           Container(
             width: MediaQuery.sizeOf(context).width * 0.5,
-            decoration: const BoxDecoration(),
+            decoration: BoxDecoration(),
             child: Text(
               valueOrDefault<String>(
                 widget.text,

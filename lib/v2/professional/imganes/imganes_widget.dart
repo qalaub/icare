@@ -57,7 +57,7 @@ class _ImganesWidgetState extends State<ImganesWidget> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(6.0),
         ),
-        alignment: const AlignmentDirectional(0.0, 0.0),
+        alignment: AlignmentDirectional(0.0, 0.0),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
@@ -66,7 +66,7 @@ class _ImganesWidgetState extends State<ImganesWidget> {
                 builder: (context) {
                   final imgs = widget.professional!.toList();
 
-                  return SizedBox(
+                  return Container(
                     width: double.infinity,
                     height: 500.0,
                     child: Stack(
@@ -95,9 +95,9 @@ class _ImganesWidgetState extends State<ImganesWidget> {
                           },
                         ),
                         Align(
-                          alignment: const AlignmentDirectional(0.0, 1.0),
+                          alignment: AlignmentDirectional(0.0, 1.0),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 16.0),
                             child: smooth_page_indicator.SmoothPageIndicator(
                               controller: _model.pageViewController ??=
@@ -109,12 +109,12 @@ class _ImganesWidgetState extends State<ImganesWidget> {
                               onDotClicked: (i) async {
                                 await _model.pageViewController!.animateToPage(
                                   i,
-                                  duration: const Duration(milliseconds: 500),
+                                  duration: Duration(milliseconds: 500),
                                   curve: Curves.ease,
                                 );
                                 safeSetState(() {});
                               },
-                              effect: const smooth_page_indicator.SlideEffect(
+                              effect: smooth_page_indicator.SlideEffect(
                                 spacing: 8.0,
                                 radius: 8.0,
                                 dotWidth: 25.0,

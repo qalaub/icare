@@ -4,6 +4,7 @@ import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'navbar_professional_model.dart';
@@ -42,7 +43,7 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(0.0, 0.0),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: StreamBuilder<List<UsersRecord>>(
         stream: queryUsersRecord(
           queryBuilder: (usersRecord) => usersRecord.where(
@@ -71,7 +72,7 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
           return Container(
             width: double.infinity,
             height: 67.0,
-            decoration: const BoxDecoration(),
+            decoration: BoxDecoration(),
             child: Row(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -86,29 +87,29 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                         Expanded(
                           flex: 1,
                           child: Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: FlutterFlowIconButton(
-                              key: const ValueKey('home'),
+                              key: ValueKey('home'),
                               borderColor: Colors.transparent,
                               borderRadius: 34.0,
                               buttonSize: 52.0,
-                              icon: const FaIcon(
+                              icon: FaIcon(
                                 FontAwesomeIcons.houseUser,
                                 color: Colors.white,
                                 size: 30.0,
                               ),
                               onPressed: () async {
                                 if (loggedIn) {
-                                  context.pushNamed('HomeSearch');
+                                  context.pushNamed(HomeSearchWidget.routeName);
                                 } else {
-                                  context.pushNamed('Login');
+                                  context.pushNamed(LoginWidget.routeName);
                                 }
                               },
                             ),
                           ),
                         ),
                         Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Text(
                             'Home',
                             textAlign: TextAlign.center,
@@ -124,7 +125,7 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                         ),
                         Container(
                           height: 5.0,
-                          decoration: const BoxDecoration(),
+                          decoration: BoxDecoration(),
                         ),
                       ],
                     ),
@@ -135,18 +136,18 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                     Expanded(
                       flex: 1,
                       child: Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: Stack(
-                          alignment: const AlignmentDirectional(1.0, 0.0),
+                          alignment: AlignmentDirectional(1.0, 0.0),
                           children: [
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: FlutterFlowIconButton(
-                                key: const ValueKey('likes'),
+                                key: ValueKey('likes'),
                                 borderColor: Colors.transparent,
                                 borderRadius: 34.0,
                                 buttonSize: 48.0,
-                                icon: const Icon(
+                                icon: Icon(
                                   Icons.favorite_border_rounded,
                                   color: Colors.white,
                                   size: 33.0,
@@ -155,41 +156,44 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                                   if (loggedIn) {
                                     if (currentUserDocument?.rol ==
                                         Roles.user) {
-                                      context.pushNamed('favV3Copy');
+                                      context
+                                          .pushNamed(FavV3CopyWidget.routeName);
                                     } else {
                                       if ((currentUserDocument?.plan ==
                                               Plan.standar) ||
                                           (currentUserDocument?.plan ==
                                               Plan.premiun)) {
                                         context.pushNamed(
-                                            'peoplewhoputyouinfavorites');
+                                            PeoplewhoputyouinfavoritesWidget
+                                                .routeName);
                                       } else {
                                         if (currentUserDocument?.plan ==
                                             Plan.basic) {
                                           context.pushNamed(
-                                              'peoplewhoputyouinfavoriteBasic');
+                                              PeoplewhoputyouinfavoriteBasicWidget
+                                                  .routeName);
                                         }
                                       }
                                     }
                                   } else {
-                                    context.pushNamed('Login');
+                                    context.pushNamed(LoginWidget.routeName);
                                   }
                                 },
                               ),
                             ),
-                            if (containerUsersRecordList.isNotEmpty)
+                            if (containerUsersRecordList.length > 0)
                               Align(
-                                alignment: const AlignmentDirectional(0.0, -1.0),
+                                alignment: AlignmentDirectional(0.0, -1.0),
                                 child: Container(
                                   width: 20.0,
                                   height: 20.0,
-                                  decoration: const BoxDecoration(
+                                  decoration: BoxDecoration(
                                     color: Color(0xFFFF0000),
                                     shape: BoxShape.circle,
                                   ),
-                                  alignment: const AlignmentDirectional(0.0, -1.0),
+                                  alignment: AlignmentDirectional(0.0, -1.0),
                                   child: Align(
-                                    alignment: const AlignmentDirectional(0.0, -1.0),
+                                    alignment: AlignmentDirectional(0.0, -1.0),
                                     child: Text(
                                       valueOrDefault<String>(
                                         containerUsersRecordList.length
@@ -200,7 +204,7 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Readex Pro',
-                                            color: const Color(0xFFF4F4F4),
+                                            color: Color(0xFFF4F4F4),
                                             letterSpacing: 0.0,
                                           ),
                                     ),
@@ -212,7 +216,7 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                       ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(-0.33, 0.64),
+                      alignment: AlignmentDirectional(-0.33, 0.64),
                       child: Text(
                         'Likes',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -225,7 +229,7 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                     ),
                     Container(
                       height: 5.0,
-                      decoration: const BoxDecoration(),
+                      decoration: BoxDecoration(),
                     ),
                   ],
                 ),
@@ -237,30 +241,31 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                         Expanded(
                           flex: 1,
                           child: Stack(
-                            alignment: const AlignmentDirectional(1.0, 0.0),
+                            alignment: AlignmentDirectional(1.0, 0.0),
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: FlutterFlowIconButton(
-                                  key: const ValueKey('message'),
+                                  key: ValueKey('message'),
                                   borderColor: Colors.transparent,
                                   buttonSize: 48.0,
-                                  icon: const Icon(
+                                  icon: Icon(
                                     Icons.wechat_rounded,
                                     color: Colors.white,
                                     size: 34.0,
                                   ),
                                   onPressed: () async {
                                     if (loggedIn) {
-                                      context.pushNamed('chat_2_main');
+                                      context
+                                          .pushNamed(Chat2MainWidget.routeName);
                                     } else {
-                                      context.pushNamed('Login');
+                                      context.pushNamed(LoginWidget.routeName);
                                     }
                                   },
                                 ),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(0.0, -1.0),
+                                alignment: AlignmentDirectional(0.0, -1.0),
                                 child: StreamBuilder<List<ChatsRecord>>(
                                   stream: queryChatsRecord(
                                     queryBuilder: (chatsRecord) => chatsRecord
@@ -296,15 +301,15 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                                     return Container(
                                       width: 20.0,
                                       height: 20.0,
-                                      decoration: const BoxDecoration(
+                                      decoration: BoxDecoration(
                                         color: Color(0xFFFF0000),
                                         shape: BoxShape.circle,
                                       ),
                                       alignment:
-                                          const AlignmentDirectional(0.0, -1.0),
+                                          AlignmentDirectional(0.0, -1.0),
                                       child: Align(
                                         alignment:
-                                            const AlignmentDirectional(0.0, -1.0),
+                                            AlignmentDirectional(0.0, -1.0),
                                         child: Text(
                                           valueOrDefault<String>(
                                             containerChatsRecordList
@@ -321,7 +326,7 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Readex Pro',
-                                                color: const Color(0xFFF4F4F4),
+                                                color: Color(0xFFF4F4F4),
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -334,7 +339,7 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                           ),
                         ),
                         Align(
-                          alignment: const AlignmentDirectional(0.3, 0.64),
+                          alignment: AlignmentDirectional(0.3, 0.64),
                           child: Text(
                             'Message',
                             style: FlutterFlowTheme.of(context)
@@ -349,7 +354,7 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                         ),
                         Container(
                           height: 5.0,
-                          decoration: const BoxDecoration(),
+                          decoration: BoxDecoration(),
                         ),
                       ],
                     ),
@@ -360,24 +365,24 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                     Expanded(
                       flex: 1,
                       child: Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 6.0, 0.0),
                           child: FlutterFlowIconButton(
-                            key: const ValueKey('profile'),
+                            key: ValueKey('profile'),
                             borderColor: Colors.transparent,
                             buttonSize: 48.0,
-                            icon: const Icon(
+                            icon: Icon(
                               Icons.person,
                               color: Colors.white,
                               size: 37.0,
                             ),
                             onPressed: () async {
                               if (loggedIn) {
-                                context.pushNamed('userprofile');
+                                context.pushNamed(UserprofileWidget.routeName);
                               } else {
-                                context.pushNamed('Login');
+                                context.pushNamed(LoginWidget.routeName);
                               }
                             },
                           ),
@@ -385,7 +390,7 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                       ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(0.78, 0.59),
+                      alignment: AlignmentDirectional(0.78, 0.59),
                       child: Text(
                         'Profile',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -398,7 +403,7 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                     ),
                     Container(
                       height: 5.0,
-                      decoration: const BoxDecoration(),
+                      decoration: BoxDecoration(),
                     ),
                   ],
                 ),

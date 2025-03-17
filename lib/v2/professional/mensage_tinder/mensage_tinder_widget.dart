@@ -35,16 +35,16 @@ class _MensageTinderWidgetState extends State<MensageTinderWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(0.0, 0.0),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
           Align(
-            alignment: const AlignmentDirectional(0.0, 0.0),
+            alignment: AlignmentDirectional(0.0, 0.0),
             child: Material(
               color: Colors.transparent,
               elevation: 10.0,
-              shape: const RoundedRectangleBorder(
+              shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(20.0),
                   bottomRight: Radius.circular(20.0),
@@ -58,20 +58,20 @@ class _MensageTinderWidgetState extends State<MensageTinderWidget> {
                   maxHeight: MediaQuery.sizeOf(context).height * 0.65,
                 ),
                 decoration: BoxDecoration(
-                  gradient: const LinearGradient(
+                  gradient: LinearGradient(
                     colors: [Color(0xFFA39C9C), Colors.white],
                     stops: [0.0, 0.5],
                     begin: AlignmentDirectional(0.0, -1.0),
                     end: AlignmentDirectional(0, 1.0),
                   ),
-                  borderRadius: const BorderRadius.only(
+                  borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(20.0),
                     bottomRight: Radius.circular(20.0),
                     topLeft: Radius.circular(20.0),
                     topRight: Radius.circular(20.0),
                   ),
                   border: Border.all(
-                    color: const Color(0xFFC45ABE),
+                    color: Color(0xFFC45ABE),
                     width: 3.0,
                   ),
                 ),
@@ -79,7 +79,7 @@ class _MensageTinderWidgetState extends State<MensageTinderWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Expanded(
-                      child: SizedBox(
+                      child: Container(
                         width: double.infinity,
                         height: 500.0,
                         child: PageView(
@@ -89,7 +89,7 @@ class _MensageTinderWidgetState extends State<MensageTinderWidget> {
                           scrollDirection: Axis.horizontal,
                           children: [
                             ClipRRect(
-                              borderRadius: const BorderRadius.only(
+                              borderRadius: BorderRadius.only(
                                 bottomLeft: Radius.circular(20.0),
                                 bottomRight: Radius.circular(20.0),
                                 topLeft: Radius.circular(20.0),
@@ -111,7 +111,7 @@ class _MensageTinderWidgetState extends State<MensageTinderWidget> {
               ),
             ),
           ),
-        ].divide(const SizedBox(height: 16.0)),
+        ].divide(SizedBox(height: 16.0)),
       ),
     );
   }

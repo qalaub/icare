@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/index.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
@@ -11,6 +12,9 @@ export 'pantainci1_model.dart';
 
 class Pantainci1Widget extends StatefulWidget {
   const Pantainci1Widget({super.key});
+
+  static String routeName = 'pantainci1';
+  static String routePath = 'pantainci1';
 
   @override
   State<Pantainci1Widget> createState() => _Pantainci1WidgetState();
@@ -29,7 +33,7 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       if (!FFAppState().showTutorial) {
-        context.goNamed('tinderv2C1');
+        context.goNamed(Tinderv2C1Widget.routeName);
       }
     });
   }
@@ -63,8 +67,8 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
                 child: Stack(
                   children: [
                     Align(
-                      alignment: const AlignmentDirectional(0.0, 1.0),
-                      child: SizedBox(
+                      alignment: AlignmentDirectional(0.0, 1.0),
+                      child: Container(
                         width: MediaQuery.sizeOf(context).width * 1.0,
                         height: MediaQuery.sizeOf(context).height * 1.0,
                         child: Stack(
@@ -104,9 +108,9 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
                               ],
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 0.8),
+                              alignment: AlignmentDirectional(0.0, 0.8),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 0.0, 83.0),
                                 child:
                                     smooth_page_indicator.SmoothPageIndicator(
@@ -118,12 +122,12 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
                                     await _model.pageViewController!
                                         .animateToPage(
                                       i,
-                                      duration: const Duration(milliseconds: 500),
+                                      duration: Duration(milliseconds: 500),
                                       curve: Curves.ease,
                                     );
                                     safeSetState(() {});
                                   },
-                                  effect: const smooth_page_indicator.SlideEffect(
+                                  effect: smooth_page_indicator.SlideEffect(
                                     spacing: 8.0,
                                     radius: 1313131.0,
                                     dotWidth: 16.0,
@@ -140,15 +144,15 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
                       ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(0.01, 0.9),
+                      alignment: AlignmentDirectional(0.01, 0.9),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             0.0, 10.0, 0.0, 10.0),
                         child: FFButtonWidget(
                           onPressed: () async {
                             if (_model.pageViewCurrentIndex < 2) {
                               await _model.pageViewController?.nextPage(
-                                duration: const Duration(milliseconds: 300),
+                                duration: Duration(milliseconds: 300),
                                 curve: Curves.ease,
                               );
                             } else {
@@ -158,18 +162,18 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
                                 FFAppState().showTutorial = true;
                               }
 
-                              context.pushNamed('tinderv2C1');
+                              context.pushNamed(Tinderv2C1Widget.routeName);
                             }
                           },
                           text: 'Continue',
                           options: FFButtonOptions(
                             width: 275.0,
                             height: 45.0,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 24.0, 0.0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            color: const Color(0xFFB928B8),
+                            color: Color(0xFFB928B8),
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
@@ -179,7 +183,7 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
                                   letterSpacing: 0.0,
                                 ),
                             elevation: 5.0,
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Colors.transparent,
                               width: 1.0,
                             ),
@@ -189,7 +193,7 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
                       ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(0.0, 0.7),
+                      alignment: AlignmentDirectional(0.0, 0.7),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -204,7 +208,7 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
                                   borderRadius: BorderRadius.circular(4.0),
                                 ),
                               ),
-                              unselectedWidgetColor: const Color(0xFF26343E),
+                              unselectedWidgetColor: Color(0xFF26343E),
                             ),
                             child: Checkbox(
                               value: _model.checkboxValue ??= false,
@@ -212,11 +216,11 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
                                 safeSetState(
                                     () => _model.checkboxValue = newValue!);
                               },
-                              side: const BorderSide(
+                              side: BorderSide(
                                 width: 2,
                                 color: Color(0xFF26343E),
                               ),
-                              activeColor: const Color(0xFF8F2BFD),
+                              activeColor: Color(0xFF8F2BFD),
                               checkColor: FlutterFlowTheme.of(context).info,
                             ),
                           ),

@@ -1,3 +1,4 @@
+import '';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
@@ -8,6 +9,7 @@ import '/v2/block_list/favoritesv2/add_favorites/add_favorites_widget.dart';
 import '/v2/menbresiav2/membresia_logo/membresia_logo_widget.dart';
 import '/v2/user/descripcion_profesional/descripcion_profesional_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
@@ -23,6 +25,9 @@ class ProfileInfoWidget extends StatefulWidget {
   });
 
   final DocumentReference? professional;
+
+  static String routeName = 'ProfileInfo';
+  static String routePath = 'profileInfo';
 
   @override
   State<ProfileInfoWidget> createState() => _ProfileInfoWidgetState();
@@ -92,13 +97,13 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
             key: scaffoldKey,
             backgroundColor: Colors.white,
             appBar: AppBar(
-              backgroundColor: const Color(0xFFB928B8),
+              backgroundColor: Color(0xFFB928B8),
               automaticallyImplyLeading: false,
               leading: FlutterFlowIconButton(
                 borderRadius: 20.0,
                 borderWidth: 1.0,
                 buttonSize: 40.0,
-                icon: const Icon(
+                icon: Icon(
                   Icons.arrow_back_ios_new,
                   color: Colors.white,
                   size: 24.0,
@@ -108,7 +113,7 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                 },
               ),
               title: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(1.0, 0.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(1.0, 0.0, 0.0, 0.0),
                 child: Text(
                   'Profile',
                   style: FlutterFlowTheme.of(context).headlineLarge.override(
@@ -122,11 +127,11 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
               actions: [
                 Builder(
                   builder: (context) => FlutterFlowIconButton(
-                    key: const ValueKey('share'),
+                    key: ValueKey('share'),
                     borderRadius: 24.0,
                     borderWidth: 1.0,
                     buttonSize: 40.0,
-                    icon: const Icon(
+                    icon: Icon(
                       Icons.share_rounded,
                       color: Colors.white,
                       size: 24.0,
@@ -151,11 +156,11 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                   ),
                 ),
                 Align(
-                  alignment: const AlignmentDirectional(0.0, 0.0),
+                  alignment: AlignmentDirectional(0.0, 0.0),
                   child: Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                     child: Container(
-                      decoration: const BoxDecoration(),
+                      decoration: BoxDecoration(),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -179,7 +184,7 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                   );
 
                                   context.pushNamed(
-                                    'chat_2_Details',
+                                    Chat2DetailsWidget.routeName,
                                     queryParameters: {
                                       'chatRef': serializeParam(
                                         _model.chatRef
@@ -209,7 +214,7 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
 
                                   safeSetState(() {});
                                 },
-                                child: const Icon(
+                                child: Icon(
                                   key: ValueKey('message'),
                                   FFIcons.kmessage,
                                   color: Colors.white,
@@ -218,15 +223,15 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                               ),
                             ),
                           Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 6.0, 0.0, 0.0),
                               child: wrapWithModel(
                                 model: _model.addFavoritesModel,
                                 updateCallback: () => safeSetState(() {}),
                                 child: AddFavoritesWidget(
-                                  key: const ValueKey('favorite'),
+                                  key: ValueKey('favorite'),
                                   professional: profileInfoUsersRecord!,
                                 ),
                               ),
@@ -246,7 +251,7 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
               child: Container(
                 width: double.infinity,
                 height: double.infinity,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   color: Color(0xFFF0EAEA),
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(0.0),
@@ -262,13 +267,13 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                       Container(
                         width: double.infinity,
                         height: 250.0,
-                        decoration: const BoxDecoration(),
+                        decoration: BoxDecoration(),
                         child: Stack(
                           children: [
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Container(
-                                decoration: const BoxDecoration(
+                                decoration: BoxDecoration(
                                   color: Color(0xDFF428EB),
                                 ),
                                 child: Opacity(
@@ -277,9 +282,9 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                     borderRadius: BorderRadius.circular(8.0),
                                     child: CachedNetworkImage(
                                       fadeInDuration:
-                                          const Duration(milliseconds: 500),
+                                          Duration(milliseconds: 500),
                                       fadeOutDuration:
-                                          const Duration(milliseconds: 500),
+                                          Duration(milliseconds: 500),
                                       imageUrl: valueOrDefault<String>(
                                         profileInfoUsersRecord.photoUrl,
                                         'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
@@ -293,7 +298,7 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment:
@@ -301,14 +306,14 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Align(
-                                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                                    alignment: AlignmentDirectional(-1.0, 0.0),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           10.0, 0.0, 0.0, 0.0),
                                       child: Container(
                                         width: 100.0,
                                         height: 100.0,
-                                        decoration: const BoxDecoration(
+                                        decoration: BoxDecoration(
                                           borderRadius: BorderRadius.only(
                                             bottomLeft: Radius.circular(22.0),
                                             bottomRight: Radius.circular(22.0),
@@ -317,7 +322,7 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                           ),
                                         ),
                                         child: ClipRRect(
-                                          borderRadius: const BorderRadius.only(
+                                          borderRadius: BorderRadius.only(
                                             bottomLeft: Radius.circular(32.0),
                                             bottomRight: Radius.circular(32.0),
                                             topLeft: Radius.circular(32.0),
@@ -325,9 +330,9 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                           ),
                                           child: CachedNetworkImage(
                                             fadeInDuration:
-                                                const Duration(milliseconds: 500),
+                                                Duration(milliseconds: 500),
                                             fadeOutDuration:
-                                                const Duration(milliseconds: 500),
+                                                Duration(milliseconds: 500),
                                             imageUrl: valueOrDefault<String>(
                                               profileInfoUsersRecord.photoUrl,
                                               'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
@@ -341,11 +346,11 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: const AlignmentDirectional(0.5, 0.0),
+                                    alignment: AlignmentDirectional(0.5, 0.0),
                                     child: Container(
                                       width: 170.0,
                                       height: 166.0,
-                                      decoration: const BoxDecoration(),
+                                      decoration: BoxDecoration(),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -355,10 +360,10 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                         children: [
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 4.0),
                                             child: Container(
-                                              decoration: const BoxDecoration(),
+                                              decoration: BoxDecoration(),
                                               child: Text(
                                                 functions.upperCaseFirstLetter(
                                                     profileInfoUsersRecord
@@ -391,11 +396,11 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                           ),
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(-1.0, 0.0),
+                                                AlignmentDirectional(-1.0, 0.0),
                                             child: Container(
                                               width: 161.0,
                                               height: 24.0,
-                                              decoration: const BoxDecoration(),
+                                              decoration: BoxDecoration(),
                                               child: Text(
                                                 valueOrDefault<String>(
                                                   profileInfoUsersRecord
@@ -418,11 +423,11 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                           ),
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(-1.0, 1.0),
+                                                AlignmentDirectional(-1.0, 1.0),
                                             child: Container(
                                               width: 161.0,
                                               height: 19.0,
-                                              decoration: const BoxDecoration(),
+                                              decoration: BoxDecoration(),
                                               child: Text(
                                                 () {
                                                   if (profileInfoUsersRecord
@@ -486,7 +491,7 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                                     snapshot.data!;
 
                                                 return Container(
-                                                  decoration: const BoxDecoration(),
+                                                  decoration: BoxDecoration(),
                                                   child: Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -505,7 +510,7 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                                         children: [
                                                           Align(
                                                             alignment:
-                                                                const AlignmentDirectional(
+                                                                AlignmentDirectional(
                                                                     0.0, 0.0),
                                                             child: InkWell(
                                                               splashColor: Colors
@@ -562,7 +567,8 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                                                       );
                                                                       if (((_model.chatsM != null && (_model.chatsM)!.isNotEmpty) ==
                                                                               true) &&
-                                                                          (_model.chatsM!.isNotEmpty)) {
+                                                                          (_model.chatsM!.length >
+                                                                              0)) {
                                                                         _model.reviewsC =
                                                                             await queryReviewsRecordOnce(
                                                                           queryBuilder: (reviewsRecord) => reviewsRecord
@@ -609,9 +615,9 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                                                               ),
                                                                             ),
                                                                             duration:
-                                                                                const Duration(milliseconds: 4000),
+                                                                                Duration(milliseconds: 4000),
                                                                             backgroundColor:
-                                                                                const Color(0xFFD239B4),
+                                                                                Color(0xFFD239B4),
                                                                           ),
                                                                         );
                                                                       }
@@ -629,15 +635,16 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                                                             ),
                                                                           ),
                                                                           duration:
-                                                                              const Duration(milliseconds: 4000),
+                                                                              Duration(milliseconds: 4000),
                                                                           backgroundColor:
-                                                                              const Color(0xFFD239B4),
+                                                                              Color(0xFFD239B4),
                                                                         ),
                                                                       );
                                                                     }
                                                                   } else {
                                                                     context.pushNamed(
-                                                                        'Login');
+                                                                        LoginWidget
+                                                                            .routeName);
                                                                   }
 
                                                                   safeSetState(
@@ -646,7 +653,7 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                                                 itemBuilder:
                                                                     (context,
                                                                             index) =>
-                                                                        const Icon(
+                                                                        Icon(
                                                                   Icons
                                                                       .star_rate,
                                                                   color: Color(
@@ -665,11 +672,11 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                                                       .toDouble(),
                                                                   0.0,
                                                                 ),
-                                                                unratedColor: const Color(
+                                                                unratedColor: Color(
                                                                     0x4D040202),
                                                                 itemCount: 5,
                                                                 itemSize: 20.0,
-                                                                glowColor: const Color(
+                                                                glowColor: Color(
                                                                     0xFFF9BF11),
                                                               ),
                                                             ),
@@ -678,7 +685,7 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                                       ),
                                                       Align(
                                                         alignment:
-                                                            const AlignmentDirectional(
+                                                            AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         child: Text(
                                                           valueOrDefault<
@@ -709,22 +716,22 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                                         ),
                                                       ),
                                                     ].divide(
-                                                        const SizedBox(width: 8.0)),
+                                                        SizedBox(width: 8.0)),
                                                   ),
                                                 );
                                               },
                                             ),
                                           ),
                                         ]
-                                            .divide(const SizedBox(height: 5.0))
-                                            .addToStart(const SizedBox(height: 16.0)),
+                                            .divide(SizedBox(height: 5.0))
+                                            .addToStart(SizedBox(height: 16.0)),
                                       ),
                                     ),
                                   ),
                                   Align(
-                                    alignment: const AlignmentDirectional(0.0, 0.7),
+                                    alignment: AlignmentDirectional(0.0, 0.7),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 10.0, 0.0),
                                       child: wrapWithModel(
                                         model: _model.membresiaLogoModel,
@@ -738,7 +745,7 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                       ),
                                     ),
                                   ),
-                                ].divide(const SizedBox(width: 6.0)),
+                                ].divide(SizedBox(width: 6.0)),
                               ),
                             ),
                           ],
@@ -775,7 +782,7 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                           abn: profileInfoUsersRecord.abn,
                         ),
                       ),
-                    ].addToEnd(const SizedBox(height: 32.0)),
+                    ].addToEnd(SizedBox(height: 32.0)),
                   ),
                 ),
               ),

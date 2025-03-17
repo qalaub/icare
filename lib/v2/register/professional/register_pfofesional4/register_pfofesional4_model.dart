@@ -1,5 +1,6 @@
 import '/components/image_upload_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'register_pfofesional4_widget.dart' show RegisterPfofesional4Widget;
 import 'package:flutter/material.dart';
 

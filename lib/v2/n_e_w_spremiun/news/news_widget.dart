@@ -15,6 +15,9 @@ export 'news_model.dart';
 class NewsWidget extends StatefulWidget {
   const NewsWidget({super.key});
 
+  static String routeName = 'news';
+  static String routePath = 'news';
+
   @override
   State<NewsWidget> createState() => _NewsWidgetState();
 }
@@ -46,16 +49,16 @@ class _NewsWidgetState extends State<NewsWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: const Color(0xFFE3DEDE),
+        backgroundColor: Color(0xFFE3DEDE),
         appBar: AppBar(
-          backgroundColor: const Color(0xFFBD39BA),
+          backgroundColor: Color(0xFFBD39BA),
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
             borderColor: Colors.transparent,
             borderRadius: 30.0,
             borderWidth: 1.0,
             buttonSize: 60.0,
-            icon: const FaIcon(
+            icon: FaIcon(
               FontAwesomeIcons.angleLeft,
               color: Colors.white,
               size: 30.0,
@@ -65,7 +68,7 @@ class _NewsWidgetState extends State<NewsWidget> {
             },
           ),
           title: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
             child: Text(
               'Notification',
               style: FlutterFlowTheme.of(context).titleMedium.override(
@@ -76,7 +79,7 @@ class _NewsWidgetState extends State<NewsWidget> {
                   ),
             ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
@@ -116,11 +119,11 @@ class _NewsWidgetState extends State<NewsWidget> {
 
                   return Builder(
                     builder: (context) {
-                      if (conditionalBuilderNewsbusinessRecordList.isNotEmpty) {
+                      if (conditionalBuilderNewsbusinessRecordList.length > 0) {
                         return Container(
                           width: MediaQuery.sizeOf(context).width * 1.0,
                           height: MediaQuery.sizeOf(context).height * 0.84,
-                          decoration: const BoxDecoration(
+                          decoration: BoxDecoration(
                             color: Colors.white,
                           ),
                           child: SingleChildScrollView(
@@ -130,12 +133,12 @@ class _NewsWidgetState extends State<NewsWidget> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       16.0, 0.0, 0.0, 0.0),
                                   child: Container(
-                                    decoration: const BoxDecoration(),
+                                    decoration: BoxDecoration(),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 12.0, 0.0, 0.0),
                                       child: Text(
                                         'New ',
@@ -158,7 +161,7 @@ class _NewsWidgetState extends State<NewsWidget> {
                                             .toList();
 
                                     return ListView.separated(
-                                      padding: const EdgeInsets.fromLTRB(
+                                      padding: EdgeInsets.fromLTRB(
                                         0,
                                         7.0,
                                         0,
@@ -168,7 +171,7 @@ class _NewsWidgetState extends State<NewsWidget> {
                                       scrollDirection: Axis.vertical,
                                       itemCount: conditionalBuilderVar.length,
                                       separatorBuilder: (_, __) =>
-                                          const SizedBox(height: 1.0),
+                                          SizedBox(height: 1.0),
                                       itemBuilder: (context,
                                           conditionalBuilderVarIndex) {
                                         final conditionalBuilderVarItem =
@@ -202,12 +205,12 @@ class _NewsWidgetState extends State<NewsWidget> {
                                   },
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       16.0, 0.0, 0.0, 0.0),
                                   child: Container(
-                                    decoration: const BoxDecoration(),
+                                    decoration: BoxDecoration(),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 12.0, 0.0, 0.0),
                                       child: Text(
                                         'Previous',
@@ -258,7 +261,7 @@ class _NewsWidgetState extends State<NewsWidget> {
                                         snapshot.data!;
 
                                     return ListView.builder(
-                                      padding: const EdgeInsets.fromLTRB(
+                                      padding: EdgeInsets.fromLTRB(
                                         0,
                                         7.0,
                                         0,
@@ -305,10 +308,10 @@ class _NewsWidgetState extends State<NewsWidget> {
                 },
               ),
               Align(
-                alignment: const AlignmentDirectional(0.0, 1.01),
+                alignment: AlignmentDirectional(0.0, 1.01),
                 child: Container(
                   height: 73.0,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     color: Color(0xB3B928B8),
                   ),
                   child: Builder(
@@ -317,13 +320,13 @@ class _NewsWidgetState extends State<NewsWidget> {
                         return wrapWithModel(
                           model: _model.navbarModel,
                           updateCallback: () => safeSetState(() {}),
-                          child: const NavbarWidget(),
+                          child: NavbarWidget(),
                         );
                       } else {
                         return wrapWithModel(
                           model: _model.navbarPremiunModel,
                           updateCallback: () => safeSetState(() {}),
-                          child: const NavbarPremiunWidget(),
+                          child: NavbarPremiunWidget(),
                         );
                       }
                     },

@@ -1,3 +1,4 @@
+import '';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
@@ -10,6 +11,7 @@ import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
 import '/v3correciones/user_fav0rites/v3fv0ritesv3/v3fv0ritesv3_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
@@ -21,10 +23,13 @@ class HomeSearchWidget extends StatefulWidget {
     super.key,
     this.currentLatLng,
     bool? authUser,
-  }) : authUser = authUser ?? true;
+  }) : this.authUser = authUser ?? true;
 
   final List<LatLng>? currentLatLng;
   final bool authUser;
+
+  static String routeName = 'HomeSearch';
+  static String routePath = 'homeSearch';
 
   @override
   State<HomeSearchWidget> createState() => _HomeSearchWidgetState();
@@ -44,12 +49,12 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       currentUserLocationValue =
-          await getCurrentUserLocation(defaultLocation: const LatLng(0.0, 0.0));
+          await getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0));
       if (FFAppState().isCreatedProfesional) {
         if (currentUserDocument?.rol != Roles.user) {
           FFAppState().isCreatedProfesional = false;
 
-          context.pushNamed('RegisterPfofesional5');
+          context.pushNamed(RegisterPfofesional5Widget.routeName);
         }
       }
       if (!(await getPermissionStatus(locationPermission))) {
@@ -72,7 +77,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
               ));
             } else {
               if (currentUserDocument?.business != null) {
-                context.pushNamed('peoplewhoputyouinfavorites');
+                context.pushNamed(PeoplewhoputyouinfavoritesWidget.routeName);
               }
             }
           } else {
@@ -80,7 +85,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
                     currentUserDocument!.paymentDate!.secondsSinceEpoch, 30) <
                 getCurrentTimestamp.secondsSinceEpoch) {
               context.pushNamed(
-                'MembresiasV2',
+                MembresiasV2Widget.routeName,
                 queryParameters: {
                   'professionalUpdate': serializeParam(
                     currentUserReference,
@@ -98,7 +103,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
               );
             } else {
               if (currentUserDocument?.business != null) {
-                context.pushNamed('peoplewhoputyouinfavorites');
+                context.pushNamed(PeoplewhoputyouinfavoritesWidget.routeName);
               }
             }
           }
@@ -142,34 +147,34 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
         backgroundColor: Colors.white,
         body: SafeArea(
           top: true,
-          child: SizedBox(
+          child: Container(
             height: MediaQuery.sizeOf(context).height * 1.0,
             child: Stack(
               children: [
                 Align(
-                  alignment: const AlignmentDirectional(0.0, -1.0),
+                  alignment: AlignmentDirectional(0.0, -1.0),
                   child: Container(
                     width: MediaQuery.sizeOf(context).width * 1.0,
                     height: MediaQuery.sizeOf(context).height * 1.0,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       color: Colors.white,
                     ),
-                    alignment: const AlignmentDirectional(0.0, -1.0),
+                    alignment: AlignmentDirectional(0.0, -1.0),
                     child: Builder(
                       builder: (context) {
                         if ((currentUserDocument?.rol != Roles.profesional) &&
                             (currentUserDocument?.rol != Roles.business)) {
                           return Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Container(
                               width: MediaQuery.sizeOf(context).width * 1.0,
-                              decoration: const BoxDecoration(
+                              decoration: BoxDecoration(
                                 color: Colors.white,
                               ),
                               child: Stack(
                                 children: [
                                   Align(
-                                    alignment: const AlignmentDirectional(0.1, -1.0),
+                                    alignment: AlignmentDirectional(0.1, -1.0),
                                     child: Container(
                                       width: MediaQuery.sizeOf(context).width *
                                           1.0,
@@ -184,23 +189,23 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
                                         model: _model.mapButtonModel1,
                                         updateCallback: () =>
                                             safeSetState(() {}),
-                                        child: const MapButtonWidget(
+                                        child: MapButtonWidget(
                                           isProfessional: false,
                                         ),
                                       ),
                                     ),
                                   ),
                                   Align(
-                                    alignment: const AlignmentDirectional(0.0, 0.76),
+                                    alignment: AlignmentDirectional(0.0, 0.76),
                                     child: Container(
                                       width: MediaQuery.sizeOf(context).width *
                                           1.0,
                                       height: 170.0,
-                                      constraints: const BoxConstraints(
+                                      constraints: BoxConstraints(
                                         minHeight: 150.0,
                                         maxHeight: 170.0,
                                       ),
-                                      decoration: const BoxDecoration(
+                                      decoration: BoxDecoration(
                                         color: Color(0x76F9F6F6),
                                       ),
                                       child: Builder(
@@ -238,13 +243,13 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
                                               .toList();
 
                                           return ListView.separated(
-                                            padding: const EdgeInsets.symmetric(
+                                            padding: EdgeInsets.symmetric(
                                                 horizontal: 20.0),
                                             shrinkWrap: true,
                                             scrollDirection: Axis.horizontal,
                                             itemCount: containerVar.length,
                                             separatorBuilder: (_, __) =>
-                                                const SizedBox(width: 20.0),
+                                                SizedBox(width: 20.0),
                                             itemBuilder:
                                                 (context, containerVarIndex) {
                                               final containerVarItem =
@@ -271,7 +276,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
                           );
                         } else {
                           return Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: FutureBuilder<List<UsersRecord>>(
                               future: queryUsersRecordOnce(
                                 queryBuilder: (usersRecord) =>
@@ -302,14 +307,14 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
 
                                 return Container(
                                   width: MediaQuery.sizeOf(context).width * 1.0,
-                                  decoration: const BoxDecoration(
+                                  decoration: BoxDecoration(
                                     color: Colors.white,
                                   ),
                                   child: Stack(
                                     children: [
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(0.0, -1.5),
+                                            AlignmentDirectional(0.0, -1.5),
                                         child: Container(
                                           width:
                                               MediaQuery.sizeOf(context).width *
@@ -325,7 +330,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
                                             model: _model.mapButtonModel2,
                                             updateCallback: () =>
                                                 safeSetState(() {}),
-                                            child: const MapButtonWidget(
+                                            child: MapButtonWidget(
                                               isProfessional: true,
                                             ),
                                           ),
@@ -333,13 +338,13 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
                                       ),
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(-0.9, 0.76),
+                                            AlignmentDirectional(-0.9, 0.76),
                                         child: Container(
                                           width:
                                               MediaQuery.sizeOf(context).width *
                                                   0.601,
                                           height: 220.0,
-                                          decoration: const BoxDecoration(),
+                                          decoration: BoxDecoration(),
                                           child: wrapWithModel(
                                             model:
                                                 _model.homeVistaCuidadorModel,
@@ -374,31 +379,31 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
                   ),
                 ),
                 Align(
-                  alignment: const AlignmentDirectional(0.0, 1.01),
+                  alignment: AlignmentDirectional(0.0, 1.01),
                   child: Container(
                     height: 73.0,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       color: Color(0xD7B928B8),
                     ),
-                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: Builder(
                       builder: (context) {
                         if (currentUserDocument?.rol != Roles.business) {
                           return Align(
-                            alignment: const AlignmentDirectional(0.0, 1.0),
+                            alignment: AlignmentDirectional(0.0, 1.0),
                             child: wrapWithModel(
                               model: _model.navbarModel,
                               updateCallback: () => safeSetState(() {}),
-                              child: const NavbarWidget(),
+                              child: NavbarWidget(),
                             ),
                           );
                         } else {
                           return Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: wrapWithModel(
                               model: _model.navbarPremiunModel,
                               updateCallback: () => safeSetState(() {}),
-                              child: const NavbarPremiunWidget(),
+                              child: NavbarPremiunWidget(),
                             ),
                           );
                         }

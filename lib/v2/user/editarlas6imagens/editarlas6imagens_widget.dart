@@ -41,20 +41,20 @@ class _Editarlas6imagensWidgetState extends State<Editarlas6imagensWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(0.0, -1.0),
+      alignment: AlignmentDirectional(0.0, -1.0),
       child: Container(
         width: MediaQuery.sizeOf(context).width * 0.9,
         height: 225.0,
         decoration: BoxDecoration(
-          color: const Color(0xFFABCAF8),
-          borderRadius: const BorderRadius.only(
+          color: Color(0xFFABCAF8),
+          borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(12.0),
             bottomRight: Radius.circular(12.0),
             topLeft: Radius.circular(12.0),
             topRight: Radius.circular(12.0),
           ),
           border: Border.all(
-            color: const Color(0xFFD9D9D9),
+            color: Color(0xFFD9D9D9),
             width: 1.0,
           ),
         ),
@@ -62,11 +62,11 @@ class _Editarlas6imagensWidgetState extends State<Editarlas6imagensWidget> {
           builder: (context) {
             if (widget.img == ' ') {
               return Container(
-                decoration: const BoxDecoration(),
+                decoration: BoxDecoration(),
                 child: Stack(
                   children: [
                     Align(
-                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(8.0),
                         child: Image.asset(
@@ -77,7 +77,7 @@ class _Editarlas6imagensWidgetState extends State<Editarlas6imagensWidget> {
                         ),
                       ),
                     ),
-                    const Align(
+                    Align(
                       alignment: AlignmentDirectional(0.0, 0.0),
                       child: Icon(
                         Icons.camera_alt_outlined,
@@ -86,7 +86,7 @@ class _Editarlas6imagensWidgetState extends State<Editarlas6imagensWidget> {
                       ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(8.0),
                         child: Image.asset(
@@ -102,11 +102,11 @@ class _Editarlas6imagensWidgetState extends State<Editarlas6imagensWidget> {
               );
             } else {
               return Container(
-                decoration: const BoxDecoration(),
+                decoration: BoxDecoration(),
                 child: Stack(
                   children: [
                     Align(
-                      alignment: const AlignmentDirectional(-0.9, -0.9),
+                      alignment: AlignmentDirectional(-0.9, -0.9),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(20.0),
                         child: Image.network(
@@ -121,7 +121,7 @@ class _Editarlas6imagensWidgetState extends State<Editarlas6imagensWidget> {
                       ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(0.0, -0.9),
+                      alignment: AlignmentDirectional(0.0, -0.9),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(20.0),
                         child: Image.network(
@@ -136,7 +136,7 @@ class _Editarlas6imagensWidgetState extends State<Editarlas6imagensWidget> {
                       ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(0.9, -0.9),
+                      alignment: AlignmentDirectional(0.9, -0.9),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(20.0),
                         child: Image.network(
@@ -151,7 +151,7 @@ class _Editarlas6imagensWidgetState extends State<Editarlas6imagensWidget> {
                       ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(-0.9, 0.9),
+                      alignment: AlignmentDirectional(-0.9, 0.9),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(20.0),
                         child: Image.network(
@@ -166,7 +166,7 @@ class _Editarlas6imagensWidgetState extends State<Editarlas6imagensWidget> {
                       ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(0.0, 0.9),
+                      alignment: AlignmentDirectional(0.0, 0.9),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(20.0),
                         child: Image.network(
@@ -181,7 +181,7 @@ class _Editarlas6imagensWidgetState extends State<Editarlas6imagensWidget> {
                       ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(0.9, 0.9),
+                      alignment: AlignmentDirectional(0.9, 0.9),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(20.0),
                         child: Image.network(

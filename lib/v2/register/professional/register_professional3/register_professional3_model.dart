@@ -1,6 +1,7 @@
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/index.dart';
 import 'register_professional3_widget.dart' show RegisterProfessional3Widget;
 import 'package:flutter/material.dart';
 
