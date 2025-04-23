@@ -95,6 +95,8 @@ class RegisterProfessional1Model
   FocusNode? abnFocusNode;
   TextEditingController? abnTextController;
   String? Function(BuildContext, String?)? abnTextControllerValidator;
+  // Stores action output result for [Firestore Query - Query a collection] action in abn widget.
+  int? abnexist;
   // State field(s) for phone widget.
   FocusNode? phoneFocusNode;
   TextEditingController? phoneTextController;

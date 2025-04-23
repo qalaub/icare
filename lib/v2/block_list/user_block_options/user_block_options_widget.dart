@@ -1,8 +1,10 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/v2/block_list/user_unlock_confirm/user_unlock_confirm_widget.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'user_block_options_model.dart';
 export 'user_block_options_model.dart';
 
@@ -46,7 +48,7 @@ class _UserBlockOptionsWidgetState extends State<UserBlockOptionsWidget> {
       alignment: AlignmentDirectional(1.0, -1.0),
       child: Container(
         width: 178.0,
-        height: 100.0,
+        height: 130.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
           boxShadow: [
@@ -74,12 +76,8 @@ class _UserBlockOptionsWidgetState extends State<UserBlockOptionsWidget> {
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            InkWell(
-              splashColor: Colors.transparent,
-              focusColor: Colors.transparent,
-              hoverColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              onTap: () async {
+            FFButtonWidget(
+              onPressed: () async {
                 await showModalBottomSheet(
                   isScrollControlled: true,
                   backgroundColor: Colors.transparent,
@@ -95,33 +93,37 @@ class _UserBlockOptionsWidgetState extends State<UserBlockOptionsWidget> {
                   },
                 ).then((value) => safeSetState(() {}));
               },
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text(
-                    'Unlock user',
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Montserrat',
-                          color: Color(0xFF0F0E0F),
-                          fontSize: 16.0,
-                          letterSpacing: 0.0,
-                          fontWeight: FontWeight.w500,
-                        ),
-                  ),
-                ].addToStart(SizedBox(width: 16.0)),
+              text: 'Unlock user',
+              options: FFButtonOptions(
+                width: 150.0,
+                height: 45.0,
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                color: Color(0x004B39EF),
+                textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                      font: GoogleFonts.montserrat(
+                        fontWeight:
+                            FlutterFlowTheme.of(context).titleSmall.fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).titleSmall.fontStyle,
+                      ),
+                      color: FlutterFlowTheme.of(context).primaryText,
+                      letterSpacing: 0.0,
+                      fontWeight:
+                          FlutterFlowTheme.of(context).titleSmall.fontWeight,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).titleSmall.fontStyle,
+                    ),
+                elevation: 0.0,
+                borderRadius: BorderRadius.circular(8.0),
               ),
             ),
             Divider(
               thickness: 1.0,
               color: Color(0xFFBDBDBD),
             ),
-            InkWell(
-              splashColor: Colors.transparent,
-              focusColor: Colors.transparent,
-              hoverColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              onTap: () async {
+            FFButtonWidget(
+              onPressed: () async {
                 context.pushNamed(
                   ProfileInfoWidget.routeName,
                   queryParameters: {
@@ -132,21 +134,29 @@ class _UserBlockOptionsWidgetState extends State<UserBlockOptionsWidget> {
                   }.withoutNulls,
                 );
               },
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text(
-                    'View Profile',
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Montserrat',
-                          color: Color(0xFF0F0E0F),
-                          fontSize: 16.0,
-                          letterSpacing: 0.0,
-                          fontWeight: FontWeight.w500,
-                        ),
-                  ),
-                ].addToStart(SizedBox(width: 16.0)),
+              text: 'View Profile',
+              options: FFButtonOptions(
+                width: 150.0,
+                height: 45.0,
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                color: Color(0x004B39EF),
+                textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                      font: GoogleFonts.montserrat(
+                        fontWeight:
+                            FlutterFlowTheme.of(context).titleSmall.fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).titleSmall.fontStyle,
+                      ),
+                      color: FlutterFlowTheme.of(context).primaryText,
+                      letterSpacing: 0.0,
+                      fontWeight:
+                          FlutterFlowTheme.of(context).titleSmall.fontWeight,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).titleSmall.fontStyle,
+                    ),
+                elevation: 0.0,
+                borderRadius: BorderRadius.circular(8.0),
               ),
             ),
           ].addToStart(SizedBox(height: 16.0)),

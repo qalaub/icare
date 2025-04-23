@@ -1,4 +1,3 @@
-import '/backend/api_requests/api_calls.dart';
 import '/components/calendario_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
@@ -46,8 +45,10 @@ class VerperfilModel extends FlutterFlowModel<VerperfilWidget> {
 
   // Model for imagenesfotosUsers component.
   late ImagenesfotosUsersModel imagenesfotosUsersModel;
-  // Model for calendario component.
-  late CalendarioModel calendarioModel;
+  // State field(s) for description widget.
+  FocusNode? descriptionFocusNode;
+  TextEditingController? descriptionTextController;
+  String? Function(BuildContext, String?)? descriptionTextControllerValidator;
   // State field(s) for name widget.
   FocusNode? nameFocusNode;
   TextEditingController? nameTextController;
@@ -56,14 +57,14 @@ class VerperfilModel extends FlutterFlowModel<VerperfilWidget> {
   FocusNode? lastNameFocusNode;
   TextEditingController? lastNameTextController;
   String? Function(BuildContext, String?)? lastNameTextControllerValidator;
+  // State field(s) for age widget.
+  FocusNode? ageFocusNode;
+  TextEditingController? ageTextController;
+  String? Function(BuildContext, String?)? ageTextControllerValidator;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
-  TextEditingController? textController3;
-  String? Function(BuildContext, String?)? textController3Validator;
-  // State field(s) for abn widget.
-  FocusNode? abnFocusNode;
-  TextEditingController? abnTextController;
-  String? Function(BuildContext, String?)? abnTextControllerValidator;
+  TextEditingController? textController5;
+  String? Function(BuildContext, String?)? textController5Validator;
   // State field(s) for phone widget.
   FocusNode? phoneFocusNode;
   TextEditingController? phoneTextController;
@@ -72,6 +73,10 @@ class VerperfilModel extends FlutterFlowModel<VerperfilWidget> {
   FocusNode? queryFocusNode;
   TextEditingController? queryTextController;
   String? Function(BuildContext, String?)? queryTextControllerValidator;
+  // State field(s) for abn widget.
+  FocusNode? abnFocusNode;
+  TextEditingController? abnTextController;
+  String? Function(BuildContext, String?)? abnTextControllerValidator;
   // State field(s) for services widget.
   String? servicesValue;
   FormFieldController<String>? servicesValueController;
@@ -81,15 +86,15 @@ class VerperfilModel extends FlutterFlowModel<VerperfilWidget> {
   // State field(s) for DropDown widget.
   List<String>? dropDownValue;
   FormFieldController<List<String>>? dropDownValueController;
-  // State field(s) for age widget.
-  String? ageValue;
-  FormFieldController<String>? ageValueController;
-  // State field(s) for description widget.
-  FocusNode? descriptionFocusNode;
-  TextEditingController? descriptionTextController;
-  String? Function(BuildContext, String?)? descriptionTextControllerValidator;
-  // Stores action output result for [Backend Call - API (getNamePlace)] action in Button widget.
-  ApiCallResponse? apiResult23d;
+  // State field(s) for ages widget.
+  String? agesValue;
+  FormFieldController<String>? agesValueController;
+  // State field(s) for NDIS widget.
+  FocusNode? ndisFocusNode;
+  TextEditingController? ndisTextController;
+  String? Function(BuildContext, String?)? ndisTextControllerValidator;
+  // Model for calendario component.
+  late CalendarioModel calendarioModel;
   // Model for Navbar component.
   late NavbarModel navbarModel;
   // Model for NavbarPremiun component.
@@ -107,18 +112,20 @@ class VerperfilModel extends FlutterFlowModel<VerperfilWidget> {
   @override
   void dispose() {
     imagenesfotosUsersModel.dispose();
-    calendarioModel.dispose();
+    descriptionFocusNode?.dispose();
+    descriptionTextController?.dispose();
+
     nameFocusNode?.dispose();
     nameTextController?.dispose();
 
     lastNameFocusNode?.dispose();
     lastNameTextController?.dispose();
 
-    textFieldFocusNode?.dispose();
-    textController3?.dispose();
+    ageFocusNode?.dispose();
+    ageTextController?.dispose();
 
-    abnFocusNode?.dispose();
-    abnTextController?.dispose();
+    textFieldFocusNode?.dispose();
+    textController5?.dispose();
 
     phoneFocusNode?.dispose();
     phoneTextController?.dispose();
@@ -126,9 +133,13 @@ class VerperfilModel extends FlutterFlowModel<VerperfilWidget> {
     queryFocusNode?.dispose();
     queryTextController?.dispose();
 
-    descriptionFocusNode?.dispose();
-    descriptionTextController?.dispose();
+    abnFocusNode?.dispose();
+    abnTextController?.dispose();
 
+    ndisFocusNode?.dispose();
+    ndisTextController?.dispose();
+
+    calendarioModel.dispose();
     navbarModel.dispose();
     navbarPremiunModel.dispose();
   }

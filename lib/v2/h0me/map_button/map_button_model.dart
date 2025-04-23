@@ -27,9 +27,6 @@ class MapButtonModel extends FlutterFlowModel<MapButtonWidget> {
 
   ///  State fields for stateful widgets in this component.
 
-  // State field(s) for GoogleMap widget.
-  LatLng? googleMapsCenter;
-  final googleMapsController = Completer<GoogleMapController>();
   // State field(s) for query widget.
   FocusNode? queryFocusNode;
   TextEditingController? queryTextController;
@@ -38,6 +35,9 @@ class MapButtonModel extends FlutterFlowModel<MapButtonWidget> {
   ApiCallResponse? apiResultuev;
   // Stores action output result for [Backend Call - API (getPlace)] action in mapbuscar widget.
   ApiCallResponse? newPlace;
+  // State field(s) for GoogleMap widget.
+  LatLng? googleMapsCenter;
+  final googleMapsController = Completer<GoogleMapController>();
 
   @override
   void initState(BuildContext context) {}

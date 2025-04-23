@@ -67,8 +67,8 @@ class _ImganesWidgetState extends State<ImganesWidget> {
                   final imgs = widget.professional!.toList();
 
                   return Container(
-                    width: double.infinity,
-                    height: 500.0,
+                    width: 250.0,
+                    height: 400.0,
                     child: Stack(
                       children: [
                         PageView.builder(
@@ -89,7 +89,7 @@ class _ImganesWidgetState extends State<ImganesWidget> {
                                 width: MediaQuery.sizeOf(context).width * 1.0,
                                 height:
                                     MediaQuery.sizeOf(context).height * 0.754,
-                                fit: BoxFit.cover,
+                                fit: BoxFit.fill,
                               ),
                             );
                           },

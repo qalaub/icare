@@ -1,4 +1,3 @@
-import '';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
@@ -11,6 +10,7 @@ import '/flutter_flow/upload_data.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/index.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'register_pfofesional5_model.dart';
 export 'register_pfofesional5_model.dart';
 
@@ -132,7 +132,7 @@ class _RegisterPfofesional5WidgetState
                                   width:
                                       MediaQuery.sizeOf(context).width * 0.96,
                                   height:
-                                      MediaQuery.sizeOf(context).height * 0.6,
+                                      MediaQuery.sizeOf(context).height * 0.75,
                                   decoration: BoxDecoration(
                                     color: Color(0xFFFFFEFE),
                                     borderRadius: BorderRadius.only(
@@ -166,11 +166,25 @@ class _RegisterPfofesional5WidgetState
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    fontFamily: 'Montserrat',
+                                                    font:
+                                                        GoogleFonts.montserrat(
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
                                                     color: Color(0xFF8E058A),
                                                     fontSize: 20.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
                                                   ),
                                             ),
                                           ),
@@ -189,11 +203,25 @@ class _RegisterPfofesional5WidgetState
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    fontFamily: 'Montserrat',
+                                                    font:
+                                                        GoogleFonts.montserrat(
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
                                                     color: Color(0xFF6F6F6F),
                                                     fontSize: 13.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
                                                   ),
                                             ),
                                           ),
@@ -222,7 +250,7 @@ class _RegisterPfofesional5WidgetState
                                                 0.9,
                                             height: MediaQuery.sizeOf(context)
                                                     .height *
-                                                0.251,
+                                                0.4,
                                             decoration: BoxDecoration(
                                               color: Color(0xFFFFFEFE),
                                               borderRadius:
@@ -248,18 +276,24 @@ class _RegisterPfofesional5WidgetState
                                                       builder: (context) =>
                                                           FlutterFlowVideoPlayer(
                                                         path: valueOrDefault(
-                                                            currentUserDocument
-                                                                ?.video,
-                                                            ''),
+                                                                        currentUserDocument
+                                                                            ?.video,
+                                                                        '') !=
+                                                                    ''
+                                                            ? valueOrDefault(
+                                                                currentUserDocument
+                                                                    ?.video,
+                                                                '')
+                                                            : 'https://assets.mixkit.co/videos/51585/51585-720.mp4',
                                                         videoType:
                                                             VideoType.network,
-                                                        width: 417.7,
-                                                        height: 250.0,
-                                                        aspectRatio: 1.7,
+                                                        width: 250.0,
+                                                        height: 255.0,
+                                                        aspectRatio: 1.0,
                                                         autoPlay: false,
                                                         looping: false,
                                                         showControls: true,
-                                                        allowFullScreen: false,
+                                                        allowFullScreen: true,
                                                         allowPlaybackSpeedMenu:
                                                             false,
                                                         lazyLoad: false,
@@ -297,11 +331,6 @@ class _RegisterPfofesional5WidgetState
                                                       <FFUploadedFile>[];
 
                                                   try {
-                                                    showUploadMessage(
-                                                      context,
-                                                      'Uploading file...',
-                                                      showLoading: true,
-                                                    );
                                                     selectedUploadedFiles =
                                                         selectedMedia
                                                             .map((m) =>
@@ -324,9 +353,6 @@ class _RegisterPfofesional5WidgetState
                                                                 ))
                                                             .toList();
                                                   } finally {
-                                                    ScaffoldMessenger.of(
-                                                            context)
-                                                        .hideCurrentSnackBar();
                                                     _model.isDataUploading1 =
                                                         false;
                                                   }
@@ -338,12 +364,8 @@ class _RegisterPfofesional5WidgetState
                                                           selectedUploadedFiles
                                                               .first;
                                                     });
-                                                    showUploadMessage(
-                                                        context, 'Success!');
                                                   } else {
                                                     safeSetState(() {});
-                                                    showUploadMessage(context,
-                                                        'Failed to upload data');
                                                     return;
                                                   }
                                                 }
@@ -353,7 +375,28 @@ class _RegisterPfofesional5WidgetState
                                                         .verifySizeVideo(
                                                   _model.uploadedLocalFile1,
                                                 );
-                                                if (!_model.verifyVideo!) {
+                                                if (_model.verifyVideo!) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return AlertDialog(
+                                                        title: Text(
+                                                            'Important information'),
+                                                        content: Text(
+                                                            'The video may take a while to load, you can continue with the account creation process.'),
+                                                        actions: [
+                                                          TextButton(
+                                                            onPressed: () =>
+                                                                Navigator.pop(
+                                                                    alertDialogContext),
+                                                            child: Text('Ok'),
+                                                          ),
+                                                        ],
+                                                      );
+                                                    },
+                                                  );
+                                                } else {
                                                   ScaffoldMessenger.of(context)
                                                       .showSnackBar(
                                                     SnackBar(
@@ -399,11 +442,32 @@ class _RegisterPfofesional5WidgetState
                                                     FlutterFlowTheme.of(context)
                                                         .titleSmall
                                                         .override(
-                                                          fontFamily:
-                                                              'Montserrat',
+                                                          font: GoogleFonts
+                                                              .montserrat(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .fontStyle,
+                                                          ),
                                                           color: Colors.white,
                                                           fontSize: 20.0,
                                                           letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmall
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmall
+                                                                  .fontStyle,
                                                         ),
                                                 elevation: 5.0,
                                                 borderSide: BorderSide(
@@ -548,11 +612,32 @@ class _RegisterPfofesional5WidgetState
                                                     FlutterFlowTheme.of(context)
                                                         .titleSmall
                                                         .override(
-                                                          fontFamily:
-                                                              'Montserrat',
+                                                          font: GoogleFonts
+                                                              .montserrat(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .fontStyle,
+                                                          ),
                                                           color: Colors.white,
                                                           fontSize: 20.0,
                                                           letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmall
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmall
+                                                                  .fontStyle,
                                                         ),
                                                 elevation: 5.0,
                                                 borderSide: BorderSide(

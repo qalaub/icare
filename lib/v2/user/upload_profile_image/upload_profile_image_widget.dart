@@ -46,9 +46,9 @@ class _UploadProfileImageWidgetState extends State<UploadProfileImageWidget> {
       alignment: AlignmentDirectional(-1.0, -1.0),
       child: Container(
         width: MediaQuery.sizeOf(context).width * 0.9,
+        height: 230.0,
         constraints: BoxConstraints(
-          minHeight: 225.0,
-          maxHeight: 245.0,
+          maxHeight: 230.0,
         ),
         decoration: BoxDecoration(
           color: Color(0xFFC9DEFF),
@@ -88,13 +88,15 @@ class _UploadProfileImageWidgetState extends State<UploadProfileImageWidget> {
                     updateCallback: () => safeSetState(() {}),
                     child: ImageUploadWidget(
                       key: ValueKey('image1'),
-                      img:
-                          (currentUserDocument?.images.toList() ?? []).length >
-                                  0
-                              ? (currentUserDocument?.images.toList() ?? [])
-                                  .elementAtOrNull(0)
-                              : ' ',
+                      img: valueOrDefault<String>(
+                        (currentUserDocument?.images.toList() ?? []).length > 0
+                            ? (currentUserDocument?.images.toList() ?? [])
+                                .elementAtOrNull(0)
+                            : '',
+                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/gdid8dlbsj9v/addi.png',
+                      ),
                       index: 0,
+                      background: '',
                     ),
                   ),
                 ),
@@ -109,8 +111,9 @@ class _UploadProfileImageWidgetState extends State<UploadProfileImageWidget> {
                                   1
                               ? (currentUserDocument?.images.toList() ?? [])
                                   .elementAtOrNull(1)
-                              : ' ',
+                              : '',
                       index: 1,
+                      background: '',
                     ),
                   ),
                 ),
@@ -125,8 +128,9 @@ class _UploadProfileImageWidgetState extends State<UploadProfileImageWidget> {
                                   2
                               ? (currentUserDocument?.images.toList() ?? [])
                                   .elementAtOrNull(2)
-                              : ' ',
+                              : '',
                       index: 2,
+                      background: '',
                     ),
                   ),
                 ),
@@ -135,14 +139,15 @@ class _UploadProfileImageWidgetState extends State<UploadProfileImageWidget> {
                     model: _model.imageUploadModel4,
                     updateCallback: () => safeSetState(() {}),
                     child: ImageUploadWidget(
-                      key: ValueKey('image4'),
+                      key: ValueKey('image3'),
                       img:
                           (currentUserDocument?.images.toList() ?? []).length >
                                   3
                               ? (currentUserDocument?.images.toList() ?? [])
                                   .elementAtOrNull(3)
-                              : ' ',
+                              : '',
                       index: 3,
+                      background: '',
                     ),
                   ),
                 ),
@@ -157,8 +162,9 @@ class _UploadProfileImageWidgetState extends State<UploadProfileImageWidget> {
                                   4
                               ? (currentUserDocument?.images.toList() ?? [])
                                   .elementAtOrNull(4)
-                              : ' ',
+                              : '',
                       index: 4,
+                      background: '',
                     ),
                   ),
                 ),
@@ -173,8 +179,9 @@ class _UploadProfileImageWidgetState extends State<UploadProfileImageWidget> {
                                   5
                               ? (currentUserDocument?.images.toList() ?? [])
                                   .elementAtOrNull(5)
-                              : ' ',
+                              : '',
                       index: 5,
+                      background: '',
                     ),
                   ),
                 ),

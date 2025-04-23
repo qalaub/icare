@@ -1,14 +1,13 @@
-import '';
 import '/auth/base_auth_user_provider.dart';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
 import '/components/estrellas_widget.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/v2/block_list/favoritesv2/add_favorites/add_favorites_widget.dart';
+import '/v2/block_list/favoritesv2/add_favorites_copy/add_favorites_copy_widget.dart';
 import '/v2/menbresiav2/membresia_logo/membresia_logo_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
@@ -17,6 +16,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'v3fv0ritesv3_model.dart';
 export 'v3fv0ritesv3_model.dart';
 
@@ -159,21 +159,18 @@ class _V3fv0ritesv3WidgetState extends State<V3fv0ritesv3Widget> {
                               width: 63.0,
                               height: 63.0,
                               decoration: BoxDecoration(
-                                color: Color(0xFFD9D9D9),
                                 borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(12.0),
-                                  bottomRight: Radius.circular(12.0),
-                                  topLeft: Radius.circular(12.0),
-                                  topRight: Radius.circular(12.0),
+                                  bottomLeft: Radius.circular(15.0),
+                                  bottomRight: Radius.circular(15.0),
+                                  topLeft: Radius.circular(15.0),
+                                  topRight: Radius.circular(15.0),
                                 ),
-                                border: Border.all(
-                                  color: Color(0xFFD9D9D9),
-                                ),
+                                shape: BoxShape.rectangle,
                               ),
                               child: Align(
                                 alignment: AlignmentDirectional(-1.0, 1.0),
                                 child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(12.0),
                                   child: CachedNetworkImage(
                                     fadeInDuration: Duration(milliseconds: 500),
                                     fadeOutDuration:
@@ -182,9 +179,8 @@ class _V3fv0ritesv3WidgetState extends State<V3fv0ritesv3Widget> {
                                       containerUsersRecord.photoUrl,
                                       'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
                                     ),
-                                    width: double.infinity,
-                                    height: double.infinity,
-                                    fit: BoxFit.cover,
+                                    height: 65.0,
+                                    fit: BoxFit.fill,
                                   ),
                                 ),
                               ),
@@ -275,11 +271,20 @@ class _V3fv0ritesv3WidgetState extends State<V3fv0ritesv3Widget> {
                                   style: FlutterFlowTheme.of(context)
                                       .headlineLarge
                                       .override(
-                                        fontFamily: 'Montserrat',
+                                        font: GoogleFonts.montserrat(
+                                          fontWeight: FontWeight.w600,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .headlineLarge
+                                                  .fontStyle,
+                                        ),
                                         color: Colors.white,
                                         fontSize: 16.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .headlineLarge
+                                            .fontStyle,
                                       ),
                                 ),
                               ),
@@ -302,11 +307,20 @@ class _V3fv0ritesv3WidgetState extends State<V3fv0ritesv3Widget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Montserrat',
+                                        font: GoogleFonts.montserrat(
+                                          fontWeight: FontWeight.w500,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
                                         color: Colors.white,
                                         fontSize: 11.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
                                       ),
                                 ),
                               ),
@@ -375,13 +389,27 @@ class _V3fv0ritesv3WidgetState extends State<V3fv0ritesv3Widget> {
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              'Montserrat',
+                                                          font: GoogleFonts
+                                                              .montserrat(
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .normal,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                          ),
                                                           color: Colors.white,
                                                           fontSize: 10.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
                                                         ),
                                               ),
                                             ),
@@ -430,8 +458,16 @@ class _V3fv0ritesv3WidgetState extends State<V3fv0ritesv3Widget> {
                                                                 .of(context)
                                                             .bodyMedium
                                                             .override(
-                                                              fontFamily:
-                                                                  'Montserrat',
+                                                              font: GoogleFonts
+                                                                  .montserrat(
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                              ),
                                                               color:
                                                                   Colors.white,
                                                               fontSize: 11.0,
@@ -440,6 +476,11 @@ class _V3fv0ritesv3WidgetState extends State<V3fv0ritesv3Widget> {
                                                               fontWeight:
                                                                   FontWeight
                                                                       .normal,
+                                                              fontStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                             ),
                                                       ),
                                                       TextSpan(
@@ -458,13 +499,27 @@ class _V3fv0ritesv3WidgetState extends State<V3fv0ritesv3Widget> {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              'Montserrat',
+                                                          font: GoogleFonts
+                                                              .montserrat(
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .normal,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                          ),
                                                           color: Colors.white,
                                                           fontSize: 11.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
                                                         ),
                                                   ),
                                                 ),
@@ -514,13 +569,27 @@ class _V3fv0ritesv3WidgetState extends State<V3fv0ritesv3Widget> {
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              'Montserrat',
+                                                          font: GoogleFonts
+                                                              .montserrat(
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .normal,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                          ),
                                                           color: Colors.white,
                                                           fontSize: 10.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
                                                         ),
                                               ),
                                             ),
@@ -540,98 +609,75 @@ class _V3fv0ritesv3WidgetState extends State<V3fv0ritesv3Widget> {
                     ),
                     Column(
                       mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
+                        if (!widget.isCollaborator)
+                          Builder(
+                            builder: (context) {
+                              if (widget.isMap == true) {
+                                return wrapWithModel(
+                                  model: _model.addFavoritesCopyModel,
+                                  updateCallback: () => safeSetState(() {}),
+                                  child: AddFavoritesCopyWidget(
+                                    professional: containerUsersRecord,
+                                  ),
+                                );
+                              } else {
+                                return InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed(
+                                      ProfileInfoWidget.routeName,
+                                      queryParameters: {
+                                        'professional': serializeParam(
+                                          containerUsersRecord.reference,
+                                          ParamType.DocumentReference,
+                                        ),
+                                      }.withoutNulls,
+                                      extra: <String, dynamic>{
+                                        kTransitionInfoKey: TransitionInfo(
+                                          hasTransition: true,
+                                          transitionType:
+                                              PageTransitionType.fade,
+                                          duration: Duration(milliseconds: 300),
+                                        ),
+                                      },
+                                    );
+                                  },
+                                  child: wrapWithModel(
+                                    model: _model.addFavoritesModel,
+                                    updateCallback: () => safeSetState(() {}),
+                                    child: AddFavoritesWidget(
+                                      professional: containerUsersRecord,
+                                    ),
+                                  ),
+                                );
+                              }
+                            },
+                          ),
                         Align(
-                          alignment: AlignmentDirectional(-1.0, 0.0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Container(
                             decoration: BoxDecoration(),
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                context.pushNamed(
-                                  ProfileInfoWidget.routeName,
-                                  queryParameters: {
-                                    'professional': serializeParam(
-                                      containerUsersRecord.reference,
-                                      ParamType.DocumentReference,
-                                    ),
-                                  }.withoutNulls,
-                                  extra: <String, dynamic>{
-                                    kTransitionInfoKey: TransitionInfo(
-                                      hasTransition: true,
-                                      transitionType: PageTransitionType.fade,
-                                      duration: Duration(milliseconds: 300),
-                                    ),
-                                  },
-                                );
-                              },
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 4.0, 0.0, 0.0),
                               child: wrapWithModel(
-                                model: _model.addFavoritesModel,
+                                model: _model.membresiaLogoModel,
                                 updateCallback: () => safeSetState(() {}),
-                                child: AddFavoritesWidget(
-                                  professional: containerUsersRecord,
+                                child: MembresiaLogoWidget(
+                                  professional: containerUsersRecord.reference,
+                                  width: 40,
+                                  heigth: 40,
                                 ),
                               ),
                             ),
                           ),
                         ),
-                        if (widget.isMap)
-                          Align(
-                            alignment: AlignmentDirectional(-1.0, 0.0),
-                            child: Container(
-                              decoration: BoxDecoration(),
-                              child: Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
-                                child: FlutterFlowIconButton(
-                                  borderRadius: 118.0,
-                                  buttonSize: 35.0,
-                                  fillColor: Colors.white,
-                                  icon: Icon(
-                                    FFIcons.kubicationplane,
-                                    color: Color(0xFFC14BBC),
-                                    size: 20.0,
-                                  ),
-                                  onPressed: () async {
-                                    FFAppState().currentProfesionalUbication =
-                                        CurrentProfesionalMapStruct();
-                                    FFAppState().update(() {});
-                                    FFAppState().currentProfesionalUbication =
-                                        CurrentProfesionalMapStruct(
-                                      sub: containerUsersRecord.suburb,
-                                      id: widget.profesionalId,
-                                    );
-                                    FFAppState().update(() {});
-                                  },
-                                ),
-                              ),
-                            ),
-                          ),
-                        if (!widget.isCollaborator)
-                          Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
-                            child: Container(
-                              decoration: BoxDecoration(),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 4.0, 0.0, 0.0),
-                                child: wrapWithModel(
-                                  model: _model.membresiaLogoModel,
-                                  updateCallback: () => safeSetState(() {}),
-                                  child: MembresiaLogoWidget(
-                                    professional:
-                                        containerUsersRecord.reference,
-                                    width: 40,
-                                    heigth: 40,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
                       ]
                           .divide(SizedBox(height: 2.0))
                           .addToEnd(SizedBox(height: 8.0)),

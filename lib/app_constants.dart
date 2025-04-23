@@ -7,11 +7,11 @@ abstract class FFAppConstants {
     '18-25 years'
   ];
   static const List<String> servicesType = [
-    'Support Workers',
-    'Support  Coordinators',
-    'Therapeutic Supports',
+    'Support Worker',
+    'Support  Coordinator',
+    'Therapeutic Support',
     'Home Maintenance',
-    'Recovery Coaches'
+    'Recovery Coach'
   ];
   static const int basicPrice = 899;
   static const int standarPrice = 1799;

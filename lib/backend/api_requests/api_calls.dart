@@ -12,7 +12,7 @@ const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 
 class GetSuggestionMapCall {
   static Future<ApiCallResponse> call({
-    String? api = 'AIzaSyArSl-isY2tQa--YEne30YvnjTiDb6JQig',
+    String? api = 'AIzaSyAx_Q_RFYYLIK5KUSiikml_iln1Pd2ryGw',
     String? query = 'queensland',
     String? types = '',
   }) async {
@@ -50,7 +50,7 @@ class GetSuggestionMapCall {
 
 class GetSuggestionMapProfesionalCall {
   static Future<ApiCallResponse> call({
-    String? api = 'AIzaSyArSl-isY2tQa--YEne30YvnjTiDb6JQig',
+    String? api = 'AIzaSyAx_Q_RFYYLIK5KUSiikml_iln1Pd2ryGw',
     String? query = 'queensland',
   }) async {
     return ApiManager.instance.makeApiCall(
@@ -86,7 +86,7 @@ class GetSuggestionMapProfesionalCall {
 
 class GetPlaceCall {
   static Future<ApiCallResponse> call({
-    String? key = 'AIzaSyArSl-isY2tQa--YEne30YvnjTiDb6JQig',
+    String? key = 'AIzaSyAx_Q_RFYYLIK5KUSiikml_iln1Pd2ryGw',
     String? placeId = 'ChIJVZJb3I9b04URL4MbVqqUsJc',
   }) async {
     return ApiManager.instance.makeApiCall(
@@ -120,7 +120,7 @@ class GetPlaceCall {
 
 class GetNamePlaceCall {
   static Future<ApiCallResponse> call({
-    String? apiKey = 'AIzaSyArSl-isY2tQa--YEne30YvnjTiDb6JQig',
+    String? apiKey = 'AIzaSyAx_Q_RFYYLIK5KUSiikml_iln1Pd2ryGw',
     String? lat = '-33.71217710351823,150.31209443915802',
   }) async {
     return ApiManager.instance.makeApiCall(

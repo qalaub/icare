@@ -132,8 +132,44 @@ String generateBodyForEmail(
   String user1,
   String user2,
   String reason,
+  String? additionalMessage,
 ) {
-  return '$user1 has reported $user2 for the following reason: $reason.';
+  String message;
+
+  // Normalizar la razón a minúsculas para comparación
+  String normalizedReason = reason.trim().toLowerCase();
+
+  switch (normalizedReason) {
+    case 'harassment':
+      message = '$user1 has reported $user2 for harassment.';
+      break;
+    case 'he pretends to be someone else':
+      message = '$user1 has reported $user2 for impersonation.';
+      break;
+    case 'share inappropriate content':
+      message = '$user1 has reported $user2 for sharing inappropriate content.';
+      break;
+    case 'language that incites hatred':
+      message =
+          '$user1 has reported $user2 for using language that incites hatred.';
+      break;
+    case 'unauthorized sales':
+      message = '$user1 has reported $user2 for unauthorized sales.';
+      break;
+    case 'scams':
+      message = '$user1 has reported $user2 for scams.';
+      break;
+    case 'others':
+      message = '$user1 has reported $user2 for the following reason: Others.';
+      if (additionalMessage != null && additionalMessage.trim().isNotEmpty) {
+        message += "\n\nAdditional details: $additionalMessage";
+      }
+      break;
+    default:
+      message = '$user1 has reported $user2 for the following reason: $reason.';
+  }
+
+  return message;
 }
 
 int plusOne(double n) {
@@ -332,7 +368,7 @@ bool filterProfessionals(
   );
 
   double multiplier = zoom * 0.15;
-  multiplier = (multiplier) * (math.log(zoom) / math.log(1.1));
+  multiplier = multiplier * (math.log(zoom) / math.log(1.1));
   print(multiplier);
   if (zoom == 250) multiplier = 3200;
   // Filtrar por distancia
@@ -342,15 +378,19 @@ bool filterProfessionals(
 
   /// FILTROS ADICIONALES
 
-  // Filtrar por servicios ofrecidos
-  if (user.serviceType == null ||
-      !user.serviceType.any((service) => services.contains(service))) {
-    return false;
+  // Filtrar por servicios ofrecidos, solo si se han seleccionado filtros de servicio
+  if (services.isNotEmpty) {
+    if (user.serviceType == null ||
+        !user.serviceType.any((service) => services.contains(service))) {
+      return false;
+    }
   }
 
-  // Filtrar por rango de edad
-  if (user.age == null || !age.contains(user.age)) {
-    return false;
+  // Filtrar por rango de edad, solo si se ha seleccionado algún filtro de edad
+  if (age.isNotEmpty) {
+    if (user.age == null || !age.contains(user.age)) {
+      return false;
+    }
   }
 
   // Si pasa todos los filtros, retorna true
@@ -391,30 +431,54 @@ String latLngToString(LatLng latlng) {
 }
 
 String formatnameStreet(String input) {
-  // Encontrar el índice del primer espacio
-  int spaceIndex = input.indexOf(' ');
+  // Dividir la cadena por comas
+  List<String> parts = input.split(',');
 
-  // Si encontramos un espacio
-  if (spaceIndex != -1) {
-    // Obtener la subcadena desde el primer espacio hasta la coma (o el final si no hay coma)
-    String address =
-        input.substring(spaceIndex + 1); // Cortamos desde el primer espacio
-    int commaIndex = address.indexOf(',');
+  // Si el formato es estándar (calle, suburbio+estado+postal, país)
+  if (parts.length >= 3) {
+    // Se toma la segunda parte (índice 1) que contiene el suburbio junto a estado y postal
+    String suburbPart = parts[1].trim();
+    List<String> words = suburbPart.split(' ');
 
-    // Si hay una coma, cortamos hasta la coma; de lo contrario, devolvemos la cadena completa
-    if (commaIndex != -1) {
-      String temp = address.substring(commaIndex + 2).trim();
-      int spaceIndexTemp = temp.indexOf(' ');
-      if (spaceIndexTemp != -1) {
-        return temp.substring(0, spaceIndexTemp).trim();
-      }
-      return address.substring(0, commaIndex).trim();
-    } else {
-      return address.trim(); // Devolvemos la dirección completa si no hay coma
+    // Conjunto de abreviaturas de estados australianos
+    final stateCodes = {'VIC', 'NSW', 'QLD', 'WA', 'SA', 'TAS', 'ACT', 'NT'};
+
+    // Remover palabras finales que sean estados o códigos postales
+    while (words.isNotEmpty &&
+        (stateCodes.contains(words.last.toUpperCase()) ||
+            RegExp(r'^\d+$').hasMatch(words.last))) {
+      words.removeLast();
     }
-  } else {
-    return "Location"; // Manejo de caso si no hay espacio
+    return words.join(' ').trim();
   }
+  // Si se trata de una dirección con plus code (única coma)
+  else if (parts.length == 2) {
+    // Tomar la parte antes de la coma
+    String firstPart = parts[0].trim();
+    List<String> tokens = firstPart.split(' ');
+
+    // Si el primer token es un plus code (contiene '+'), lo eliminamos
+    if (tokens.isNotEmpty && tokens[0].contains('+')) {
+      tokens.removeAt(0);
+    }
+
+    // Si los dos últimos tokens forman un nombre de estado completo (ej: "Australia Meridional"), eliminarlos
+    if (tokens.length >= 2 &&
+        tokens[tokens.length - 2] == "Australia" &&
+        tokens[tokens.length - 1] == "Meridional") {
+      tokens.removeRange(tokens.length - 2, tokens.length);
+    }
+    // O bien, remover de atrás tokens que sean abreviaturas de estado o códigos postales
+    final stateCodes = {'VIC', 'NSW', 'QLD', 'WA', 'SA', 'TAS', 'ACT', 'NT'};
+    while (tokens.isNotEmpty &&
+        (stateCodes.contains(tokens.last.toUpperCase()) ||
+            RegExp(r'^\d+$').hasMatch(tokens.last))) {
+      tokens.removeLast();
+    }
+    return tokens.join(' ').trim();
+  }
+
+  return "Location"; // Formato no reconocido
 }
 
 String extractStateAndPostalCode(String input) {
@@ -470,4 +534,29 @@ int doubleToInt(double number) {
 
 List<DocumentReference> reverseArray(List<DocumentReference> users) {
   return users.reversed.toList();
+}
+
+String? trimEmail(String? email) {
+  return email?.trim();
+}
+
+String cleanEmailInput(String email) {
+  // Convert to lowercase first
+  String cleanedEmail = email.toLowerCase();
+
+  // Remove spaces
+  cleanedEmail = cleanedEmail.replaceAll(' ', '');
+
+  // Obtiene la parte del dominio (.com, .es, etc.)
+  final domainMatch = RegExp(r'\.[a-z]{2,}$').firstMatch(cleanedEmail);
+
+  // Si encontró un dominio válido, trunca después de él
+  if (domainMatch != null) {
+    int endIndex = domainMatch.end;
+    if (endIndex < cleanedEmail.length) {
+      cleanedEmail = cleanedEmail.substring(0, endIndex);
+    }
+  }
+
+  return cleanedEmail;
 }

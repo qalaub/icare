@@ -3,6 +3,7 @@ import '/backend/backend.dart';
 import '/components/estrellas_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/v2/block_list/favoritesv2/add_favorites/add_favorites_widget.dart';
+import '/v2/block_list/favoritesv2/add_favorites_copy/add_favorites_copy_widget.dart';
 import '/v2/menbresiav2/membresia_logo/membresia_logo_widget.dart';
 import 'v3fv0ritesv3_widget.dart' show V3fv0ritesv3Widget;
 import 'package:flutter/material.dart';
@@ -30,6 +31,8 @@ class V3fv0ritesv3Model extends FlutterFlowModel<V3fv0ritesv3Widget> {
   ApiCallResponse? apiResult23d;
   // Model for estrellas component.
   late EstrellasModel estrellasModel;
+  // Model for AddFavoritesCopy component.
+  late AddFavoritesCopyModel addFavoritesCopyModel;
   // Model for AddFavorites component.
   late AddFavoritesModel addFavoritesModel;
   // Model for MembresiaLogo component.
@@ -38,6 +41,7 @@ class V3fv0ritesv3Model extends FlutterFlowModel<V3fv0ritesv3Widget> {
   @override
   void initState(BuildContext context) {
     estrellasModel = createModel(context, () => EstrellasModel());
+    addFavoritesCopyModel = createModel(context, () => AddFavoritesCopyModel());
     addFavoritesModel = createModel(context, () => AddFavoritesModel());
     membresiaLogoModel = createModel(context, () => MembresiaLogoModel());
   }
@@ -45,6 +49,7 @@ class V3fv0ritesv3Model extends FlutterFlowModel<V3fv0ritesv3Widget> {
   @override
   void dispose() {
     estrellasModel.dispose();
+    addFavoritesCopyModel.dispose();
     addFavoritesModel.dispose();
     membresiaLogoModel.dispose();
   }

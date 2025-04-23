@@ -135,11 +135,12 @@ class _NewNotifcationsWidgetState extends State<NewNotifcationsWidget> {
                     Column(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Align(
                           alignment: AlignmentDirectional(0.0, 0.0),
                           child: Container(
-                            width: MediaQuery.sizeOf(context).width * 0.71,
+                            width: MediaQuery.sizeOf(context).width * 0.7,
                             height: 50.0,
                             decoration: BoxDecoration(),
                             child: Align(
@@ -154,24 +155,32 @@ class _NewNotifcationsWidgetState extends State<NewNotifcationsWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Montserrat',
+                                            font: GoogleFonts.montserrat(
+                                              fontWeight: FontWeight.bold,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
+                                            ),
                                             color: Colors.black,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.bold,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
                                           ),
                                     ),
                                     TextSpan(
-                                      text: 'likes your collaborator ',
-                                      style: GoogleFonts.getFont(
-                                        'Montserrat',
+                                      text: ' likes your collaborator ',
+                                      style: GoogleFonts.montserrat(
                                         fontWeight: FontWeight.w500,
                                       ),
                                     ),
                                     TextSpan(
                                       text: functions.upperCaseFirstLetter(
                                           rowUsersRecord.firtsName),
-                                      style: GoogleFonts.getFont(
-                                        'Montserrat',
+                                      style: GoogleFonts.montserrat(
                                         fontWeight: FontWeight.bold,
                                       ),
                                     )
@@ -179,12 +188,28 @@ class _NewNotifcationsWidgetState extends State<NewNotifcationsWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Montserrat',
+                                        font: GoogleFonts.montserrat(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
                                         fontSize: 15.0,
                                         letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
                                       ),
                                 ),
                                 textAlign: TextAlign.start,
+                                maxLines: 3,
                               ),
                             ),
                           ),

@@ -21,8 +21,8 @@ export '/v2/v2_mensages/chat_2_main/chat2_main_widget.dart'
     show Chat2MainWidget;
 export '/chat_groupwbubbles/image_details/image_details_widget.dart'
     show ImageDetailsWidget;
-export '/v2/user/profilesettings/profilesettings_widget.dart'
-    show ProfilesettingsWidget;
+export '/v2/user/security_settings/security_settings_widget.dart'
+    show SecuritySettingsWidget;
 export '/v2/v2_c_o_l_a_b_o_r_a_d_o_r_e_s/listofcollaborators/listofcollaborators_widget.dart'
     show ListofcollaboratorsWidget;
 export '/v2/user/profile_info/profile_info_widget.dart' show ProfileInfoWidget;
@@ -57,8 +57,8 @@ export '/v2/mysubscription/my_subscription_premium/my_subscription_premium_widge
 export '/v2/mysubscription/my_subscription_basic/my_subscription_basic_widget.dart'
     show MySubscriptionBasicWidget;
 export '/v2/report/report_widget.dart' show ReportWidget;
-export '/v2/v2_mensages/report_section/report_section_widget.dart'
-    show ReportSectionWidget;
+export '/v2/v2_mensages/harassment/harassment_widget.dart'
+    show HarassmentWidget;
 export '/v2/block_list/favoritesv2/fav_v3_copy/fav_v3_copy_widget.dart'
     show FavV3CopyWidget;
 export '/v2/inici0app/pantainci1/pantainci1_widget.dart' show Pantainci1Widget;
@@ -80,3 +80,14 @@ export '/rejected/dislike_page/dislike_page_widget.dart' show DislikePageWidget;
 export '/v2/user/verperfil/verperfil_widget.dart' show VerperfilWidget;
 export '/v2/register/register_pfofesional5/register_pfofesional5_widget.dart'
     show RegisterPfofesional5Widget;
+export '/v2/user/profile_settings/profile_settings_widget.dart'
+    show ProfileSettingsWidget;
+export '/v2/v2_mensages/someoneelse/someoneelse_widget.dart'
+    show SomeoneelseWidget;
+export '/v2/v2_mensages/inappropriatecontent/inappropriatecontent_widget.dart'
+    show InappropriatecontentWidget;
+export '/v2/inciteshatred/inciteshatred_widget.dart' show InciteshatredWidget;
+export '/v2/v2_mensages/unauthorizedsales/unauthorizedsales_widget.dart'
+    show UnauthorizedsalesWidget;
+export '/v2/v2_mensages/scams/scams_widget.dart' show ScamsWidget;
+export '/v2/v2_mensages/other/other_widget.dart' show OtherWidget;

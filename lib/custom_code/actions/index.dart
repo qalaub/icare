@@ -5,3 +5,7 @@ export 'verify_size_video.dart' show verifySizeVideo;
 export 'transform_lat_lng_to_street_name.dart' show transformLatLngToStreetName;
 export 'change_password.dart' show changePassword;
 export 'change_email.dart' show changeEmail;
+export 'send_change_email_request.dart' show sendChangeEmailRequest;
+export 'send_confirm_email_user.dart' show sendConfirmEmailUser;
+export 'send_report_email.dart' show sendReportEmail;
+export 'close_dropdown_after_delay.dart' show closeDropdownAfterDelay;

@@ -27,18 +27,22 @@ class UserprofileModel extends FlutterFlowModel<UserprofileWidget> {
   ApiCallResponse? apiResult23d1;
   // Model for AccountOption component.
   late AccountOptionModel accountOptionModel4;
+  // Stores action output result for [Backend Call - API (getNamePlace)] action in AccountOption widget.
+  ApiCallResponse? apiResult23d2;
+  // Model for AccountOption component.
+  late AccountOptionModel accountOptionModel5;
   // Stores action output result for [Firestore Query - Query a collection] action in AccountOption widget.
   CodesRecord? codes;
   // Stores action output result for [Backend Call - Create Document] action in AccountOption widget.
   CodesRecord? newCode;
-  // Model for AccountOption component.
-  late AccountOptionModel accountOptionModel5;
   // Model for AccountOption component.
   late AccountOptionModel accountOptionModel6;
   // Model for AccountOption component.
   late AccountOptionModel accountOptionModel7;
   // Model for AccountOption component.
   late AccountOptionModel accountOptionModel8;
+  // Model for AccountOption component.
+  late AccountOptionModel accountOptionModel9;
   // Model for Navbar component.
   late NavbarModel navbarModel;
   // Model for NavbarPremiun component.
@@ -54,6 +58,7 @@ class UserprofileModel extends FlutterFlowModel<UserprofileWidget> {
     accountOptionModel6 = createModel(context, () => AccountOptionModel());
     accountOptionModel7 = createModel(context, () => AccountOptionModel());
     accountOptionModel8 = createModel(context, () => AccountOptionModel());
+    accountOptionModel9 = createModel(context, () => AccountOptionModel());
     navbarModel = createModel(context, () => NavbarModel());
     navbarPremiunModel = createModel(context, () => NavbarPremiunModel());
   }
@@ -68,6 +73,7 @@ class UserprofileModel extends FlutterFlowModel<UserprofileWidget> {
     accountOptionModel6.dispose();
     accountOptionModel7.dispose();
     accountOptionModel8.dispose();
+    accountOptionModel9.dispose();
     navbarModel.dispose();
     navbarPremiunModel.dispose();
   }

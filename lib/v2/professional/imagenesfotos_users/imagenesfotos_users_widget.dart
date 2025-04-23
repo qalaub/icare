@@ -50,10 +50,9 @@ class _ImagenesfotosUsersWidgetState extends State<ImagenesfotosUsersWidget> {
       ),
       child: Container(
         width: MediaQuery.sizeOf(context).width * 1.0,
-        height: 314.0,
+        height: 200.0,
         constraints: BoxConstraints(
           maxWidth: MediaQuery.sizeOf(context).width * 0.96,
-          maxHeight: MediaQuery.sizeOf(context).height * 0.6,
         ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(6.0),
@@ -70,8 +69,7 @@ class _ImagenesfotosUsersWidgetState extends State<ImagenesfotosUsersWidget> {
                       .toList();
 
                   return Container(
-                    width: double.infinity,
-                    height: 500.0,
+                    width: 255.61,
                     child: Stack(
                       children: [
                         PageView.builder(
@@ -90,9 +88,8 @@ class _ImagenesfotosUsersWidgetState extends State<ImagenesfotosUsersWidget> {
                                   'https://picsum.photos/seed/96/600',
                                 ),
                                 width: MediaQuery.sizeOf(context).width * 1.0,
-                                height:
-                                    MediaQuery.sizeOf(context).height * 0.754,
-                                fit: BoxFit.cover,
+                                height: MediaQuery.sizeOf(context).height * 0.7,
+                                fit: BoxFit.contain,
                               ),
                             );
                           },

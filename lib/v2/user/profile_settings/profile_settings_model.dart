@@ -6,14 +6,13 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
-import '/v2/professional/imagenesfotos_users/imagenesfotos_users_widget.dart';
 import '/v2/user/upload_profile_image/upload_profile_image_widget.dart';
 import '/index.dart';
-import 'profilesettings_widget.dart' show ProfilesettingsWidget;
+import 'profile_settings_widget.dart' show ProfileSettingsWidget;
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
-class ProfilesettingsModel extends FlutterFlowModel<ProfilesettingsWidget> {
+class ProfileSettingsModel extends FlutterFlowModel<ProfileSettingsWidget> {
   ///  Local state fields for this page.
 
   List<FFUploadedFile> imgs = [];
@@ -56,10 +55,16 @@ class ProfilesettingsModel extends FlutterFlowModel<ProfilesettingsWidget> {
   final formKey = GlobalKey<FormState>();
   // Model for upload_profile_image component.
   late UploadProfileImageModel uploadProfileImageModel;
-  // Model for imagenesfotosUsers component.
-  late ImagenesfotosUsersModel imagenesfotosUsersModel;
-  // Model for calendarioCopy component.
-  late CalendarioCopyModel calendarioCopyModel;
+  bool isDataUploading1 = false;
+  FFUploadedFile uploadedLocalFile1 =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+
+  // Stores action output result for [Custom Action - verifySizeVideo] action in Button widget.
+  bool? verifyVideo;
+  // State field(s) for description widget.
+  FocusNode? descriptionFocusNode;
+  TextEditingController? descriptionTextController;
+  String? Function(BuildContext, String?)? descriptionTextControllerValidator;
   // State field(s) for name widget.
   FocusNode? nameFocusNode;
   TextEditingController? nameTextController;
@@ -68,6 +73,10 @@ class ProfilesettingsModel extends FlutterFlowModel<ProfilesettingsWidget> {
   FocusNode? lastNameFocusNode;
   TextEditingController? lastNameTextController;
   String? Function(BuildContext, String?)? lastNameTextControllerValidator;
+  // State field(s) for Age widget.
+  FocusNode? ageFocusNode;
+  TextEditingController? ageTextController;
+  String? Function(BuildContext, String?)? ageTextControllerValidator;
   // State field(s) for phone widget.
   FocusNode? phoneFocusNode;
   TextEditingController? phoneTextController;
@@ -77,20 +86,16 @@ class ProfilesettingsModel extends FlutterFlowModel<ProfilesettingsWidget> {
   TextEditingController? dateTextController;
   final dateMask = MaskTextInputFormatter(mask: '##/##/####');
   String? Function(BuildContext, String?)? dateTextControllerValidator;
-  // State field(s) for abn widget.
-  FocusNode? abnFocusNode;
-  TextEditingController? abnTextController;
-  String? Function(BuildContext, String?)? abnTextControllerValidator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode;
-  TextEditingController? textController6;
-  String? Function(BuildContext, String?)? textController6Validator;
   // State field(s) for query widget.
   FocusNode? queryFocusNode;
   TextEditingController? queryTextController;
   String? Function(BuildContext, String?)? queryTextControllerValidator;
   // Stores action output result for [Backend Call - API (getSuggestionMapProfesional)] action in query widget.
   ApiCallResponse? apiResultuev;
+  // State field(s) for abn widget.
+  FocusNode? abnFocusNode;
+  TextEditingController? abnTextController;
+  String? Function(BuildContext, String?)? abnTextControllerValidator;
   // State field(s) for services widget.
   String? servicesValue;
   FormFieldController<String>? servicesValueController;
@@ -100,49 +105,16 @@ class ProfilesettingsModel extends FlutterFlowModel<ProfilesettingsWidget> {
   // State field(s) for DropDown widget.
   List<String>? dropDownValue;
   FormFieldController<List<String>>? dropDownValueController;
-  // State field(s) for age widget.
-  String? ageValue;
-  FormFieldController<String>? ageValueController;
-  // State field(s) for description widget.
-  FocusNode? descriptionFocusNode;
-  TextEditingController? descriptionTextController;
-  String? Function(BuildContext, String?)? descriptionTextControllerValidator;
-  bool isDataUploading1 = false;
-  FFUploadedFile uploadedLocalFile1 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
-
-  // Stores action output result for [Custom Action - verifySizeVideo] action in Button widget.
-  bool? verifyVideo;
+  // State field(s) for ages widget.
+  String? agesValue;
+  FormFieldController<String>? agesValueController;
+  // Model for calendarioCopy component.
+  late CalendarioCopyModel calendarioCopyModel;
   bool isDataUploading2 = false;
   FFUploadedFile uploadedLocalFile2 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
   String uploadedFileUrl2 = '';
 
-  // State field(s) for TextFieldNewEmail widget.
-  FocusNode? textFieldNewEmailFocusNode;
-  TextEditingController? textFieldNewEmailTextController;
-  String? Function(BuildContext, String?)?
-      textFieldNewEmailTextControllerValidator;
-  // State field(s) for TextFieldCurrent widget.
-  FocusNode? textFieldCurrentFocusNode;
-  TextEditingController? textFieldCurrentTextController;
-  late bool textFieldCurrentVisibility;
-  String? Function(BuildContext, String?)?
-      textFieldCurrentTextControllerValidator;
-  // State field(s) for TextFieldOldPass widget.
-  FocusNode? textFieldOldPassFocusNode;
-  TextEditingController? textFieldOldPassTextController;
-  late bool textFieldOldPassVisibility;
-  String? Function(BuildContext, String?)?
-      textFieldOldPassTextControllerValidator;
-  // State field(s) for TextFieldNewPass widget.
-  FocusNode? textFieldNewPassFocusNode;
-  TextEditingController? textFieldNewPassTextController;
-  late bool textFieldNewPassVisibility;
-  String? Function(BuildContext, String?)?
-      textFieldNewPassTextControllerValidator;
-  // Stores action output result for [Custom Action - changePassword] action in Button widget.
-  bool? isChange;
   // Stores action output result for [Backend Call - API (getPlace)] action in mapbuscar widget.
   ApiCallResponse? newPlace;
   // Model for Navbar component.
@@ -154,12 +126,7 @@ class ProfilesettingsModel extends FlutterFlowModel<ProfilesettingsWidget> {
   void initState(BuildContext context) {
     uploadProfileImageModel =
         createModel(context, () => UploadProfileImageModel());
-    imagenesfotosUsersModel =
-        createModel(context, () => ImagenesfotosUsersModel());
     calendarioCopyModel = createModel(context, () => CalendarioCopyModel());
-    textFieldCurrentVisibility = false;
-    textFieldOldPassVisibility = false;
-    textFieldNewPassVisibility = false;
     navbarModel = createModel(context, () => NavbarModel());
     navbarPremiunModel = createModel(context, () => NavbarPremiunModel());
   }
@@ -167,13 +134,17 @@ class ProfilesettingsModel extends FlutterFlowModel<ProfilesettingsWidget> {
   @override
   void dispose() {
     uploadProfileImageModel.dispose();
-    imagenesfotosUsersModel.dispose();
-    calendarioCopyModel.dispose();
+    descriptionFocusNode?.dispose();
+    descriptionTextController?.dispose();
+
     nameFocusNode?.dispose();
     nameTextController?.dispose();
 
     lastNameFocusNode?.dispose();
     lastNameTextController?.dispose();
+
+    ageFocusNode?.dispose();
+    ageTextController?.dispose();
 
     phoneFocusNode?.dispose();
     phoneTextController?.dispose();
@@ -181,30 +152,13 @@ class ProfilesettingsModel extends FlutterFlowModel<ProfilesettingsWidget> {
     dateFocusNode?.dispose();
     dateTextController?.dispose();
 
-    abnFocusNode?.dispose();
-    abnTextController?.dispose();
-
-    textFieldFocusNode?.dispose();
-    textController6?.dispose();
-
     queryFocusNode?.dispose();
     queryTextController?.dispose();
 
-    descriptionFocusNode?.dispose();
-    descriptionTextController?.dispose();
+    abnFocusNode?.dispose();
+    abnTextController?.dispose();
 
-    textFieldNewEmailFocusNode?.dispose();
-    textFieldNewEmailTextController?.dispose();
-
-    textFieldCurrentFocusNode?.dispose();
-    textFieldCurrentTextController?.dispose();
-
-    textFieldOldPassFocusNode?.dispose();
-    textFieldOldPassTextController?.dispose();
-
-    textFieldNewPassFocusNode?.dispose();
-    textFieldNewPassTextController?.dispose();
-
+    calendarioCopyModel.dispose();
     navbarModel.dispose();
     navbarPremiunModel.dispose();
   }

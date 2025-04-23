@@ -1,4 +1,3 @@
-import '';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
@@ -9,12 +8,14 @@ import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
 import '/v2/professional/mensage_tinder/mensage_tinder_widget.dart';
 import '/v2/professional/tinderv2_c0/tinderv2_c0_widget.dart';
-import 'dart:async';
 import '/flutter_flow/random_data_util.dart' as random_data;
 import '/index.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_card_swiper/flutter_card_swiper.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'tinderv2_c1_model.dart';
 export 'tinderv2_c1_model.dart';
 
@@ -78,249 +79,209 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
         FocusManager.instance.primaryFocus?.unfocus();
       },
-      child: Scaffold(
-        key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        body: SafeArea(
-          top: true,
-          child: Stack(
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(8.0),
-                child: Image.asset(
-                  'assets/images/werwee.png',
-                  width: MediaQuery.sizeOf(context).width * 1.0,
-                  height: MediaQuery.sizeOf(context).height * 1.0,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              Align(
-                alignment: AlignmentDirectional(0.0, -1.0),
-                child: Container(
-                  width: MediaQuery.sizeOf(context).width * 1.0,
-                  height: 60.0,
-                  decoration: BoxDecoration(
-                    color: Color(0xFFFDFDFD),
-                    boxShadow: [
-                      BoxShadow(
-                        blurRadius: 0.0,
-                        color: Color(0x33000000),
-                        offset: Offset(
-                          0.0,
-                          3.0,
-                        ),
-                      )
-                    ],
+      child: WillPopScope(
+        onWillPop: () async => false,
+        child: Scaffold(
+          key: scaffoldKey,
+          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+          body: SafeArea(
+            top: true,
+            child: Stack(
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8.0),
+                  child: Image.asset(
+                    'assets/images/werwee.png',
+                    width: MediaQuery.sizeOf(context).width * 1.0,
+                    height: MediaQuery.sizeOf(context).height * 1.0,
+                    fit: BoxFit.cover,
                   ),
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
-                    child: InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        if (loggedIn == false) {
-                          context.pushNamed(LoginWidget.routeName);
-                        } else {
-                          context.pushNamed(
-                            ProfileInfoWidget.routeName,
-                            queryParameters: {
-                              'professional': serializeParam(
-                                _model.currentProfessional?.reference,
-                                ParamType.DocumentReference,
-                              ),
-                            }.withoutNulls,
-                          );
-                        }
-                      },
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Align(
-                            alignment: AlignmentDirectional(0.0, 1.0),
-                            child: Text(
-                              'View Profile',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF8D0684),
-                                    fontSize: 20.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                            ),
+                ),
+                Align(
+                  alignment: AlignmentDirectional(0.0, -1.0),
+                  child: Container(
+                    width: MediaQuery.sizeOf(context).width * 1.0,
+                    height: 60.0,
+                    decoration: BoxDecoration(
+                      color: Color(0xFFFDFDFD),
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 0.0,
+                          color: Color(0x33000000),
+                          offset: Offset(
+                            0.0,
+                            3.0,
                           ),
-                        ],
+                        )
+                      ],
+                    ),
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          if (loggedIn == false) {
+                            context.pushNamed(LoginWidget.routeName);
+                          } else {
+                            context.pushNamed(
+                              ProfileInfoWidget.routeName,
+                              queryParameters: {
+                                'professional': serializeParam(
+                                  _model.currentProfessional?.reference,
+                                  ParamType.DocumentReference,
+                                ),
+                              }.withoutNulls,
+                            );
+                          }
+                        },
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Align(
+                              alignment: AlignmentDirectional(0.0, 1.0),
+                              child: Text(
+                                'View Profile',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      font: GoogleFonts.poppins(
+                                        fontWeight: FontWeight.w600,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
+                                      color: Color(0xFF8D0684),
+                                      fontSize: 20.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w600,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-              Align(
-                alignment: AlignmentDirectional(0.0, 0.0),
-                child: Container(
-                  height: MediaQuery.sizeOf(context).height * 0.75,
-                  decoration: BoxDecoration(),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Builder(
-                        builder: (context) {
-                          if ((_model.professionals.length <= 0) ||
-                              _model.showMessage) {
-                            return Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
-                              child: Container(
-                                constraints: BoxConstraints(
-                                  maxWidth:
-                                      MediaQuery.sizeOf(context).width * 0.96,
-                                  maxHeight:
-                                      MediaQuery.sizeOf(context).height * 0.65,
+                Align(
+                  alignment: AlignmentDirectional(0.0, 0.0),
+                  child: Container(
+                    height: MediaQuery.sizeOf(context).height * 0.75,
+                    decoration: BoxDecoration(),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Builder(
+                          builder: (context) {
+                            if ((_model.professionals.length <= 0) ||
+                                _model.showMessage ||
+                                (_model.currentProfessional == null)) {
+                              return Align(
+                                alignment: AlignmentDirectional(0.0, 0.0),
+                                child: Container(
+                                  constraints: BoxConstraints(
+                                    maxWidth:
+                                        MediaQuery.sizeOf(context).width * 0.96,
+                                    maxHeight:
+                                        MediaQuery.sizeOf(context).height *
+                                            0.65,
+                                  ),
+                                  decoration: BoxDecoration(),
+                                  child: wrapWithModel(
+                                    model: _model.mensageTinderModel,
+                                    updateCallback: () => safeSetState(() {}),
+                                    child: MensageTinderWidget(),
+                                  ),
                                 ),
-                                decoration: BoxDecoration(),
-                                child: wrapWithModel(
-                                  model: _model.mensageTinderModel,
-                                  updateCallback: () => safeSetState(() {}),
-                                  child: MensageTinderWidget(),
-                                ),
-                              ),
-                            );
-                          } else {
-                            return Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
-                              child: Container(
-                                constraints: BoxConstraints(
-                                  maxWidth:
-                                      MediaQuery.sizeOf(context).width * 0.96,
-                                  maxHeight:
-                                      MediaQuery.sizeOf(context).height * 0.65,
-                                ),
-                                decoration: BoxDecoration(),
-                                child: Builder(
-                                  builder: (context) {
-                                    final newData =
-                                        _model.professionals.toList();
+                              );
+                            } else {
+                              return Align(
+                                alignment: AlignmentDirectional(0.0, 0.0),
+                                child: Container(
+                                  constraints: BoxConstraints(
+                                    maxWidth:
+                                        MediaQuery.sizeOf(context).width * 0.96,
+                                    maxHeight:
+                                        MediaQuery.sizeOf(context).height *
+                                            0.65,
+                                  ),
+                                  decoration: BoxDecoration(),
+                                  child: Builder(
+                                    builder: (context) {
+                                      final newData = _model.professionals
+                                          .where((e) => FFAppState()
+                                              .tinderfilter
+                                              .hasDistance())
+                                          .toList();
 
-                                    return FlutterFlowSwipeableStack(
-                                      onSwipeFn: (index) {},
-                                      onLeftSwipe: (index) async {
-                                        final newDataItem = newData[index];
-                                        if (loggedIn == false) {
+                                      return FlutterFlowSwipeableStack(
+                                        onSwipeFn: (index) async {
+                                          final newDataItem = newData[index];
+                                          _model.currentProfessional =
+                                              newDataItem;
                                           _model.currentIndex =
                                               _model.currentIndex + 1;
                                           _model.currentProfessional =
                                               newData.elementAtOrNull(
                                                   _model.currentIndex);
-                                        } else {
-                                          _model.showMessage = false;
-                                          _model.temp = 'hola';
                                           safeSetState(() {});
-                                          _model.currentIndex =
-                                              _model.currentIndex + 1;
-                                          if (_model.currentIndex >=
-                                              newData.length) {
-                                            unawaited(
-                                              () async {
-                                                await currentUserReference!
-                                                    .update({
-                                                  ...mapToFirestore(
-                                                    {
-                                                      'dontShow': FieldValue
-                                                          .arrayUnion([
-                                                        newDataItem.reference
-                                                      ]),
-                                                    },
-                                                  ),
-                                                });
-                                              }(),
-                                            );
-                                            _model.showMessage = true;
-                                            _model.temp = 'mostrar';
+                                        },
+                                        onLeftSwipe: (index) async {
+                                          final newDataItem = newData[index];
+                                          if (!loggedIn) {
+                                            context.pushNamed(
+                                                LoginWidget.routeName);
+                                          } else {
+                                            _model.addToLastRejectedItem(
+                                                newDataItem);
                                             safeSetState(() {});
+                                            await Future.delayed(const Duration(
+                                                milliseconds: 3000));
+
+                                            await newDataItem.reference.update(
+                                                createUsersRecordData());
                                           }
-                                          _model.currentProfessional =
-                                              newData.elementAtOrNull(
-                                                  _model.currentIndex);
-                                          unawaited(
-                                            () async {
-                                              await currentUserReference!
-                                                  .update({
+                                        },
+                                        onRightSwipe: (index) async {
+                                          final newDataItem = newData[index];
+                                          final firestoreBatch =
+                                              FirebaseFirestore.instance
+                                                  .batch();
+                                          try {
+                                            if (!loggedIn) {
+                                              context.pushNamed(
+                                                  LoginWidget.routeName);
+                                            } else {
+                                              firestoreBatch.update(
+                                                  currentUserReference!, {
                                                 ...mapToFirestore(
                                                   {
-                                                    'dontShow':
+                                                    'favorites':
                                                         FieldValue.arrayUnion([
                                                       newDataItem.reference
                                                     ]),
                                                   },
                                                 ),
                                               });
-                                            }(),
-                                          );
-                                        }
-                                      },
-                                      onRightSwipe: (index) async {
-                                        final newDataItem = newData[index];
-                                        final firestoreBatch =
-                                            FirebaseFirestore.instance.batch();
-                                        try {
-                                          if (!loggedIn) {
-                                            context.pushNamed(
-                                                LoginWidget.routeName);
-                                          } else {
-                                            firestoreBatch
-                                                .update(currentUserReference!, {
-                                              ...mapToFirestore(
-                                                {
-                                                  'favorites':
-                                                      FieldValue.arrayUnion([
-                                                    newDataItem.reference
-                                                  ]),
-                                                },
-                                              ),
-                                            });
-                                            _model.currentProfessional =
-                                                newDataItem;
-                                            _model.chats =
-                                                await queryChatsRecordOnce(
-                                              queryBuilder: (chatsRecord) =>
-                                                  chatsRecord
-                                                      .where(
-                                                        'user_a',
-                                                        isEqualTo:
-                                                            currentUserReference,
-                                                      )
-                                                      .where(
-                                                        'user_b',
-                                                        isEqualTo: _model
-                                                            .currentProfessional
-                                                            ?.reference,
-                                                      ),
-                                              singleRecord: true,
-                                            ).then((s) => s.firstOrNull);
-                                            _model.addToUserToAdd(
-                                                currentUserReference!);
-                                            _model.addToUserToAdd(_model
-                                                .currentProfessional!
-                                                .reference);
-                                            if (_model.chats?.reference != null
-                                                ? (_model.chats?.users
-                                                        .contains(_model
-                                                            .currentProfessional
-                                                            ?.reference) ==
-                                                    true)
-                                                : false) {
-                                              _model.newRef =
+                                              _model.chats =
                                                   await queryChatsRecordOnce(
                                                 queryBuilder: (chatsRecord) =>
                                                     chatsRecord
@@ -337,277 +298,395 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                                         ),
                                                 singleRecord: true,
                                               ).then((s) => s.firstOrNull);
-                                            } else {
-                                              // newChat
+                                              _model.addToUserToAdd(
+                                                  newDataItem.reference);
+                                              _model.addToUserToAdd(
+                                                  currentUserReference!);
+                                              if (_model.chats?.reference !=
+                                                      null
+                                                  ? (_model.chats?.users
+                                                          .contains(_model
+                                                              .currentProfessional
+                                                              ?.reference) ==
+                                                      true)
+                                                  : false) {
+                                                _model.newRef =
+                                                    await queryChatsRecordOnce(
+                                                  queryBuilder: (chatsRecord) =>
+                                                      chatsRecord
+                                                          .where(
+                                                            'user_a',
+                                                            isEqualTo:
+                                                                currentUserReference,
+                                                          )
+                                                          .where(
+                                                            'user_b',
+                                                            isEqualTo: _model
+                                                                .currentProfessional
+                                                                ?.reference,
+                                                          ),
+                                                  singleRecord: true,
+                                                ).then((s) => s.firstOrNull);
+                                              } else {
+                                                // newChat
 
-                                              var chatsRecordReference =
-                                                  ChatsRecord.collection.doc();
-                                              firestoreBatch
-                                                  .set(chatsRecordReference, {
-                                                ...createChatsRecordData(
-                                                  userA: currentUserReference,
-                                                  userB: _model
-                                                      .currentProfessional
-                                                      ?.reference,
-                                                  lastMessage: '',
-                                                  lastMessageTime:
-                                                      getCurrentTimestamp,
-                                                  lastMessageSentBy:
-                                                      currentUserReference,
-                                                  groupChatId:
-                                                      random_data.randomInteger(
-                                                          1000000, 9999999),
-                                                ),
-                                                ...mapToFirestore(
-                                                  {
-                                                    'users': _model.userToAdd,
-                                                  },
-                                                ),
-                                              });
-                                              _model.newChatThread = ChatsRecord
-                                                  .getDocumentFromData({
-                                                ...createChatsRecordData(
-                                                  userA: currentUserReference,
-                                                  userB: _model
-                                                      .currentProfessional
-                                                      ?.reference,
-                                                  lastMessage: '',
-                                                  lastMessageTime:
-                                                      getCurrentTimestamp,
-                                                  lastMessageSentBy:
-                                                      currentUserReference,
-                                                  groupChatId:
-                                                      random_data.randomInteger(
-                                                          1000000, 9999999),
-                                                ),
-                                                ...mapToFirestore(
-                                                  {
-                                                    'users': _model.userToAdd,
-                                                  },
-                                                ),
-                                              }, chatsRecordReference);
+                                                var chatsRecordReference =
+                                                    ChatsRecord.collection
+                                                        .doc();
+                                                firestoreBatch
+                                                    .set(chatsRecordReference, {
+                                                  ...createChatsRecordData(
+                                                    userA: currentUserReference,
+                                                    userB: _model
+                                                        .currentProfessional
+                                                        ?.reference,
+                                                    lastMessage: '',
+                                                    lastMessageTime:
+                                                        getCurrentTimestamp,
+                                                    lastMessageSentBy:
+                                                        currentUserReference,
+                                                    groupChatId: random_data
+                                                        .randomInteger(
+                                                            1000000, 9999999),
+                                                  ),
+                                                  ...mapToFirestore(
+                                                    {
+                                                      'users': _model.userToAdd,
+                                                    },
+                                                  ),
+                                                });
+                                                _model.newChatThread =
+                                                    ChatsRecord
+                                                        .getDocumentFromData({
+                                                  ...createChatsRecordData(
+                                                    userA: currentUserReference,
+                                                    userB: _model
+                                                        .currentProfessional
+                                                        ?.reference,
+                                                    lastMessage: '',
+                                                    lastMessageTime:
+                                                        getCurrentTimestamp,
+                                                    lastMessageSentBy:
+                                                        currentUserReference,
+                                                    groupChatId: random_data
+                                                        .randomInteger(
+                                                            1000000, 9999999),
+                                                  ),
+                                                  ...mapToFirestore(
+                                                    {
+                                                      'users': _model.userToAdd,
+                                                    },
+                                                  ),
+                                                }, chatsRecordReference);
+                                              }
+
+                                              if (newDataItem.business !=
+                                                  null) {
+                                                firestoreBatch.set(
+                                                    NewsbusinessRecord
+                                                        .collection
+                                                        .doc(),
+                                                    createNewsbusinessRecordData(
+                                                      business:
+                                                          newDataItem.business,
+                                                      professional:
+                                                          newDataItem.reference,
+                                                      user:
+                                                          currentUserReference,
+                                                      isView: false,
+                                                    ));
+                                              }
+
+                                              context.pushNamed(
+                                                ProfileInfoWidget.routeName,
+                                                queryParameters: {
+                                                  'professional':
+                                                      serializeParam(
+                                                    newDataItem.reference,
+                                                    ParamType.DocumentReference,
+                                                  ),
+                                                }.withoutNulls,
+                                              );
+
+                                              _model.userToAdd = [];
+                                              if (_model.currentIndex >=
+                                                  newData.length) {
+                                                _model.showMessage = true;
+                                                _model.temp = 'mostrar';
+                                                safeSetState(() {});
+                                              }
                                             }
-
-                                            if (newDataItem.business != null) {
-                                              firestoreBatch.set(
-                                                  NewsbusinessRecord.collection
-                                                      .doc(),
-                                                  createNewsbusinessRecordData(
-                                                    business:
-                                                        newDataItem.business,
-                                                    professional:
-                                                        newDataItem.reference,
-                                                    user: currentUserReference,
-                                                    isView: false,
-                                                  ));
-                                            }
-
-                                            context.pushNamed(
-                                              ProfileInfoWidget.routeName,
-                                              queryParameters: {
-                                                'professional': serializeParam(
-                                                  _model.currentProfessional
-                                                      ?.reference,
-                                                  ParamType.DocumentReference,
-                                                ),
-                                              }.withoutNulls,
-                                            );
-
-                                            _model.currentIndex =
-                                                _model.currentIndex + 1;
-                                            _model.currentProfessional =
-                                                newData.elementAtOrNull(
-                                                    _model.currentIndex);
-                                            _model.userToAdd = [];
-                                            if (_model.currentIndex >=
-                                                newData.length) {
-                                              _model.showMessage = true;
-                                              _model.temp = 'mostrar';
-                                              safeSetState(() {});
-                                            }
+                                          } finally {
+                                            await firestoreBatch.commit();
                                           }
-                                        } finally {
-                                          await firestoreBatch.commit();
-                                        }
 
-                                        safeSetState(() {});
-                                      },
-                                      onUpSwipe: (index) {},
-                                      onDownSwipe: (index) {},
-                                      itemBuilder: (context, newDataIndex) {
-                                        final newDataItem =
-                                            newData[newDataIndex];
-                                        return Align(
-                                          alignment:
-                                              AlignmentDirectional(0.0, 0.0),
-                                          child: Tinderv2C0Widget(
-                                            key: Key(
-                                                'Keyx4t_${newDataIndex}_of_${newData.length}'),
-                                            professional: newDataItem,
-                                          ),
-                                        );
-                                      },
-                                      itemCount: newData.length,
-                                      controller:
-                                          _model.swipeableStackController,
-                                      loop: false,
-                                      cardDisplayCount: 1,
-                                      scale: 0.9,
-                                      cardPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 0.0, 0.0, 0.0),
-                                      backCardOffset: const Offset(1.0, 1.0),
-                                    );
+                                          safeSetState(() {});
+                                        },
+                                        onUpSwipe: (index) {},
+                                        onDownSwipe: (index) {},
+                                        itemBuilder: (context, newDataIndex) {
+                                          final newDataItem =
+                                              newData[newDataIndex];
+                                          return Align(
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
+                                            child: Tinderv2C0Widget(
+                                              key: Key(
+                                                  'Keyx4t_${newDataIndex}_of_${newData.length}'),
+                                              professional: newDataItem,
+                                            ),
+                                          );
+                                        },
+                                        itemCount: newData.length,
+                                        controller:
+                                            _model.swipeableStackController,
+                                        loop: false,
+                                        cardDisplayCount: 1,
+                                        scale: 0.9,
+                                        cardPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
+                                        backCardOffset: const Offset(1.0, 1.0),
+                                        allowedSwipeDirection:
+                                            AllowedSwipeDirection.symmetric(
+                                                horizontal: true),
+                                      );
+                                    },
+                                  ),
+                                ),
+                              );
+                            }
+                          },
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 4.0, 0.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Align(
+                                alignment: AlignmentDirectional(1.0, 0.0),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    _model.swipeableStackController.swipeLeft();
                                   },
-                                ),
-                              ),
-                            );
-                          }
-                        },
-                      ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Align(
-                              alignment: AlignmentDirectional(1.0, 0.0),
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  _model.swipeableStackController.swipeLeft();
-                                },
-                                child: Container(
-                                  width:
-                                      MediaQuery.sizeOf(context).width * 0.18,
-                                  height:
-                                      MediaQuery.sizeOf(context).width * 0.18,
-                                  clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Image.asset(
-                                    key: ValueKey('dislike'),
-                                    'assets/images/ggy9g_x.png',
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Stack(
-                              children: [
-                                Align(
-                                  alignment: AlignmentDirectional(0.0, 1.0),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 16.0, 0.0, 0.0),
-                                    child: InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        if (loggedIn) {
-                                          context.pushNamed(
-                                              DislikePageWidget.routeName);
-                                        } else {
-                                          context
-                                              .pushNamed(LoginWidget.routeName);
-                                        }
-                                      },
-                                      child: Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                0.13,
-                                        height:
-                                            MediaQuery.sizeOf(context).width *
-                                                0.13,
-                                        clipBehavior: Clip.antiAlias,
-                                        decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                        ),
-                                        child: Image.asset(
-                                          key: ValueKey('like'),
-                                          'assets/images/Group_100-2_(1).png',
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
+                                  child: Container(
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 0.18,
+                                    height:
+                                        MediaQuery.sizeOf(context).width * 0.18,
+                                    clipBehavior: Clip.antiAlias,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: Image.asset(
+                                      key: ValueKey('dislike'),
+                                      'assets/images/ggy9g_x.png',
+                                      fit: BoxFit.cover,
                                     ),
                                   ),
                                 ),
-                              ],
-                            ),
-                            Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  if (loggedIn == false) {
-                                    context.pushNamed(LoginWidget.routeName);
-                                  } else {
-                                    _model.swipeableStackController
-                                        .swipeRight();
-                                  }
-                                },
-                                child: Container(
-                                  width:
-                                      MediaQuery.sizeOf(context).width * 0.18,
-                                  height:
-                                      MediaQuery.sizeOf(context).width * 0.18,
-                                  clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
+                              ),
+                              Stack(
+                                children: [
+                                  Builder(
+                                    builder: (context) {
+                                      if (_model.currentProfessional == null) {
+                                        return Align(
+                                          alignment:
+                                              AlignmentDirectional(0.0, 1.0),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 16.0, 0.0, 0.0),
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                context.pushNamed(
+                                                  Tinderv2C1Widget.routeName,
+                                                  extra: <String, dynamic>{
+                                                    kTransitionInfoKey:
+                                                        TransitionInfo(
+                                                      hasTransition: true,
+                                                      transitionType:
+                                                          PageTransitionType
+                                                              .fade,
+                                                      duration: Duration(
+                                                          milliseconds: 0),
+                                                    ),
+                                                  },
+                                                );
+                                              },
+                                              child: Container(
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        0.13,
+                                                height:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        0.13,
+                                                clipBehavior: Clip.antiAlias,
+                                                decoration: BoxDecoration(
+                                                  shape: BoxShape.circle,
+                                                ),
+                                                child: Image.asset(
+                                                  'assets/images/Group_100-2_(1).png',
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      } else {
+                                        return Align(
+                                          alignment:
+                                              AlignmentDirectional(0.0, 1.0),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 16.0, 0.0, 0.0),
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                if (loggedIn) {
+                                                  if (_model.lastRejectedItem
+                                                          .length >
+                                                      0) {
+                                                    _model.lastRetrievedItem =
+                                                        _model.lastRejectedItem
+                                                            .lastOrNull;
+                                                    safeSetState(() {});
+                                                    await Future.delayed(
+                                                        const Duration(
+                                                            milliseconds: 500));
+                                                    _model.currentProfessional =
+                                                        _model
+                                                            .lastRetrievedItem;
+                                                    safeSetState(() {});
+                                                    _model.insertAtIndexInProfessionals(
+                                                        _model.currentIndex,
+                                                        _model
+                                                            .lastRetrievedItem!);
+                                                    safeSetState(() {});
+                                                    _model
+                                                        .removeFromLastRejectedItem(
+                                                            _model
+                                                                .lastRejectedItem
+                                                                .lastOrNull!);
+                                                  }
+                                                } else {
+                                                  context.pushNamed(
+                                                      LoginWidget.routeName);
+                                                }
+                                              },
+                                              child: Container(
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        0.13,
+                                                height:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        0.13,
+                                                clipBehavior: Clip.antiAlias,
+                                                decoration: BoxDecoration(
+                                                  shape: BoxShape.circle,
+                                                ),
+                                                child: Image.asset(
+                                                  key: ValueKey('like'),
+                                                  'assets/images/Group_100-2_(1).png',
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      }
+                                    },
                                   ),
-                                  child: Image.asset(
-                                    key: ValueKey('like'),
-                                    'assets/images/ME-GUSTA.png',
-                                    fit: BoxFit.cover,
+                                ],
+                              ),
+                              Align(
+                                alignment: AlignmentDirectional(0.0, 0.0),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    if (loggedIn == false) {
+                                      context.pushNamed(LoginWidget.routeName);
+                                    } else {
+                                      _model.swipeableStackController
+                                          .swipeRight();
+                                    }
+                                  },
+                                  child: Container(
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 0.18,
+                                    height:
+                                        MediaQuery.sizeOf(context).width * 0.18,
+                                    clipBehavior: Clip.antiAlias,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: Image.asset(
+                                      key: ValueKey('like'),
+                                      'assets/images/ME-GUSTA.png',
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ].divide(SizedBox(width: 12.0)),
+                            ].divide(SizedBox(width: 12.0)),
+                          ),
                         ),
-                      ),
-                    ].divide(SizedBox(height: 2.0)),
+                      ].divide(SizedBox(height: 2.0)),
+                    ),
                   ),
                 ),
-              ),
-              Align(
-                alignment: AlignmentDirectional(0.0, 1.0),
-                child: Container(
-                  height: 73.0,
-                  decoration: BoxDecoration(
-                    color: Color(0xB3B928B8),
-                  ),
-                  child: Builder(
-                    builder: (context) {
-                      if (currentUserDocument?.rol != Roles.business) {
-                        return wrapWithModel(
-                          model: _model.navbarModel,
-                          updateCallback: () => safeSetState(() {}),
-                          child: NavbarWidget(),
-                        );
-                      } else {
-                        return wrapWithModel(
-                          model: _model.navbarPremiunModel,
-                          updateCallback: () => safeSetState(() {}),
-                          child: NavbarPremiunWidget(),
-                        );
-                      }
-                    },
+                Align(
+                  alignment: AlignmentDirectional(0.0, 1.0),
+                  child: Container(
+                    height: 73.0,
+                    decoration: BoxDecoration(
+                      color: Color(0xB3B928B8),
+                    ),
+                    child: Builder(
+                      builder: (context) {
+                        if (currentUserDocument?.rol != Roles.business) {
+                          return wrapWithModel(
+                            model: _model.navbarModel,
+                            updateCallback: () => safeSetState(() {}),
+                            child: NavbarWidget(),
+                          );
+                        } else {
+                          return wrapWithModel(
+                            model: _model.navbarPremiunModel,
+                            updateCallback: () => safeSetState(() {}),
+                            child: NavbarPremiunWidget(),
+                          );
+                        }
+                      },
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

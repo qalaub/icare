@@ -96,6 +96,8 @@ class RegisterBusiness1Model extends FlutterFlowModel<RegisterBusiness1Widget> {
   FocusNode? abnFocusNode;
   TextEditingController? abnTextController;
   String? Function(BuildContext, String?)? abnTextControllerValidator;
+  // Stores action output result for [Firestore Query - Query a collection] action in abn widget.
+  int? abnexist1;
   // State field(s) for phone widget.
   FocusNode? phoneFocusNode;
   TextEditingController? phoneTextController;

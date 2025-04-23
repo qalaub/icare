@@ -14,6 +14,8 @@ class RegisterUser2Model extends FlutterFlowModel<RegisterUser2Widget> {
   FocusNode? ndisFocusNode;
   TextEditingController? ndisTextController;
   String? Function(BuildContext, String?)? ndisTextControllerValidator;
+  // Stores action output result for [Firestore Query - Query a collection] action in ndis widget.
+  int? ndisexist;
   // State field(s) for DropDown widget.
   List<String>? dropDownValue;
   FormFieldController<List<String>>? dropDownValueController;

@@ -26,6 +26,8 @@ class RegisterBusiness2Model extends FlutterFlowModel<RegisterBusiness2Widget> {
   FocusNode? ndisFocusNode;
   TextEditingController? ndisTextController;
   String? Function(BuildContext, String?)? ndisTextControllerValidator;
+  // Stores action output result for [Firestore Query - Query a collection] action in ndis widget.
+  int? ndisexist2;
   // State field(s) for age widget.
   String? ageValue;
   FormFieldController<String>? ageValueController;

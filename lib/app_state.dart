@@ -136,7 +136,7 @@ class FFAppState extends ChangeNotifier {
   }
 
   FiltersStruct _filtersPage = FiltersStruct.fromSerializableMap(jsonDecode(
-      '{\"distance\":\"1000000\",\"age\":\"[\\\"40-65+ years\\\",\\\"25-40 years\\\",\\\"18-25 years\\\"]\",\"services\":\"[\\\"Support Workers\\\",\\\"Support  Coordinators\\\",\\\"Therapeutic Supports\\\",\\\"Home Maintenance\\\",\\\"Recovery Coaches\\\"]\",\"schedule\":\"[\\\"Monday\\\",\\\"Tuesday\\\",\\\"Wednesday\\\",\\\"Thursday\\\",\\\"Friday\\\",\\\"Saturday\\\",\\\"Sunday\\\"]\"}'));
+      '{\"distance\":\"6000\",\"age\":\"[\\\"40-65+ years\\\",\\\"25-40 years\\\",\\\"18-25 years\\\"]\",\"services\":\"[\\\"Support Worker\\\",\\\"Support  Coordinator\\\",\\\"Therapeutic Support\\\",\\\"Home Maintenance\\\",\\\"Recovery Coach\\\"]\",\"schedule\":\"[\\\"Monday\\\",\\\"Tuesday\\\",\\\"Wednesday\\\",\\\"Thursday\\\",\\\"Friday\\\",\\\"Saturday\\\",\\\"Sunday\\\"]\"}'));
   FiltersStruct get filtersPage => _filtersPage;
   set filtersPage(FiltersStruct value) {
     _filtersPage = value;
@@ -172,7 +172,7 @@ class FFAppState extends ChangeNotifier {
   }
 
   CurrentProfesionalMapStruct _currentProfesionalUbication =
-      CurrentProfesionalMapStruct();
+      CurrentProfesionalMapStruct.fromSerializableMap(jsonDecode('{}'));
   CurrentProfesionalMapStruct get currentProfesionalUbication =>
       _currentProfesionalUbication;
   set currentProfesionalUbication(CurrentProfesionalMapStruct value) {
@@ -188,6 +188,63 @@ class FFAppState extends ChangeNotifier {
   bool get isCreatedProfesional => _isCreatedProfesional;
   set isCreatedProfesional(bool value) {
     _isCreatedProfesional = value;
+  }
+
+  FiltersStruct _filterpageprofe = FiltersStruct.fromSerializableMap(jsonDecode(
+      '{\"distance\":\"6000\",\"age\":\"[]\",\"services\":\"[]\",\"schedule\":\"[]\"}'));
+  FiltersStruct get filterpageprofe => _filterpageprofe;
+  set filterpageprofe(FiltersStruct value) {
+    _filterpageprofe = value;
+  }
+
+  void updateFilterpageprofeStruct(Function(FiltersStruct) updateFn) {
+    updateFn(_filterpageprofe);
+  }
+
+  FiltersStruct _tinderfilter = FiltersStruct.fromSerializableMap(jsonDecode(
+      '{\"distance\":\"60\",\"age\":\"[]\",\"services\":\"[]\",\"schedule\":\"[]\"}'));
+  FiltersStruct get tinderfilter => _tinderfilter;
+  set tinderfilter(FiltersStruct value) {
+    _tinderfilter = value;
+  }
+
+  void updateTinderfilterStruct(Function(FiltersStruct) updateFn) {
+    updateFn(_tinderfilter);
+  }
+
+  List<DocumentReference> _userList = [];
+  List<DocumentReference> get userList => _userList;
+  set userList(List<DocumentReference> value) {
+    _userList = value;
+  }
+
+  void addToUserList(DocumentReference value) {
+    userList.add(value);
+  }
+
+  void removeFromUserList(DocumentReference value) {
+    userList.remove(value);
+  }
+
+  void removeAtIndexFromUserList(int index) {
+    userList.removeAt(index);
+  }
+
+  void updateUserListAtIndex(
+    int index,
+    DocumentReference Function(DocumentReference) updateFn,
+  ) {
+    userList[index] = updateFn(_userList[index]);
+  }
+
+  void insertAtIndexInUserList(int index, DocumentReference value) {
+    userList.insert(index, value);
+  }
+
+  bool _locationPermissionGranted = false;
+  bool get locationPermissionGranted => _locationPermissionGranted;
+  set locationPermissionGranted(bool value) {
+    _locationPermissionGranted = value;
   }
 
   final _userDocQueryManager = FutureRequestManager<UsersRecord>();

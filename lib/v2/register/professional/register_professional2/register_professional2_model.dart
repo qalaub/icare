@@ -27,6 +27,8 @@ class RegisterProfessional2Model
   FocusNode? ndisFocusNode;
   TextEditingController? ndisTextController;
   String? Function(BuildContext, String?)? ndisTextControllerValidator;
+  // Stores action output result for [Firestore Query - Query a collection] action in ndis widget.
+  int? ndisexist1;
   // State field(s) for years widget.
   FocusNode? yearsFocusNode;
   TextEditingController? yearsTextController;

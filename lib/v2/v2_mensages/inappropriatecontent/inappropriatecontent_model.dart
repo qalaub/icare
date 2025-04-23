@@ -1,8 +1,9 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'report_section_widget.dart' show ReportSectionWidget;
+import 'inappropriatecontent_widget.dart' show InappropriatecontentWidget;
 import 'package:flutter/material.dart';
 
-class ReportSectionModel extends FlutterFlowModel<ReportSectionWidget> {
+class InappropriatecontentModel
+    extends FlutterFlowModel<InappropriatecontentWidget> {
   @override
   void initState(BuildContext context) {}
 

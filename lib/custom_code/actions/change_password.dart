@@ -20,6 +20,17 @@ Future<bool> changePassword(
   // Add your function code here!
   bool success = false;
 
+  // Verificar que la nueva contraseña no sea igual a la actual
+  if (currentPassword == newPassword) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('La nueva contraseña no puede ser igual a la actual'),
+        backgroundColor: Colors.red,
+      ),
+    );
+    return false;
+  }
+
   //Create an instance of the current user.
   var user = await FirebaseAuth.instance.currentUser!;
   //Must re-authenticate user before updating the password. Otherwise it may fail or user get signed out.

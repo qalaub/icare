@@ -39,6 +39,20 @@ class Tinderv2C1Model extends FlutterFlowModel<Tinderv2C1Widget> {
 
   String temp = 'hola';
 
+  List<UsersRecord> lastRejectedItem = [];
+  void addToLastRejectedItem(UsersRecord item) => lastRejectedItem.add(item);
+  void removeFromLastRejectedItem(UsersRecord item) =>
+      lastRejectedItem.remove(item);
+  void removeAtIndexFromLastRejectedItem(int index) =>
+      lastRejectedItem.removeAt(index);
+  void insertAtIndexInLastRejectedItem(int index, UsersRecord item) =>
+      lastRejectedItem.insert(index, item);
+  void updateLastRejectedItemAtIndex(
+          int index, Function(UsersRecord) updateFn) =>
+      lastRejectedItem[index] = updateFn(lastRejectedItem[index]);
+
+  UsersRecord? lastRetrievedItem;
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Firestore Query - Query a collection] action in tinderv2C1 widget.

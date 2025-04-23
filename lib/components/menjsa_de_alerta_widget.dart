@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'menjsa_de_alerta_model.dart';
 export 'menjsa_de_alerta_model.dart';
 
@@ -44,11 +45,15 @@ class _MenjsaDeAlertaWidgetState extends State<MenjsaDeAlertaWidget> {
           'Please upload photos to complete your profile. Make sure your face is clear and visible, don’t forget to',
           textAlign: TextAlign.center,
           style: FlutterFlowTheme.of(context).bodyMedium.override(
-                fontFamily: 'Montserrat',
+                font: GoogleFonts.montserrat(
+                  fontWeight: FontWeight.w500,
+                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                ),
                 color: Color(0xFFE90606),
                 fontSize: 13.0,
                 letterSpacing: 0.0,
                 fontWeight: FontWeight.w500,
+                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
               ),
         ),
       ),

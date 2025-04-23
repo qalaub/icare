@@ -7,14 +7,14 @@ import 'package:flutter/material.dart';
 class LikesV3Model extends FlutterFlowModel<LikesV3Widget> {
   ///  Local state fields for this component.
 
-  String newSuburb = 'NWS, 2413';
+  String newSuburb = 'Location';
 
   ///  State fields for stateful widgets in this component.
 
   // Stores action output result for [Firestore Query - Query a collection] action in likesV3 widget.
   UsersRecord? newUser;
   // Stores action output result for [Backend Call - API (getNamePlace)] action in likesV3 widget.
-  ApiCallResponse? apiResult63q;
+  ApiCallResponse? apiResult5vv;
 
   @override
   void initState(BuildContext context) {}

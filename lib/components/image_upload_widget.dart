@@ -17,7 +17,7 @@ class ImageUploadWidget extends StatefulWidget {
     this.index,
     String? background,
   }) : this.background = background ??
-            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/xokotouxb9hk/imageText.png';
+            'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/vi246dg6iwmj/photoadd.png';
 
   final String? img;
   final int? index;
@@ -71,17 +71,20 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
               _model.uploadedFileUrl != ''
                   ? valueOrDefault<String>(
                       _model.uploadedFileUrl,
-                      'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
+                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/gdid8dlbsj9v/addi.png',
                     )
                   : valueOrDefault<String>(
                       widget.img != null && widget.img != ''
                           ? widget.img
-                          : widget.background,
-                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/xokotouxb9hk/imageText.png',
+                          : valueOrDefault<String>(
+                              widget.background,
+                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/gdid8dlbsj9v/addi.png',
+                            ),
+                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/gdid8dlbsj9v/addi.png',
                     ),
-              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/xokotouxb9hk/imageText.png',
+              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/gdid8dlbsj9v/addi.png',
             ),
-            width: MediaQuery.sizeOf(context).width * 1.0,
+            width: MediaQuery.sizeOf(context).width * 1.09,
             height: MediaQuery.sizeOf(context).height * 1.0,
             fit: BoxFit.cover,
           ),

@@ -222,10 +222,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: ProfilesettingsWidget.routeName,
-              path: ProfilesettingsWidget.routePath,
+              name: SecuritySettingsWidget.routeName,
+              path: SecuritySettingsWidget.routePath,
               requireAuth: true,
-              builder: (context, params) => ProfilesettingsWidget(
+              builder: (context, params) => SecuritySettingsWidget(
                 initialSur: params.getParam(
                   'initialSur',
                   ParamType.String,
@@ -427,9 +427,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: ReportSectionWidget.routeName,
-              path: ReportSectionWidget.routePath,
-              builder: (context, params) => ReportSectionWidget(
+              name: HarassmentWidget.routeName,
+              path: HarassmentWidget.routePath,
+              builder: (context, params) => HarassmentWidget(
                 report: params.getParam(
                   'report',
                   ParamType.String,
@@ -572,6 +572,125 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 isProfesional: params.getParam(
                   'isProfesional',
                   ParamType.bool,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: ProfileSettingsWidget.routeName,
+              path: ProfileSettingsWidget.routePath,
+              requireAuth: true,
+              builder: (context, params) => ProfileSettingsWidget(
+                initialSur: params.getParam(
+                  'initialSur',
+                  ParamType.String,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: SomeoneelseWidget.routeName,
+              path: SomeoneelseWidget.routePath,
+              builder: (context, params) => SomeoneelseWidget(
+                report: params.getParam(
+                  'report',
+                  ParamType.String,
+                ),
+                user1: params.getParam(
+                  'user1',
+                  ParamType.String,
+                ),
+                user2: params.getParam(
+                  'user2',
+                  ParamType.String,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: InappropriatecontentWidget.routeName,
+              path: InappropriatecontentWidget.routePath,
+              builder: (context, params) => InappropriatecontentWidget(
+                report: params.getParam(
+                  'report',
+                  ParamType.String,
+                ),
+                user1: params.getParam(
+                  'user1',
+                  ParamType.String,
+                ),
+                user2: params.getParam(
+                  'user2',
+                  ParamType.String,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: InciteshatredWidget.routeName,
+              path: InciteshatredWidget.routePath,
+              builder: (context, params) => InciteshatredWidget(
+                report: params.getParam(
+                  'report',
+                  ParamType.String,
+                ),
+                user1: params.getParam(
+                  'user1',
+                  ParamType.String,
+                ),
+                user2: params.getParam(
+                  'user2',
+                  ParamType.String,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: UnauthorizedsalesWidget.routeName,
+              path: UnauthorizedsalesWidget.routePath,
+              builder: (context, params) => UnauthorizedsalesWidget(
+                report: params.getParam(
+                  'report',
+                  ParamType.String,
+                ),
+                user1: params.getParam(
+                  'user1',
+                  ParamType.String,
+                ),
+                user2: params.getParam(
+                  'user2',
+                  ParamType.String,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: ScamsWidget.routeName,
+              path: ScamsWidget.routePath,
+              builder: (context, params) => ScamsWidget(
+                report: params.getParam(
+                  'report',
+                  ParamType.String,
+                ),
+                user1: params.getParam(
+                  'user1',
+                  ParamType.String,
+                ),
+                user2: params.getParam(
+                  'user2',
+                  ParamType.String,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: OtherWidget.routeName,
+              path: OtherWidget.routePath,
+              builder: (context, params) => OtherWidget(
+                report: params.getParam(
+                  'report',
+                  ParamType.String,
+                ),
+                user1: params.getParam(
+                  'user1',
+                  ParamType.String,
+                ),
+                user2: params.getParam(
+                  'user2',
+                  ParamType.String,
                 ),
               ),
             )

@@ -1,6 +1,7 @@
-import '';
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
+import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -15,10 +16,10 @@ export 'likes_v3_model.dart';
 class LikesV3Widget extends StatefulWidget {
   const LikesV3Widget({
     super.key,
-    this.professionalRef,
+    this.profesionalRef,
   });
 
-  final DocumentReference? professionalRef;
+  final DocumentReference? profesionalRef;
 
   @override
   State<LikesV3Widget> createState() => _LikesV3WidgetState();
@@ -41,19 +42,24 @@ class _LikesV3WidgetState extends State<LikesV3Widget> {
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       _model.newUser = await queryUsersRecordOnce(
-        queryBuilder: (usersRecord) => usersRecord.where(
-          'uid',
-          isEqualTo: widget.professionalRef?.id,
-        ),
+        queryBuilder: (usersRecord) => usersRecord
+            .where(
+              'uid',
+              isEqualTo: currentUserReference?.id,
+            )
+            .where(
+              'rol',
+              isEqualTo: Roles.user.serialize(),
+            ),
         singleRecord: true,
       ).then((s) => s.firstOrNull);
-      _model.apiResult63q = await GetNamePlaceCall.call(
-        lat: functions.latLngToString(_model.newUser!.suburb!),
+      _model.apiResult5vv = await GetNamePlaceCall.call(
+        lat: functions.latLngToString(currentUserDocument!.suburb!),
       );
 
-      if ((_model.apiResult63q?.succeeded ?? true)) {
+      if ((_model.apiResult5vv?.succeeded ?? true)) {
         _model.newSuburb = GetNamePlaceCall.street(
-          (_model.apiResult63q?.jsonBody ?? ''),
+          (_model.apiResult5vv?.jsonBody ?? ''),
         )!
             .firstOrNull!
             .toString();
@@ -72,16 +78,9 @@ class _LikesV3WidgetState extends State<LikesV3Widget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: AlignmentDirectional(0.0, -0.9),
-      child: StreamBuilder<List<UsersRecord>>(
-        stream: queryUsersRecord(
-          queryBuilder: (usersRecord) => usersRecord.where(
-            'uid',
-            isEqualTo: widget.professionalRef?.id,
-            isNull: (widget.professionalRef?.id) == null,
-          ),
-          singleRecord: true,
-        ),
+      alignment: AlignmentDirectional(0.0, 0.0),
+      child: StreamBuilder<UsersRecord>(
+        stream: UsersRecord.getDocument(widget.profesionalRef!),
         builder: (context, snapshot) {
           // Customize what your widget looks like when it's loading.
           if (!snapshot.hasData) {
@@ -97,210 +96,267 @@ class _LikesV3WidgetState extends State<LikesV3Widget> {
               ),
             );
           }
-          List<UsersRecord> containerUsersRecordList = snapshot.data!;
-          // Return an empty Container when the item does not exist.
-          if (snapshot.data!.isEmpty) {
-            return Container();
-          }
-          final containerUsersRecord = containerUsersRecordList.isNotEmpty
-              ? containerUsersRecordList.first
-              : null;
+
+          final containerUsersRecord = snapshot.data!;
 
           return Container(
-            width: MediaQuery.sizeOf(context).width * 0.85,
+            width: MediaQuery.sizeOf(context).width * 0.65,
             height: 144.0,
             decoration: BoxDecoration(
               color: Color(0xFFF2CCF1),
               borderRadius: BorderRadius.circular(22.0),
               shape: BoxShape.rectangle,
             ),
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Align(
-                  alignment: AlignmentDirectional(0.0, -0.6),
-                  child: Container(
-                    width: 60.0,
-                    height: 60.0,
-                    decoration: BoxDecoration(),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(8.0),
-                      child: CachedNetworkImage(
-                        fadeInDuration: Duration(milliseconds: 500),
-                        fadeOutDuration: Duration(milliseconds: 500),
-                        imageUrl: valueOrDefault<String>(
-                          containerUsersRecord?.photoUrl,
-                          'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
+            child: Align(
+              alignment: AlignmentDirectional(0.0, 0.0),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Align(
+                    alignment: AlignmentDirectional(0.0, 0.0),
+                    child: Container(
+                      width: 60.0,
+                      height: 60.0,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(8.0),
+                        child: CachedNetworkImage(
+                          fadeInDuration: Duration(milliseconds: 500),
+                          fadeOutDuration: Duration(milliseconds: 500),
+                          imageUrl: containerUsersRecord.photoUrl,
+                          width: MediaQuery.sizeOf(context).width * 0.2,
+                          height: 59.0,
+                          fit: BoxFit.cover,
                         ),
-                        width: MediaQuery.sizeOf(context).width * 0.2,
-                        height: 59.0,
-                        fit: BoxFit.cover,
                       ),
                     ),
                   ),
-                ),
-                Align(
-                  alignment: AlignmentDirectional(0.0, 0.0),
-                  child: Container(
-                    width: MediaQuery.sizeOf(context).width * 0.5,
-                    height: 100.0,
-                    decoration: BoxDecoration(),
-                    child: Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Align(
-                                  alignment: AlignmentDirectional(0.0, -0.1),
-                                  child: Text(
-                                    functions.upperCaseFirstLetter(
-                                        valueOrDefault<String>(
-                                      functions.concatStrings(
-                                          containerUsersRecord?.firtsName,
-                                          containerUsersRecord?.lastName,
-                                          ' '),
-                                      'claudia',
-                                    )),
-                                    style: FlutterFlowTheme.of(context)
-                                        .headlineLarge
-                                        .override(
-                                          fontFamily: 'Montserrat',
-                                          fontSize: 17.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 12.0, 0.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Icon(
-                                  FFIcons.ksearch,
-                                  color: Color(0xFF27479B),
-                                  size: 18.0,
-                                ),
-                                Container(
-                                  decoration: BoxDecoration(),
-                                  child: RichText(
-                                    textScaler:
-                                        MediaQuery.of(context).textScaler,
-                                    text: TextSpan(
-                                      children: [
-                                        TextSpan(
-                                          text: ':  ',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Montserrat',
-                                                color: Color(0xFF27479B),
-                                                fontSize: 16.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w600,
-                                              ),
-                                        ),
-                                        TextSpan(
-                                          text: 'Therapeut',
-                                          style: GoogleFonts.getFont(
-                                            'Montserrat',
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 14.0,
-                                          ),
-                                        )
-                                      ],
+                  Align(
+                    alignment: AlignmentDirectional(0.0, 0.0),
+                    child: Container(
+                      width: MediaQuery.sizeOf(context).width * 0.5,
+                      height: 100.0,
+                      decoration: BoxDecoration(),
+                      child: Align(
+                        alignment: AlignmentDirectional(0.0, 0.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Align(
+                              alignment: AlignmentDirectional(0.0, 0.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Align(
+                                    alignment: AlignmentDirectional(0.0, -0.1),
+                                    child: Text(
+                                      functions.upperCaseFirstLetter(
+                                          containerUsersRecord.firtsName),
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
+                                          .headlineLarge
                                           .override(
-                                            fontFamily: 'Montserrat',
-                                            fontSize: 16.0,
+                                            font: GoogleFonts.montserrat(
+                                              fontWeight: FontWeight.w600,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .headlineLarge
+                                                      .fontStyle,
+                                            ),
+                                            fontSize: 17.0,
                                             letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w600,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .headlineLarge
+                                                    .fontStyle,
                                           ),
                                     ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 8.0, 0.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Icon(
-                                  FFIcons.kubicationplane,
-                                  color: Color(0xFF27479B),
-                                  size: 20.0,
-                                ),
-                                Container(
-                                  decoration: BoxDecoration(),
-                                  child: RichText(
-                                    textScaler:
-                                        MediaQuery.of(context).textScaler,
-                                    text: TextSpan(
-                                      children: [
-                                        TextSpan(
-                                          text: ':  ',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Montserrat',
-                                                color: Color(0xFF27479B),
-                                                fontSize: 16.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w600,
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 12.0, 0.0, 0.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Icon(
+                                    Icons.location_history,
+                                    color: Color(0xFF27479B),
+                                    size: 20.0,
+                                  ),
+                                  Container(
+                                    decoration: BoxDecoration(),
+                                    child: RichText(
+                                      textScaler:
+                                          MediaQuery.of(context).textScaler,
+                                      text: TextSpan(
+                                        children: [
+                                          TextSpan(
+                                            text: ':  ',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  font: GoogleFonts.montserrat(
+                                                    fontWeight: FontWeight.w600,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
+                                                  ),
+                                                  color: Color(0xFF27479B),
+                                                  fontSize: 16.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w600,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                          ),
+                                          TextSpan(
+                                            text: functions.formatnameStreet(
+                                                _model.newSuburb),
+                                            style: GoogleFonts.montserrat(
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: 14.0,
+                                            ),
+                                          )
+                                        ],
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              font: GoogleFonts.montserrat(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
                                               ),
-                                        ),
-                                        TextSpan(
-                                          text: functions
-                                              .extractStateAndPostalCode(
-                                                  _model.newSuburb),
-                                          style: GoogleFonts.getFont(
-                                            'Montserrat',
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 14.0,
-                                          ),
-                                        )
-                                      ],
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Montserrat',
-                                            fontSize: 16.0,
-                                            letterSpacing: 0.0,
-                                          ),
+                                              fontSize: 16.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
+                                            ),
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                          ),
-                        ]
-                            .divide(SizedBox(height: 4.0))
-                            .addToStart(SizedBox(height: 3.0)),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 8.0, 0.0, 0.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Icon(
+                                    FFIcons.kubicationplane,
+                                    color: Color(0xFF27479B),
+                                    size: 20.0,
+                                  ),
+                                  Container(
+                                    decoration: BoxDecoration(),
+                                    child: RichText(
+                                      textScaler:
+                                          MediaQuery.of(context).textScaler,
+                                      text: TextSpan(
+                                        children: [
+                                          TextSpan(
+                                            text: ':  ',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  font: GoogleFonts.montserrat(
+                                                    fontWeight: FontWeight.w600,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
+                                                  ),
+                                                  color: Color(0xFF27479B),
+                                                  fontSize: 16.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w600,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                          ),
+                                          TextSpan(
+                                            text: functions
+                                                .extractStateAndPostalCode(
+                                                    _model.newSuburb),
+                                            style: GoogleFonts.montserrat(
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: 14.0,
+                                            ),
+                                          )
+                                        ],
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              font: GoogleFonts.montserrat(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                              fontSize: 16.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
+                                            ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ].divide(SizedBox(height: 5.0)),
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ]
-                  .divide(SizedBox(width: 8.0))
-                  .addToStart(SizedBox(width: 12.0))
-                  .addToEnd(SizedBox(width: 12.0)),
+                ]
+                    .divide(SizedBox(width: 10.0))
+                    .addToStart(SizedBox(width: 30.0))
+                    .addToEnd(SizedBox(width: 15.0)),
+              ),
             ),
           );
         },
