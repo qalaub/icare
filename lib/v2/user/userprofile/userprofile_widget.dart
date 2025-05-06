@@ -75,7 +75,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
         onWillPop: () async => false,
         child: Scaffold(
           key: scaffoldKey,
-          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+          backgroundColor: Color(0xFFBD39BA),
           body: SafeArea(
             top: true,
             child: Column(
@@ -200,7 +200,10 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                 ),
                               ),
                             ),
-                          if (currentUserDocument?.rol != Roles.user)
+                          if ((currentUserDocument?.rol != Roles.user) &&
+                              (currentUserDocument?.rol == Roles.profesional
+                                  ? (currentUserDocument?.business == null)
+                                  : true))
                             AuthUserStreamWidget(
                               builder: (context) => Container(
                                 width: 326.0,
@@ -439,7 +442,10 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                               ),
                             ),
                           ),
-                          if (currentUserDocument?.rol == Roles.business)
+                          if ((currentUserDocument?.rol == Roles.business) &&
+                              (currentUserDocument?.rol == Roles.profesional
+                                  ? (currentUserDocument?.business == null)
+                                  : true))
                             AuthUserStreamWidget(
                               builder: (context) => Container(
                                 width: 326.0,
@@ -576,33 +582,39 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                 ),
                               ),
                             ),
-                          Container(
-                            width: 326.0,
-                            height: 52.0,
-                            decoration: BoxDecoration(),
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                context.pushNamed(BlockListWidget.routeName);
-                              },
-                              child: wrapWithModel(
-                                model: _model.accountOptionModel6,
-                                updateCallback: () => safeSetState(() {}),
-                                child: AccountOptionWidget(
-                                  key: ValueKey('block'),
-                                  icon: Icon(
-                                    key: ValueKey('block'),
-                                    Icons.no_accounts,
-                                    size: 30.0,
+                          if (currentUserDocument?.rol == Roles.profesional
+                              ? (currentUserDocument?.business == null)
+                              : true)
+                            AuthUserStreamWidget(
+                              builder: (context) => Container(
+                                width: 326.0,
+                                height: 52.0,
+                                decoration: BoxDecoration(),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context
+                                        .pushNamed(BlockListWidget.routeName);
+                                  },
+                                  child: wrapWithModel(
+                                    model: _model.accountOptionModel6,
+                                    updateCallback: () => safeSetState(() {}),
+                                    child: AccountOptionWidget(
+                                      key: ValueKey('block'),
+                                      icon: Icon(
+                                        key: ValueKey('block'),
+                                        Icons.no_accounts,
+                                        size: 30.0,
+                                      ),
+                                      text: 'Blocked list',
+                                    ),
                                   ),
-                                  text: 'Blocked list',
                                 ),
                               ),
                             ),
-                          ),
                           if ((currentUserDocument?.rol != Roles.user) &&
                               (currentUserDocument?.business == null))
                             Padding(

@@ -255,7 +255,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: PeoplewhoputyouinfavoritesWidget.routeName,
               path: PeoplewhoputyouinfavoritesWidget.routePath,
               requireAuth: true,
-              builder: (context, params) => PeoplewhoputyouinfavoritesWidget(),
+              builder: (context, params) => PeoplewhoputyouinfavoritesWidget(
+                authUser: params.getParam(
+                  'authUser',
+                  ParamType.bool,
+                ),
+              ),
             ),
             FFRoute(
               name: PeoplewhoputyouinfavoriteBasicWidget.routeName,
@@ -569,8 +574,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: RegisterPfofesional5Widget.routeName,
               path: RegisterPfofesional5Widget.routePath,
               builder: (context, params) => RegisterPfofesional5Widget(
-                isProfesional: params.getParam(
-                  'isProfesional',
+                bussinesRef: params.getParam(
+                  'bussinesRef',
+                  ParamType.DocumentReference,
+                  isList: false,
+                  collectionNamePath: ['users'],
+                ),
+                isBussines: params.getParam(
+                  'isBussines',
                   ParamType.bool,
                 ),
               ),
@@ -691,6 +702,62 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 user2: params.getParam(
                   'user2',
                   ParamType.String,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: RegisterProfessional1CopyWidget.routeName,
+              path: RegisterProfessional1CopyWidget.routePath,
+              builder: (context, params) => RegisterProfessional1CopyWidget(
+                businessRef: params.getParam(
+                  'businessRef',
+                  ParamType.DocumentReference,
+                  isList: false,
+                  collectionNamePath: ['users'],
+                ),
+              ),
+            ),
+            FFRoute(
+              name: RegisterProfessional2CopyWidget.routeName,
+              path: RegisterProfessional2CopyWidget.routePath,
+              builder: (context, params) => RegisterProfessional2CopyWidget(
+                businessRef: params.getParam(
+                  'businessRef',
+                  ParamType.DocumentReference,
+                  isList: false,
+                  collectionNamePath: ['users'],
+                ),
+              ),
+            ),
+            FFRoute(
+              name: RegisterPfofesional4CopyWidget.routeName,
+              path: RegisterPfofesional4CopyWidget.routePath,
+              builder: (context, params) => RegisterPfofesional4CopyWidget(
+                businessRef: params.getParam(
+                  'businessRef',
+                  ParamType.DocumentReference,
+                  isList: false,
+                  collectionNamePath: ['users'],
+                ),
+                isBussines: params.getParam(
+                  'isBussines',
+                  ParamType.bool,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: Cadari0CopyWidget.routeName,
+              path: Cadari0CopyWidget.routePath,
+              builder: (context, params) => Cadari0CopyWidget(
+                bussinesRef: params.getParam(
+                  'bussinesRef',
+                  ParamType.DocumentReference,
+                  isList: false,
+                  collectionNamePath: ['users'],
+                ),
+                isBussines: params.getParam(
+                  'isBussines',
+                  ParamType.bool,
                 ),
               ),
             )

@@ -482,25 +482,108 @@ String formatnameStreet(String input) {
 }
 
 String extractStateAndPostalCode(String input) {
-  // Encontrar la posición de la primera y segunda coma
-  int firstCommaIndex = input.indexOf(',');
-  int secondCommaIndex = input.indexOf(',', firstCommaIndex + 1);
+  // Método directo: buscar el patrón "NSW 2716" en cualquier parte de la cadena
+  RegExp directRegex = RegExp(r'([A-Z]{2,3})\s+(\d{4})');
+  Iterable<Match> matches = directRegex.allMatches(input);
 
-  // Verificar si encontramos ambas comas
-  if (firstCommaIndex != -1 && secondCommaIndex != -1) {
-    // Obtener la subcadena entre la segunda coma y el final
-    String statePostalCode = input.substring(secondCommaIndex + 1).trim();
+  // Si encontramos coincidencias, usar la primera
+  if (matches.isNotEmpty) {
+    Match firstMatch = matches.first;
+    String state = firstMatch.group(1)!;
+    String postalCode = firstMatch.group(2)!;
+    return "$state, $postalCode";
+  }
 
-    // Verificar si hay al menos dos espacios antes del estado
-    if (statePostalCode.startsWith(' ')) {
-      // Retornar la parte de "estado código postal"
-      return statePostalCode
-          .substring(2)
-          .trim(); // Cortar los dos espacios y devolver el resto
+  // Método alternativo: dividir por comas y buscar en cada parte
+  List<String> parts = input.split(',');
+
+  for (String part in parts) {
+    String trimmedPart = part.trim();
+
+    // Buscar patrón estado + código postal en esta parte
+    Match? partMatch = directRegex.firstMatch(trimmedPart);
+    if (partMatch != null) {
+      String state = partMatch.group(1)!;
+      String postalCode = partMatch.group(2)!;
+      return "$state, $postalCode";
+    }
+
+    // Verificar si esta parte tiene un código postal de 4 dígitos
+    RegExp postalRegex = RegExp(r'\b(\d{4})\b');
+    Match? postalMatch = postalRegex.firstMatch(trimmedPart);
+
+    if (postalMatch != null) {
+      // Buscar estado cerca del código postal
+      String postalCode = postalMatch.group(0)!;
+
+      // Buscar código de estado antes del código postal
+      RegExp stateBeforeRegex = RegExp(r'([A-Z]{2,3})\s+' + postalCode);
+      Match? stateMatch = stateBeforeRegex.firstMatch(trimmedPart);
+
+      if (stateMatch != null) {
+        String state = stateMatch.group(1)!;
+        return "$state, $postalCode";
+      }
+
+      // Si no encontramos el estado en esta parte pero sí el código postal,
+      // buscar en las palabras anteriores
+      List<String> words = trimmedPart.split(' ');
+      for (int i = 0; i < words.length; i++) {
+        if (words[i].contains(postalCode) && i > 0) {
+          String prevWord = words[i - 1];
+          if (RegExp(r'^[A-Z]{2,3}$').hasMatch(prevWord)) {
+            return "$prevWord, $postalCode";
+          }
+        }
+      }
     }
   }
 
-  return "NSW 2781"; // Manejo de caso si no se cumplen las condiciones
+  // Buscar específicamente los estados australianos seguidos de códigos postales
+  List<String> australianStates = [
+    'NSW',
+    'VIC',
+    'QLD',
+    'SA',
+    'WA',
+    'TAS',
+    'NT',
+    'ACT'
+  ];
+
+  for (String state in australianStates) {
+    // Buscar el estado seguido de un código postal, con posibles caracteres entre ellos
+    RegExp statePostalPattern = RegExp('$state[\\s,]*\\s*(\\d{4})');
+    Match? stateMatch = statePostalPattern.firstMatch(input);
+
+    if (stateMatch != null) {
+      String postalCode = stateMatch.group(1)!;
+      return "$state, $postalCode";
+    }
+  }
+
+  // Última opción: buscar cualquier código postal de 4 dígitos y suponer el estado más común
+  RegExp anyPostalRegex = RegExp(r'\b(\d{4})\b');
+  Match? anyPostalMatch = anyPostalRegex.firstMatch(input);
+
+  if (anyPostalMatch != null) {
+    // Verificar si hay alguna pista de estado en la dirección
+    String postalCode = anyPostalMatch.group(0)!;
+
+    // Buscar en un contexto más amplio alrededor del código postal
+    int postalIndex = input.indexOf(postalCode);
+    int startContext = math.max(0, postalIndex - 20);
+    int endContext = math.min(input.length, postalIndex + 20);
+    String context = input.substring(startContext, endContext);
+
+    for (String state in australianStates) {
+      if (context.contains(state)) {
+        return "$state, $postalCode";
+      }
+    }
+  }
+
+  return "NSW, 2781"; // Valor predeterminado si no se encuentra nada
 }
 
 int getDistance(
@@ -559,4 +642,44 @@ String cleanEmailInput(String email) {
   }
 
   return cleanedEmail;
+}
+
+List<UsersRecord> filterProfessionalsByDistance(
+  List<UsersRecord> professionals,
+  LatLng? userLocation,
+  double maxDistanceKm,
+) {
+  double _toRad(double deg) => deg * (math.pi / 180);
+
+  double _haversineDistance(LatLng a, LatLng b) {
+    const R = 6371; // km
+    final dLat = _toRad(b.latitude - a.latitude);
+    final dLon = _toRad(b.longitude - a.longitude);
+    final lat1 = _toRad(a.latitude);
+    final lat2 = _toRad(b.latitude);
+
+    final hav = math.sin(dLat / 2) * math.sin(dLat / 2) +
+        math.cos(lat1) *
+            math.cos(lat2) *
+            math.sin(dLon / 2) *
+            math.sin(dLon / 2);
+
+    return 2 * R * math.asin(math.sqrt(hav));
+  }
+
+  // Si userLocation es null, retornar todos los profesionales
+  if (userLocation == null) {
+    return professionals;
+  }
+
+  final filtered = professionals.where((user) {
+    final LatLng? professionalLocation = user.suburb;
+    if (professionalLocation == null) return false;
+
+    final distance = _haversineDistance(userLocation, professionalLocation);
+    return distance <= maxDistanceKm;
+  }).toList();
+
+  // Si no hay resultados cercanos, retornar todos para evitar lista vacía
+  return filtered.isEmpty ? professionals : filtered;
 }

@@ -202,7 +202,7 @@ class FFAppState extends ChangeNotifier {
   }
 
   FiltersStruct _tinderfilter = FiltersStruct.fromSerializableMap(jsonDecode(
-      '{\"distance\":\"60\",\"age\":\"[]\",\"services\":\"[]\",\"schedule\":\"[]\"}'));
+      '{\"distance\":\"100\",\"age\":\"[]\",\"services\":\"[]\",\"schedule\":\"[]\"}'));
   FiltersStruct get tinderfilter => _tinderfilter;
   set tinderfilter(FiltersStruct value) {
     _tinderfilter = value;
@@ -245,6 +245,18 @@ class FFAppState extends ChangeNotifier {
   bool get locationPermissionGranted => _locationPermissionGranted;
   set locationPermissionGranted(bool value) {
     _locationPermissionGranted = value;
+  }
+
+  bool _isDropdownDisabled = false;
+  bool get isDropdownDisabled => _isDropdownDisabled;
+  set isDropdownDisabled(bool value) {
+    _isDropdownDisabled = value;
+  }
+
+  bool _videoupload = false;
+  bool get videoupload => _videoupload;
+  set videoupload(bool value) {
+    _videoupload = value;
   }
 
   final _userDocQueryManager = FutureRequestManager<UsersRecord>();

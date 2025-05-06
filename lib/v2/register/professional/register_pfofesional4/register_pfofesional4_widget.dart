@@ -772,20 +772,74 @@ class _RegisterPfofesional4WidgetState
                                                     ),
                                                   });
 
-                                                  if (widget.businessRef !=
-                                                      null) {
-                                                    await widget.businessRef!
-                                                        .update({
-                                                      ...mapToFirestore(
-                                                        {
-                                                          'professionals':
-                                                              FieldValue
-                                                                  .arrayUnion([
-                                                            currentUserReference
-                                                          ]),
-                                                        },
-                                                      ),
-                                                    });
+                                                  final paymentResponse =
+                                                      await processStripePayment(
+                                                    context,
+                                                    amount: () {
+                                                      if (FFAppState()
+                                                              .registerProviderForm
+                                                              .plan ==
+                                                          Plan.basic) {
+                                                        return FFAppConstants
+                                                            .basicPrice;
+                                                      } else if (FFAppState()
+                                                              .registerProviderForm
+                                                              .plan ==
+                                                          Plan.standar) {
+                                                        return FFAppConstants
+                                                            .standarPrice;
+                                                      } else {
+                                                        return FFAppConstants
+                                                            .premiunPrice;
+                                                      }
+                                                    }(),
+                                                    currency: 'AUD',
+                                                    customerEmail: FFAppState()
+                                                        .registerProviderForm
+                                                        .email,
+                                                    customerName: FFAppState()
+                                                        .registerProviderForm
+                                                        .firstName,
+                                                    description: () {
+                                                      if (FFAppState()
+                                                              .registerProviderForm
+                                                              .plan ==
+                                                          Plan.basic) {
+                                                        return 'Plan Basic';
+                                                      } else if (FFAppState()
+                                                              .registerProviderForm
+                                                              .plan ==
+                                                          Plan.standar) {
+                                                        return 'Plan Standar';
+                                                      } else {
+                                                        return 'Plan Premiun';
+                                                      }
+                                                    }(),
+                                                    allowGooglePay: true,
+                                                    allowApplePay: false,
+                                                  );
+                                                  if (paymentResponse
+                                                              .paymentId ==
+                                                          null &&
+                                                      paymentResponse
+                                                              .errorMessage !=
+                                                          null) {
+                                                    showSnackbar(
+                                                      context,
+                                                      'Error: ${paymentResponse.errorMessage}',
+                                                    );
+                                                  }
+                                                  _model.paymentId =
+                                                      paymentResponse
+                                                              .paymentId ??
+                                                          '';
+
+                                                  if (_model.paymentId !=
+                                                          null &&
+                                                      _model.paymentId != '') {
+                                                    FFAppState()
+                                                            .authUserFireBase =
+                                                        true;
                                                     FFAppState()
                                                             .isCreatedProfesional =
                                                         true;
@@ -796,88 +850,8 @@ class _RegisterPfofesional4WidgetState
                                                             .routeName,
                                                         context.mounted);
                                                   } else {
-                                                    final paymentResponse =
-                                                        await processStripePayment(
-                                                      context,
-                                                      amount: () {
-                                                        if (FFAppState()
-                                                                .registerProviderForm
-                                                                .plan ==
-                                                            Plan.basic) {
-                                                          return FFAppConstants
-                                                              .basicPrice;
-                                                        } else if (FFAppState()
-                                                                .registerProviderForm
-                                                                .plan ==
-                                                            Plan.standar) {
-                                                          return FFAppConstants
-                                                              .standarPrice;
-                                                        } else {
-                                                          return FFAppConstants
-                                                              .premiunPrice;
-                                                        }
-                                                      }(),
-                                                      currency: 'AUD',
-                                                      customerEmail: FFAppState()
-                                                          .registerProviderForm
-                                                          .email,
-                                                      customerName: FFAppState()
-                                                          .registerProviderForm
-                                                          .firstName,
-                                                      description: () {
-                                                        if (FFAppState()
-                                                                .registerProviderForm
-                                                                .plan ==
-                                                            Plan.basic) {
-                                                          return 'Plan Basic';
-                                                        } else if (FFAppState()
-                                                                .registerProviderForm
-                                                                .plan ==
-                                                            Plan.standar) {
-                                                          return 'Plan Standar';
-                                                        } else {
-                                                          return 'Plan Premiun';
-                                                        }
-                                                      }(),
-                                                      allowGooglePay: true,
-                                                      allowApplePay: false,
-                                                    );
-                                                    if (paymentResponse
-                                                                .paymentId ==
-                                                            null &&
-                                                        paymentResponse
-                                                                .errorMessage !=
-                                                            null) {
-                                                      showSnackbar(
-                                                        context,
-                                                        'Error: ${paymentResponse.errorMessage}',
-                                                      );
-                                                    }
-                                                    _model.paymentId =
-                                                        paymentResponse
-                                                                .paymentId ??
-                                                            '';
-
-                                                    if (_model.paymentId !=
-                                                            null &&
-                                                        _model.paymentId !=
-                                                            '') {
-                                                      FFAppState()
-                                                              .authUserFireBase =
-                                                          true;
-                                                      FFAppState()
-                                                              .isCreatedProfesional =
-                                                          true;
-                                                      safeSetState(() {});
-
-                                                      context.goNamedAuth(
-                                                          RegisterPfofesional5Widget
-                                                              .routeName,
-                                                          context.mounted);
-                                                    } else {
-                                                      await authManager
-                                                          .deleteUser(context);
-                                                    }
+                                                    await authManager
+                                                        .deleteUser(context);
                                                   }
                                                 } else {
                                                   _model.photosVerify = false;

@@ -4,8 +4,9 @@ import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
+import '/v2/n_e_w_spremiun/navbar_empleado/navbar_empleado_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
+import '/v2/n_e_w_spremiun/navbar_professional/navbar_professional_widget.dart';
 import '/v3correciones/likes_v3/likes_v3/likes_v3_widget.dart';
 import 'dart:async';
 import '/index.dart';
@@ -18,7 +19,12 @@ import 'peoplewhoputyouinfavorites_model.dart';
 export 'peoplewhoputyouinfavorites_model.dart';
 
 class PeoplewhoputyouinfavoritesWidget extends StatefulWidget {
-  const PeoplewhoputyouinfavoritesWidget({super.key});
+  const PeoplewhoputyouinfavoritesWidget({
+    super.key,
+    bool? authUser,
+  }) : this.authUser = authUser ?? true;
+
+  final bool authUser;
 
   static String routeName = 'peoplewhoputyouinfavorites';
   static String routePath = 'peoplewhoputyouinfavorites';
@@ -236,9 +242,15 @@ class _PeoplewhoputyouinfavoritesWidgetState
                       builder: (context) {
                         if (currentUserDocument?.rol != Roles.business) {
                           return wrapWithModel(
-                            model: _model.navbarModel,
+                            model: _model.navbarProfessionalModel,
                             updateCallback: () => safeSetState(() {}),
-                            child: NavbarWidget(),
+                            child: NavbarProfessionalWidget(),
+                          );
+                        } else if (currentUserDocument?.business == null) {
+                          return wrapWithModel(
+                            model: _model.navbarEmpleadoModel,
+                            updateCallback: () => safeSetState(() {}),
+                            child: NavbarEmpleadoWidget(),
                           );
                         } else {
                           return wrapWithModel(

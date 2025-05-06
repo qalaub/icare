@@ -263,7 +263,7 @@ class _PeoplewhoputyouinfavoriteBasicWidgetState
                             child: Container(
                               decoration: BoxDecoration(),
                               child: Text(
-                                'When someone likes your profile,\n a notification will appear here.\nUdgrade to standard',
+                                'When someone likes your profile,\n a notification will appear here.\nUpgrade to standard',
                                 textAlign: TextAlign.center,
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium

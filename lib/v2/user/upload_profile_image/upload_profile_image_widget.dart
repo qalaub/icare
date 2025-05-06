@@ -88,13 +88,12 @@ class _UploadProfileImageWidgetState extends State<UploadProfileImageWidget> {
                     updateCallback: () => safeSetState(() {}),
                     child: ImageUploadWidget(
                       key: ValueKey('image1'),
-                      img: valueOrDefault<String>(
-                        (currentUserDocument?.images.toList() ?? []).length > 0
-                            ? (currentUserDocument?.images.toList() ?? [])
-                                .elementAtOrNull(0)
-                            : '',
-                        'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/gdid8dlbsj9v/addi.png',
-                      ),
+                      img:
+                          (currentUserDocument?.images.toList() ?? []).length >
+                                  0
+                              ? (currentUserDocument?.images.toList() ?? [])
+                                  .elementAtOrNull(0)
+                              : '',
                       index: 0,
                       background: '',
                     ),

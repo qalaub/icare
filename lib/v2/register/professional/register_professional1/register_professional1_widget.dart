@@ -1,5 +1,7 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
+import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -1903,17 +1905,24 @@ class _RegisterProfessional1WidgetState
                                               ),
                                             ),
                                           ),
-                                          Align(
-                                            alignment: AlignmentDirectional(
-                                                -0.84, -0.73),
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 15.0, 0.0, 15.0),
-                                              child: Text(
-                                                '  * ABN Registration',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
+                                          if (currentUserDocument?.rol ==
+                                                  Roles.profesional
+                                              ? (currentUserDocument
+                                                      ?.business ==
+                                                  null)
+                                              : true)
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  -0.84, -0.73),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 15.0, 0.0, 15.0),
+                                                child: AuthUserStreamWidget(
+                                                  builder: (context) => Text(
+                                                    '  * ABN Registration',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
                                                         .bodyMedium
                                                         .override(
                                                           font: GoogleFonts
@@ -1937,213 +1946,216 @@ class _RegisterProfessional1WidgetState
                                                                   .bodyMedium
                                                                   .fontStyle,
                                                         ),
+                                                  ),
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                          Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    -0.01, -0.69),
-                                                child: Container(
-                                                  width:
-                                                      MediaQuery.sizeOf(context)
+                                          if (currentUserDocument?.rol ==
+                                                  Roles.profesional
+                                              ? (currentUserDocument
+                                                      ?.business ==
+                                                  null)
+                                              : true)
+                                            AuthUserStreamWidget(
+                                              builder: (context) => Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            -0.01, -0.69),
+                                                    child: Container(
+                                                      width: MediaQuery.sizeOf(
+                                                                  context)
                                                               .width *
                                                           0.8,
-                                                  height: 70.0,
-                                                  decoration: BoxDecoration(
-                                                    color: Color(0xFFFFFEFE),
-                                                    borderRadius:
-                                                        BorderRadius.only(
-                                                      bottomLeft:
-                                                          Radius.circular(12.0),
-                                                      bottomRight:
-                                                          Radius.circular(12.0),
-                                                      topLeft:
-                                                          Radius.circular(12.0),
-                                                      topRight:
-                                                          Radius.circular(12.0),
-                                                    ),
-                                                  ),
-                                                  child: Stack(
-                                                    children: [
-                                                      TextFormField(
-                                                        key: ValueKey('ndis'),
-                                                        controller: _model
-                                                            .abnTextController,
-                                                        focusNode:
-                                                            _model.abnFocusNode,
-                                                        onChanged: (_) =>
-                                                            EasyDebounce
-                                                                .debounce(
-                                                          '_model.abnTextController',
-                                                          Duration(
-                                                              milliseconds: 10),
-                                                          () async {
-                                                            _model.abnexist =
-                                                                await queryUsersRecordCount(
-                                                              queryBuilder:
-                                                                  (usersRecord) =>
-                                                                      usersRecord
-                                                                          .where(
-                                                                'abn',
-                                                                isEqualTo: _model
-                                                                    .abnTextController
-                                                                    .text,
-                                                              ),
-                                                            );
+                                                      height: 70.0,
+                                                      decoration: BoxDecoration(
+                                                        color:
+                                                            Color(0xFFFFFEFE),
+                                                        borderRadius:
+                                                            BorderRadius.only(
+                                                          bottomLeft:
+                                                              Radius.circular(
+                                                                  12.0),
+                                                          bottomRight:
+                                                              Radius.circular(
+                                                                  12.0),
+                                                          topLeft:
+                                                              Radius.circular(
+                                                                  12.0),
+                                                          topRight:
+                                                              Radius.circular(
+                                                                  12.0),
+                                                        ),
+                                                      ),
+                                                      child: Stack(
+                                                        children: [
+                                                          TextFormField(
+                                                            key: ValueKey(
+                                                                'ndis'),
+                                                            controller: _model
+                                                                .abnTextController,
+                                                            focusNode: _model
+                                                                .abnFocusNode,
+                                                            onChanged: (_) =>
+                                                                EasyDebounce
+                                                                    .debounce(
+                                                              '_model.abnTextController',
+                                                              Duration(
+                                                                  milliseconds:
+                                                                      10),
+                                                              () async {
+                                                                _model.abnexist =
+                                                                    await queryUsersRecordCount(
+                                                                  queryBuilder:
+                                                                      (usersRecord) =>
+                                                                          usersRecord
+                                                                              .where(
+                                                                    'abn',
+                                                                    isEqualTo: _model
+                                                                        .abnTextController
+                                                                        .text,
+                                                                  ),
+                                                                );
 
-                                                            safeSetState(() {});
-                                                          },
-                                                        ),
-                                                        autofocus: true,
-                                                        obscureText: false,
-                                                        decoration:
-                                                            InputDecoration(
-                                                          isDense: true,
-                                                          labelStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelMedium
-                                                                  .override(
-                                                                    font: GoogleFonts
-                                                                        .readexPro(
-                                                                      fontWeight: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .labelMedium
-                                                                          .fontWeight,
-                                                                      fontStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .labelMedium
-                                                                          .fontStyle,
-                                                                    ),
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    fontWeight: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .labelMedium
-                                                                        .fontWeight,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .labelMedium
-                                                                        .fontStyle,
-                                                                  ),
-                                                          hintText:
-                                                              'Do not leave this field empty',
-                                                          hintStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelMedium
-                                                                  .override(
-                                                                    font: GoogleFonts
-                                                                        .montserrat(
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w500,
-                                                                      fontStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .labelMedium
-                                                                          .fontStyle,
-                                                                    ),
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .labelMedium
-                                                                        .fontStyle,
-                                                                  ),
-                                                          errorStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    font: GoogleFonts
-                                                                        .readexPro(
-                                                                      fontWeight: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .fontWeight,
-                                                                      fontStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .fontStyle,
-                                                                    ),
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .error,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    fontWeight: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .fontWeight,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .fontStyle,
-                                                                  ),
-                                                          enabledBorder:
-                                                              OutlineInputBorder(
-                                                            borderSide:
-                                                                BorderSide(
-                                                              color: Color(
-                                                                  0xFFBB33B9),
-                                                              width: 2.0,
+                                                                safeSetState(
+                                                                    () {});
+                                                              },
                                                             ),
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        12.0),
-                                                          ),
-                                                          focusedBorder:
-                                                              OutlineInputBorder(
-                                                            borderSide:
-                                                                BorderSide(
-                                                              color: Color(
-                                                                  0xFF762075),
-                                                              width: 2.0,
+                                                            autofocus: true,
+                                                            obscureText: false,
+                                                            decoration:
+                                                                InputDecoration(
+                                                              isDense: true,
+                                                              labelStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelMedium
+                                                                      .override(
+                                                                        font: GoogleFonts
+                                                                            .readexPro(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .labelMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .labelMedium
+                                                                              .fontStyle,
+                                                                        ),
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .labelMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .labelMedium
+                                                                            .fontStyle,
+                                                                      ),
+                                                              hintText:
+                                                                  'Do not leave this field empty',
+                                                              hintStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelMedium
+                                                                      .override(
+                                                                        font: GoogleFonts
+                                                                            .montserrat(
+                                                                          fontWeight:
+                                                                              FontWeight.w500,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .labelMedium
+                                                                              .fontStyle,
+                                                                        ),
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.w500,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .labelMedium
+                                                                            .fontStyle,
+                                                                      ),
+                                                              errorStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        font: GoogleFonts
+                                                                            .readexPro(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .error,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
+                                                              enabledBorder:
+                                                                  OutlineInputBorder(
+                                                                borderSide:
+                                                                    BorderSide(
+                                                                  color: Color(
+                                                                      0xFFBB33B9),
+                                                                  width: 2.0,
+                                                                ),
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            12.0),
+                                                              ),
+                                                              focusedBorder:
+                                                                  OutlineInputBorder(
+                                                                borderSide:
+                                                                    BorderSide(
+                                                                  color: Color(
+                                                                      0xFF762075),
+                                                                  width: 2.0,
+                                                                ),
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            12.0),
+                                                              ),
+                                                              errorBorder:
+                                                                  OutlineInputBorder(
+                                                                borderSide:
+                                                                    BorderSide(
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .error,
+                                                                  width: 2.0,
+                                                                ),
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            12.0),
+                                                              ),
+                                                              focusedErrorBorder:
+                                                                  OutlineInputBorder(
+                                                                borderSide:
+                                                                    BorderSide(
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .error,
+                                                                  width: 2.0,
+                                                                ),
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            12.0),
+                                                              ),
                                                             ),
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        12.0),
-                                                          ),
-                                                          errorBorder:
-                                                              OutlineInputBorder(
-                                                            borderSide:
-                                                                BorderSide(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .error,
-                                                              width: 2.0,
-                                                            ),
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        12.0),
-                                                          ),
-                                                          focusedErrorBorder:
-                                                              OutlineInputBorder(
-                                                            borderSide:
-                                                                BorderSide(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .error,
-                                                              width: 2.0,
-                                                            ),
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        12.0),
-                                                          ),
-                                                        ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
                                                                 .bodyMedium
                                                                 .override(
                                                                   font: GoogleFonts
@@ -2170,64 +2182,64 @@ class _RegisterProfessional1WidgetState
                                                                       .bodyMedium
                                                                       .fontStyle,
                                                                 ),
-                                                        maxLines: null,
-                                                        maxLength: 11,
-                                                        keyboardType:
-                                                            TextInputType
-                                                                .number,
-                                                        validator: _model
-                                                            .abnTextControllerValidator
-                                                            .asValidator(
-                                                                context),
+                                                            maxLines: null,
+                                                            maxLength: 11,
+                                                            keyboardType:
+                                                                TextInputType
+                                                                    .number,
+                                                            validator: _model
+                                                                .abnTextControllerValidator
+                                                                .asValidator(
+                                                                    context),
+                                                          ),
+                                                          if ((_model.abnexist !=
+                                                                  null) &&
+                                                              (_model.abnexist! >
+                                                                  0))
+                                                            Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      -0.75,
+                                                                      0.7),
+                                                              child: Text(
+                                                                key: ValueKey(
+                                                                    'emailExists'),
+                                                                'This ABN is already registered',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      font: GoogleFonts
+                                                                          .montserrat(
+                                                                        fontWeight:
+                                                                            FontWeight.w500,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
+                                                                      color: Color(
+                                                                          0xFFFF5963),
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w500,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
+                                                                    ),
+                                                              ).animateOnPageLoad(
+                                                                  animationsMap[
+                                                                      'textOnPageLoadAnimation3']!),
+                                                            ),
+                                                        ],
                                                       ),
-                                                      if ((_model.abnexist !=
-                                                              null) &&
-                                                          (_model.abnexist! >
-                                                              0))
-                                                        Align(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  -0.75, 0.7),
-                                                          child: Text(
-                                                            key: ValueKey(
-                                                                'emailExists'),
-                                                            'This ABN is already registered',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  font: GoogleFonts
-                                                                      .montserrat(
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .fontStyle,
-                                                                  ),
-                                                                  color: Color(
-                                                                      0xFFFF5963),
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                          ).animateOnPageLoad(
-                                                              animationsMap[
-                                                                  'textOnPageLoadAnimation3']!),
-                                                        ),
-                                                    ],
+                                                    ),
                                                   ),
-                                                ),
+                                                ].divide(SizedBox(height: 5.0)),
                                               ),
-                                            ].divide(SizedBox(height: 5.0)),
-                                          ),
+                                            ),
                                           Align(
                                             alignment: AlignmentDirectional(
                                                 -0.54, -0.73),
@@ -2272,7 +2284,7 @@ class _RegisterProfessional1WidgetState
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
                                                   0.8,
-                                              height: 65.0,
+                                              height: 60.0,
                                               decoration: BoxDecoration(
                                                 color: Color(0xFFFFFEFE),
                                                 borderRadius: BorderRadius.only(
@@ -2835,8 +2847,6 @@ class _RegisterProfessional1WidgetState
                                                         (_model.email3TextController.text ==
                                                                 '') ||
                                                         (_model.emailconfirm3TextController.text ==
-                                                                '') ||
-                                                        (_model.abnTextController.text ==
                                                                 '') ||
                                                         (_model.phoneTextController
                                                                     .text ==

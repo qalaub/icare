@@ -86,7 +86,7 @@ class _HomeVistaCuidadorWidgetState extends State<HomeVistaCuidadorWidget> {
                           EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Align(
@@ -107,7 +107,7 @@ class _HomeVistaCuidadorWidgetState extends State<HomeVistaCuidadorWidget> {
                                         .override(
                                       fontFamily: 'ITC Bauhaus fuente',
                                       color: Colors.white,
-                                      fontSize: 21.0,
+                                      fontSize: 25.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
                                       shadows: [
@@ -131,7 +131,7 @@ class _HomeVistaCuidadorWidgetState extends State<HomeVistaCuidadorWidget> {
                                         .override(
                                       fontFamily: 'ITC Bauhaus fuente',
                                       color: Colors.white,
-                                      fontSize: 21.0,
+                                      fontSize: 25.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
                                       shadows: [
@@ -166,7 +166,7 @@ class _HomeVistaCuidadorWidgetState extends State<HomeVistaCuidadorWidget> {
                                       .override(
                                     fontFamily: 'ITC Bauhaus fuente',
                                     color: Colors.white,
-                                    fontSize: 21.0,
+                                    fontSize: 25.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                     shadows: [
@@ -186,9 +186,7 @@ class _HomeVistaCuidadorWidgetState extends State<HomeVistaCuidadorWidget> {
                               ],
                             ),
                           ),
-                        ]
-                            .divide(SizedBox(height: 1.0))
-                            .addToStart(SizedBox(height: 40.0)),
+                        ].addToEnd(SizedBox(height: 40.0)),
                       ),
                     ),
                   ),

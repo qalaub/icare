@@ -89,7 +89,7 @@ class _ImganesWidgetState extends State<ImganesWidget> {
                                 width: MediaQuery.sizeOf(context).width * 1.0,
                                 height:
                                     MediaQuery.sizeOf(context).height * 0.754,
-                                fit: BoxFit.fill,
+                                fit: BoxFit.cover,
                               ),
                             );
                           },

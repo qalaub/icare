@@ -76,7 +76,7 @@ class _MapsAustralianState extends State<MapsAustralian> {
 
   bool _isInteractingWithPageView = false;
   Timer? _interactionTimer;
-
+  // Add this boolean property to your class
   DocumentReference? _lastViewedProfessionalRef;
 
   // PageView controller
@@ -389,24 +389,25 @@ class _MapsAustralianState extends State<MapsAustralian> {
     if (!_mapInitialized || mapController == null) return;
 
     if (_lockToNewLocation && _lockedLocation != null) {
-      _forceMapMove(_lockedLocation!, 12.0);
+      _forceMapMove(
+          _lockedLocation!, widget.isProfessional == true ? 6.0 : 12.0);
       return;
     }
 
-    // Para profesionales, centrar en la ubicación por defecto de Australia
+    // For professionals, center on the default Australia location with lower zoom
     if (widget.isProfessional == true) {
       mapController!.moveCamera(
         google_maps.CameraUpdate.newCameraPosition(
           google_maps.CameraPosition(
             target: _defaultAustraliaCenter,
-            zoom: 4, // Usar un zoom adecuado para ver toda Australia
+            zoom: 4, // Use appropriate zoom for viewing all of Australia
           ),
         ),
       );
-      return; // Salir de la función después de centrar el mapa
+      return; // Exit the function after centering the map
     }
 
-    // Para usuarios regulares, seguir con la lógica actual:
+    // For regular users, follow the existing logic:
     // Priority order for camera position:
     // 1. Selected professional
     // 2. Current user location
@@ -981,7 +982,7 @@ class _MapsAustralianState extends State<MapsAustralian> {
       if (users.length == 1) {
         // Single marker, no offset needed
         final user = users.first;
-        // Verifica si este usuario es el seleccionado
+        // Verify if this user is selected
         // For professionals, never mark as selected
         bool isSelected = widget.isProfessional != true &&
             _selectedUser != null &&
@@ -998,12 +999,13 @@ class _MapsAustralianState extends State<MapsAustralian> {
                 : userMarkerIcon ??
                     google_maps.BitmapDescriptor.defaultMarkerWithHue(
                         google_maps.BitmapDescriptor.hueViolet),
-            // Only enable onTap for regular users, not professionals
-            onTap: widget.isProfessional != true
-                ? () {
+            // IMPORTANT: Only enable onTap for regular users, disable for professionals
+            onTap: widget.isProfessional == true
+                ? null // Explicitly disable onTap for professionals
+                : () {
                     final index = _sortedMarkers!.indexOf(user);
                     if (index != -1) {
-                      // Indica que estamos interactuando
+                      // Indicate we're interacting
                       _setPageViewInteraction(true);
 
                       _pageController.animateToPage(
@@ -1013,14 +1015,13 @@ class _MapsAustralianState extends State<MapsAustralian> {
                       );
                       _updateSelectedUser(index);
 
-                      // Siempre mover a este marcador cuando se toca
+                      // Always move to this marker when tapped
                       if (user.suburb != null) {
                         _forceMapMove(user.suburb!, 12.0);
                       }
                     }
-                  }
-                : null,
-            zIndex: isSelected ? 2.0 : 1.0, // Mayor zIndex para el seleccionado
+                  },
+            zIndex: isSelected ? 2.0 : 1.0, // Higher zIndex for selected
           ),
         );
       } else {
@@ -1049,22 +1050,29 @@ class _MapsAustralianState extends State<MapsAustralian> {
                   : userMarkerIcon ??
                       google_maps.BitmapDescriptor.defaultMarkerWithHue(
                           google_maps.BitmapDescriptor.hueViolet),
-              // Only enable onTap for regular users, not professionals
-              onTap: widget.isProfessional != true
-                  ? () {
+              // IMPORTANT: Only enable onTap for regular users, disable for professionals
+              onTap: widget.isProfessional == true
+                  ? null // Explicitly disable onTap for professionals
+                  : () {
                       final index = _sortedMarkers!.indexOf(user);
                       if (index != -1) {
+                        // Indicate we're interacting
+                        _setPageViewInteraction(true);
+
                         _pageController.animateToPage(
                           index,
                           duration: Duration(milliseconds: 300),
                           curve: Curves.easeInOut,
                         );
                         _updateSelectedUser(index);
+
+                        // Always move to this marker when tapped
+                        if (user.suburb != null) {
+                          _forceMapMove(user.suburb!, 12.0);
+                        }
                       }
-                    }
-                  : null,
-              zIndex:
-                  isSelected ? 2.0 : 1.0, // Mayor zIndex para el seleccionado
+                    },
+              zIndex: isSelected ? 2.0 : 1.0, // Higher zIndex for selected
             ),
           );
         }
@@ -1072,7 +1080,7 @@ class _MapsAustralianState extends State<MapsAustralian> {
     });
 
     // Add current location marker only if not a professional
-    if (_initialCurrentLocation != null && widget.isProfessional != true) {
+    if (_initialCurrentLocation != null) {
       markers.add(
         google_maps.Marker(
           markerId: google_maps.MarkerId('currentLocation'),
@@ -1080,8 +1088,7 @@ class _MapsAustralianState extends State<MapsAustralian> {
           icon: currentLocationMarkerIcon ??
               google_maps.BitmapDescriptor.defaultMarkerWithHue(
                   google_maps.BitmapDescriptor.hueRed),
-          zIndex:
-              3.0, // Valor más alto que el zIndex del marcador seleccionado (2.0)
+          zIndex: 3.0,
         ),
       );
     }
@@ -1105,233 +1112,286 @@ class _MapsAustralianState extends State<MapsAustralian> {
     // Build the markers set
     final markers = _buildMarkers();
 
-    return Column(
+    return Stack(
       children: [
-        // Map Container - Takes up most of the screen
-        Expanded(
-          flex: widget.isProfessional == true
-              ? 1
-              : 3, // Full screen for professionals
-          child: Stack(
-            children: [
-              Container(
-                width: widget.width ?? double.infinity,
-                height: double.infinity,
-                child: google_maps.GoogleMap(
-                  initialCameraPosition: google_maps.CameraPosition(
-                    target: _defaultAustraliaCenter,
-                    zoom: 4,
-                  ),
-                  onMapCreated: (google_maps.GoogleMapController controller) {
-                    setState(() {
-                      mapController = controller;
-                      _mapInitialized = true;
-                    });
-
-                    // Delay to ensure the map is fully loaded
-                    Future.delayed(Duration(milliseconds: 500), () {
-                      if (mounted) {
-                        _moveToAppropriateLocation();
-                      }
-                    });
-                  },
-                  mapType: google_maps.MapType.normal,
-                  myLocationButtonEnabled: false,
-                  zoomControlsEnabled: false,
-                  compassEnabled: false,
-                  mapToolbarEnabled: false,
-                  minMaxZoomPreference: google_maps.MinMaxZoomPreference(4, 11),
-                  cameraTargetBounds:
-                      google_maps.CameraTargetBounds(australiaBounds),
-                  markers: markers,
-                  onCameraMove: (google_maps.CameraPosition position) {
-                    // Si hay un bloqueo y el mapa se mueve a otra posición, corregirlo
-                    if (_lockToNewLocation && _lockedLocation != null) {
-                      // Calcular distancia entre posición actual y bloqueada
-                      double distance = _calculateDistance(
-                          LatLng(position.target.latitude,
-                              position.target.longitude),
-                          _lockedLocation!);
-
-                      // Si está demasiado lejos, forzar de vuelta a la posición bloqueada
-                      if (distance > 500) {
-                        // 500 metros de tolerancia
-                        _forceMapMove(_lockedLocation!, position.zoom);
-                        return;
-                      }
-                    }
-
-                    // Update zoom level
-                    if (_lastZoom == null ||
-                        (position.zoom - _lastZoom!).abs() > 0.1) {
-                      _lastZoom = position.zoom;
-                      int tempNumber = ((10 / position.zoom) * 100.0).toInt();
-                      FFAppState().update(() {
-                        FFAppState().zoomFilter = tempNumber;
-                      });
-                    }
-
-                    // Ensure map stays within Australia bounds
-                    if (!australiaBounds.contains(position.target)) {
-                      mapController!.moveCamera(
-                        google_maps.CameraUpdate.newLatLngBounds(
-                            australiaBounds, 0),
-                      );
-                    }
-                  },
-                ),
+        // Map Container - Takes up entire screen
+        // Using IgnorePointer to disable map interactions when PageView is being used
+        IgnorePointer(
+          ignoring: _isInteractingWithPageView,
+          child: Container(
+            width: widget.width ?? double.infinity,
+            height: double.infinity,
+            child: google_maps.GoogleMap(
+              initialCameraPosition: google_maps.CameraPosition(
+                target: _defaultAustraliaCenter,
+                zoom: 4,
               ),
+              onMapCreated: (google_maps.GoogleMapController controller) {
+                setState(() {
+                  mapController = controller;
+                  _mapInitialized = true;
+                });
 
-              // My location button - Repositioned above PageView and enlarged
-              if (widget.isProfessional != true)
-                Positioned(
-                  right: 10,
-                  bottom: 230,
-                  child: FloatingActionButton(
-                    onPressed: () {
-                      // Desactivar el bloqueo cuando se usa el botón de ubicación actual
-                      setState(() {
-                        _lockToNewLocation = false;
-                        _lockedLocation = null;
+                // Delay to ensure the map is fully loaded
+                Future.delayed(Duration(milliseconds: 500), () {
+                  if (mounted) {
+                    _moveToAppropriateLocation();
+                  }
+                });
+              },
+              mapType: google_maps.MapType.normal,
+              myLocationButtonEnabled: false,
+              zoomControlsEnabled: false,
+              compassEnabled: false,
+              mapToolbarEnabled: false,
+              // Different zoom limits based on whether it's a professional or regular user
+              minMaxZoomPreference: widget.isProfessional == true
+                  ? google_maps.MinMaxZoomPreference(4,
+                      10) // Lower max zoom (more zoomed out) for professionals
+                  : google_maps.MinMaxZoomPreference(4,
+                      14), // Higher max zoom (more zoomed in) for regular users
+              cameraTargetBounds:
+                  google_maps.CameraTargetBounds(australiaBounds),
+              markers: markers,
+              onCameraMove: (google_maps.CameraPosition position) {
+                FFAppState().update(() {
+                  FFAppState().tempLocation = LatLng(
+                    position.target.latitude,
+                    position.target.longitude,
+                  );
+                });
+                // If there's a lock and the map moves to another position, correct it
+                if (_lockToNewLocation && _lockedLocation != null) {
+                  // Calculate distance between current position and locked position
+                  double distance = _calculateDistance(
+                      LatLng(
+                          position.target.latitude, position.target.longitude),
+                      _lockedLocation!);
 
-                        // También limpia el notificador de nueva ubicación
-                        newUbicationNotifier.value = null;
-                      });
+                  // If it's too far, force back to the locked position
+                  if (distance > 500) {
+                    // 500 meters tolerance
+                    _forceMapMove(_lockedLocation!, position.zoom);
+                    return;
+                  }
+                }
 
-                      if (_initialCurrentLocation != null) {
-                        _animateCameraToPosition(
-                            _initialCurrentLocation!, 12.0);
+                // Update zoom level
+                if (_lastZoom == null ||
+                    (position.zoom - _lastZoom!).abs() > 0.1) {
+                  _lastZoom = position.zoom;
+                  int tempNumber = ((10 / position.zoom) * 100.0).toInt();
+                  FFAppState().update(() {
+                    FFAppState().zoomFilter = tempNumber;
+                    int multiplier =
+                        (50 + (math.log(tempNumber / 50) * 70).toInt())
+                            .clamp(50, 600) as int;
+                    FFAppState().distanceToShow = multiplier;
+                  });
+                }
 
-                        // Actualizar marcadores por cercanía a la ubicación actual
-                        _sortMarkersByProximity();
-
-                        // Seleccionar el primer marcador si es apropiado
-                        if (_sortedMarkers != null &&
-                            _sortedMarkers!.isNotEmpty &&
-                            widget.isProfessional != true) {
-                          _updateSelectedUser(0);
-                          _pageController.jumpToPage(0);
-                        }
-                      }
-                    },
-                    child: Icon(
-                      Icons.my_location,
-                      size: 28,
-                    ),
-                  ),
-                ),
-
-              // Loading indicator while markers are loading
-              if (!_markersLoaded && _isLocatingUser)
-                Positioned.fill(
-                  child: Container(
-                    color: Colors.white.withOpacity(0.7),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        CircularProgressIndicator(),
-                        SizedBox(height: 20),
-                        ElevatedButton(
-                          onPressed: () {
-                            if (_initialCurrentLocation != null) {
-                              setState(() {
-                                _markersLoaded = true;
-                              });
-                              _moveToAppropriateLocation();
-                            }
-                          },
-                          child: Text('Retry Loading Map'),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-            ],
+                // Ensure map stays within Australia bounds
+                if (!australiaBounds.contains(position.target)) {
+                  mapController!.moveCamera(
+                    google_maps.CameraUpdate.newLatLngBounds(
+                        australiaBounds, 0),
+                  );
+                }
+              },
+            ),
           ),
         ),
 
-        // In the build method where we create the PageView
-        // In the build method where we create the PageView
-        if (widget.isProfessional != true)
-          Container(
-            height: 170,
-            margin: EdgeInsets.only(bottom: 45),
-            decoration: BoxDecoration(
-              color: Colors.transparent,
+        // My location button - Repositioned
+        Positioned(
+          right: 10,
+          bottom: 230,
+          child: FloatingActionButton(
+            onPressed: () {
+              // Desactivar el bloqueo cuando se usa el botón de ubicación actual
+              setState(() {
+                _lockToNewLocation = false;
+                _lockedLocation = null;
+                _isInteractingWithPageView = false; // Ensure map is interactive
+
+                // También limpia el notificador de nueva ubicación
+                newUbicationNotifier.value = null;
+              });
+
+              if (_initialCurrentLocation != null) {
+                _animateCameraToPosition(_initialCurrentLocation!, 12.0);
+
+                // Actualizar marcadores por cercanía a la ubicación actual
+                _sortMarkersByProximity();
+
+                // Seleccionar el primer marcador si es apropiado
+                if (_sortedMarkers != null &&
+                    _sortedMarkers!.isNotEmpty &&
+                    widget.isProfessional != true) {
+                  _updateSelectedUser(0);
+                  _pageController.jumpToPage(0);
+                }
+              }
+            },
+            child: Icon(
+              Icons.my_location,
+              size: 28,
             ),
-            child: _sortedMarkers != null && _sortedMarkers!.isNotEmpty
-                ? // In the build method where you create the PageView
-                PageView.builder(
-                    controller: _pageController,
-                    itemCount: _sortedMarkers!.length,
-                    onPageChanged: (index) {
-                      // Indica que estamos interactuando con el PageView
-                      _setPageViewInteraction(true);
+          ),
+        ),
 
-                      _updateSelectedUser(index);
-
-                      // Desactivar temporalmente el bloqueo para permitir que el mapa se mueva con el PageView
-                      final wasLocked = _lockToNewLocation;
-                      final tempLocation = _lockedLocation;
-
-                      // Temporalmente desactiva el bloqueo
-                      setState(() {
-                        _lockToNewLocation = false;
-                      });
-
-                      // Actualiza la posición del mapa con ANIMACIÓN cuando cambia la página
-                      final newSelectedUser = _sortedMarkers![index];
-                      if (newSelectedUser.suburb != null) {
-                        _animateCameraToPosition(
-                            google_maps.LatLng(
-                              newSelectedUser.suburb!.latitude,
-                              newSelectedUser.suburb!.longitude,
-                            ),
-                            12.0);
+        // Loading indicator while markers are loading
+        if (!_markersLoaded && _isLocatingUser)
+          Positioned.fill(
+            child: Container(
+              color: Colors.white.withOpacity(0.7),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CircularProgressIndicator(),
+                  SizedBox(height: 20),
+                  ElevatedButton(
+                    onPressed: () {
+                      if (_initialCurrentLocation != null) {
+                        setState(() {
+                          _markersLoaded = true;
+                          _isInteractingWithPageView =
+                              false; // Ensure map is interactive
+                        });
+                        _moveToAppropriateLocation();
                       }
+                    },
+                    child: Text('Retry Loading Map'),
+                  )
+                ],
+              ),
+            ),
+          ),
 
-                      // Si estaba bloqueado, restaura el bloqueo después de un breve retardo
-                      if (wasLocked && tempLocation != null) {
-                        Future.delayed(Duration(milliseconds: 800), () {
-                          if (mounted) {
-                            setState(() {
-                              _lockToNewLocation = true;
-                              _lockedLocation = newSelectedUser
-                                  .suburb; // Actualiza la ubicación bloqueada al nuevo marcador
+        // PageView positioned at the bottom - Now with gesture detection
+        if (widget.isProfessional != true)
+          Positioned(
+            left: 0,
+            right: 0,
+            bottom: 45, // Adjust as needed
+            child: GestureDetector(
+              // This will handle horizontal drags on the PageView area without letting them pass to the map
+              onHorizontalDragStart: (_) {
+                setState(() {
+                  _isInteractingWithPageView = true;
+                });
+              },
+              onHorizontalDragEnd: (_) {
+                // Add a small delay before re-enabling map interactions
+                Future.delayed(Duration(milliseconds: 300), () {
+                  if (mounted) {
+                    setState(() {
+                      _isInteractingWithPageView = false;
+                    });
+                  }
+                });
+              },
+              child: Container(
+                height: 170,
+                // Add a very slight background color to ensure the gesture detector works
+                // but still appears transparent to the user
+                color: Colors.transparent,
+                child: _sortedMarkers != null && _sortedMarkers!.isNotEmpty
+                    ? PageView.builder(
+                        controller: _pageController,
+                        itemCount: _sortedMarkers!.length,
+                        onPageChanged: (index) {
+                          // Set the interaction flag when PageView is used
+                          _setPageViewInteraction(true);
+
+                          _updateSelectedUser(index);
+
+                          // Desactivar temporalmente el bloqueo para permitir que el mapa se mueva con el PageView
+                          final wasLocked = _lockToNewLocation;
+                          final tempLocation = _lockedLocation;
+
+                          // Temporalmente desactiva el bloqueo
+                          setState(() {
+                            _lockToNewLocation = false;
+                          });
+
+                          // Actualiza la posición del mapa con ANIMACIÓN cuando cambia la página
+                          final newSelectedUser = _sortedMarkers![index];
+                          if (newSelectedUser.suburb != null) {
+                            _animateCameraToPosition(
+                                google_maps.LatLng(
+                                  newSelectedUser.suburb!.latitude,
+                                  newSelectedUser.suburb!.longitude,
+                                ),
+                                12.0);
+                          }
+
+                          // Si estaba bloqueado, restaura el bloqueo después de un breve retardo
+                          if (wasLocked && tempLocation != null) {
+                            Future.delayed(Duration(milliseconds: 800), () {
+                              if (mounted) {
+                                setState(() {
+                                  _lockToNewLocation = true;
+                                  _lockedLocation = newSelectedUser
+                                      .suburb; // Actualiza la ubicación bloqueada al nuevo marcador
+                                  _isInteractingWithPageView =
+                                      false; // Re-enable map interactions
+                                });
+                              }
+                            });
+                          } else {
+                            // If not locked, still need to re-enable map interactions after animation
+                            Future.delayed(Duration(milliseconds: 300), () {
+                              if (mounted) {
+                                setState(() {
+                                  _isInteractingWithPageView = false;
+                                });
+                              }
                             });
                           }
-                        });
-                      }
-                    },
-                    itemBuilder: (context, index) {
-                      final user = _sortedMarkers![index];
-                      return Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 8.0, vertical: 10.0),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Color(
-                                0x00000000), // Fondo completamente transparente
-                          ),
-                          child: GestureDetector(
-                            onTap: () {
-                              navigateToProfileInfo(user);
-                            },
-                            child: V3fv0ritesv3Widget(
-                              profesionalId: user.reference,
-                              isMap: true,
+                        },
+                        itemBuilder: (context, index) {
+                          final user = _sortedMarkers![index];
+                          return Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 8.0, vertical: 10.0),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Color(
+                                    0x00000000), // Fondo completamente transparente
+                              ),
+                              child: GestureDetector(
+                                onTap: () {
+                                  // Ensure map is interactive when tapping on a card
+                                  setState(() {
+                                    _isInteractingWithPageView = false;
+                                  });
+                                  navigateToProfileInfo(user);
+                                },
+                                child: V3fv0ritesv3Widget(
+                                  profesionalId: user.reference,
+                                  isMap: true,
+                                ),
+                              ),
                             ),
+                          );
+                        },
+                      )
+                    : Center(
+                        child: Container(
+                          padding: EdgeInsets.all(12),
+                          decoration: BoxDecoration(
+                            color: Colors.white.withOpacity(0.8),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Text(
+                            'No professionals match your filters',
+                            style: FlutterFlowTheme.of(context).bodyMedium,
                           ),
                         ),
-                      );
-                    },
-                  )
-                : Center(
-                    child: Text(
-                      'No professionals match your filters',
-                      style: FlutterFlowTheme.of(context).bodyMedium,
-                    ),
-                  ),
+                      ),
+              ),
+            ),
           ),
       ],
     );

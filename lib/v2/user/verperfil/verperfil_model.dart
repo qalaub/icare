@@ -49,6 +49,10 @@ class VerperfilModel extends FlutterFlowModel<VerperfilWidget> {
   FocusNode? descriptionFocusNode;
   TextEditingController? descriptionTextController;
   String? Function(BuildContext, String?)? descriptionTextControllerValidator;
+  // State field(s) for company widget.
+  FocusNode? companyFocusNode;
+  TextEditingController? companyTextController;
+  String? Function(BuildContext, String?)? companyTextControllerValidator;
   // State field(s) for name widget.
   FocusNode? nameFocusNode;
   TextEditingController? nameTextController;
@@ -63,8 +67,8 @@ class VerperfilModel extends FlutterFlowModel<VerperfilWidget> {
   String? Function(BuildContext, String?)? ageTextControllerValidator;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
-  TextEditingController? textController5;
-  String? Function(BuildContext, String?)? textController5Validator;
+  TextEditingController? textController6;
+  String? Function(BuildContext, String?)? textController6Validator;
   // State field(s) for phone widget.
   FocusNode? phoneFocusNode;
   TextEditingController? phoneTextController;
@@ -86,9 +90,6 @@ class VerperfilModel extends FlutterFlowModel<VerperfilWidget> {
   // State field(s) for DropDown widget.
   List<String>? dropDownValue;
   FormFieldController<List<String>>? dropDownValueController;
-  // State field(s) for ages widget.
-  String? agesValue;
-  FormFieldController<String>? agesValueController;
   // State field(s) for NDIS widget.
   FocusNode? ndisFocusNode;
   TextEditingController? ndisTextController;
@@ -115,6 +116,9 @@ class VerperfilModel extends FlutterFlowModel<VerperfilWidget> {
     descriptionFocusNode?.dispose();
     descriptionTextController?.dispose();
 
+    companyFocusNode?.dispose();
+    companyTextController?.dispose();
+
     nameFocusNode?.dispose();
     nameTextController?.dispose();
 
@@ -125,7 +129,7 @@ class VerperfilModel extends FlutterFlowModel<VerperfilWidget> {
     ageTextController?.dispose();
 
     textFieldFocusNode?.dispose();
-    textController5?.dispose();
+    textController6?.dispose();
 
     phoneFocusNode?.dispose();
     phoneTextController?.dispose();

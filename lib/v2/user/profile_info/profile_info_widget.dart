@@ -332,6 +332,12 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                       child: Container(
                                         width: 100.0,
                                         height: 100.0,
+                                        constraints: BoxConstraints(
+                                          minWidth: 100.0,
+                                          minHeight: 100.0,
+                                          maxWidth: 100.0,
+                                          maxHeight: 100.0,
+                                        ),
                                         decoration: BoxDecoration(
                                           borderRadius: BorderRadius.only(
                                             bottomLeft: Radius.circular(22.0),
@@ -358,7 +364,7 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                             ),
                                             width: double.infinity,
                                             height: double.infinity,
-                                            fit: BoxFit.fill,
+                                            fit: BoxFit.cover,
                                           ),
                                         ),
                                       ),
@@ -562,92 +568,39 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                                                           _model.ratingBarValue =
                                                                               newValue);
                                                                       if (loggedIn) {
-                                                                        _model.chatsR =
-                                                                            await queryChatsRecordOnce(
-                                                                          queryBuilder: (chatsRecord) => chatsRecord
+                                                                        _model.reviewsC =
+                                                                            await queryReviewsRecordOnce(
+                                                                          queryBuilder: (reviewsRecord) => reviewsRecord
                                                                               .where(
-                                                                                'user_a',
+                                                                                'participant',
                                                                                 isEqualTo: currentUserReference,
                                                                               )
                                                                               .where(
-                                                                                'user_b',
+                                                                                'professional',
                                                                                 isEqualTo: widget.professional,
                                                                               ),
                                                                           singleRecord:
                                                                               true,
                                                                         ).then((s) =>
                                                                                 s.firstOrNull);
-                                                                        if (_model.chatsR?.reference !=
+                                                                        if (_model.reviewsC?.reference !=
                                                                             null) {
-                                                                          _model.chatsM =
-                                                                              await queryChatMessagesRecordOnce(
-                                                                            queryBuilder: (chatMessagesRecord) => chatMessagesRecord
-                                                                                .where(
-                                                                                  'chat',
-                                                                                  isEqualTo: _model.chatsR?.reference,
-                                                                                )
-                                                                                .where(
-                                                                                  'user',
-                                                                                  isEqualTo: widget.professional,
-                                                                                ),
-                                                                            limit:
-                                                                                5,
-                                                                          );
-                                                                          if (((_model.chatsM != null && (_model.chatsM)!.isNotEmpty) == true) &&
-                                                                              (_model.chatsM!.length > 0)) {
-                                                                            _model.reviewsC =
-                                                                                await queryReviewsRecordOnce(
-                                                                              queryBuilder: (reviewsRecord) => reviewsRecord
-                                                                                  .where(
-                                                                                    'participant',
-                                                                                    isEqualTo: currentUserReference,
-                                                                                  )
-                                                                                  .where(
-                                                                                    'professional',
-                                                                                    isEqualTo: widget.professional,
-                                                                                  ),
-                                                                              singleRecord: true,
-                                                                            ).then((s) => s.firstOrNull);
-                                                                            if (_model.reviewsC?.reference !=
-                                                                                null) {
-                                                                              await _model.reviewsC!.reference.update(createReviewsRecordData(
-                                                                                num: _model.ratingBarValue?.round(),
-                                                                              ));
-                                                                            } else {
-                                                                              await ReviewsRecord.collection.doc().set(createReviewsRecordData(
-                                                                                    num: _model.ratingBarValue?.round(),
-                                                                                    professional: widget.professional,
-                                                                                    participant: currentUserReference,
-                                                                                  ));
-                                                                            }
-                                                                          } else {
-                                                                            ScaffoldMessenger.of(context).showSnackBar(
-                                                                              SnackBar(
-                                                                                content: Text(
-                                                                                  'You should first interact with the professional.',
-                                                                                  style: TextStyle(
-                                                                                    color: FlutterFlowTheme.of(context).primaryText,
-                                                                                  ),
-                                                                                ),
-                                                                                duration: Duration(milliseconds: 4000),
-                                                                                backgroundColor: Color(0xFFD239B4),
-                                                                              ),
-                                                                            );
-                                                                          }
+                                                                          await _model
+                                                                              .reviewsC!
+                                                                              .reference
+                                                                              .update(createReviewsRecordData(
+                                                                            num:
+                                                                                _model.ratingBarValue?.round(),
+                                                                          ));
                                                                         } else {
-                                                                          ScaffoldMessenger.of(context)
-                                                                              .showSnackBar(
-                                                                            SnackBar(
-                                                                              content: Text(
-                                                                                'You should first interact with the professional.',
-                                                                                style: TextStyle(
-                                                                                  color: FlutterFlowTheme.of(context).primaryText,
-                                                                                ),
-                                                                              ),
-                                                                              duration: Duration(milliseconds: 4000),
-                                                                              backgroundColor: Color(0xFFD239B4),
-                                                                            ),
-                                                                          );
+                                                                          await ReviewsRecord
+                                                                              .collection
+                                                                              .doc()
+                                                                              .set(createReviewsRecordData(
+                                                                                num: _model.ratingBarValue?.round(),
+                                                                                professional: widget.professional,
+                                                                                participant: currentUserReference,
+                                                                              ));
                                                                         }
                                                                       } else {
                                                                         context.pushNamed(
@@ -803,6 +756,8 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                             afternoon: profileInfoUsersRecord.afternoon,
                             abn: profileInfoUsersRecord.abn,
                             ndis: profileInfoUsersRecord.ndis,
+                            years: profileInfoUsersRecord.years,
+                            plan: profileInfoUsersRecord.plan!,
                           ),
                         ),
                       ].addToEnd(SizedBox(height: 32.0)),

@@ -287,7 +287,7 @@ class _RegisterBusiness3WidgetState extends State<RegisterBusiness3Widget>
                                                     MediaQuery.sizeOf(context)
                                                             .width *
                                                         0.8,
-                                                height: 40.0,
+                                                height: 65.0,
                                                 decoration: BoxDecoration(
                                                   color: Color(0xFFFFFEFE),
                                                   borderRadius:
@@ -593,53 +593,45 @@ class _RegisterBusiness3WidgetState extends State<RegisterBusiness3Widget>
                                                               width: 2.0,
                                                             ),
                                                           ),
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        16.0,
-                                                                        0.0,
-                                                                        16.0,
-                                                                        0.0),
-                                                            child:
-                                                                FlutterFlowDropDown<
-                                                                    String>(
-                                                              key: ValueKey(
-                                                                  'gender'),
-                                                              controller: _model
-                                                                      .genderValueController ??=
-                                                                  FormFieldController<
-                                                                          String>(
-                                                                      null),
-                                                              options: [
-                                                                'Male',
-                                                                'Female',
-                                                                'Other'
-                                                              ],
-                                                              onChanged: (val) =>
-                                                                  safeSetState(() =>
-                                                                      _model.genderValue =
-                                                                          val),
-                                                              width: 253.0,
-                                                              height: 40.0,
-                                                              textStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        font: GoogleFonts
-                                                                            .montserrat(
-                                                                          fontWeight: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .fontWeight,
-                                                                          fontStyle: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .fontStyle,
-                                                                        ),
-                                                                        color: Colors
-                                                                            .black,
-                                                                        letterSpacing:
-                                                                            0.0,
+                                                          child: Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    0.0, 0.0),
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          16.0,
+                                                                          0.0,
+                                                                          16.0,
+                                                                          0.0),
+                                                              child:
+                                                                  FlutterFlowDropDown<
+                                                                      String>(
+                                                                key: ValueKey(
+                                                                    'gender'),
+                                                                controller: _model
+                                                                        .genderValueController ??=
+                                                                    FormFieldController<
+                                                                            String>(
+                                                                        null),
+                                                                options: [
+                                                                  'Male',
+                                                                  'Female',
+                                                                  'Other'
+                                                                ],
+                                                                onChanged: (val) =>
+                                                                    safeSetState(() =>
+                                                                        _model.genderValue =
+                                                                            val),
+                                                                width: 253.0,
+                                                                height: 40.0,
+                                                                textStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      font: GoogleFonts
+                                                                          .montserrat(
                                                                         fontWeight: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .fontWeight,
@@ -647,32 +639,51 @@ class _RegisterBusiness3WidgetState extends State<RegisterBusiness3Widget>
                                                                             .bodyMedium
                                                                             .fontStyle,
                                                                       ),
-                                                              hintText:
-                                                                  'Please select...',
-                                                              icon: Icon(
-                                                                Icons
-                                                                    .keyboard_arrow_down_rounded,
-                                                                color: Colors
-                                                                    .black,
-                                                                size: 24.0,
+                                                                      color: Colors
+                                                                          .black,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
+                                                                    ),
+                                                                hintText:
+                                                                    'Please select...',
+                                                                icon: Icon(
+                                                                  Icons
+                                                                      .keyboard_arrow_down_rounded,
+                                                                  color: Colors
+                                                                      .black,
+                                                                  size: 24.0,
+                                                                ),
+                                                                fillColor:
+                                                                    Colors
+                                                                        .white,
+                                                                elevation: 2.0,
+                                                                borderColor: Colors
+                                                                    .transparent,
+                                                                borderWidth:
+                                                                    2.0,
+                                                                borderRadius:
+                                                                    8.0,
+                                                                margin:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            0.0),
+                                                                hidesUnderline:
+                                                                    true,
+                                                                isOverButton:
+                                                                    true,
+                                                                isSearchable:
+                                                                    false,
+                                                                isMultiSelect:
+                                                                    false,
                                                               ),
-                                                              fillColor:
-                                                                  Colors.white,
-                                                              elevation: 2.0,
-                                                              borderColor: Colors
-                                                                  .transparent,
-                                                              borderWidth: 2.0,
-                                                              borderRadius: 8.0,
-                                                              margin: EdgeInsets
-                                                                  .all(0.0),
-                                                              hidesUnderline:
-                                                                  true,
-                                                              isOverButton:
-                                                                  true,
-                                                              isSearchable:
-                                                                  false,
-                                                              isMultiSelect:
-                                                                  false,
                                                             ),
                                                           ),
                                                         ),

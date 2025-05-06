@@ -1,6 +1,5 @@
-import '/auth/firebase_auth/auth_util.dart';
-import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -16,28 +15,29 @@ import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'register_professional2_model.dart';
-export 'register_professional2_model.dart';
+import 'register_professional2_copy_model.dart';
+export 'register_professional2_copy_model.dart';
 
-class RegisterProfessional2Widget extends StatefulWidget {
-  const RegisterProfessional2Widget({
+class RegisterProfessional2CopyWidget extends StatefulWidget {
+  const RegisterProfessional2CopyWidget({
     super.key,
     this.businessRef,
   });
 
   final DocumentReference? businessRef;
 
-  static String routeName = 'RegisterProfessional2';
-  static String routePath = 'registerProfessional2';
+  static String routeName = 'RegisterProfessional2Copy';
+  static String routePath = 'registerProfessional2Copy';
 
   @override
-  State<RegisterProfessional2Widget> createState() =>
-      _RegisterProfessional2WidgetState();
+  State<RegisterProfessional2CopyWidget> createState() =>
+      _RegisterProfessional2CopyWidgetState();
 }
 
-class _RegisterProfessional2WidgetState
-    extends State<RegisterProfessional2Widget> with TickerProviderStateMixin {
-  late RegisterProfessional2Model _model;
+class _RegisterProfessional2CopyWidgetState
+    extends State<RegisterProfessional2CopyWidget>
+    with TickerProviderStateMixin {
+  late RegisterProfessional2CopyModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -46,10 +46,7 @@ class _RegisterProfessional2WidgetState
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => RegisterProfessional2Model());
-
-    _model.ndisTextController ??= TextEditingController();
-    _model.ndisFocusNode ??= FocusNode();
+    _model = createModel(context, () => RegisterProfessional2CopyModel());
 
     _model.yearsTextController ??= TextEditingController();
     _model.yearsFocusNode ??= FocusNode();
@@ -98,18 +95,6 @@ class _RegisterProfessional2WidgetState
         ],
       ),
       'textOnPageLoadAnimation4': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          MoveEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(0.0, -11.0),
-            end: Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'textOnPageLoadAnimation5': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           MoveEffect(
@@ -398,91 +383,149 @@ class _RegisterProfessional2WidgetState
                                                                 width: 2.0,
                                                               ),
                                                             ),
-                                                            child: Align(
-                                                              alignment:
-                                                                  AlignmentDirectional(
-                                                                      0.0, 0.0),
-                                                              child:
-                                                                  FlutterFlowDropDown<
-                                                                      String>(
-                                                                key: ValueKey(
-                                                                    'services'),
-                                                                multiSelectController: _model
-                                                                        .serviceTypeValueController ??=
-                                                                    FormListFieldController<
+                                                            child: Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .center,
+                                                              children: [
+                                                                Align(
+                                                                  alignment:
+                                                                      AlignmentDirectional(
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child:
+                                                                      FlutterFlowDropDown<
+                                                                          String>(
+                                                                    key: ValueKey(
+                                                                        'services'),
+                                                                    multiSelectController: _model
+                                                                        .serviceTypeValueController ??= FormListFieldController<
                                                                             String>(
                                                                         null),
-                                                                options: [
-                                                                  'Support Worker',
-                                                                  'Support  Coordinator',
-                                                                  'Recovery Coach',
-                                                                  'Therapeutic Support',
-                                                                  'Home Maintenance'
-                                                                ],
-                                                                width: 261.0,
-                                                                height: 56.0,
-                                                                textStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      font: GoogleFonts
-                                                                          .montserrat(
-                                                                        fontWeight: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontWeight,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontStyle,
-                                                                      ),
+                                                                    options: [
+                                                                      'Support Worker',
+                                                                      'Support  Coordinator',
+                                                                      'Recovery Coach',
+                                                                      'Therapeutic Support',
+                                                                      'Home Maintenance'
+                                                                    ],
+                                                                    width:
+                                                                        240.0,
+                                                                    height:
+                                                                        56.0,
+                                                                    textStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          font:
+                                                                              GoogleFonts.montserrat(
+                                                                            fontWeight:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                          ),
+                                                                          color:
+                                                                              Colors.black,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
+                                                                    hintText:
+                                                                        'Type of service offered',
+                                                                    icon: Icon(
+                                                                      Icons
+                                                                          .keyboard_arrow_down_rounded,
                                                                       color: Colors
                                                                           .black,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      fontWeight: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .fontWeight,
-                                                                      fontStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .fontStyle,
+                                                                      size:
+                                                                          24.0,
                                                                     ),
-                                                                hintText:
-                                                                    'Type of service offered',
-                                                                icon: Icon(
-                                                                  Icons
-                                                                      .keyboard_arrow_down_rounded,
-                                                                  color: Colors
-                                                                      .black,
-                                                                  size: 24.0,
-                                                                ),
-                                                                fillColor:
-                                                                    Colors
-                                                                        .white,
-                                                                elevation: 2.0,
-                                                                borderColor: Colors
-                                                                    .transparent,
-                                                                borderWidth:
-                                                                    0.0,
-                                                                borderRadius:
-                                                                    8.0,
-                                                                margin:
-                                                                    EdgeInsets
+                                                                    fillColor:
+                                                                        Colors
+                                                                            .white,
+                                                                    elevation:
+                                                                        2.0,
+                                                                    borderColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    borderWidth:
+                                                                        0.0,
+                                                                    borderRadius:
+                                                                        8.0,
+                                                                    margin: EdgeInsets
                                                                         .all(
                                                                             0.0),
-                                                                hidesUnderline:
-                                                                    true,
-                                                                isOverButton:
-                                                                    true,
-                                                                isSearchable:
-                                                                    false,
-                                                                isMultiSelect:
-                                                                    true,
-                                                                onMultiSelectChanged: (val) =>
-                                                                    safeSetState(() =>
-                                                                        _model.serviceTypeValue =
-                                                                            val),
-                                                              ),
+                                                                    hidesUnderline:
+                                                                        true,
+                                                                    disabled:
+                                                                        FFAppState().isDropdownDisabled ==
+                                                                            true,
+                                                                    isOverButton:
+                                                                        true,
+                                                                    isSearchable:
+                                                                        false,
+                                                                    isMultiSelect:
+                                                                        true,
+                                                                    onMultiSelectChanged:
+                                                                        (val) async {
+                                                                      safeSetState(() =>
+                                                                          _model.serviceTypeValue =
+                                                                              val);
+                                                                      if (_model
+                                                                              .serviceTypeValue
+                                                                              ?.length ==
+                                                                          1) {
+                                                                        Navigator.pop(
+                                                                            context);
+                                                                        FFAppState().isDropdownDisabled =
+                                                                            true;
+                                                                        safeSetState(
+                                                                            () {});
+                                                                      }
+                                                                    },
+                                                                  ),
+                                                                ),
+                                                                if (FFAppState()
+                                                                        .isDropdownDisabled ==
+                                                                    true)
+                                                                  FlutterFlowIconButton(
+                                                                    borderRadius:
+                                                                        8.0,
+                                                                    buttonSize:
+                                                                        40.0,
+                                                                    icon: Icon(
+                                                                      Icons
+                                                                          .cancel,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                      size:
+                                                                          24.0,
+                                                                    ),
+                                                                    onPressed:
+                                                                        () async {
+                                                                      safeSetState(
+                                                                          () {
+                                                                        _model
+                                                                            .serviceTypeValueController
+                                                                            ?.reset();
+                                                                      });
+                                                                      FFAppState()
+                                                                              .isDropdownDisabled =
+                                                                          false;
+                                                                      safeSetState(
+                                                                          () {});
+                                                                    },
+                                                                  ),
+                                                              ],
                                                             ),
                                                           ),
                                                         ),
@@ -568,456 +611,6 @@ class _RegisterProfessional2WidgetState
                                                 ),
                                               ),
                                             ),
-                                            if (currentUserDocument?.rol ==
-                                                    Roles.profesional
-                                                ? (currentUserDocument
-                                                        ?.business ==
-                                                    null)
-                                                : true)
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    -0.8, -0.73),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          5.0, 15.0, 0.0, 15.0),
-                                                  child: AuthUserStreamWidget(
-                                                    builder: (context) => Text(
-                                                      '* NDIS registration status',
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            font: GoogleFonts
-                                                                .montserrat(
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500,
-                                                              fontStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontStyle,
-                                                            ),
-                                                            color: Colors.black,
-                                                            fontSize: 15.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontStyle,
-                                                          ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            if (currentUserDocument?.rol ==
-                                                    Roles.profesional
-                                                ? (currentUserDocument
-                                                        ?.business ==
-                                                    null)
-                                                : true)
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 0.0, 8.0),
-                                                child: AuthUserStreamWidget(
-                                                  builder: (context) => Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Align(
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                0.0, -1.0),
-                                                        child: Container(
-                                                          width:
-                                                              MediaQuery.sizeOf(
-                                                                          context)
-                                                                      .width *
-                                                                  0.8,
-                                                          height: 45.0,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: Colors.white,
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .only(
-                                                              bottomLeft: Radius
-                                                                  .circular(
-                                                                      12.0),
-                                                              bottomRight:
-                                                                  Radius
-                                                                      .circular(
-                                                                          12.0),
-                                                              topLeft: Radius
-                                                                  .circular(
-                                                                      12.0),
-                                                              topRight: Radius
-                                                                  .circular(
-                                                                      12.0),
-                                                            ),
-                                                            border: Border.all(
-                                                              color: Color(
-                                                                  0xFFBB33B9),
-                                                              width: 2.0,
-                                                            ),
-                                                          ),
-                                                          child: Align(
-                                                            alignment:
-                                                                AlignmentDirectional(
-                                                                    0.0, 0.0),
-                                                            child:
-                                                                FlutterFlowDropDown<
-                                                                    String>(
-                                                              key: ValueKey(
-                                                                  'ndisSelect'),
-                                                              controller: _model
-                                                                      .ndisselectValueController ??=
-                                                                  FormFieldController<
-                                                                          String>(
-                                                                      null),
-                                                              options: [
-                                                                'Unregistered',
-                                                                'Registered'
-                                                              ],
-                                                              onChanged:
-                                                                  (val) async {
-                                                                safeSetState(() =>
-                                                                    _model.ndisselectValue =
-                                                                        val);
-                                                                if (_model
-                                                                        .ndisselectValue ==
-                                                                    'Registered') {
-                                                                  _model.isNDIS =
-                                                                      true;
-                                                                  safeSetState(
-                                                                      () {});
-                                                                } else {
-                                                                  _model.isNDIS =
-                                                                      false;
-                                                                  safeSetState(
-                                                                      () {});
-                                                                }
-                                                              },
-                                                              width: 261.0,
-                                                              height: 56.0,
-                                                              textStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        font: GoogleFonts
-                                                                            .montserrat(
-                                                                          fontWeight: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .fontWeight,
-                                                                          fontStyle: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .fontStyle,
-                                                                        ),
-                                                                        color: Colors
-                                                                            .black,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontWeight,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontStyle,
-                                                                      ),
-                                                              hintText:
-                                                                  'Registered or Unregistered ',
-                                                              icon: Icon(
-                                                                Icons
-                                                                    .keyboard_arrow_down_rounded,
-                                                                color: Colors
-                                                                    .black,
-                                                                size: 24.0,
-                                                              ),
-                                                              fillColor:
-                                                                  Colors.white,
-                                                              elevation: 2.0,
-                                                              borderColor: Colors
-                                                                  .transparent,
-                                                              borderWidth: 0.0,
-                                                              borderRadius: 8.0,
-                                                              margin: EdgeInsets
-                                                                  .all(0.0),
-                                                              hidesUnderline:
-                                                                  true,
-                                                              isOverButton:
-                                                                  true,
-                                                              isSearchable:
-                                                                  false,
-                                                              isMultiSelect:
-                                                                  false,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Builder(
-                                                        builder: (context) {
-                                                          if (_model.isNDIS ==
-                                                              true) {
-                                                            return Align(
-                                                              alignment:
-                                                                  AlignmentDirectional(
-                                                                      -0.01,
-                                                                      -0.69),
-                                                              child: Container(
-                                                                width: MediaQuery.sizeOf(
-                                                                            context)
-                                                                        .width *
-                                                                    0.8,
-                                                                height: 70.0,
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  color: Color(
-                                                                      0xFFFFFEFE),
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .only(
-                                                                    bottomLeft:
-                                                                        Radius.circular(
-                                                                            12.0),
-                                                                    bottomRight:
-                                                                        Radius.circular(
-                                                                            12.0),
-                                                                    topLeft: Radius
-                                                                        .circular(
-                                                                            12.0),
-                                                                    topRight: Radius
-                                                                        .circular(
-                                                                            12.0),
-                                                                  ),
-                                                                ),
-                                                                child: Stack(
-                                                                  children: [
-                                                                    TextFormField(
-                                                                      key: ValueKey(
-                                                                          'ndis'),
-                                                                      controller:
-                                                                          _model
-                                                                              .ndisTextController,
-                                                                      focusNode:
-                                                                          _model
-                                                                              .ndisFocusNode,
-                                                                      onChanged:
-                                                                          (_) =>
-                                                                              EasyDebounce.debounce(
-                                                                        '_model.ndisTextController',
-                                                                        Duration(
-                                                                            milliseconds:
-                                                                                10),
-                                                                        () async {
-                                                                          _model.ndisexist1 =
-                                                                              await queryUsersRecordCount(
-                                                                            queryBuilder: (usersRecord) =>
-                                                                                usersRecord.where(
-                                                                              'ndis',
-                                                                              isEqualTo: _model.ndisTextController.text,
-                                                                            ),
-                                                                          );
-
-                                                                          safeSetState(
-                                                                              () {});
-                                                                        },
-                                                                      ),
-                                                                      autofocus:
-                                                                          true,
-                                                                      obscureText:
-                                                                          false,
-                                                                      decoration:
-                                                                          InputDecoration(
-                                                                        isDense:
-                                                                            true,
-                                                                        labelStyle: FlutterFlowTheme.of(context)
-                                                                            .labelMedium
-                                                                            .override(
-                                                                              font: GoogleFonts.montserrat(
-                                                                                fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
-                                                                                fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                              ),
-                                                                              letterSpacing: 0.0,
-                                                                              fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
-                                                                              fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                            ),
-                                                                        hintText:
-                                                                            'Do not leave this field empty',
-                                                                        hintStyle: FlutterFlowTheme.of(context)
-                                                                            .labelMedium
-                                                                            .override(
-                                                                              font: GoogleFonts.readexPro(
-                                                                                fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
-                                                                                fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                              ),
-                                                                              letterSpacing: 0.0,
-                                                                              fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
-                                                                              fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                            ),
-                                                                        errorStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .override(
-                                                                              font: GoogleFonts.readexPro(
-                                                                                fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                              ),
-                                                                              color: FlutterFlowTheme.of(context).error,
-                                                                              letterSpacing: 0.0,
-                                                                              fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                            ),
-                                                                        enabledBorder:
-                                                                            OutlineInputBorder(
-                                                                          borderSide:
-                                                                              BorderSide(
-                                                                            color:
-                                                                                Color(0xFFBB33B9),
-                                                                            width:
-                                                                                2.0,
-                                                                          ),
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(8.0),
-                                                                        ),
-                                                                        focusedBorder:
-                                                                            OutlineInputBorder(
-                                                                          borderSide:
-                                                                              BorderSide(
-                                                                            color:
-                                                                                Color(0xFF762075),
-                                                                            width:
-                                                                                2.0,
-                                                                          ),
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(8.0),
-                                                                        ),
-                                                                        errorBorder:
-                                                                            OutlineInputBorder(
-                                                                          borderSide:
-                                                                              BorderSide(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).error,
-                                                                            width:
-                                                                                2.0,
-                                                                          ),
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(8.0),
-                                                                        ),
-                                                                        focusedErrorBorder:
-                                                                            OutlineInputBorder(
-                                                                          borderSide:
-                                                                              BorderSide(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).error,
-                                                                            width:
-                                                                                2.0,
-                                                                          ),
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(8.0),
-                                                                        ),
-                                                                      ),
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            font:
-                                                                                GoogleFonts.montserrat(
-                                                                              fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                            ),
-                                                                            color:
-                                                                                Colors.black,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            fontWeight:
-                                                                                FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                                                                            fontStyle:
-                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                          ),
-                                                                      maxLines:
-                                                                          null,
-                                                                      maxLength:
-                                                                          15,
-                                                                      keyboardType:
-                                                                          TextInputType
-                                                                              .number,
-                                                                      validator: _model
-                                                                          .ndisTextControllerValidator
-                                                                          .asValidator(
-                                                                              context),
-                                                                    ),
-                                                                    if ((_model.ndisexist1 !=
-                                                                            null) &&
-                                                                        (_model.ndisexist1! >
-                                                                            0))
-                                                                      Align(
-                                                                        alignment: AlignmentDirectional(
-                                                                            -0.78,
-                                                                            0.8),
-                                                                        child:
-                                                                            Text(
-                                                                          'This NDIS is already registered',
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .override(
-                                                                                font: GoogleFonts.montserrat(
-                                                                                  fontWeight: FontWeight.w500,
-                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                ),
-                                                                                color: Color(0xFFFF5963),
-                                                                                letterSpacing: 0.0,
-                                                                                fontWeight: FontWeight.w500,
-                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                              ),
-                                                                        ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation2']!),
-                                                                      ),
-                                                                  ],
-                                                                ),
-                                                              ),
-                                                            );
-                                                          } else {
-                                                            return Text(
-                                                              '',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    font: GoogleFonts
-                                                                        .readexPro(
-                                                                      fontWeight: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .fontWeight,
-                                                                      fontStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .fontStyle,
-                                                                    ),
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    fontWeight: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .fontWeight,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .fontStyle,
-                                                                  ),
-                                                            );
-                                                          }
-                                                        },
-                                                      ),
-                                                    ].divide(
-                                                        SizedBox(height: 5.0)),
-                                                  ),
-                                                ),
-                                              ),
                                             Align(
                                               alignment: AlignmentDirectional(
                                                   -0.82, -0.73),
@@ -1508,7 +1101,7 @@ class _RegisterProfessional2WidgetState
                                                                         ),
                                                                   ).animateOnPageLoad(
                                                                       animationsMap[
-                                                                          'textOnPageLoadAnimation3']!),
+                                                                          'textOnPageLoadAnimation2']!),
                                                                 ),
                                                               );
                                                             } else {
@@ -1859,7 +1452,7 @@ class _RegisterProfessional2WidgetState
                                                                         ),
                                                                   ).animateOnPageLoad(
                                                                       animationsMap[
-                                                                          'textOnPageLoadAnimation4']!),
+                                                                          'textOnPageLoadAnimation3']!),
                                                                 );
                                                               } else {
                                                                 return Text(
@@ -2208,7 +1801,7 @@ class _RegisterProfessional2WidgetState
                                                                         ),
                                                                   ).animateOnPageLoad(
                                                                       animationsMap[
-                                                                          'textOnPageLoadAnimation5']!),
+                                                                          'textOnPageLoadAnimation4']!),
                                                                 );
                                                               } else {
                                                                 return Text(
@@ -2454,42 +2047,22 @@ class _RegisterProfessional2WidgetState
                                                                   '') ||
                                                           (_model.confirmPasswordTextController
                                                                       .text ==
-                                                                  '') ||
-                                                          () {
-                                                            if (_model.isNDIS ==
-                                                                true) {
-                                                              return (_model.ndisTextController
-                                                                          .text ==
-                                                                      '');
-                                                            } else if (_model
-                                                                    .isNDIS ==
-                                                                false) {
-                                                              return (_model.ndisTextController
-                                                                          .text !=
-                                                                      '');
-                                                            } else {
-                                                              return true;
-                                                            }
-                                                          }())
+                                                                  ''))
                                                       ? null
                                                       : () async {
                                                           FFAppState()
                                                               .updateVerifyFormStruct(
                                                             (e) => e
-                                                              ..dropdown =
-                                                                  valueOrDefault<
-                                                                          bool>(
-                                                                _model.serviceTypeValue !=
-                                                                        null &&
-                                                                    (_model.serviceTypeValue)!
-                                                                        .isNotEmpty,
-                                                                false,
-                                                              )
-                                                                      ? (_model
-                                                                              .serviceTypeValue!
-                                                                              .length >
-                                                                          0)
-                                                                      : false
+                                                              ..dropdown = _model
+                                                                              .serviceTypeValue !=
+                                                                          null &&
+                                                                      (_model.serviceTypeValue)!
+                                                                          .isNotEmpty
+                                                                  ? (_model
+                                                                          .serviceTypeValue!
+                                                                          .length >
+                                                                      0)
+                                                                  : false
                                                               ..dropdown2 =
                                                                   valueOrDefault<
                                                                       bool>(
@@ -2573,9 +2146,6 @@ class _RegisterProfessional2WidgetState
                                                             FFAppState()
                                                                 .updateRegisterProviderFormStruct(
                                                               (e) => e
-                                                                ..ndis = _model
-                                                                    .ndisTextController
-                                                                    .text
                                                                 ..age = _model
                                                                     .ageValue
                                                                 ..password = _model
@@ -2606,7 +2176,7 @@ class _RegisterProfessional2WidgetState
                                                                 .counter = 0;
 
                                                             context.pushNamed(
-                                                              Cadari0Widget
+                                                              Cadari0CopyWidget
                                                                   .routeName,
                                                               queryParameters: {
                                                                 'bussinesRef':

@@ -241,6 +241,11 @@ class UsersRecord extends FirestoreRecord {
   String get abn => _abn ?? '';
   bool hasAbn() => _abn != null;
 
+  // "rejections" field.
+  List<DocumentReference>? _rejections;
+  List<DocumentReference> get rejections => _rejections ?? const [];
+  bool hasRejections() => _rejections != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -291,6 +296,7 @@ class UsersRecord extends FirestoreRecord {
     _noon = getDataList(snapshotData['noon']);
     _afternoon = getDataList(snapshotData['afternoon']);
     _abn = snapshotData['abn'] as String?;
+    _rejections = getDataList(snapshotData['rejections']);
   }
 
   static CollectionReference get collection =>
@@ -452,7 +458,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         listEquality.equals(e1?.morning, e2?.morning) &&
         listEquality.equals(e1?.noon, e2?.noon) &&
         listEquality.equals(e1?.afternoon, e2?.afternoon) &&
-        e1?.abn == e2?.abn;
+        e1?.abn == e2?.abn &&
+        listEquality.equals(e1?.rejections, e2?.rejections);
   }
 
   @override
@@ -501,7 +508,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.morning,
         e?.noon,
         e?.afternoon,
-        e?.abn
+        e?.abn,
+        e?.rejections
       ]);
 
   @override

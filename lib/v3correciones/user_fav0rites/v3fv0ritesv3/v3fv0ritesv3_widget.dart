@@ -158,6 +158,12 @@ class _V3fv0ritesv3WidgetState extends State<V3fv0ritesv3Widget> {
                             child: Container(
                               width: 63.0,
                               height: 63.0,
+                              constraints: BoxConstraints(
+                                minWidth: 63.0,
+                                minHeight: 63.0,
+                                maxWidth: 63.0,
+                                maxHeight: 63.0,
+                              ),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.only(
                                   bottomLeft: Radius.circular(15.0),
@@ -179,8 +185,9 @@ class _V3fv0ritesv3WidgetState extends State<V3fv0ritesv3Widget> {
                                       containerUsersRecord.photoUrl,
                                       'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
                                     ),
-                                    height: 65.0,
-                                    fit: BoxFit.fill,
+                                    width: double.infinity,
+                                    height: double.infinity,
+                                    fit: BoxFit.cover,
                                   ),
                                 ),
                               ),

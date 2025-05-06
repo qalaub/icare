@@ -48,11 +48,11 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
           borderRadius: BorderRadius.circular(20.0),
         ),
         child: Container(
-          width: 425.0,
+          width: 385.0,
           height: 190.0,
           constraints: BoxConstraints(
             minHeight: 190.0,
-            maxWidth: 410.0,
+            maxWidth: 385.0,
             maxHeight: 190.0,
           ),
           decoration: BoxDecoration(

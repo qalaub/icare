@@ -250,7 +250,7 @@ class _EscogerUsuarioWidgetState extends State<EscogerUsuarioWidget> {
                                                         ),
                                                 elevation: 3.0,
                                                 borderSide: BorderSide(
-                                                  color: Colors.transparent,
+                                                  color: Colors.black,
                                                   width: 1.0,
                                                 ),
                                                 borderRadius:

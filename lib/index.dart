@@ -31,7 +31,7 @@ export '/v2/professional/peoplewhoputyouinfavorites/peoplewhoputyouinfavorites_w
 export '/v2/professional/peoplewhoputyouinfavorite_basic/peoplewhoputyouinfavorite_basic_widget.dart'
     show PeoplewhoputyouinfavoriteBasicWidget;
 export '/v2/block_list/favoritesv2/fav_v2/fav_v2_widget.dart' show FavV2Widget;
-export '/v2/register/professional/register_professional3/register_professional3_widget.dart'
+export '/v2/register/register_professional3/register_professional3_widget.dart'
     show RegisterProfessional3Widget;
 export '/v2/menbresiav2/membresias_v2/membresias_v2_widget.dart'
     show MembresiasV2Widget;
@@ -91,3 +91,11 @@ export '/v2/v2_mensages/unauthorizedsales/unauthorizedsales_widget.dart'
     show UnauthorizedsalesWidget;
 export '/v2/v2_mensages/scams/scams_widget.dart' show ScamsWidget;
 export '/v2/v2_mensages/other/other_widget.dart' show OtherWidget;
+export '/v2/register/professional/register_professional1_copy/register_professional1_copy_widget.dart'
+    show RegisterProfessional1CopyWidget;
+export '/v2/register/professional/register_professional2_copy/register_professional2_copy_widget.dart'
+    show RegisterProfessional2CopyWidget;
+export '/v2/register/professional/register_pfofesional4_copy/register_pfofesional4_copy_widget.dart'
+    show RegisterPfofesional4CopyWidget;
+export '/v3correciones/calendario/cadari0_copy/cadari0_copy_widget.dart'
+    show Cadari0CopyWidget;

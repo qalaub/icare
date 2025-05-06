@@ -65,6 +65,10 @@ class ProfileSettingsModel extends FlutterFlowModel<ProfileSettingsWidget> {
   FocusNode? descriptionFocusNode;
   TextEditingController? descriptionTextController;
   String? Function(BuildContext, String?)? descriptionTextControllerValidator;
+  // State field(s) for company widget.
+  FocusNode? companyFocusNode;
+  TextEditingController? companyTextController;
+  String? Function(BuildContext, String?)? companyTextControllerValidator;
   // State field(s) for name widget.
   FocusNode? nameFocusNode;
   TextEditingController? nameTextController;
@@ -73,7 +77,7 @@ class ProfileSettingsModel extends FlutterFlowModel<ProfileSettingsWidget> {
   FocusNode? lastNameFocusNode;
   TextEditingController? lastNameTextController;
   String? Function(BuildContext, String?)? lastNameTextControllerValidator;
-  // State field(s) for Age widget.
+  // State field(s) for age widget.
   FocusNode? ageFocusNode;
   TextEditingController? ageTextController;
   String? Function(BuildContext, String?)? ageTextControllerValidator;
@@ -96,18 +100,15 @@ class ProfileSettingsModel extends FlutterFlowModel<ProfileSettingsWidget> {
   FocusNode? abnFocusNode;
   TextEditingController? abnTextController;
   String? Function(BuildContext, String?)? abnTextControllerValidator;
-  // State field(s) for services widget.
-  String? servicesValue;
-  FormFieldController<String>? servicesValueController;
   // State field(s) for servicesPremiun widget.
   List<String>? servicesPremiunValue;
   FormFieldController<List<String>>? servicesPremiunValueController;
+  // State field(s) for serviceemple widget.
+  List<String>? serviceempleValue;
+  FormFieldController<List<String>>? serviceempleValueController;
   // State field(s) for DropDown widget.
   List<String>? dropDownValue;
   FormFieldController<List<String>>? dropDownValueController;
-  // State field(s) for ages widget.
-  String? agesValue;
-  FormFieldController<String>? agesValueController;
   // Model for calendarioCopy component.
   late CalendarioCopyModel calendarioCopyModel;
   bool isDataUploading2 = false;
@@ -136,6 +137,9 @@ class ProfileSettingsModel extends FlutterFlowModel<ProfileSettingsWidget> {
     uploadProfileImageModel.dispose();
     descriptionFocusNode?.dispose();
     descriptionTextController?.dispose();
+
+    companyFocusNode?.dispose();
+    companyTextController?.dispose();
 
     nameFocusNode?.dispose();
     nameTextController?.dispose();

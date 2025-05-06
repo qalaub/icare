@@ -89,7 +89,7 @@ class _ImagenesfotosUsersWidgetState extends State<ImagenesfotosUsersWidget> {
                                 ),
                                 width: MediaQuery.sizeOf(context).width * 1.0,
                                 height: MediaQuery.sizeOf(context).height * 0.7,
-                                fit: BoxFit.contain,
+                                fit: BoxFit.cover,
                               ),
                             );
                           },

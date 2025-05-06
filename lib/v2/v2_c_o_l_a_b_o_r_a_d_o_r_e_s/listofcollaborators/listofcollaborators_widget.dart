@@ -51,7 +51,7 @@ class _ListofcollaboratorsWidgetState extends State<ListofcollaboratorsWidget> {
         onWillPop: () async => false,
         child: Scaffold(
           key: scaffoldKey,
-          backgroundColor: Colors.white,
+          backgroundColor: Color(0xFFBD39BA),
           body: SafeArea(
             top: true,
             child: Container(
@@ -79,7 +79,7 @@ class _ListofcollaboratorsWidgetState extends State<ListofcollaboratorsWidget> {
                               alignment: AlignmentDirectional(0.0, -1.0),
                               child: Container(
                                 width: MediaQuery.sizeOf(context).width * 1.0,
-                                height: 100.0,
+                                height: 65.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,

@@ -4,23 +4,25 @@ import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'register_pfofesional5_model.dart';
 export 'register_pfofesional5_model.dart';
 
 class RegisterPfofesional5Widget extends StatefulWidget {
   const RegisterPfofesional5Widget({
     super.key,
-    bool? isProfesional,
-  }) : this.isProfesional = isProfesional ?? false;
+    this.bussinesRef,
+    bool? isBussines,
+  }) : this.isBussines = isBussines ?? false;
 
-  final bool isProfesional;
+  final DocumentReference? bussinesRef;
+  final bool isBussines;
 
   static String routeName = 'RegisterPfofesional5';
   static String routePath = 'registerPfofesional5';
@@ -51,6 +53,8 @@ class _RegisterPfofesional5WidgetState
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -132,7 +136,7 @@ class _RegisterPfofesional5WidgetState
                                   width:
                                       MediaQuery.sizeOf(context).width * 0.96,
                                   height:
-                                      MediaQuery.sizeOf(context).height * 0.75,
+                                      MediaQuery.sizeOf(context).height * 0.45,
                                   decoration: BoxDecoration(
                                     color: Color(0xFFFFFEFE),
                                     borderRadius: BorderRadius.only(
@@ -146,39 +150,24 @@ class _RegisterPfofesional5WidgetState
                                       width: 2.0,
                                     ),
                                   ),
-                                  child: SingleChildScrollView(
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        Align(
-                                          alignment:
-                                              AlignmentDirectional(0.0, -1.0),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 10.0, 0.0, 0.0),
-                                            child: Text(
-                                              'Add video',
-                                              textAlign: TextAlign.center,
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    font:
-                                                        GoogleFonts.montserrat(
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .fontStyle,
-                                                    ),
-                                                    color: Color(0xFF8E058A),
-                                                    fontSize: 20.0,
-                                                    letterSpacing: 0.0,
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, -1.0),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 10.0, 0.0, 0.0),
+                                          child: Text(
+                                            'Add video',
+                                            textAlign: TextAlign.center,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  font: GoogleFonts.montserrat(
                                                     fontWeight: FontWeight.w600,
                                                     fontStyle:
                                                         FlutterFlowTheme.of(
@@ -186,36 +175,33 @@ class _RegisterPfofesional5WidgetState
                                                             .bodyMedium
                                                             .fontStyle,
                                                   ),
-                                            ),
+                                                  color: Color(0xFF8E058A),
+                                                  fontSize: 20.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w600,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
                                           ),
                                         ),
-                                        Align(
-                                          alignment:
-                                              AlignmentDirectional(0.0, -1.0),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 10.0, 10.0, 10.0),
-                                            child: Text(
-                                              'Complete your profile! Upload a video that clearly shows your face. Don\'t forget to review it before sending it! This is optional.',
-                                              textAlign: TextAlign.center,
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    font:
-                                                        GoogleFonts.montserrat(
-                                                      fontWeight:
-                                                          FontWeight.w500,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .fontStyle,
-                                                    ),
-                                                    color: Color(0xFF6F6F6F),
-                                                    fontSize: 13.0,
-                                                    letterSpacing: 0.0,
+                                      ),
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, -1.0),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  10.0, 10.0, 10.0, 10.0),
+                                          child: Text(
+                                            'Complete your profile! Upload a video that clearly shows your face. Don\'t forget to review it before sending it! This is optional.',
+                                            textAlign: TextAlign.center,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  font: GoogleFonts.montserrat(
                                                     fontWeight: FontWeight.w500,
                                                     fontStyle:
                                                         FlutterFlowTheme.of(
@@ -223,12 +209,212 @@ class _RegisterPfofesional5WidgetState
                                                             .bodyMedium
                                                             .fontStyle,
                                                   ),
+                                                  color: Color(0xFF6F6F6F),
+                                                  fontSize: 13.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w500,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                          ),
+                                        ),
+                                      ),
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(0.01, 0.71),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 20.0, 0.0, 0.0),
+                                          child: FFButtonWidget(
+                                            onPressed: (FFAppState()
+                                                        .videoupload ==
+                                                    true)
+                                                ? null
+                                                : () async {
+                                                    final selectedMedia =
+                                                        await selectMediaWithSourceBottomSheet(
+                                                      context: context,
+                                                      allowPhoto: false,
+                                                      allowVideo: true,
+                                                    );
+                                                    if (selectedMedia != null &&
+                                                        selectedMedia.every((m) =>
+                                                            validateFileFormat(
+                                                                m.storagePath,
+                                                                context))) {
+                                                      safeSetState(() => _model
+                                                              .isDataUploading1 =
+                                                          true);
+                                                      var selectedUploadedFiles =
+                                                          <FFUploadedFile>[];
+
+                                                      try {
+                                                        selectedUploadedFiles =
+                                                            selectedMedia
+                                                                .map((m) =>
+                                                                    FFUploadedFile(
+                                                                      name: m
+                                                                          .storagePath
+                                                                          .split(
+                                                                              '/')
+                                                                          .last,
+                                                                      bytes: m
+                                                                          .bytes,
+                                                                      height: m
+                                                                          .dimensions
+                                                                          ?.height,
+                                                                      width: m
+                                                                          .dimensions
+                                                                          ?.width,
+                                                                      blurHash:
+                                                                          m.blurHash,
+                                                                    ))
+                                                                .toList();
+                                                      } finally {
+                                                        _model.isDataUploading1 =
+                                                            false;
+                                                      }
+                                                      if (selectedUploadedFiles
+                                                              .length ==
+                                                          selectedMedia
+                                                              .length) {
+                                                        safeSetState(() {
+                                                          _model.uploadedLocalFile1 =
+                                                              selectedUploadedFiles
+                                                                  .first;
+                                                        });
+                                                      } else {
+                                                        safeSetState(() {});
+                                                        return;
+                                                      }
+                                                    }
+
+                                                    _model.verifyVideo =
+                                                        await actions
+                                                            .verifySizeVideo(
+                                                      _model.uploadedLocalFile1,
+                                                    );
+                                                    if (_model.verifyVideo!) {
+                                                      FFAppState().videoupload =
+                                                          true;
+                                                      safeSetState(() {});
+                                                      ScaffoldMessenger.of(
+                                                              context)
+                                                          .showSnackBar(
+                                                        SnackBar(
+                                                          content: Text(
+                                                            'Video uploaded',
+                                                            style: TextStyle(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primaryText,
+                                                            ),
+                                                          ),
+                                                          duration: Duration(
+                                                              milliseconds:
+                                                                  4000),
+                                                          backgroundColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .secondary,
+                                                        ),
+                                                      );
+                                                    } else {
+                                                      ScaffoldMessenger.of(
+                                                              context)
+                                                          .showSnackBar(
+                                                        SnackBar(
+                                                          content: Text(
+                                                            'The video was not uploaded correctly',
+                                                            style: TextStyle(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primaryText,
+                                                            ),
+                                                          ),
+                                                          duration: Duration(
+                                                              milliseconds:
+                                                                  4000),
+                                                          backgroundColor:
+                                                              Color(0xFFD2395B),
+                                                        ),
+                                                      );
+                                                      safeSetState(() {
+                                                        _model.isDataUploading1 =
+                                                            false;
+                                                        _model.uploadedLocalFile1 =
+                                                            FFUploadedFile(
+                                                                bytes: Uint8List
+                                                                    .fromList(
+                                                                        []));
+                                                      });
+                                                    }
+
+                                                    safeSetState(() {});
+                                                  },
+                                            text: 'Upload video',
+                                            options: FFButtonOptions(
+                                              width: 275.0,
+                                              height: 45.0,
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      24.0, 0.0, 24.0, 0.0),
+                                              iconPadding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              color: Color(0xFFB928B8),
+                                              textStyle: FlutterFlowTheme.of(
+                                                      context)
+                                                  .titleSmall
+                                                  .override(
+                                                    font:
+                                                        GoogleFonts.montserrat(
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmall
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmall
+                                                              .fontStyle,
+                                                    ),
+                                                    color: Colors.white,
+                                                    fontSize: 20.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .titleSmall
+                                                            .fontWeight,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .titleSmall
+                                                            .fontStyle,
+                                                  ),
+                                              elevation: 5.0,
+                                              borderSide: BorderSide(
+                                                color: Colors.transparent,
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(24.0),
                                             ),
                                           ),
                                         ),
-                                        Align(
-                                          alignment:
-                                              AlignmentDirectional(0.0, 0.0),
+                                      ),
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 10.0, 0.0, 0.0),
                                           child: Container(
                                             width: 380.0,
                                             height: 1.0,
@@ -240,129 +426,70 @@ class _RegisterPfofesional5WidgetState
                                             ),
                                           ),
                                         ),
-                                        Padding(
+                                      ),
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(0.01, 0.71),
+                                        child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 10.0, 0.0, 0.0),
-                                          child: Container(
-                                            width: MediaQuery.sizeOf(context)
-                                                    .width *
-                                                0.9,
-                                            height: MediaQuery.sizeOf(context)
-                                                    .height *
-                                                0.4,
-                                            decoration: BoxDecoration(
-                                              color: Color(0xFFFFFEFE),
-                                              borderRadius:
-                                                  BorderRadius.circular(4.0),
-                                              border: Border.all(
-                                                color: Color(0xFFC45ABE),
-                                                width: 1.0,
-                                              ),
-                                            ),
-                                            child: Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  Align(
-                                                    alignment:
-                                                        AlignmentDirectional(
-                                                            0.0, 0.0),
-                                                    child: AuthUserStreamWidget(
-                                                      builder: (context) =>
-                                                          FlutterFlowVideoPlayer(
-                                                        path: valueOrDefault(
-                                                                        currentUserDocument
-                                                                            ?.video,
-                                                                        '') !=
-                                                                    ''
-                                                            ? valueOrDefault(
-                                                                currentUserDocument
-                                                                    ?.video,
-                                                                '')
-                                                            : 'https://assets.mixkit.co/videos/51585/51585-720.mp4',
-                                                        videoType:
-                                                            VideoType.network,
-                                                        width: 250.0,
-                                                        height: 255.0,
-                                                        aspectRatio: 1.0,
-                                                        autoPlay: false,
-                                                        looping: false,
-                                                        showControls: true,
-                                                        allowFullScreen: true,
-                                                        allowPlaybackSpeedMenu:
-                                                            false,
-                                                        lazyLoad: false,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        Align(
-                                          alignment:
-                                              AlignmentDirectional(0.01, 0.71),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 20.0, 0.0, 0.0),
-                                            child: FFButtonWidget(
-                                              onPressed: () async {
-                                                final selectedMedia =
-                                                    await selectMediaWithSourceBottomSheet(
-                                                  context: context,
-                                                  allowPhoto: false,
-                                                  allowVideo: true,
-                                                );
-                                                if (selectedMedia != null &&
-                                                    selectedMedia.every((m) =>
-                                                        validateFileFormat(
-                                                            m.storagePath,
-                                                            context))) {
+                                                  0.0, 20.0, 0.0, 10.0),
+                                          child: FFButtonWidget(
+                                            onPressed: () async {
+                                              if ((_model.uploadedLocalFile1
+                                                          .bytes?.isNotEmpty ??
+                                                      false)) {
+                                                {
                                                   safeSetState(() => _model
-                                                      .isDataUploading1 = true);
+                                                      .isDataUploading2 = true);
                                                   var selectedUploadedFiles =
                                                       <FFUploadedFile>[];
-
+                                                  var selectedMedia =
+                                                      <SelectedFile>[];
+                                                  var downloadUrls = <String>[];
                                                   try {
-                                                    selectedUploadedFiles =
-                                                        selectedMedia
-                                                            .map((m) =>
-                                                                FFUploadedFile(
-                                                                  name: m
-                                                                      .storagePath
-                                                                      .split(
-                                                                          '/')
-                                                                      .last,
-                                                                  bytes:
-                                                                      m.bytes,
-                                                                  height: m
-                                                                      .dimensions
-                                                                      ?.height,
-                                                                  width: m
-                                                                      .dimensions
-                                                                      ?.width,
-                                                                  blurHash: m
-                                                                      .blurHash,
-                                                                ))
-                                                            .toList();
+                                                    selectedUploadedFiles = _model
+                                                            .uploadedLocalFile1
+                                                            .bytes!
+                                                            .isNotEmpty
+                                                        ? [
+                                                            _model
+                                                                .uploadedLocalFile1
+                                                          ]
+                                                        : <FFUploadedFile>[];
+                                                    selectedMedia =
+                                                        selectedFilesFromUploadedFiles(
+                                                      selectedUploadedFiles,
+                                                    );
+                                                    downloadUrls = (await Future
+                                                            .wait(
+                                                      selectedMedia.map(
+                                                        (m) async =>
+                                                            await uploadData(
+                                                                m.storagePath,
+                                                                m.bytes),
+                                                      ),
+                                                    ))
+                                                        .where((u) => u != null)
+                                                        .map((u) => u!)
+                                                        .toList();
                                                   } finally {
-                                                    _model.isDataUploading1 =
+                                                    _model.isDataUploading2 =
                                                         false;
                                                   }
                                                   if (selectedUploadedFiles
-                                                          .length ==
-                                                      selectedMedia.length) {
+                                                              .length ==
+                                                          selectedMedia
+                                                              .length &&
+                                                      downloadUrls.length ==
+                                                          selectedMedia
+                                                              .length) {
                                                     safeSetState(() {
-                                                      _model.uploadedLocalFile1 =
+                                                      _model.uploadedLocalFile2 =
                                                           selectedUploadedFiles
                                                               .first;
+                                                      _model.uploadedFileUrl2 =
+                                                          downloadUrls.first;
                                                     });
                                                   } else {
                                                     safeSetState(() {});
@@ -370,221 +497,16 @@ class _RegisterPfofesional5WidgetState
                                                   }
                                                 }
 
-                                                _model.verifyVideo =
-                                                    await actions
-                                                        .verifySizeVideo(
-                                                  _model.uploadedLocalFile1,
-                                                );
-                                                if (_model.verifyVideo!) {
-                                                  await showDialog(
-                                                    context: context,
-                                                    builder:
-                                                        (alertDialogContext) {
-                                                      return AlertDialog(
-                                                        title: Text(
-                                                            'Important information'),
-                                                        content: Text(
-                                                            'The video may take a while to load, you can continue with the account creation process.'),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () =>
-                                                                Navigator.pop(
-                                                                    alertDialogContext),
-                                                            child: Text('Ok'),
-                                                          ),
-                                                        ],
-                                                      );
-                                                    },
-                                                  );
-                                                } else {
-                                                  ScaffoldMessenger.of(context)
-                                                      .showSnackBar(
-                                                    SnackBar(
-                                                      content: Text(
-                                                        'File must be no larger than 100 MB',
-                                                        style: TextStyle(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryText,
-                                                        ),
-                                                      ),
-                                                      duration: Duration(
-                                                          milliseconds: 4000),
-                                                      backgroundColor:
-                                                          Color(0xFFD2395B),
-                                                    ),
-                                                  );
-                                                  safeSetState(() {
-                                                    _model.isDataUploading1 =
-                                                        false;
-                                                    _model.uploadedLocalFile1 =
-                                                        FFUploadedFile(
-                                                            bytes: Uint8List
-                                                                .fromList([]));
-                                                  });
-                                                }
-
+                                                _model.video =
+                                                    _model.uploadedFileUrl2;
                                                 safeSetState(() {});
-                                              },
-                                              text: 'Upload video',
-                                              options: FFButtonOptions(
-                                                width: 275.0,
-                                                height: 45.0,
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        24.0, 0.0, 24.0, 0.0),
-                                                iconPadding:
-                                                    EdgeInsetsDirectional
-                                                        .fromSTEB(
-                                                            0.0, 0.0, 0.0, 0.0),
-                                                color: Color(0xFFB928B8),
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleSmall
-                                                        .override(
-                                                          font: GoogleFonts
-                                                              .montserrat(
-                                                            fontWeight:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleSmall
-                                                                    .fontWeight,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleSmall
-                                                                    .fontStyle,
-                                                          ),
-                                                          color: Colors.white,
-                                                          fontSize: 20.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleSmall
-                                                                  .fontWeight,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleSmall
-                                                                  .fontStyle,
-                                                        ),
-                                                elevation: 5.0,
-                                                borderSide: BorderSide(
-                                                  color: Colors.transparent,
-                                                  width: 1.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(24.0),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        Align(
-                                          alignment:
-                                              AlignmentDirectional(0.0, 0.0),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 10.0, 0.0, 0.0),
-                                            child: Container(
-                                              width: 380.0,
-                                              height: 1.0,
-                                              decoration: BoxDecoration(
-                                                color: Color(0xFFF0DFEF),
-                                                border: Border.all(
-                                                  color: Color(0xFFF0DFEF),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        Align(
-                                          alignment:
-                                              AlignmentDirectional(0.01, 0.71),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 20.0, 0.0, 10.0),
-                                            child: FFButtonWidget(
-                                              onPressed: () async {
-                                                if ((_model
-                                                            .uploadedLocalFile1
-                                                            .bytes
-                                                            ?.isNotEmpty ??
-                                                        false)) {
-                                                  {
-                                                    safeSetState(() => _model
-                                                            .isDataUploading2 =
-                                                        true);
-                                                    var selectedUploadedFiles =
-                                                        <FFUploadedFile>[];
-                                                    var selectedMedia =
-                                                        <SelectedFile>[];
-                                                    var downloadUrls =
-                                                        <String>[];
-                                                    try {
-                                                      selectedUploadedFiles = _model
-                                                              .uploadedLocalFile1
-                                                              .bytes!
-                                                              .isNotEmpty
-                                                          ? [
-                                                              _model
-                                                                  .uploadedLocalFile1
-                                                            ]
-                                                          : <FFUploadedFile>[];
-                                                      selectedMedia =
-                                                          selectedFilesFromUploadedFiles(
-                                                        selectedUploadedFiles,
-                                                      );
-                                                      downloadUrls =
-                                                          (await Future.wait(
-                                                        selectedMedia.map(
-                                                          (m) async =>
-                                                              await uploadData(
-                                                                  m.storagePath,
-                                                                  m.bytes),
-                                                        ),
-                                                      ))
-                                                              .where((u) =>
-                                                                  u != null)
-                                                              .map((u) => u!)
-                                                              .toList();
-                                                    } finally {
-                                                      _model.isDataUploading2 =
-                                                          false;
-                                                    }
-                                                    if (selectedUploadedFiles
-                                                                .length ==
-                                                            selectedMedia
-                                                                .length &&
-                                                        downloadUrls.length ==
-                                                            selectedMedia
-                                                                .length) {
-                                                      safeSetState(() {
-                                                        _model.uploadedLocalFile2 =
-                                                            selectedUploadedFiles
-                                                                .first;
-                                                        _model.uploadedFileUrl2 =
-                                                            downloadUrls.first;
-                                                      });
-                                                    } else {
-                                                      safeSetState(() {});
-                                                      return;
-                                                    }
-                                                  }
 
-                                                  _model.video =
-                                                      _model.uploadedFileUrl2;
-                                                  safeSetState(() {});
-
-                                                  await currentUserReference!
-                                                      .update(
-                                                          createUsersRecordData(
-                                                    video:
-                                                        _model.uploadedFileUrl2,
-                                                  ));
-                                                }
+                                                await currentUserReference!
+                                                    .update(
+                                                        createUsersRecordData(
+                                                  video:
+                                                      _model.uploadedFileUrl2,
+                                                ));
 
                                                 context.goNamed(
                                                   HomeSearchWidget.routeName,
@@ -595,65 +517,63 @@ class _RegisterPfofesional5WidgetState
                                                     ),
                                                   }.withoutNulls,
                                                 );
-                                              },
-                                              text: 'Create Profile',
-                                              options: FFButtonOptions(
-                                                width: 275.0,
-                                                height: 45.0,
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        24.0, 0.0, 24.0, 0.0),
-                                                iconPadding:
-                                                    EdgeInsetsDirectional
-                                                        .fromSTEB(
-                                                            0.0, 0.0, 0.0, 0.0),
-                                                color: Color(0xFFB928B8),
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleSmall
-                                                        .override(
-                                                          font: GoogleFonts
-                                                              .montserrat(
-                                                            fontWeight:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleSmall
-                                                                    .fontWeight,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleSmall
-                                                                    .fontStyle,
-                                                          ),
-                                                          color: Colors.white,
-                                                          fontSize: 20.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleSmall
-                                                                  .fontWeight,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleSmall
-                                                                  .fontStyle,
-                                                        ),
-                                                elevation: 5.0,
-                                                borderSide: BorderSide(
-                                                  color: Colors.transparent,
-                                                  width: 1.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(24.0),
+                                              }
+                                            },
+                                            text: 'Create Profile',
+                                            options: FFButtonOptions(
+                                              width: 275.0,
+                                              height: 45.0,
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      24.0, 0.0, 24.0, 0.0),
+                                              iconPadding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              color: Color(0xFFB928B8),
+                                              textStyle: FlutterFlowTheme.of(
+                                                      context)
+                                                  .titleSmall
+                                                  .override(
+                                                    font:
+                                                        GoogleFonts.montserrat(
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmall
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmall
+                                                              .fontStyle,
+                                                    ),
+                                                    color: Colors.white,
+                                                    fontSize: 20.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .titleSmall
+                                                            .fontWeight,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .titleSmall
+                                                            .fontStyle,
+                                                  ),
+                                              elevation: 5.0,
+                                              borderSide: BorderSide(
+                                                color: Colors.transparent,
+                                                width: 1.0,
                                               ),
+                                              borderRadius:
+                                                  BorderRadius.circular(24.0),
                                             ),
                                           ),
                                         ),
-                                      ]
-                                          .addToStart(SizedBox(height: 10.0))
-                                          .addToEnd(SizedBox(height: 16.0)),
-                                    ),
+                                      ),
+                                    ]
+                                        .addToStart(SizedBox(height: 10.0))
+                                        .addToEnd(SizedBox(height: 16.0)),
                                   ),
                                 ),
                               ),

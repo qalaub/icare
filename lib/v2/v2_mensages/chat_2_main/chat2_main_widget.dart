@@ -145,186 +145,194 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
                               mainAxisSize: MainAxisSize.max,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                if (containerChatsRecordList.length == 0)
-                                  Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
-                                    height: 100.0,
-                                    decoration: BoxDecoration(
-                                      color: Color(0xFFBD39BA),
-                                    ),
-                                    child: Builder(
-                                      builder: (context) {
-                                        final chatClip =
-                                            containerChatsRecordList
-                                                .take(4)
-                                                .toList()
-                                                .take(4)
-                                                .toList();
+                                Container(
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
+                                  height: 100.0,
+                                  decoration: BoxDecoration(
+                                    color: Color(0xFFBD39BA),
+                                  ),
+                                  child: Builder(
+                                    builder: (context) {
+                                      final chatClip = containerChatsRecordList
+                                          .take(4)
+                                          .toList()
+                                          .take(4)
+                                          .toList();
 
-                                        return SingleChildScrollView(
-                                          scrollDirection: Axis.horizontal,
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            children: List.generate(
-                                                    chatClip.length,
-                                                    (chatClipIndex) {
-                                              final chatClipItem =
-                                                  chatClip[chatClipIndex];
-                                              return Container(
-                                                decoration: BoxDecoration(),
-                                                child:
-                                                    StreamBuilder<UsersRecord>(
-                                                  stream: UsersRecord
-                                                      .getDocument(chatClipItem
-                                                          .users
-                                                          .where((e) => e ==
-                                                                  currentUserReference
-                                                              ? false
-                                                              : true)
-                                                          .toList()
-                                                          .elementAtOrNull(0)!),
-                                                  builder: (context, snapshot) {
-                                                    // Customize what your widget looks like when it's loading.
-                                                    if (!snapshot.hasData) {
-                                                      return Center(
-                                                        child: SizedBox(
-                                                          width: 50.0,
-                                                          height: 50.0,
-                                                          child:
-                                                              CircularProgressIndicator(
-                                                            valueColor:
-                                                                AlwaysStoppedAnimation<
-                                                                    Color>(
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .primary,
-                                                            ),
+                                      return SingleChildScrollView(
+                                        scrollDirection: Axis.horizontal,
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: List
+                                                  .generate(chatClip.length,
+                                                      (chatClipIndex) {
+                                            final chatClipItem =
+                                                chatClip[chatClipIndex];
+                                            return Container(
+                                              decoration: BoxDecoration(),
+                                              child: StreamBuilder<UsersRecord>(
+                                                stream: UsersRecord.getDocument(
+                                                    chatClipItem.users
+                                                        .where((e) => e ==
+                                                                currentUserReference
+                                                            ? false
+                                                            : true)
+                                                        .toList()
+                                                        .elementAtOrNull(0)!),
+                                                builder: (context, snapshot) {
+                                                  // Customize what your widget looks like when it's loading.
+                                                  if (!snapshot.hasData) {
+                                                    return Center(
+                                                      child: SizedBox(
+                                                        width: 50.0,
+                                                        height: 50.0,
+                                                        child:
+                                                            CircularProgressIndicator(
+                                                          valueColor:
+                                                              AlwaysStoppedAnimation<
+                                                                  Color>(
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
                                                           ),
                                                         ),
-                                                      );
-                                                    }
+                                                      ),
+                                                    );
+                                                  }
 
-                                                    final columnUsersRecord =
-                                                        snapshot.data!;
+                                                  final columnUsersRecord =
+                                                      snapshot.data!;
 
-                                                    return Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Stack(
-                                                          children: [
-                                                            Material(
-                                                              color: Colors
-                                                                  .transparent,
-                                                              elevation: 2.0,
-                                                              shape:
-                                                                  const CircleBorder(),
+                                                  return Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Stack(
+                                                        children: [
+                                                          Material(
+                                                            color: Colors
+                                                                .transparent,
+                                                            elevation: 2.0,
+                                                            shape:
+                                                                const CircleBorder(),
+                                                            child: Container(
+                                                              width: 66.0,
+                                                              height: 66.0,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                shape: BoxShape
+                                                                    .circle,
+                                                                border:
+                                                                    Border.all(
+                                                                  color: columnUsersRecord
+                                                                          .isActive
+                                                                      ? Color(
+                                                                          0xFF00FF0A)
+                                                                      : Color(
+                                                                          0xFF2B2B2B),
+                                                                  width: 1.5,
+                                                                ),
+                                                              ),
+                                                              child: Padding(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            2.0),
+                                                                child:
+                                                                    ClipRRect(
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              240.0),
+                                                                  child: Image
+                                                                      .network(
+                                                                    valueOrDefault<
+                                                                        String>(
+                                                                      columnUsersRecord
+                                                                          .photoUrl,
+                                                                      'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
+                                                                    ),
+                                                                    width: 44.0,
+                                                                    height:
+                                                                        44.0,
+                                                                    fit: BoxFit
+                                                                        .cover,
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    0.0, 1.0),
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          61.0,
+                                                                          30.0,
+                                                                          0.0,
+                                                                          0.0),
                                                               child: Container(
-                                                                width: 66.0,
-                                                                height: 66.0,
+                                                                width: 10.0,
+                                                                height: 10.0,
                                                                 decoration:
                                                                     BoxDecoration(
-                                                                  shape: BoxShape
-                                                                      .circle,
+                                                                  color: columnUsersRecord
+                                                                          .isActive
+                                                                      ? Color(
+                                                                          0xFF00FF0A)
+                                                                      : Color(
+                                                                          0xFF2B2B2B),
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              240.0),
                                                                   border: Border
                                                                       .all(
-                                                                    color: columnUsersRecord
-                                                                            .isActive
-                                                                        ? Color(
-                                                                            0xFF00FF0A)
-                                                                        : Color(
-                                                                            0xFF2B2B2B),
-                                                                    width: 1.5,
-                                                                  ),
-                                                                ),
-                                                                child: Padding(
-                                                                  padding:
-                                                                      EdgeInsets
-                                                                          .all(
-                                                                              2.0),
-                                                                  child:
-                                                                      ClipRRect(
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            240.0),
-                                                                    child: Image
-                                                                        .network(
-                                                                      valueOrDefault<
-                                                                          String>(
-                                                                        columnUsersRecord
-                                                                            .photoUrl,
-                                                                        'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
-                                                                      ),
-                                                                      width:
-                                                                          44.0,
-                                                                      height:
-                                                                          44.0,
-                                                                      fit: BoxFit
-                                                                          .cover,
-                                                                    ),
+                                                                    color: Color(
+                                                                        0xFF333030),
                                                                   ),
                                                                 ),
                                                               ),
                                                             ),
-                                                            Align(
-                                                              alignment:
-                                                                  AlignmentDirectional(
-                                                                      0.0, 1.0),
-                                                              child: Padding(
-                                                                padding: EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        61.0,
-                                                                        30.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                                child:
-                                                                    Container(
-                                                                  width: 10.0,
-                                                                  height: 10.0,
-                                                                  decoration:
-                                                                      BoxDecoration(
-                                                                    color: columnUsersRecord
-                                                                            .isActive
-                                                                        ? Color(
-                                                                            0xFF00FF0A)
-                                                                        : Color(
-                                                                            0xFF2B2B2B),
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            240.0),
-                                                                    border:
-                                                                        Border
-                                                                            .all(
-                                                                      color: Color(
-                                                                          0xFF333030),
-                                                                    ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      Text(
+                                                        functions
+                                                            .upperCaseFirstLetter(
+                                                                valueOrDefault<
+                                                                    String>(
+                                                          columnUsersRecord
+                                                              .firtsName,
+                                                          'Name',
+                                                        )),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  font: GoogleFonts
+                                                                      .montserrat(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w500,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
                                                                   ),
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                        Text(
-                                                          functions
-                                                              .upperCaseFirstLetter(
-                                                                  valueOrDefault<
-                                                                      String>(
-                                                            columnUsersRecord
-                                                                .firtsName,
-                                                            'Name',
-                                                          )),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                font: GoogleFonts
-                                                                    .montserrat(
+                                                                  color: Colors
+                                                                      .white,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w500,
@@ -333,35 +341,21 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
                                                                       .bodyMedium
                                                                       .fontStyle,
                                                                 ),
-                                                                color: Colors
-                                                                    .white,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontStyle,
-                                                              ),
-                                                        ),
-                                                      ],
-                                                    );
-                                                  },
-                                                ),
-                                              );
-                                            })
-                                                .divide(SizedBox(width: 16.0))
-                                                .addToStart(
-                                                    SizedBox(width: 16.0))
-                                                .addToEnd(
-                                                    SizedBox(width: 16.0)),
-                                          ),
-                                        );
-                                      },
-                                    ),
+                                                      ),
+                                                    ],
+                                                  );
+                                                },
+                                              ),
+                                            );
+                                          })
+                                              .divide(SizedBox(width: 16.0))
+                                              .addToStart(SizedBox(width: 16.0))
+                                              .addToEnd(SizedBox(width: 16.0)),
+                                        ),
+                                      );
+                                    },
                                   ),
+                                ),
                                 Align(
                                   alignment: AlignmentDirectional(-0.9, 0.0),
                                   child: Padding(
@@ -1716,10 +1710,7 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
                                                                                 child: Padding(
                                                                                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
                                                                                   child: Text(
-                                                                                    functions.upperCaseFirstLetter(valueOrDefault<String>(
-                                                                                      functions.concatStrings(rowUsersRecord.firtsName, rowUsersRecord.lastName, ' '),
-                                                                                      'Ghost User',
-                                                                                    )),
+                                                                                    functions.upperCaseFirstLetter(rowUsersRecord.firtsName),
                                                                                     textAlign: TextAlign.start,
                                                                                     style: FlutterFlowTheme.of(context).bodyLarge.override(
                                                                                           font: GoogleFonts.poppins(

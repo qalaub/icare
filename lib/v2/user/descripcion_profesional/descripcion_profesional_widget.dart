@@ -1,3 +1,4 @@
+import '/backend/schema/enums/enums.dart';
 import '/components/calendario_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -18,29 +19,30 @@ class DescripcionProfesionalWidget extends StatefulWidget {
     String? video,
     required this.services,
     required this.imgs,
-    String? company,
+    this.company,
     this.morning,
     this.noon,
     this.afternoon,
     this.abn,
     this.ndis,
     this.years,
-  })  : this.video = video ??
-            'https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.mp4',
-        this.company = company ?? '';
+    required this.plan,
+  }) : this.video = video ??
+            'https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.mp4';
 
   final String? parameter1;
   final String? parameter2;
   final String video;
   final List<String>? services;
   final List<String>? imgs;
-  final String company;
+  final String? company;
   final List<bool>? morning;
   final List<bool>? noon;
   final List<bool>? afternoon;
   final String? abn;
   final String? ndis;
   final int? years;
+  final Plan? plan;
 
   @override
   State<DescripcionProfesionalWidget> createState() =>
@@ -273,22 +275,41 @@ class _DescripcionProfesionalWidgetState
               color: Color(0xDEBAB7B7),
             ),
           ),
-          Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
-            child: FlutterFlowVideoPlayer(
-              path: widget.video != ''
-                  ? widget.video
-                  : 'https://assets.mixkit.co/videos/51585/51585-720.mp4',
-              videoType: VideoType.network,
-              width: 255.0,
-              height: 350.0,
-              aspectRatio: 1.0,
-              autoPlay: false,
-              looping: false,
-              showControls: true,
-              allowFullScreen: true,
-              allowPlaybackSpeedMenu: false,
-              lazyLoad: false,
+          Align(
+            alignment: AlignmentDirectional(0.0, 0.0),
+            child: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 16.0),
+              child: Container(
+                width: 220.0,
+                height: 370.0,
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Color(0xFFC14BBC),
+                    width: 5.0,
+                  ),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    FlutterFlowVideoPlayer(
+                      path: widget.video != ''
+                          ? widget.video
+                          : 'https://assets.mixkit.co/videos/51585/51585-720.mp4',
+                      videoType: VideoType.network,
+                      width: 200.0,
+                      height: 350.0,
+                      aspectRatio: 0.56,
+                      autoPlay: false,
+                      looping: false,
+                      showControls: true,
+                      allowFullScreen: false,
+                      allowPlaybackSpeedMenu: false,
+                      lazyLoad: false,
+                    ),
+                  ],
+                ),
+              ),
             ),
           ),
           SizedBox(
@@ -817,13 +838,17 @@ class _DescripcionProfesionalWidgetState
                             ),
                           ),
                         ),
-                        if (widget.company != '')
+                        if ((widget.company != '') &&
+                            (widget.plan != Plan.basic) &&
+                            (widget.plan != Plan.standar))
                           Divider(
                             height: 16.0,
                             thickness: 3.0,
                             color: FlutterFlowTheme.of(context).alternate,
                           ),
-                        if (widget.company != '')
+                        if ((widget.company != '') &&
+                            (widget.plan != Plan.basic) &&
+                            (widget.plan != Plan.standar))
                           Align(
                             alignment: AlignmentDirectional(0.0, 0.0),
                             child: Container(
@@ -884,7 +909,10 @@ class _DescripcionProfesionalWidgetState
                                             alignment:
                                                 AlignmentDirectional(-1.0, 0.0),
                                             child: AutoSizeText(
-                                              widget.company,
+                                              valueOrDefault<String>(
+                                                widget.company,
+                                                'a',
+                                              ),
                                               textAlign: TextAlign.start,
                                               maxLines: 2,
                                               style: FlutterFlowTheme.of(

@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:easy_debounce/easy_debounce.dart';
@@ -764,14 +765,21 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                                     0.0),
                                                             hidesUnderline:
                                                                 true,
+                                                            disabled: FFAppState()
+                                                                .isDropdownDisabled,
                                                             isOverButton: true,
                                                             isSearchable: false,
                                                             isMultiSelect: true,
                                                             onMultiSelectChanged:
-                                                                (val) => safeSetState(
-                                                                    () => _model
-                                                                            .dropDownValue =
-                                                                        val),
+                                                                (val) async {
+                                                              safeSetState(() =>
+                                                                  _model.dropDownValue =
+                                                                      val);
+                                                              await actions
+                                                                  .closeDropdownAfterDelay(
+                                                                context,
+                                                              );
+                                                            },
                                                           ),
                                                         ),
                                                       ),

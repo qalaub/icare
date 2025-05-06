@@ -18,13 +18,16 @@ class RegisterProfessional3Model
   final formKey = GlobalKey<FormState>();
   // State field(s) for question widget.
   FormFieldController<String>? questionValueController;
-  // State field(s) for company widget.
-  String? companyValue;
-  FormFieldController<String>? companyValueController;
   // State field(s) for code widget.
   FocusNode? codeFocusNode;
   TextEditingController? codeTextController;
   String? Function(BuildContext, String?)? codeTextControllerValidator;
+  // Stores action output result for [Firestore Query - Query a collection] action in code widget.
+  CodesRecord? consult;
+  // State field(s) for company widget.
+  FocusNode? companyFocusNode;
+  TextEditingController? companyTextController;
+  String? Function(BuildContext, String?)? companyTextControllerValidator;
   // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
   CodesRecord? business;
   // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
@@ -37,6 +40,9 @@ class RegisterProfessional3Model
   void dispose() {
     codeFocusNode?.dispose();
     codeTextController?.dispose();
+
+    companyFocusNode?.dispose();
+    companyTextController?.dispose();
   }
 
   /// Additional helper methods.

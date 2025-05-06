@@ -4,14 +4,17 @@ import '/backend/schema/enums/enums.dart';
 import '/components/home_vista_cuidador_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/v2/h0me/map_button/map_button_widget.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
+import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'home_search_model.dart';
 export 'home_search_model.dart';
@@ -161,6 +164,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
         onWillPop: () async => false,
         child: Scaffold(
           key: scaffoldKey,
+          backgroundColor: Color(0xFFBD39BA),
           body: SafeArea(
             top: true,
             child: Stack(
@@ -174,7 +178,9 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
                         child: Container(
                           width: MediaQuery.sizeOf(context).width * 1.0,
                           height: MediaQuery.sizeOf(context).height * 1.0,
-                          decoration: BoxDecoration(),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                          ),
                           alignment: AlignmentDirectional(0.0, -1.0),
                           child: Builder(
                             builder: (context) {
@@ -187,7 +193,9 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
                                   child: Container(
                                     width:
                                         MediaQuery.sizeOf(context).width * 1.0,
-                                    decoration: BoxDecoration(),
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                    ),
                                     child: Stack(
                                       children: [
                                         Align(
@@ -200,7 +208,9 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
                                             height: MediaQuery.sizeOf(context)
                                                     .height *
                                                 0.925,
-                                            decoration: BoxDecoration(),
+                                            decoration: BoxDecoration(
+                                              color: Colors.white,
+                                            ),
                                             child: wrapWithModel(
                                               model: _model.mapButtonModel1,
                                               updateCallback: () =>
@@ -252,65 +262,300 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
                                             MediaQuery.sizeOf(context).width *
                                                 1.0,
                                         decoration: BoxDecoration(
-                                          color: Colors.transparent,
+                                          color: Colors.white,
                                         ),
                                         child: Stack(
                                           children: [
-                                            Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.0, -1.5),
-                                              child: Container(
-                                                width:
-                                                    MediaQuery.sizeOf(context)
-                                                            .width *
-                                                        1.0,
-                                                height:
-                                                    MediaQuery.sizeOf(context)
-                                                            .height *
-                                                        0.94,
-                                                decoration: BoxDecoration(),
-                                                child: wrapWithModel(
-                                                  model: _model.mapButtonModel2,
-                                                  updateCallback: () =>
-                                                      safeSetState(() {}),
-                                                  child: MapButtonWidget(
-                                                    isProfessional: true,
+                                            AuthUserStreamWidget(
+                                              builder: (context) => Builder(
+                                                builder: (_) {
+                                                  final child = Stack(
+                                                    children: [
+                                                      Align(
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                0.0, -1.5),
+                                                        child: Container(
+                                                          width:
+                                                              MediaQuery.sizeOf(
+                                                                          context)
+                                                                      .width *
+                                                                  1.0,
+                                                          height:
+                                                              MediaQuery.sizeOf(
+                                                                          context)
+                                                                      .height *
+                                                                  0.94,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Colors.white,
+                                                          ),
+                                                          child: wrapWithModel(
+                                                            model: _model
+                                                                .mapButtonModel2,
+                                                            updateCallback: () =>
+                                                                safeSetState(
+                                                                    () {}),
+                                                            child:
+                                                                MapButtonWidget(
+                                                              isProfessional:
+                                                                  true,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      Align(
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                -0.9, 0.76),
+                                                        child: Container(
+                                                          width:
+                                                              MediaQuery.sizeOf(
+                                                                          context)
+                                                                      .width *
+                                                                  0.601,
+                                                          height: 220.0,
+                                                          decoration:
+                                                              BoxDecoration(),
+                                                          child: wrapWithModel(
+                                                            model: _model
+                                                                .homeVistaCuidadorModel,
+                                                            updateCallback: () =>
+                                                                safeSetState(
+                                                                    () {}),
+                                                            child:
+                                                                HomeVistaCuidadorWidget(
+                                                              participants: homeVistaCuidadorUsersRecordList
+                                                                  .where((e) => functions.verifyDistanceFilter(
+                                                                      functions.latLngToString(
+                                                                          FFAppState()
+                                                                              .tempLocation!),
+                                                                      e.suburb!,
+                                                                      FFAppState()
+                                                                          .zoomFilter))
+                                                                  .toList()
+                                                                  .length
+                                                                  .toString(),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  );
+                                                  if (currentUserDocument
+                                                          ?.plan ==
+                                                      Plan.basic) {
+                                                    return ClipRect(
+                                                      child: ImageFiltered(
+                                                        imageFilter:
+                                                            ImageFilter.blur(
+                                                          sigmaX: 5.0,
+                                                          sigmaY: 5.0,
+                                                        ),
+                                                        child: child,
+                                                      ),
+                                                    );
+                                                  }
+                                                  return child;
+                                                },
+                                              ),
+                                            ),
+                                            if (currentUserDocument?.plan ==
+                                                Plan.basic)
+                                              Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.0, 0.0),
+                                                child: AuthUserStreamWidget(
+                                                  builder: (context) =>
+                                                      Container(
+                                                    width: 315.0,
+                                                    height: 650.0,
+                                                    decoration: BoxDecoration(),
+                                                    child: Stack(
+                                                      children: [
+                                                        InkWell(
+                                                          splashColor: Colors
+                                                              .transparent,
+                                                          focusColor: Colors
+                                                              .transparent,
+                                                          hoverColor: Colors
+                                                              .transparent,
+                                                          highlightColor: Colors
+                                                              .transparent,
+                                                          onTap: () async {
+                                                            context.pushNamed(
+                                                              MembresiasV2Widget
+                                                                  .routeName,
+                                                              queryParameters: {
+                                                                'professionalUpdate':
+                                                                    serializeParam(
+                                                                  currentUserReference,
+                                                                  ParamType
+                                                                      .DocumentReference,
+                                                                ),
+                                                                'currentPlan':
+                                                                    serializeParam(
+                                                                  Plan.basic,
+                                                                  ParamType
+                                                                      .Enum,
+                                                                ),
+                                                                'isUpdate':
+                                                                    serializeParam(
+                                                                  true,
+                                                                  ParamType
+                                                                      .bool,
+                                                                ),
+                                                              }.withoutNulls,
+                                                            );
+                                                          },
+                                                          child: ClipRRect(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
+                                                            child: Image.asset(
+                                                              'assets/images/pixelcut-export.png',
+                                                              width: 350.0,
+                                                              height: 350.0,
+                                                              fit: BoxFit.cover,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  0.0, 0.1),
+                                                          child: Text(
+                                                            'You need to upgrade your membership to access this feature.\nUpgrade to standard or premium',
+                                                            textAlign: TextAlign
+                                                                .center,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  font: GoogleFonts
+                                                                      .poppins(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  fontSize:
+                                                                      16.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                        Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  0.0, 0.4),
+                                                          child: FFButtonWidget(
+                                                            onPressed:
+                                                                () async {
+                                                              context.pushNamed(
+                                                                MembresiasV2Widget
+                                                                    .routeName,
+                                                                queryParameters:
+                                                                    {
+                                                                  'professionalUpdate':
+                                                                      serializeParam(
+                                                                    currentUserReference,
+                                                                    ParamType
+                                                                        .DocumentReference,
+                                                                  ),
+                                                                  'currentPlan':
+                                                                      serializeParam(
+                                                                    Plan.basic,
+                                                                    ParamType
+                                                                        .Enum,
+                                                                  ),
+                                                                  'isUpdate':
+                                                                      serializeParam(
+                                                                    true,
+                                                                    ParamType
+                                                                        .bool,
+                                                                  ),
+                                                                }.withoutNulls,
+                                                              );
+                                                            },
+                                                            text: 'Upgrade Now',
+                                                            options:
+                                                                FFButtonOptions(
+                                                              width: 150.0,
+                                                              height: 45.0,
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          16.0,
+                                                                          0.0,
+                                                                          16.0,
+                                                                          0.0),
+                                                              iconPadding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              color: Color(
+                                                                  0xFFA00BAB),
+                                                              textStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmall
+                                                                      .override(
+                                                                        font: GoogleFonts
+                                                                            .poppins(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .titleSmall
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .titleSmall
+                                                                              .fontStyle,
+                                                                        ),
+                                                                        color: Colors
+                                                                            .white,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .titleSmall
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .titleSmall
+                                                                            .fontStyle,
+                                                                      ),
+                                                              elevation: 5.0,
+                                                              borderSide:
+                                                                  BorderSide(
+                                                                color: Colors
+                                                                    .white,
+                                                              ),
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          8.0),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
                                                   ),
                                                 ),
                                               ),
-                                            ),
-                                            Align(
-                                              alignment: AlignmentDirectional(
-                                                  -0.9, 0.76),
-                                              child: Container(
-                                                width:
-                                                    MediaQuery.sizeOf(context)
-                                                            .width *
-                                                        0.601,
-                                                height: 220.0,
-                                                decoration: BoxDecoration(),
-                                                child: wrapWithModel(
-                                                  model: _model
-                                                      .homeVistaCuidadorModel,
-                                                  updateCallback: () =>
-                                                      safeSetState(() {}),
-                                                  child:
-                                                      HomeVistaCuidadorWidget(
-                                                    participants: homeVistaCuidadorUsersRecordList
-                                                        .where((e) => functions
-                                                            .verifyDistanceFilter(
-                                                                FFAppState()
-                                                                    .newUbicationProfessional,
-                                                                e.suburb!,
-                                                                FFAppState()
-                                                                    .zoomFilter))
-                                                        .toList()
-                                                        .length
-                                                        .toString(),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
                                           ],
                                         ),
                                       );
