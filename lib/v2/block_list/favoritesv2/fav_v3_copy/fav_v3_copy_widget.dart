@@ -42,160 +42,156 @@ class _FavV3CopyWidgetState extends State<FavV3CopyWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async => false,
-      child: Scaffold(
-        key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        appBar: AppBar(
-          backgroundColor: Color(0xFFBD39BA),
-          automaticallyImplyLeading: false,
-          leading: FlutterFlowIconButton(
-            borderColor: Colors.transparent,
-            borderRadius: 30.0,
-            borderWidth: 1.0,
-            buttonSize: 60.0,
-            icon: FaIcon(
-              FontAwesomeIcons.angleLeft,
-              color: Colors.white,
-              size: 30.0,
-            ),
-            onPressed: () async {
-              context.pop();
-            },
+    return Scaffold(
+      key: scaffoldKey,
+      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+      appBar: AppBar(
+        backgroundColor: Color(0xFFBD39BA),
+        automaticallyImplyLeading: false,
+        leading: FlutterFlowIconButton(
+          borderColor: Colors.transparent,
+          borderRadius: 30.0,
+          borderWidth: 1.0,
+          buttonSize: 60.0,
+          icon: FaIcon(
+            FontAwesomeIcons.angleLeft,
+            color: Colors.white,
+            size: 30.0,
           ),
-          title: Text(
-            'Favorites',
-            style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  font: GoogleFonts.montserrat(
-                    fontWeight: FontWeight.bold,
-                    fontStyle:
-                        FlutterFlowTheme.of(context).headlineMedium.fontStyle,
-                  ),
-                  color: Color(0xFFEFECF3),
-                  fontSize: 24.0,
-                  letterSpacing: 0.0,
+          onPressed: () async {
+            context.pop();
+          },
+        ),
+        title: Text(
+          'Favorites',
+          style: FlutterFlowTheme.of(context).headlineMedium.override(
+                font: GoogleFonts.montserrat(
                   fontWeight: FontWeight.bold,
                   fontStyle:
                       FlutterFlowTheme.of(context).headlineMedium.fontStyle,
                 ),
-          ),
-          actions: [],
-          centerTitle: true,
-          elevation: 2.0,
+                color: Color(0xFFEFECF3),
+                fontSize: 24.0,
+                letterSpacing: 0.0,
+                fontWeight: FontWeight.bold,
+                fontStyle:
+                    FlutterFlowTheme.of(context).headlineMedium.fontStyle,
+              ),
         ),
-        body: SafeArea(
-          top: true,
-          child: Stack(
-            children: [
-              Stack(
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: Image.asset(
-                          'assets/images/inicio_1-3-4.png',
-                        ).image,
-                      ),
-                    ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          height: MediaQuery.sizeOf(context).height * 0.802,
-                          constraints: BoxConstraints(
-                            maxHeight: MediaQuery.sizeOf(context).height * 0.76,
-                          ),
-                          decoration: BoxDecoration(),
-                          child: SingleChildScrollView(
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                AuthUserStreamWidget(
-                                  builder: (context) => Builder(
-                                    builder: (context) {
-                                      final userList = (currentUserDocument
-                                                  ?.favorites
-                                                  .toList() ??
-                                              [])
-                                          .where((e) =>
-                                              (currentUserDocument?.blockList
-                                                          .toList() ??
-                                                      [])
-                                                  .contains(e) ==
-                                              false)
-                                          .toList();
-
-                                      return ListView.separated(
-                                        padding: EdgeInsets.fromLTRB(
-                                          0,
-                                          16.0,
-                                          0,
-                                          0,
-                                        ),
-                                        primary: false,
-                                        shrinkWrap: true,
-                                        scrollDirection: Axis.vertical,
-                                        itemCount: userList.length,
-                                        separatorBuilder: (_, __) =>
-                                            SizedBox(height: 16.0),
-                                        itemBuilder: (context, userListIndex) {
-                                          final userListItem =
-                                              userList[userListIndex];
-                                          return V3fv0ritesv3Widget(
-                                            key: Key(
-                                                'Keympk_${userListIndex}_of_${userList.length}'),
-                                            profesionalId: userListItem,
-                                            isCollaborator: false,
-                                            isReview: true,
-                                            isMap: false,
-                                          );
-                                        },
-                                      );
-                                    },
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Align(
-                          alignment: AlignmentDirectional(0.0, 1.0),
-                          child: Container(
-                            height: 73.0,
-                            decoration: BoxDecoration(
-                              color: Color(0xD5B928B8),
-                            ),
-                            child: Builder(
-                              builder: (context) {
-                                if (currentUserDocument?.rol !=
-                                    Roles.business) {
-                                  return wrapWithModel(
-                                    model: _model.navbarModel,
-                                    updateCallback: () => safeSetState(() {}),
-                                    child: NavbarWidget(),
-                                  );
-                                } else {
-                                  return wrapWithModel(
-                                    model: _model.navbarPremiunModel,
-                                    updateCallback: () => safeSetState(() {}),
-                                    child: NavbarPremiunWidget(),
-                                  );
-                                }
-                              },
-                            ),
-                          ),
-                        ),
-                      ],
+        actions: [],
+        centerTitle: true,
+        elevation: 2.0,
+      ),
+      body: SafeArea(
+        top: true,
+        child: Stack(
+          children: [
+            Stack(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: Image.asset(
+                        'assets/images/inicio_1-3-4.png',
+                      ).image,
                     ),
                   ),
-                ],
-              ),
-            ],
-          ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        height: MediaQuery.sizeOf(context).height * 0.802,
+                        constraints: BoxConstraints(
+                          maxHeight: MediaQuery.sizeOf(context).height * 0.76,
+                        ),
+                        decoration: BoxDecoration(),
+                        child: SingleChildScrollView(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              AuthUserStreamWidget(
+                                builder: (context) => Builder(
+                                  builder: (context) {
+                                    final userList = (currentUserDocument
+                                                ?.favorites
+                                                .toList() ??
+                                            [])
+                                        .where((e) =>
+                                            (currentUserDocument?.blockList
+                                                        .toList() ??
+                                                    [])
+                                                .contains(e) ==
+                                            false)
+                                        .toList();
+
+                                    return ListView.separated(
+                                      padding: EdgeInsets.fromLTRB(
+                                        0,
+                                        16.0,
+                                        0,
+                                        0,
+                                      ),
+                                      primary: false,
+                                      shrinkWrap: true,
+                                      scrollDirection: Axis.vertical,
+                                      itemCount: userList.length,
+                                      separatorBuilder: (_, __) =>
+                                          SizedBox(height: 16.0),
+                                      itemBuilder: (context, userListIndex) {
+                                        final userListItem =
+                                            userList[userListIndex];
+                                        return V3fv0ritesv3Widget(
+                                          key: Key(
+                                              'Keympk_${userListIndex}_of_${userList.length}'),
+                                          profesionalId: userListItem,
+                                          isCollaborator: false,
+                                          isReview: true,
+                                          isMap: false,
+                                        );
+                                      },
+                                    );
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Align(
+                        alignment: AlignmentDirectional(0.0, 1.0),
+                        child: Container(
+                          height: 73.0,
+                          decoration: BoxDecoration(
+                            color: Color(0xD5B928B8),
+                          ),
+                          child: Builder(
+                            builder: (context) {
+                              if (currentUserDocument?.rol != Roles.business) {
+                                return wrapWithModel(
+                                  model: _model.navbarModel,
+                                  updateCallback: () => safeSetState(() {}),
+                                  child: NavbarWidget(),
+                                );
+                              } else {
+                                return wrapWithModel(
+                                  model: _model.navbarPremiunModel,
+                                  updateCallback: () => safeSetState(() {}),
+                                  child: NavbarPremiunWidget(),
+                                );
+                              }
+                            },
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );
