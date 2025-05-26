@@ -50,7 +50,7 @@ class _DeleteaccountWidgetState extends State<DeleteaccountWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: Color(0xFFBD39BA),
         body: SafeArea(
           top: true,
           child: Align(
@@ -264,7 +264,7 @@ class _DeleteaccountWidgetState extends State<DeleteaccountWidget> {
                                             iconPadding:
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
-                                            color: Colors.white,
+                                            color: Color(0xFFFFD0FD),
                                             textStyle: FlutterFlowTheme.of(
                                                     context)
                                                 .titleSmall
@@ -281,7 +281,7 @@ class _DeleteaccountWidgetState extends State<DeleteaccountWidget> {
                                                             .titleSmall
                                                             .fontStyle,
                                                   ),
-                                                  color: Color(0xFFB928B8),
+                                                  color: Colors.black,
                                                   letterSpacing: 0.0,
                                                   fontWeight:
                                                       FlutterFlowTheme.of(
@@ -353,6 +353,7 @@ class _DeleteaccountWidgetState extends State<DeleteaccountWidget> {
                                                 ),
                                             elevation: 3.0,
                                             borderSide: BorderSide(
+                                              color: Color(0xFFC000B8),
                                               width: 1.0,
                                             ),
                                             borderRadius:

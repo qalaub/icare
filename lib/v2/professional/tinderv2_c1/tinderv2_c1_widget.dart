@@ -242,265 +242,307 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                             } else {
                               return Align(
                                 alignment: AlignmentDirectional(0.0, 0.0),
-                                child: Container(
-                                  constraints: BoxConstraints(
-                                    maxWidth:
-                                        MediaQuery.sizeOf(context).width * 0.96,
-                                    maxHeight:
-                                        MediaQuery.sizeOf(context).height *
-                                            0.65,
+                                child: StreamBuilder<List<ChatsRecord>>(
+                                  stream: queryChatsRecord(
+                                    queryBuilder: (chatsRecord) => chatsRecord
+                                        .where(
+                                          'user_a',
+                                          isEqualTo: currentUserReference,
+                                        )
+                                        .where(
+                                          'user_b',
+                                          isEqualTo: _model
+                                              .currentProfessional?.reference,
+                                        ),
+                                    singleRecord: true,
                                   ),
-                                  decoration: BoxDecoration(),
-                                  child: AuthUserStreamWidget(
-                                    builder: (context) => Builder(
-                                      builder: (context) {
-                                        final newData = functions
-                                            .filterProfessionalsByDistance(
-                                                _model.professionals.toList(),
-                                                currentUserDocument?.suburb,
-                                                300.0)
-                                            .toList();
+                                  builder: (context, snapshot) {
+                                    // Customize what your widget looks like when it's loading.
+                                    if (!snapshot.hasData) {
+                                      return Center(
+                                        child: SizedBox(
+                                          width: 50.0,
+                                          height: 50.0,
+                                          child: CircularProgressIndicator(
+                                            valueColor:
+                                                AlwaysStoppedAnimation<Color>(
+                                              FlutterFlowTheme.of(context)
+                                                  .primary,
+                                            ),
+                                          ),
+                                        ),
+                                      );
+                                    }
+                                    List<ChatsRecord> containerChatsRecordList =
+                                        snapshot.data!;
+                                    final containerChatsRecord =
+                                        containerChatsRecordList.isNotEmpty
+                                            ? containerChatsRecordList.first
+                                            : null;
 
-                                        return FlutterFlowSwipeableStack(
-                                          onSwipeFn: (index) async {
-                                            final newDataItem = newData[index];
-                                            _model.currentProfessional =
-                                                newDataItem;
-                                            _model.currentIndex =
-                                                _model.currentIndex + 1;
-                                            _model.currentProfessional =
-                                                newData.elementAtOrNull(
-                                                    _model.currentIndex);
-                                            safeSetState(() {});
-                                          },
-                                          onLeftSwipe: (index) async {
-                                            final newDataItem = newData[index];
-                                            if (!loggedIn) {
-                                              context.pushNamed(
-                                                  LoginWidget.routeName);
-                                            } else {
-                                              _model.addToLastRejectedItem(
-                                                  newDataItem);
-                                              safeSetState(() {});
-                                              await Future.delayed(
-                                                  const Duration(
-                                                      milliseconds: 3000));
+                                    return Container(
+                                      constraints: BoxConstraints(
+                                        maxWidth:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.96,
+                                        maxHeight:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.65,
+                                      ),
+                                      decoration: BoxDecoration(),
+                                      child: AuthUserStreamWidget(
+                                        builder: (context) => Builder(
+                                          builder: (context) {
+                                            final newData = functions
+                                                .filterProfessionalsByDistance(
+                                                    _model.professionals
+                                                        .toList(),
+                                                    currentUserDocument?.suburb,
+                                                    300.0)
+                                                .toList();
 
-                                              await currentUserReference!
-                                                  .update({
-                                                ...mapToFirestore(
-                                                  {
-                                                    'rejections':
-                                                        FieldValue.arrayUnion([
-                                                      newDataItem.reference
-                                                    ]),
-                                                  },
-                                                ),
-                                              });
-                                            }
-                                          },
-                                          onRightSwipe: (index) async {
-                                            final newDataItem = newData[index];
-                                            final firestoreBatch =
-                                                FirebaseFirestore.instance
-                                                    .batch();
-                                            try {
-                                              if (!loggedIn) {
-                                                context.pushNamed(
-                                                    LoginWidget.routeName);
-                                              } else {
-                                                firestoreBatch.update(
-                                                    currentUserReference!, {
-                                                  ...mapToFirestore(
-                                                    {
-                                                      'favorites': FieldValue
-                                                          .arrayUnion([
-                                                        newDataItem.reference
-                                                      ]),
-                                                    },
-                                                  ),
-                                                });
-                                                _model.chats =
-                                                    await queryChatsRecordOnce(
-                                                  queryBuilder: (chatsRecord) =>
-                                                      chatsRecord
-                                                          .where(
-                                                            'user_a',
-                                                            isEqualTo:
-                                                                currentUserReference,
-                                                          )
-                                                          .where(
-                                                            'user_b',
-                                                            isEqualTo: _model
-                                                                .currentProfessional
-                                                                ?.reference,
-                                                          ),
-                                                  singleRecord: true,
-                                                ).then((s) => s.firstOrNull);
-                                                _model.addToUserToAdd(
-                                                    newDataItem.reference);
-                                                _model.addToUserToAdd(
-                                                    currentUserReference!);
-                                                if (_model.chats?.reference !=
-                                                        null
-                                                    ? (_model.chats?.users
-                                                            .contains(_model
-                                                                .currentProfessional
-                                                                ?.reference) ==
-                                                        true)
-                                                    : false) {
-                                                  _model.newRef =
-                                                      await queryChatsRecordOnce(
-                                                    queryBuilder:
-                                                        (chatsRecord) =>
-                                                            chatsRecord
-                                                                .where(
-                                                                  'user_a',
-                                                                  isEqualTo:
-                                                                      currentUserReference,
-                                                                )
-                                                                .where(
-                                                                  'user_b',
-                                                                  isEqualTo: _model
-                                                                      .currentProfessional
-                                                                      ?.reference,
-                                                                ),
-                                                    singleRecord: true,
-                                                  ).then((s) => s.firstOrNull);
-                                                } else {
-                                                  // newChat
-
-                                                  var chatsRecordReference =
-                                                      ChatsRecord.collection
-                                                          .doc();
-                                                  firestoreBatch.set(
-                                                      chatsRecordReference, {
-                                                    ...createChatsRecordData(
-                                                      userA:
-                                                          currentUserReference,
-                                                      userB: _model
-                                                          .currentProfessional
-                                                          ?.reference,
-                                                      lastMessage: '',
-                                                      lastMessageTime:
-                                                          getCurrentTimestamp,
-                                                      lastMessageSentBy:
-                                                          currentUserReference,
-                                                      groupChatId: random_data
-                                                          .randomInteger(
-                                                              1000000, 9999999),
-                                                    ),
-                                                    ...mapToFirestore(
-                                                      {
-                                                        'users':
-                                                            _model.userToAdd,
-                                                      },
-                                                    ),
-                                                  });
-                                                  _model.newChatThread =
-                                                      ChatsRecord
-                                                          .getDocumentFromData({
-                                                    ...createChatsRecordData(
-                                                      userA:
-                                                          currentUserReference,
-                                                      userB: _model
-                                                          .currentProfessional
-                                                          ?.reference,
-                                                      lastMessage: '',
-                                                      lastMessageTime:
-                                                          getCurrentTimestamp,
-                                                      lastMessageSentBy:
-                                                          currentUserReference,
-                                                      groupChatId: random_data
-                                                          .randomInteger(
-                                                              1000000, 9999999),
-                                                    ),
-                                                    ...mapToFirestore(
-                                                      {
-                                                        'users':
-                                                            _model.userToAdd,
-                                                      },
-                                                    ),
-                                                  }, chatsRecordReference);
-                                                }
-
-                                                if (newDataItem.business !=
-                                                    null) {
-                                                  firestoreBatch.set(
-                                                      NewsbusinessRecord
-                                                          .collection
-                                                          .doc(),
-                                                      createNewsbusinessRecordData(
-                                                        business: newDataItem
-                                                            .business,
-                                                        professional:
-                                                            newDataItem
-                                                                .reference,
-                                                        user:
-                                                            currentUserReference,
-                                                        isView: false,
-                                                      ));
-                                                }
-
-                                                context.pushNamed(
-                                                  ProfileInfoWidget.routeName,
-                                                  queryParameters: {
-                                                    'professional':
-                                                        serializeParam(
-                                                      newDataItem.reference,
-                                                      ParamType
-                                                          .DocumentReference,
-                                                    ),
-                                                  }.withoutNulls,
-                                                );
-
-                                                _model.userToAdd = [];
-                                                if (_model.currentIndex >=
-                                                    newData.length) {
-                                                  _model.showMessage = true;
-                                                  _model.temp = 'mostrar';
+                                            return FlutterFlowSwipeableStack(
+                                              onSwipeFn: (index) async {
+                                                final newDataItem =
+                                                    newData[index];
+                                                _model.currentProfessional =
+                                                    newDataItem;
+                                                _model.currentIndex =
+                                                    _model.currentIndex + 1;
+                                                _model.currentProfessional =
+                                                    newData.elementAtOrNull(
+                                                        _model.currentIndex);
+                                                safeSetState(() {});
+                                              },
+                                              onLeftSwipe: (index) async {
+                                                final newDataItem =
+                                                    newData[index];
+                                                if (!loggedIn) {
+                                                  _model.addToLastRejectedItem(
+                                                      newDataItem);
                                                   safeSetState(() {});
-                                                }
-                                              }
-                                            } finally {
-                                              await firestoreBatch.commit();
-                                            }
+                                                  await Future.delayed(
+                                                      const Duration(
+                                                          milliseconds: 3000));
 
-                                            safeSetState(() {});
-                                          },
-                                          onUpSwipe: (index) {},
-                                          onDownSwipe: (index) {},
-                                          itemBuilder: (context, newDataIndex) {
-                                            final newDataItem =
-                                                newData[newDataIndex];
-                                            return Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
-                                              child: Tinderv2C0Widget(
-                                                key: Key(
-                                                    'Keyx4t_${newDataIndex}_of_${newData.length}'),
-                                                professional: newDataItem,
-                                              ),
+                                                  await newDataItem.reference
+                                                      .update(
+                                                          createUsersRecordData());
+
+                                                  context.pushNamed(
+                                                      LoginWidget.routeName);
+                                                } else {
+                                                  _model.addToLastRejectedItem(
+                                                      newDataItem);
+                                                  safeSetState(() {});
+                                                  await Future.delayed(
+                                                      const Duration(
+                                                          milliseconds: 3000));
+
+                                                  await newDataItem.reference
+                                                      .update(
+                                                          createUsersRecordData());
+                                                }
+                                              },
+                                              onRightSwipe: (index) async {
+                                                final newDataItem =
+                                                    newData[index];
+                                                final firestoreBatch =
+                                                    FirebaseFirestore.instance
+                                                        .batch();
+                                                try {
+                                                  if (!loggedIn) {
+                                                    context.pushNamed(
+                                                        LoginWidget.routeName);
+                                                  } else {
+                                                    firestoreBatch.update(
+                                                        currentUserReference!, {
+                                                      ...mapToFirestore(
+                                                        {
+                                                          'favorites':
+                                                              FieldValue
+                                                                  .arrayUnion([
+                                                            newDataItem
+                                                                .reference
+                                                          ]),
+                                                        },
+                                                      ),
+                                                    });
+                                                    _model.addToUserToAdd(
+                                                        newDataItem.reference);
+                                                    _model.addToUserToAdd(
+                                                        currentUserReference!);
+                                                    if (containerChatsRecord !=
+                                                            null
+                                                        ? (containerChatsRecord
+                                                                .users
+                                                                .contains(
+                                                                    currentUserReference) ==
+                                                            true)
+                                                        : false) {
+                                                      _model.newRefCopyCopy =
+                                                          await queryChatsRecordOnce(
+                                                        queryBuilder:
+                                                            (chatsRecord) =>
+                                                                chatsRecord
+                                                                    .where(
+                                                                      'user_a',
+                                                                      isEqualTo:
+                                                                          currentUserReference,
+                                                                    )
+                                                                    .where(
+                                                                      'user_b',
+                                                                      isEqualTo: _model
+                                                                          .currentProfessional
+                                                                          ?.reference,
+                                                                    ),
+                                                        singleRecord: true,
+                                                      ).then((s) =>
+                                                              s.firstOrNull);
+                                                    } else {
+                                                      // newChat
+
+                                                      var chatsRecordReference =
+                                                          ChatsRecord.collection
+                                                              .doc();
+                                                      firestoreBatch.set(
+                                                          chatsRecordReference,
+                                                          {
+                                                            ...createChatsRecordData(
+                                                              userA:
+                                                                  currentUserReference,
+                                                              userB: newDataItem
+                                                                  .reference,
+                                                              lastMessage: '',
+                                                              lastMessageTime:
+                                                                  getCurrentTimestamp,
+                                                              lastMessageSentBy:
+                                                                  currentUserReference,
+                                                              groupChatId: random_data
+                                                                  .randomInteger(
+                                                                      1000000,
+                                                                      9999999),
+                                                            ),
+                                                            ...mapToFirestore(
+                                                              {
+                                                                'users': _model
+                                                                    .userToAdd,
+                                                              },
+                                                            ),
+                                                          });
+                                                      _model.newChatThread =
+                                                          ChatsRecord
+                                                              .getDocumentFromData({
+                                                        ...createChatsRecordData(
+                                                          userA:
+                                                              currentUserReference,
+                                                          userB: newDataItem
+                                                              .reference,
+                                                          lastMessage: '',
+                                                          lastMessageTime:
+                                                              getCurrentTimestamp,
+                                                          lastMessageSentBy:
+                                                              currentUserReference,
+                                                          groupChatId:
+                                                              random_data
+                                                                  .randomInteger(
+                                                                      1000000,
+                                                                      9999999),
+                                                        ),
+                                                        ...mapToFirestore(
+                                                          {
+                                                            'users': _model
+                                                                .userToAdd,
+                                                          },
+                                                        ),
+                                                      }, chatsRecordReference);
+                                                    }
+
+                                                    if (_model
+                                                            .currentProfessional
+                                                            ?.business !=
+                                                        null) {
+                                                      firestoreBatch.set(
+                                                          NewsbusinessRecord
+                                                              .collection
+                                                              .doc(),
+                                                          createNewsbusinessRecordData(
+                                                            business:
+                                                                newDataItem
+                                                                    .business,
+                                                            professional:
+                                                                newDataItem
+                                                                    .reference,
+                                                            user:
+                                                                currentUserReference,
+                                                            isView: false,
+                                                          ));
+                                                    }
+                                                    _model.userToAdd = [];
+
+                                                    context.pushNamed(
+                                                      ProfileInfoWidget
+                                                          .routeName,
+                                                      queryParameters: {
+                                                        'professional':
+                                                            serializeParam(
+                                                          newDataItem.reference,
+                                                          ParamType
+                                                              .DocumentReference,
+                                                        ),
+                                                      }.withoutNulls,
+                                                    );
+
+                                                    if (_model.currentIndex >=
+                                                        newData.length) {
+                                                      _model.showMessage = true;
+                                                      _model.temp = 'mostrar';
+                                                      safeSetState(() {});
+                                                    }
+                                                  }
+                                                } finally {
+                                                  await firestoreBatch.commit();
+                                                }
+
+                                                safeSetState(() {});
+                                              },
+                                              onUpSwipe: (index) {},
+                                              onDownSwipe: (index) {},
+                                              itemBuilder:
+                                                  (context, newDataIndex) {
+                                                final newDataItem =
+                                                    newData[newDataIndex];
+                                                return Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: Tinderv2C0Widget(
+                                                    key: Key(
+                                                        'Keyx4t_${newDataIndex}_of_${newData.length}'),
+                                                    professional: newDataItem,
+                                                  ),
+                                                );
+                                              },
+                                              itemCount: newData.length,
+                                              controller: _model
+                                                  .swipeableStackController,
+                                              loop: false,
+                                              cardDisplayCount: 1,
+                                              scale: 0.9,
+                                              cardPadding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              backCardOffset:
+                                                  const Offset(1.0, 1.0),
+                                              allowedSwipeDirection:
+                                                  AllowedSwipeDirection
+                                                      .symmetric(
+                                                          horizontal: true),
                                             );
                                           },
-                                          itemCount: newData.length,
-                                          controller:
-                                              _model.swipeableStackController,
-                                          loop: false,
-                                          cardDisplayCount: 1,
-                                          scale: 0.9,
-                                          cardPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 0.0),
-                                          backCardOffset:
-                                              const Offset(1.0, 1.0),
-                                          allowedSwipeDirection:
-                                              AllowedSwipeDirection.symmetric(
-                                                  horizontal: true),
-                                        );
-                                      },
-                                    ),
-                                  ),
+                                        ),
+                                      ),
+                                    );
+                                  },
                                 ),
                               );
                             }
@@ -625,22 +667,6 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                                         _model
                                                             .lastRetrievedItem;
                                                     safeSetState(() {});
-
-                                                    await currentUserReference!
-                                                        .update({
-                                                      ...mapToFirestore(
-                                                        {
-                                                          'rejections':
-                                                              FieldValue
-                                                                  .arrayRemove([
-                                                            _model
-                                                                .lastRejectedItem
-                                                                .lastOrNull
-                                                                ?.reference
-                                                          ]),
-                                                        },
-                                                      ),
-                                                    });
                                                     _model.insertAtIndexInProfessionals(
                                                         _model.currentIndex,
                                                         _model
@@ -653,6 +679,32 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                                                 .lastOrNull!);
                                                   }
                                                 } else {
+                                                  if (_model.lastRejectedItem
+                                                          .length >
+                                                      0) {
+                                                    _model.lastRetrievedItem =
+                                                        _model.lastRejectedItem
+                                                            .lastOrNull;
+                                                    safeSetState(() {});
+                                                    await Future.delayed(
+                                                        const Duration(
+                                                            milliseconds: 500));
+                                                    _model.currentProfessional =
+                                                        _model
+                                                            .lastRetrievedItem;
+                                                    safeSetState(() {});
+                                                    _model.insertAtIndexInProfessionals(
+                                                        _model.currentIndex,
+                                                        _model
+                                                            .lastRetrievedItem!);
+                                                    safeSetState(() {});
+                                                    _model
+                                                        .removeFromLastRejectedItem(
+                                                            _model
+                                                                .lastRejectedItem
+                                                                .lastOrNull!);
+                                                  }
+
                                                   context.pushNamed(
                                                       LoginWidget.routeName);
                                                 }
@@ -728,7 +780,7 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                   child: Container(
                     height: 73.0,
                     decoration: BoxDecoration(
-                      color: Color(0xB3B928B8),
+                      color: Color(0xFFBD39BA),
                     ),
                     child: Builder(
                       builder: (context) {

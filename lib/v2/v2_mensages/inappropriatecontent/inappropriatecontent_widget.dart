@@ -57,7 +57,7 @@ class _InappropriatecontentWidgetState
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xFFBD39BA),
         body: SafeArea(
           top: true,
           child: Stack(
@@ -103,6 +103,7 @@ class _InappropriatecontentWidgetState
                       ),
                     ),
                     Container(
+                      width: MediaQuery.sizeOf(context).width * 0.9,
                       decoration: BoxDecoration(),
                       child: Padding(
                         padding:
@@ -110,16 +111,18 @@ class _InappropriatecontentWidgetState
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 0.0, 0.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Share inappropriate content',
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      15.0, 0.0, 0.0, 0.0),
+                                  child: AutoSizeText(
+                                    'Share inappropriate \ncontent',
+                                    maxLines: 2,
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -131,7 +134,7 @@ class _InappropriatecontentWidgetState
                                                     .fontStyle,
                                           ),
                                           color: Colors.white,
-                                          fontSize: 24.0,
+                                          fontSize: 20.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
                                           fontStyle:
@@ -140,8 +143,8 @@ class _InappropriatecontentWidgetState
                                                   .fontStyle,
                                         ),
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                             Align(
                               alignment: AlignmentDirectional(0.0, 0.0),
@@ -152,13 +155,17 @@ class _InappropriatecontentWidgetState
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
-                                    Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
-                                      child: Container(
-                                        decoration: BoxDecoration(),
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.8,
+                                      decoration: BoxDecoration(),
+                                      child: Align(
+                                        alignment:
+                                            AlignmentDirectional(-1.0, 0.0),
                                         child: AutoSizeText(
-                                          'A system employee reviews reports \nof inappropriate content to determine \nif they violate community standards. \nIf confirmed, the account will be \nsuspended.',
-                                          textAlign: TextAlign.start,
+                                          'A system employee reviews reports of inappropriate content to determine if they violate community standards. If confirmed, the account will be \nsuspended.',
+                                          textAlign: TextAlign.justify,
+                                          maxLines: 5,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(

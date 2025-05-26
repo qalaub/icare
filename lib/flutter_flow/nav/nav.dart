@@ -8,7 +8,6 @@ import '/backend/schema/enums/enums.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
-import '/main.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 import '/index.dart';
@@ -82,14 +81,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       navigatorKey: appNavigatorKey,
       errorBuilder: (context, state) => _RouteErrorBuilder(
         state: state,
-        child: appStateNotifier.loggedIn ? NavBarPage() : Pantainci1Widget(),
+        child: RootPageContext.wrap(
+          appStateNotifier.loggedIn ? HomeSearchWidget() : Pantainci1Widget(),
+          errorRoute: state.uri.toString(),
+        ),
       ),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) =>
-              appStateNotifier.loggedIn ? NavBarPage() : Pantainci1Widget(),
+          builder: (context, _) => RootPageContext.wrap(
+            appStateNotifier.loggedIn ? HomeSearchWidget() : Pantainci1Widget(),
+          ),
           routes: [
             FFRoute(
               name: HomeSearchWidget.routeName,
@@ -107,23 +110,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: UserWidget.routeName,
-              path: UserWidget.routePath,
-              builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'User')
-                  : UserWidget(),
-            ),
-            FFRoute(
               name: FiltrosWidget.routeName,
               path: FiltrosWidget.routePath,
               builder: (context, params) => FiltrosWidget(),
-            ),
-            FFRoute(
-              name: Favorites1Widget.routeName,
-              path: Favorites1Widget.routePath,
-              builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'Favorites1')
-                  : Favorites1Widget(),
             ),
             FFRoute(
               name: RegisterUser1Widget.routeName,
@@ -574,12 +563,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: RegisterPfofesional5Widget.routeName,
               path: RegisterPfofesional5Widget.routePath,
               builder: (context, params) => RegisterPfofesional5Widget(
-                bussinesRef: params.getParam(
-                  'bussinesRef',
-                  ParamType.DocumentReference,
-                  isList: false,
-                  collectionNamePath: ['users'],
-                ),
                 isBussines: params.getParam(
                   'isBussines',
                   ParamType.bool,
@@ -760,6 +743,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   ParamType.bool,
                 ),
               ),
+            ),
+            FFRoute(
+              name: NewsCopyWidget.routeName,
+              path: NewsCopyWidget.routePath,
+              requireAuth: true,
+              builder: (context, params) => NewsCopyWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

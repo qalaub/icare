@@ -123,13 +123,18 @@ class _MapsAustralianState extends State<MapsAustralian> {
       _updateSelectedUser(0);
     }
 
-    // Load markers asynchronously
+    // IMPORTANTE: Primero cargar los marcadores personalizados, LUEGO inicializar el mapa
     _loadCustomMarkers().then((_) {
       if (mounted) {
         setState(() {
           _markersLoaded = true;
         });
-        _moveToAppropriateLocation();
+        // Solo ahora movemos a la ubicación apropiada, después de cargar los íconos
+        Future.delayed(Duration(milliseconds: 300), () {
+          if (mounted && _mapInitialized) {
+            _moveToAppropriateLocation();
+          }
+        });
 
         // Intentar cargar marcadores nuevamente después de un breve retraso
         Future.delayed(Duration(seconds: 2), () {
@@ -227,7 +232,7 @@ class _MapsAustralianState extends State<MapsAustralian> {
             _selectedUser!.suburb!.latitude,
             _selectedUser!.suburb!.longitude,
           ),
-          12,
+          7,
         );
       }
     }
@@ -249,11 +254,71 @@ class _MapsAustralianState extends State<MapsAustralian> {
     if (newUbicationNotifier.value != null) {
       print('Location notifier changed: ${newUbicationNotifier.value}');
 
-      // Solo re-ordenar marcadores sin hacer nada más
       if (mounted) {
+        // Guardar el usuario seleccionado actual antes de reordenar
+        UsersRecord? currentSelectedUser = _selectedUser;
+        DocumentReference? currentSelectedRef =
+            currentSelectedUser != null ? currentSelectedUser.reference : null;
+
+        // Reordenar marcadores sin cambiar la selección
         setState(() {
-          _sortMarkersByProximityWithLocation(newUbicationNotifier.value!);
+          _sortMarkersByProximityPreserveSelection(
+              newUbicationNotifier.value!, currentSelectedRef);
         });
+      }
+    }
+  }
+
+  void _sortMarkersByProximityPreserveSelection(
+      LatLng location, DocumentReference? currentSelectedRef) {
+    if (widget.markers == null || widget.markers!.isEmpty) {
+      _sortedMarkers = [];
+      return;
+    }
+
+    // Aplicar filtros
+    List<UsersRecord> filteredMarkers = [];
+    for (var user in widget.markers!) {
+      if (user.suburb != null) {
+        if (_applyFilters(user)) {
+          filteredMarkers.add(user);
+        }
+      }
+    }
+
+    _sortedMarkers = filteredMarkers;
+
+    // Ordenar por proximidad a la ubicación proporcionada
+    if (_sortedMarkers!.isEmpty) {
+      return;
+    }
+
+    _sortedMarkers!.sort((a, b) {
+      if (a.suburb == null && b.suburb == null) return 0;
+      if (a.suburb == null) return 1;
+      if (b.suburb == null) return -1;
+
+      final distanceA = _calculateDistance(location, a.suburb!);
+      final distanceB = _calculateDistance(location, b.suburb!);
+
+      return distanceA.compareTo(distanceB);
+    });
+
+    // Si tenemos una referencia del usuario seleccionado, mantenerla después del reordenamiento
+    if (currentSelectedRef != null && widget.isProfessional != true) {
+      int newIndex = _findUserIndex(currentSelectedRef);
+      if (newIndex != -1) {
+        // Actualizar el índice actual sin cambiar al primer elemento
+        _currentPage = newIndex;
+
+        // Actualizar el usuario seleccionado con el mismo de antes pero en su nueva posición
+        _updateSelectedUser(newIndex);
+
+        // Mover el PageView a la nueva posición del mismo usuario
+        if (_pageController.hasClients) {
+          _pageController.jumpToPage(
+              newIndex); // Usamos jumpToPage en lugar de animateToPage para evitar efectos visuales extraños
+        }
       }
     }
   }
@@ -333,7 +398,7 @@ class _MapsAustralianState extends State<MapsAustralian> {
 
             // Restaura la ubicación bloqueada si existe
             if (_lockToNewLocation && _lockedLocation != null) {
-              _forceMapMove(_lockedLocation!, 12.0);
+              _forceMapMove(_lockedLocation!, 9.0);
             }
           });
         }
@@ -635,6 +700,10 @@ class _MapsAustralianState extends State<MapsAustralian> {
       return;
     }
 
+    // Guardamos la referencia actual antes de reordenar
+    DocumentReference? currentSelectedRef =
+        _selectedUser != null ? _selectedUser!.reference : null;
+
     // First apply filters
     List<UsersRecord> filteredMarkers = [];
     for (var user in widget.markers!) {
@@ -662,6 +731,25 @@ class _MapsAustralianState extends State<MapsAustralian> {
 
       return distanceA.compareTo(distanceB);
     });
+
+    // Si tenemos un usuario seleccionado y no estamos en modo profesional,
+    // intentamos mantener ese usuario seleccionado después del reordenamiento
+    if (currentSelectedRef != null && widget.isProfessional != true) {
+      int newIndex = _findUserIndex(currentSelectedRef);
+      if (newIndex != -1) {
+        // Actualizar el usuario seleccionado sin resetear al primero
+        _updateSelectedUser(newIndex);
+
+        // Mover PageView a la nueva posición del mismo usuario, si existe
+        if (_pageController.hasClients) {
+          _pageController.jumpToPage(newIndex);
+        }
+        return; // Salimos para evitar el reseteo abajo
+      }
+    }
+
+    // Solo si no pudimos mantener la selección actual, o no había ninguna,
+    // caemos en el comportamiento original
     if (widget.isProfessional != true &&
         _sortedMarkers != null &&
         _sortedMarkers!.isNotEmpty) {
@@ -772,44 +860,63 @@ class _MapsAustralianState extends State<MapsAustralian> {
   Future<void> _loadCustomMarkers() async {
     try {
       print('Loading custom markers started');
-      if (widget.markersImage != null) {
-        final markerIcon = await _buildMarkerIcon(widget.markersImage!, 100);
 
-        if (mounted) {
-          setState(() {
-            userMarkerIcon = markerIcon;
-            // Use default marker for professional marker
-            profesionalMarkerIcon = google_maps.BitmapDescriptor.defaultMarker;
-          });
-        }
+      // Crear una variable local para almacenar temporalmente los íconos
+      google_maps.BitmapDescriptor? tempUserMarkerIcon;
+      google_maps.BitmapDescriptor? tempProfesionalMarkerIcon;
+      google_maps.BitmapDescriptor? tempCurrentLocationMarkerIcon;
+      google_maps.BitmapDescriptor? tempSelectedProfessionalMarkerIcon;
+
+      // Cargamos todos los íconos en paralelo para mayor eficiencia
+      List<Future> iconLoadingFutures = [];
+
+      // 1. Cargar ícono de usuario normal
+      if (widget.markersImage != null) {
+        iconLoadingFutures
+            .add(_buildMarkerIcon(widget.markersImage!, 100).then((icon) {
+          tempUserMarkerIcon = icon;
+        }));
       } else {
-        if (mounted) {
-          setState(() {
-            userMarkerIcon = google_maps.BitmapDescriptor.defaultMarker;
-          });
-        }
+        tempUserMarkerIcon = google_maps.BitmapDescriptor.defaultMarker;
       }
 
-      // Cargar icono para profesional seleccionado con un tamaño mayor (escala 1.5)
+      // 2. Cargar ícono para profesional
+      tempProfesionalMarkerIcon = google_maps.BitmapDescriptor.defaultMarker;
+
+      // 3. Cargar ícono para profesional seleccionado
       final selectedProfessionalImageUrl =
           'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/znz4vzyqj65b/profesionalMarker.png';
-      // Si no tienes la URL correcta, puedes usar la misma que userMarkerIcon pero con un tamaño diferente
-      final selectedProfessionalIcon = widget.markersImage != null
-          ? await _buildMarkerIcon(widget.markersImage!, 100, scale: 1.5)
-          : await _buildMarkerIcon(selectedProfessionalImageUrl, 120,
-              scale: 1.5);
+      iconLoadingFutures.add(_buildMarkerIcon(
+              widget.markersImage != null
+                  ? widget.markersImage!
+                  : selectedProfessionalImageUrl,
+              120,
+              scale: 1.5)
+          .then((icon) {
+        tempSelectedProfessionalMarkerIcon = icon;
+      }));
 
+      // 4. Cargar ícono para ubicación actual
       final currentLocationImageUrl =
           'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/evrj8rjucpf8/currentMarker.png';
-      final currentLocationIcon =
-          await _buildMarkerIcon(currentLocationImageUrl, 100);
+      iconLoadingFutures
+          .add(_buildMarkerIcon(currentLocationImageUrl, 100).then((icon) {
+        tempCurrentLocationMarkerIcon = icon;
+      }));
 
+      // Esperar a que se completen todas las cargas
+      await Future.wait(iconLoadingFutures);
+
+      // Solo actualizar el estado una vez con todos los íconos, evitando renders intermedios
       if (mounted) {
         setState(() {
-          currentLocationMarkerIcon = currentLocationIcon;
-          selectedProfessionalMarkerIcon = selectedProfessionalIcon;
+          userMarkerIcon = tempUserMarkerIcon;
+          profesionalMarkerIcon = tempProfesionalMarkerIcon;
+          currentLocationMarkerIcon = tempCurrentLocationMarkerIcon;
+          selectedProfessionalMarkerIcon = tempSelectedProfessionalMarkerIcon;
         });
       }
+
       print('Loading custom markers completed');
     } catch (e) {
       print('Error loading markers: $e');
@@ -999,13 +1106,11 @@ class _MapsAustralianState extends State<MapsAustralian> {
                 : userMarkerIcon ??
                     google_maps.BitmapDescriptor.defaultMarkerWithHue(
                         google_maps.BitmapDescriptor.hueViolet),
-            // IMPORTANT: Only enable onTap for regular users, disable for professionals
             onTap: widget.isProfessional == true
-                ? null // Explicitly disable onTap for professionals
+                ? null
                 : () {
                     final index = _sortedMarkers!.indexOf(user);
                     if (index != -1) {
-                      // Indicate we're interacting
                       _setPageViewInteraction(true);
 
                       _pageController.animateToPage(
@@ -1015,9 +1120,9 @@ class _MapsAustralianState extends State<MapsAustralian> {
                       );
                       _updateSelectedUser(index);
 
-                      // Always move to this marker when tapped
+                      // AQUÍ sí movemos el mapa porque el usuario ha tocado el marcador directamente
                       if (user.suburb != null) {
-                        _forceMapMove(user.suburb!, 12.0);
+                        _forceMapMove(user.suburb!, 7.0);
                       }
                     }
                   },
@@ -1109,8 +1214,8 @@ class _MapsAustralianState extends State<MapsAustralian> {
       });
     }
 
-    // Build the markers set
-    final markers = _buildMarkers();
+    // Build the markers set only if markers are loaded
+    final markers = _markersLoaded ? _buildMarkers() : <google_maps.Marker>{};
 
     return Stack(
       children: [
@@ -1122,6 +1227,7 @@ class _MapsAustralianState extends State<MapsAustralian> {
             width: widget.width ?? double.infinity,
             height: double.infinity,
             child: google_maps.GoogleMap(
+              // IMPORTANTE: Muestra un indicador de carga mientras el mapa se inicializa
               initialCameraPosition: google_maps.CameraPosition(
                 target: _defaultAustraliaCenter,
                 zoom: 4,
@@ -1132,12 +1238,15 @@ class _MapsAustralianState extends State<MapsAustralian> {
                   _mapInitialized = true;
                 });
 
-                // Delay to ensure the map is fully loaded
-                Future.delayed(Duration(milliseconds: 500), () {
-                  if (mounted) {
-                    _moveToAppropriateLocation();
-                  }
-                });
+                // Delay to ensure the map is fully loaded - pero no mostramos marcadores todavía
+                // hasta que estén cargados completamente
+                if (_markersLoaded) {
+                  Future.delayed(Duration(milliseconds: 500), () {
+                    if (mounted) {
+                      _moveToAppropriateLocation();
+                    }
+                  });
+                }
               },
               mapType: google_maps.MapType.normal,
               myLocationButtonEnabled: false,
@@ -1152,7 +1261,8 @@ class _MapsAustralianState extends State<MapsAustralian> {
                       14), // Higher max zoom (more zoomed in) for regular users
               cameraTargetBounds:
                   google_maps.CameraTargetBounds(australiaBounds),
-              markers: markers,
+              markers:
+                  markers, // Solo muestra marcadores si están completamente cargados
               onCameraMove: (google_maps.CameraPosition position) {
                 FFAppState().update(() {
                   FFAppState().tempLocation = LatLng(
@@ -1304,51 +1414,28 @@ class _MapsAustralianState extends State<MapsAustralian> {
                           // Set the interaction flag when PageView is used
                           _setPageViewInteraction(true);
 
+                          // Actualizar el usuario seleccionado
                           _updateSelectedUser(index);
 
-                          // Desactivar temporalmente el bloqueo para permitir que el mapa se mueva con el PageView
-                          final wasLocked = _lockToNewLocation;
-                          final tempLocation = _lockedLocation;
+                          // Guardar el usuario actual como el seleccionado
+                          // para evitar que se resetee con el reordenamiento
+                          final newSelectedUser = _sortedMarkers![index];
+                          _selectedUser = newSelectedUser;
 
-                          // Temporalmente desactiva el bloqueo
+                          // SOLUCIÓN: NO movemos el mapa cuando cambia la página
+                          // Solo actualizamos el estado para reflejar el cambio de marcador seleccionado
                           setState(() {
-                            _lockToNewLocation = false;
+                            // Esta llamada actualizará los marcadores mostrando el resaltado correcto
                           });
 
-                          // Actualiza la posición del mapa con ANIMACIÓN cuando cambia la página
-                          final newSelectedUser = _sortedMarkers![index];
-                          if (newSelectedUser.suburb != null) {
-                            _animateCameraToPosition(
-                                google_maps.LatLng(
-                                  newSelectedUser.suburb!.latitude,
-                                  newSelectedUser.suburb!.longitude,
-                                ),
-                                12.0);
-                          }
-
-                          // Si estaba bloqueado, restaura el bloqueo después de un breve retardo
-                          if (wasLocked && tempLocation != null) {
-                            Future.delayed(Duration(milliseconds: 800), () {
-                              if (mounted) {
-                                setState(() {
-                                  _lockToNewLocation = true;
-                                  _lockedLocation = newSelectedUser
-                                      .suburb; // Actualiza la ubicación bloqueada al nuevo marcador
-                                  _isInteractingWithPageView =
-                                      false; // Re-enable map interactions
-                                });
-                              }
-                            });
-                          } else {
-                            // If not locked, still need to re-enable map interactions after animation
-                            Future.delayed(Duration(milliseconds: 300), () {
-                              if (mounted) {
-                                setState(() {
-                                  _isInteractingWithPageView = false;
-                                });
-                              }
-                            });
-                          }
+                          // Re-enable map interactions after a short delay
+                          Future.delayed(Duration(milliseconds: 300), () {
+                            if (mounted) {
+                              setState(() {
+                                _isInteractingWithPageView = false;
+                              });
+                            }
+                          });
                         },
                         itemBuilder: (context, index) {
                           final user = _sortedMarkers![index];

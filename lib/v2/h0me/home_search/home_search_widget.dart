@@ -49,13 +49,14 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      if (RootPageContext.isInactiveRootPage(context)) {
+        return;
+      }
       currentUserLocationValue =
           await getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0));
       if (FFAppState().isCreatedProfesional) {
         if (currentUserDocument?.rol != Roles.user) {
           FFAppState().isCreatedProfesional = false;
-
-          context.pushNamed(RegisterPfofesional5Widget.routeName);
         }
       }
       if (loggedIn) {
@@ -349,8 +350,8 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
                                                       child: ImageFiltered(
                                                         imageFilter:
                                                             ImageFilter.blur(
-                                                          sigmaX: 5.0,
-                                                          sigmaY: 5.0,
+                                                          sigmaX: 2.5,
+                                                          sigmaY: 2.5,
                                                         ),
                                                         child: child,
                                                       ),
@@ -364,105 +365,122 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
                                                 Plan.basic)
                                               Align(
                                                 alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
+                                                    0.0, -0.5),
                                                 child: AuthUserStreamWidget(
                                                   builder: (context) =>
                                                       Container(
                                                     width: 315.0,
-                                                    height: 650.0,
+                                                    height: 450.0,
                                                     decoration: BoxDecoration(),
                                                     child: Stack(
                                                       children: [
-                                                        InkWell(
-                                                          splashColor: Colors
-                                                              .transparent,
-                                                          focusColor: Colors
-                                                              .transparent,
-                                                          hoverColor: Colors
-                                                              .transparent,
-                                                          highlightColor: Colors
-                                                              .transparent,
-                                                          onTap: () async {
-                                                            context.pushNamed(
-                                                              MembresiasV2Widget
-                                                                  .routeName,
-                                                              queryParameters: {
-                                                                'professionalUpdate':
-                                                                    serializeParam(
-                                                                  currentUserReference,
-                                                                  ParamType
-                                                                      .DocumentReference,
-                                                                ),
-                                                                'currentPlan':
-                                                                    serializeParam(
-                                                                  Plan.basic,
-                                                                  ParamType
-                                                                      .Enum,
-                                                                ),
-                                                                'isUpdate':
-                                                                    serializeParam(
-                                                                  true,
-                                                                  ParamType
-                                                                      .bool,
-                                                                ),
-                                                              }.withoutNulls,
-                                                            );
-                                                          },
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        8.0),
-                                                            child: Image.asset(
-                                                              'assets/images/pixelcut-export.png',
-                                                              width: 350.0,
-                                                              height: 350.0,
-                                                              fit: BoxFit.cover,
+                                                        Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  0.0, -1.0),
+                                                          child: InkWell(
+                                                            splashColor: Colors
+                                                                .transparent,
+                                                            focusColor: Colors
+                                                                .transparent,
+                                                            hoverColor: Colors
+                                                                .transparent,
+                                                            highlightColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            onTap: () async {
+                                                              context.pushNamed(
+                                                                MembresiasV2Widget
+                                                                    .routeName,
+                                                                queryParameters:
+                                                                    {
+                                                                  'professionalUpdate':
+                                                                      serializeParam(
+                                                                    currentUserReference,
+                                                                    ParamType
+                                                                        .DocumentReference,
+                                                                  ),
+                                                                  'currentPlan':
+                                                                      serializeParam(
+                                                                    Plan.basic,
+                                                                    ParamType
+                                                                        .Enum,
+                                                                  ),
+                                                                  'isUpdate':
+                                                                      serializeParam(
+                                                                    true,
+                                                                    ParamType
+                                                                        .bool,
+                                                                  ),
+                                                                }.withoutNulls,
+                                                              );
+                                                            },
+                                                            child: ClipRRect(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          8.0),
+                                                              child:
+                                                                  Image.asset(
+                                                                'assets/images/pixelcut-export.png',
+                                                                width: 250.0,
+                                                                height: 250.0,
+                                                                fit: BoxFit
+                                                                    .cover,
+                                                              ),
                                                             ),
                                                           ),
                                                         ),
                                                         Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  0.0, 0.1),
-                                                          child: Text(
-                                                            'You need to upgrade your membership to access this feature.\nUpgrade to standard or premium',
-                                                            textAlign: TextAlign
-                                                                .center,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  font: GoogleFonts
-                                                                      .poppins(
-                                                                    fontWeight: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .fontWeight,
+                                                                  0.0, 0.2),
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        10.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child: Text(
+                                                              'You need to upgrade your membership to access this feature.\nUpgrade to standard or premium',
+                                                              textAlign:
+                                                                  TextAlign
+                                                                      .center,
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    font: GoogleFonts
+                                                                        .poppins(
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .normal,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
+                                                                    ),
+                                                                    fontSize:
+                                                                        16.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .normal,
                                                                     fontStyle: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodyMedium
                                                                         .fontStyle,
                                                                   ),
-                                                                  fontSize:
-                                                                      16.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontWeight,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontStyle,
-                                                                ),
+                                                            ),
                                                           ),
                                                         ),
                                                         Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  0.0, 0.4),
+                                                                  0.0, 0.6),
                                                           child: FFButtonWidget(
                                                             onPressed:
                                                                 () async {
@@ -572,7 +590,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
                         child: Container(
                           height: 73.0,
                           decoration: BoxDecoration(
-                            color: Color(0xD7B928B8),
+                            color: Color(0xFFBD39BA),
                           ),
                           alignment: AlignmentDirectional(0.0, 0.0),
                           child: Builder(

@@ -1,4 +1,3 @@
-import '/auth/base_auth_user_provider.dart';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
@@ -6,8 +5,8 @@ import '/backend/schema/enums/enums.dart';
 import '/components/estrellas_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/v2/block_list/favoritesv2/add_favorites/add_favorites_widget.dart';
 import '/v2/block_list/favoritesv2/add_favorites_copy/add_favorites_copy_widget.dart';
+import '/v2/block_list/favoritesv2/add_favorites_copy2/add_favorites_copy2_widget.dart';
 import '/v2/menbresiav2/membresia_logo/membresia_logo_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
@@ -187,7 +186,7 @@ class _V3fv0ritesv3WidgetState extends State<V3fv0ritesv3Widget> {
                                     ),
                                     width: double.infinity,
                                     height: double.infinity,
-                                    fit: BoxFit.cover,
+                                    fit: BoxFit.fill,
                                   ),
                                 ),
                               ),
@@ -619,19 +618,26 @@ class _V3fv0ritesv3WidgetState extends State<V3fv0ritesv3Widget> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        if (!widget.isCollaborator)
-                          Builder(
-                            builder: (context) {
-                              if (widget.isMap == true) {
-                                return wrapWithModel(
-                                  model: _model.addFavoritesCopyModel,
-                                  updateCallback: () => safeSetState(() {}),
-                                  child: AddFavoritesCopyWidget(
-                                    professional: containerUsersRecord,
+                        Builder(
+                          builder: (context) {
+                            if (widget.isMap == true) {
+                              return Visibility(
+                                visible:
+                                    currentUserDocument?.rol != Roles.business,
+                                child: AuthUserStreamWidget(
+                                  builder: (context) => wrapWithModel(
+                                    model: _model.addFavoritesCopyModel,
+                                    updateCallback: () => safeSetState(() {}),
+                                    child: AddFavoritesCopyWidget(
+                                      professional: containerUsersRecord,
+                                    ),
                                   ),
-                                );
-                              } else {
-                                return InkWell(
+                                ),
+                              );
+                            } else {
+                              return Align(
+                                alignment: AlignmentDirectional(0.0, 0.0),
+                                child: InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
                                   hoverColor: Colors.transparent,
@@ -656,16 +662,17 @@ class _V3fv0ritesv3WidgetState extends State<V3fv0ritesv3Widget> {
                                     );
                                   },
                                   child: wrapWithModel(
-                                    model: _model.addFavoritesModel,
+                                    model: _model.addFavoritesCopy2Model,
                                     updateCallback: () => safeSetState(() {}),
-                                    child: AddFavoritesWidget(
+                                    child: AddFavoritesCopy2Widget(
                                       professional: containerUsersRecord,
                                     ),
                                   ),
-                                );
-                              }
-                            },
-                          ),
+                                ),
+                              );
+                            }
+                          },
+                        ),
                         Align(
                           alignment: AlignmentDirectional(0.0, 0.0),
                           child: Container(

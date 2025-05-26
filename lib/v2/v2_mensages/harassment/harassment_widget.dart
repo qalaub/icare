@@ -55,7 +55,7 @@ class _HarassmentWidgetState extends State<HarassmentWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xFFBD39BA),
         body: SafeArea(
           top: true,
           child: Container(
@@ -99,6 +99,7 @@ class _HarassmentWidgetState extends State<HarassmentWidget> {
                   ),
                 ),
                 Container(
+                  width: MediaQuery.sizeOf(context).width * 0.9,
                   decoration: BoxDecoration(),
                   child: Padding(
                     padding:
@@ -126,7 +127,7 @@ class _HarassmentWidgetState extends State<HarassmentWidget> {
                                             .fontStyle,
                                       ),
                                       color: Colors.white,
-                                      fontSize: 24.0,
+                                      fontSize: 20.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
                                       fontStyle: FlutterFlowTheme.of(context)
@@ -149,29 +150,36 @@ class _HarassmentWidgetState extends State<HarassmentWidget> {
                                 Align(
                                   alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Container(
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 0.8,
                                     decoration: BoxDecoration(),
-                                    child: AutoSizeText(
-                                      'A system employee reviews reports \nof harassment to determine if they \nviolate community standards. If \nconfirmed, the account will be\nsuspended.',
-                                      textAlign: TextAlign.justify,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            font: GoogleFonts.montserrat(
+                                    child: Align(
+                                      alignment:
+                                          AlignmentDirectional(-1.0, 0.0),
+                                      child: AutoSizeText(
+                                        'A system employee reviews reports of harassment to determine if they violate community standards. If confirmed, the account will be suspended.',
+                                        textAlign: TextAlign.justify,
+                                        maxLines: 4,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              font: GoogleFonts.montserrat(
+                                                fontWeight: FontWeight.w300,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                              color: Color(0xFFC6C6C6),
+                                              fontSize: 20.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w300,
                                               fontStyle:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .fontStyle,
                                             ),
-                                            color: Color(0xFFC6C6C6),
-                                            fontSize: 20.0,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w300,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontStyle,
-                                          ),
+                                      ),
                                     ),
                                   ),
                                 ),

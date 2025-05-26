@@ -115,7 +115,7 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                   alignment: AlignmentDirectional(0.0, -1.0),
                   child: Container(
                     width: MediaQuery.sizeOf(context).width * 1.0,
-                    height: MediaQuery.sizeOf(context).height * 0.4,
+                    height: MediaQuery.sizeOf(context).height * 0.42,
                     decoration: BoxDecoration(),
                     child: Stack(
                       children: [
@@ -134,7 +134,7 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
 
                               return Container(
                                 width: double.infinity,
-                                height: MediaQuery.sizeOf(context).height * 1.0,
+                                height: double.infinity,
                                 child: PageView.builder(
                                   controller: _model.pageViewController ??=
                                       PageController(
@@ -179,13 +179,9 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                                             imagesProfessionalItem,
                                             'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
                                           ),
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  0.927,
-                                          height: MediaQuery.sizeOf(context)
-                                                  .height *
-                                              0.465,
-                                          fit: BoxFit.cover,
+                                          width: double.infinity,
+                                          height: double.infinity,
+                                          fit: BoxFit.fill,
                                         ),
                                       ),
                                     );
@@ -305,19 +301,17 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Text(
-                                            functions.upperCaseFirstLetter(
-                                                widget.professional?.rol ==
-                                                        Roles.business
-                                                    ? valueOrDefault<String>(
-                                                        widget.professional
-                                                            ?.comapny,
-                                                        'sandra',
-                                                      )
-                                                    : valueOrDefault<String>(
-                                                        widget.professional
-                                                            ?.firtsName,
-                                                        'sandra',
-                                                      )),
+                                            valueOrDefault<String>(
+                                              widget.professional?.rol ==
+                                                      Roles.business
+                                                  ? widget
+                                                      .professional?.comapny
+                                                  : functions
+                                                      .upperCaseFirstLetter(
+                                                          widget.professional!
+                                                              .firtsName),
+                                              'Profesional',
+                                            ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(

@@ -55,7 +55,7 @@ class _SomeoneelseWidgetState extends State<SomeoneelseWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xFFBD39BA),
         body: SafeArea(
           top: true,
           child: Stack(
@@ -101,6 +101,7 @@ class _SomeoneelseWidgetState extends State<SomeoneelseWidget> {
                       ),
                     ),
                     Container(
+                      width: MediaQuery.sizeOf(context).width * 0.9,
                       decoration: BoxDecoration(),
                       child: Padding(
                         padding:
@@ -129,7 +130,7 @@ class _SomeoneelseWidgetState extends State<SomeoneelseWidget> {
                                                     .fontStyle,
                                           ),
                                           color: Colors.white,
-                                          fontSize: 24.0,
+                                          fontSize: 20.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
                                           fontStyle:
@@ -153,10 +154,14 @@ class _SomeoneelseWidgetState extends State<SomeoneelseWidget> {
                                     Align(
                                       alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.8,
                                         decoration: BoxDecoration(),
                                         child: AutoSizeText(
-                                          'A system employee reviews reports \nof harassment to determine if they \nviolate community standards. If \nconfirmed, the account will be\nsuspended.',
-                                          textAlign: TextAlign.start,
+                                          'A system employee reviews reports of harassment to determine if they violate community standards. If confirmed, the account will besuspended.',
+                                          textAlign: TextAlign.justify,
+                                          maxLines: 5,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(

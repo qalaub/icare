@@ -125,7 +125,7 @@ class _RegisterProfessional1CopyWidgetState
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: Color(0xFFBD39BA),
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(0.0),
           child: AppBar(
@@ -545,7 +545,7 @@ class _RegisterProfessional1CopyWidgetState
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 15.0, 0.0, 15.0),
+                                                    0.0, 10.0, 0.0, 15.0),
                                             child: Text(
                                               '* Last name',
                                               style: FlutterFlowTheme.of(
@@ -808,7 +808,7 @@ class _RegisterProfessional1CopyWidgetState
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 15.0, 0.0, 15.0),
+                                                    0.0, 10.0, 0.0, 15.0),
                                             child: Text(
                                               '* Company name',
                                               style: FlutterFlowTheme.of(
@@ -1136,7 +1136,7 @@ class _RegisterProfessional1CopyWidgetState
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 15.0, 0.0, 15.0),
+                                                    0.0, 5.0, 0.0, 15.0),
                                             child: Text(
                                               '* Email address',
                                               style: FlutterFlowTheme.of(
@@ -1836,7 +1836,7 @@ class _RegisterProfessional1CopyWidgetState
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 15.0, 0.0, 15.0),
+                                                    0.0, 5.0, 0.0, 15.0),
                                             child: Text(
                                               '* Enter your 10-digit mobile number',
                                               style: FlutterFlowTheme.of(
@@ -2067,7 +2067,7 @@ class _RegisterProfessional1CopyWidgetState
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 15.0, 0.0, 15.0),
+                                                    0.0, 0.0, 0.0, 15.0),
                                             child: Text(
                                               '* Select your suburb',
                                               style: FlutterFlowTheme.of(
@@ -2603,8 +2603,7 @@ class _RegisterProfessional1CopyWidgetState
                                                 borderRadius:
                                                     BorderRadius.circular(24.0),
                                                 disabledColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryText,
+                                                    Color(0xFF99A1A8),
                                               ),
                                             ),
                                           ),

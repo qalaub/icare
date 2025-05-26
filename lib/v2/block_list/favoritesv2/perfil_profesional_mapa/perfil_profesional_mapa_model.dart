@@ -1,5 +1,4 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import '/v2/block_list/favoritesv2/add_favorites/add_favorites_widget.dart';
 import '/v2/menbresiav2/membresia_logo/membresia_logo_widget.dart';
 import 'perfil_profesional_mapa_widget.dart' show PerfilProfesionalMapaWidget;
 import 'package:flutter/material.dart';
@@ -20,8 +19,6 @@ class PerfilProfesionalMapaModel
 
   ///  State fields for stateful widgets in this component.
 
-  // Model for AddFavorites component.
-  late AddFavoritesModel addFavoritesModel;
   // Model for MembresiaLogo component.
   late MembresiaLogoModel membresiaLogoModel;
   // State field(s) for RatingBar widget.
@@ -29,13 +26,11 @@ class PerfilProfesionalMapaModel
 
   @override
   void initState(BuildContext context) {
-    addFavoritesModel = createModel(context, () => AddFavoritesModel());
     membresiaLogoModel = createModel(context, () => MembresiaLogoModel());
   }
 
   @override
   void dispose() {
-    addFavoritesModel.dispose();
     membresiaLogoModel.dispose();
   }
 }

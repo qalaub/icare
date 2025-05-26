@@ -49,7 +49,7 @@ class _CuestionarioWidgetState extends State<CuestionarioWidget> {
         onWillPop: () async => false,
         child: Scaffold(
           key: scaffoldKey,
-          backgroundColor: Colors.white,
+          backgroundColor: Color(0xFFBD39BA),
           body: SafeArea(
             top: true,
             child: SingleChildScrollView(

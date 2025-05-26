@@ -16,9 +16,12 @@ class RegisterUser2Model extends FlutterFlowModel<RegisterUser2Widget> {
   String? Function(BuildContext, String?)? ndisTextControllerValidator;
   // Stores action output result for [Firestore Query - Query a collection] action in ndis widget.
   int? ndisexist;
-  // State field(s) for DropDown widget.
-  List<String>? dropDownValue;
-  FormFieldController<List<String>>? dropDownValueController;
+  // State field(s) for CheckboxGroup widget.
+  FormFieldController<List<String>>? checkboxGroupValueController;
+  List<String>? get checkboxGroupValues => checkboxGroupValueController?.value;
+  set checkboxGroupValues(List<String>? v) =>
+      checkboxGroupValueController?.value = v;
+
   // State field(s) for password widget.
   FocusNode? passwordFocusNode;
   TextEditingController? passwordTextController;

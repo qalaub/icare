@@ -48,7 +48,14 @@ class _LoginWidgetState extends State<LoginWidget> {
 
     _model.emailTextController ??= TextEditingController();
     _model.emailFocusNode ??= FocusNode();
-
+    _model.emailFocusNode!.addListener(
+      () async {
+        safeSetState(() {
+          _model.emailTextController?.text =
+              functions.cleanEmailInput(_model.emailTextController.text);
+        });
+      },
+    );
     _model.passwordTextController ??= TextEditingController();
     _model.passwordFocusNode ??= FocusNode();
   }
@@ -71,11 +78,11 @@ class _LoginWidgetState extends State<LoginWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: Color(0xFFBD39BA),
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(0.0),
           child: AppBar(
-            backgroundColor: Color(0xFFFFFEFE),
+            backgroundColor: Color(0xFFBD39BA),
             automaticallyImplyLeading: false,
             actions: [],
             centerTitle: false,
@@ -309,16 +316,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                       '_model.emailTextController',
                                                       Duration(
                                                           milliseconds: 10),
-                                                      () async {
-                                                        safeSetState(() {
-                                                          _model.emailTextController
-                                                                  ?.text =
-                                                              functions.cleanEmailInput(
-                                                                  _model
-                                                                      .emailTextController
-                                                                      .text);
-                                                        });
-                                                      },
+                                                      () => safeSetState(() {}),
                                                     ),
                                                     autofocus: false,
                                                     obscureText: false,
@@ -487,8 +485,6 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                                   .fontStyle,
                                                         ),
                                                     maxLines: null,
-                                                    keyboardType: TextInputType
-                                                        .emailAddress,
                                                     validator: _model
                                                         .emailTextControllerValidator
                                                         .asValidator(context),
@@ -939,9 +935,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                         BorderRadius.circular(
                                                             24.0),
                                                     disabledColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .secondaryText,
+                                                        Color(0xFF99A1A8),
                                                   ),
                                                 ),
                                               ),

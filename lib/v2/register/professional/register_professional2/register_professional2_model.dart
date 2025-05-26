@@ -12,6 +12,10 @@ class RegisterProfessional2Model
 
   bool termsAccept = true;
 
+  int maxExperiencia = 0;
+
+  String errorExperiencia = ' ';
+
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
@@ -29,6 +33,9 @@ class RegisterProfessional2Model
   String? Function(BuildContext, String?)? ndisTextControllerValidator;
   // Stores action output result for [Firestore Query - Query a collection] action in ndis widget.
   int? ndisexist1;
+  // State field(s) for age widget.
+  String? ageValue;
+  FormFieldController<String>? ageValueController;
   // State field(s) for years widget.
   FocusNode? yearsFocusNode;
   TextEditingController? yearsTextController;
@@ -41,9 +48,8 @@ class RegisterProfessional2Model
     return null;
   }
 
-  // State field(s) for age widget.
-  String? ageValue;
-  FormFieldController<String>? ageValueController;
+  // Stores action output result for [Custom Action - validateExperience] action in years widget.
+  String? validationResult;
   // State field(s) for password widget.
   FocusNode? passwordFocusNode;
   TextEditingController? passwordTextController;

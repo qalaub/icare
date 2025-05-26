@@ -9,7 +9,9 @@ import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -298,41 +300,54 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
                                                         ),
                                                       ],
                                                     ),
-                                                    Text(
-                                                      functions
-                                                          .upperCaseFirstLetter(
-                                                              valueOrDefault<
-                                                                  String>(
-                                                        columnUsersRecord
-                                                            .firtsName,
-                                                        'Name',
-                                                      )),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            font: GoogleFonts
-                                                                .montserrat(
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500,
-                                                              fontStyle:
-                                                                  FlutterFlowTheme.of(
+                                                    if (currentUserDocument
+                                                            ?.plan !=
+                                                        Plan.basic)
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    5.0,
+                                                                    0.0),
+                                                        child: AutoSizeText(
+                                                          columnUsersRecord
+                                                                      .rol ==
+                                                                  Roles.business
+                                                              ? columnUsersRecord
+                                                                  .comapny
+                                                              : functions.upperCaseFirstLetter(
+                                                                  columnUsersRecord
+                                                                      .firtsName),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                font: GoogleFonts
+                                                                    .montserrat(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  fontStyle: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
                                                                       .fontStyle,
-                                                            ),
-                                                            color: Colors.white,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
+                                                                ),
+                                                                color: Colors
+                                                                    .white,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                                fontStyle: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
                                                                     .fontStyle,
-                                                          ),
-                                                    ),
+                                                              ),
+                                                        ),
+                                                      ),
                                                   ],
                                                 );
                                               },
@@ -629,15 +644,16 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
                                                                           CrossAxisAlignment
                                                                               .start,
                                                                       children: [
-                                                                        Row(
-                                                                          mainAxisSize:
-                                                                              MainAxisSize.max,
-                                                                          children: [
-                                                                            Expanded(
-                                                                              child: Padding(
+                                                                        if (currentUserDocument?.plan !=
+                                                                            Plan.basic)
+                                                                          Row(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            children: [
+                                                                              Padding(
                                                                                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
                                                                                 child: Text(
-                                                                                  (currentUserDocument?.rol == Roles.user) || (currentUserDocument?.rol == Roles.profesional) ? functions.upperCaseFirstLetter(rowUsersRecord.firtsName) : functions.upperCaseFirstLetter(functions.concatStrings(rowUsersRecord.firtsName, rowUsersRecord.lastName, ' ')!),
+                                                                                  (currentUserDocument?.rol == Roles.user) || (currentUserDocument?.rol == Roles.profesional) ? (rowUsersRecord.rol == Roles.business ? rowUsersRecord.comapny : functions.upperCaseFirstLetter(rowUsersRecord.firtsName)) : functions.upperCaseFirstLetter(functions.concatStrings(rowUsersRecord.firtsName, rowUsersRecord.lastName, ' ')!),
                                                                                   textAlign: TextAlign.start,
                                                                                   style: FlutterFlowTheme.of(context).bodyLarge.override(
                                                                                         font: GoogleFonts.poppins(
@@ -651,25 +667,24 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
                                                                                       ),
                                                                                 ),
                                                                               ),
-                                                                            ),
-                                                                            if (!chat2MainVarItem.lastMessageSeenBy.contains(currentUserReference))
-                                                                              Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
-                                                                                child: Container(
-                                                                                  width: 12.0,
-                                                                                  height: 12.0,
-                                                                                  decoration: BoxDecoration(
-                                                                                    color: FlutterFlowTheme.of(context).accent1,
-                                                                                    shape: BoxShape.circle,
-                                                                                    border: Border.all(
-                                                                                      color: FlutterFlowTheme.of(context).primary,
-                                                                                      width: 2.0,
+                                                                              if (!chat2MainVarItem.lastMessageSeenBy.contains(currentUserReference))
+                                                                                Padding(
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                                                                                  child: Container(
+                                                                                    width: 12.0,
+                                                                                    height: 12.0,
+                                                                                    decoration: BoxDecoration(
+                                                                                      color: FlutterFlowTheme.of(context).accent1,
+                                                                                      shape: BoxShape.circle,
+                                                                                      border: Border.all(
+                                                                                        color: FlutterFlowTheme.of(context).primary,
+                                                                                        width: 2.0,
+                                                                                      ),
                                                                                     ),
                                                                                   ),
                                                                                 ),
-                                                                              ),
-                                                                          ],
-                                                                        ),
+                                                                            ],
+                                                                          ),
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
@@ -1770,64 +1785,57 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
                                                                               0.0,
                                                                               0.0),
                                                                           child:
-                                                                              InkWell(
-                                                                            splashColor:
-                                                                                Colors.transparent,
-                                                                            focusColor:
-                                                                                Colors.transparent,
-                                                                            hoverColor:
-                                                                                Colors.transparent,
-                                                                            highlightColor:
-                                                                                Colors.transparent,
-                                                                            onTap:
-                                                                                () async {
-                                                                              context.pushNamed(
-                                                                                ProfileInfoWidget.routeName,
-                                                                                queryParameters: {
-                                                                                  'professional': serializeParam(
-                                                                                    chat2BussinesItem.userB,
-                                                                                    ParamType.DocumentReference,
-                                                                                  ),
-                                                                                }.withoutNulls,
-                                                                              );
-                                                                            },
-                                                                            child:
-                                                                                RichText(
-                                                                              textScaler: MediaQuery.of(context).textScaler,
-                                                                              text: TextSpan(
-                                                                                children: [
-                                                                                  TextSpan(
-                                                                                    text: 'This message is for ',
-                                                                                    style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                          font: GoogleFonts.poppins(
-                                                                                            fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
-                                                                                            fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                          ),
-                                                                                          letterSpacing: 0.0,
+                                                                              RichText(
+                                                                            textScaler:
+                                                                                MediaQuery.of(context).textScaler,
+                                                                            text:
+                                                                                TextSpan(
+                                                                              children: [
+                                                                                TextSpan(
+                                                                                  text: 'This message is for ',
+                                                                                  style: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                        font: GoogleFonts.poppins(
                                                                                           fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
                                                                                           fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
                                                                                         ),
-                                                                                  ),
-                                                                                  TextSpan(
-                                                                                    text: columnUsersRecord.firtsName,
-                                                                                    style: TextStyle(
-                                                                                      color: Color(0xFFBD39BA),
-                                                                                      fontWeight: FontWeight.w500,
-                                                                                    ),
-                                                                                  )
-                                                                                ],
-                                                                                style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                      font: GoogleFonts.poppins(
+                                                                                        letterSpacing: 0.0,
                                                                                         fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
                                                                                         fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
                                                                                       ),
-                                                                                      letterSpacing: 0.0,
+                                                                                ),
+                                                                                TextSpan(
+                                                                                  text: columnUsersRecord.rol == Roles.business ? columnUsersRecord.comapny : columnUsersRecord.firtsName,
+                                                                                  style: TextStyle(
+                                                                                    color: Color(0xFFBD39BA),
+                                                                                    fontWeight: FontWeight.w500,
+                                                                                  ),
+                                                                                  mouseCursor: SystemMouseCursors.click,
+                                                                                  recognizer: TapGestureRecognizer()
+                                                                                    ..onTap = () async {
+                                                                                      context.pushNamed(
+                                                                                        ProfileInfoWidget.routeName,
+                                                                                        queryParameters: {
+                                                                                          'professional': serializeParam(
+                                                                                            chat2BussinesItem.userB,
+                                                                                            ParamType.DocumentReference,
+                                                                                          ),
+                                                                                        }.withoutNulls,
+                                                                                      );
+                                                                                    },
+                                                                                )
+                                                                              ],
+                                                                              style: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                    font: GoogleFonts.poppins(
                                                                                       fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
                                                                                       fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
                                                                                     ),
-                                                                              ),
-                                                                              textAlign: TextAlign.start,
+                                                                                    letterSpacing: 0.0,
+                                                                                    fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
+                                                                                  ),
                                                                             ),
+                                                                            textAlign:
+                                                                                TextAlign.start,
                                                                           ),
                                                                         ),
                                                                         Row(
@@ -1898,7 +1906,7 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
                 child: Container(
                   height: 73.0,
                   decoration: BoxDecoration(
-                    color: Color(0xD5B928B8),
+                    color: Color(0xFFBD39BA),
                   ),
                   child: Builder(
                     builder: (context) {

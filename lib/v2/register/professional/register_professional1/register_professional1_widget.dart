@@ -58,10 +58,24 @@ class _RegisterProfessional1WidgetState
 
     _model.email3TextController ??= TextEditingController();
     _model.email3FocusNode ??= FocusNode();
-
+    _model.email3FocusNode!.addListener(
+      () async {
+        safeSetState(() {
+          _model.email3TextController?.text =
+              functions.cleanEmailInput(_model.email3TextController.text);
+        });
+      },
+    );
     _model.emailconfirm3TextController ??= TextEditingController();
     _model.emailconfirm3FocusNode ??= FocusNode();
-
+    _model.emailconfirm3FocusNode!.addListener(
+      () async {
+        safeSetState(() {
+          _model.emailconfirm3TextController?.text = functions
+              .cleanEmailInput(_model.emailconfirm3TextController.text);
+        });
+      },
+    );
     _model.abnTextController ??= TextEditingController();
     _model.abnFocusNode ??= FocusNode();
 
@@ -141,7 +155,7 @@ class _RegisterProfessional1WidgetState
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: Color(0xFFBD39BA),
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(0.0),
           child: AppBar(
@@ -163,7 +177,7 @@ class _RegisterProfessional1WidgetState
                   width: double.infinity,
                   height: MediaQuery.sizeOf(context).height * 1.0,
                   decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                    color: Color(0xFFBD39BA),
                   ),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
@@ -561,7 +575,7 @@ class _RegisterProfessional1WidgetState
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 15.0, 0.0, 15.0),
+                                                    0.0, 10.0, 0.0, 15.0),
                                             child: Text(
                                               '* Last name',
                                               style: FlutterFlowTheme.of(
@@ -824,7 +838,7 @@ class _RegisterProfessional1WidgetState
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 15.0, 0.0, 15.0),
+                                                    0.0, 10.0, 0.0, 15.0),
                                             child: Text(
                                               '* Company name',
                                               style: FlutterFlowTheme.of(
@@ -1152,7 +1166,7 @@ class _RegisterProfessional1WidgetState
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 15.0, 0.0, 15.0),
+                                                    0.0, 0.0, 0.0, 15.0),
                                             child: Text(
                                               '* Email address',
                                               style: FlutterFlowTheme.of(
@@ -1231,14 +1245,6 @@ class _RegisterProfessional1WidgetState
                                                                 .text,
                                                           ),
                                                         );
-                                                        safeSetState(() {
-                                                          _model.email3TextController
-                                                                  ?.text =
-                                                              functions.cleanEmailInput(
-                                                                  _model
-                                                                      .email3TextController
-                                                                      .text);
-                                                        });
 
                                                         safeSetState(() {});
                                                       },
@@ -1555,16 +1561,7 @@ class _RegisterProfessional1WidgetState
                                                       '_model.emailconfirm3TextController',
                                                       Duration(
                                                           milliseconds: 10),
-                                                      () async {
-                                                        safeSetState(() {
-                                                          _model.emailconfirm3TextController
-                                                                  ?.text =
-                                                              functions.cleanEmailInput(
-                                                                  _model
-                                                                      .emailconfirm3TextController
-                                                                      .text);
-                                                        });
-                                                      },
+                                                      () => safeSetState(() {}),
                                                     ),
                                                     onFieldSubmitted:
                                                         (_) async {
@@ -1857,7 +1854,7 @@ class _RegisterProfessional1WidgetState
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
-                                                      0.0, 15.0, 0.0, 15.0),
+                                                      0.0, 1.0, 0.0, 15.0),
                                               child: AuthUserStreamWidget(
                                                 builder: (context) => Text(
                                                   '  * ABN Registration',
@@ -2135,6 +2132,11 @@ class _RegisterProfessional1WidgetState
                                                               .abnTextControllerValidator
                                                               .asValidator(
                                                                   context),
+                                                          inputFormatters: [
+                                                            FilteringTextInputFormatter
+                                                                .allow(RegExp(
+                                                                    '[0-9]'))
+                                                          ],
                                                         ),
                                                         if ((_model.abnexist !=
                                                                 null) &&
@@ -2191,7 +2193,7 @@ class _RegisterProfessional1WidgetState
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 15.0, 0.0, 15.0),
+                                                    0.0, 0.0, 0.0, 15.0),
                                             child: Text(
                                               '* Enter your 10-digit mobile number',
                                               style: FlutterFlowTheme.of(
@@ -2228,7 +2230,6 @@ class _RegisterProfessional1WidgetState
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
                                                 0.8,
-                                            height: 60.0,
                                             decoration: BoxDecoration(
                                               color: Color(0xFFFFFEFE),
                                               borderRadius: BorderRadius.only(
@@ -2422,7 +2423,7 @@ class _RegisterProfessional1WidgetState
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 15.0, 0.0, 15.0),
+                                                    0.0, 0.0, 0.0, 15.0),
                                             child: Text(
                                               '* Select your suburb',
                                               style: FlutterFlowTheme.of(
@@ -2961,8 +2962,7 @@ class _RegisterProfessional1WidgetState
                                                 borderRadius:
                                                     BorderRadius.circular(24.0),
                                                 disabledColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryText,
+                                                    Color(0xFF99A1A8),
                                               ),
                                             ),
                                           ),

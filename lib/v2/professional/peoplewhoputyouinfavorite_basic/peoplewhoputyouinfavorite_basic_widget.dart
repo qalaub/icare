@@ -5,9 +5,9 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/v2/block_list/favoritesv2/v2_favoritos_componente/v2_favoritos_componente_widget.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
+import '/v3correciones/likes_v3/likes_v3/likes_v3_widget.dart';
 import 'dart:ui';
 import '/index.dart';
 import 'package:flutter/material.dart';
@@ -99,6 +99,7 @@ class _PeoplewhoputyouinfavoriteBasicWidgetState
             top: true,
             child: Column(
               mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Expanded(
                   child: Container(
@@ -114,80 +115,85 @@ class _PeoplewhoputyouinfavoriteBasicWidgetState
                             child: ClipRect(
                               child: ImageFiltered(
                                 imageFilter: ImageFilter.blur(
-                                  sigmaX: 5.0,
-                                  sigmaY: 5.0,
+                                  sigmaX: 3.5,
+                                  sigmaY: 3.5,
                                 ),
-                                child: Container(
-                                  width: 390.0,
-                                  height: 580.0,
-                                  decoration: BoxDecoration(),
-                                  child: StreamBuilder<List<UsersRecord>>(
-                                    stream: queryUsersRecord(
-                                      queryBuilder: (usersRecord) =>
-                                          usersRecord.where(
-                                        'favorites',
-                                        arrayContains: currentUserReference,
-                                        isNull: (currentUserReference) == null,
-                                      ),
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: Container(
+                                    width: double.infinity,
+                                    height: double.infinity,
+                                    decoration: BoxDecoration(
+                                      color: Color(0x7FFFFFFF),
                                     ),
-                                    builder: (context, snapshot) {
-                                      // Customize what your widget looks like when it's loading.
-                                      if (!snapshot.hasData) {
-                                        return Center(
-                                          child: SizedBox(
-                                            width: 50.0,
-                                            height: 50.0,
-                                            child: CircularProgressIndicator(
-                                              valueColor:
-                                                  AlwaysStoppedAnimation<Color>(
-                                                FlutterFlowTheme.of(context)
-                                                    .primary,
+                                    child: StreamBuilder<List<UsersRecord>>(
+                                      stream: queryUsersRecord(
+                                        queryBuilder: (usersRecord) =>
+                                            usersRecord
+                                                .where(
+                                                  'favorites',
+                                                  arrayContains:
+                                                      currentUserReference,
+                                                )
+                                                .where(
+                                                  'rol',
+                                                  isEqualTo:
+                                                      Roles.user.serialize(),
+                                                ),
+                                      ),
+                                      builder: (context, snapshot) {
+                                        // Customize what your widget looks like when it's loading.
+                                        if (!snapshot.hasData) {
+                                          return Center(
+                                            child: SizedBox(
+                                              width: 50.0,
+                                              height: 50.0,
+                                              child: CircularProgressIndicator(
+                                                valueColor:
+                                                    AlwaysStoppedAnimation<
+                                                        Color>(
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                        );
-                                      }
-                                      List<UsersRecord>
-                                          listViewUsersRecordList = snapshot
-                                              .data!
-                                              .where((u) =>
-                                                  u.uid != currentUserUid)
-                                              .toList();
-
-                                      return ListView.separated(
-                                        padding: EdgeInsets.fromLTRB(
-                                          0,
-                                          26.0,
-                                          0,
-                                          0,
-                                        ),
-                                        shrinkWrap: true,
-                                        scrollDirection: Axis.vertical,
-                                        itemCount:
-                                            listViewUsersRecordList.length,
-                                        separatorBuilder: (_, __) =>
-                                            SizedBox(height: 10.0),
-                                        itemBuilder: (context, listViewIndex) {
-                                          final listViewUsersRecord =
-                                              listViewUsersRecordList[
-                                                  listViewIndex];
-                                          return V2FavoritosComponenteWidget(
-                                            key: Key(
-                                                'Keyr1k_${listViewIndex}_of_${listViewUsersRecordList.length}'),
                                           );
-                                        },
-                                      );
-                                    },
+                                        }
+                                        List<UsersRecord>
+                                            listViewUsersRecordList =
+                                            snapshot.data!;
+
+                                        return ListView.separated(
+                                          padding: EdgeInsets.fromLTRB(
+                                            0,
+                                            26.0,
+                                            0,
+                                            0,
+                                          ),
+                                          shrinkWrap: true,
+                                          scrollDirection: Axis.vertical,
+                                          itemCount:
+                                              listViewUsersRecordList.length,
+                                          separatorBuilder: (_, __) =>
+                                              SizedBox(height: 10.0),
+                                          itemBuilder:
+                                              (context, listViewIndex) {
+                                            final listViewUsersRecord =
+                                                listViewUsersRecordList[
+                                                    listViewIndex];
+                                            return LikesV3Widget(
+                                              key: Key(
+                                                  'Keyp49_${listViewIndex}_of_${listViewUsersRecordList.length}'),
+                                              profesionalRef:
+                                                  listViewUsersRecord.reference,
+                                            );
+                                          },
+                                        );
+                                      },
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ),
-                          Container(
-                            width: double.infinity,
-                            height: double.infinity,
-                            decoration: BoxDecoration(
-                              color: Color(0x7FFFFFFF),
                             ),
                           ),
                           Align(
@@ -357,7 +363,7 @@ class _PeoplewhoputyouinfavoriteBasicWidgetState
                   child: Container(
                     height: 73.0,
                     decoration: BoxDecoration(
-                      color: Color(0xB3B928B8),
+                      color: Color(0xFFBD39BA),
                     ),
                     child: Builder(
                       builder: (context) {

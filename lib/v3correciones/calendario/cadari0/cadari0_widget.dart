@@ -56,7 +56,7 @@ class _Cadari0WidgetState extends State<Cadari0Widget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: Color(0xFFBD39BA),
         body: SafeArea(
           top: true,
           child: Align(
@@ -75,8 +75,8 @@ class _Cadari0WidgetState extends State<Cadari0Widget> {
                   Align(
                     alignment: AlignmentDirectional(0.0, 0.0),
                     child: Container(
-                      width: 384.0,
-                      height: 384.0,
+                      width: MediaQuery.sizeOf(context).width * 0.95,
+                      height: MediaQuery.sizeOf(context).height * 0.5,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.only(

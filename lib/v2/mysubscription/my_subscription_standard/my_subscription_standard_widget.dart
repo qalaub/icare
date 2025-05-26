@@ -68,21 +68,24 @@ class _MySubscriptionStandardWidgetState
               context.pop();
             },
           ),
-          title: Text(
-            'My Subscription',
-            style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  font: GoogleFonts.inter(
+          title: Align(
+            alignment: AlignmentDirectional(-0.4, 0.0),
+            child: Text(
+              'My Subscription',
+              style: FlutterFlowTheme.of(context).headlineMedium.override(
+                    font: GoogleFonts.inter(
+                      fontWeight: FontWeight.w600,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).headlineMedium.fontStyle,
+                    ),
+                    color: Colors.white,
+                    fontSize: 24.0,
+                    letterSpacing: 0.0,
                     fontWeight: FontWeight.w600,
                     fontStyle:
                         FlutterFlowTheme.of(context).headlineMedium.fontStyle,
                   ),
-                  color: Colors.white,
-                  fontSize: 24.0,
-                  letterSpacing: 0.0,
-                  fontWeight: FontWeight.w600,
-                  fontStyle:
-                      FlutterFlowTheme.of(context).headlineMedium.fontStyle,
-                ),
+            ),
           ),
           actions: [],
           centerTitle: false,

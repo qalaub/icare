@@ -50,7 +50,7 @@ class _ReportWidgetState extends State<ReportWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Colors.black,
+        backgroundColor: FlutterFlowTheme.of(context).primaryText,
         body: SafeArea(
           top: true,
           child: Align(
@@ -136,7 +136,8 @@ class _ReportWidgetState extends State<ReportWidget> {
                                                   .bodyMedium
                                                   .fontStyle,
                                         ),
-                                        color: Color(0xFFC6C6C6),
+                                        color:
+                                            FlutterFlowTheme.of(context).info,
                                         fontSize: 20.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w300,

@@ -4,7 +4,7 @@ import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/v2/block_list/favoritesv2/add_favorites/add_favorites_widget.dart';
+import '/v2/block_list/favoritesv2/add_favorites_copy2/add_favorites_copy2_widget.dart';
 import '/v2/menbresiav2/membresia_logo/membresia_logo_widget.dart';
 import '/v2/user/descripcion_profesional/descripcion_profesional_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -138,34 +138,37 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                 ),
               ),
               actions: [
-                Builder(
-                  builder: (context) => FlutterFlowIconButton(
-                    key: ValueKey('share'),
-                    borderRadius: 24.0,
-                    borderWidth: 1.0,
-                    buttonSize: 40.0,
-                    icon: Icon(
-                      Icons.share_rounded,
-                      color: Colors.white,
-                      size: 24.0,
-                    ),
-                    onPressed: () async {
-                      _model.currentPageLink = await generateCurrentPageLink(
-                        context,
-                        title: 'Meet This Professional: A True Standout!',
-                        imageUrl: profileInfoUsersRecord?.photoUrl != null &&
-                                profileInfoUsersRecord?.photoUrl != ''
-                            ? profileInfoUsersRecord?.photoUrl
-                            : 'https://i.ibb.co/2qkDLKb/Frame-74.png',
-                        description:
-                            'Discover a professional who makes a difference.',
-                      );
+                Align(
+                  alignment: AlignmentDirectional(0.0, 0.0),
+                  child: Builder(
+                    builder: (context) => FlutterFlowIconButton(
+                      key: ValueKey('share'),
+                      borderRadius: 24.0,
+                      borderWidth: 1.0,
+                      buttonSize: 40.0,
+                      icon: Icon(
+                        Icons.share_rounded,
+                        color: Colors.white,
+                        size: 30.0,
+                      ),
+                      onPressed: () async {
+                        _model.currentPageLink = await generateCurrentPageLink(
+                          context,
+                          title: 'Meet This Professional: A True Standout!',
+                          imageUrl: profileInfoUsersRecord?.photoUrl != null &&
+                                  profileInfoUsersRecord?.photoUrl != ''
+                              ? profileInfoUsersRecord?.photoUrl
+                              : 'https://i.ibb.co/2qkDLKb/Frame-74.png',
+                          description:
+                              'Discover a professional who makes a difference.',
+                        );
 
-                      await Share.share(
-                        _model.currentPageLink,
-                        sharePositionOrigin: getWidgetBoundingBox(context),
-                      );
-                    },
+                        await Share.share(
+                          _model.currentPageLink,
+                          sharePositionOrigin: getWidgetBoundingBox(context),
+                        );
+                      },
+                    ),
                   ),
                 ),
                 Align(
@@ -181,26 +184,41 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                           if ((currentUserDocument?.favorites.toList() ?? [])
                                   .contains(widget.professional) ==
                               true)
-                            AuthUserStreamWidget(
-                              builder: (context) => InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  _model.chatRef = await queryChatsRecordOnce(
-                                    queryBuilder: (chatsRecord) =>
-                                        chatsRecord.where(
-                                      'users',
-                                      arrayContains: currentUserReference,
-                                    ),
-                                  );
+                            Align(
+                              alignment: AlignmentDirectional(0.0, 0.0),
+                              child: AuthUserStreamWidget(
+                                builder: (context) => InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    _model.chatRef = await queryChatsRecordOnce(
+                                      queryBuilder: (chatsRecord) =>
+                                          chatsRecord.where(
+                                        'users',
+                                        arrayContains: currentUserReference,
+                                      ),
+                                    );
 
-                                  context.pushNamed(
-                                    Chat2DetailsWidget.routeName,
-                                    queryParameters: {
-                                      'chatRef': serializeParam(
-                                        _model.chatRef
+                                    context.pushNamed(
+                                      Chat2DetailsWidget.routeName,
+                                      queryParameters: {
+                                        'chatRef': serializeParam(
+                                          _model.chatRef
+                                              ?.where((e) =>
+                                                  (e.users.contains(widget
+                                                          .professional) ==
+                                                      true) &&
+                                                  e.users.contains(
+                                                      currentUserReference))
+                                              .toList()
+                                              .firstOrNull,
+                                          ParamType.Document,
+                                        ),
+                                      }.withoutNulls,
+                                      extra: <String, dynamic>{
+                                        'chatRef': _model.chatRef
                                             ?.where((e) =>
                                                 (e.users.contains(
                                                         widget.professional) ==
@@ -209,51 +227,26 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                                     currentUserReference))
                                             .toList()
                                             .firstOrNull,
-                                        ParamType.Document,
-                                      ),
-                                    }.withoutNulls,
-                                    extra: <String, dynamic>{
-                                      'chatRef': _model.chatRef
-                                          ?.where((e) =>
-                                              (e.users.contains(
-                                                      widget.professional) ==
-                                                  true) &&
-                                              e.users.contains(
-                                                  currentUserReference))
-                                          .toList()
-                                          .firstOrNull,
-                                    },
-                                  );
+                                      },
+                                    );
 
-                                  safeSetState(() {});
-                                },
-                                child: Icon(
-                                  key: ValueKey('message'),
-                                  FFIcons.kmessage,
-                                  color: Colors.white,
-                                  size: 33.0,
-                                ),
-                              ),
-                            ),
-                          if ((currentUserDocument?.rol != Roles.profesional) &&
-                              (currentUserDocument?.rol != Roles.business))
-                            Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 6.0, 0.0, 0.0),
-                                child: AuthUserStreamWidget(
-                                  builder: (context) => wrapWithModel(
-                                    model: _model.addFavoritesModel,
-                                    updateCallback: () => safeSetState(() {}),
-                                    child: AddFavoritesWidget(
-                                      key: ValueKey('favorite'),
-                                      professional: profileInfoUsersRecord!,
-                                    ),
+                                    safeSetState(() {});
+                                  },
+                                  child: Icon(
+                                    FFIcons.kmessage,
+                                    color: Colors.white,
+                                    size: 33.0,
                                   ),
                                 ),
                               ),
                             ),
+                          wrapWithModel(
+                            model: _model.addFavoritesCopy2Model,
+                            updateCallback: () => safeSetState(() {}),
+                            child: AddFavoritesCopy2Widget(
+                              professional: profileInfoUsersRecord!,
+                            ),
+                          ),
                         ],
                       ),
                     ),
@@ -283,13 +276,15 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                     children: [
                       Container(
                         width: double.infinity,
-                        height: 250.0,
+                        height: MediaQuery.sizeOf(context).height * 0.4,
                         decoration: BoxDecoration(),
                         child: Stack(
                           children: [
                             Align(
                               alignment: AlignmentDirectional(0.0, 0.0),
                               child: Container(
+                                width: double.infinity,
+                                height: double.infinity,
                                 decoration: BoxDecoration(
                                   color: Color(0xDFF428EB),
                                 ),
@@ -303,12 +298,12 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                       fadeOutDuration:
                                           Duration(milliseconds: 500),
                                       imageUrl: valueOrDefault<String>(
-                                        profileInfoUsersRecord?.photoUrl,
+                                        profileInfoUsersRecord.photoUrl,
                                         'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
                                       ),
                                       width: double.infinity,
                                       height: double.infinity,
-                                      fit: BoxFit.fitWidth,
+                                      fit: BoxFit.fill,
                                     ),
                                   ),
                                 ),
@@ -354,12 +349,12 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                           fadeOutDuration:
                                               Duration(milliseconds: 500),
                                           imageUrl: valueOrDefault<String>(
-                                            profileInfoUsersRecord?.photoUrl,
+                                            profileInfoUsersRecord.photoUrl,
                                             'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
                                           ),
                                           width: double.infinity,
                                           height: double.infinity,
-                                          fit: BoxFit.cover,
+                                          fit: BoxFit.fill,
                                         ),
                                       ),
                                     ),
@@ -386,17 +381,17 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                               child: Text(
                                                 functions.upperCaseFirstLetter(
                                                     profileInfoUsersRecord
-                                                                ?.rol ==
+                                                                .rol ==
                                                             Roles.business
-                                                        ? profileInfoUsersRecord!
+                                                        ? profileInfoUsersRecord
                                                             .comapny
                                                         : valueOrDefault<
                                                             String>(
                                                             functions.concatStrings(
                                                                 profileInfoUsersRecord
-                                                                    ?.firtsName,
+                                                                    .firtsName,
                                                                 profileInfoUsersRecord
-                                                                    ?.lastName,
+                                                                    .lastName,
                                                                 ' '),
                                                             'last name',
                                                           )),
@@ -442,7 +437,7 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                               height: 24.0,
                                               decoration: BoxDecoration(),
                                               child: Text(
-                                                profileInfoUsersRecord!
+                                                profileInfoUsersRecord
                                                     .serviceType.firstOrNull!,
                                                 style:
                                                     FlutterFlowTheme.of(context)

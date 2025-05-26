@@ -1,9 +1,9 @@
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'add_favorites_widget.dart' show AddFavoritesWidget;
+import 'add_favorites_copy2_widget.dart' show AddFavoritesCopy2Widget;
 import 'package:flutter/material.dart';
 
-class AddFavoritesModel extends FlutterFlowModel<AddFavoritesWidget> {
+class AddFavoritesCopy2Model extends FlutterFlowModel<AddFavoritesCopy2Widget> {
   ///  Local state fields for this component.
 
   List<DocumentReference> userToAdd = [];
@@ -19,7 +19,7 @@ class AddFavoritesModel extends FlutterFlowModel<AddFavoritesWidget> {
   ///  State fields for stateful widgets in this component.
 
   // Stores action output result for [Firestore Query - Query a collection] action in IconButton widget.
-  ChatsRecord? newRef;
+  ChatsRecord? newRefCopyCopy;
   // Stores action output result for [Backend Call - Create Document] action in IconButton widget.
   ChatsRecord? newChatThread;
 

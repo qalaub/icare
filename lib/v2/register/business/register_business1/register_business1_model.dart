@@ -96,6 +96,21 @@ class RegisterBusiness1Model extends FlutterFlowModel<RegisterBusiness1Widget> {
   FocusNode? abnFocusNode;
   TextEditingController? abnTextController;
   String? Function(BuildContext, String?)? abnTextControllerValidator;
+  String? _abnTextControllerValidator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Do not leave this field empty is required';
+    }
+
+    if (val.length < 11) {
+      return 'Requires at least 11 characters.';
+    }
+    if (val.length > 11) {
+      return 'Maximum 11 characters allowed, currently ${val.length}.';
+    }
+
+    return null;
+  }
+
   // Stores action output result for [Firestore Query - Query a collection] action in abn widget.
   int? abnexist1;
   // State field(s) for phone widget.
@@ -139,6 +154,7 @@ class RegisterBusiness1Model extends FlutterFlowModel<RegisterBusiness1Widget> {
     lastNameTextControllerValidator = _lastNameTextControllerValidator;
     companyTextControllerValidator = _companyTextControllerValidator;
     email1TextControllerValidator = _email1TextControllerValidator;
+    abnTextControllerValidator = _abnTextControllerValidator;
     phoneTextControllerValidator = _phoneTextControllerValidator;
     columnController2 = ScrollController();
     listViewController = ScrollController();

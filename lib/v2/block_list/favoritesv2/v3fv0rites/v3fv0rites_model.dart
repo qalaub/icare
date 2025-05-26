@@ -1,6 +1,5 @@
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/v2/block_list/favoritesv2/add_favorites/add_favorites_widget.dart';
 import '/v2/menbresiav2/membresia_logo/membresia_logo_widget.dart';
 import 'v3fv0rites_widget.dart' show V3fv0ritesWidget;
 import 'package:flutter/material.dart';
@@ -28,20 +27,16 @@ class V3fv0ritesModel extends FlutterFlowModel<V3fv0ritesWidget> {
   double? ratingBarValue2;
   // Stores action output result for [Firestore Query - Query a collection] action in RatingBar widget.
   ReviewsRecord? reviewsCs;
-  // Model for AddFavorites component.
-  late AddFavoritesModel addFavoritesModel;
   // Model for MembresiaLogo component.
   late MembresiaLogoModel membresiaLogoModel;
 
   @override
   void initState(BuildContext context) {
-    addFavoritesModel = createModel(context, () => AddFavoritesModel());
     membresiaLogoModel = createModel(context, () => MembresiaLogoModel());
   }
 
   @override
   void dispose() {
-    addFavoritesModel.dispose();
     membresiaLogoModel.dispose();
   }
 }

@@ -110,7 +110,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xFFBD39BA),
         appBar: AppBar(
           backgroundColor: Color(0xFFB928B8),
           automaticallyImplyLeading: false,
@@ -417,8 +417,10 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
-                                                0.7,
-                                            height: 270.0,
+                                                0.9,
+                                            height: MediaQuery.sizeOf(context)
+                                                    .height *
+                                                0.3,
                                             decoration: BoxDecoration(),
                                             child: wrapWithModel(
                                               model: _model
@@ -491,100 +493,37 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                             ),
                                           ],
                                         ),
-                                        Align(
-                                          alignment:
-                                              AlignmentDirectional(-1.0, 0.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            children: [
-                                              Container(
-                                                width:
-                                                    MediaQuery.sizeOf(context)
-                                                            .width *
-                                                        0.9,
-                                                height: 39.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryBackground,
-                                                ),
-                                                child: Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          0.0, 0.0),
-                                                  child: Text(
-                                                    'In this video you can make a short presentation of yourself, it will help you meet more participants.',
-                                                    textAlign: TextAlign.start,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          font: GoogleFonts
-                                                              .montserrat(
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .normal,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontStyle,
-                                                          ),
-                                                          fontSize: 12.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontStyle,
-                                                        ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 8.0, 0.0, 0.0),
-                                          child: Container(
-                                            width: 215.0,
-                                            height: 365.0,
-                                            decoration: BoxDecoration(
-                                              border: Border.all(
-                                                color: Color(0xFFC14BBC),
-                                                width: 5.0,
-                                              ),
-                                            ),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                FlutterFlowVideoPlayer(
-                                                  path: valueOrDefault(
+                                        Flex(
+                                          direction: Axis.vertical,
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            FlutterFlowVideoPlayer(
+                                              path: valueOrDefault(
+                                                              currentUserDocument
+                                                                  ?.video,
+                                                              '') !=
+                                                          ''
+                                                  ? valueOrDefault(
                                                       currentUserDocument
                                                           ?.video,
-                                                      ''),
-                                                  videoType: VideoType.network,
-                                                  width: 200.0,
-                                                  height: 350.0,
-                                                  aspectRatio: 0.56,
-                                                  autoPlay: false,
-                                                  looping: false,
-                                                  showControls: true,
-                                                  allowFullScreen: false,
-                                                  allowPlaybackSpeedMenu: false,
-                                                  lazyLoad: false,
-                                                ),
-                                              ],
+                                                      '')
+                                                  : 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/gv12biya5vta/video_coming_soon!.mp4',
+                                              videoType: VideoType.network,
+                                              width: MediaQuery.sizeOf(context)
+                                                      .width *
+                                                  0.9,
+                                              height: MediaQuery.sizeOf(context)
+                                                      .height *
+                                                  0.785,
+                                              aspectRatio: 0.56,
+                                              autoPlay: true,
+                                              looping: true,
+                                              showControls: true,
+                                              allowFullScreen: false,
+                                              allowPlaybackSpeedMenu: false,
+                                              lazyLoad: false,
                                             ),
-                                          ),
+                                          ],
                                         ),
                                       ].divide(SizedBox(height: 4.0)),
                                     ),
@@ -4082,7 +4021,10 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                             if ((currentUserDocument?.rol != Roles.user) &&
                                 (currentUserDocument?.rol == Roles.profesional
                                     ? (currentUserDocument?.business == null)
-                                    : true))
+                                    : true) &&
+                                (valueOrDefault(
+                                            currentUserDocument?.ndis, '') !=
+                                        ''))
                               Align(
                                 alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Padding(
@@ -4586,7 +4528,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                     child: Container(
                       height: 73.0,
                       decoration: BoxDecoration(
-                        color: Color(0xB3B928B8),
+                        color: Color(0xFFBD39BA),
                       ),
                       child: Builder(
                         builder: (context) {

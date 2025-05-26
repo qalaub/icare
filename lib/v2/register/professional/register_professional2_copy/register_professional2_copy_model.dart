@@ -13,6 +13,10 @@ class RegisterProfessional2CopyModel
 
   bool termsAccept = true;
 
+  int maxExperiencia = 0;
+
+  String errorExperiencia = ' ';
+
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
@@ -21,6 +25,9 @@ class RegisterProfessional2CopyModel
   // State field(s) for serviceType widget.
   List<String>? serviceTypeValue;
   FormFieldController<List<String>>? serviceTypeValueController;
+  // State field(s) for age widget.
+  String? ageValue;
+  FormFieldController<String>? ageValueController;
   // State field(s) for years widget.
   FocusNode? yearsFocusNode;
   TextEditingController? yearsTextController;
@@ -33,9 +40,8 @@ class RegisterProfessional2CopyModel
     return null;
   }
 
-  // State field(s) for age widget.
-  String? ageValue;
-  FormFieldController<String>? ageValueController;
+  // Stores action output result for [Custom Action - validateExperience] action in years widget.
+  String? validationResult2;
   // State field(s) for password widget.
   FocusNode? passwordFocusNode;
   TextEditingController? passwordTextController;

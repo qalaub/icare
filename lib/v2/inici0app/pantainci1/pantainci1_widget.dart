@@ -59,7 +59,7 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
         onWillPop: () async => false,
         child: Scaffold(
           key: scaffoldKey,
-          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+          backgroundColor: Color(0xFFBD39BA),
           body: SafeArea(
             top: true,
             child: Column(

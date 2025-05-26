@@ -57,10 +57,24 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
 
     _model.email1TextController ??= TextEditingController();
     _model.email1FocusNode ??= FocusNode();
-
+    _model.email1FocusNode!.addListener(
+      () async {
+        safeSetState(() {
+          _model.email1TextController?.text =
+              functions.cleanEmailInput(_model.email1TextController.text);
+        });
+      },
+    );
     _model.confirmemail1TextController ??= TextEditingController();
     _model.confirmemail1FocusNode ??= FocusNode();
-
+    _model.confirmemail1FocusNode!.addListener(
+      () async {
+        safeSetState(() {
+          _model.confirmemail1TextController?.text = functions
+              .cleanEmailInput(_model.confirmemail1TextController.text);
+        });
+      },
+    );
     _model.abnTextController ??= TextEditingController();
     _model.abnFocusNode ??= FocusNode();
 
@@ -140,7 +154,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: Color(0xFFBD39BA),
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(0.0),
           child: AppBar(
@@ -559,7 +573,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 15.0, 0.0, 15.0),
+                                                    0.0, 5.0, 0.0, 15.0),
                                             child: Text(
                                               '* Last name',
                                               style: FlutterFlowTheme.of(
@@ -822,7 +836,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 15.0, 0.0, 15.0),
+                                                    0.0, 5.0, 0.0, 15.0),
                                             child: Text(
                                               '* Company name',
                                               style: FlutterFlowTheme.of(
@@ -1084,7 +1098,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 15.0, 0.0, 15.0),
+                                                    0.0, 5.0, 0.0, 15.0),
                                             child: Text(
                                               '* Email address',
                                               style: FlutterFlowTheme.of(
@@ -1163,14 +1177,6 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                                 .text,
                                                           ),
                                                         );
-                                                        safeSetState(() {
-                                                          _model.email1TextController
-                                                                  ?.text =
-                                                              functions.cleanEmailInput(
-                                                                  _model
-                                                                      .email1TextController
-                                                                      .text);
-                                                        });
 
                                                         safeSetState(() {});
                                                       },
@@ -1359,39 +1365,49 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                     alignment:
                                                         AlignmentDirectional(
                                                             0.0, 1.8),
-                                                    child: Text(
-                                                      key: ValueKey(
-                                                          'emailExists'),
-                                                      'This email already has an account, use another email',
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            font: GoogleFonts
-                                                                .montserrat(
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500,
-                                                              fontStyle:
-                                                                  FlutterFlowTheme.of(
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  10.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Text(
+                                                        key: ValueKey(
+                                                            'emailExists'),
+                                                        'This email already has an account, use another email',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  font: GoogleFonts
+                                                                      .montserrat(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w500,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  color: Color(
+                                                                      0xFFFF5963),
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  fontStyle: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
                                                                       .fontStyle,
-                                                            ),
-                                                            color: Color(
-                                                                0xFFFF5963),
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontStyle,
-                                                          ),
-                                                    ).animateOnPageLoad(
-                                                        animationsMap[
-                                                            'textOnPageLoadAnimation1']!),
+                                                                ),
+                                                      ).animateOnPageLoad(
+                                                          animationsMap[
+                                                              'textOnPageLoadAnimation1']!),
+                                                    ),
                                                   ),
                                               ],
                                             ),
@@ -1464,22 +1480,6 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                         .confirmemail1TextController,
                                                     focusNode: _model
                                                         .confirmemail1FocusNode,
-                                                    onChanged: (_) =>
-                                                        EasyDebounce.debounce(
-                                                      '_model.confirmemail1TextController',
-                                                      Duration(
-                                                          milliseconds: 10),
-                                                      () async {
-                                                        safeSetState(() {
-                                                          _model.confirmemail1TextController
-                                                                  ?.text =
-                                                              functions.cleanEmailInput(
-                                                                  _model
-                                                                      .confirmemail1TextController
-                                                                      .text);
-                                                        });
-                                                      },
-                                                    ),
                                                     onFieldSubmitted:
                                                         (_) async {
                                                       if (_model
@@ -1702,39 +1702,49 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                     alignment:
                                                         AlignmentDirectional(
                                                             -0.8, 0.6),
-                                                    child: Text(
-                                                      key: ValueKey(
-                                                          'emailExists'),
-                                                      'Email has to be the same',
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            font: GoogleFonts
-                                                                .montserrat(
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500,
-                                                              fontStyle:
-                                                                  FlutterFlowTheme.of(
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  10.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Text(
+                                                        key: ValueKey(
+                                                            'emailExists'),
+                                                        'Email has to be the same',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  font: GoogleFonts
+                                                                      .montserrat(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w500,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  color: Color(
+                                                                      0xFFFF5963),
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  fontStyle: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
                                                                       .fontStyle,
-                                                            ),
-                                                            color: Color(
-                                                                0xFFFF5963),
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontStyle,
-                                                          ),
-                                                    ).animateOnPageLoad(
-                                                        animationsMap[
-                                                            'textOnPageLoadAnimation2']!),
+                                                                ),
+                                                      ).animateOnPageLoad(
+                                                          animationsMap[
+                                                              'textOnPageLoadAnimation2']!),
+                                                    ),
                                                   ),
                                               ],
                                             ),
@@ -1746,7 +1756,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 15.0, 0.0, 15.0),
+                                                    0.0, 0.0, 0.0, 15.0),
                                             child: Text(
                                               ' * ABN Registration',
                                               style: FlutterFlowTheme.of(
@@ -2067,7 +2077,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 15.0, 0.0, 15.0),
+                                                    0.0, 0.0, 0.0, 15.0),
                                             child: Text(
                                               '* Enter your 10-digit mobile number',
                                               style: FlutterFlowTheme.of(
@@ -2312,7 +2322,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 15.0, 0.0, 15.0),
+                                                    0.0, 0.0, 0.0, 15.0),
                                             child: Text(
                                               '* Select your suburb',
                                               style: FlutterFlowTheme.of(
@@ -2854,8 +2864,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                 borderRadius:
                                                     BorderRadius.circular(24.0),
                                                 disabledColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryText,
+                                                    Color(0xFF99A1A8),
                                               ),
                                             ),
                                           ),

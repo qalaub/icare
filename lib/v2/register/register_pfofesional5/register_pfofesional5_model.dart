@@ -22,6 +22,11 @@ class RegisterPfofesional5Model
       FFUploadedFile(bytes: Uint8List.fromList([]));
   String uploadedFileUrl2 = '';
 
+  // Stores action output result for [Stripe Payment] action in Button widget.
+  String? paymentId;
+  // Stores action output result for [Stripe Payment] action in Button widget.
+  String? paymentId1;
+
   @override
   void initState(BuildContext context) {}
 

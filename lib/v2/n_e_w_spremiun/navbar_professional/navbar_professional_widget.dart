@@ -205,7 +205,13 @@ class _NavbarProfessionalWidgetState extends State<NavbarProfessionalWidget> {
                                     alignment: AlignmentDirectional(0.0, -1.0),
                                     child: Text(
                                       valueOrDefault<String>(
-                                        containerUsersRecordList.length
+                                        containerUsersRecordList
+                                            .where((e) =>
+                                                containerUsersRecordList
+                                                    .length >=
+                                                0)
+                                            .toList()
+                                            .length
                                             .toString(),
                                         '0',
                                       ),

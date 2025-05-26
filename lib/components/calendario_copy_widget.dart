@@ -48,8 +48,8 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
           borderRadius: BorderRadius.circular(20.0),
         ),
         child: Container(
-          width: 385.0,
-          height: 190.0,
+          width: MediaQuery.sizeOf(context).width * 0.9,
+          height: MediaQuery.sizeOf(context).height * 1.0,
           constraints: BoxConstraints(
             minHeight: 190.0,
             maxWidth: 385.0,
@@ -259,8 +259,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                             ),
                                           ),
                                           unselectedWidgetColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .alternate,
+                                              Color(0xFF14181B),
                                         ),
                                         child: Checkbox(
                                           value: _model.checkboxValue1 ??=
@@ -293,8 +292,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                           },
                                           side: BorderSide(
                                             width: 2,
-                                            color: FlutterFlowTheme.of(context)
-                                                .alternate,
+                                            color: Color(0xFF14181B),
                                           ),
                                           activeColor: Color(0xFFC14BBC),
                                           checkColor:
@@ -316,9 +314,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                               BorderRadius.circular(4.0),
                                         ),
                                       ),
-                                      unselectedWidgetColor:
-                                          FlutterFlowTheme.of(context)
-                                              .alternate,
+                                      unselectedWidgetColor: Color(0xFF14181B),
                                     ),
                                     child: Checkbox(
                                       value: _model.noonValue1 ??= FFAppState()
@@ -350,8 +346,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                       },
                                       side: BorderSide(
                                         width: 2,
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
+                                        color: Color(0xFF14181B),
                                       ),
                                       activeColor: Color(0xFFC14BBC),
                                       checkColor:
@@ -371,9 +366,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                               BorderRadius.circular(4.0),
                                         ),
                                       ),
-                                      unselectedWidgetColor:
-                                          FlutterFlowTheme.of(context)
-                                              .alternate,
+                                      unselectedWidgetColor: Color(0xFF14181B),
                                     ),
                                     child: Checkbox(
                                       value: _model.afternoonValue1 ??=
@@ -406,8 +399,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                       },
                                       side: BorderSide(
                                         width: 2,
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
+                                        color: Color(0xFF14181B),
                                       ),
                                       activeColor: Color(0xFFC14BBC),
                                       checkColor:
@@ -474,8 +466,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                             ),
                                           ),
                                           unselectedWidgetColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .alternate,
+                                              Color(0xFF14181B),
                                         ),
                                         child: Checkbox(
                                           value: _model.checkboxValue2 ??=
@@ -508,8 +499,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                           },
                                           side: BorderSide(
                                             width: 2,
-                                            color: FlutterFlowTheme.of(context)
-                                                .alternate,
+                                            color: Color(0xFF14181B),
                                           ),
                                           activeColor: Color(0xFFC14BBC),
                                           checkColor:
@@ -531,9 +521,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                               BorderRadius.circular(4.0),
                                         ),
                                       ),
-                                      unselectedWidgetColor:
-                                          FlutterFlowTheme.of(context)
-                                              .alternate,
+                                      unselectedWidgetColor: Color(0xFF14181B),
                                     ),
                                     child: Checkbox(
                                       value: _model.noonValue2 ??= FFAppState()
@@ -565,8 +553,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                       },
                                       side: BorderSide(
                                         width: 2,
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
+                                        color: Color(0xFF14181B),
                                       ),
                                       activeColor: Color(0xFFC14BBC),
                                       checkColor:
@@ -586,9 +573,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                               BorderRadius.circular(4.0),
                                         ),
                                       ),
-                                      unselectedWidgetColor:
-                                          FlutterFlowTheme.of(context)
-                                              .alternate,
+                                      unselectedWidgetColor: Color(0xFF14181B),
                                     ),
                                     child: Checkbox(
                                       value: _model.afternoonValue2 ??=
@@ -621,8 +606,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                       },
                                       side: BorderSide(
                                         width: 2,
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
+                                        color: Color(0xFF14181B),
                                       ),
                                       activeColor: Color(0xFFC14BBC),
                                       checkColor:
@@ -689,8 +673,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                             ),
                                           ),
                                           unselectedWidgetColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .alternate,
+                                              Color(0xFF14181B),
                                         ),
                                         child: Checkbox(
                                           value: _model.checkboxValue3 ??=
@@ -723,8 +706,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                           },
                                           side: BorderSide(
                                             width: 2,
-                                            color: FlutterFlowTheme.of(context)
-                                                .alternate,
+                                            color: Color(0xFF14181B),
                                           ),
                                           activeColor: Color(0xFFC14BBC),
                                           checkColor:
@@ -746,9 +728,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                               BorderRadius.circular(4.0),
                                         ),
                                       ),
-                                      unselectedWidgetColor:
-                                          FlutterFlowTheme.of(context)
-                                              .alternate,
+                                      unselectedWidgetColor: Color(0xFF14181B),
                                     ),
                                     child: Checkbox(
                                       value: _model.noonValue3 ??= FFAppState()
@@ -780,8 +760,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                       },
                                       side: BorderSide(
                                         width: 2,
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
+                                        color: Color(0xFF14181B),
                                       ),
                                       activeColor: Color(0xFFC14BBC),
                                       checkColor:
@@ -801,9 +780,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                               BorderRadius.circular(4.0),
                                         ),
                                       ),
-                                      unselectedWidgetColor:
-                                          FlutterFlowTheme.of(context)
-                                              .alternate,
+                                      unselectedWidgetColor: Color(0xFF14181B),
                                     ),
                                     child: Checkbox(
                                       value: _model.afternoonValue3 ??=
@@ -836,8 +813,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                       },
                                       side: BorderSide(
                                         width: 2,
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
+                                        color: Color(0xFF14181B),
                                       ),
                                       activeColor: Color(0xFFC14BBC),
                                       checkColor:
@@ -904,8 +880,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                             ),
                                           ),
                                           unselectedWidgetColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .alternate,
+                                              Color(0xFF14181B),
                                         ),
                                         child: Checkbox(
                                           value: _model.checkboxValue4 ??=
@@ -938,8 +913,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                           },
                                           side: BorderSide(
                                             width: 2,
-                                            color: FlutterFlowTheme.of(context)
-                                                .alternate,
+                                            color: Color(0xFF14181B),
                                           ),
                                           activeColor: Color(0xFFC14BBC),
                                           checkColor:
@@ -961,9 +935,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                               BorderRadius.circular(4.0),
                                         ),
                                       ),
-                                      unselectedWidgetColor:
-                                          FlutterFlowTheme.of(context)
-                                              .alternate,
+                                      unselectedWidgetColor: Color(0xFF14181B),
                                     ),
                                     child: Checkbox(
                                       value: _model.noonValue4 ??= FFAppState()
@@ -995,8 +967,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                       },
                                       side: BorderSide(
                                         width: 2,
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
+                                        color: Color(0xFF14181B),
                                       ),
                                       activeColor: Color(0xFFC14BBC),
                                       checkColor:
@@ -1016,9 +987,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                               BorderRadius.circular(4.0),
                                         ),
                                       ),
-                                      unselectedWidgetColor:
-                                          FlutterFlowTheme.of(context)
-                                              .alternate,
+                                      unselectedWidgetColor: Color(0xFF14181B),
                                     ),
                                     child: Checkbox(
                                       value: _model.afternoonValue4 ??=
@@ -1051,8 +1020,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                       },
                                       side: BorderSide(
                                         width: 2,
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
+                                        color: Color(0xFF14181B),
                                       ),
                                       activeColor: Color(0xFFC14BBC),
                                       checkColor:
@@ -1119,8 +1087,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                             ),
                                           ),
                                           unselectedWidgetColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .alternate,
+                                              Color(0xFF14181B),
                                         ),
                                         child: Checkbox(
                                           value: _model.checkboxValue5 ??=
@@ -1153,8 +1120,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                           },
                                           side: BorderSide(
                                             width: 2,
-                                            color: FlutterFlowTheme.of(context)
-                                                .alternate,
+                                            color: Color(0xFF14181B),
                                           ),
                                           activeColor: Color(0xFFC14BBC),
                                           checkColor:
@@ -1176,9 +1142,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                               BorderRadius.circular(4.0),
                                         ),
                                       ),
-                                      unselectedWidgetColor:
-                                          FlutterFlowTheme.of(context)
-                                              .alternate,
+                                      unselectedWidgetColor: Color(0xFF14181B),
                                     ),
                                     child: Checkbox(
                                       value: _model.noonValue5 ??= FFAppState()
@@ -1210,8 +1174,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                       },
                                       side: BorderSide(
                                         width: 2,
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
+                                        color: Color(0xFF14181B),
                                       ),
                                       activeColor: Color(0xFFC14BBC),
                                       checkColor:
@@ -1231,9 +1194,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                               BorderRadius.circular(4.0),
                                         ),
                                       ),
-                                      unselectedWidgetColor:
-                                          FlutterFlowTheme.of(context)
-                                              .alternate,
+                                      unselectedWidgetColor: Color(0xFF14181B),
                                     ),
                                     child: Checkbox(
                                       value: _model.afternoonValue5 ??=
@@ -1266,8 +1227,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                       },
                                       side: BorderSide(
                                         width: 2,
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
+                                        color: Color(0xFF14181B),
                                       ),
                                       activeColor: Color(0xFFC14BBC),
                                       checkColor:
@@ -1329,8 +1289,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                           ),
                                         ),
                                         unselectedWidgetColor:
-                                            FlutterFlowTheme.of(context)
-                                                .alternate,
+                                            Color(0xFF14181B),
                                       ),
                                       child: Checkbox(
                                         value: _model.checkboxValue6 ??=
@@ -1363,8 +1322,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                         },
                                         side: BorderSide(
                                           width: 2,
-                                          color: FlutterFlowTheme.of(context)
-                                              .alternate,
+                                          color: Color(0xFF14181B),
                                         ),
                                         activeColor: Color(0xFFC14BBC),
                                         checkColor:
@@ -1385,9 +1343,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                               BorderRadius.circular(4.0),
                                         ),
                                       ),
-                                      unselectedWidgetColor:
-                                          FlutterFlowTheme.of(context)
-                                              .alternate,
+                                      unselectedWidgetColor: Color(0xFF14181B),
                                     ),
                                     child: Checkbox(
                                       value: _model.noonValue6 ??= FFAppState()
@@ -1419,8 +1375,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                       },
                                       side: BorderSide(
                                         width: 2,
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
+                                        color: Color(0xFF14181B),
                                       ),
                                       activeColor: Color(0xFFC14BBC),
                                       checkColor:
@@ -1440,9 +1395,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                               BorderRadius.circular(4.0),
                                         ),
                                       ),
-                                      unselectedWidgetColor:
-                                          FlutterFlowTheme.of(context)
-                                              .alternate,
+                                      unselectedWidgetColor: Color(0xFF14181B),
                                     ),
                                     child: Checkbox(
                                       value: _model.afternoonValue6 ??=
@@ -1475,8 +1428,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                       },
                                       side: BorderSide(
                                         width: 2,
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
+                                        color: Color(0xFF14181B),
                                       ),
                                       activeColor: Color(0xFFC14BBC),
                                       checkColor:
@@ -1538,8 +1490,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                           ),
                                         ),
                                         unselectedWidgetColor:
-                                            FlutterFlowTheme.of(context)
-                                                .alternate,
+                                            Color(0xFF14181B),
                                       ),
                                       child: Checkbox(
                                         value: _model.checkboxValue7 ??=
@@ -1572,8 +1523,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                         },
                                         side: BorderSide(
                                           width: 2,
-                                          color: FlutterFlowTheme.of(context)
-                                              .alternate,
+                                          color: Color(0xFF14181B),
                                         ),
                                         activeColor: Color(0xFFC14BBC),
                                         checkColor:
@@ -1594,9 +1544,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                               BorderRadius.circular(4.0),
                                         ),
                                       ),
-                                      unselectedWidgetColor:
-                                          FlutterFlowTheme.of(context)
-                                              .alternate,
+                                      unselectedWidgetColor: Color(0xFF14181B),
                                     ),
                                     child: Checkbox(
                                       value: _model.noonValue7 ??= FFAppState()
@@ -1628,8 +1576,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                       },
                                       side: BorderSide(
                                         width: 2,
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
+                                        color: Color(0xFF14181B),
                                       ),
                                       activeColor: Color(0xFFC14BBC),
                                       checkColor:
@@ -1649,9 +1596,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                               BorderRadius.circular(4.0),
                                         ),
                                       ),
-                                      unselectedWidgetColor:
-                                          FlutterFlowTheme.of(context)
-                                              .alternate,
+                                      unselectedWidgetColor: Color(0xFF14181B),
                                     ),
                                     child: Checkbox(
                                       value: _model.afternoonValue7 ??=
@@ -1684,8 +1629,7 @@ class _CalendarioCopyWidgetState extends State<CalendarioCopyWidget> {
                                       },
                                       side: BorderSide(
                                         width: 2,
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
+                                        color: Color(0xFF14181B),
                                       ),
                                       activeColor: Color(0xFFC14BBC),
                                       checkColor:

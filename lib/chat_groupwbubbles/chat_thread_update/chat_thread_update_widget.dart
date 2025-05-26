@@ -1,5 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_media_display.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -104,29 +105,37 @@ class _ChatThreadUpdateWidgetState extends State<ChatThreadUpdateWidget> {
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.end,
                                   children: [
-                                    SelectionArea(
-                                        child: AutoSizeText(
-                                      functions.upperCaseFirstLetter(
-                                          otherUserUsersRecord.firtsName),
-                                      textAlign: TextAlign.start,
-                                      style: FlutterFlowTheme.of(context)
-                                          .labelSmall
-                                          .override(
-                                            font: GoogleFonts.readexPro(
-                                              fontWeight: FontWeight.bold,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelSmall
-                                                      .fontStyle,
-                                            ),
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.bold,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelSmall
-                                                    .fontStyle,
-                                          ),
-                                    )),
+                                    if (currentUserDocument?.plan != Plan.basic)
+                                      AuthUserStreamWidget(
+                                        builder: (context) => SelectionArea(
+                                            child: AutoSizeText(
+                                          otherUserUsersRecord.rol ==
+                                                  Roles.business
+                                              ? otherUserUsersRecord.comapny
+                                              : functions.upperCaseFirstLetter(
+                                                  otherUserUsersRecord
+                                                      .firtsName),
+                                          textAlign: TextAlign.start,
+                                          style: FlutterFlowTheme.of(context)
+                                              .labelSmall
+                                              .override(
+                                                font: GoogleFonts.readexPro(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelSmall
+                                                          .fontStyle,
+                                                ),
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.bold,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelSmall
+                                                        .fontStyle,
+                                              ),
+                                        )),
+                                      ),
                                     Text(
                                       valueOrDefault<String>(
                                         dateTimeFormat(

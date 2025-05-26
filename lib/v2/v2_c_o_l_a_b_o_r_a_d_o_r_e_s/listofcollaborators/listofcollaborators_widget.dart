@@ -77,7 +77,7 @@ class _ListofcollaboratorsWidgetState extends State<ListofcollaboratorsWidget> {
                             alignment: AlignmentDirectional(0.0, -1.0),
                             child: Container(
                               width: MediaQuery.sizeOf(context).width * 1.0,
-                              height: 65.0,
+                              height: 55.0,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
@@ -174,7 +174,7 @@ class _ListofcollaboratorsWidgetState extends State<ListofcollaboratorsWidget> {
                                   width:
                                       MediaQuery.sizeOf(context).width * 0.86,
                                   height:
-                                      MediaQuery.sizeOf(context).height * 0.62,
+                                      MediaQuery.sizeOf(context).height * 0.72,
                                   decoration: BoxDecoration(),
                                   child: Builder(
                                     builder: (context) {
@@ -213,7 +213,7 @@ class _ListofcollaboratorsWidgetState extends State<ListofcollaboratorsWidget> {
                             child: Container(
                               height: 73.0,
                               decoration: BoxDecoration(
-                                color: Color(0xD5B928B8),
+                                color: Color(0xFFBD39BA),
                               ),
                               child: Builder(
                                 builder: (context) {

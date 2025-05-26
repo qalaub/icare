@@ -62,9 +62,7 @@ class Tinderv2C1Model extends FlutterFlowModel<Tinderv2C1Widget> {
   // State field(s) for SwipeableStack widget.
   late CardSwiperController swipeableStackController;
   // Stores action output result for [Firestore Query - Query a collection] action in SwipeableStack widget.
-  ChatsRecord? chats;
-  // Stores action output result for [Firestore Query - Query a collection] action in SwipeableStack widget.
-  ChatsRecord? newRef;
+  ChatsRecord? newRefCopyCopy;
   // Stores action output result for [Backend Call - Create Document] action in SwipeableStack widget.
   ChatsRecord? newChatThread;
   // Model for Navbar component.

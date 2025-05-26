@@ -1,8 +1,6 @@
 // Export pages
 export '/v2/h0me/home_search/home_search_widget.dart' show HomeSearchWidget;
-export '/pages/user/user_widget.dart' show UserWidget;
 export '/pages/filtros/filtros_widget.dart' show FiltrosWidget;
-export '/pages/favorites1/favorites1_widget.dart' show Favorites1Widget;
 export '/v2/register/professional/user/register_user1/register_user1_widget.dart'
     show RegisterUser1Widget;
 export '/v2/register/professional/user/register_user2/register_user2_widget.dart'
@@ -99,3 +97,4 @@ export '/v2/register/professional/register_pfofesional4_copy/register_pfofesiona
     show RegisterPfofesional4CopyWidget;
 export '/v3correciones/calendario/cadari0_copy/cadari0_copy_widget.dart'
     show Cadari0CopyWidget;
+export '/v2/n_e_w_spremiun/news_copy/news_copy_widget.dart' show NewsCopyWidget;

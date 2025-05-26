@@ -50,7 +50,7 @@ class _RecuperarcontraseaWidgetState extends State<RecuperarcontraseaWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: Color(0xFFBD39BA),
         body: SafeArea(
           top: true,
           child: Align(

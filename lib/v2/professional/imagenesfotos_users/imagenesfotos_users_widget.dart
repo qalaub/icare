@@ -50,7 +50,7 @@ class _ImagenesfotosUsersWidgetState extends State<ImagenesfotosUsersWidget> {
       ),
       child: Container(
         width: MediaQuery.sizeOf(context).width * 1.0,
-        height: 200.0,
+        height: MediaQuery.sizeOf(context).height * 0.4,
         constraints: BoxConstraints(
           maxWidth: MediaQuery.sizeOf(context).width * 0.96,
         ),
@@ -69,7 +69,8 @@ class _ImagenesfotosUsersWidgetState extends State<ImagenesfotosUsersWidget> {
                       .toList();
 
                   return Container(
-                    width: 255.61,
+                    width: MediaQuery.sizeOf(context).width * 1.0,
+                    height: MediaQuery.sizeOf(context).height * 1.0,
                     child: Stack(
                       children: [
                         PageView.builder(

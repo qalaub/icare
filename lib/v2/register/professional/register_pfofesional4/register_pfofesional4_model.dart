@@ -24,8 +24,6 @@ class RegisterPfofesional4Model
   late ImageUploadModel img5Model;
   // Model for img6.
   late ImageUploadModel img6Model;
-  // Stores action output result for [Stripe Payment] action in Button widget.
-  String? paymentId;
 
   @override
   void initState(BuildContext context) {

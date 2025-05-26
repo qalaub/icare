@@ -8,18 +8,6 @@ class RegisterBusiness3Model extends FlutterFlowModel<RegisterBusiness3Widget> {
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
-  // State field(s) for years widget.
-  FocusNode? yearsFocusNode;
-  TextEditingController? yearsTextController;
-  String? Function(BuildContext, String?)? yearsTextControllerValidator;
-  String? _yearsTextControllerValidator(BuildContext context, String? val) {
-    if (val == null || val.isEmpty) {
-      return 'Field is required';
-    }
-
-    return null;
-  }
-
   // State field(s) for gender widget.
   String? genderValue;
   FormFieldController<String>? genderValueController;
@@ -38,15 +26,11 @@ class RegisterBusiness3Model extends FlutterFlowModel<RegisterBusiness3Widget> {
 
   @override
   void initState(BuildContext context) {
-    yearsTextControllerValidator = _yearsTextControllerValidator;
     disabilitiesTextControllerValidator = _disabilitiesTextControllerValidator;
   }
 
   @override
   void dispose() {
-    yearsFocusNode?.dispose();
-    yearsTextController?.dispose();
-
     disabilitiesFocusNode?.dispose();
     disabilitiesTextController?.dispose();
   }

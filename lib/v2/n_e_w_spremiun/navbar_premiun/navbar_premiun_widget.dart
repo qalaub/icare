@@ -238,44 +238,22 @@ class _NavbarPremiunWidgetState extends State<NavbarPremiunWidget> {
                               alignment: AlignmentDirectional(0.0, -1.0),
                               child: Align(
                                 alignment: AlignmentDirectional(0.0, -1.0),
-                                child: AuthUserStreamWidget(
-                                  builder: (context) => Text(
-                                    valueOrDefault<String>(
-                                      containerChatsRecordList
-                                          .where((e) =>
-                                              ((currentUserDocument
-                                                              ?.professionals
-                                                              .toList() ??
-                                                          [])
-                                                      .contains(e.userB) ==
-                                                  true) ||
-                                              ((currentUserDocument
-                                                              ?.professionals
-                                                              .toList() ??
-                                                          [])
-                                                      .contains(e.userA) ==
-                                                  true) ||
-                                              (e.userB == currentUserReference))
-                                          .toList()
-                                          .length
-                                          .toString(),
-                                      '0',
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          font: GoogleFonts.readexPro(
-                                            fontWeight:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontWeight,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontStyle,
-                                          ),
-                                          color: Color(0xFFF4F4F4),
-                                          letterSpacing: 0.0,
+                                child: Text(
+                                  valueOrDefault<String>(
+                                    containerChatsRecordList
+                                        .where((e) =>
+                                            e.lastMessageSeenBy.contains(
+                                                currentUserReference) ==
+                                            false)
+                                        .toList()
+                                        .length
+                                        .toString(),
+                                    '0',
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        font: GoogleFonts.readexPro(
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
                                                   .bodyMedium
@@ -285,7 +263,15 @@ class _NavbarPremiunWidgetState extends State<NavbarPremiunWidget> {
                                                   .bodyMedium
                                                   .fontStyle,
                                         ),
-                                  ),
+                                        color: Color(0xFFF4F4F4),
+                                        letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
                                 ),
                               ),
                             ),
@@ -326,30 +312,121 @@ class _NavbarPremiunWidgetState extends State<NavbarPremiunWidget> {
                   children: [
                     Expanded(
                       flex: 1,
-                      child: Align(
-                        alignment: AlignmentDirectional(0.0, 0.0),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              3.0, 0.0, 0.0, 0.0),
-                          child: FlutterFlowIconButton(
-                            key: ValueKey('newa'),
-                            borderColor: Colors.transparent,
-                            borderRadius: 34.0,
-                            buttonSize: 52.0,
-                            icon: Icon(
-                              Icons.notifications_sharp,
-                              color: Colors.white,
-                              size: 34.0,
+                      child: Stack(
+                        alignment: AlignmentDirectional(1.0, -1.0),
+                        children: [
+                          Align(
+                            alignment: AlignmentDirectional(0.0, 0.0),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  3.0, 0.0, 0.0, 0.0),
+                              child: FlutterFlowIconButton(
+                                key: ValueKey('newa'),
+                                borderColor: Colors.transparent,
+                                borderRadius: 34.0,
+                                buttonSize: 52.0,
+                                icon: Icon(
+                                  Icons.notifications_sharp,
+                                  color: Colors.white,
+                                  size: 34.0,
+                                ),
+                                onPressed: () async {
+                                  if (loggedIn) {
+                                    context.pushNamed(NewsCopyWidget.routeName);
+                                  } else {
+                                    context.pushNamed(LoginWidget.routeName);
+                                  }
+                                },
+                              ),
                             ),
-                            onPressed: () async {
-                              if (loggedIn) {
-                                context.pushNamed(NewsWidget.routeName);
-                              } else {
-                                context.pushNamed(LoginWidget.routeName);
-                              }
-                            },
                           ),
-                        ),
+                          Align(
+                            alignment: AlignmentDirectional(0.0, -1.0),
+                            child: StreamBuilder<List<NewsbusinessRecord>>(
+                              stream: queryNewsbusinessRecord(
+                                queryBuilder: (newsbusinessRecord) =>
+                                    newsbusinessRecord
+                                        .where(
+                                          'business',
+                                          isEqualTo: currentUserReference,
+                                        )
+                                        .where(
+                                          'isView',
+                                          isEqualTo: false,
+                                        ),
+                              ),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      child: CircularProgressIndicator(
+                                        valueColor:
+                                            AlwaysStoppedAnimation<Color>(
+                                          FlutterFlowTheme.of(context).primary,
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                }
+                                List<NewsbusinessRecord>
+                                    containerNewsbusinessRecordList =
+                                    snapshot.data!;
+
+                                return Container(
+                                  width: 20.0,
+                                  height: 20.0,
+                                  decoration: BoxDecoration(
+                                    color: Color(0xFFFF0000),
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Align(
+                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    child: Text(
+                                      valueOrDefault<String>(
+                                        containerNewsbusinessRecordList
+                                            .where((e) =>
+                                                containerNewsbusinessRecordList
+                                                    .length >=
+                                                0)
+                                            .toList()
+                                            .length
+                                            .toString(),
+                                        '0',
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            font: GoogleFonts.readexPro(
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
+                                            ),
+                                            color: Color(0xFFF4F4F4),
+                                            letterSpacing: 0.0,
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
+                                    ),
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                     Align(

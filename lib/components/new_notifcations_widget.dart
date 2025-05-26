@@ -140,7 +140,7 @@ class _NewNotifcationsWidgetState extends State<NewNotifcationsWidget> {
                         Align(
                           alignment: AlignmentDirectional(0.0, 0.0),
                           child: Container(
-                            width: MediaQuery.sizeOf(context).width * 0.7,
+                            width: MediaQuery.sizeOf(context).width * 0.76,
                             height: 50.0,
                             decoration: BoxDecoration(),
                             child: Align(
@@ -198,7 +198,7 @@ class _NewNotifcationsWidgetState extends State<NewNotifcationsWidget> {
                                                   .bodyMedium
                                                   .fontStyle,
                                         ),
-                                        fontSize: 15.0,
+                                        fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FlutterFlowTheme.of(context)
                                             .bodyMedium

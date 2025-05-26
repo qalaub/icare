@@ -44,7 +44,7 @@ class _FavV2WidgetState extends State<FavV2Widget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+      backgroundColor: Color(0xFFBD39BA),
       appBar: AppBar(
         backgroundColor: Color(0xFFBD39BA),
         automaticallyImplyLeading: false,

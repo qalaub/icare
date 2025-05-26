@@ -50,9 +50,13 @@ class ProfileSettingsModel extends FlutterFlowModel<ProfileSettingsWidget> {
 
   String? initialSudbur = 'P Melborne, D';
 
+  String experienceError = ' ';
+
   ///  State fields for stateful widgets in this page.
 
-  final formKey = GlobalKey<FormState>();
+  final formKey3 = GlobalKey<FormState>();
+  final formKey1 = GlobalKey<FormState>();
+  final formKey2 = GlobalKey<FormState>();
   // Model for upload_profile_image component.
   late UploadProfileImageModel uploadProfileImageModel;
   bool isDataUploading1 = false;
@@ -81,10 +85,44 @@ class ProfileSettingsModel extends FlutterFlowModel<ProfileSettingsWidget> {
   FocusNode? ageFocusNode;
   TextEditingController? ageTextController;
   String? Function(BuildContext, String?)? ageTextControllerValidator;
+  String? _ageTextControllerValidator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'years is required';
+    }
+
+    if (val.length < 0) {
+      return 'Requires at least 0 characters.';
+    }
+    if (val.length > 0) {
+      return 'Maximum 0 characters allowed, currently ${val.length}.';
+    }
+    if (!RegExp('^(?:[1-9]|[1-3][0-9]|4[0-7])\$').hasMatch(val)) {
+      return 'It can\'t be more than 47 years old';
+    }
+    return null;
+  }
+
+  // Stores action output result for [Custom Action - validateNumberRange] action in age widget.
+  bool? esValido;
   // State field(s) for phone widget.
   FocusNode? phoneFocusNode;
   TextEditingController? phoneTextController;
   String? Function(BuildContext, String?)? phoneTextControllerValidator;
+  String? _phoneTextControllerValidator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Do not leave this field empty is required';
+    }
+
+    if (val.length < 10) {
+      return 'Requires at least 10 characters.';
+    }
+    if (val.length > 10) {
+      return 'Maximum 10 characters allowed, currently ${val.length}.';
+    }
+
+    return null;
+  }
+
   // State field(s) for date widget.
   FocusNode? dateFocusNode;
   TextEditingController? dateTextController;
@@ -127,6 +165,8 @@ class ProfileSettingsModel extends FlutterFlowModel<ProfileSettingsWidget> {
   void initState(BuildContext context) {
     uploadProfileImageModel =
         createModel(context, () => UploadProfileImageModel());
+    ageTextControllerValidator = _ageTextControllerValidator;
+    phoneTextControllerValidator = _phoneTextControllerValidator;
     calendarioCopyModel = createModel(context, () => CalendarioCopyModel());
     navbarModel = createModel(context, () => NavbarModel());
     navbarPremiunModel = createModel(context, () => NavbarPremiunModel());

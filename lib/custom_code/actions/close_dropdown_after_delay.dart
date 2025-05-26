@@ -11,12 +11,12 @@ import 'package:flutter/material.dart';
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
 Future<void> closeDropdownAfterDelay(BuildContext context) async {
-  // Cierra cualquier popup después de 2.5 segundos
-  await Future.delayed(Duration(milliseconds: 2500), () {
-    // Esto cierra el dropdown abierto
-    FocusScope.of(context).unfocus();
-    Navigator.of(context).maybePop();
-  });
+  await Future.delayed(Duration(milliseconds: 2500));
+
+  // En lugar de solo unfocus, fuerza el foco a otro nodo invisible
+  final focusNode = FocusNode();
+  FocusScope.of(context).requestFocus(focusNode);
+  focusNode.unfocus(); // Y luego lo libera
 
   return;
 }

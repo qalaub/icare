@@ -44,7 +44,7 @@ class _FavV3CopyWidgetState extends State<FavV3CopyWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+      backgroundColor: Color(0xFFBD39BA),
       appBar: AppBar(
         backgroundColor: Color(0xFFBD39BA),
         automaticallyImplyLeading: false,
@@ -134,6 +134,7 @@ class _FavV3CopyWidgetState extends State<FavV3CopyWidget> {
                                         0,
                                         0,
                                       ),
+                                      reverse: true,
                                       primary: false,
                                       shrinkWrap: true,
                                       scrollDirection: Axis.vertical,
@@ -165,7 +166,7 @@ class _FavV3CopyWidgetState extends State<FavV3CopyWidget> {
                         child: Container(
                           height: 73.0,
                           decoration: BoxDecoration(
-                            color: Color(0xD5B928B8),
+                            color: Color(0xFFBD39BA),
                           ),
                           child: Builder(
                             builder: (context) {

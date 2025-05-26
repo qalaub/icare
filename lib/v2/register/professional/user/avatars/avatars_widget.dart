@@ -84,21 +84,24 @@ class _AvatarsWidgetState extends State<AvatarsWidget> {
               context.pop();
             },
           ),
-          title: Text(
-            'Choose your AVATAR',
-            style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  font: GoogleFonts.inter(
+          title: Align(
+            alignment: AlignmentDirectional(-0.55, 0.0),
+            child: Text(
+              'Choose your AVATAR',
+              style: FlutterFlowTheme.of(context).headlineMedium.override(
+                    font: GoogleFonts.inter(
+                      fontWeight: FontWeight.w600,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).headlineMedium.fontStyle,
+                    ),
+                    color: Colors.white,
+                    fontSize: 24.0,
+                    letterSpacing: 0.0,
                     fontWeight: FontWeight.w600,
                     fontStyle:
                         FlutterFlowTheme.of(context).headlineMedium.fontStyle,
                   ),
-                  color: Colors.white,
-                  fontSize: 24.0,
-                  letterSpacing: 0.0,
-                  fontWeight: FontWeight.w600,
-                  fontStyle:
-                      FlutterFlowTheme.of(context).headlineMedium.fontStyle,
-                ),
+            ),
           ),
           actions: [],
           centerTitle: false,

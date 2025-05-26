@@ -58,11 +58,11 @@ class _EscogerUsuarioWidgetState extends State<EscogerUsuarioWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: Color(0xFFBD39BA),
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(0.0),
           child: AppBar(
-            backgroundColor: Color(0xFFFFFEFE),
+            backgroundColor: Color(0xFFBD39BA),
             automaticallyImplyLeading: false,
             actions: [],
             centerTitle: false,

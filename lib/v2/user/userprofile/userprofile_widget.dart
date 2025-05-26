@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/v2/account_option/account_option_widget.dart';
+import '/v2/account_option_standard/account_option_standard_widget.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -92,7 +93,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                       children: [
                         Container(
                           width: double.infinity,
-                          height: 200.0,
+                          height: 250.0,
                           decoration: BoxDecoration(
                             color: Color(0x31FB8CE2),
                           ),
@@ -106,9 +107,8 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                       currentUserPhoto,
                                       'https://i.ibb.co/2qkDLKb/Frame-74.png',
                                     ),
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
-                                    height: 200.0,
+                                    width: double.infinity,
+                                    height: double.infinity,
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -120,6 +120,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                 ),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: [],
                                 ),
                               ),
@@ -237,7 +238,6 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                     child: AccountOptionWidget(
                                       key: ValueKey('subscription'),
                                       icon: Icon(
-                                        key: ValueKey('subscription'),
                                         Icons.card_membership_outlined,
                                         size: 30.0,
                                       ),
@@ -250,7 +250,8 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                           ),
                         if ((currentUserDocument?.rol == Roles.profesional) &&
                             (currentUserDocument?.business == null) &&
-                            (currentUserDocument?.plan != Plan.premiun))
+                            (currentUserDocument?.plan != Plan.premiun) &&
+                            (currentUserDocument?.plan != Plan.basic))
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 10.0, 0.0, 0.0),
@@ -296,6 +297,58 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                               ),
                             ),
                           ),
+                        if ((currentUserDocument?.rol == Roles.profesional) &&
+                            (currentUserDocument?.business == null) &&
+                            (currentUserDocument?.plan != Plan.premiun) &&
+                            (currentUserDocument?.plan != Plan.standar))
+                          Align(
+                            alignment: AlignmentDirectional(0.0, 0.0),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 10.0, 0.0, 10.0),
+                              child: AuthUserStreamWidget(
+                                builder: (context) => Container(
+                                  width: 326.0,
+                                  height: 56.0,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      context.pushNamed(
+                                        StandarWidget.routeName,
+                                        queryParameters: {
+                                          'userRef': serializeParam(
+                                            currentUserReference,
+                                            ParamType.DocumentReference,
+                                          ),
+                                          'currentPlan': serializeParam(
+                                            currentUserDocument?.plan,
+                                            ParamType.Enum,
+                                          ),
+                                        }.withoutNulls,
+                                      );
+                                    },
+                                    child: wrapWithModel(
+                                      model: _model.accountOptionStandardModel,
+                                      updateCallback: () => safeSetState(() {}),
+                                      child: AccountOptionStandardWidget(
+                                        text: 'Start Standard',
+                                        icon: Icon(
+                                          Icons.star_half,
+                                          size: 30.0,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
                         Container(
                           width: 326.0,
                           height: 52.0,
@@ -335,7 +388,6 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                               child: AccountOptionWidget(
                                 key: ValueKey('profile'),
                                 icon: Icon(
-                                  key: ValueKey('profile'),
                                   Icons.location_history,
                                   size: 30.0,
                                 ),
@@ -385,7 +437,6 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                               child: AccountOptionWidget(
                                 key: ValueKey('profile'),
                                 icon: FaIcon(
-                                  key: ValueKey('profile'),
                                   FontAwesomeIcons.userEdit,
                                   size: 21.0,
                                 ),
@@ -426,7 +477,6 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                               child: AccountOptionWidget(
                                 key: ValueKey('profile'),
                                 icon: Icon(
-                                  key: ValueKey('profile'),
                                   Icons.security,
                                   size: 21.0,
                                 ),
@@ -498,7 +548,6 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                       child: AccountOptionWidget(
                                         key: ValueKey('seeCode'),
                                         icon: Icon(
-                                          key: ValueKey('seeCode'),
                                           Icons.password,
                                           size: 30.0,
                                         ),
@@ -589,7 +638,6 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                   child: AccountOptionWidget(
                                     key: ValueKey('block'),
                                     icon: Icon(
-                                      key: ValueKey('block'),
                                       Icons.no_accounts,
                                       size: 30.0,
                                     ),
@@ -635,7 +683,6 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                     child: AccountOptionWidget(
                                       key: ValueKey('change'),
                                       icon: Icon(
-                                        key: ValueKey('change'),
                                         Icons.contact_emergency,
                                         size: 30.0,
                                       ),
@@ -667,7 +714,6 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                 child: AccountOptionWidget(
                                   key: ValueKey('terms'),
                                   icon: Icon(
-                                    key: ValueKey('terms'),
                                     Icons.contact_page_outlined,
                                     size: 30.0,
                                   ),
@@ -694,7 +740,6 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                               child: AccountOptionWidget(
                                 key: ValueKey('delete'),
                                 icon: Icon(
-                                  key: ValueKey('delete'),
                                   Icons.delete_sweep,
                                 ),
                                 text: 'Delete account',
@@ -773,7 +818,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                 child: Container(
                   height: 73.0,
                   decoration: BoxDecoration(
-                    color: Color(0xBEB928B8),
+                    color: Color(0xFFBD39BA),
                   ),
                   child: Builder(
                     builder: (context) {

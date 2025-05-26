@@ -57,7 +57,7 @@ class _OtherWidgetState extends State<OtherWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xFFBD39BA),
         body: SafeArea(
           top: true,
           child: Stack(
@@ -103,6 +103,7 @@ class _OtherWidgetState extends State<OtherWidget> {
                       ),
                     ),
                     Container(
+                      width: MediaQuery.sizeOf(context).width * 0.9,
                       decoration: BoxDecoration(),
                       child: Padding(
                         padding:
@@ -131,7 +132,7 @@ class _OtherWidgetState extends State<OtherWidget> {
                                                     .fontStyle,
                                           ),
                                           color: Colors.white,
-                                          fontSize: 24.0,
+                                          fontSize: 20.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
                                           fontStyle:
@@ -159,7 +160,9 @@ class _OtherWidgetState extends State<OtherWidget> {
                                         child: Stack(
                                           children: [
                                             Container(
-                                              width: 400.0,
+                                              width: MediaQuery.sizeOf(context)
+                                                      .width *
+                                                  0.8,
                                               child: TextFormField(
                                                 controller: _model
                                                     .otherbodyTextController,

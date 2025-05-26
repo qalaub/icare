@@ -15,6 +15,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'peoplewhoputyouinfavorites_model.dart';
 export 'peoplewhoputyouinfavorites_model.dart';
 
@@ -65,6 +66,9 @@ class _PeoplewhoputyouinfavoritesWidgetState
         await authManager.deleteUser(context);
 
         context.goNamed(LoginWidget.routeName);
+      } else {
+        FFAppState().isInLikesPage = true;
+        safeSetState(() {});
       }
     });
   }
@@ -78,6 +82,8 @@ class _PeoplewhoputyouinfavoritesWidgetState
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -141,7 +147,6 @@ class _PeoplewhoputyouinfavoritesWidgetState
                   width: double.infinity,
                   height: double.infinity,
                   decoration: BoxDecoration(
-                    color: Color(0xFF9F2525),
                     image: DecorationImage(
                       fit: BoxFit.cover,
                       image: Image.asset(
@@ -230,7 +235,7 @@ class _PeoplewhoputyouinfavoritesWidgetState
                 child: Container(
                   height: 73.0,
                   decoration: BoxDecoration(
-                    color: Color(0xB3B928B8),
+                    color: Color(0xFFBD39BA),
                   ),
                   child: Builder(
                     builder: (context) {

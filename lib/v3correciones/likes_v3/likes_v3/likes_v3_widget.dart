@@ -1,4 +1,3 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
@@ -44,17 +43,17 @@ class _LikesV3WidgetState extends State<LikesV3Widget> {
       _model.newUser = await queryUsersRecordOnce(
         queryBuilder: (usersRecord) => usersRecord
             .where(
-              'uid',
-              isEqualTo: currentUserReference?.id,
-            )
-            .where(
               'rol',
               isEqualTo: Roles.user.serialize(),
+            )
+            .where(
+              'uid',
+              isEqualTo: widget.profesionalRef?.id,
             ),
         singleRecord: true,
       ).then((s) => s.firstOrNull);
       _model.apiResult5vv = await GetNamePlaceCall.call(
-        lat: functions.latLngToString(currentUserDocument!.suburb!),
+        lat: functions.latLngToString(_model.newUser!.suburb!),
       );
 
       if ((_model.apiResult5vv?.succeeded ?? true)) {
@@ -100,7 +99,7 @@ class _LikesV3WidgetState extends State<LikesV3Widget> {
           final containerUsersRecord = snapshot.data!;
 
           return Container(
-            width: MediaQuery.sizeOf(context).width * 0.65,
+            width: MediaQuery.sizeOf(context).width * 0.9,
             height: 144.0,
             decoration: BoxDecoration(
               color: Color(0xFFF2CCF1),
@@ -116,8 +115,8 @@ class _LikesV3WidgetState extends State<LikesV3Widget> {
                   Align(
                     alignment: AlignmentDirectional(0.0, 0.0),
                     child: Container(
-                      width: 60.0,
-                      height: 60.0,
+                      width: 80.0,
+                      height: 80.0,
                       decoration: BoxDecoration(
                         shape: BoxShape.rectangle,
                       ),
@@ -127,8 +126,8 @@ class _LikesV3WidgetState extends State<LikesV3Widget> {
                           fadeInDuration: Duration(milliseconds: 500),
                           fadeOutDuration: Duration(milliseconds: 500),
                           imageUrl: containerUsersRecord.photoUrl,
-                          width: MediaQuery.sizeOf(context).width * 0.2,
-                          height: 59.0,
+                          width: double.infinity,
+                          height: double.infinity,
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -138,13 +137,13 @@ class _LikesV3WidgetState extends State<LikesV3Widget> {
                     alignment: AlignmentDirectional(0.0, 0.0),
                     child: Container(
                       width: MediaQuery.sizeOf(context).width * 0.5,
-                      height: 100.0,
+                      height: 90.0,
                       decoration: BoxDecoration(),
                       child: Align(
                         alignment: AlignmentDirectional(0.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Align(
@@ -155,7 +154,7 @@ class _LikesV3WidgetState extends State<LikesV3Widget> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, -0.1),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Text(
                                       functions.upperCaseFirstLetter(
                                           containerUsersRecord.firtsName),
@@ -184,7 +183,7 @@ class _LikesV3WidgetState extends State<LikesV3Widget> {
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 12.0, 0.0, 0.0),
+                                  0.0, 6.0, 0.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -259,6 +258,7 @@ class _LikesV3WidgetState extends State<LikesV3Widget> {
                                                       .fontStyle,
                                             ),
                                       ),
+                                      maxLines: 2,
                                     ),
                                   ),
                                 ],
@@ -266,7 +266,7 @@ class _LikesV3WidgetState extends State<LikesV3Widget> {
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 8.0, 0.0, 0.0),
+                                  0.0, 6.0, 0.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -347,13 +347,13 @@ class _LikesV3WidgetState extends State<LikesV3Widget> {
                                 ],
                               ),
                             ),
-                          ].divide(SizedBox(height: 5.0)),
+                          ],
                         ),
                       ),
                     ),
                   ),
                 ]
-                    .divide(SizedBox(width: 10.0))
+                    .divide(SizedBox(width: 15.0))
                     .addToStart(SizedBox(width: 30.0))
                     .addToEnd(SizedBox(width: 15.0)),
               ),

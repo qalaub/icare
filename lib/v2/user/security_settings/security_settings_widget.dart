@@ -92,7 +92,7 @@ class _SecuritySettingsWidgetState extends State<SecuritySettingsWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xFFBD39BA),
         appBar: AppBar(
           backgroundColor: Color(0xFFB928B8),
           automaticallyImplyLeading: false,
@@ -269,7 +269,9 @@ class _SecuritySettingsWidgetState extends State<SecuritySettingsWidget> {
                                                   width: double.infinity,
                                                   height: 52.0,
                                                   decoration: BoxDecoration(
-                                                    color: Color(0xFFF0F0F0),
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             12.0),
@@ -483,7 +485,9 @@ class _SecuritySettingsWidgetState extends State<SecuritySettingsWidget> {
                                                   width: double.infinity,
                                                   height: 52.0,
                                                   decoration: BoxDecoration(
-                                                    color: Color(0xFFF0F0F0),
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             12.0),
@@ -802,8 +806,7 @@ class _SecuritySettingsWidgetState extends State<SecuritySettingsWidget> {
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(16.0),
-                                    disabledColor: FlutterFlowTheme.of(context)
-                                        .secondaryText,
+                                    disabledColor: Color(0xFF99A1A8),
                                   ),
                                 ),
                                 Align(
@@ -915,7 +918,9 @@ class _SecuritySettingsWidgetState extends State<SecuritySettingsWidget> {
                                                   width: double.infinity,
                                                   height: 52.0,
                                                   decoration: BoxDecoration(
-                                                    color: Color(0xFFF0F0F0),
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             12.0),
@@ -1148,7 +1153,9 @@ class _SecuritySettingsWidgetState extends State<SecuritySettingsWidget> {
                                                     width: double.infinity,
                                                     height: 52.0,
                                                     decoration: BoxDecoration(
-                                                      color: Color(0xFFF0F0F0),
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               12.0),
@@ -1492,9 +1499,7 @@ class _SecuritySettingsWidgetState extends State<SecuritySettingsWidget> {
                                             ),
                                             borderRadius:
                                                 BorderRadius.circular(16.0),
-                                            disabledColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .secondaryText,
+                                            disabledColor: Color(0xFF99A1A8),
                                           ),
                                         ),
                                       ].divide(SizedBox(height: 8.0)),
@@ -1515,7 +1520,7 @@ class _SecuritySettingsWidgetState extends State<SecuritySettingsWidget> {
                     child: Container(
                       height: 73.0,
                       decoration: BoxDecoration(
-                        color: Color(0xB3B928B8),
+                        color: Color(0xFFBD39BA),
                       ),
                       child: Builder(
                         builder: (context) {

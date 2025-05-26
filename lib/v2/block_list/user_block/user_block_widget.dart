@@ -1,3 +1,5 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/v2/block_list/user_block_options/user_block_options_widget.dart';
@@ -99,23 +101,29 @@ class _UserBlockWidgetState extends State<UserBlockWidget> {
                         alignment: AlignmentDirectional(0.0, 0.0),
                         child: Container(
                           decoration: BoxDecoration(),
-                          child: Text(
-                            functions.upperCaseFirstLetter(widget.username!),
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  font: GoogleFonts.montserrat(
-                                    fontWeight: FontWeight.bold,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontStyle,
-                                  ),
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.bold,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .fontStyle,
-                                ),
+                          child: Visibility(
+                            visible: currentUserDocument?.plan != Plan.basic,
+                            child: AuthUserStreamWidget(
+                              builder: (context) => Text(
+                                functions
+                                    .upperCaseFirstLetter(widget.username!),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      font: GoogleFonts.montserrat(
+                                        fontWeight: FontWeight.bold,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.bold,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                              ),
+                            ),
                           ),
                         ),
                       ),

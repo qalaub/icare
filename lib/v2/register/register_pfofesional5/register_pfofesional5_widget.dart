@@ -1,6 +1,8 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
+import '/backend/schema/enums/enums.dart';
+import '/backend/stripe/payment_manager.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -17,11 +19,9 @@ export 'register_pfofesional5_model.dart';
 class RegisterPfofesional5Widget extends StatefulWidget {
   const RegisterPfofesional5Widget({
     super.key,
-    this.bussinesRef,
     bool? isBussines,
   }) : this.isBussines = isBussines ?? false;
 
-  final DocumentReference? bussinesRef;
   final bool isBussines;
 
   static String routeName = 'RegisterPfofesional5';
@@ -62,7 +62,7 @@ class _RegisterPfofesional5WidgetState
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Color(0xFFFFFEFE),
+        backgroundColor: Color(0xFFBD39BA),
         body: SafeArea(
           top: true,
           child: Column(
@@ -132,8 +132,7 @@ class _RegisterPfofesional5WidgetState
                               alignment: AlignmentDirectional(0.0, 0.0),
                               child: Container(
                                 width: MediaQuery.sizeOf(context).width * 0.96,
-                                height:
-                                    MediaQuery.sizeOf(context).height * 0.45,
+                                height: MediaQuery.sizeOf(context).height * 0.5,
                                 decoration: BoxDecoration(
                                   color: Color(0xFFFFFEFE),
                                   borderRadius: BorderRadius.only(
@@ -222,129 +221,116 @@ class _RegisterPfofesional5WidgetState
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 20.0, 0.0, 0.0),
                                         child: FFButtonWidget(
-                                          onPressed: (FFAppState()
-                                                      .videoupload ==
-                                                  true)
-                                              ? null
-                                              : () async {
-                                                  final selectedMedia =
-                                                      await selectMediaWithSourceBottomSheet(
-                                                    context: context,
-                                                    allowPhoto: false,
-                                                    allowVideo: true,
-                                                  );
-                                                  if (selectedMedia != null &&
-                                                      selectedMedia.every((m) =>
-                                                          validateFileFormat(
-                                                              m.storagePath,
-                                                              context))) {
-                                                    safeSetState(() => _model
-                                                            .isDataUploading1 =
-                                                        true);
-                                                    var selectedUploadedFiles =
-                                                        <FFUploadedFile>[];
+                                          onPressed: () async {
+                                            final selectedMedia =
+                                                await selectMediaWithSourceBottomSheet(
+                                              context: context,
+                                              allowPhoto: false,
+                                              allowVideo: true,
+                                            );
+                                            if (selectedMedia != null &&
+                                                selectedMedia.every((m) =>
+                                                    validateFileFormat(
+                                                        m.storagePath,
+                                                        context))) {
+                                              safeSetState(() => _model
+                                                  .isDataUploading1 = true);
+                                              var selectedUploadedFiles =
+                                                  <FFUploadedFile>[];
 
-                                                    try {
-                                                      selectedUploadedFiles =
-                                                          selectedMedia
-                                                              .map((m) =>
-                                                                  FFUploadedFile(
-                                                                    name: m
-                                                                        .storagePath
-                                                                        .split(
-                                                                            '/')
-                                                                        .last,
-                                                                    bytes:
-                                                                        m.bytes,
-                                                                    height: m
-                                                                        .dimensions
-                                                                        ?.height,
-                                                                    width: m
-                                                                        .dimensions
-                                                                        ?.width,
-                                                                    blurHash: m
-                                                                        .blurHash,
-                                                                  ))
-                                                              .toList();
-                                                    } finally {
-                                                      _model.isDataUploading1 =
-                                                          false;
-                                                    }
-                                                    if (selectedUploadedFiles
-                                                            .length ==
-                                                        selectedMedia.length) {
-                                                      safeSetState(() {
-                                                        _model.uploadedLocalFile1 =
-                                                            selectedUploadedFiles
-                                                                .first;
-                                                      });
-                                                    } else {
-                                                      safeSetState(() {});
-                                                      return;
-                                                    }
-                                                  }
+                                              try {
+                                                selectedUploadedFiles =
+                                                    selectedMedia
+                                                        .map((m) =>
+                                                            FFUploadedFile(
+                                                              name: m
+                                                                  .storagePath
+                                                                  .split('/')
+                                                                  .last,
+                                                              bytes: m.bytes,
+                                                              height: m
+                                                                  .dimensions
+                                                                  ?.height,
+                                                              width: m
+                                                                  .dimensions
+                                                                  ?.width,
+                                                              blurHash:
+                                                                  m.blurHash,
+                                                            ))
+                                                        .toList();
+                                              } finally {
+                                                _model.isDataUploading1 = false;
+                                              }
+                                              if (selectedUploadedFiles
+                                                      .length ==
+                                                  selectedMedia.length) {
+                                                safeSetState(() {
+                                                  _model.uploadedLocalFile1 =
+                                                      selectedUploadedFiles
+                                                          .first;
+                                                });
+                                              } else {
+                                                safeSetState(() {});
+                                                return;
+                                              }
+                                            }
 
-                                                  _model.verifyVideo =
-                                                      await actions
-                                                          .verifySizeVideo(
-                                                    _model.uploadedLocalFile1,
-                                                  );
-                                                  if (_model.verifyVideo!) {
-                                                    FFAppState().videoupload =
-                                                        true;
-                                                    safeSetState(() {});
-                                                    ScaffoldMessenger.of(
-                                                            context)
-                                                        .showSnackBar(
-                                                      SnackBar(
-                                                        content: Text(
-                                                          'Video uploaded',
-                                                          style: TextStyle(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryText,
-                                                          ),
-                                                        ),
-                                                        duration: Duration(
-                                                            milliseconds: 4000),
-                                                        backgroundColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondary,
-                                                      ),
-                                                    );
-                                                  } else {
-                                                    ScaffoldMessenger.of(
-                                                            context)
-                                                        .showSnackBar(
-                                                      SnackBar(
-                                                        content: Text(
-                                                          'The video was not uploaded correctly',
-                                                          style: TextStyle(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryText,
-                                                          ),
-                                                        ),
-                                                        duration: Duration(
-                                                            milliseconds: 4000),
-                                                        backgroundColor:
-                                                            Color(0xFFD2395B),
-                                                      ),
-                                                    );
-                                                    safeSetState(() {
-                                                      _model.isDataUploading1 =
-                                                          false;
-                                                      _model.uploadedLocalFile1 =
-                                                          FFUploadedFile(
-                                                              bytes: Uint8List
-                                                                  .fromList(
-                                                                      []));
-                                                    });
-                                                  }
+                                            _model.verifyVideo =
+                                                await actions.verifySizeVideo(
+                                              _model.uploadedLocalFile1,
+                                            );
+                                            if (_model.verifyVideo!) {
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(
+                                                SnackBar(
+                                                  content: Text(
+                                                    'Video uploaded',
+                                                    style: TextStyle(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryText,
+                                                    ),
+                                                  ),
+                                                  duration: Duration(
+                                                      milliseconds: 4000),
+                                                  backgroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .secondary,
+                                                ),
+                                              );
+                                            } else {
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(
+                                                SnackBar(
+                                                  content: Text(
+                                                    'The video was not uploaded correctly',
+                                                    style: TextStyle(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryText,
+                                                    ),
+                                                  ),
+                                                  duration: Duration(
+                                                      milliseconds: 4000),
+                                                  backgroundColor:
+                                                      Color(0xFFD2395B),
+                                                ),
+                                              );
+                                              safeSetState(() {
+                                                _model.isDataUploading1 = false;
+                                                _model.uploadedLocalFile1 =
+                                                    FFUploadedFile(
+                                                        bytes:
+                                                            Uint8List.fromList(
+                                                                []));
+                                              });
+                                            }
 
-                                                  safeSetState(() {});
-                                                },
+                                            safeSetState(() {});
+                                          },
                                           text: 'Upload video',
                                           options: FFButtonOptions(
                                             width: 275.0,
@@ -482,25 +468,95 @@ class _RegisterPfofesional5WidgetState
                                                 }
                                               }
 
-                                              _model.video =
-                                                  _model.uploadedFileUrl2;
-                                              safeSetState(() {});
-
                                               await currentUserReference!
                                                   .update(createUsersRecordData(
                                                 video: _model.uploadedFileUrl2,
                                               ));
-
-                                              context.goNamed(
-                                                HomeSearchWidget.routeName,
-                                                queryParameters: {
-                                                  'authUser': serializeParam(
-                                                    true,
-                                                    ParamType.bool,
-                                                  ),
-                                                }.withoutNulls,
+                                              final paymentResponse =
+                                                  await processStripePayment(
+                                                context,
+                                                amount: () {
+                                                  if (FFAppState()
+                                                          .registerProviderForm
+                                                          .plan ==
+                                                      Plan.basic) {
+                                                    return FFAppConstants
+                                                        .basicPrice;
+                                                  } else if (FFAppState()
+                                                          .registerProviderForm
+                                                          .plan ==
+                                                      Plan.standar) {
+                                                    return FFAppConstants
+                                                        .standarPrice;
+                                                  } else {
+                                                    return FFAppConstants
+                                                        .premiunPrice;
+                                                  }
+                                                }(),
+                                                currency: 'AUD',
+                                                customerEmail: FFAppState()
+                                                    .registerProviderForm
+                                                    .email,
+                                                customerName: FFAppState()
+                                                    .registerProviderForm
+                                                    .firstName,
+                                                description: () {
+                                                  if (FFAppState()
+                                                          .registerProviderForm
+                                                          .plan ==
+                                                      Plan.basic) {
+                                                    return 'Plan Basic';
+                                                  } else if (FFAppState()
+                                                          .registerProviderForm
+                                                          .plan ==
+                                                      Plan.standar) {
+                                                    return 'Plan Standar';
+                                                  } else {
+                                                    return 'Plan Premiun';
+                                                  }
+                                                }(),
+                                                allowGooglePay: true,
+                                                allowApplePay: false,
                                               );
+                                              if (paymentResponse.paymentId ==
+                                                      null &&
+                                                  paymentResponse
+                                                          .errorMessage !=
+                                                      null) {
+                                                showSnackbar(
+                                                  context,
+                                                  'Error: ${paymentResponse.errorMessage}',
+                                                );
+                                              }
+                                              _model.paymentId =
+                                                  paymentResponse.paymentId ??
+                                                      '';
+
+                                              if (_model.paymentId != null &&
+                                                  _model.paymentId != '') {
+                                                FFAppState().authUserFireBase =
+                                                    true;
+                                                FFAppState()
+                                                        .isCreatedProfesional =
+                                                    true;
+                                                safeSetState(() {});
+
+                                                context.goNamed(
+                                                  HomeSearchWidget.routeName,
+                                                  queryParameters: {
+                                                    'authUser': serializeParam(
+                                                      true,
+                                                      ParamType.bool,
+                                                    ),
+                                                  }.withoutNulls,
+                                                );
+                                              } else {
+                                                await authManager
+                                                    .deleteUser(context);
+                                              }
                                             }
+
+                                            safeSetState(() {});
                                           },
                                           text: 'Create Profile',
                                           options: FFButtonOptions(
@@ -551,6 +607,151 @@ class _RegisterPfofesional5WidgetState
                                             borderRadius:
                                                 BorderRadius.circular(24.0),
                                           ),
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 10.0, 0.0, 0.0),
+                                      child: FFButtonWidget(
+                                        onPressed: () async {
+                                          _model.video =
+                                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/gv12biya5vta/video_coming_soon!.mp4';
+                                          safeSetState(() {});
+
+                                          await currentUserReference!
+                                              .update(createUsersRecordData(
+                                            video:
+                                                'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/gv12biya5vta/video_coming_soon!.mp4',
+                                          ));
+                                          final paymentResponse =
+                                              await processStripePayment(
+                                            context,
+                                            amount: () {
+                                              if (FFAppState()
+                                                      .registerProviderForm
+                                                      .plan ==
+                                                  Plan.basic) {
+                                                return FFAppConstants
+                                                    .basicPrice;
+                                              } else if (FFAppState()
+                                                      .registerProviderForm
+                                                      .plan ==
+                                                  Plan.standar) {
+                                                return FFAppConstants
+                                                    .standarPrice;
+                                              } else {
+                                                return FFAppConstants
+                                                    .premiunPrice;
+                                              }
+                                            }(),
+                                            currency: 'AUD',
+                                            customerEmail: FFAppState()
+                                                .registerProviderForm
+                                                .email,
+                                            customerName: FFAppState()
+                                                .registerProviderForm
+                                                .firstName,
+                                            description: () {
+                                              if (FFAppState()
+                                                      .registerProviderForm
+                                                      .plan ==
+                                                  Plan.basic) {
+                                                return 'Plan Basic';
+                                              } else if (FFAppState()
+                                                      .registerProviderForm
+                                                      .plan ==
+                                                  Plan.standar) {
+                                                return 'Plan Standar';
+                                              } else {
+                                                return 'Plan Premiun';
+                                              }
+                                            }(),
+                                            allowGooglePay: true,
+                                            allowApplePay: false,
+                                          );
+                                          if (paymentResponse.paymentId ==
+                                                  null &&
+                                              paymentResponse.errorMessage !=
+                                                  null) {
+                                            showSnackbar(
+                                              context,
+                                              'Error: ${paymentResponse.errorMessage}',
+                                            );
+                                          }
+                                          _model.paymentId1 =
+                                              paymentResponse.paymentId ?? '';
+
+                                          if (_model.paymentId1 != null &&
+                                              _model.paymentId1 != '') {
+                                            FFAppState().authUserFireBase =
+                                                true;
+                                            FFAppState().isCreatedProfesional =
+                                                true;
+                                            safeSetState(() {});
+
+                                            context.goNamed(
+                                              HomeSearchWidget.routeName,
+                                              queryParameters: {
+                                                'authUser': serializeParam(
+                                                  true,
+                                                  ParamType.bool,
+                                                ),
+                                              }.withoutNulls,
+                                            );
+                                          } else {
+                                            await authManager
+                                                .deleteUser(context);
+                                          }
+
+                                          safeSetState(() {});
+                                        },
+                                        text: 'Skip Video',
+                                        options: FFButtonOptions(
+                                          width: 150.0,
+                                          height: 45.0,
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  16.0, 0.0, 16.0, 0.0),
+                                          iconPadding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 0.0),
+                                          color: Color(0xFFB928B8),
+                                          textStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .titleSmall
+                                              .override(
+                                                font: GoogleFonts.montserrat(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleSmall
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleSmall
+                                                          .fontStyle,
+                                                ),
+                                                color: Colors.white,
+                                                fontSize: 18.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .fontStyle,
+                                              ),
+                                          elevation: 5.0,
+                                          borderSide: BorderSide(
+                                            color: Colors.transparent,
+                                            width: 2.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(24.0),
                                         ),
                                       ),
                                     ),

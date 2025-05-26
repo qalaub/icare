@@ -75,7 +75,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
         onWillPop: () async => false,
         child: Scaffold(
           key: scaffoldKey,
-          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+          backgroundColor: Color(0xFFBD39BA),
           body: SafeArea(
             top: true,
             child: Stack(
@@ -472,8 +472,6 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                         },
                                                         value: _model.basic,
                                                         onIcon: Icon(
-                                                          key:
-                                                              ValueKey('basic'),
                                                           Icons
                                                               .radio_button_checked,
                                                           color: FlutterFlowTheme
@@ -482,8 +480,6 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                           size: 25.0,
                                                         ),
                                                         offIcon: Icon(
-                                                          key:
-                                                              ValueKey('basic'),
                                                           Icons
                                                               .radio_button_off,
                                                           color: FlutterFlowTheme
@@ -933,8 +929,6 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                           },
                                                           value: _model.standar,
                                                           onIcon: Icon(
-                                                            key: ValueKey(
-                                                                'standar'),
                                                             Icons
                                                                 .radio_button_checked,
                                                             color: FlutterFlowTheme
@@ -943,8 +937,6 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                             size: 25.0,
                                                           ),
                                                           offIcon: Icon(
-                                                            key: ValueKey(
-                                                                'standar'),
                                                             Icons
                                                                 .radio_button_off,
                                                             color: FlutterFlowTheme
@@ -1379,8 +1371,6 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                       },
                                                       value: _model.premiun,
                                                       onIcon: Icon(
-                                                        key:
-                                                            ValueKey('premiun'),
                                                         Icons
                                                             .radio_button_checked,
                                                         color:
@@ -1390,8 +1380,6 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                                         size: 25.0,
                                                       ),
                                                       offIcon: Icon(
-                                                        key:
-                                                            ValueKey('premiun'),
                                                         Icons.radio_button_off,
                                                         color:
                                                             FlutterFlowTheme.of(
@@ -1485,71 +1473,77 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                     0.0, 10.0, 0.0, 10.0),
                                 child: FFButtonWidget(
                                   key: ValueKey('continue'),
-                                  onPressed: () async {
-                                    if (widget.professionalUpdate != null) {
-                                      if (FFAppState()
-                                              .registerProviderForm
-                                              .plan ==
-                                          Plan.basic) {
-                                        context.goNamed(
-                                          BasicWidget.routeName,
-                                          queryParameters: {
-                                            'userRef': serializeParam(
-                                              widget.professionalUpdate,
-                                              ParamType.DocumentReference,
-                                            ),
-                                            'currentPlan': serializeParam(
-                                              widget.currentPlan,
-                                              ParamType.Enum,
-                                            ),
-                                          }.withoutNulls,
-                                        );
-                                      } else if (FFAppState()
-                                              .registerProviderForm
-                                              .plan ==
-                                          Plan.standar) {
-                                        context.goNamed(
-                                          StandarWidget.routeName,
-                                          queryParameters: {
-                                            'userRef': serializeParam(
-                                              widget.professionalUpdate,
-                                              ParamType.DocumentReference,
-                                            ),
-                                            'currentPlan': serializeParam(
-                                              widget.currentPlan,
-                                              ParamType.Enum,
-                                            ),
-                                          }.withoutNulls,
-                                        );
-                                      } else {
-                                        context.goNamed(
-                                          PremiumWidget.routeName,
-                                          queryParameters: {
-                                            'userRef': serializeParam(
-                                              widget.professionalUpdate,
-                                              ParamType.DocumentReference,
-                                            ),
-                                            'currentPlan': serializeParam(
-                                              widget.currentPlan,
-                                              ParamType.Enum,
-                                            ),
-                                          }.withoutNulls,
-                                        );
-                                      }
-                                    } else {
-                                      if (FFAppState()
-                                              .registerProviderForm
-                                              .plan ==
-                                          Plan.premiun) {
-                                        context.pushNamed(
-                                            RegisterBusiness1Widget.routeName);
-                                      } else {
-                                        context.pushNamed(
-                                            RegisterProfessional1Widget
-                                                .routeName);
-                                      }
-                                    }
-                                  },
+                                  onPressed: ((_model.basic == false) &&
+                                          (_model.standar == false) &&
+                                          (_model.premiun == false))
+                                      ? null
+                                      : () async {
+                                          if (widget.professionalUpdate !=
+                                              null) {
+                                            if (FFAppState()
+                                                    .registerProviderForm
+                                                    .plan ==
+                                                Plan.basic) {
+                                              context.goNamed(
+                                                BasicWidget.routeName,
+                                                queryParameters: {
+                                                  'userRef': serializeParam(
+                                                    widget.professionalUpdate,
+                                                    ParamType.DocumentReference,
+                                                  ),
+                                                  'currentPlan': serializeParam(
+                                                    widget.currentPlan,
+                                                    ParamType.Enum,
+                                                  ),
+                                                }.withoutNulls,
+                                              );
+                                            } else if (FFAppState()
+                                                    .registerProviderForm
+                                                    .plan ==
+                                                Plan.standar) {
+                                              context.goNamed(
+                                                StandarWidget.routeName,
+                                                queryParameters: {
+                                                  'userRef': serializeParam(
+                                                    widget.professionalUpdate,
+                                                    ParamType.DocumentReference,
+                                                  ),
+                                                  'currentPlan': serializeParam(
+                                                    widget.currentPlan,
+                                                    ParamType.Enum,
+                                                  ),
+                                                }.withoutNulls,
+                                              );
+                                            } else {
+                                              context.goNamed(
+                                                PremiumWidget.routeName,
+                                                queryParameters: {
+                                                  'userRef': serializeParam(
+                                                    widget.professionalUpdate,
+                                                    ParamType.DocumentReference,
+                                                  ),
+                                                  'currentPlan': serializeParam(
+                                                    widget.currentPlan,
+                                                    ParamType.Enum,
+                                                  ),
+                                                }.withoutNulls,
+                                              );
+                                            }
+                                          } else {
+                                            if (FFAppState()
+                                                    .registerProviderForm
+                                                    .plan ==
+                                                Plan.premiun) {
+                                              context.pushNamed(
+                                                  RegisterBusiness1Widget
+                                                      .routeName);
+                                            } else {
+                                              context.pushNamed(
+                                                  RegisterProfessional1Widget
+                                                      .routeName);
+                                            }
+                                          }
+                                        },
                                   text: 'Continue',
                                   options: FFButtonOptions(
                                     width: 275.0,
@@ -1584,6 +1578,7 @@ class _MembresiasV2WidgetState extends State<MembresiasV2Widget> {
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(24.0),
+                                    disabledColor: Color(0xFF57636C),
                                   ),
                                 ),
                               ),

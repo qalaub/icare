@@ -2,8 +2,8 @@ import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/components/estrellas_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/v2/block_list/favoritesv2/add_favorites/add_favorites_widget.dart';
 import '/v2/block_list/favoritesv2/add_favorites_copy/add_favorites_copy_widget.dart';
+import '/v2/block_list/favoritesv2/add_favorites_copy2/add_favorites_copy2_widget.dart';
 import '/v2/menbresiav2/membresia_logo/membresia_logo_widget.dart';
 import 'v3fv0ritesv3_widget.dart' show V3fv0ritesv3Widget;
 import 'package:flutter/material.dart';
@@ -33,8 +33,8 @@ class V3fv0ritesv3Model extends FlutterFlowModel<V3fv0ritesv3Widget> {
   late EstrellasModel estrellasModel;
   // Model for AddFavoritesCopy component.
   late AddFavoritesCopyModel addFavoritesCopyModel;
-  // Model for AddFavorites component.
-  late AddFavoritesModel addFavoritesModel;
+  // Model for AddFavoritesCopy2 component.
+  late AddFavoritesCopy2Model addFavoritesCopy2Model;
   // Model for MembresiaLogo component.
   late MembresiaLogoModel membresiaLogoModel;
 
@@ -42,7 +42,8 @@ class V3fv0ritesv3Model extends FlutterFlowModel<V3fv0ritesv3Widget> {
   void initState(BuildContext context) {
     estrellasModel = createModel(context, () => EstrellasModel());
     addFavoritesCopyModel = createModel(context, () => AddFavoritesCopyModel());
-    addFavoritesModel = createModel(context, () => AddFavoritesModel());
+    addFavoritesCopy2Model =
+        createModel(context, () => AddFavoritesCopy2Model());
     membresiaLogoModel = createModel(context, () => MembresiaLogoModel());
   }
 
@@ -50,7 +51,7 @@ class V3fv0ritesv3Model extends FlutterFlowModel<V3fv0ritesv3Widget> {
   void dispose() {
     estrellasModel.dispose();
     addFavoritesCopyModel.dispose();
-    addFavoritesModel.dispose();
+    addFavoritesCopy2Model.dispose();
     membresiaLogoModel.dispose();
   }
 }

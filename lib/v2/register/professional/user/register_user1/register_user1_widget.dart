@@ -71,10 +71,24 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
 
     _model.email2TextController ??= TextEditingController();
     _model.email2FocusNode ??= FocusNode();
-
+    _model.email2FocusNode!.addListener(
+      () async {
+        safeSetState(() {
+          _model.email2TextController?.text =
+              functions.cleanEmailInput(_model.email2TextController.text);
+        });
+      },
+    );
     _model.emailconfirm2TextController ??= TextEditingController();
     _model.emailconfirm2FocusNode ??= FocusNode();
-
+    _model.emailconfirm2FocusNode!.addListener(
+      () async {
+        safeSetState(() {
+          _model.emailconfirm2TextController?.text = functions
+              .cleanEmailInput(_model.emailconfirm2TextController.text);
+        });
+      },
+    );
     _model.phoneTextController ??= TextEditingController();
     _model.phoneFocusNode ??= FocusNode();
 
@@ -151,7 +165,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: Color(0xFFBD39BA),
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(0.0),
           child: AppBar(
@@ -588,7 +602,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 15.0, 0.0, 15.0),
+                                                    0.0, 10.0, 0.0, 15.0),
                                             child: Text(
                                               '* Last name',
                                               style: FlutterFlowTheme.of(
@@ -862,7 +876,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 15.0, 0.0, 10.0),
+                                                    0.0, 10.0, 0.0, 10.0),
                                             child: Text(
                                               '* Date of birth',
                                               style: FlutterFlowTheme.of(
@@ -1229,7 +1243,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 15.0, 0.0, 15.0),
+                                                    0.0, 0.0, 0.0, 15.0),
                                             child: Text(
                                               '*Email address',
                                               style: FlutterFlowTheme.of(
@@ -1308,14 +1322,6 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                 .text,
                                                           ),
                                                         );
-                                                        safeSetState(() {
-                                                          _model.email2TextController
-                                                                  ?.text =
-                                                              functions.cleanEmailInput(
-                                                                  _model
-                                                                      .email2TextController
-                                                                      .text);
-                                                        });
 
                                                         safeSetState(() {});
                                                       },
@@ -1545,7 +1551,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 15.0, 0.0, 15.0),
+                                                    0.0, 10.0, 0.0, 15.0),
                                             child: Text(
                                               ' * Confirm email address',
                                               style: FlutterFlowTheme.of(
@@ -1606,22 +1612,6 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                         .emailconfirm2TextController,
                                                     focusNode: _model
                                                         .emailconfirm2FocusNode,
-                                                    onChanged: (_) =>
-                                                        EasyDebounce.debounce(
-                                                      '_model.emailconfirm2TextController',
-                                                      Duration(
-                                                          milliseconds: 10),
-                                                      () async {
-                                                        safeSetState(() {
-                                                          _model.emailconfirm2TextController
-                                                                  ?.text =
-                                                              functions.cleanEmailInput(
-                                                                  _model
-                                                                      .emailconfirm2TextController
-                                                                      .text);
-                                                        });
-                                                      },
-                                                    ),
                                                     onFieldSubmitted:
                                                         (_) async {
                                                       if (_model
@@ -1887,7 +1877,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 15.0, 0.0, 15.0),
+                                                    0.0, 0.0, 0.0, 15.0),
                                             child: Text(
                                               '* Enter your 10-digit mobile number',
                                               style: FlutterFlowTheme.of(
@@ -2718,9 +2708,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                         BorderRadius.circular(
                                                             24.0),
                                                     disabledColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .secondaryText,
+                                                        Color(0xFF99A1A8),
                                                   ),
                                                 ),
                                               ),
@@ -2769,68 +2757,72 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                     (context, newqueryIndex) {
                                                   final newqueryItem =
                                                       newquery[newqueryIndex];
-                                                  return InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
-                                                      _model.newPlace =
-                                                          await GetPlaceCall
-                                                              .call(
-                                                        placeId: newqueryItem
-                                                            .placeId,
-                                                      );
+                                                  return Container(
+                                                    key: ValueKey('search'),
+                                                    child: InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        _model.newPlace =
+                                                            await GetPlaceCall
+                                                                .call(
+                                                          placeId: newqueryItem
+                                                              .placeId,
+                                                        );
 
-                                                      if ((_model.newPlace
-                                                              ?.succeeded ??
-                                                          true)) {
-                                                        _model.newUbication = functions
-                                                            .concatStrings(
+                                                        if ((_model.newPlace
+                                                                ?.succeeded ??
+                                                            true)) {
+                                                          _model.newUbication = functions
+                                                              .concatStrings(
+                                                                  GetPlaceCall
+                                                                          .location(
+                                                                    (_model.newPlace
+                                                                            ?.jsonBody ??
+                                                                        ''),
+                                                                  )
+                                                                      ?.lat
+                                                                      .toString(),
+                                                                  GetPlaceCall
+                                                                      .location(
+                                                                    (_model.newPlace
+                                                                            ?.jsonBody ??
+                                                                        ''),
+                                                                  )?.lng.toString(),
+                                                                  ',');
+                                                          safeSetState(() {
+                                                            _model.queryTextController
+                                                                    ?.text =
                                                                 GetPlaceCall
-                                                                        .location(
-                                                                  (_model.newPlace
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                )
-                                                                    ?.lat
-                                                                    .toString(),
-                                                                GetPlaceCall
-                                                                    .location(
-                                                                  (_model.newPlace
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                )?.lng.toString(),
-                                                                ',');
-                                                        safeSetState(() {
-                                                          _model.queryTextController
-                                                                  ?.text =
-                                                              GetPlaceCall.name(
-                                                            (_model.newPlace
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          )!;
-                                                        });
-                                                      }
-                                                      _model.queryResults = [];
+                                                                    .name(
+                                                              (_model.newPlace
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            )!;
+                                                          });
+                                                        }
+                                                        _model.queryResults =
+                                                            [];
 
-                                                      safeSetState(() {});
-                                                    },
-                                                    child: MapbuscarWidget(
-                                                      key: Key(
-                                                          'Keygju_${newqueryIndex}_of_${newquery.length}'),
-                                                      icon: Icon(
-                                                        key: ValueKey('search'),
-                                                        Icons.location_on,
-                                                        color:
-                                                            Color(0xFFD26AD2),
+                                                        safeSetState(() {});
+                                                      },
+                                                      child: MapbuscarWidget(
+                                                        key: Key(
+                                                            'Keygju_${newqueryIndex}_of_${newquery.length}'),
+                                                        icon: Icon(
+                                                          Icons.location_on,
+                                                          color:
+                                                              Color(0xFFD26AD2),
+                                                        ),
+                                                        text: newqueryItem
+                                                            .description,
                                                       ),
-                                                      text: newqueryItem
-                                                          .description,
                                                     ),
                                                   );
                                                 },

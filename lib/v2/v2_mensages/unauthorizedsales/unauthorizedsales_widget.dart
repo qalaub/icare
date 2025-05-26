@@ -56,7 +56,7 @@ class _UnauthorizedsalesWidgetState extends State<UnauthorizedsalesWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xFFBD39BA),
         body: SafeArea(
           top: true,
           child: Stack(
@@ -102,6 +102,7 @@ class _UnauthorizedsalesWidgetState extends State<UnauthorizedsalesWidget> {
                       ),
                     ),
                     Container(
+                      width: MediaQuery.sizeOf(context).width * 0.9,
                       decoration: BoxDecoration(),
                       child: Padding(
                         padding:
@@ -130,7 +131,7 @@ class _UnauthorizedsalesWidgetState extends State<UnauthorizedsalesWidget> {
                                                     .fontStyle,
                                           ),
                                           color: Colors.white,
-                                          fontSize: 24.0,
+                                          fontSize: 20.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
                                           fontStyle:
@@ -154,10 +155,14 @@ class _UnauthorizedsalesWidgetState extends State<UnauthorizedsalesWidget> {
                                     Align(
                                       alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.8,
                                         decoration: BoxDecoration(),
                                         child: AutoSizeText(
-                                          'A system employee reviews reports \nof unauthorized sales to determine \nif they violate community standards. \nIf confirmed, the account will be \nsuspended.',
+                                          'A system employee reviews reports of unauthorized sales to determine if they violate community standards. If confirmed, the account will be suspended.',
                                           textAlign: TextAlign.justify,
+                                          maxLines: 5,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(

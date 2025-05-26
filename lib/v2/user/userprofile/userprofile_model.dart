@@ -2,6 +2,7 @@ import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/v2/account_option/account_option_widget.dart';
+import '/v2/account_option_standard/account_option_standard_widget.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
 import '/index.dart';
@@ -17,6 +18,8 @@ class UserprofileModel extends FlutterFlowModel<UserprofileWidget> {
 
   // Model for AccountOption component.
   late AccountOptionModel accountOptionModel1;
+  // Model for AccountOptionStandard component.
+  late AccountOptionStandardModel accountOptionStandardModel;
   // Model for AccountOption component.
   late AccountOptionModel accountOptionModel2;
   // Stores action output result for [Backend Call - API (getNamePlace)] action in AccountOption widget.
@@ -51,6 +54,8 @@ class UserprofileModel extends FlutterFlowModel<UserprofileWidget> {
   @override
   void initState(BuildContext context) {
     accountOptionModel1 = createModel(context, () => AccountOptionModel());
+    accountOptionStandardModel =
+        createModel(context, () => AccountOptionStandardModel());
     accountOptionModel2 = createModel(context, () => AccountOptionModel());
     accountOptionModel3 = createModel(context, () => AccountOptionModel());
     accountOptionModel4 = createModel(context, () => AccountOptionModel());
@@ -66,6 +71,7 @@ class UserprofileModel extends FlutterFlowModel<UserprofileWidget> {
   @override
   void dispose() {
     accountOptionModel1.dispose();
+    accountOptionStandardModel.dispose();
     accountOptionModel2.dispose();
     accountOptionModel3.dispose();
     accountOptionModel4.dispose();

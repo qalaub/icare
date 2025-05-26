@@ -16,7 +16,7 @@ class DescripcionProfesionalWidget extends StatefulWidget {
     super.key,
     this.parameter1,
     this.parameter2,
-    String? video,
+    this.video,
     required this.services,
     required this.imgs,
     this.company,
@@ -27,12 +27,11 @@ class DescripcionProfesionalWidget extends StatefulWidget {
     this.ndis,
     this.years,
     required this.plan,
-  }) : this.video = video ??
-            'https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.mp4';
+  });
 
   final String? parameter1;
   final String? parameter2;
-  final String video;
+  final String? video;
   final List<String>? services;
   final List<String>? imgs;
   final String? company;
@@ -253,18 +252,15 @@ class _DescripcionProfesionalWidgetState
               color: Color(0xDEBAB7B7),
             ),
           ),
-          Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
-            child: Container(
-              width: MediaQuery.sizeOf(context).width * 0.7,
-              height: 220.0,
-              decoration: BoxDecoration(),
-              child: wrapWithModel(
-                model: _model.imganesModel,
-                updateCallback: () => safeSetState(() {}),
-                child: ImganesWidget(
-                  professional: widget.imgs!,
-                ),
+          Container(
+            width: MediaQuery.sizeOf(context).width * 0.8,
+            height: MediaQuery.sizeOf(context).height * 0.3,
+            decoration: BoxDecoration(),
+            child: wrapWithModel(
+              model: _model.imganesModel,
+              updateCallback: () => safeSetState(() {}),
+              child: ImganesWidget(
+                professional: widget.imgs!,
               ),
             ),
           ),
@@ -275,42 +271,30 @@ class _DescripcionProfesionalWidgetState
               color: Color(0xDEBAB7B7),
             ),
           ),
-          Align(
-            alignment: AlignmentDirectional(0.0, 0.0),
-            child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 16.0),
-              child: Container(
-                width: 220.0,
-                height: 370.0,
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Color(0xFFC14BBC),
-                    width: 5.0,
-                  ),
-                ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    FlutterFlowVideoPlayer(
-                      path: widget.video != ''
-                          ? widget.video
-                          : 'https://assets.mixkit.co/videos/51585/51585-720.mp4',
-                      videoType: VideoType.network,
-                      width: 200.0,
-                      height: 350.0,
-                      aspectRatio: 0.56,
-                      autoPlay: false,
-                      looping: false,
-                      showControls: true,
-                      allowFullScreen: false,
-                      allowPlaybackSpeedMenu: false,
-                      lazyLoad: false,
-                    ),
-                  ],
+          Flex(
+            direction: Axis.vertical,
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Align(
+                alignment: AlignmentDirectional(0.0, 0.0),
+                child: FlutterFlowVideoPlayer(
+                  path: widget.video != null && widget.video != ''
+                      ? widget.video!
+                      : 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/gv12biya5vta/video_coming_soon!.mp4',
+                  videoType: VideoType.network,
+                  width: MediaQuery.sizeOf(context).width * 0.8,
+                  height: MediaQuery.sizeOf(context).height * 0.785,
+                  aspectRatio: 0.56,
+                  autoPlay: true,
+                  looping: true,
+                  showControls: true,
+                  allowFullScreen: false,
+                  allowPlaybackSpeedMenu: false,
+                  lazyLoad: false,
                 ),
               ),
-            ),
+            ],
           ),
           SizedBox(
             width: 500.0,
@@ -400,274 +384,361 @@ class _DescripcionProfesionalWidgetState
               ),
             ),
           ),
-          Align(
-            alignment: AlignmentDirectional(-0.03, -0.86),
-            child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 8.0),
-              child: Material(
-                color: Colors.transparent,
-                elevation: 2.0,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(12.0),
-                    bottomRight: Radius.circular(12.0),
-                    topLeft: Radius.circular(12.0),
-                    topRight: Radius.circular(12.0),
-                  ),
-                ),
-                child: Container(
-                  width: 320.0,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
+          Stack(
+            alignment: AlignmentDirectional(0.0, 0.0),
+            children: [
+              Align(
+                alignment: AlignmentDirectional(0.0, 0.0),
+                child: Material(
+                  color: Colors.transparent,
+                  elevation: 2.0,
+                  shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(12.0),
                       bottomRight: Radius.circular(12.0),
                       topLeft: Radius.circular(12.0),
                       topRight: Radius.circular(12.0),
                     ),
-                    border: Border.all(
-                      color: Color(0xFFC55EBE),
-                      width: 3.0,
-                    ),
                   ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Align(
-                        alignment: AlignmentDirectional(0.0, -0.98),
-                        child: CheckboxListTile(
-                          key: ValueKey('supportWorkers'),
-                          value: _model.supportValue ??= widget.services
-                                  ?.contains(FFAppConstants.servicesType
-                                      .elementAtOrNull(0)) ==
-                              true,
-                          onChanged: _model.services
-                              ? null
-                              : (newValue) async {
+                  child: Container(
+                    width: 320.0,
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(12.0),
+                        bottomRight: Radius.circular(12.0),
+                        topLeft: Radius.circular(12.0),
+                        topRight: Radius.circular(12.0),
+                      ),
+                      border: Border.all(
+                        color: Color(0xFFC55EBE),
+                        width: 3.0,
+                      ),
+                    ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Align(
+                          alignment: AlignmentDirectional(0.0, -0.98),
+                          child: Material(
+                            color: Colors.transparent,
+                            child: Theme(
+                              data: ThemeData(
+                                checkboxTheme: CheckboxThemeData(
+                                  visualDensity: VisualDensity.compact,
+                                  materialTapTargetSize:
+                                      MaterialTapTargetSize.shrinkWrap,
+                                ),
+                                unselectedWidgetColor: Color(0xFF9C9C9C),
+                              ),
+                              child: CheckboxListTile(
+                                key: ValueKey('supportWorkers'),
+                                value: _model.supportValue ??= widget.services
+                                        ?.contains(FFAppConstants.servicesType
+                                            .elementAtOrNull(0)) ==
+                                    true,
+                                onChanged: (newValue) async {
                                   safeSetState(
                                       () => _model.supportValue = newValue!);
                                 },
-                          title: Text(
-                            'Support Worker',
-                            style: FlutterFlowTheme.of(context)
-                                .titleLarge
-                                .override(
-                                  font: GoogleFonts.montserrat(
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .titleLarge
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .titleLarge
-                                        .fontStyle,
-                                  ),
-                                  color: Colors.black,
-                                  fontSize: 14.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FlutterFlowTheme.of(context)
+                                title: Text(
+                                  'Support Worker',
+                                  style: FlutterFlowTheme.of(context)
                                       .titleLarge
-                                      .fontWeight,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .titleLarge
-                                      .fontStyle,
+                                      .override(
+                                        font: GoogleFonts.montserrat(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleLarge
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleLarge
+                                                  .fontStyle,
+                                        ),
+                                        fontSize: 14.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .titleLarge
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .titleLarge
+                                            .fontStyle,
+                                      ),
                                 ),
+                                activeColor: Color(0xFFBD39BA),
+                                checkColor: Colors.white,
+                                dense: false,
+                                controlAffinity:
+                                    ListTileControlAffinity.trailing,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(4.0),
+                                ),
+                              ),
+                            ),
                           ),
-                          activeColor: Color(0xFFBD39BA),
-                          checkColor: _model.services
-                              ? Color(0xFFBD39BA)
-                              : Colors.white,
-                          dense: false,
-                          controlAffinity: ListTileControlAffinity.trailing,
                         ),
-                      ),
-                      Align(
-                        alignment: AlignmentDirectional(0.0, -0.46),
-                        child: CheckboxListTile(
-                          key: ValueKey('supportCoordinators'),
-                          value: _model.coordinatorsValue ??= widget.services
-                                  ?.contains(FFAppConstants.servicesType
-                                      .elementAtOrNull(1)) ==
-                              true,
-                          onChanged: _model.services
-                              ? null
-                              : (newValue) async {
+                        Align(
+                          alignment: AlignmentDirectional(0.0, -0.46),
+                          child: Material(
+                            color: Colors.transparent,
+                            child: Theme(
+                              data: ThemeData(
+                                checkboxTheme: CheckboxThemeData(
+                                  visualDensity: VisualDensity.compact,
+                                  materialTapTargetSize:
+                                      MaterialTapTargetSize.shrinkWrap,
+                                ),
+                                unselectedWidgetColor: Color(0xFF9C9C9C),
+                              ),
+                              child: CheckboxListTile(
+                                key: ValueKey('supportCoordinators'),
+                                value: _model.coordinatorsValue ??= widget
+                                        .services
+                                        ?.contains(FFAppConstants.servicesType
+                                            .elementAtOrNull(1)) ==
+                                    true,
+                                onChanged: (newValue) async {
                                   safeSetState(() =>
                                       _model.coordinatorsValue = newValue!);
                                 },
-                          title: Text(
-                            'Support Coordinator',
-                            style: FlutterFlowTheme.of(context)
-                                .titleLarge
-                                .override(
-                                  font: GoogleFonts.montserrat(
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .titleLarge
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .titleLarge
-                                        .fontStyle,
-                                  ),
-                                  color: Colors.black,
-                                  fontSize: 14.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FlutterFlowTheme.of(context)
+                                title: Text(
+                                  'Support Coordinator',
+                                  style: FlutterFlowTheme.of(context)
                                       .titleLarge
-                                      .fontWeight,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .titleLarge
-                                      .fontStyle,
+                                      .override(
+                                        font: GoogleFonts.montserrat(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleLarge
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleLarge
+                                                  .fontStyle,
+                                        ),
+                                        color: Colors.black,
+                                        fontSize: 14.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .titleLarge
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .titleLarge
+                                            .fontStyle,
+                                      ),
                                 ),
+                                activeColor: Color(0xFFBD39BA),
+                                checkColor: Colors.white,
+                                dense: false,
+                                controlAffinity:
+                                    ListTileControlAffinity.trailing,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(4.0),
+                                ),
+                              ),
+                            ),
                           ),
-                          activeColor: Color(0xFFBD39BA),
-                          checkColor: _model.services
-                              ? Color(0xFFBD39BA)
-                              : Colors.white,
-                          dense: false,
-                          controlAffinity: ListTileControlAffinity.trailing,
                         ),
-                      ),
-                      Align(
-                        alignment: AlignmentDirectional(0.0, -0.98),
-                        child: CheckboxListTile(
-                          key: ValueKey('recoveryCoaches'),
-                          value: _model.recoveryValue ??= widget.services
-                                  ?.contains(FFAppConstants.servicesType
-                                      .elementAtOrNull(4)) ==
-                              true,
-                          onChanged: _model.services
-                              ? null
-                              : (newValue) async {
+                        Align(
+                          alignment: AlignmentDirectional(0.0, -0.98),
+                          child: Material(
+                            color: Colors.transparent,
+                            child: Theme(
+                              data: ThemeData(
+                                checkboxTheme: CheckboxThemeData(
+                                  visualDensity: VisualDensity.compact,
+                                  materialTapTargetSize:
+                                      MaterialTapTargetSize.shrinkWrap,
+                                ),
+                                unselectedWidgetColor: Color(0xFF9C9C9C),
+                              ),
+                              child: CheckboxListTile(
+                                key: ValueKey('recoveryCoaches'),
+                                value: _model.recoveryValue ??= widget.services
+                                        ?.contains(FFAppConstants.servicesType
+                                            .elementAtOrNull(4)) ==
+                                    true,
+                                onChanged: (newValue) async {
                                   safeSetState(
                                       () => _model.recoveryValue = newValue!);
                                 },
-                          title: Text(
-                            'Recovery Coach',
-                            style: FlutterFlowTheme.of(context)
-                                .titleLarge
-                                .override(
-                                  font: GoogleFonts.montserrat(
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .titleLarge
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .titleLarge
-                                        .fontStyle,
-                                  ),
-                                  color: Colors.black,
-                                  fontSize: 14.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FlutterFlowTheme.of(context)
+                                title: Text(
+                                  'Recovery Coach',
+                                  style: FlutterFlowTheme.of(context)
                                       .titleLarge
-                                      .fontWeight,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .titleLarge
-                                      .fontStyle,
+                                      .override(
+                                        font: GoogleFonts.montserrat(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleLarge
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleLarge
+                                                  .fontStyle,
+                                        ),
+                                        color: Colors.black,
+                                        fontSize: 14.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .titleLarge
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .titleLarge
+                                            .fontStyle,
+                                      ),
                                 ),
+                                activeColor: Color(0xFFBD39BA),
+                                checkColor: Colors.white,
+                                dense: false,
+                                controlAffinity:
+                                    ListTileControlAffinity.trailing,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(4.0),
+                                ),
+                              ),
+                            ),
                           ),
-                          activeColor: Color(0xFFBD39BA),
-                          checkColor: _model.services
-                              ? Color(0xFFBD39BA)
-                              : Colors.white,
-                          dense: false,
-                          controlAffinity: ListTileControlAffinity.trailing,
                         ),
-                      ),
-                      Align(
-                        alignment: AlignmentDirectional(0.0, 0.13),
-                        child: CheckboxListTile(
-                          key: ValueKey('therapeuticSupports'),
-                          value: _model.therapeuticValue ??= widget.services
-                                  ?.contains(FFAppConstants.servicesType
-                                      .elementAtOrNull(2)) ==
-                              true,
-                          onChanged: _model.services
-                              ? null
-                              : (newValue) async {
+                        Align(
+                          alignment: AlignmentDirectional(0.0, 0.13),
+                          child: Material(
+                            color: Colors.transparent,
+                            child: Theme(
+                              data: ThemeData(
+                                checkboxTheme: CheckboxThemeData(
+                                  visualDensity: VisualDensity.compact,
+                                  materialTapTargetSize:
+                                      MaterialTapTargetSize.shrinkWrap,
+                                ),
+                                unselectedWidgetColor: Color(0xFF9C9C9C),
+                              ),
+                              child: CheckboxListTile(
+                                key: ValueKey('therapeuticSupports'),
+                                value: _model.therapeuticValue ??= widget
+                                        .services
+                                        ?.contains(FFAppConstants.servicesType
+                                            .elementAtOrNull(2)) ==
+                                    true,
+                                onChanged: (newValue) async {
                                   safeSetState(() =>
                                       _model.therapeuticValue = newValue!);
                                 },
-                          title: Text(
-                            'Therapeutic Support',
-                            style: FlutterFlowTheme.of(context)
-                                .titleLarge
-                                .override(
-                                  font: GoogleFonts.montserrat(
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .titleLarge
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .titleLarge
-                                        .fontStyle,
-                                  ),
-                                  color: Colors.black,
-                                  fontSize: 14.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FlutterFlowTheme.of(context)
+                                title: Text(
+                                  'Therapeutic Support',
+                                  style: FlutterFlowTheme.of(context)
                                       .titleLarge
-                                      .fontWeight,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .titleLarge
-                                      .fontStyle,
+                                      .override(
+                                        font: GoogleFonts.montserrat(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleLarge
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleLarge
+                                                  .fontStyle,
+                                        ),
+                                        color: Colors.black,
+                                        fontSize: 14.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .titleLarge
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .titleLarge
+                                            .fontStyle,
+                                      ),
                                 ),
+                                activeColor: Color(0xFFBD39BA),
+                                checkColor: Colors.white,
+                                dense: false,
+                                controlAffinity:
+                                    ListTileControlAffinity.trailing,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(4.0),
+                                ),
+                              ),
+                            ),
                           ),
-                          activeColor: Color(0xFFBD39BA),
-                          checkColor: _model.services
-                              ? Color(0xFFBD39BA)
-                              : Colors.white,
-                          dense: false,
-                          controlAffinity: ListTileControlAffinity.trailing,
                         ),
-                      ),
-                      Align(
-                        alignment: AlignmentDirectional(0.0, 0.77),
-                        child: CheckboxListTile(
-                          key: ValueKey('homeMaintenance'),
-                          value: _model.homeValue ??= widget.services
-                                  ?.contains(FFAppConstants.servicesType
-                                      .elementAtOrNull(3)) ==
-                              true,
-                          onChanged: _model.services
-                              ? null
-                              : (newValue) async {
+                        Align(
+                          alignment: AlignmentDirectional(0.0, 0.77),
+                          child: Material(
+                            color: Colors.transparent,
+                            child: Theme(
+                              data: ThemeData(
+                                checkboxTheme: CheckboxThemeData(
+                                  visualDensity: VisualDensity.compact,
+                                  materialTapTargetSize:
+                                      MaterialTapTargetSize.shrinkWrap,
+                                ),
+                                unselectedWidgetColor: Color(0xFF9C9C9C),
+                              ),
+                              child: CheckboxListTile(
+                                key: ValueKey('homeMaintenance'),
+                                value: _model.homeValue ??= widget.services
+                                        ?.contains(FFAppConstants.servicesType
+                                            .elementAtOrNull(3)) ==
+                                    true,
+                                onChanged: (newValue) async {
                                   safeSetState(
                                       () => _model.homeValue = newValue!);
                                 },
-                          title: Text(
-                            'Home Maintenance ',
-                            style: FlutterFlowTheme.of(context)
-                                .titleLarge
-                                .override(
-                                  font: GoogleFonts.montserrat(
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .titleLarge
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .titleLarge
-                                        .fontStyle,
-                                  ),
-                                  color: Colors.black,
-                                  fontSize: 14.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FlutterFlowTheme.of(context)
+                                title: Text(
+                                  'Home Maintenance ',
+                                  style: FlutterFlowTheme.of(context)
                                       .titleLarge
-                                      .fontWeight,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .titleLarge
-                                      .fontStyle,
+                                      .override(
+                                        font: GoogleFonts.montserrat(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleLarge
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleLarge
+                                                  .fontStyle,
+                                        ),
+                                        color: Colors.black,
+                                        fontSize: 14.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .titleLarge
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .titleLarge
+                                            .fontStyle,
+                                      ),
                                 ),
+                                tileColor: Colors.transparent,
+                                activeColor: Color(0xFFBD39BA),
+                                checkColor: Colors.white,
+                                dense: false,
+                                controlAffinity:
+                                    ListTileControlAffinity.trailing,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(4.0),
+                                ),
+                              ),
+                            ),
                           ),
-                          activeColor: Color(0xFFBD39BA),
-                          checkColor: _model.services
-                              ? Color(0xFFBD39BA)
-                              : Colors.white,
-                          dense: false,
-                          controlAffinity: ListTileControlAffinity.trailing,
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
+              Container(
+                width: MediaQuery.sizeOf(context).width * 1.0,
+                height: MediaQuery.sizeOf(context).height * 0.3,
+                decoration: BoxDecoration(
+                  color: Colors.transparent,
+                ),
+              ),
+            ],
           ),
           Align(
             alignment: AlignmentDirectional(-1.0, -1.0),

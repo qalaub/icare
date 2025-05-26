@@ -2,7 +2,6 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/v2/block_list/favoritesv2/add_favorites/add_favorites_widget.dart';
 import '/v2/menbresiav2/membresia_logo/membresia_logo_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
@@ -755,41 +754,6 @@ class _V3fv0ritesWidgetState extends State<V3fv0ritesWidget> {
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 16.0),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              context.pushNamed(
-                                ProfileInfoWidget.routeName,
-                                queryParameters: {
-                                  'professional': serializeParam(
-                                    containerUsersRecord.reference,
-                                    ParamType.DocumentReference,
-                                  ),
-                                }.withoutNulls,
-                                extra: <String, dynamic>{
-                                  kTransitionInfoKey: TransitionInfo(
-                                    hasTransition: true,
-                                    transitionType: PageTransitionType.fade,
-                                    duration: Duration(milliseconds: 300),
-                                  ),
-                                },
-                              );
-                            },
-                            child: wrapWithModel(
-                              model: _model.addFavoritesModel,
-                              updateCallback: () => safeSetState(() {}),
-                              child: AddFavoritesWidget(
-                                professional: containerUsersRecord,
-                              ),
-                            ),
-                          ),
-                        ),
                         Align(
                           alignment: AlignmentDirectional(1.0, -0.19),
                           child: Container(

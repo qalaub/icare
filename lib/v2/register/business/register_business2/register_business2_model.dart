@@ -11,6 +11,10 @@ class RegisterBusiness2Model extends FlutterFlowModel<RegisterBusiness2Widget> {
 
   bool termsAccept = true;
 
+  int maxExperiencia = 0;
+
+  String errorExperiencia = ' ';
+
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
@@ -31,6 +35,12 @@ class RegisterBusiness2Model extends FlutterFlowModel<RegisterBusiness2Widget> {
   // State field(s) for age widget.
   String? ageValue;
   FormFieldController<String>? ageValueController;
+  // State field(s) for years widget.
+  FocusNode? yearsFocusNode;
+  TextEditingController? yearsTextController;
+  String? Function(BuildContext, String?)? yearsTextControllerValidator;
+  // Stores action output result for [Custom Action - validateExperience] action in years widget.
+  String? validationResult1;
   // State field(s) for password widget.
   FocusNode? passwordFocusNode;
   TextEditingController? passwordTextController;
@@ -97,6 +107,9 @@ class RegisterBusiness2Model extends FlutterFlowModel<RegisterBusiness2Widget> {
     listViewController?.dispose();
     ndisFocusNode?.dispose();
     ndisTextController?.dispose();
+
+    yearsFocusNode?.dispose();
+    yearsTextController?.dispose();
 
     passwordFocusNode?.dispose();
     passwordTextController?.dispose();

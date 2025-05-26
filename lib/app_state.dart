@@ -259,6 +259,18 @@ class FFAppState extends ChangeNotifier {
     _videoupload = value;
   }
 
+  bool _isInLikesPage = false;
+  bool get isInLikesPage => _isInLikesPage;
+  set isInLikesPage(bool value) {
+    _isInLikesPage = value;
+  }
+
+  String _experienceError = '';
+  String get experienceError => _experienceError;
+  set experienceError(String value) {
+    _experienceError = value;
+  }
+
   final _userDocQueryManager = FutureRequestManager<UsersRecord>();
   Future<UsersRecord> userDocQuery({
     String? uniqueQueryKey,

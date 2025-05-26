@@ -683,3 +683,17 @@ List<UsersRecord> filterProfessionalsByDistance(
   // Si no hay resultados cercanos, retornar todos para evitar lista vacía
   return filtered.isEmpty ? professionals : filtered;
 }
+
+int getMaxExperience(String ageRangeFull) {
+  const maxExpMap = {
+    '18-25 years': 7,
+    '25-40 years': 15,
+    '40-65+ years': 30,
+  };
+  return maxExpMap[ageRangeFull] ?? 0;
+}
+
+bool validatePhoneNumber(String input) {
+  final regex = RegExp(r'^\d{10}$');
+  return regex.hasMatch(input);
+}

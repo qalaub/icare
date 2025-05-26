@@ -2,7 +2,6 @@ import '/auth/base_auth_user_provider.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/v2/block_list/favoritesv2/add_favorites/add_favorites_widget.dart';
 import '/v2/menbresiav2/membresia_logo/membresia_logo_widget.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
@@ -169,16 +168,6 @@ class _PerfilProfesionalMapaWidgetState
                                     .fontStyle,
                               ),
                         ),
-                      ),
-                    ),
-                  ),
-                  Align(
-                    alignment: AlignmentDirectional(1.0, -1.0),
-                    child: wrapWithModel(
-                      model: _model.addFavoritesModel,
-                      updateCallback: () => safeSetState(() {}),
-                      child: AddFavoritesWidget(
-                        professional: widget.profesionalId!,
                       ),
                     ),
                   ),

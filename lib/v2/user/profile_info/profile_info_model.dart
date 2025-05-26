@@ -1,6 +1,6 @@
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/v2/block_list/favoritesv2/add_favorites/add_favorites_widget.dart';
+import '/v2/block_list/favoritesv2/add_favorites_copy2/add_favorites_copy2_widget.dart';
 import '/v2/menbresiav2/membresia_logo/membresia_logo_widget.dart';
 import '/v2/user/descripcion_profesional/descripcion_profesional_widget.dart';
 import '/index.dart';
@@ -23,10 +23,10 @@ class ProfileInfoModel extends FlutterFlowModel<ProfileInfoWidget> {
   ///  State fields for stateful widgets in this page.
 
   String currentPageLink = '';
-  // Stores action output result for [Firestore Query - Query a collection] action in MENSAJES widget.
+  // Stores action output result for [Firestore Query - Query a collection] action in Icon widget.
   List<ChatsRecord>? chatRef;
-  // Model for AddFavorites component.
-  late AddFavoritesModel addFavoritesModel;
+  // Model for AddFavoritesCopy2 component.
+  late AddFavoritesCopy2Model addFavoritesCopy2Model;
   // State field(s) for RatingBar widget.
   double? ratingBarValue;
   // Stores action output result for [Firestore Query - Query a collection] action in RatingBar widget.
@@ -38,7 +38,8 @@ class ProfileInfoModel extends FlutterFlowModel<ProfileInfoWidget> {
 
   @override
   void initState(BuildContext context) {
-    addFavoritesModel = createModel(context, () => AddFavoritesModel());
+    addFavoritesCopy2Model =
+        createModel(context, () => AddFavoritesCopy2Model());
     membresiaLogoModel = createModel(context, () => MembresiaLogoModel());
     descripcionProfesionalModel =
         createModel(context, () => DescripcionProfesionalModel());
@@ -46,7 +47,7 @@ class ProfileInfoModel extends FlutterFlowModel<ProfileInfoWidget> {
 
   @override
   void dispose() {
-    addFavoritesModel.dispose();
+    addFavoritesCopy2Model.dispose();
     membresiaLogoModel.dispose();
     descripcionProfesionalModel.dispose();
   }

@@ -1,9 +1,9 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import '/index.dart';
-import 'user_widget.dart' show UserWidget;
+import 'account_option_premium_widget.dart' show AccountOptionPremiumWidget;
 import 'package:flutter/material.dart';
 
-class UserModel extends FlutterFlowModel<UserWidget> {
+class AccountOptionPremiumModel
+    extends FlutterFlowModel<AccountOptionPremiumWidget> {
   @override
   void initState(BuildContext context) {}
 
