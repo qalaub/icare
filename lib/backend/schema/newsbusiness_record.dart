@@ -35,11 +35,17 @@ class NewsbusinessRecord extends FirestoreRecord {
   bool get isView => _isView ?? false;
   bool hasIsView() => _isView != null;
 
+  // "timestamp" field.
+  DateTime? _timestamp;
+  DateTime? get timestamp => _timestamp;
+  bool hasTimestamp() => _timestamp != null;
+
   void _initializeFields() {
     _business = snapshotData['business'] as DocumentReference?;
     _professional = snapshotData['professional'] as DocumentReference?;
     _user = snapshotData['user'] as DocumentReference?;
     _isView = snapshotData['isView'] as bool?;
+    _timestamp = snapshotData['timestamp'] as DateTime?;
   }
 
   static CollectionReference get collection =>
@@ -81,6 +87,7 @@ Map<String, dynamic> createNewsbusinessRecordData({
   DocumentReference? professional,
   DocumentReference? user,
   bool? isView,
+  DateTime? timestamp,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -88,6 +95,7 @@ Map<String, dynamic> createNewsbusinessRecordData({
       'professional': professional,
       'user': user,
       'isView': isView,
+      'timestamp': timestamp,
     }.withoutNulls,
   );
 
@@ -103,12 +111,13 @@ class NewsbusinessRecordDocumentEquality
     return e1?.business == e2?.business &&
         e1?.professional == e2?.professional &&
         e1?.user == e2?.user &&
-        e1?.isView == e2?.isView;
+        e1?.isView == e2?.isView &&
+        e1?.timestamp == e2?.timestamp;
   }
 
   @override
   int hash(NewsbusinessRecord? e) => const ListEquality()
-      .hash([e?.business, e?.professional, e?.user, e?.isView]);
+      .hash([e?.business, e?.professional, e?.user, e?.isView, e?.timestamp]);
 
   @override
   bool isValidKey(Object? o) => o is NewsbusinessRecord;

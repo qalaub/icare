@@ -1,9 +1,11 @@
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
+import 'package:lock_orientation_library_opafp4/custom_code/actions/index.dart'
+    as lock_orientation_library_opafp4_actions;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -33,6 +35,7 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await lock_orientation_library_opafp4_actions.lockOrientation();
       if (!FFAppState().showTutorial) {
         context.goNamed(Tinderv2C1Widget.routeName);
       }
@@ -232,10 +235,12 @@ class _Pantainci1WidgetState extends State<Pantainci1Widget> {
                                   safeSetState(
                                       () => _model.checkboxValue = newValue!);
                                 },
-                                side: BorderSide(
-                                  width: 2,
-                                  color: Color(0xFF26343E),
-                                ),
+                                side: (Color(0xFF26343E) != null)
+                                    ? BorderSide(
+                                        width: 2,
+                                        color: Color(0xFF26343E),
+                                      )
+                                    : null,
                                 activeColor: Color(0xFF8F2BFD),
                                 checkColor: FlutterFlowTheme.of(context).info,
                               ),

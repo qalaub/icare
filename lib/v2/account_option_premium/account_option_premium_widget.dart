@@ -1,5 +1,5 @@
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'account_option_premium_model.dart';
@@ -49,7 +49,7 @@ class _AccountOptionPremiumWidgetState
       width: MediaQuery.sizeOf(context).width * 0.9,
       height: 52.0,
       decoration: BoxDecoration(
-        color: Color(0xFFE385C3),
+        color: Color(0xFFFFA4DF),
         boxShadow: [
           BoxShadow(
             blurRadius: 4.0,

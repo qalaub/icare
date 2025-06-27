@@ -53,18 +53,41 @@ class Tinderv2C1Model extends FlutterFlowModel<Tinderv2C1Widget> {
 
   UsersRecord? lastRetrievedItem;
 
+  List<String> favoriteRefs = [];
+  void addToFavoriteRefs(String item) => favoriteRefs.add(item);
+  void removeFromFavoriteRefs(String item) => favoriteRefs.remove(item);
+  void removeAtIndexFromFavoriteRefs(int index) => favoriteRefs.removeAt(index);
+  void insertAtIndexInFavoriteRefs(int index, String item) =>
+      favoriteRefs.insert(index, item);
+  void updateFavoriteRefsAtIndex(int index, Function(String) updateFn) =>
+      favoriteRefs[index] = updateFn(favoriteRefs[index]);
+
+  List<UsersRecord> listaFiltrada = [];
+  void addToListaFiltrada(UsersRecord item) => listaFiltrada.add(item);
+  void removeFromListaFiltrada(UsersRecord item) => listaFiltrada.remove(item);
+  void removeAtIndexFromListaFiltrada(int index) =>
+      listaFiltrada.removeAt(index);
+  void insertAtIndexInListaFiltrada(int index, UsersRecord item) =>
+      listaFiltrada.insert(index, item);
+  void updateListaFiltradaAtIndex(int index, Function(UsersRecord) updateFn) =>
+      listaFiltrada[index] = updateFn(listaFiltrada[index]);
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Firestore Query - Query a collection] action in tinderv2C1 widget.
   List<UsersRecord>? professional;
+  // Stores action output result for [Firestore Query - Query a collection] action in tinderv2C1 widget.
+  List<FavoritesRecord>? allProfessionals;
   // Model for MENSAGE_TINDER component.
   late MensageTinderModel mensageTinderModel;
   // State field(s) for SwipeableStack widget.
-  late CardSwiperController swipeableStackController;
+  late CardSwiperController swipeableStackController1;
   // Stores action output result for [Firestore Query - Query a collection] action in SwipeableStack widget.
   ChatsRecord? newRefCopyCopy;
   // Stores action output result for [Backend Call - Create Document] action in SwipeableStack widget.
   ChatsRecord? newChatThread;
+  // State field(s) for SwipeableStack widget.
+  late CardSwiperController swipeableStackController2;
   // Model for Navbar component.
   late NavbarModel navbarModel;
   // Model for NavbarPremiun component.
@@ -73,7 +96,8 @@ class Tinderv2C1Model extends FlutterFlowModel<Tinderv2C1Widget> {
   @override
   void initState(BuildContext context) {
     mensageTinderModel = createModel(context, () => MensageTinderModel());
-    swipeableStackController = CardSwiperController();
+    swipeableStackController1 = CardSwiperController();
+    swipeableStackController2 = CardSwiperController();
     navbarModel = createModel(context, () => NavbarModel());
     navbarPremiunModel = createModel(context, () => NavbarPremiunModel());
   }

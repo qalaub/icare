@@ -1,12 +1,15 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/v2/h0me/map_button/map_button_widget.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
+import 'package:lock_orientation_library_opafp4/custom_code/actions/index.dart'
+    as lock_orientation_library_opafp4_actions;
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'map_aument_model.dart';
 export 'map_aument_model.dart';
 
@@ -36,6 +39,11 @@ class _MapAumentWidgetState extends State<MapAumentWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => MapAumentModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await lock_orientation_library_opafp4_actions.lockOrientation();
+    });
   }
 
   @override

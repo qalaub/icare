@@ -1,5 +1,6 @@
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'empty_state_simple_model.dart';
@@ -55,20 +56,20 @@ class _EmptyStateSimpleWidgetState extends State<EmptyStateSimpleWidget> {
           widget.icon!,
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
-            child: Text(
+            child: AutoSizeText(
               widget.title,
               textAlign: TextAlign.center,
+              minFontSize: 18.0,
               style: FlutterFlowTheme.of(context).headlineSmall.override(
-                    font: GoogleFonts.outfit(
-                      fontWeight:
-                          FlutterFlowTheme.of(context).headlineSmall.fontWeight,
+                    font: GoogleFonts.montserrat(
+                      fontWeight: FontWeight.normal,
                       fontStyle:
                           FlutterFlowTheme.of(context).headlineSmall.fontStyle,
                     ),
                     color: FlutterFlowTheme.of(context).primaryText,
+                    fontSize: 22.0,
                     letterSpacing: 0.0,
-                    fontWeight:
-                        FlutterFlowTheme.of(context).headlineSmall.fontWeight,
+                    fontWeight: FontWeight.normal,
                     fontStyle:
                         FlutterFlowTheme.of(context).headlineSmall.fontStyle,
                   ),
@@ -80,12 +81,13 @@ class _EmptyStateSimpleWidgetState extends State<EmptyStateSimpleWidget> {
               widget.body,
               textAlign: TextAlign.center,
               style: FlutterFlowTheme.of(context).labelMedium.override(
-                    font: GoogleFonts.readexPro(
+                    font: GoogleFonts.montserrat(
                       fontWeight:
                           FlutterFlowTheme.of(context).labelMedium.fontWeight,
                       fontStyle:
                           FlutterFlowTheme.of(context).labelMedium.fontStyle,
                     ),
+                    fontSize: 16.0,
                     letterSpacing: 0.0,
                     fontWeight:
                         FlutterFlowTheme.of(context).labelMedium.fontWeight,

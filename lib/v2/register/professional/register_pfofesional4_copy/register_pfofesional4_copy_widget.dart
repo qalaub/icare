@@ -3,12 +3,14 @@ import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/components/image_upload_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/index.dart';
+import 'package:lock_orientation_library_opafp4/custom_code/actions/index.dart'
+    as lock_orientation_library_opafp4_actions;
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -47,6 +49,7 @@ class _RegisterPfofesional4CopyWidgetState
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await lock_orientation_library_opafp4_actions.lockOrientation();
       FFAppState().updateRegisterProviderFormStruct(
         (e) => e..images = [],
       );
@@ -89,8 +92,7 @@ class _RegisterPfofesional4CopyWidgetState
                           width: double.infinity,
                           height: MediaQuery.sizeOf(context).height * 1.0,
                           decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
+                            color: Color(0xFFBD39BA),
                           ),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
@@ -1158,7 +1160,7 @@ class _RegisterPfofesional4CopyWidgetState
                                                                       m.storagePath,
                                                                       context))) {
                                                             safeSetState(() =>
-                                                                _model.isDataUploading1 =
+                                                                _model.isDataUploading_uploadData80lB =
                                                                     true);
                                                             var selectedUploadedFiles =
                                                                 <FFUploadedFile>[];
@@ -1181,7 +1183,7 @@ class _RegisterPfofesional4CopyWidgetState
                                                                           ))
                                                                       .toList();
                                                             } finally {
-                                                              _model.isDataUploading1 =
+                                                              _model.isDataUploading_uploadData80lB =
                                                                   false;
                                                             }
                                                             if (selectedUploadedFiles
@@ -1189,7 +1191,7 @@ class _RegisterPfofesional4CopyWidgetState
                                                                 selectedMedia
                                                                     .length) {
                                                               safeSetState(() {
-                                                                _model.uploadedLocalFile1 =
+                                                                _model.uploadedLocalFile_uploadData80lB =
                                                                     selectedUploadedFiles
                                                                         .first;
                                                               });
@@ -1204,7 +1206,7 @@ class _RegisterPfofesional4CopyWidgetState
                                                               await actions
                                                                   .verifySizeVideo(
                                                             _model
-                                                                .uploadedLocalFile1,
+                                                                .uploadedLocalFile_uploadData80lB,
                                                           );
                                                           if (_model
                                                               .verifyVideo!) {
@@ -1253,9 +1255,9 @@ class _RegisterPfofesional4CopyWidgetState
                                                               ),
                                                             );
                                                             safeSetState(() {
-                                                              _model.isDataUploading1 =
+                                                              _model.isDataUploading_uploadData80lB =
                                                                   false;
-                                                              _model.uploadedLocalFile1 =
+                                                              _model.uploadedLocalFile_uploadData80lB =
                                                                   FFUploadedFile(
                                                                       bytes: Uint8List
                                                                           .fromList(
@@ -1372,96 +1374,97 @@ class _RegisterPfofesional4CopyWidgetState
                                                                   0.0,
                                                                   10.0),
                                                       child: FFButtonWidget(
-                                                        onPressed: () async {
-                                                          if ((_model
-                                                                      .uploadedLocalFile1
-                                                                      .bytes
-                                                                      ?.isNotEmpty ??
-                                                                  false)) {
-                                                            {
-                                                              safeSetState(() =>
-                                                                  _model.isDataUploading2 =
-                                                                      true);
-                                                              var selectedUploadedFiles =
-                                                                  <FFUploadedFile>[];
-                                                              var selectedMedia =
-                                                                  <SelectedFile>[];
-                                                              var downloadUrls =
-                                                                  <String>[];
-                                                              try {
-                                                                selectedUploadedFiles = _model
-                                                                        .uploadedLocalFile1
-                                                                        .bytes!
-                                                                        .isNotEmpty
-                                                                    ? [
-                                                                        _model
-                                                                            .uploadedLocalFile1
-                                                                      ]
-                                                                    : <FFUploadedFile>[];
-                                                                selectedMedia =
-                                                                    selectedFilesFromUploadedFiles(
-                                                                  selectedUploadedFiles,
-                                                                );
-                                                                downloadUrls = (await Future
-                                                                        .wait(
-                                                                  selectedMedia
-                                                                      .map(
-                                                                    (m) async =>
-                                                                        await uploadData(
-                                                                            m.storagePath,
-                                                                            m.bytes),
-                                                                  ),
-                                                                ))
-                                                                    .where((u) =>
-                                                                        u !=
-                                                                        null)
-                                                                    .map((u) =>
-                                                                        u!)
-                                                                    .toList();
-                                                              } finally {
-                                                                _model.isDataUploading2 =
-                                                                    false;
-                                                              }
-                                                              if (selectedUploadedFiles
-                                                                          .length ==
-                                                                      selectedMedia
-                                                                          .length &&
-                                                                  downloadUrls
-                                                                          .length ==
-                                                                      selectedMedia
-                                                                          .length) {
-                                                                safeSetState(
-                                                                    () {
-                                                                  _model.uploadedLocalFile2 =
-                                                                      selectedUploadedFiles
-                                                                          .first;
-                                                                  _model.uploadedFileUrl2 =
-                                                                      downloadUrls
-                                                                          .first;
-                                                                });
-                                                              } else {
-                                                                safeSetState(
-                                                                    () {});
-                                                                return;
-                                                              }
-                                                            }
+                                                        onPressed: ((_model
+                                                                        .uploadedLocalFile_uploadData80lB
+                                                                        .bytes
+                                                                        ?.isEmpty ??
+                                                                    true))
+                                                            ? null
+                                                            : () async {
+                                                                if ((_model
+                                                                            .uploadedLocalFile_uploadData80lB
+                                                                            .bytes
+                                                                            ?.isNotEmpty ??
+                                                                        false)) {
+                                                                  {
+                                                                    safeSetState(() =>
+                                                                        _model.isDataUploading_uploadDataZ713 =
+                                                                            true);
+                                                                    var selectedUploadedFiles =
+                                                                        <FFUploadedFile>[];
+                                                                    var selectedMedia =
+                                                                        <SelectedFile>[];
+                                                                    var downloadUrls =
+                                                                        <String>[];
+                                                                    try {
+                                                                      selectedUploadedFiles = _model
+                                                                              .uploadedLocalFile_uploadData80lB
+                                                                              .bytes!
+                                                                              .isNotEmpty
+                                                                          ? [
+                                                                              _model.uploadedLocalFile_uploadData80lB
+                                                                            ]
+                                                                          : <FFUploadedFile>[];
+                                                                      selectedMedia =
+                                                                          selectedFilesFromUploadedFiles(
+                                                                        selectedUploadedFiles,
+                                                                      );
+                                                                      downloadUrls = (await Future
+                                                                              .wait(
+                                                                        selectedMedia
+                                                                            .map(
+                                                                          (m) async => await uploadData(
+                                                                              m.storagePath,
+                                                                              m.bytes),
+                                                                        ),
+                                                                      ))
+                                                                          .where((u) =>
+                                                                              u !=
+                                                                              null)
+                                                                          .map((u) =>
+                                                                              u!)
+                                                                          .toList();
+                                                                    } finally {
+                                                                      _model.isDataUploading_uploadDataZ713 =
+                                                                          false;
+                                                                    }
+                                                                    if (selectedUploadedFiles.length ==
+                                                                            selectedMedia
+                                                                                .length &&
+                                                                        downloadUrls.length ==
+                                                                            selectedMedia.length) {
+                                                                      safeSetState(
+                                                                          () {
+                                                                        _model.uploadedLocalFile_uploadDataZ713 =
+                                                                            selectedUploadedFiles.first;
+                                                                        _model.uploadedFileUrl_uploadDataZ713 =
+                                                                            downloadUrls.first;
+                                                                      });
+                                                                    } else {
+                                                                      safeSetState(
+                                                                          () {});
+                                                                      return;
+                                                                    }
+                                                                  }
 
-                                                            _model.video = _model
-                                                                .uploadedFileUrl2;
-                                                            safeSetState(() {});
+                                                                  _model.video =
+                                                                      _model
+                                                                          .uploadedFileUrl_uploadDataZ713;
+                                                                  safeSetState(
+                                                                      () {});
 
-                                                            await currentUserReference!
-                                                                .update(
-                                                                    createUsersRecordData(
-                                                              video: _model
-                                                                  .uploadedFileUrl2,
-                                                            ));
-                                                          }
+                                                                  await currentUserReference!
+                                                                      .update(
+                                                                          createUsersRecordData(
+                                                                    video: _model
+                                                                        .uploadedFileUrl_uploadDataZ713,
+                                                                  ));
+                                                                }
 
-                                                          context.goNamed(
-                                                              PeoplewhoputyouinfavoritesWidget
-                                                                  .routeName);
-                                                        },
+                                                                context.goNamed(
+                                                                    PeoplewhoputyouinfavoritesWidget
+                                                                        .routeName);
+                                                              },
                                                         text: 'Create Profile',
                                                         options:
                                                             FFButtonOptions(
@@ -1525,6 +1528,8 @@ class _RegisterPfofesional4CopyWidgetState
                                                               BorderRadius
                                                                   .circular(
                                                                       24.0),
+                                                          disabledColor:
+                                                              Color(0xFF99A1A8),
                                                         ),
                                                       ),
                                                     ),

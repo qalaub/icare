@@ -1,10 +1,13 @@
 import '/auth/firebase_auth/auth_util.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
+import 'package:lock_orientation_library_opafp4/custom_code/actions/index.dart'
+    as lock_orientation_library_opafp4_actions;
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'inciteshatred_model.dart';
 export 'inciteshatred_model.dart';
@@ -37,6 +40,11 @@ class _InciteshatredWidgetState extends State<InciteshatredWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => InciteshatredModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await lock_orientation_library_opafp4_actions.lockOrientation();
+    });
   }
 
   @override
@@ -208,7 +216,7 @@ class _InciteshatredWidgetState extends State<InciteshatredWidget> {
                         widget.user2!,
                         widget.report!,
                         currentUserEmail,
-                        '',
+                        'This user is using hateful or discriminatory language against a group.',
                       );
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(

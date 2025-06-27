@@ -1,7 +1,10 @@
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
+import 'package:lock_orientation_library_opafp4/custom_code/actions/index.dart'
+    as lock_orientation_library_opafp4_actions;
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'report_model.dart';
 export 'report_model.dart';
@@ -32,6 +35,11 @@ class _ReportWidgetState extends State<ReportWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ReportModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await lock_orientation_library_opafp4_actions.lockOrientation();
+    });
   }
 
   @override

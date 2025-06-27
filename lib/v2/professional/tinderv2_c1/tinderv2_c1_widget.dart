@@ -2,7 +2,6 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_swipeable_stack.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
@@ -11,7 +10,10 @@ import '/v2/professional/tinderv2_c0/tinderv2_c0_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/random_data_util.dart' as random_data;
 import '/index.dart';
+import 'package:lock_orientation_library_opafp4/custom_code/actions/index.dart'
+    as lock_orientation_library_opafp4_actions;
 import 'package:collection/collection.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
@@ -42,35 +44,53 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await lock_orientation_library_opafp4_actions.lockOrientation();
       _model.professional = await queryUsersRecordOnce(
         queryBuilder: (usersRecord) => usersRecord.where(
           'rol',
           isNotEqualTo: Roles.user.serialize(),
         ),
       );
+      _model.allProfessionals = await queryFavoritesRecordOnce(
+        queryBuilder: (favoritesRecord) => favoritesRecord.where(
+          'userID',
+          isEqualTo: currentUserReference,
+        ),
+      );
       if (loggedIn) {
         _model.professionals = _model.professional!
             .where((e) =>
-                ((currentUserDocument?.dontShow.toList() ?? [])
-                        .contains(e.reference) ==
-                    false) &&
-                ((currentUserDocument?.favorites.toList() ?? [])
-                        .contains(e.reference) ==
-                    false) &&
-                ((currentUserDocument?.rejections.toList() ?? [])
-                        .contains(e.reference) ==
-                    false))
+                (currentUserDocument?.dontShow.toList() ?? [])
+                    .contains(e.reference) ==
+                false)
             .toList()
             .toList()
             .cast<UsersRecord>();
         safeSetState(() {});
-      } else {
-        _model.professionals =
-            _model.professional!.toList().cast<UsersRecord>();
+        _model.favoriteRefs = _model.allProfessionals!
+            .map((e) => e.professionalRef?.id)
+            .withoutNulls
+            .toList()
+            .toList()
+            .cast<String>();
         safeSetState(() {});
+        _model.listaFiltrada = functions
+            .filterProfessionalsByDistance(
+                functions
+                    .filterProfessionalstinder(_model.professionals.toList(),
+                        _model.favoriteRefs.toList())
+                    .toList(),
+                currentUserDocument?.suburb)
+            .toList()
+            .cast<UsersRecord>();
+        safeSetState(() {});
+        _model.currentProfessional =
+            _model.listaFiltrada.elementAtOrNull(_model.currentIndex);
+        safeSetState(() {});
+        return;
+      } else {
+        return;
       }
-
-      _model.currentProfessional = _model.professionals.firstOrNull;
     });
 
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
@@ -206,100 +226,97 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                     ),
                   ),
                 ),
-                Align(
-                  alignment: AlignmentDirectional(0.0, 0.0),
-                  child: Container(
-                    height: MediaQuery.sizeOf(context).height * 0.75,
-                    decoration: BoxDecoration(),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Builder(
-                          builder: (context) {
-                            if ((_model.professionals.length <= 0) ||
-                                _model.showMessage ||
-                                (_model.currentProfessional == null)) {
-                              return Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
-                                child: Container(
-                                  constraints: BoxConstraints(
-                                    maxWidth:
-                                        MediaQuery.sizeOf(context).width * 0.96,
-                                    maxHeight:
-                                        MediaQuery.sizeOf(context).height *
-                                            0.65,
+                if (loggedIn)
+                  Align(
+                    alignment: AlignmentDirectional(0.0, 0.0),
+                    child: Container(
+                      height: MediaQuery.sizeOf(context).height * 0.75,
+                      decoration: BoxDecoration(),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Builder(
+                            builder: (context) {
+                              if ((_model.listaFiltrada.length <= 0) ||
+                                  _model.showMessage ||
+                                  (_model.currentProfessional == null)) {
+                                return Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: Container(
+                                    constraints: BoxConstraints(
+                                      maxWidth:
+                                          MediaQuery.sizeOf(context).width *
+                                              0.96,
+                                      maxHeight:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.65,
+                                    ),
+                                    decoration: BoxDecoration(),
+                                    child: wrapWithModel(
+                                      model: _model.mensageTinderModel,
+                                      updateCallback: () => safeSetState(() {}),
+                                      child: MensageTinderWidget(),
+                                    ),
                                   ),
-                                  decoration: BoxDecoration(),
-                                  child: wrapWithModel(
-                                    model: _model.mensageTinderModel,
-                                    updateCallback: () => safeSetState(() {}),
-                                    child: MensageTinderWidget(),
-                                  ),
-                                ),
-                              );
-                            } else {
-                              return Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
-                                child: StreamBuilder<List<ChatsRecord>>(
-                                  stream: queryChatsRecord(
-                                    queryBuilder: (chatsRecord) => chatsRecord
-                                        .where(
-                                          'user_a',
-                                          isEqualTo: currentUserReference,
-                                        )
-                                        .where(
-                                          'user_b',
-                                          isEqualTo: _model
-                                              .currentProfessional?.reference,
-                                        ),
-                                    singleRecord: true,
-                                  ),
-                                  builder: (context, snapshot) {
-                                    // Customize what your widget looks like when it's loading.
-                                    if (!snapshot.hasData) {
-                                      return Center(
-                                        child: SizedBox(
-                                          width: 50.0,
-                                          height: 50.0,
-                                          child: CircularProgressIndicator(
-                                            valueColor:
-                                                AlwaysStoppedAnimation<Color>(
-                                              FlutterFlowTheme.of(context)
-                                                  .primary,
+                                );
+                              } else {
+                                return Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: StreamBuilder<List<ChatsRecord>>(
+                                    stream: queryChatsRecord(
+                                      queryBuilder: (chatsRecord) => chatsRecord
+                                          .where(
+                                            'user_a',
+                                            isEqualTo: currentUserReference,
+                                          )
+                                          .where(
+                                            'user_b',
+                                            isEqualTo: _model
+                                                .currentProfessional?.reference,
+                                          ),
+                                      singleRecord: true,
+                                    ),
+                                    builder: (context, snapshot) {
+                                      // Customize what your widget looks like when it's loading.
+                                      if (!snapshot.hasData) {
+                                        return Center(
+                                          child: SizedBox(
+                                            width: 50.0,
+                                            height: 50.0,
+                                            child: CircularProgressIndicator(
+                                              valueColor:
+                                                  AlwaysStoppedAnimation<Color>(
+                                                FlutterFlowTheme.of(context)
+                                                    .primary,
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                      );
-                                    }
-                                    List<ChatsRecord> containerChatsRecordList =
-                                        snapshot.data!;
-                                    final containerChatsRecord =
-                                        containerChatsRecordList.isNotEmpty
-                                            ? containerChatsRecordList.first
-                                            : null;
+                                        );
+                                      }
+                                      List<ChatsRecord>
+                                          containerChatsRecordList =
+                                          snapshot.data!;
+                                      final containerChatsRecord =
+                                          containerChatsRecordList.isNotEmpty
+                                              ? containerChatsRecordList.first
+                                              : null;
 
-                                    return Container(
-                                      constraints: BoxConstraints(
-                                        maxWidth:
-                                            MediaQuery.sizeOf(context).width *
-                                                0.96,
-                                        maxHeight:
-                                            MediaQuery.sizeOf(context).height *
-                                                0.65,
-                                      ),
-                                      decoration: BoxDecoration(),
-                                      child: AuthUserStreamWidget(
-                                        builder: (context) => Builder(
+                                      return Container(
+                                        constraints: BoxConstraints(
+                                          maxWidth:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.96,
+                                          maxHeight: MediaQuery.sizeOf(context)
+                                                  .height *
+                                              0.65,
+                                        ),
+                                        decoration: BoxDecoration(),
+                                        child: Builder(
                                           builder: (context) {
-                                            final newData = functions
-                                                .filterProfessionalsByDistance(
-                                                    _model.professionals
-                                                        .toList(),
-                                                    currentUserDocument?.suburb,
-                                                    300.0)
-                                                .toList();
+                                            final newData =
+                                                _model.listaFiltrada.toList();
 
                                             return FlutterFlowSwipeableStack(
                                               onSwipeFn: (index) async {
@@ -317,21 +334,7 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                               onLeftSwipe: (index) async {
                                                 final newDataItem =
                                                     newData[index];
-                                                if (!loggedIn) {
-                                                  _model.addToLastRejectedItem(
-                                                      newDataItem);
-                                                  safeSetState(() {});
-                                                  await Future.delayed(
-                                                      const Duration(
-                                                          milliseconds: 3000));
-
-                                                  await newDataItem.reference
-                                                      .update(
-                                                          createUsersRecordData());
-
-                                                  context.pushNamed(
-                                                      LoginWidget.routeName);
-                                                } else {
+                                                if (loggedIn) {
                                                   _model.addToLastRejectedItem(
                                                       newDataItem);
                                                   safeSetState(() {});
@@ -355,6 +358,27 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                                     context.pushNamed(
                                                         LoginWidget.routeName);
                                                   } else {
+                                                    firestoreBatch.set(
+                                                        FavoritesRecord
+                                                            .collection
+                                                            .doc(),
+                                                        {
+                                                          ...createFavoritesRecordData(
+                                                            userID:
+                                                                currentUserReference,
+                                                            professionalRef:
+                                                                newDataItem
+                                                                    .reference,
+                                                          ),
+                                                          ...mapToFirestore(
+                                                            {
+                                                              'timestamp':
+                                                                  FieldValue
+                                                                      .serverTimestamp(),
+                                                            },
+                                                          ),
+                                                        });
+
                                                     firestoreBatch.update(
                                                         currentUserReference!, {
                                                       ...mapToFirestore(
@@ -458,15 +482,13 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                                       }, chatsRecordReference);
                                                     }
 
-                                                    if (_model
-                                                            .currentProfessional
-                                                            ?.business !=
-                                                        null) {
-                                                      firestoreBatch.set(
-                                                          NewsbusinessRecord
-                                                              .collection
-                                                              .doc(),
-                                                          createNewsbusinessRecordData(
+                                                    _model.userToAdd = [];
+                                                    firestoreBatch.set(
+                                                        NewsbusinessRecord
+                                                            .collection
+                                                            .doc(),
+                                                        {
+                                                          ...createNewsbusinessRecordData(
                                                             business:
                                                                 newDataItem
                                                                     .business,
@@ -476,10 +498,16 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                                             user:
                                                                 currentUserReference,
                                                             isView: false,
-                                                          ));
-                                                    }
-                                                    _model.userToAdd = [];
-
+                                                          ),
+                                                          ...mapToFirestore(
+                                                            {
+                                                              'timestamp':
+                                                                  FieldValue
+                                                                      .serverTimestamp(),
+                                                            },
+                                                          ),
+                                                        });
+                                                  
                                                     context.pushNamed(
                                                       ProfileInfoWidget
                                                           .routeName,
@@ -525,7 +553,7 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                               },
                                               itemCount: newData.length,
                                               controller: _model
-                                                  .swipeableStackController,
+                                                  .swipeableStackController1,
                                               loop: false,
                                               cardDisplayCount: 1,
                                               scale: 0.9,
@@ -540,241 +568,551 @@ class _Tinderv2C1WidgetState extends State<Tinderv2C1Widget> {
                                             );
                                           },
                                         ),
-                                      ),
-                                    );
-                                  },
-                                ),
-                              );
-                            }
-                          },
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 4.0, 0.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Align(
-                                alignment: AlignmentDirectional(1.0, 0.0),
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    _model.swipeableStackController.swipeLeft();
-                                  },
-                                  child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 0.18,
-                                    height:
-                                        MediaQuery.sizeOf(context).width * 0.18,
-                                    clipBehavior: Clip.antiAlias,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: Image.asset(
-                                      key: ValueKey('dislike'),
-                                      'assets/images/ggy9g_x.png',
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Stack(
-                                children: [
-                                  Builder(
-                                    builder: (context) {
-                                      if (_model.currentProfessional == null) {
-                                        return Align(
-                                          alignment:
-                                              AlignmentDirectional(0.0, 1.0),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 16.0, 0.0, 0.0),
-                                            child: InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {
-                                                context.pushNamed(
-                                                  Tinderv2C1Widget.routeName,
-                                                  extra: <String, dynamic>{
-                                                    kTransitionInfoKey:
-                                                        TransitionInfo(
-                                                      hasTransition: true,
-                                                      transitionType:
-                                                          PageTransitionType
-                                                              .fade,
-                                                      duration: Duration(
-                                                          milliseconds: 0),
-                                                    ),
-                                                  },
-                                                );
-                                              },
-                                              child: Container(
-                                                width:
-                                                    MediaQuery.sizeOf(context)
-                                                            .width *
-                                                        0.13,
-                                                height:
-                                                    MediaQuery.sizeOf(context)
-                                                            .width *
-                                                        0.13,
-                                                clipBehavior: Clip.antiAlias,
-                                                decoration: BoxDecoration(
-                                                  shape: BoxShape.circle,
-                                                ),
-                                                child: Image.asset(
-                                                  'assets/images/Group_100-2_(1).png',
-                                                  fit: BoxFit.cover,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        );
-                                      } else {
-                                        return Align(
-                                          alignment:
-                                              AlignmentDirectional(0.0, 1.0),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 16.0, 0.0, 0.0),
-                                            child: InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {
-                                                if (loggedIn) {
-                                                  if (_model.lastRejectedItem
-                                                          .length >
-                                                      0) {
-                                                    _model.lastRetrievedItem =
-                                                        _model.lastRejectedItem
-                                                            .lastOrNull;
-                                                    safeSetState(() {});
-                                                    await Future.delayed(
-                                                        const Duration(
-                                                            milliseconds: 500));
-                                                    _model.currentProfessional =
-                                                        _model
-                                                            .lastRetrievedItem;
-                                                    safeSetState(() {});
-                                                    _model.insertAtIndexInProfessionals(
-                                                        _model.currentIndex,
-                                                        _model
-                                                            .lastRetrievedItem!);
-                                                    safeSetState(() {});
-                                                    _model
-                                                        .removeFromLastRejectedItem(
-                                                            _model
-                                                                .lastRejectedItem
-                                                                .lastOrNull!);
-                                                  }
-                                                } else {
-                                                  if (_model.lastRejectedItem
-                                                          .length >
-                                                      0) {
-                                                    _model.lastRetrievedItem =
-                                                        _model.lastRejectedItem
-                                                            .lastOrNull;
-                                                    safeSetState(() {});
-                                                    await Future.delayed(
-                                                        const Duration(
-                                                            milliseconds: 500));
-                                                    _model.currentProfessional =
-                                                        _model
-                                                            .lastRetrievedItem;
-                                                    safeSetState(() {});
-                                                    _model.insertAtIndexInProfessionals(
-                                                        _model.currentIndex,
-                                                        _model
-                                                            .lastRetrievedItem!);
-                                                    safeSetState(() {});
-                                                    _model
-                                                        .removeFromLastRejectedItem(
-                                                            _model
-                                                                .lastRejectedItem
-                                                                .lastOrNull!);
-                                                  }
-
-                                                  context.pushNamed(
-                                                      LoginWidget.routeName);
-                                                }
-                                              },
-                                              child: Container(
-                                                width:
-                                                    MediaQuery.sizeOf(context)
-                                                            .width *
-                                                        0.13,
-                                                height:
-                                                    MediaQuery.sizeOf(context)
-                                                            .width *
-                                                        0.13,
-                                                clipBehavior: Clip.antiAlias,
-                                                decoration: BoxDecoration(
-                                                  shape: BoxShape.circle,
-                                                ),
-                                                child: Image.asset(
-                                                  key: ValueKey('like'),
-                                                  'assets/images/Group_100-2_(1).png',
-                                                  fit: BoxFit.cover,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        );
-                                      }
+                                      );
                                     },
                                   ),
-                                ],
-                              ),
-                              Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    if (loggedIn == false) {
-                                      context.pushNamed(LoginWidget.routeName);
-                                    } else {
-                                      _model.swipeableStackController
-                                          .swipeRight();
-                                    }
-                                  },
-                                  child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 0.18,
-                                    height:
-                                        MediaQuery.sizeOf(context).width * 0.18,
-                                    clipBehavior: Clip.antiAlias,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: Image.asset(
-                                      key: ValueKey('like'),
-                                      'assets/images/ME-GUSTA.png',
-                                      fit: BoxFit.cover,
+                                );
+                              }
+                            },
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 4.0, 0.0, 0.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Align(
+                                  alignment: AlignmentDirectional(1.0, 0.0),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      _model.swipeableStackController1
+                                          .swipeLeft();
+                                    },
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.18,
+                                      height: MediaQuery.sizeOf(context).width *
+                                          0.18,
+                                      clipBehavior: Clip.antiAlias,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Image.asset(
+                                        key: ValueKey('dislike'),
+                                        'assets/images/ggy9g_x.png',
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
                                   ),
                                 ),
-                              ),
-                            ].divide(SizedBox(width: 12.0)),
+                                Stack(
+                                  children: [
+                                    Builder(
+                                      builder: (context) {
+                                        if (_model.currentProfessional ==
+                                            null) {
+                                          return Align(
+                                            alignment:
+                                                AlignmentDirectional(0.0, 1.0),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 16.0, 0.0, 0.0),
+                                              child: InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
+                                                onTap: () async {
+                                                  context.pushNamed(
+                                                    Tinderv2C1Widget.routeName,
+                                                    extra: <String, dynamic>{
+                                                      kTransitionInfoKey:
+                                                          TransitionInfo(
+                                                        hasTransition: true,
+                                                        transitionType:
+                                                            PageTransitionType
+                                                                .fade,
+                                                        duration: Duration(
+                                                            milliseconds: 0),
+                                                      ),
+                                                    },
+                                                  );
+                                                },
+                                                child: Container(
+                                                  width:
+                                                      MediaQuery.sizeOf(context)
+                                                              .width *
+                                                          0.13,
+                                                  height:
+                                                      MediaQuery.sizeOf(context)
+                                                              .width *
+                                                          0.13,
+                                                  clipBehavior: Clip.antiAlias,
+                                                  decoration: BoxDecoration(
+                                                    shape: BoxShape.circle,
+                                                  ),
+                                                  child: Image.asset(
+                                                    'assets/images/Group_100-2_(1).png',
+                                                    fit: BoxFit.cover,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          );
+                                        } else {
+                                          return Align(
+                                            alignment:
+                                                AlignmentDirectional(0.0, 1.0),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 16.0, 0.0, 0.0),
+                                              child: InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
+                                                onTap: () async {
+                                                  if (loggedIn) {
+                                                    if (_model.lastRejectedItem
+                                                            .length >
+                                                        0) {
+                                                      _model.lastRetrievedItem =
+                                                          _model
+                                                              .lastRejectedItem
+                                                              .lastOrNull;
+                                                      safeSetState(() {});
+                                                      await Future.delayed(
+                                                          const Duration(
+                                                              milliseconds:
+                                                                  500));
+                                                      _model.currentProfessional =
+                                                          _model
+                                                              .lastRetrievedItem;
+                                                      safeSetState(() {});
+                                                      _model.insertAtIndexInListaFiltrada(
+                                                          _model.currentIndex,
+                                                          _model
+                                                              .lastRetrievedItem!);
+                                                      safeSetState(() {});
+                                                      _model.removeFromLastRejectedItem(
+                                                          _model
+                                                              .lastRejectedItem
+                                                              .lastOrNull!);
+                                                      safeSetState(() {});
+                                                    }
+                                                  } else {
+                                                    context.pushNamed(
+                                                        LoginWidget.routeName);
+                                                  }
+                                                },
+                                                child: Container(
+                                                  width:
+                                                      MediaQuery.sizeOf(context)
+                                                              .width *
+                                                          0.13,
+                                                  height:
+                                                      MediaQuery.sizeOf(context)
+                                                              .width *
+                                                          0.13,
+                                                  clipBehavior: Clip.antiAlias,
+                                                  decoration: BoxDecoration(
+                                                    shape: BoxShape.circle,
+                                                  ),
+                                                  child: Image.asset(
+                                                    key: ValueKey('like'),
+                                                    'assets/images/Group_100-2_(1).png',
+                                                    fit: BoxFit.cover,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          );
+                                        }
+                                      },
+                                    ),
+                                  ],
+                                ),
+                                Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      if (loggedIn == false) {
+                                        context
+                                            .pushNamed(LoginWidget.routeName);
+                                      } else {
+                                        _model.swipeableStackController1
+                                            .swipeRight();
+                                      }
+                                    },
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.18,
+                                      height: MediaQuery.sizeOf(context).width *
+                                          0.18,
+                                      clipBehavior: Clip.antiAlias,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Image.asset(
+                                        key: ValueKey('like'),
+                                        'assets/images/ME-GUSTA.png',
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ].divide(SizedBox(width: 12.0)),
+                            ),
                           ),
-                        ),
-                      ].divide(SizedBox(height: 2.0)),
+                        ].divide(SizedBox(height: 2.0)),
+                      ),
                     ),
                   ),
-                ),
+                if (!loggedIn)
+                  Align(
+                    alignment: AlignmentDirectional(0.0, 0.0),
+                    child: Container(
+                      height: MediaQuery.sizeOf(context).height * 0.75,
+                      decoration: BoxDecoration(),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Align(
+                            alignment: AlignmentDirectional(0.0, 0.0),
+                            child: Container(
+                              constraints: BoxConstraints(
+                                maxWidth:
+                                    MediaQuery.sizeOf(context).width * 0.96,
+                                maxHeight:
+                                    MediaQuery.sizeOf(context).height * 0.65,
+                              ),
+                              decoration: BoxDecoration(),
+                              child: FutureBuilder<List<UsersRecord>>(
+                                future: queryUsersRecordOnce(
+                                  queryBuilder: (usersRecord) =>
+                                      usersRecord.where(
+                                    'rol',
+                                    isNotEqualTo: Roles.user.serialize(),
+                                  ),
+                                ),
+                                builder: (context, snapshot) {
+                                  // Customize what your widget looks like when it's loading.
+                                  if (!snapshot.hasData) {
+                                    return Center(
+                                      child: SizedBox(
+                                        width: 50.0,
+                                        height: 50.0,
+                                        child: CircularProgressIndicator(
+                                          valueColor:
+                                              AlwaysStoppedAnimation<Color>(
+                                            FlutterFlowTheme.of(context)
+                                                .primary,
+                                          ),
+                                        ),
+                                      ),
+                                    );
+                                  }
+                                  List<UsersRecord>
+                                      swipeableStackUsersRecordList =
+                                      snapshot.data!;
+
+                                  return FlutterFlowSwipeableStack(
+                                    onSwipeFn: (index) async {
+                                      final swipeableStackUsersRecord =
+                                          swipeableStackUsersRecordList[index];
+                                      _model.currentProfessional =
+                                          swipeableStackUsersRecord;
+                                      safeSetState(() {});
+                                      _model.currentIndex =
+                                          _model.currentIndex + 1;
+                                      _model.currentProfessional =
+                                          swipeableStackUsersRecord;
+                                      safeSetState(() {});
+                                    },
+                                    onLeftSwipe: (index) async {
+                                      final swipeableStackUsersRecord =
+                                          swipeableStackUsersRecordList[index];
+                                      if (!loggedIn) {
+                                        _model.addToLastRejectedItem(
+                                            swipeableStackUsersRecord);
+                                        safeSetState(() {});
+
+                                        context
+                                            .pushNamed(LoginWidget.routeName);
+
+                                        await Future.delayed(
+                                            const Duration(milliseconds: 3000));
+
+                                        await swipeableStackUsersRecord
+                                            .reference
+                                            .update(createUsersRecordData());
+                                      }
+                                    },
+                                    onRightSwipe: (index) async {
+                                      final swipeableStackUsersRecord =
+                                          swipeableStackUsersRecordList[index];
+                                      if (!loggedIn) {
+                                        context
+                                            .pushNamed(LoginWidget.routeName);
+                                      }
+                                    },
+                                    onUpSwipe: (index) {},
+                                    onDownSwipe: (index) {},
+                                    itemBuilder:
+                                        (context, swipeableStackIndex) {
+                                      final swipeableStackUsersRecord =
+                                          swipeableStackUsersRecordList[
+                                              swipeableStackIndex];
+                                      return Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        child: Tinderv2C0Widget(
+                                          key: Key(
+                                              'Keykop_${swipeableStackIndex}_of_${swipeableStackUsersRecordList.length}'),
+                                          professional:
+                                              swipeableStackUsersRecord,
+                                        ),
+                                      );
+                                    },
+                                    itemCount:
+                                        swipeableStackUsersRecordList.length,
+                                    controller:
+                                        _model.swipeableStackController2,
+                                    loop: false,
+                                    cardDisplayCount: 1,
+                                    scale: 0.9,
+                                    cardPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    backCardOffset: const Offset(1.0, 1.0),
+                                    allowedSwipeDirection:
+                                        AllowedSwipeDirection.symmetric(
+                                            horizontal: true),
+                                  );
+                                },
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 4.0, 0.0, 0.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Align(
+                                  alignment: AlignmentDirectional(1.0, 0.0),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      _model.swipeableStackController2
+                                          .swipeLeft();
+                                    },
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.18,
+                                      height: MediaQuery.sizeOf(context).width *
+                                          0.18,
+                                      clipBehavior: Clip.antiAlias,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Image.asset(
+                                        key: ValueKey('dislike'),
+                                        'assets/images/ggy9g_x.png',
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Stack(
+                                  children: [
+                                    Builder(
+                                      builder: (context) {
+                                        if (_model.currentProfessional ==
+                                            null) {
+                                          return Align(
+                                            alignment:
+                                                AlignmentDirectional(0.0, 1.0),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 16.0, 0.0, 0.0),
+                                              child: InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
+                                                onTap: () async {
+                                                  context.pushNamed(
+                                                    Tinderv2C1Widget.routeName,
+                                                    extra: <String, dynamic>{
+                                                      kTransitionInfoKey:
+                                                          TransitionInfo(
+                                                        hasTransition: true,
+                                                        transitionType:
+                                                            PageTransitionType
+                                                                .fade,
+                                                        duration: Duration(
+                                                            milliseconds: 0),
+                                                      ),
+                                                    },
+                                                  );
+                                                },
+                                                child: Container(
+                                                  width:
+                                                      MediaQuery.sizeOf(context)
+                                                              .width *
+                                                          0.13,
+                                                  height:
+                                                      MediaQuery.sizeOf(context)
+                                                              .width *
+                                                          0.13,
+                                                  clipBehavior: Clip.antiAlias,
+                                                  decoration: BoxDecoration(
+                                                    shape: BoxShape.circle,
+                                                  ),
+                                                  child: Image.asset(
+                                                    'assets/images/Group_100-2_(1).png',
+                                                    fit: BoxFit.cover,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          );
+                                        } else {
+                                          return Align(
+                                            alignment:
+                                                AlignmentDirectional(0.0, 1.0),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 16.0, 0.0, 0.0),
+                                              child: InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
+                                                onTap: () async {
+                                                  if (loggedIn) {
+                                                    if (_model.lastRejectedItem
+                                                            .length >
+                                                        0) {
+                                                      _model.lastRetrievedItem =
+                                                          _model
+                                                              .lastRejectedItem
+                                                              .lastOrNull;
+                                                      safeSetState(() {});
+                                                      await Future.delayed(
+                                                          const Duration(
+                                                              milliseconds:
+                                                                  500));
+                                                      _model.currentProfessional =
+                                                          _model
+                                                              .lastRetrievedItem;
+                                                      safeSetState(() {});
+                                                      _model.insertAtIndexInListaFiltrada(
+                                                          _model.currentIndex,
+                                                          _model
+                                                              .lastRetrievedItem!);
+                                                      safeSetState(() {});
+                                                      _model.removeFromLastRejectedItem(
+                                                          _model
+                                                              .lastRejectedItem
+                                                              .lastOrNull!);
+                                                      safeSetState(() {});
+                                                    }
+                                                  } else {
+                                                    context.pushNamed(
+                                                        LoginWidget.routeName);
+                                                  }
+                                                },
+                                                child: Container(
+                                                  width:
+                                                      MediaQuery.sizeOf(context)
+                                                              .width *
+                                                          0.13,
+                                                  height:
+                                                      MediaQuery.sizeOf(context)
+                                                              .width *
+                                                          0.13,
+                                                  clipBehavior: Clip.antiAlias,
+                                                  decoration: BoxDecoration(
+                                                    shape: BoxShape.circle,
+                                                  ),
+                                                  child: Image.asset(
+                                                    key: ValueKey('like'),
+                                                    'assets/images/Group_100-2_(1).png',
+                                                    fit: BoxFit.cover,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          );
+                                        }
+                                      },
+                                    ),
+                                  ],
+                                ),
+                                Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      if (loggedIn == false) {
+                                        context
+                                            .pushNamed(LoginWidget.routeName);
+                                      } else {
+                                        _model.swipeableStackController2
+                                            .swipeRight();
+                                      }
+                                    },
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.18,
+                                      height: MediaQuery.sizeOf(context).width *
+                                          0.18,
+                                      clipBehavior: Clip.antiAlias,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Image.asset(
+                                        key: ValueKey('like'),
+                                        'assets/images/ME-GUSTA.png',
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ].divide(SizedBox(width: 12.0)),
+                            ),
+                          ),
+                        ].divide(SizedBox(height: 2.0)),
+                      ),
+                    ),
+                  ),
                 Align(
                   alignment: AlignmentDirectional(0.0, 1.0),
                   child: Container(

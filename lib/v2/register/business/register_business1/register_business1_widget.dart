@@ -2,14 +2,17 @@ import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/v2/user/mapbuscar/mapbuscar_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
+import 'package:lock_orientation_library_opafp4/custom_code/actions/index.dart'
+    as lock_orientation_library_opafp4_actions;
 import 'package:easy_debounce/easy_debounce.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -45,6 +48,11 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
   void initState() {
     super.initState();
     _model = createModel(context, () => RegisterBusiness1Model());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await lock_orientation_library_opafp4_actions.lockOrientation();
+    });
 
     _model.firstNameTextController ??= TextEditingController();
     _model.firstNameFocusNode ??= FocusNode();
@@ -91,7 +99,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
           MoveEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 600.0.ms,
+            duration: 400.0.ms,
             begin: Offset(0.0, -11.0),
             end: Offset(0.0, 0.0),
           ),
@@ -103,7 +111,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
           MoveEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 600.0.ms,
+            duration: 400.0.ms,
             begin: Offset(0.0, -11.0),
             end: Offset(0.0, 0.0),
           ),
@@ -115,7 +123,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
           MoveEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 600.0.ms,
+            duration: 400.0.ms,
             begin: Offset(0.0, -11.0),
             end: Offset(0.0, 0.0),
           ),
@@ -127,7 +135,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
           MoveEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 600.0.ms,
+            duration: 400.0.ms,
             begin: Offset(0.0, -11.0),
             end: Offset(0.0, 0.0),
           ),
@@ -176,7 +184,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                   width: double.infinity,
                   height: MediaQuery.sizeOf(context).height * 1.0,
                   decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                    color: Color(0xFFBD39BA),
                   ),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
@@ -191,7 +199,8 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                 child: Image.asset(
                                   'assets/images/escoger-users.png',
                                   width: double.infinity,
-                                  height: double.infinity,
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 1.0,
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -2419,7 +2428,7 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                             '_model.queryTextController',
                                                             Duration(
                                                                 milliseconds:
-                                                                    100),
+                                                                    500),
                                                             () async {
                                                               _model.isLoading =
                                                                   true;
@@ -2435,16 +2444,15 @@ class _RegisterBusiness1WidgetState extends State<RegisterBusiness1Widget>
                                                                       .apiResultuev
                                                                       ?.succeeded ??
                                                                   true)) {
-                                                                _model.queryResults =
-                                                                    GetSuggestionMapProfesionalCall
-                                                                            .predictions(
-                                                                  (_model.apiResultuev
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                )!
-                                                                        .toList()
-                                                                        .cast<
-                                                                            QueryResultsStruct>();
+                                                                _model.queryResults = functions
+                                                                    .filterOutAustralianStates(GetSuggestionMapProfesionalCall.predictions(
+                                                                      (_model.apiResultuev
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )!
+                                                                        .toList())
+                                                                    .toList()
+                                                                    .cast<QueryResultsStruct>();
                                                               } else {
                                                                 _model.isLoading =
                                                                     false;

@@ -3,14 +3,16 @@ import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
 import '/components/empty_state_simple_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
+import 'package:lock_orientation_library_opafp4/custom_code/actions/index.dart'
+    as lock_orientation_library_opafp4_actions;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -41,6 +43,8 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await lock_orientation_library_opafp4_actions.lockOrientation();
+
       await currentUserReference!.update(createUsersRecordData(
         isActive: true,
       ));
@@ -300,9 +304,12 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
                                                         ),
                                                       ],
                                                     ),
-                                                    if (currentUserDocument
-                                                            ?.plan !=
-                                                        Plan.basic)
+                                                    if ((currentUserDocument
+                                                                ?.plan !=
+                                                            Plan.basic) ||
+                                                        (chatClipItem
+                                                                    .lastMessage !=
+                                                                ''))
                                                       Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
@@ -415,9 +422,7 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
                                           child: EmptyStateSimpleWidget(
                                             icon: Icon(
                                               Icons.mark_chat_unread_outlined,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
+                                              color: Color(0xFFBD39BA),
                                               size: 90.0,
                                             ),
                                             title: 'No Chats',
@@ -433,7 +438,7 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
                                         0,
                                         11.0,
                                         0,
-                                        0,
+                                        30.0,
                                       ),
                                       scrollDirection: Axis.vertical,
                                       itemCount: chat2MainVar.length,
@@ -644,8 +649,8 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
                                                                           CrossAxisAlignment
                                                                               .start,
                                                                       children: [
-                                                                        if (currentUserDocument?.plan !=
-                                                                            Plan.basic)
+                                                                        if ((currentUserDocument?.plan != Plan.basic) ||
+                                                                            (chat2MainVarItem.lastMessage != ''))
                                                                           Row(
                                                                             mainAxisSize:
                                                                                 MainAxisSize.max,
@@ -1467,7 +1472,7 @@ class _Chat2MainWidgetState extends State<Chat2MainWidget> {
                                           0,
                                           11.0,
                                           0,
-                                          0,
+                                          30.0,
                                         ),
                                         scrollDirection: Axis.vertical,
                                         itemCount: chat2Bussines.length,

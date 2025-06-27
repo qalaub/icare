@@ -1,12 +1,17 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/schema/enums/enums.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
 import '/v3correciones/user_fav0rites/v3fv0ritesv3/v3fv0ritesv3_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:lock_orientation_library_opafp4/custom_code/actions/index.dart'
+    as lock_orientation_library_opafp4_actions;
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'listofcollaborators_model.dart';
 export 'listofcollaborators_model.dart';
@@ -31,6 +36,11 @@ class _ListofcollaboratorsWidgetState extends State<ListofcollaboratorsWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ListofcollaboratorsModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await lock_orientation_library_opafp4_actions.lockOrientation();
+    });
   }
 
   @override
@@ -79,27 +89,14 @@ class _ListofcollaboratorsWidgetState extends State<ListofcollaboratorsWidget> {
                               width: MediaQuery.sizeOf(context).width * 1.0,
                               height: 55.0,
                               decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
+                                color: Color(0xFFBD39BA),
                               ),
                               child: Stack(
                                 children: [
                                   Align(
                                     alignment: AlignmentDirectional(0.0, 0.0),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(0.0),
-                                      child: Image.asset(
-                                        'assets/images/Rectangle_7.png',
-                                        width: double.infinity,
-                                        height: double.infinity,
-                                        fit: BoxFit.none,
-                                      ),
-                                    ),
-                                  ),
-                                  Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Text(
-                                      'List Of Collaborators',
+                                      'List Of Helpers',
                                       style: FlutterFlowTheme.of(context)
                                           .headlineSmall
                                           .override(
@@ -121,12 +118,26 @@ class _ListofcollaboratorsWidgetState extends State<ListofcollaboratorsWidget> {
                                           ),
                                     ),
                                   ),
+                                  FlutterFlowIconButton(
+                                    borderColor: Colors.transparent,
+                                    borderRadius: 30.0,
+                                    borderWidth: 1.0,
+                                    buttonSize: 60.0,
+                                    icon: FaIcon(
+                                      FontAwesomeIcons.angleLeft,
+                                      color: Colors.white,
+                                      size: 30.0,
+                                    ),
+                                    onPressed: () async {
+                                      context.pop();
+                                    },
+                                  ),
                                 ],
                               ),
                             ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(0.88, -0.7),
+                            alignment: AlignmentDirectional(0.88, -0.8),
                             child: AuthUserStreamWidget(
                               builder: (context) => Text(
                                 valueOrDefault<String>(

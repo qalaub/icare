@@ -11,16 +11,16 @@ class RegisterPfofesional5Model
 
   ///  State fields for stateful widgets in this page.
 
-  bool isDataUploading1 = false;
-  FFUploadedFile uploadedLocalFile1 =
+  bool isDataUploading_uploadData80lA = false;
+  FFUploadedFile uploadedLocalFile_uploadData80lA =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // Stores action output result for [Custom Action - verifySizeVideo] action in Button widget.
   bool? verifyVideo;
-  bool isDataUploading2 = false;
-  FFUploadedFile uploadedLocalFile2 =
+  bool isDataUploading_uploadDataZ712 = false;
+  FFUploadedFile uploadedLocalFile_uploadDataZ712 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl2 = '';
+  String uploadedFileUrl_uploadDataZ712 = '';
 
   // Stores action output result for [Stripe Payment] action in Button widget.
   String? paymentId;

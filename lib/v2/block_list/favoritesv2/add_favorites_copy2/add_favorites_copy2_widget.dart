@@ -1,10 +1,10 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:collection/collection.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'add_favorites_copy2_model.dart';
 export 'add_favorites_copy2_model.dart';
@@ -97,6 +97,20 @@ class _AddFavoritesCopy2WidgetState extends State<AddFavoritesCopy2Widget> {
                     size: 33.0,
                   ),
                   onPressed: () async {
+                    _model.existingFavorite = await queryFavoritesRecordOnce(
+                      queryBuilder: (favoritesRecord) => favoritesRecord
+                          .where(
+                            'userID',
+                            isEqualTo: currentUserReference,
+                          )
+                          .where(
+                            'professionalRef',
+                            isEqualTo: widget.professional?.reference,
+                          ),
+                      singleRecord: true,
+                    ).then((s) => s.firstOrNull);
+                    await _model.existingFavorite!.reference.delete();
+
                     await currentUserReference!.update({
                       ...mapToFirestore(
                         {
@@ -106,6 +120,8 @@ class _AddFavoritesCopy2WidgetState extends State<AddFavoritesCopy2Widget> {
                       ),
                     });
                     FFAppState().favoritesChange = true;
+                    safeSetState(() {});
+
                     safeSetState(() {});
                   },
                 );
@@ -122,6 +138,18 @@ class _AddFavoritesCopy2WidgetState extends State<AddFavoritesCopy2Widget> {
                   ),
                   showLoadingIndicator: true,
                   onPressed: () async {
+                    await FavoritesRecord.collection.doc().set({
+                      ...createFavoritesRecordData(
+                        userID: currentUserReference,
+                        professionalRef: widget.professional?.reference,
+                      ),
+                      ...mapToFirestore(
+                        {
+                          'timestamp': FieldValue.serverTimestamp(),
+                        },
+                      ),
+                    });
+
                     await currentUserReference!.update({
                       ...mapToFirestore(
                         {
@@ -191,14 +219,19 @@ class _AddFavoritesCopy2WidgetState extends State<AddFavoritesCopy2Widget> {
 
                     _model.userToAdd = [];
                     if (widget.professional?.business != null) {
-                      await NewsbusinessRecord.collection
-                          .doc()
-                          .set(createNewsbusinessRecordData(
-                            business: widget.professional?.business,
-                            professional: widget.professional?.reference,
-                            user: currentUserReference,
-                            isView: false,
-                          ));
+                      await NewsbusinessRecord.collection.doc().set({
+                        ...createNewsbusinessRecordData(
+                          business: widget.professional?.business,
+                          professional: widget.professional?.reference,
+                          user: currentUserReference,
+                          isView: false,
+                        ),
+                        ...mapToFirestore(
+                          {
+                            'timestamp': FieldValue.serverTimestamp(),
+                          },
+                        ),
+                      });
                     }
                   
                     safeSetState(() {});

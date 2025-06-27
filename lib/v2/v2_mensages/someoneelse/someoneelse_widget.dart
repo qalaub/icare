@@ -1,10 +1,13 @@
 import '/auth/firebase_auth/auth_util.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
+import 'package:lock_orientation_library_opafp4/custom_code/actions/index.dart'
+    as lock_orientation_library_opafp4_actions;
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'someoneelse_model.dart';
 export 'someoneelse_model.dart';
@@ -37,6 +40,11 @@ class _SomeoneelseWidgetState extends State<SomeoneelseWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => SomeoneelseModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await lock_orientation_library_opafp4_actions.lockOrientation();
+    });
   }
 
   @override
@@ -118,7 +126,7 @@ class _SomeoneelseWidgetState extends State<SomeoneelseWidget> {
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'He pretends to be someone\nelse',
+                                    'Pretends to be someone\nelse',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -159,7 +167,7 @@ class _SomeoneelseWidgetState extends State<SomeoneelseWidget> {
                                                 0.8,
                                         decoration: BoxDecoration(),
                                         child: AutoSizeText(
-                                          'A system employee reviews reports of harassment to determine if they violate community standards. If confirmed, the account will besuspended.',
+                                          'A system employee reviews reports of impersonation to determine if they violate community standards. If confirmed, the account will be suspended.',
                                           textAlign: TextAlign.justify,
                                           maxLines: 5,
                                           style: FlutterFlowTheme.of(context)
@@ -208,7 +216,7 @@ class _SomeoneelseWidgetState extends State<SomeoneelseWidget> {
                         widget.user2!,
                         widget.report!,
                         currentUserEmail,
-                        '',
+                        'This user is impersonating another person with their name or image.',
                       );
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(

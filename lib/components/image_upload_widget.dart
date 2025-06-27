@@ -1,8 +1,8 @@
 import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/upload_data.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -68,9 +68,9 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
           borderRadius: BorderRadius.circular(8.0),
           child: Image.network(
             valueOrDefault<String>(
-              _model.uploadedFileUrl != ''
+              _model.uploadedFileUrl_uploadDataK6m != ''
                   ? valueOrDefault<String>(
-                      _model.uploadedFileUrl,
+                      _model.uploadedFileUrl_uploadDataK6m,
                       'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/gdid8dlbsj9v/addi.png',
                     )
                   : valueOrDefault<String>(
@@ -91,7 +91,7 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
         ),
         Builder(
           builder: (context) {
-            if (_model.uploadedFileUrl == '') {
+            if (_model.uploadedFileUrl_uploadDataK6m == '') {
               return Align(
                 alignment: AlignmentDirectional(1.0, 1.0),
                 child: FlutterFlowIconButton(
@@ -115,7 +115,8 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
                     if (selectedMedia != null &&
                         selectedMedia.every((m) =>
                             validateFileFormat(m.storagePath, context))) {
-                      safeSetState(() => _model.isDataUploading = true);
+                      safeSetState(
+                          () => _model.isDataUploading_uploadDataK6m = true);
                       var selectedUploadedFiles = <FFUploadedFile>[];
 
                       var downloadUrls = <String>[];
@@ -140,15 +141,16 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
                             .map((u) => u!)
                             .toList();
                       } finally {
-                        _model.isDataUploading = false;
+                        _model.isDataUploading_uploadDataK6m = false;
                       }
                       if (selectedUploadedFiles.length ==
                               selectedMedia.length &&
                           downloadUrls.length == selectedMedia.length) {
                         safeSetState(() {
-                          _model.uploadedLocalFile =
+                          _model.uploadedLocalFile_uploadDataK6m =
                               selectedUploadedFiles.first;
-                          _model.uploadedFileUrl = downloadUrls.first;
+                          _model.uploadedFileUrl_uploadDataK6m =
+                              downloadUrls.first;
                         });
                       } else {
                         safeSetState(() {});
@@ -161,17 +163,18 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
                           widget.index!) {
                         FFAppState().updateImagesUserUploadAtIndex(
                           widget.index!,
-                          (_) => _model.uploadedFileUrl,
+                          (_) => _model.uploadedFileUrl_uploadDataK6m,
                         );
                         FFAppState().update(() {});
                       } else {
                         FFAppState().insertAtIndexInImagesUserUpload(
-                            widget.index!, _model.uploadedFileUrl);
+                            widget.index!,
+                            _model.uploadedFileUrl_uploadDataK6m);
                         FFAppState().update(() {});
                       }
                     } else {
-                      FFAppState()
-                          .addToImagesUserUpload(_model.uploadedFileUrl);
+                      FFAppState().addToImagesUserUpload(
+                          _model.uploadedFileUrl_uploadDataK6m);
                       FFAppState().update(() {});
                     }
                   },
@@ -192,17 +195,17 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
                     size: 24.0,
                   ),
                   onPressed: () async {
-                    FFAppState()
-                        .removeFromImagesUserUpload(_model.uploadedFileUrl);
+                    FFAppState().removeFromImagesUserUpload(
+                        _model.uploadedFileUrl_uploadDataK6m);
                     FFAppState().update(() {});
                     await FirebaseStorage.instance
-                        .refFromURL(_model.uploadedFileUrl)
+                        .refFromURL(_model.uploadedFileUrl_uploadDataK6m)
                         .delete();
                     safeSetState(() {
-                      _model.isDataUploading = false;
-                      _model.uploadedLocalFile =
+                      _model.isDataUploading_uploadDataK6m = false;
+                      _model.uploadedLocalFile_uploadDataK6m =
                           FFUploadedFile(bytes: Uint8List.fromList([]));
-                      _model.uploadedFileUrl = '';
+                      _model.uploadedFileUrl_uploadDataK6m = '';
                     });
                   },
                 ),

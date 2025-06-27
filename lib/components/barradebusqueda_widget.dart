@@ -1,7 +1,7 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'barradebusqueda_model.dart';
@@ -203,7 +203,6 @@ class _BarradebusquedaWidgetState extends State<BarradebusquedaWidget> {
                     text: 'Filter',
                     icon: Icon(
                       Icons.filter_list_alt,
-                      color: Color(0xFFDB00FF),
                       size: 15.0,
                     ),
                     options: FFButtonOptions(
@@ -212,6 +211,7 @@ class _BarradebusquedaWidgetState extends State<BarradebusquedaWidget> {
                           EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                       iconPadding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      iconColor: Color(0xFFDB00FF),
                       color: Colors.white,
                       textStyle:
                           FlutterFlowTheme.of(context).titleSmall.override(

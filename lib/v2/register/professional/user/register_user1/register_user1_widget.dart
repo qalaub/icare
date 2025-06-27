@@ -3,19 +3,22 @@ import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/v2/user/mapbuscar/mapbuscar_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/random_data_util.dart' as random_data;
 import '/index.dart';
+import 'package:lock_orientation_library_opafp4/custom_code/actions/index.dart'
+    as lock_orientation_library_opafp4_actions;
 import 'package:easy_debounce/easy_debounce.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
 import 'register_user1_model.dart';
 export 'register_user1_model.dart';
@@ -45,6 +48,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await lock_orientation_library_opafp4_actions.lockOrientation();
       FFAppState().updateRegisterProviderFormStruct(
         (e) => e
           ..serviceType = List.generate(
@@ -69,6 +73,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
     _model.dateTextController ??= TextEditingController();
     _model.dateFocusNode ??= FocusNode();
 
+    _model.dateMask = MaskTextInputFormatter(mask: '##/##/####');
     _model.email2TextController ??= TextEditingController();
     _model.email2FocusNode ??= FocusNode();
     _model.email2FocusNode!.addListener(
@@ -102,7 +107,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
           MoveEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 600.0.ms,
+            duration: 400.0.ms,
             begin: Offset(0.0, -11.0),
             end: Offset(0.0, 0.0),
           ),
@@ -114,7 +119,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
           MoveEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 600.0.ms,
+            duration: 400.0.ms,
             begin: Offset(0.0, -11.0),
             end: Offset(0.0, 0.0),
           ),
@@ -126,7 +131,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
           MoveEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 600.0.ms,
+            duration: 400.0.ms,
             begin: Offset(0.0, -11.0),
             end: Offset(0.0, 0.0),
           ),
@@ -138,7 +143,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
           MoveEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 600.0.ms,
+            duration: 400.0.ms,
             begin: Offset(0.0, -11.0),
             end: Offset(0.0, 0.0),
           ),
@@ -187,7 +192,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                   width: double.infinity,
                   height: MediaQuery.sizeOf(context).height * 1.0,
                   decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                    color: Color(0xFFBD39BA),
                   ),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
@@ -2225,7 +2230,7 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                             '_model.queryTextController',
                                                             Duration(
                                                                 milliseconds:
-                                                                    100),
+                                                                    500),
                                                             () async {
                                                               _model.apiResultuev =
                                                                   await GetSuggestionMapProfesionalCall
@@ -2239,16 +2244,15 @@ class _RegisterUser1WidgetState extends State<RegisterUser1Widget>
                                                                       .apiResultuev
                                                                       ?.succeeded ??
                                                                   true)) {
-                                                                _model.queryResults =
-                                                                    GetSuggestionMapProfesionalCall
-                                                                            .predictions(
-                                                                  (_model.apiResultuev
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                )!
-                                                                        .toList()
-                                                                        .cast<
-                                                                            QueryResultsStruct>();
+                                                                _model.queryResults = functions
+                                                                    .filterOutAustralianStates(GetSuggestionMapProfesionalCall.predictions(
+                                                                      (_model.apiResultuev
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )!
+                                                                        .toList())
+                                                                    .toList()
+                                                                    .cast<QueryResultsStruct>();
                                                               }
 
                                                               safeSetState(

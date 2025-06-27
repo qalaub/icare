@@ -3,15 +3,18 @@ import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
+import 'package:lock_orientation_library_opafp4/custom_code/actions/index.dart'
+    as lock_orientation_library_opafp4_actions;
 import 'package:easy_debounce/easy_debounce.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -47,6 +50,11 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
     super.initState();
     _model = createModel(context, () => RegisterBusiness2Model());
 
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await lock_orientation_library_opafp4_actions.lockOrientation();
+    });
+
     _model.ndisTextController ??= TextEditingController();
     _model.ndisFocusNode ??= FocusNode();
 
@@ -77,7 +85,7 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
           MoveEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 600.0.ms,
+            duration: 400.0.ms,
             begin: Offset(0.0, -11.0),
             end: Offset(0.0, 0.0),
           ),
@@ -89,7 +97,7 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
           MoveEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 600.0.ms,
+            duration: 400.0.ms,
             begin: Offset(0.0, -11.0),
             end: Offset(0.0, 0.0),
           ),
@@ -101,7 +109,7 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
           MoveEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 600.0.ms,
+            duration: 400.0.ms,
             begin: Offset(0.0, -11.0),
             end: Offset(0.0, 0.0),
           ),
@@ -113,7 +121,7 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
           MoveEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 600.0.ms,
+            duration: 400.0.ms,
             begin: Offset(0.0, -11.0),
             end: Offset(0.0, 0.0),
           ),
@@ -125,7 +133,7 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
           MoveEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 600.0.ms,
+            duration: 400.0.ms,
             begin: Offset(0.0, -11.0),
             end: Offset(0.0, 0.0),
           ),
@@ -176,7 +184,7 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
                       width: double.infinity,
                       height: MediaQuery.sizeOf(context).height * 1.0,
                       decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        color: Color(0xFFBD39BA),
                       ),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -2430,12 +2438,17 @@ class _RegisterBusiness2WidgetState extends State<RegisterBusiness2Widget>
                                                                     _model.termsValue =
                                                                         newValue!);
                                                               },
-                                                              side: BorderSide(
-                                                                width: 2,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryText,
-                                                              ),
+                                                              side: (FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondaryText !=
+                                                                      null)
+                                                                  ? BorderSide(
+                                                                      width: 2,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondaryText,
+                                                                    )
+                                                                  : null,
                                                               activeColor: Color(
                                                                   0xFFB928B8),
                                                               checkColor:

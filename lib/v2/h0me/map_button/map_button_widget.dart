@@ -4,7 +4,6 @@ import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/v2/user/mapbuscar/mapbuscar_widget.dart';
@@ -12,6 +11,7 @@ import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:easy_debounce/easy_debounce.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -378,7 +378,6 @@ class _MapButtonWidgetState extends State<MapButtonWidget> {
                                     text: 'Filter',
                                     icon: Icon(
                                       Icons.filter_list_alt,
-                                      color: Color(0xAEDB00FF),
                                       size: 26.0,
                                     ),
                                     options: FFButtonOptions(
@@ -390,6 +389,7 @@ class _MapButtonWidgetState extends State<MapButtonWidget> {
                                       iconPadding:
                                           EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
+                                      iconColor: Color(0xAEDB00FF),
                                       color: Colors.white,
                                       textStyle: FlutterFlowTheme.of(context)
                                           .titleSmall

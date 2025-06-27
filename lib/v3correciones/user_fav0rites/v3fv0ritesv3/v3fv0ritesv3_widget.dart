@@ -3,7 +3,6 @@ import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
 import '/components/estrellas_widget.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/v2/block_list/favoritesv2/add_favorites_copy/add_favorites_copy_widget.dart';
 import '/v2/block_list/favoritesv2/add_favorites_copy2/add_favorites_copy2_widget.dart';
@@ -13,6 +12,7 @@ import '/index.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:collection/collection.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -635,37 +635,45 @@ class _V3fv0ritesv3WidgetState extends State<V3fv0ritesv3Widget> {
                                 ),
                               );
                             } else {
-                              return Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    context.pushNamed(
-                                      ProfileInfoWidget.routeName,
-                                      queryParameters: {
-                                        'professional': serializeParam(
-                                          containerUsersRecord.reference,
-                                          ParamType.DocumentReference,
-                                        ),
-                                      }.withoutNulls,
-                                      extra: <String, dynamic>{
-                                        kTransitionInfoKey: TransitionInfo(
-                                          hasTransition: true,
-                                          transitionType:
-                                              PageTransitionType.fade,
-                                          duration: Duration(milliseconds: 300),
-                                        ),
+                              return Visibility(
+                                visible:
+                                    currentUserDocument?.rol != Roles.business,
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: AuthUserStreamWidget(
+                                    builder: (context) => InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        context.pushNamed(
+                                          ProfileInfoWidget.routeName,
+                                          queryParameters: {
+                                            'professional': serializeParam(
+                                              containerUsersRecord.reference,
+                                              ParamType.DocumentReference,
+                                            ),
+                                          }.withoutNulls,
+                                          extra: <String, dynamic>{
+                                            kTransitionInfoKey: TransitionInfo(
+                                              hasTransition: true,
+                                              transitionType:
+                                                  PageTransitionType.fade,
+                                              duration:
+                                                  Duration(milliseconds: 300),
+                                            ),
+                                          },
+                                        );
                                       },
-                                    );
-                                  },
-                                  child: wrapWithModel(
-                                    model: _model.addFavoritesCopy2Model,
-                                    updateCallback: () => safeSetState(() {}),
-                                    child: AddFavoritesCopy2Widget(
-                                      professional: containerUsersRecord,
+                                      child: wrapWithModel(
+                                        model: _model.addFavoritesCopy2Model,
+                                        updateCallback: () =>
+                                            safeSetState(() {}),
+                                        child: AddFavoritesCopy2Widget(
+                                          professional: containerUsersRecord,
+                                        ),
+                                      ),
                                     ),
                                   ),
                                 ),

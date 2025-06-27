@@ -11,6 +11,8 @@ import '/auth/base_auth_user_provider.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 import '/index.dart';
+import 'package:lock_orientation_library_opafp4/index.dart'
+    as $lock_orientation_library_opafp4;
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -74,687 +76,683 @@ class AppStateNotifier extends ChangeNotifier {
   }
 }
 
-GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
-      initialLocation: '/',
-      debugLogDiagnostics: true,
-      refreshListenable: appStateNotifier,
-      navigatorKey: appNavigatorKey,
-      errorBuilder: (context, state) => _RouteErrorBuilder(
-        state: state,
-        child: RootPageContext.wrap(
-          appStateNotifier.loggedIn ? HomeSearchWidget() : Pantainci1Widget(),
-          errorRoute: state.uri.toString(),
-        ),
+GoRouter createRouter(AppStateNotifier appStateNotifier) {
+  $lock_orientation_library_opafp4.initializeRoutes(
+    homePageWidgetName: 'lock_orientation_library_opafp4.HomePage',
+    homePageWidgetPath: '',
+  );
+
+  return GoRouter(
+    initialLocation: '/',
+    debugLogDiagnostics: true,
+    refreshListenable: appStateNotifier,
+    navigatorKey: appNavigatorKey,
+    errorBuilder: (context, state) => _RouteErrorBuilder(
+      state: state,
+      child: RootPageContext.wrap(
+        appStateNotifier.loggedIn ? HomeSearchWidget() : Pantainci1Widget(),
+        errorRoute: state.uri.toString(),
       ),
-      routes: [
-        FFRoute(
-          name: '_initialize',
-          path: '/',
-          builder: (context, _) => RootPageContext.wrap(
-            appStateNotifier.loggedIn ? HomeSearchWidget() : Pantainci1Widget(),
-          ),
-          routes: [
-            FFRoute(
-              name: HomeSearchWidget.routeName,
-              path: HomeSearchWidget.routePath,
-              builder: (context, params) => HomeSearchWidget(
-                currentLatLng: params.getParam<LatLng>(
-                  'currentLatLng',
-                  ParamType.LatLng,
-                  isList: true,
-                ),
-                authUser: params.getParam(
-                  'authUser',
-                  ParamType.bool,
-                ),
-              ),
-            ),
-            FFRoute(
-              name: FiltrosWidget.routeName,
-              path: FiltrosWidget.routePath,
-              builder: (context, params) => FiltrosWidget(),
-            ),
-            FFRoute(
-              name: RegisterUser1Widget.routeName,
-              path: RegisterUser1Widget.routePath,
-              builder: (context, params) => RegisterUser1Widget(),
-            ),
-            FFRoute(
-              name: RegisterUser2Widget.routeName,
-              path: RegisterUser2Widget.routePath,
-              builder: (context, params) => RegisterUser2Widget(),
-            ),
-            FFRoute(
-              name: RegisterProfessional1Widget.routeName,
-              path: RegisterProfessional1Widget.routePath,
-              builder: (context, params) => RegisterProfessional1Widget(
-                businessRef: params.getParam(
-                  'businessRef',
-                  ParamType.DocumentReference,
-                  isList: false,
-                  collectionNamePath: ['users'],
-                ),
-              ),
-            ),
-            FFRoute(
-              name: RegisterProfessional2Widget.routeName,
-              path: RegisterProfessional2Widget.routePath,
-              builder: (context, params) => RegisterProfessional2Widget(
-                businessRef: params.getParam(
-                  'businessRef',
-                  ParamType.DocumentReference,
-                  isList: false,
-                  collectionNamePath: ['users'],
-                ),
-              ),
-            ),
-            FFRoute(
-              name: LoginWidget.routeName,
-              path: LoginWidget.routePath,
-              builder: (context, params) => LoginWidget(),
-            ),
-            FFRoute(
-              name: EscogerUsuarioWidget.routeName,
-              path: EscogerUsuarioWidget.routePath,
-              builder: (context, params) => EscogerUsuarioWidget(),
-            ),
-            FFRoute(
-              name: UserprofileWidget.routeName,
-              path: UserprofileWidget.routePath,
-              requireAuth: true,
-              builder: (context, params) => UserprofileWidget(),
-            ),
-            FFRoute(
-              name: Chat2DetailsWidget.routeName,
-              path: Chat2DetailsWidget.routePath,
-              requireAuth: true,
-              asyncParams: {
-                'chatRef': getDoc(['chats'], ChatsRecord.fromSnapshot),
-              },
-              builder: (context, params) => Chat2DetailsWidget(
-                chatRef: params.getParam(
-                  'chatRef',
-                  ParamType.Document,
-                ),
-                chatRefTotal: params.getParam(
-                  'chatRefTotal',
-                  ParamType.DocumentReference,
-                  isList: false,
-                  collectionNamePath: ['chats'],
-                ),
-                professional: params.getParam(
-                  'professional',
-                  ParamType.DocumentReference,
-                  isList: false,
-                  collectionNamePath: ['users'],
-                ),
-              ),
-            ),
-            FFRoute(
-              name: Chat2MainWidget.routeName,
-              path: Chat2MainWidget.routePath,
-              requireAuth: true,
-              builder: (context, params) => Chat2MainWidget(),
-            ),
-            FFRoute(
-              name: ImageDetailsWidget.routeName,
-              path: ImageDetailsWidget.routePath,
-              asyncParams: {
-                'chatMessage':
-                    getDoc(['chat_messages'], ChatMessagesRecord.fromSnapshot),
-              },
-              builder: (context, params) => ImageDetailsWidget(
-                chatMessage: params.getParam(
-                  'chatMessage',
-                  ParamType.Document,
-                ),
-              ),
-            ),
-            FFRoute(
-              name: SecuritySettingsWidget.routeName,
-              path: SecuritySettingsWidget.routePath,
-              requireAuth: true,
-              builder: (context, params) => SecuritySettingsWidget(
-                initialSur: params.getParam(
-                  'initialSur',
-                  ParamType.String,
-                ),
-              ),
-            ),
-            FFRoute(
-              name: ListofcollaboratorsWidget.routeName,
-              path: ListofcollaboratorsWidget.routePath,
-              requireAuth: true,
-              builder: (context, params) => ListofcollaboratorsWidget(),
-            ),
-            FFRoute(
-              name: ProfileInfoWidget.routeName,
-              path: ProfileInfoWidget.routePath,
-              requireAuth: true,
-              builder: (context, params) => ProfileInfoWidget(
-                professional: params.getParam(
-                  'professional',
-                  ParamType.DocumentReference,
-                  isList: false,
-                  collectionNamePath: ['users'],
-                ),
-              ),
-            ),
-            FFRoute(
-              name: PeoplewhoputyouinfavoritesWidget.routeName,
-              path: PeoplewhoputyouinfavoritesWidget.routePath,
-              requireAuth: true,
-              builder: (context, params) => PeoplewhoputyouinfavoritesWidget(
-                authUser: params.getParam(
-                  'authUser',
-                  ParamType.bool,
-                ),
-              ),
-            ),
-            FFRoute(
-              name: PeoplewhoputyouinfavoriteBasicWidget.routeName,
-              path: PeoplewhoputyouinfavoriteBasicWidget.routePath,
-              requireAuth: true,
-              builder: (context, params) =>
-                  PeoplewhoputyouinfavoriteBasicWidget(),
-            ),
-            FFRoute(
-              name: FavV2Widget.routeName,
-              path: FavV2Widget.routePath,
-              requireAuth: true,
-              builder: (context, params) => FavV2Widget(),
-            ),
-            FFRoute(
-              name: RegisterProfessional3Widget.routeName,
-              path: RegisterProfessional3Widget.routePath,
-              builder: (context, params) => RegisterProfessional3Widget(),
-            ),
-            FFRoute(
-              name: MembresiasV2Widget.routeName,
-              path: MembresiasV2Widget.routePath,
-              builder: (context, params) => MembresiasV2Widget(
-                professionalUpdate: params.getParam(
-                  'professionalUpdate',
-                  ParamType.DocumentReference,
-                  isList: false,
-                  collectionNamePath: ['users'],
-                ),
-                currentPlan: params.getParam<Plan>(
-                  'currentPlan',
-                  ParamType.Enum,
-                ),
-                isUpdate: params.getParam(
-                  'isUpdate',
-                  ParamType.bool,
-                ),
-              ),
-            ),
-            FFRoute(
-              name: RegisterBusiness1Widget.routeName,
-              path: RegisterBusiness1Widget.routePath,
-              builder: (context, params) => RegisterBusiness1Widget(
-                businessRef: params.getParam(
-                  'businessRef',
-                  ParamType.DocumentReference,
-                  isList: false,
-                  collectionNamePath: ['users'],
-                ),
-              ),
-            ),
-            FFRoute(
-              name: RegisterBusiness2Widget.routeName,
-              path: RegisterBusiness2Widget.routePath,
-              builder: (context, params) => RegisterBusiness2Widget(
-                businessRef: params.getParam(
-                  'businessRef',
-                  ParamType.DocumentReference,
-                  isList: false,
-                  collectionNamePath: ['users'],
-                ),
-              ),
-            ),
-            FFRoute(
-              name: RegisterBusiness3Widget.routeName,
-              path: RegisterBusiness3Widget.routePath,
-              builder: (context, params) => RegisterBusiness3Widget(),
-            ),
-            FFRoute(
-              name: RegisterBusiness4Widget.routeName,
-              path: RegisterBusiness4Widget.routePath,
-              builder: (context, params) => RegisterBusiness4Widget(),
-            ),
-            FFRoute(
-              name: Tinderv2C1Widget.routeName,
-              path: Tinderv2C1Widget.routePath,
-              builder: (context, params) => Tinderv2C1Widget(),
-            ),
-            FFRoute(
-              name: NewsWidget.routeName,
-              path: NewsWidget.routePath,
-              requireAuth: true,
-              builder: (context, params) => NewsWidget(),
-            ),
-            FFRoute(
-              name: BlockListWidget.routeName,
-              path: BlockListWidget.routePath,
-              builder: (context, params) => BlockListWidget(),
-            ),
-            FFRoute(
-              name: StandarWidget.routeName,
-              path: StandarWidget.routePath,
-              builder: (context, params) => StandarWidget(
-                userRef: params.getParam(
-                  'userRef',
-                  ParamType.DocumentReference,
-                  isList: false,
-                  collectionNamePath: ['users'],
-                ),
-                currentPlan: params.getParam<Plan>(
-                  'currentPlan',
-                  ParamType.Enum,
-                ),
-              ),
-            ),
-            FFRoute(
-              name: PremiumWidget.routeName,
-              path: PremiumWidget.routePath,
-              builder: (context, params) => PremiumWidget(
-                userRef: params.getParam(
-                  'userRef',
-                  ParamType.DocumentReference,
-                  isList: false,
-                  collectionNamePath: ['users'],
-                ),
-                currentPlan: params.getParam<Plan>(
-                  'currentPlan',
-                  ParamType.Enum,
-                ),
-                isUpdatePremiun: params.getParam(
-                  'isUpdatePremiun',
-                  ParamType.bool,
-                ),
-              ),
-            ),
-            FFRoute(
-              name: BasicWidget.routeName,
-              path: BasicWidget.routePath,
-              builder: (context, params) => BasicWidget(
-                userRef: params.getParam(
-                  'userRef',
-                  ParamType.DocumentReference,
-                  isList: false,
-                  collectionNamePath: ['users'],
-                ),
-                currentPlan: params.getParam<Plan>(
-                  'currentPlan',
-                  ParamType.Enum,
-                ),
-              ),
-            ),
-            FFRoute(
-              name: MySubscriptionStandardWidget.routeName,
-              path: MySubscriptionStandardWidget.routePath,
-              builder: (context, params) => MySubscriptionStandardWidget(),
-            ),
-            FFRoute(
-              name: MySubscriptionPremiumWidget.routeName,
-              path: MySubscriptionPremiumWidget.routePath,
-              builder: (context, params) => MySubscriptionPremiumWidget(),
-            ),
-            FFRoute(
-              name: MySubscriptionBasicWidget.routeName,
-              path: MySubscriptionBasicWidget.routePath,
-              builder: (context, params) => MySubscriptionBasicWidget(),
-            ),
-            FFRoute(
-              name: ReportWidget.routeName,
-              path: ReportWidget.routePath,
-              builder: (context, params) => ReportWidget(
-                user1: params.getParam(
-                  'user1',
-                  ParamType.String,
-                ),
-                user2: params.getParam(
-                  'user2',
-                  ParamType.String,
-                ),
-              ),
-            ),
-            FFRoute(
-              name: HarassmentWidget.routeName,
-              path: HarassmentWidget.routePath,
-              builder: (context, params) => HarassmentWidget(
-                report: params.getParam(
-                  'report',
-                  ParamType.String,
-                ),
-                user1: params.getParam(
-                  'user1',
-                  ParamType.String,
-                ),
-                user2: params.getParam(
-                  'user2',
-                  ParamType.String,
-                ),
-              ),
-            ),
-            FFRoute(
-              name: FavV3CopyWidget.routeName,
-              path: FavV3CopyWidget.routePath,
-              requireAuth: true,
-              builder: (context, params) => FavV3CopyWidget(),
-            ),
-            FFRoute(
-              name: Pantainci1Widget.routeName,
-              path: Pantainci1Widget.routePath,
-              builder: (context, params) => Pantainci1Widget(),
-            ),
-            FFRoute(
-              name: RegisterPfofesional4Widget.routeName,
-              path: RegisterPfofesional4Widget.routePath,
-              builder: (context, params) => RegisterPfofesional4Widget(
-                businessRef: params.getParam(
-                  'businessRef',
-                  ParamType.DocumentReference,
-                  isList: false,
-                  collectionNamePath: ['users'],
-                ),
-              ),
-            ),
-            FFRoute(
-              name: CuestionarioWidget.routeName,
-              path: CuestionarioWidget.routePath,
-              builder: (context, params) => CuestionarioWidget(),
-            ),
-            FFRoute(
-              name: MapAumentWidget.routeName,
-              path: MapAumentWidget.routePath,
-              builder: (context, params) => MapAumentWidget(
-                currentLatLng: params.getParam<LatLng>(
-                  'currentLatLng',
-                  ParamType.LatLng,
-                  isList: true,
-                ),
-                authUser: params.getParam(
-                  'authUser',
-                  ParamType.bool,
-                ),
-              ),
-            ),
-            FFRoute(
-              name: RecuperarcontraseaWidget.routeName,
-              path: RecuperarcontraseaWidget.routePath,
-              builder: (context, params) => RecuperarcontraseaWidget(),
-            ),
-            FFRoute(
-              name: DeleteaccountWidget.routeName,
-              path: DeleteaccountWidget.routePath,
-              builder: (context, params) => DeleteaccountWidget(),
-            ),
-            FFRoute(
-              name: Cadari0Widget.routeName,
-              path: Cadari0Widget.routePath,
-              builder: (context, params) => Cadari0Widget(
-                bussinesRef: params.getParam(
-                  'bussinesRef',
-                  ParamType.DocumentReference,
-                  isList: false,
-                  collectionNamePath: ['users'],
-                ),
-                isBussines: params.getParam(
-                  'isBussines',
-                  ParamType.bool,
-                ),
-              ),
-            ),
-            FFRoute(
-              name: Chat2DetailsCopyWidget.routeName,
-              path: Chat2DetailsCopyWidget.routePath,
-              requireAuth: true,
-              asyncParams: {
-                'chatRef': getDoc(['chats'], ChatsRecord.fromSnapshot),
-              },
-              builder: (context, params) => Chat2DetailsCopyWidget(
-                chatRef: params.getParam(
-                  'chatRef',
-                  ParamType.Document,
-                ),
-                chatRefTotal: params.getParam(
-                  'chatRefTotal',
-                  ParamType.DocumentReference,
-                  isList: false,
-                  collectionNamePath: ['chats'],
-                ),
-                professional: params.getParam(
-                  'professional',
-                  ParamType.DocumentReference,
-                  isList: false,
-                  collectionNamePath: ['users'],
-                ),
-              ),
-            ),
-            FFRoute(
-              name: AvatarsWidget.routeName,
-              path: AvatarsWidget.routePath,
-              builder: (context, params) => AvatarsWidget(
-                isUpdate: params.getParam(
-                  'isUpdate',
-                  ParamType.bool,
-                ),
-              ),
-            ),
-            FFRoute(
-              name: DislikePageWidget.routeName,
-              path: DislikePageWidget.routePath,
-              builder: (context, params) => DislikePageWidget(),
-            ),
-            FFRoute(
-              name: VerperfilWidget.routeName,
-              path: VerperfilWidget.routePath,
-              requireAuth: true,
-              builder: (context, params) => VerperfilWidget(
-                initialSurb: params.getParam(
-                  'initialSurb',
-                  ParamType.String,
-                ),
-              ),
-            ),
-            FFRoute(
-              name: RegisterPfofesional5Widget.routeName,
-              path: RegisterPfofesional5Widget.routePath,
-              builder: (context, params) => RegisterPfofesional5Widget(
-                isBussines: params.getParam(
-                  'isBussines',
-                  ParamType.bool,
-                ),
-              ),
-            ),
-            FFRoute(
-              name: ProfileSettingsWidget.routeName,
-              path: ProfileSettingsWidget.routePath,
-              requireAuth: true,
-              builder: (context, params) => ProfileSettingsWidget(
-                initialSur: params.getParam(
-                  'initialSur',
-                  ParamType.String,
-                ),
-              ),
-            ),
-            FFRoute(
-              name: SomeoneelseWidget.routeName,
-              path: SomeoneelseWidget.routePath,
-              builder: (context, params) => SomeoneelseWidget(
-                report: params.getParam(
-                  'report',
-                  ParamType.String,
-                ),
-                user1: params.getParam(
-                  'user1',
-                  ParamType.String,
-                ),
-                user2: params.getParam(
-                  'user2',
-                  ParamType.String,
-                ),
-              ),
-            ),
-            FFRoute(
-              name: InappropriatecontentWidget.routeName,
-              path: InappropriatecontentWidget.routePath,
-              builder: (context, params) => InappropriatecontentWidget(
-                report: params.getParam(
-                  'report',
-                  ParamType.String,
-                ),
-                user1: params.getParam(
-                  'user1',
-                  ParamType.String,
-                ),
-                user2: params.getParam(
-                  'user2',
-                  ParamType.String,
-                ),
-              ),
-            ),
-            FFRoute(
-              name: InciteshatredWidget.routeName,
-              path: InciteshatredWidget.routePath,
-              builder: (context, params) => InciteshatredWidget(
-                report: params.getParam(
-                  'report',
-                  ParamType.String,
-                ),
-                user1: params.getParam(
-                  'user1',
-                  ParamType.String,
-                ),
-                user2: params.getParam(
-                  'user2',
-                  ParamType.String,
-                ),
-              ),
-            ),
-            FFRoute(
-              name: UnauthorizedsalesWidget.routeName,
-              path: UnauthorizedsalesWidget.routePath,
-              builder: (context, params) => UnauthorizedsalesWidget(
-                report: params.getParam(
-                  'report',
-                  ParamType.String,
-                ),
-                user1: params.getParam(
-                  'user1',
-                  ParamType.String,
-                ),
-                user2: params.getParam(
-                  'user2',
-                  ParamType.String,
-                ),
-              ),
-            ),
-            FFRoute(
-              name: ScamsWidget.routeName,
-              path: ScamsWidget.routePath,
-              builder: (context, params) => ScamsWidget(
-                report: params.getParam(
-                  'report',
-                  ParamType.String,
-                ),
-                user1: params.getParam(
-                  'user1',
-                  ParamType.String,
-                ),
-                user2: params.getParam(
-                  'user2',
-                  ParamType.String,
-                ),
-              ),
-            ),
-            FFRoute(
-              name: OtherWidget.routeName,
-              path: OtherWidget.routePath,
-              builder: (context, params) => OtherWidget(
-                report: params.getParam(
-                  'report',
-                  ParamType.String,
-                ),
-                user1: params.getParam(
-                  'user1',
-                  ParamType.String,
-                ),
-                user2: params.getParam(
-                  'user2',
-                  ParamType.String,
-                ),
-              ),
-            ),
-            FFRoute(
-              name: RegisterProfessional1CopyWidget.routeName,
-              path: RegisterProfessional1CopyWidget.routePath,
-              builder: (context, params) => RegisterProfessional1CopyWidget(
-                businessRef: params.getParam(
-                  'businessRef',
-                  ParamType.DocumentReference,
-                  isList: false,
-                  collectionNamePath: ['users'],
-                ),
-              ),
-            ),
-            FFRoute(
-              name: RegisterProfessional2CopyWidget.routeName,
-              path: RegisterProfessional2CopyWidget.routePath,
-              builder: (context, params) => RegisterProfessional2CopyWidget(
-                businessRef: params.getParam(
-                  'businessRef',
-                  ParamType.DocumentReference,
-                  isList: false,
-                  collectionNamePath: ['users'],
-                ),
-              ),
-            ),
-            FFRoute(
-              name: RegisterPfofesional4CopyWidget.routeName,
-              path: RegisterPfofesional4CopyWidget.routePath,
-              builder: (context, params) => RegisterPfofesional4CopyWidget(
-                businessRef: params.getParam(
-                  'businessRef',
-                  ParamType.DocumentReference,
-                  isList: false,
-                  collectionNamePath: ['users'],
-                ),
-                isBussines: params.getParam(
-                  'isBussines',
-                  ParamType.bool,
-                ),
-              ),
-            ),
-            FFRoute(
-              name: Cadari0CopyWidget.routeName,
-              path: Cadari0CopyWidget.routePath,
-              builder: (context, params) => Cadari0CopyWidget(
-                bussinesRef: params.getParam(
-                  'bussinesRef',
-                  ParamType.DocumentReference,
-                  isList: false,
-                  collectionNamePath: ['users'],
-                ),
-                isBussines: params.getParam(
-                  'isBussines',
-                  ParamType.bool,
-                ),
-              ),
-            ),
-            FFRoute(
-              name: NewsCopyWidget.routeName,
-              path: NewsCopyWidget.routePath,
-              requireAuth: true,
-              builder: (context, params) => NewsCopyWidget(),
-            )
-          ].map((r) => r.toRoute(appStateNotifier)).toList(),
+    ),
+    routes: [
+      FFRoute(
+        name: '_initialize',
+        path: '/',
+        builder: (context, _) => RootPageContext.wrap(
+          appStateNotifier.loggedIn ? HomeSearchWidget() : Pantainci1Widget(),
         ),
-      ].map((r) => r.toRoute(appStateNotifier)).toList(),
-      observers: [routeObserver],
-    );
+        routes: [
+          FFRoute(
+            name: HomeSearchWidget.routeName,
+            path: HomeSearchWidget.routePath,
+            builder: (context, params) => HomeSearchWidget(
+              currentLatLng: params.getParam<LatLng>(
+                'currentLatLng',
+                ParamType.LatLng,
+                isList: true,
+              ),
+              authUser: params.getParam(
+                'authUser',
+                ParamType.bool,
+              ),
+            ),
+          ),
+          FFRoute(
+            name: FiltrosWidget.routeName,
+            path: FiltrosWidget.routePath,
+            builder: (context, params) => FiltrosWidget(),
+          ),
+          FFRoute(
+            name: RegisterUser1Widget.routeName,
+            path: RegisterUser1Widget.routePath,
+            builder: (context, params) => RegisterUser1Widget(),
+          ),
+          FFRoute(
+            name: RegisterUser2Widget.routeName,
+            path: RegisterUser2Widget.routePath,
+            builder: (context, params) => RegisterUser2Widget(),
+          ),
+          FFRoute(
+            name: RegisterProfessional1Widget.routeName,
+            path: RegisterProfessional1Widget.routePath,
+            builder: (context, params) => RegisterProfessional1Widget(
+              businessRef: params.getParam(
+                'businessRef',
+                ParamType.DocumentReference,
+                isList: false,
+                collectionNamePath: ['users'],
+              ),
+            ),
+          ),
+          FFRoute(
+            name: RegisterProfessional2Widget.routeName,
+            path: RegisterProfessional2Widget.routePath,
+            builder: (context, params) => RegisterProfessional2Widget(
+              businessRef: params.getParam(
+                'businessRef',
+                ParamType.DocumentReference,
+                isList: false,
+                collectionNamePath: ['users'],
+              ),
+            ),
+          ),
+          FFRoute(
+            name: LoginWidget.routeName,
+            path: LoginWidget.routePath,
+            builder: (context, params) => LoginWidget(),
+          ),
+          FFRoute(
+            name: EscogerUsuarioWidget.routeName,
+            path: EscogerUsuarioWidget.routePath,
+            builder: (context, params) => EscogerUsuarioWidget(),
+          ),
+          FFRoute(
+            name: UserprofileWidget.routeName,
+            path: UserprofileWidget.routePath,
+            requireAuth: true,
+            builder: (context, params) => UserprofileWidget(),
+          ),
+          FFRoute(
+            name: Chat2DetailsWidget.routeName,
+            path: Chat2DetailsWidget.routePath,
+            requireAuth: true,
+            asyncParams: {
+              'chatRef': getDoc(['chats'], ChatsRecord.fromSnapshot),
+            },
+            builder: (context, params) => Chat2DetailsWidget(
+              chatRef: params.getParam(
+                'chatRef',
+                ParamType.Document,
+              ),
+              chatRefTotal: params.getParam(
+                'chatRefTotal',
+                ParamType.DocumentReference,
+                isList: false,
+                collectionNamePath: ['chats'],
+              ),
+              professional: params.getParam(
+                'professional',
+                ParamType.DocumentReference,
+                isList: false,
+                collectionNamePath: ['users'],
+              ),
+            ),
+          ),
+          FFRoute(
+            name: Chat2MainWidget.routeName,
+            path: Chat2MainWidget.routePath,
+            requireAuth: true,
+            builder: (context, params) => Chat2MainWidget(),
+          ),
+          FFRoute(
+            name: ImageDetailsWidget.routeName,
+            path: ImageDetailsWidget.routePath,
+            asyncParams: {
+              'chatMessage':
+                  getDoc(['chat_messages'], ChatMessagesRecord.fromSnapshot),
+            },
+            builder: (context, params) => ImageDetailsWidget(
+              chatMessage: params.getParam(
+                'chatMessage',
+                ParamType.Document,
+              ),
+            ),
+          ),
+          FFRoute(
+            name: SecuritySettingsWidget.routeName,
+            path: SecuritySettingsWidget.routePath,
+            requireAuth: true,
+            builder: (context, params) => SecuritySettingsWidget(
+              initialSur: params.getParam(
+                'initialSur',
+                ParamType.String,
+              ),
+            ),
+          ),
+          FFRoute(
+            name: ListofcollaboratorsWidget.routeName,
+            path: ListofcollaboratorsWidget.routePath,
+            requireAuth: true,
+            builder: (context, params) => ListofcollaboratorsWidget(),
+          ),
+          FFRoute(
+            name: ProfileInfoWidget.routeName,
+            path: ProfileInfoWidget.routePath,
+            requireAuth: true,
+            builder: (context, params) => ProfileInfoWidget(
+              professional: params.getParam(
+                'professional',
+                ParamType.DocumentReference,
+                isList: false,
+                collectionNamePath: ['users'],
+              ),
+            ),
+          ),
+          FFRoute(
+            name: PeoplewhoputyouinfavoritesWidget.routeName,
+            path: PeoplewhoputyouinfavoritesWidget.routePath,
+            requireAuth: true,
+            builder: (context, params) => PeoplewhoputyouinfavoritesWidget(
+              authUser: params.getParam(
+                'authUser',
+                ParamType.bool,
+              ),
+            ),
+          ),
+          FFRoute(
+            name: PeoplewhoputyouinfavoriteBasicWidget.routeName,
+            path: PeoplewhoputyouinfavoriteBasicWidget.routePath,
+            requireAuth: true,
+            builder: (context, params) =>
+                PeoplewhoputyouinfavoriteBasicWidget(),
+          ),
+          FFRoute(
+            name: RegisterProfessional3Widget.routeName,
+            path: RegisterProfessional3Widget.routePath,
+            builder: (context, params) => RegisterProfessional3Widget(),
+          ),
+          FFRoute(
+            name: MembresiasV2Widget.routeName,
+            path: MembresiasV2Widget.routePath,
+            builder: (context, params) => MembresiasV2Widget(
+              professionalUpdate: params.getParam(
+                'professionalUpdate',
+                ParamType.DocumentReference,
+                isList: false,
+                collectionNamePath: ['users'],
+              ),
+              currentPlan: params.getParam<Plan>(
+                'currentPlan',
+                ParamType.Enum,
+              ),
+              isUpdate: params.getParam(
+                'isUpdate',
+                ParamType.bool,
+              ),
+            ),
+          ),
+          FFRoute(
+            name: RegisterBusiness1Widget.routeName,
+            path: RegisterBusiness1Widget.routePath,
+            builder: (context, params) => RegisterBusiness1Widget(
+              businessRef: params.getParam(
+                'businessRef',
+                ParamType.DocumentReference,
+                isList: false,
+                collectionNamePath: ['users'],
+              ),
+            ),
+          ),
+          FFRoute(
+            name: RegisterBusiness2Widget.routeName,
+            path: RegisterBusiness2Widget.routePath,
+            builder: (context, params) => RegisterBusiness2Widget(
+              businessRef: params.getParam(
+                'businessRef',
+                ParamType.DocumentReference,
+                isList: false,
+                collectionNamePath: ['users'],
+              ),
+            ),
+          ),
+          FFRoute(
+            name: RegisterBusiness3Widget.routeName,
+            path: RegisterBusiness3Widget.routePath,
+            builder: (context, params) => RegisterBusiness3Widget(),
+          ),
+          FFRoute(
+            name: RegisterBusiness4Widget.routeName,
+            path: RegisterBusiness4Widget.routePath,
+            builder: (context, params) => RegisterBusiness4Widget(),
+          ),
+          FFRoute(
+            name: Tinderv2C1Widget.routeName,
+            path: Tinderv2C1Widget.routePath,
+            builder: (context, params) => Tinderv2C1Widget(),
+          ),
+          FFRoute(
+            name: BlockListWidget.routeName,
+            path: BlockListWidget.routePath,
+            builder: (context, params) => BlockListWidget(),
+          ),
+          FFRoute(
+            name: StandarWidget.routeName,
+            path: StandarWidget.routePath,
+            builder: (context, params) => StandarWidget(
+              userRef: params.getParam(
+                'userRef',
+                ParamType.DocumentReference,
+                isList: false,
+                collectionNamePath: ['users'],
+              ),
+              currentPlan: params.getParam<Plan>(
+                'currentPlan',
+                ParamType.Enum,
+              ),
+            ),
+          ),
+          FFRoute(
+            name: PremiumWidget.routeName,
+            path: PremiumWidget.routePath,
+            builder: (context, params) => PremiumWidget(
+              userRef: params.getParam(
+                'userRef',
+                ParamType.DocumentReference,
+                isList: false,
+                collectionNamePath: ['users'],
+              ),
+              currentPlan: params.getParam<Plan>(
+                'currentPlan',
+                ParamType.Enum,
+              ),
+              isUpdatePremiun: params.getParam(
+                'isUpdatePremiun',
+                ParamType.bool,
+              ),
+            ),
+          ),
+          FFRoute(
+            name: BasicWidget.routeName,
+            path: BasicWidget.routePath,
+            builder: (context, params) => BasicWidget(
+              userRef: params.getParam(
+                'userRef',
+                ParamType.DocumentReference,
+                isList: false,
+                collectionNamePath: ['users'],
+              ),
+              currentPlan: params.getParam<Plan>(
+                'currentPlan',
+                ParamType.Enum,
+              ),
+            ),
+          ),
+          FFRoute(
+            name: MySubscriptionStandardWidget.routeName,
+            path: MySubscriptionStandardWidget.routePath,
+            builder: (context, params) => MySubscriptionStandardWidget(),
+          ),
+          FFRoute(
+            name: MySubscriptionPremiumWidget.routeName,
+            path: MySubscriptionPremiumWidget.routePath,
+            builder: (context, params) => MySubscriptionPremiumWidget(),
+          ),
+          FFRoute(
+            name: MySubscriptionBasicWidget.routeName,
+            path: MySubscriptionBasicWidget.routePath,
+            builder: (context, params) => MySubscriptionBasicWidget(),
+          ),
+          FFRoute(
+            name: ReportWidget.routeName,
+            path: ReportWidget.routePath,
+            builder: (context, params) => ReportWidget(
+              user1: params.getParam(
+                'user1',
+                ParamType.String,
+              ),
+              user2: params.getParam(
+                'user2',
+                ParamType.String,
+              ),
+            ),
+          ),
+          FFRoute(
+            name: HarassmentWidget.routeName,
+            path: HarassmentWidget.routePath,
+            builder: (context, params) => HarassmentWidget(
+              report: params.getParam(
+                'report',
+                ParamType.String,
+              ),
+              user1: params.getParam(
+                'user1',
+                ParamType.String,
+              ),
+              user2: params.getParam(
+                'user2',
+                ParamType.String,
+              ),
+            ),
+          ),
+          FFRoute(
+            name: FavV3CopyWidget.routeName,
+            path: FavV3CopyWidget.routePath,
+            requireAuth: true,
+            builder: (context, params) => FavV3CopyWidget(),
+          ),
+          FFRoute(
+            name: Pantainci1Widget.routeName,
+            path: Pantainci1Widget.routePath,
+            builder: (context, params) => Pantainci1Widget(),
+          ),
+          FFRoute(
+            name: RegisterPfofesional4Widget.routeName,
+            path: RegisterPfofesional4Widget.routePath,
+            builder: (context, params) => RegisterPfofesional4Widget(
+              businessRef: params.getParam(
+                'businessRef',
+                ParamType.DocumentReference,
+                isList: false,
+                collectionNamePath: ['users'],
+              ),
+            ),
+          ),
+          FFRoute(
+            name: CuestionarioWidget.routeName,
+            path: CuestionarioWidget.routePath,
+            builder: (context, params) => CuestionarioWidget(),
+          ),
+          FFRoute(
+            name: MapAumentWidget.routeName,
+            path: MapAumentWidget.routePath,
+            builder: (context, params) => MapAumentWidget(
+              currentLatLng: params.getParam<LatLng>(
+                'currentLatLng',
+                ParamType.LatLng,
+                isList: true,
+              ),
+              authUser: params.getParam(
+                'authUser',
+                ParamType.bool,
+              ),
+            ),
+          ),
+          FFRoute(
+            name: RecuperarcontraseaWidget.routeName,
+            path: RecuperarcontraseaWidget.routePath,
+            builder: (context, params) => RecuperarcontraseaWidget(),
+          ),
+          FFRoute(
+            name: DeleteaccountWidget.routeName,
+            path: DeleteaccountWidget.routePath,
+            builder: (context, params) => DeleteaccountWidget(),
+          ),
+          FFRoute(
+            name: Cadari0Widget.routeName,
+            path: Cadari0Widget.routePath,
+            builder: (context, params) => Cadari0Widget(
+              bussinesRef: params.getParam(
+                'bussinesRef',
+                ParamType.DocumentReference,
+                isList: false,
+                collectionNamePath: ['users'],
+              ),
+              isBussines: params.getParam(
+                'isBussines',
+                ParamType.bool,
+              ),
+            ),
+          ),
+          FFRoute(
+            name: Chat2DetailsCopyWidget.routeName,
+            path: Chat2DetailsCopyWidget.routePath,
+            requireAuth: true,
+            asyncParams: {
+              'chatRef': getDoc(['chats'], ChatsRecord.fromSnapshot),
+            },
+            builder: (context, params) => Chat2DetailsCopyWidget(
+              chatRef: params.getParam(
+                'chatRef',
+                ParamType.Document,
+              ),
+              chatRefTotal: params.getParam(
+                'chatRefTotal',
+                ParamType.DocumentReference,
+                isList: false,
+                collectionNamePath: ['chats'],
+              ),
+              professional: params.getParam(
+                'professional',
+                ParamType.DocumentReference,
+                isList: false,
+                collectionNamePath: ['users'],
+              ),
+            ),
+          ),
+          FFRoute(
+            name: AvatarsWidget.routeName,
+            path: AvatarsWidget.routePath,
+            builder: (context, params) => AvatarsWidget(
+              isUpdate: params.getParam(
+                'isUpdate',
+                ParamType.bool,
+              ),
+            ),
+          ),
+          FFRoute(
+            name: VerperfilWidget.routeName,
+            path: VerperfilWidget.routePath,
+            requireAuth: true,
+            builder: (context, params) => VerperfilWidget(
+              initialSurb: params.getParam(
+                'initialSurb',
+                ParamType.String,
+              ),
+            ),
+          ),
+          FFRoute(
+            name: RegisterPfofesional5Widget.routeName,
+            path: RegisterPfofesional5Widget.routePath,
+            builder: (context, params) => RegisterPfofesional5Widget(
+              isBussines: params.getParam(
+                'isBussines',
+                ParamType.bool,
+              ),
+            ),
+          ),
+          FFRoute(
+            name: ProfileSettingsWidget.routeName,
+            path: ProfileSettingsWidget.routePath,
+            requireAuth: true,
+            builder: (context, params) => ProfileSettingsWidget(
+              initialSur: params.getParam(
+                'initialSur',
+                ParamType.String,
+              ),
+            ),
+          ),
+          FFRoute(
+            name: SomeoneelseWidget.routeName,
+            path: SomeoneelseWidget.routePath,
+            builder: (context, params) => SomeoneelseWidget(
+              report: params.getParam(
+                'report',
+                ParamType.String,
+              ),
+              user1: params.getParam(
+                'user1',
+                ParamType.String,
+              ),
+              user2: params.getParam(
+                'user2',
+                ParamType.String,
+              ),
+            ),
+          ),
+          FFRoute(
+            name: InappropriatecontentWidget.routeName,
+            path: InappropriatecontentWidget.routePath,
+            builder: (context, params) => InappropriatecontentWidget(
+              report: params.getParam(
+                'report',
+                ParamType.String,
+              ),
+              user1: params.getParam(
+                'user1',
+                ParamType.String,
+              ),
+              user2: params.getParam(
+                'user2',
+                ParamType.String,
+              ),
+            ),
+          ),
+          FFRoute(
+            name: InciteshatredWidget.routeName,
+            path: InciteshatredWidget.routePath,
+            builder: (context, params) => InciteshatredWidget(
+              report: params.getParam(
+                'report',
+                ParamType.String,
+              ),
+              user1: params.getParam(
+                'user1',
+                ParamType.String,
+              ),
+              user2: params.getParam(
+                'user2',
+                ParamType.String,
+              ),
+            ),
+          ),
+          FFRoute(
+            name: UnauthorizedsalesWidget.routeName,
+            path: UnauthorizedsalesWidget.routePath,
+            builder: (context, params) => UnauthorizedsalesWidget(
+              report: params.getParam(
+                'report',
+                ParamType.String,
+              ),
+              user1: params.getParam(
+                'user1',
+                ParamType.String,
+              ),
+              user2: params.getParam(
+                'user2',
+                ParamType.String,
+              ),
+            ),
+          ),
+          FFRoute(
+            name: ScamsWidget.routeName,
+            path: ScamsWidget.routePath,
+            builder: (context, params) => ScamsWidget(
+              report: params.getParam(
+                'report',
+                ParamType.String,
+              ),
+              user1: params.getParam(
+                'user1',
+                ParamType.String,
+              ),
+              user2: params.getParam(
+                'user2',
+                ParamType.String,
+              ),
+            ),
+          ),
+          FFRoute(
+            name: OtherWidget.routeName,
+            path: OtherWidget.routePath,
+            builder: (context, params) => OtherWidget(
+              report: params.getParam(
+                'report',
+                ParamType.String,
+              ),
+              user1: params.getParam(
+                'user1',
+                ParamType.String,
+              ),
+              user2: params.getParam(
+                'user2',
+                ParamType.String,
+              ),
+            ),
+          ),
+          FFRoute(
+            name: RegisterProfessional1CopyWidget.routeName,
+            path: RegisterProfessional1CopyWidget.routePath,
+            builder: (context, params) => RegisterProfessional1CopyWidget(
+              businessRef: params.getParam(
+                'businessRef',
+                ParamType.DocumentReference,
+                isList: false,
+                collectionNamePath: ['users'],
+              ),
+            ),
+          ),
+          FFRoute(
+            name: RegisterProfessional2CopyWidget.routeName,
+            path: RegisterProfessional2CopyWidget.routePath,
+            builder: (context, params) => RegisterProfessional2CopyWidget(
+              businessRef: params.getParam(
+                'businessRef',
+                ParamType.DocumentReference,
+                isList: false,
+                collectionNamePath: ['users'],
+              ),
+            ),
+          ),
+          FFRoute(
+            name: RegisterPfofesional4CopyWidget.routeName,
+            path: RegisterPfofesional4CopyWidget.routePath,
+            builder: (context, params) => RegisterPfofesional4CopyWidget(
+              businessRef: params.getParam(
+                'businessRef',
+                ParamType.DocumentReference,
+                isList: false,
+                collectionNamePath: ['users'],
+              ),
+              isBussines: params.getParam(
+                'isBussines',
+                ParamType.bool,
+              ),
+            ),
+          ),
+          FFRoute(
+            name: Cadari0CopyWidget.routeName,
+            path: Cadari0CopyWidget.routePath,
+            builder: (context, params) => Cadari0CopyWidget(
+              bussinesRef: params.getParam(
+                'bussinesRef',
+                ParamType.DocumentReference,
+                isList: false,
+                collectionNamePath: ['users'],
+              ),
+              isBussines: params.getParam(
+                'isBussines',
+                ParamType.bool,
+              ),
+            ),
+          ),
+          FFRoute(
+            name: NewsCopyWidget.routeName,
+            path: NewsCopyWidget.routePath,
+            requireAuth: true,
+            builder: (context, params) => NewsCopyWidget(),
+          ),
+          FFRoute(
+            name: $lock_orientation_library_opafp4.HomePageWidget.routeName,
+            path: $lock_orientation_library_opafp4.HomePageWidget.routePath,
+            builder: (context, params) =>
+                $lock_orientation_library_opafp4.HomePageWidget(),
+          )
+        ].map((r) => r.toRoute(appStateNotifier)).toList(),
+      ),
+    ].map((r) => r.toRoute(appStateNotifier)).toList(),
+    observers: [routeObserver],
+  );
+}
 
 extension NavParamExtensions on Map<String, String?> {
   Map<String, String> get withoutNulls => Map.fromEntries(

@@ -59,8 +59,8 @@ class ProfileSettingsModel extends FlutterFlowModel<ProfileSettingsWidget> {
   final formKey2 = GlobalKey<FormState>();
   // Model for upload_profile_image component.
   late UploadProfileImageModel uploadProfileImageModel;
-  bool isDataUploading1 = false;
-  FFUploadedFile uploadedLocalFile1 =
+  bool isDataUploading_uploadData80l = false;
+  FFUploadedFile uploadedLocalFile_uploadData80l =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // Stores action output result for [Custom Action - verifySizeVideo] action in Button widget.
@@ -126,7 +126,7 @@ class ProfileSettingsModel extends FlutterFlowModel<ProfileSettingsWidget> {
   // State field(s) for date widget.
   FocusNode? dateFocusNode;
   TextEditingController? dateTextController;
-  final dateMask = MaskTextInputFormatter(mask: '##/##/####');
+  late MaskTextInputFormatter dateMask;
   String? Function(BuildContext, String?)? dateTextControllerValidator;
   // State field(s) for query widget.
   FocusNode? queryFocusNode;
@@ -149,10 +149,10 @@ class ProfileSettingsModel extends FlutterFlowModel<ProfileSettingsWidget> {
   FormFieldController<List<String>>? dropDownValueController;
   // Model for calendarioCopy component.
   late CalendarioCopyModel calendarioCopyModel;
-  bool isDataUploading2 = false;
-  FFUploadedFile uploadedLocalFile2 =
+  bool isDataUploading_uploadDataZ71 = false;
+  FFUploadedFile uploadedLocalFile_uploadDataZ71 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl2 = '';
+  String uploadedFileUrl_uploadDataZ71 = '';
 
   // Stores action output result for [Backend Call - API (getPlace)] action in mapbuscar widget.
   ApiCallResponse? newPlace;

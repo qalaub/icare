@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:timeago/timeago.dart' as timeago;
-import 'lat_lng.dart';
-import 'place.dart';
-import 'uploaded_file.dart';
+import 'package:ff_commons/flutter_flow/lat_lng.dart';
+import 'package:ff_commons/flutter_flow/place.dart';
+import 'package:ff_commons/flutter_flow/uploaded_file.dart';
 import '/backend/backend.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '/backend/schema/structs/index.dart';
@@ -434,47 +434,59 @@ String formatnameStreet(String input) {
   // Dividir la cadena por comas
   List<String> parts = input.split(',');
 
-  // Si el formato es estándar (calle, suburbio+estado+postal, país)
+  // Conjuntos de abreviaturas y nombres completos de estados australianos (en inglés)
+  final stateCodes = {'VIC', 'NSW', 'QLD', 'WA', 'SA', 'TAS', 'ACT', 'NT'};
+  final fullStates = {
+    'Victoria',
+    'New South Wales',
+    'Queensland',
+    'Western Australia',
+    'South Australia',
+    'Tasmania',
+    'Australian Capital Territory',
+    'Northern Territory'
+  };
+
+  // Si el input coincide exactamente con un estado australiano reconocido
+  if (fullStates.contains(input.trim())) {
+    return input.trim();
+  }
+
+  // Si el formato es estándar (ej: "Street, Suburb State Postal, Country")
   if (parts.length >= 3) {
-    // Se toma la segunda parte (índice 1) que contiene el suburbio junto a estado y postal
     String suburbPart = parts[1].trim();
     List<String> words = suburbPart.split(' ');
 
-    // Conjunto de abreviaturas de estados australianos
-    final stateCodes = {'VIC', 'NSW', 'QLD', 'WA', 'SA', 'TAS', 'ACT', 'NT'};
-
-    // Remover palabras finales que sean estados o códigos postales
     while (words.isNotEmpty &&
         (stateCodes.contains(words.last.toUpperCase()) ||
             RegExp(r'^\d+$').hasMatch(words.last))) {
       words.removeLast();
     }
+
     return words.join(' ').trim();
   }
-  // Si se trata de una dirección con plus code (única coma)
+
+  // Si es una dirección corta (ej: "PlusCode, State Country")
   else if (parts.length == 2) {
-    // Tomar la parte antes de la coma
     String firstPart = parts[0].trim();
     List<String> tokens = firstPart.split(' ');
 
-    // Si el primer token es un plus code (contiene '+'), lo eliminamos
     if (tokens.isNotEmpty && tokens[0].contains('+')) {
       tokens.removeAt(0);
     }
 
-    // Si los dos últimos tokens forman un nombre de estado completo (ej: "Australia Meridional"), eliminarlos
+    // Manejo especial si aparecen nombres de estados completos al final
     if (tokens.length >= 2 &&
-        tokens[tokens.length - 2] == "Australia" &&
-        tokens[tokens.length - 1] == "Meridional") {
+        tokens.sublist(tokens.length - 2).join(' ') == 'South Australia') {
       tokens.removeRange(tokens.length - 2, tokens.length);
     }
-    // O bien, remover de atrás tokens que sean abreviaturas de estado o códigos postales
-    final stateCodes = {'VIC', 'NSW', 'QLD', 'WA', 'SA', 'TAS', 'ACT', 'NT'};
+
     while (tokens.isNotEmpty &&
         (stateCodes.contains(tokens.last.toUpperCase()) ||
             RegExp(r'^\d+$').hasMatch(tokens.last))) {
       tokens.removeLast();
     }
+
     return tokens.join(' ').trim();
   }
 
@@ -647,7 +659,6 @@ String cleanEmailInput(String email) {
 List<UsersRecord> filterProfessionalsByDistance(
   List<UsersRecord> professionals,
   LatLng? userLocation,
-  double maxDistanceKm,
 ) {
   double _toRad(double deg) => deg * (math.pi / 180);
 
@@ -667,21 +678,26 @@ List<UsersRecord> filterProfessionalsByDistance(
     return 2 * R * math.asin(math.sqrt(hav));
   }
 
-  // Si userLocation es null, retornar todos los profesionales
+  // Si userLocation es null, retornar lista original
   if (userLocation == null) {
     return professionals;
   }
 
-  final filtered = professionals.where((user) {
-    final LatLng? professionalLocation = user.suburb;
-    if (professionalLocation == null) return false;
+  professionals.sort((a, b) {
+    final aLoc = a.suburb;
+    final bLoc = b.suburb;
 
-    final distance = _haversineDistance(userLocation, professionalLocation);
-    return distance <= maxDistanceKm;
-  }).toList();
+    if (aLoc == null && bLoc == null) return 0;
+    if (aLoc == null) return 1;
+    if (bLoc == null) return -1;
 
-  // Si no hay resultados cercanos, retornar todos para evitar lista vacía
-  return filtered.isEmpty ? professionals : filtered;
+    final distA = _haversineDistance(userLocation, aLoc);
+    final distB = _haversineDistance(userLocation, bLoc);
+
+    return distA.compareTo(distB);
+  });
+
+  return professionals;
 }
 
 int getMaxExperience(String ageRangeFull) {
@@ -696,4 +712,39 @@ int getMaxExperience(String ageRangeFull) {
 bool validatePhoneNumber(String input) {
   final regex = RegExp(r'^\d{10}$');
   return regex.hasMatch(input);
+}
+
+List<QueryResultsStruct> filterOutAustralianStates(
+    List<QueryResultsStruct> places) {
+  const List<String> australianStatesToRemove = [
+    'New South Wales, Australia',
+    'Victoria, Australia',
+    'Queensland, Australia',
+    'Western Australia, Australia',
+    'South Australia, Australia',
+    'Tasmania, Australia',
+    'Northern Territory, Australia',
+    'Australian Capital Territory, Australia',
+  ];
+
+  return places.where((item) {
+    final description = item.description?.trim().toLowerCase() ?? '';
+    return !australianStatesToRemove
+        .map((e) => e.toLowerCase())
+        .contains(description);
+  }).toList();
+}
+
+List<UsersRecord> filterProfessionalstinder(
+  List<UsersRecord> profesionales,
+  List<String> favoriteIds,
+) {
+  if (favoriteIds.isEmpty) {
+    return profesionales;
+  }
+
+  /// Filtrar normalmente si hay lista de favoritos.
+  return profesionales
+      .where((prof) => !favoriteIds.contains(prof.reference.id))
+      .toList();
 }

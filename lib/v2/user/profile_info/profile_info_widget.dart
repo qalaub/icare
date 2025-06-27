@@ -2,16 +2,19 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/v2/block_list/favoritesv2/add_favorites_copy2/add_favorites_copy2_widget.dart';
 import '/v2/menbresiav2/membresia_logo/membresia_logo_widget.dart';
 import '/v2/user/descripcion_profesional/descripcion_profesional_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
+import 'package:lock_orientation_library_opafp4/custom_code/actions/index.dart'
+    as lock_orientation_library_opafp4_actions;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:collection/collection.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:share_plus/share_plus.dart';
@@ -42,6 +45,11 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ProfileInfoModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await lock_orientation_library_opafp4_actions.lockOrientation();
+    });
   }
 
   @override
@@ -216,6 +224,19 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                               .firstOrNull,
                                           ParamType.Document,
                                         ),
+                                        'chatRefTotal': serializeParam(
+                                          _model.chatRef
+                                              ?.where((e) =>
+                                                  (e.users.contains(widget
+                                                          .professional) ==
+                                                      true) &&
+                                                  e.users.contains(
+                                                      currentUserReference))
+                                              .toList()
+                                              .firstOrNull
+                                              ?.reference,
+                                          ParamType.DocumentReference,
+                                        ),
                                       }.withoutNulls,
                                       extra: <String, dynamic>{
                                         'chatRef': _model.chatRef
@@ -240,13 +261,16 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                 ),
                               ),
                             ),
-                          wrapWithModel(
-                            model: _model.addFavoritesCopy2Model,
-                            updateCallback: () => safeSetState(() {}),
-                            child: AddFavoritesCopy2Widget(
-                              professional: profileInfoUsersRecord!,
+                          if (currentUserDocument?.rol != Roles.business)
+                            AuthUserStreamWidget(
+                              builder: (context) => wrapWithModel(
+                                model: _model.addFavoritesCopy2Model,
+                                updateCallback: () => safeSetState(() {}),
+                                child: AddFavoritesCopy2Widget(
+                                  professional: profileInfoUsersRecord!,
+                                ),
+                              ),
                             ),
-                          ),
                         ],
                       ),
                     ),
@@ -298,7 +322,7 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                       fadeOutDuration:
                                           Duration(milliseconds: 500),
                                       imageUrl: valueOrDefault<String>(
-                                        profileInfoUsersRecord.photoUrl,
+                                        profileInfoUsersRecord?.photoUrl,
                                         'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
                                       ),
                                       width: double.infinity,
@@ -349,7 +373,7 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                           fadeOutDuration:
                                               Duration(milliseconds: 500),
                                           imageUrl: valueOrDefault<String>(
-                                            profileInfoUsersRecord.photoUrl,
+                                            profileInfoUsersRecord?.photoUrl,
                                             'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
                                           ),
                                           width: double.infinity,
@@ -381,17 +405,17 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                               child: Text(
                                                 functions.upperCaseFirstLetter(
                                                     profileInfoUsersRecord
-                                                                .rol ==
+                                                                ?.rol ==
                                                             Roles.business
-                                                        ? profileInfoUsersRecord
+                                                        ? profileInfoUsersRecord!
                                                             .comapny
                                                         : valueOrDefault<
                                                             String>(
                                                             functions.concatStrings(
                                                                 profileInfoUsersRecord
-                                                                    .firtsName,
+                                                                    ?.firtsName,
                                                                 profileInfoUsersRecord
-                                                                    .lastName,
+                                                                    ?.lastName,
                                                                 ' '),
                                                             'last name',
                                                           )),
@@ -437,7 +461,7 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                               height: 24.0,
                                               decoration: BoxDecoration(),
                                               child: Text(
-                                                profileInfoUsersRecord
+                                                profileInfoUsersRecord!
                                                     .serviceType.firstOrNull!,
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -473,189 +497,207 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                               ),
                                             ),
                                           ),
-                                          if ((profileInfoUsersRecord.rol !=
-                                                  Roles.profesional) ||
-                                              (profileInfoUsersRecord.rol !=
+                                          if ((currentUserDocument?.rol !=
+                                                  Roles.profesional) &&
+                                              (currentUserDocument?.rol !=
                                                   Roles.business))
                                             Expanded(
-                                              child: StreamBuilder<
-                                                  List<ReviewsRecord>>(
-                                                stream: queryReviewsRecord(
-                                                  queryBuilder:
-                                                      (reviewsRecord) =>
-                                                          reviewsRecord.where(
-                                                    'professional',
-                                                    isEqualTo:
-                                                        widget.professional,
+                                              child: AuthUserStreamWidget(
+                                                builder: (context) =>
+                                                    StreamBuilder<
+                                                        List<ReviewsRecord>>(
+                                                  stream: queryReviewsRecord(
+                                                    queryBuilder:
+                                                        (reviewsRecord) =>
+                                                            reviewsRecord.where(
+                                                      'professional',
+                                                      isEqualTo:
+                                                          widget.professional,
+                                                    ),
                                                   ),
-                                                ),
-                                                builder: (context, snapshot) {
-                                                  // Customize what your widget looks like when it's loading.
-                                                  if (!snapshot.hasData) {
-                                                    return Center(
-                                                      child: SizedBox(
-                                                        width: 50.0,
-                                                        height: 50.0,
-                                                        child:
-                                                            CircularProgressIndicator(
-                                                          valueColor:
-                                                              AlwaysStoppedAnimation<
-                                                                  Color>(
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
+                                                  builder: (context, snapshot) {
+                                                    // Customize what your widget looks like when it's loading.
+                                                    if (!snapshot.hasData) {
+                                                      return Center(
+                                                        child: SizedBox(
+                                                          width: 50.0,
+                                                          height: 50.0,
+                                                          child:
+                                                              CircularProgressIndicator(
+                                                            valueColor:
+                                                                AlwaysStoppedAnimation<
+                                                                    Color>(
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .primary,
+                                                            ),
                                                           ),
                                                         ),
-                                                      ),
-                                                    );
-                                                  }
-                                                  List<ReviewsRecord>
-                                                      containerReviewsRecordList =
-                                                      snapshot.data!;
+                                                      );
+                                                    }
+                                                    List<ReviewsRecord>
+                                                        containerReviewsRecordList =
+                                                        snapshot.data!;
 
-                                                  return Container(
-                                                    width: 292.3,
-                                                    decoration: BoxDecoration(),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.min,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .center,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .center,
-                                                          children: [
-                                                            Align(
-                                                              alignment:
-                                                                  AlignmentDirectional(
-                                                                      0.0, 0.0),
-                                                              child: InkWell(
-                                                                splashColor: Colors
-                                                                    .transparent,
-                                                                focusColor: Colors
-                                                                    .transparent,
-                                                                hoverColor: Colors
-                                                                    .transparent,
-                                                                highlightColor:
-                                                                    Colors
-                                                                        .transparent,
-                                                                child: RatingBar
-                                                                    .builder(
-                                                                  onRatingUpdate:
-                                                                      (newValue) async {
-                                                                    safeSetState(() =>
-                                                                        _model.ratingBarValue =
-                                                                            newValue);
-                                                                    if (loggedIn) {
-                                                                      _model.reviewsC =
-                                                                          await queryReviewsRecordOnce(
-                                                                        queryBuilder: (reviewsRecord) => reviewsRecord
-                                                                            .where(
-                                                                              'participant',
-                                                                              isEqualTo: currentUserReference,
-                                                                            )
-                                                                            .where(
-                                                                              'professional',
-                                                                              isEqualTo: widget.professional,
-                                                                            ),
-                                                                        singleRecord:
-                                                                            true,
-                                                                      ).then((s) =>
-                                                                              s.firstOrNull);
-                                                                      if (_model
-                                                                              .reviewsC
-                                                                              ?.reference !=
-                                                                          null) {
-                                                                        await _model
-                                                                            .reviewsC!
-                                                                            .reference
-                                                                            .update(createReviewsRecordData(
-                                                                          num: _model
-                                                                              .ratingBarValue
-                                                                              ?.round(),
-                                                                        ));
+                                                    return Container(
+                                                      width: 292.3,
+                                                      decoration:
+                                                          BoxDecoration(),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .min,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .center,
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .center,
+                                                            children: [
+                                                              Align(
+                                                                alignment:
+                                                                    AlignmentDirectional(
+                                                                        0.0,
+                                                                        0.0),
+                                                                child: InkWell(
+                                                                  splashColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  focusColor: Colors
+                                                                      .transparent,
+                                                                  hoverColor: Colors
+                                                                      .transparent,
+                                                                  highlightColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  child: RatingBar
+                                                                      .builder(
+                                                                    onRatingUpdate:
+                                                                        (newValue) async {
+                                                                      safeSetState(() =>
+                                                                          _model.ratingBarValue =
+                                                                              newValue);
+                                                                      if (loggedIn) {
+                                                                        _model.reviewsC =
+                                                                            await queryReviewsRecordOnce(
+                                                                          queryBuilder: (reviewsRecord) => reviewsRecord
+                                                                              .where(
+                                                                                'participant',
+                                                                                isEqualTo: currentUserReference,
+                                                                              )
+                                                                              .where(
+                                                                                'professional',
+                                                                                isEqualTo: widget.professional,
+                                                                              ),
+                                                                          singleRecord:
+                                                                              true,
+                                                                        ).then((s) =>
+                                                                                s.firstOrNull);
+                                                                        if (_model.reviewsC?.reference !=
+                                                                            null) {
+                                                                          await _model
+                                                                              .reviewsC!
+                                                                              .reference
+                                                                              .update(createReviewsRecordData(
+                                                                            num:
+                                                                                _model.ratingBarValue?.round(),
+                                                                          ));
+                                                                        } else {
+                                                                          await ReviewsRecord
+                                                                              .collection
+                                                                              .doc()
+                                                                              .set(createReviewsRecordData(
+                                                                                num: _model.ratingBarValue?.round(),
+                                                                                professional: widget.professional,
+                                                                                participant: currentUserReference,
+                                                                              ));
+                                                                        }
                                                                       } else {
-                                                                        await ReviewsRecord
-                                                                            .collection
-                                                                            .doc()
-                                                                            .set(createReviewsRecordData(
-                                                                              num: _model.ratingBarValue?.round(),
-                                                                              professional: widget.professional,
-                                                                              participant: currentUserReference,
-                                                                            ));
+                                                                        context.pushNamed(
+                                                                            LoginWidget.routeName);
                                                                       }
-                                                                    } else {
-                                                                      context.pushNamed(
-                                                                          LoginWidget
-                                                                              .routeName);
-                                                                    }
 
-                                                                    safeSetState(
-                                                                        () {});
-                                                                  },
-                                                                  itemBuilder:
-                                                                      (context,
-                                                                              index) =>
-                                                                          Icon(
-                                                                    Icons
-                                                                        .star_rate,
-                                                                    color: Color(
-                                                                        0xFFF9BF11),
+                                                                      safeSetState(
+                                                                          () {});
+                                                                    },
+                                                                    itemBuilder:
+                                                                        (context,
+                                                                                index) =>
+                                                                            Icon(
+                                                                      Icons
+                                                                          .star_rate,
+                                                                      color: Color(
+                                                                          0xFFF9BF11),
+                                                                    ),
+                                                                    direction: Axis
+                                                                        .horizontal,
+                                                                    initialRating: _model
+                                                                            .ratingBarValue ??=
+                                                                        valueOrDefault<
+                                                                            double>(
+                                                                      functions
+                                                                          .averagueReviews(
+                                                                              containerReviewsRecordList.toList())
+                                                                          .toDouble(),
+                                                                      0.0,
+                                                                    ),
+                                                                    unratedColor:
+                                                                        Color(
+                                                                            0x4D040202),
+                                                                    itemCount:
+                                                                        5,
+                                                                    itemSize:
+                                                                        30.0,
+                                                                    glowColor:
+                                                                        Color(
+                                                                            0xFFF9BF11),
                                                                   ),
-                                                                  direction: Axis
-                                                                      .horizontal,
-                                                                  initialRating: _model
-                                                                          .ratingBarValue ??=
-                                                                      valueOrDefault<
-                                                                          double>(
-                                                                    functions
-                                                                        .averagueReviews(
-                                                                            containerReviewsRecordList.toList())
-                                                                        .toDouble(),
-                                                                    0.0,
-                                                                  ),
-                                                                  unratedColor:
-                                                                      Color(
-                                                                          0x4D040202),
-                                                                  itemCount: 5,
-                                                                  itemSize:
-                                                                      30.0,
-                                                                  glowColor: Color(
-                                                                      0xFFF9BF11),
                                                                 ),
                                                               ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                        Align(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  0.0, 0.0),
-                                                          child: Text(
-                                                            valueOrDefault<
-                                                                String>(
-                                                              functions.concatStrings(
-                                                                  '(',
-                                                                  ')',
-                                                                  containerReviewsRecordList
-                                                                      .length
-                                                                      .toString()),
-                                                              '(1278)',
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  font: GoogleFonts
-                                                                      .montserrat(
+                                                            ],
+                                                          ),
+                                                          Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    0.0, 0.0),
+                                                            child: Text(
+                                                              valueOrDefault<
+                                                                  String>(
+                                                                functions.concatStrings(
+                                                                    '(',
+                                                                    ')',
+                                                                    containerReviewsRecordList
+                                                                        .length
+                                                                        .toString()),
+                                                                '(1278)',
+                                                              ),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    font: GoogleFonts
+                                                                        .montserrat(
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w500,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
+                                                                    ),
+                                                                    color: Colors
+                                                                        .white,
+                                                                    fontSize:
+                                                                        14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w500,
@@ -664,27 +706,14 @@ class _ProfileInfoWidgetState extends State<ProfileInfoWidget> {
                                                                         .bodyMedium
                                                                         .fontStyle,
                                                                   ),
-                                                                  color: Colors
-                                                                      .white,
-                                                                  fontSize:
-                                                                      14.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontStyle,
-                                                                ),
+                                                            ),
                                                           ),
-                                                        ),
-                                                      ].divide(
-                                                          SizedBox(width: 2.0)),
-                                                    ),
-                                                  );
-                                                },
+                                                        ].divide(SizedBox(
+                                                            width: 2.0)),
+                                                      ),
+                                                    );
+                                                  },
+                                                ),
                                               ),
                                             ),
                                         ].addToStart(SizedBox(height: 16.0)),

@@ -1,12 +1,12 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/v2/menbresiav2/membresia_logo/membresia_logo_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -115,7 +115,7 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                   alignment: AlignmentDirectional(0.0, -1.0),
                   child: Container(
                     width: MediaQuery.sizeOf(context).width * 1.0,
-                    height: MediaQuery.sizeOf(context).height * 0.42,
+                    height: MediaQuery.sizeOf(context).height * 0.45,
                     decoration: BoxDecoration(),
                     child: Stack(
                       children: [
@@ -264,7 +264,7 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                   ),
                 ),
                 Container(
-                  height: 183.0,
+                  height: 153.0,
                   decoration: BoxDecoration(),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
@@ -272,7 +272,7 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Column(
-                        mainAxisSize: MainAxisSize.max,
+                        mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
@@ -289,42 +289,28 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                                       MediaQuery.sizeOf(context).height * 0.12,
                                 ),
                                 decoration: BoxDecoration(),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 4.0, 0.0, 0.0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Text(
-                                            valueOrDefault<String>(
-                                              widget.professional?.rol ==
-                                                      Roles.business
-                                                  ? widget
-                                                      .professional?.comapny
-                                                  : functions
-                                                      .upperCaseFirstLetter(
-                                                          widget.professional!
-                                                              .firtsName),
-                                              'Profesional',
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  font: GoogleFonts.poppins(
-                                                    fontWeight: FontWeight.bold,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMedium
-                                                            .fontStyle,
-                                                  ),
-                                                  fontSize: 20.0,
-                                                  letterSpacing: 0.0,
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Text(
+                                          valueOrDefault<String>(
+                                            widget.professional?.rol ==
+                                                    Roles.business
+                                                ? widget.professional?.comapny
+                                                : functions
+                                                    .upperCaseFirstLetter(
+                                                        widget.professional!
+                                                            .firtsName),
+                                            'Profesional',
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                font: GoogleFonts.poppins(
                                                   fontWeight: FontWeight.bold,
                                                   fontStyle:
                                                       FlutterFlowTheme.of(
@@ -332,37 +318,32 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                                                           .bodyMedium
                                                           .fontStyle,
                                                 ),
-                                          ),
-                                        ],
-                                      ),
-                                      Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Icon(
-                                            Icons.location_on,
-                                            color: Color(0xFFB83CB8),
-                                            size: 14.0,
-                                          ),
-                                          Text(
-                                            functions.formatnameStreet(
-                                                _model.newSuburb),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  font: GoogleFonts.poppins(
-                                                    fontWeight:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMedium
-                                                            .fontWeight,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMedium
-                                                            .fontStyle,
-                                                  ),
-                                                  fontSize: 12.0,
-                                                  letterSpacing: 0.0,
+                                                fontSize: 20.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.bold,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Icon(
+                                          Icons.location_on,
+                                          color: Color(0xFFB83CB8),
+                                          size: 14.0,
+                                        ),
+                                        Text(
+                                          functions.formatnameStreet(
+                                              _model.newSuburb),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                font: GoogleFonts.poppins(
                                                   fontWeight:
                                                       FlutterFlowTheme.of(
                                                               context)
@@ -374,42 +355,132 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                                                           .bodyMedium
                                                           .fontStyle,
                                                 ),
-                                          ),
-                                        ].divide(SizedBox(width: 4.0)),
-                                      ),
-                                      Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Container(
-                                            width: MediaQuery.sizeOf(context)
-                                                    .width *
-                                                0.4,
-                                            height: 30.0,
-                                            decoration: BoxDecoration(
-                                              color: Color(0xFFAC16A4),
-                                              borderRadius: BorderRadius.only(
-                                                bottomLeft:
-                                                    Radius.circular(30.0),
-                                                bottomRight:
-                                                    Radius.circular(30.0),
-                                                topLeft: Radius.circular(30.0),
-                                                topRight: Radius.circular(30.0),
+                                                fontSize: 12.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
                                               ),
+                                        ),
+                                      ].divide(SizedBox(width: 4.0)),
+                                    ),
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.4,
+                                          height: 30.0,
+                                          decoration: BoxDecoration(
+                                            color: Color(0xFFAC16A4),
+                                            borderRadius: BorderRadius.only(
+                                              bottomLeft: Radius.circular(30.0),
+                                              bottomRight:
+                                                  Radius.circular(30.0),
+                                              topLeft: Radius.circular(30.0),
+                                              topRight: Radius.circular(30.0),
                                             ),
-                                            child: Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
-                                              child: AutoSizeText(
-                                                valueOrDefault<String>(
-                                                  widget
-                                                      .professional
-                                                      ?.serviceType
-                                                      .firstOrNull,
-                                                  'service',
-                                                ).maybeHandleOverflow(
-                                                  maxChars: 24,
-                                                ),
-                                                minFontSize: 11.0,
+                                          ),
+                                          child: Align(
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
+                                            child: AutoSizeText(
+                                              valueOrDefault<String>(
+                                                widget.professional
+                                                    ?.serviceType.firstOrNull,
+                                                'service',
+                                              ).maybeHandleOverflow(
+                                                maxChars: 24,
+                                              ),
+                                              minFontSize: 11.0,
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .labelSmall
+                                                  .override(
+                                                    font: GoogleFonts.poppins(
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelSmall
+                                                              .fontStyle,
+                                                    ),
+                                                    color: Colors.white,
+                                                    fontSize: 11.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w600,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .labelSmall
+                                                            .fontStyle,
+                                                  ),
+                                            ),
+                                          ),
+                                        ),
+                                        Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.29,
+                                          height: 30.0,
+                                          decoration: BoxDecoration(
+                                            color: Color(0xFFAC16A4),
+                                            borderRadius: BorderRadius.only(
+                                              bottomLeft: Radius.circular(30.0),
+                                              bottomRight:
+                                                  Radius.circular(30.0),
+                                              topLeft: Radius.circular(30.0),
+                                              topRight: Radius.circular(30.0),
+                                            ),
+                                          ),
+                                          child: Align(
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
+                                            child: RichText(
+                                              textScaler: MediaQuery.of(context)
+                                                  .textScaler,
+                                              text: TextSpan(
+                                                children: [
+                                                  TextSpan(
+                                                    text: widget.professional
+                                                                ?.ndis !=
+                                                            ''
+                                                        ? 'Registered '
+                                                        : 'Unregistered',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .labelSmall
+                                                        .override(
+                                                          font: GoogleFonts
+                                                              .poppins(
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelSmall
+                                                                    .fontStyle,
+                                                          ),
+                                                          color: Colors.white,
+                                                          fontSize: 11.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelSmall
+                                                                  .fontStyle,
+                                                        ),
+                                                  )
+                                                ],
                                                 style: FlutterFlowTheme.of(
                                                         context)
                                                     .labelSmall
@@ -437,100 +508,10 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                                               ),
                                             ),
                                           ),
-                                          Container(
-                                            width: MediaQuery.sizeOf(context)
-                                                    .width *
-                                                0.29,
-                                            height: 30.0,
-                                            decoration: BoxDecoration(
-                                              color: Color(0xFFAC16A4),
-                                              borderRadius: BorderRadius.only(
-                                                bottomLeft:
-                                                    Radius.circular(30.0),
-                                                bottomRight:
-                                                    Radius.circular(30.0),
-                                                topLeft: Radius.circular(30.0),
-                                                topRight: Radius.circular(30.0),
-                                              ),
-                                            ),
-                                            child: Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
-                                              child: RichText(
-                                                textScaler:
-                                                    MediaQuery.of(context)
-                                                        .textScaler,
-                                                text: TextSpan(
-                                                  children: [
-                                                    TextSpan(
-                                                      text: widget.professional
-                                                                  ?.ndis !=
-                                                              ''
-                                                          ? 'Registered '
-                                                          : 'Unregistered',
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .labelSmall
-                                                          .override(
-                                                            font: GoogleFonts
-                                                                .poppins(
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
-                                                              fontStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelSmall
-                                                                      .fontStyle,
-                                                            ),
-                                                            color: Colors.white,
-                                                            fontSize: 11.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelSmall
-                                                                    .fontStyle,
-                                                          ),
-                                                    )
-                                                  ],
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .labelSmall
-                                                      .override(
-                                                        font:
-                                                            GoogleFonts.poppins(
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelSmall
-                                                                  .fontStyle,
-                                                        ),
-                                                        color: Colors.white,
-                                                        fontSize: 11.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelSmall
-                                                                .fontStyle,
-                                                      ),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ].divide(SizedBox(width: 4.0)),
-                                      ),
-                                    ]
-                                        .divide(SizedBox(height: 5.0))
-                                        .addToStart(SizedBox(height: 3.0)),
-                                  ),
+                                        ),
+                                      ].divide(SizedBox(width: 4.0)),
+                                    ),
+                                  ].divide(SizedBox(height: 5.0)),
                                 ),
                               ),
                             ),
@@ -539,7 +520,7 @@ class _Tinderv2C0WidgetState extends State<Tinderv2C0Widget> {
                             alignment: AlignmentDirectional(-1.0, 0.0),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  8.0, 4.0, 0.0, 0.0),
+                                  8.0, 0.0, 0.0, 0.0),
                               child: StreamBuilder<List<ReviewsRecord>>(
                                 stream: queryReviewsRecord(
                                   queryBuilder: (reviewsRecord) =>

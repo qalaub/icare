@@ -1,12 +1,16 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
 import '/v3correciones/user_fav0rites/v3fv0ritesv3/v3fv0ritesv3_widget.dart';
+import 'package:lock_orientation_library_opafp4/custom_code/actions/index.dart'
+    as lock_orientation_library_opafp4_actions;
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'fav_v3_copy_model.dart';
@@ -31,6 +35,11 @@ class _FavV3CopyWidgetState extends State<FavV3CopyWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => FavV3CopyModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await lock_orientation_library_opafp4_actions.lockOrientation();
+    });
   }
 
   @override
@@ -112,50 +121,68 @@ class _FavV3CopyWidgetState extends State<FavV3CopyWidget> {
                             mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              AuthUserStreamWidget(
-                                builder: (context) => Builder(
-                                  builder: (context) {
-                                    final userList = (currentUserDocument
-                                                ?.favorites
-                                                .toList() ??
-                                            [])
-                                        .where((e) =>
-                                            (currentUserDocument?.blockList
-                                                        .toList() ??
-                                                    [])
-                                                .contains(e) ==
-                                            false)
-                                        .toList();
-
-                                    return ListView.separated(
-                                      padding: EdgeInsets.fromLTRB(
-                                        0,
-                                        16.0,
-                                        0,
-                                        0,
-                                      ),
-                                      reverse: true,
-                                      primary: false,
-                                      shrinkWrap: true,
-                                      scrollDirection: Axis.vertical,
-                                      itemCount: userList.length,
-                                      separatorBuilder: (_, __) =>
-                                          SizedBox(height: 16.0),
-                                      itemBuilder: (context, userListIndex) {
-                                        final userListItem =
-                                            userList[userListIndex];
-                                        return V3fv0ritesv3Widget(
-                                          key: Key(
-                                              'Keympk_${userListIndex}_of_${userList.length}'),
-                                          profesionalId: userListItem,
-                                          isCollaborator: false,
-                                          isReview: true,
-                                          isMap: false,
-                                        );
-                                      },
-                                    );
-                                  },
+                              StreamBuilder<List<FavoritesRecord>>(
+                                stream: queryFavoritesRecord(
+                                  queryBuilder: (favoritesRecord) =>
+                                      favoritesRecord
+                                          .where(
+                                            'userID',
+                                            isEqualTo: currentUserReference,
+                                          )
+                                          .orderBy('timestamp',
+                                              descending: true),
                                 ),
+                                builder: (context, snapshot) {
+                                  // Customize what your widget looks like when it's loading.
+                                  if (!snapshot.hasData) {
+                                    return Center(
+                                      child: SizedBox(
+                                        width: 50.0,
+                                        height: 50.0,
+                                        child: CircularProgressIndicator(
+                                          valueColor:
+                                              AlwaysStoppedAnimation<Color>(
+                                            FlutterFlowTheme.of(context)
+                                                .primary,
+                                          ),
+                                        ),
+                                      ),
+                                    );
+                                  }
+                                  List<FavoritesRecord>
+                                      listViewFavoritesRecordList =
+                                      snapshot.data!;
+
+                                  return ListView.separated(
+                                    padding: EdgeInsets.fromLTRB(
+                                      0,
+                                      16.0,
+                                      0,
+                                      0,
+                                    ),
+                                    primary: false,
+                                    shrinkWrap: true,
+                                    scrollDirection: Axis.vertical,
+                                    itemCount:
+                                        listViewFavoritesRecordList.length,
+                                    separatorBuilder: (_, __) =>
+                                        SizedBox(height: 16.0),
+                                    itemBuilder: (context, listViewIndex) {
+                                      final listViewFavoritesRecord =
+                                          listViewFavoritesRecordList[
+                                              listViewIndex];
+                                      return V3fv0ritesv3Widget(
+                                        key: Key(
+                                            'Keympk_${listViewIndex}_of_${listViewFavoritesRecordList.length}'),
+                                        profesionalId: listViewFavoritesRecord
+                                            .professionalRef!,
+                                        isCollaborator: false,
+                                        isReview: true,
+                                        isMap: false,
+                                      );
+                                    },
+                                  );
+                                },
                               ),
                             ],
                           ),

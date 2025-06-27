@@ -3,12 +3,14 @@ import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
 import '/chat_groupwbubbles/chat_thread_component/chat_thread_component_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/v2/v2_mensages/options_message/options_message_widget.dart';
 import 'dart:async';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:lock_orientation_library_opafp4/custom_code/actions/index.dart'
+    as lock_orientation_library_opafp4_actions;
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -46,6 +48,7 @@ class _Chat2DetailsWidgetState extends State<Chat2DetailsWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await lock_orientation_library_opafp4_actions.lockOrientation();
       unawaited(
         () async {
           await widget.chatRef!.reference.update({
@@ -176,7 +179,10 @@ class _Chat2DetailsWidgetState extends State<Chat2DetailsWidget> {
                                       ),
                                     ),
                                   ),
-                                  if (currentUserDocument?.plan != Plan.basic)
+                                  if ((currentUserDocument?.plan !=
+                                          Plan.basic) ||
+                                      (widget.chatRef?.lastMessage != null &&
+                                          widget.chatRef?.lastMessage != ''))
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 2.0, 0.0, 0.0),

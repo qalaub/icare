@@ -3,16 +3,19 @@ import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/v2/account_option/account_option_widget.dart';
+import '/v2/account_option_premium/account_option_premium_widget.dart';
 import '/v2/account_option_standard/account_option_standard_widget.dart';
 import '/v2/n_e_w_spremiun/navbar/navbar_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
+import 'package:lock_orientation_library_opafp4/custom_code/actions/index.dart'
+    as lock_orientation_library_opafp4_actions;
 import 'package:collection/collection.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -44,6 +47,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await lock_orientation_library_opafp4_actions.lockOrientation();
       FFAppState().imagesUserUpload = [];
       FFAppState().updateRegisterProviderFormStruct(
         (e) => e
@@ -93,38 +97,48 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                       children: [
                         Container(
                           width: double.infinity,
-                          height: 250.0,
+                          height: 280.0,
                           decoration: BoxDecoration(
                             color: Color(0x31FB8CE2),
                           ),
-                          child: Stack(
-                            children: [
-                              AuthUserStreamWidget(
-                                builder: (context) => ClipRRect(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  child: Image.network(
-                                    valueOrDefault<String>(
-                                      currentUserPhoto,
-                                      'https://i.ibb.co/2qkDLKb/Frame-74.png',
+                          child: Container(
+                            width: double.infinity,
+                            height: double.infinity,
+                            child: Stack(
+                              children: [
+                                Container(
+                                  width: double.infinity,
+                                  height: double.infinity,
+                                  decoration: BoxDecoration(),
+                                  child: AuthUserStreamWidget(
+                                    builder: (context) => ClipRRect(
+                                      borderRadius: BorderRadius.circular(8.0),
+                                      child: Image.network(
+                                        valueOrDefault<String>(
+                                          currentUserPhoto,
+                                          'https://i.ibb.co/2qkDLKb/Frame-74.png',
+                                        ),
+                                        width: double.infinity,
+                                        height: double.infinity,
+                                        fit: BoxFit.fill,
+                                      ),
                                     ),
-                                    width: double.infinity,
-                                    height: double.infinity,
-                                    fit: BoxFit.cover,
                                   ),
                                 ),
-                              ),
-                              Container(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
-                                decoration: BoxDecoration(
-                                  color: Color(0x59F428EB),
+                                Container(
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
+                                  height: double.infinity,
+                                  decoration: BoxDecoration(
+                                    color: Color(0x59F428EB),
+                                  ),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [],
+                                  ),
                                 ),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [],
-                                ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                         Align(
@@ -254,7 +268,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                             (currentUserDocument?.plan != Plan.basic))
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 10.0, 0.0, 0.0),
+                                0.0, 10.0, 0.0, 10.0),
                             child: AuthUserStreamWidget(
                               builder: (context) => Container(
                                 width: 326.0,
@@ -284,13 +298,17 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                       }.withoutNulls,
                                     );
                                   },
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(8.0),
-                                    child: Image.asset(
-                                      'assets/images/Group_42.png',
-                                      width: double.infinity,
-                                      height: double.infinity,
-                                      fit: BoxFit.cover,
+                                  child: wrapWithModel(
+                                    model: _model.accountOptionPremiumModel,
+                                    updateCallback: () => safeSetState(() {}),
+                                    child: AccountOptionPremiumWidget(
+                                      icon: Icon(
+                                        Icons.star_rate_sharp,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                        size: 30.0,
+                                      ),
+                                      text: 'Start Premium',
                                     ),
                                   ),
                                 ),
@@ -340,6 +358,8 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                         text: 'Start Standard',
                                         icon: Icon(
                                           Icons.star_half,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
                                           size: 30.0,
                                         ),
                                       ),
@@ -770,7 +790,6 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                               text: 'Sign out',
                               icon: Icon(
                                 Icons.login_sharp,
-                                color: Color(0xFFB928B8),
                                 size: 25.0,
                               ),
                               options: FFButtonOptions(
@@ -779,6 +798,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                                     8.0, 0.0, 16.0, 0.0),
                                 iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
+                                iconColor: Color(0xFFB928B8),
                                 color: Colors.white,
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
@@ -805,6 +825,25 @@ class _UserprofileWidgetState extends State<UserprofileWidget> {
                               ),
                             ),
                           ),
+                        ),
+                        Text(
+                          '© 2025 - v1.4.3',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    font: GoogleFonts.montserrat(
+                                      fontWeight: FontWeight.w600,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                                    color: Color(0x9A14181B),
+                                    fontSize: 16.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w600,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
                         ),
                       ]
                           .divide(SizedBox(height: 8.0))

@@ -4,13 +4,16 @@ import '/backend/firebase_storage/storage.dart';
 import '/backend/schema/enums/enums.dart';
 import '/backend/stripe/payment_manager.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/index.dart';
+import 'package:lock_orientation_library_opafp4/custom_code/actions/index.dart'
+    as lock_orientation_library_opafp4_actions;
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'register_pfofesional5_model.dart';
@@ -42,6 +45,11 @@ class _RegisterPfofesional5WidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => RegisterPfofesional5Model());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await lock_orientation_library_opafp4_actions.lockOrientation();
+    });
   }
 
   @override
@@ -73,7 +81,7 @@ class _RegisterPfofesional5WidgetState
                   width: double.infinity,
                   height: MediaQuery.sizeOf(context).height * 1.0,
                   decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                    color: Color(0xFFBD39BA),
                   ),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
@@ -107,7 +115,7 @@ class _RegisterPfofesional5WidgetState
                                   size: 24.0,
                                 ),
                                 onPressed: () async {
-                                  context.safePop();
+                                  context.pop();
                                 },
                               ),
                             ),
@@ -234,7 +242,8 @@ class _RegisterPfofesional5WidgetState
                                                         m.storagePath,
                                                         context))) {
                                               safeSetState(() => _model
-                                                  .isDataUploading1 = true);
+                                                      .isDataUploading_uploadData80lA =
+                                                  true);
                                               var selectedUploadedFiles =
                                                   <FFUploadedFile>[];
 
@@ -259,13 +268,14 @@ class _RegisterPfofesional5WidgetState
                                                             ))
                                                         .toList();
                                               } finally {
-                                                _model.isDataUploading1 = false;
+                                                _model.isDataUploading_uploadData80lA =
+                                                    false;
                                               }
                                               if (selectedUploadedFiles
                                                       .length ==
                                                   selectedMedia.length) {
                                                 safeSetState(() {
-                                                  _model.uploadedLocalFile1 =
+                                                  _model.uploadedLocalFile_uploadData80lA =
                                                       selectedUploadedFiles
                                                           .first;
                                                 });
@@ -277,7 +287,8 @@ class _RegisterPfofesional5WidgetState
 
                                             _model.verifyVideo =
                                                 await actions.verifySizeVideo(
-                                              _model.uploadedLocalFile1,
+                                              _model
+                                                  .uploadedLocalFile_uploadData80lA,
                                             );
                                             if (_model.verifyVideo!) {
                                               ScaffoldMessenger.of(context)
@@ -320,8 +331,9 @@ class _RegisterPfofesional5WidgetState
                                                 ),
                                               );
                                               safeSetState(() {
-                                                _model.isDataUploading1 = false;
-                                                _model.uploadedLocalFile1 =
+                                                _model.isDataUploading_uploadData80lA =
+                                                    false;
+                                                _model.uploadedLocalFile_uploadData80lA =
                                                     FFUploadedFile(
                                                         bytes:
                                                             Uint8List.fromList(
@@ -407,157 +419,184 @@ class _RegisterPfofesional5WidgetState
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 20.0, 0.0, 10.0),
                                         child: FFButtonWidget(
-                                          onPressed: () async {
-                                            if ((_model.uploadedLocalFile1.bytes
-                                                        ?.isNotEmpty ??
-                                                    false)) {
-                                              {
-                                                safeSetState(() => _model
-                                                    .isDataUploading2 = true);
-                                                var selectedUploadedFiles =
-                                                    <FFUploadedFile>[];
-                                                var selectedMedia =
-                                                    <SelectedFile>[];
-                                                var downloadUrls = <String>[];
-                                                try {
-                                                  selectedUploadedFiles = _model
-                                                          .uploadedLocalFile1
-                                                          .bytes!
-                                                          .isNotEmpty
-                                                      ? [
-                                                          _model
-                                                              .uploadedLocalFile1
-                                                        ]
-                                                      : <FFUploadedFile>[];
-                                                  selectedMedia =
-                                                      selectedFilesFromUploadedFiles(
-                                                    selectedUploadedFiles,
-                                                  );
-                                                  downloadUrls =
-                                                      (await Future.wait(
-                                                    selectedMedia.map(
-                                                      (m) async =>
-                                                          await uploadData(
-                                                              m.storagePath,
-                                                              m.bytes),
-                                                    ),
-                                                  ))
-                                                          .where(
-                                                              (u) => u != null)
-                                                          .map((u) => u!)
-                                                          .toList();
-                                                } finally {
-                                                  _model.isDataUploading2 =
-                                                      false;
-                                                }
-                                                if (selectedUploadedFiles
-                                                            .length ==
-                                                        selectedMedia.length &&
-                                                    downloadUrls.length ==
-                                                        selectedMedia.length) {
-                                                  safeSetState(() {
-                                                    _model.uploadedLocalFile2 =
-                                                        selectedUploadedFiles
-                                                            .first;
-                                                    _model.uploadedFileUrl2 =
-                                                        downloadUrls.first;
-                                                  });
-                                                } else {
-                                                  safeSetState(() {});
-                                                  return;
-                                                }
-                                              }
+                                          onPressed:
+                                              ((_model.uploadedLocalFile_uploadData80lA
+                                                              .bytes?.isEmpty ??
+                                                          true))
+                                                  ? null
+                                                  : () async {
+                                                      if ((_model
+                                                                  .uploadedLocalFile_uploadData80lA
+                                                                  .bytes
+                                                                  ?.isNotEmpty ??
+                                                              false)) {
+                                                        {
+                                                          safeSetState(() =>
+                                                              _model.isDataUploading_uploadDataZ712 =
+                                                                  true);
+                                                          var selectedUploadedFiles =
+                                                              <FFUploadedFile>[];
+                                                          var selectedMedia =
+                                                              <SelectedFile>[];
+                                                          var downloadUrls =
+                                                              <String>[];
+                                                          try {
+                                                            selectedUploadedFiles = _model
+                                                                    .uploadedLocalFile_uploadData80lA
+                                                                    .bytes!
+                                                                    .isNotEmpty
+                                                                ? [
+                                                                    _model
+                                                                        .uploadedLocalFile_uploadData80lA
+                                                                  ]
+                                                                : <FFUploadedFile>[];
+                                                            selectedMedia =
+                                                                selectedFilesFromUploadedFiles(
+                                                              selectedUploadedFiles,
+                                                            );
+                                                            downloadUrls =
+                                                                (await Future
+                                                                        .wait(
+                                                              selectedMedia.map(
+                                                                (m) async =>
+                                                                    await uploadData(
+                                                                        m.storagePath,
+                                                                        m.bytes),
+                                                              ),
+                                                            ))
+                                                                    .where((u) =>
+                                                                        u !=
+                                                                        null)
+                                                                    .map((u) =>
+                                                                        u!)
+                                                                    .toList();
+                                                          } finally {
+                                                            _model.isDataUploading_uploadDataZ712 =
+                                                                false;
+                                                          }
+                                                          if (selectedUploadedFiles
+                                                                      .length ==
+                                                                  selectedMedia
+                                                                      .length &&
+                                                              downloadUrls
+                                                                      .length ==
+                                                                  selectedMedia
+                                                                      .length) {
+                                                            safeSetState(() {
+                                                              _model.uploadedLocalFile_uploadDataZ712 =
+                                                                  selectedUploadedFiles
+                                                                      .first;
+                                                              _model.uploadedFileUrl_uploadDataZ712 =
+                                                                  downloadUrls
+                                                                      .first;
+                                                            });
+                                                          } else {
+                                                            safeSetState(() {});
+                                                            return;
+                                                          }
+                                                        }
 
-                                              await currentUserReference!
-                                                  .update(createUsersRecordData(
-                                                video: _model.uploadedFileUrl2,
-                                              ));
-                                              final paymentResponse =
-                                                  await processStripePayment(
-                                                context,
-                                                amount: () {
-                                                  if (FFAppState()
-                                                          .registerProviderForm
-                                                          .plan ==
-                                                      Plan.basic) {
-                                                    return FFAppConstants
-                                                        .basicPrice;
-                                                  } else if (FFAppState()
-                                                          .registerProviderForm
-                                                          .plan ==
-                                                      Plan.standar) {
-                                                    return FFAppConstants
-                                                        .standarPrice;
-                                                  } else {
-                                                    return FFAppConstants
-                                                        .premiunPrice;
-                                                  }
-                                                }(),
-                                                currency: 'AUD',
-                                                customerEmail: FFAppState()
-                                                    .registerProviderForm
-                                                    .email,
-                                                customerName: FFAppState()
-                                                    .registerProviderForm
-                                                    .firstName,
-                                                description: () {
-                                                  if (FFAppState()
-                                                          .registerProviderForm
-                                                          .plan ==
-                                                      Plan.basic) {
-                                                    return 'Plan Basic';
-                                                  } else if (FFAppState()
-                                                          .registerProviderForm
-                                                          .plan ==
-                                                      Plan.standar) {
-                                                    return 'Plan Standar';
-                                                  } else {
-                                                    return 'Plan Premiun';
-                                                  }
-                                                }(),
-                                                allowGooglePay: true,
-                                                allowApplePay: false,
-                                              );
-                                              if (paymentResponse.paymentId ==
-                                                      null &&
-                                                  paymentResponse
-                                                          .errorMessage !=
-                                                      null) {
-                                                showSnackbar(
-                                                  context,
-                                                  'Error: ${paymentResponse.errorMessage}',
-                                                );
-                                              }
-                                              _model.paymentId =
-                                                  paymentResponse.paymentId ??
-                                                      '';
+                                                        await currentUserReference!
+                                                            .update(
+                                                                createUsersRecordData(
+                                                          video: _model
+                                                              .uploadedFileUrl_uploadDataZ712,
+                                                        ));
+                                                        final paymentResponse =
+                                                            await processStripePayment(
+                                                          context,
+                                                          amount: () {
+                                                            if (FFAppState()
+                                                                    .registerProviderForm
+                                                                    .plan ==
+                                                                Plan.basic) {
+                                                              return FFAppConstants
+                                                                  .basicPrice;
+                                                            } else if (FFAppState()
+                                                                    .registerProviderForm
+                                                                    .plan ==
+                                                                Plan.standar) {
+                                                              return FFAppConstants
+                                                                  .standarPrice;
+                                                            } else {
+                                                              return FFAppConstants
+                                                                  .premiunPrice;
+                                                            }
+                                                          }(),
+                                                          currency: 'AUD',
+                                                          customerEmail:
+                                                              FFAppState()
+                                                                  .registerProviderForm
+                                                                  .email,
+                                                          customerName: FFAppState()
+                                                              .registerProviderForm
+                                                              .firstName,
+                                                          description: () {
+                                                            if (FFAppState()
+                                                                    .registerProviderForm
+                                                                    .plan ==
+                                                                Plan.basic) {
+                                                              return 'Plan Basic';
+                                                            } else if (FFAppState()
+                                                                    .registerProviderForm
+                                                                    .plan ==
+                                                                Plan.standar) {
+                                                              return 'Plan Standar';
+                                                            } else {
+                                                              return 'Plan Premiun';
+                                                            }
+                                                          }(),
+                                                          allowGooglePay: true,
+                                                          allowApplePay: false,
+                                                        );
+                                                        if (paymentResponse
+                                                                    .paymentId ==
+                                                                null &&
+                                                            paymentResponse
+                                                                    .errorMessage !=
+                                                                null) {
+                                                          showSnackbar(
+                                                            context,
+                                                            'Error: ${paymentResponse.errorMessage}',
+                                                          );
+                                                        }
+                                                        _model.paymentId =
+                                                            paymentResponse
+                                                                    .paymentId ??
+                                                                '';
 
-                                              if (_model.paymentId != null &&
-                                                  _model.paymentId != '') {
-                                                FFAppState().authUserFireBase =
-                                                    true;
-                                                FFAppState()
-                                                        .isCreatedProfesional =
-                                                    true;
-                                                safeSetState(() {});
+                                                        if (_model.paymentId !=
+                                                                null &&
+                                                            _model.paymentId !=
+                                                                '') {
+                                                          FFAppState()
+                                                                  .authUserFireBase =
+                                                              true;
+                                                          FFAppState()
+                                                                  .isCreatedProfesional =
+                                                              true;
+                                                          safeSetState(() {});
 
-                                                context.goNamed(
-                                                  HomeSearchWidget.routeName,
-                                                  queryParameters: {
-                                                    'authUser': serializeParam(
-                                                      true,
-                                                      ParamType.bool,
-                                                    ),
-                                                  }.withoutNulls,
-                                                );
-                                              } else {
-                                                await authManager
-                                                    .deleteUser(context);
-                                              }
-                                            }
+                                                          context.goNamed(
+                                                            HomeSearchWidget
+                                                                .routeName,
+                                                            queryParameters: {
+                                                              'authUser':
+                                                                  serializeParam(
+                                                                true,
+                                                                ParamType.bool,
+                                                              ),
+                                                            }.withoutNulls,
+                                                          );
+                                                        } else {
+                                                          await authManager
+                                                              .deleteUser(
+                                                                  context);
+                                                        }
+                                                      }
 
-                                            safeSetState(() {});
-                                          },
+                                                      safeSetState(() {});
+                                                    },
                                           text: 'Create Profile',
                                           options: FFButtonOptions(
                                             width: 275.0,
@@ -606,6 +645,7 @@ class _RegisterPfofesional5WidgetState
                                             ),
                                             borderRadius:
                                                 BorderRadius.circular(24.0),
+                                            disabledColor: Color(0xFF99A1A8),
                                           ),
                                         ),
                                       ),

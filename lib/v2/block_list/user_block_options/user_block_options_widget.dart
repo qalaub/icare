@@ -1,8 +1,8 @@
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/v2/block_list/user_unlock_confirm/user_unlock_confirm_widget.dart';
 import '/index.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'user_block_options_model.dart';
@@ -73,8 +73,8 @@ class _UserBlockOptionsWidgetState extends State<UserBlockOptionsWidget> {
         ),
         alignment: AlignmentDirectional(0.0, 0.0),
         child: Column(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             FFButtonWidget(
               onPressed: () async {
@@ -159,7 +159,7 @@ class _UserBlockOptionsWidgetState extends State<UserBlockOptionsWidget> {
                 borderRadius: BorderRadius.circular(8.0),
               ),
             ),
-          ].addToStart(SizedBox(height: 16.0)),
+          ],
         ),
       ),
     );

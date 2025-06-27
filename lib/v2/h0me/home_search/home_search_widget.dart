@@ -2,7 +2,6 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
 import '/components/home_vista_cuidador_widget.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/v2/h0me/map_button/map_button_widget.dart';
@@ -12,6 +11,9 @@ import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
 import '/index.dart';
+import 'package:lock_orientation_library_opafp4/custom_code/actions/index.dart'
+    as lock_orientation_library_opafp4_actions;
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -54,6 +56,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
       }
       currentUserLocationValue =
           await getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0));
+      await lock_orientation_library_opafp4_actions.lockOrientation();
       if (FFAppState().isCreatedProfesional) {
         if (currentUserDocument?.rol != Roles.user) {
           FFAppState().isCreatedProfesional = false;
@@ -208,7 +211,7 @@ class _HomeSearchWidgetState extends State<HomeSearchWidget> {
                                                 1.0,
                                             height: MediaQuery.sizeOf(context)
                                                     .height *
-                                                0.925,
+                                                0.9,
                                             decoration: BoxDecoration(
                                               color: Colors.white,
                                             ),

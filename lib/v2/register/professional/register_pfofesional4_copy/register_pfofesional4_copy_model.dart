@@ -29,16 +29,16 @@ class RegisterPfofesional4CopyModel
   late ImageUploadModel img5Model;
   // Model for img6.
   late ImageUploadModel img6Model;
-  bool isDataUploading1 = false;
-  FFUploadedFile uploadedLocalFile1 =
+  bool isDataUploading_uploadData80lB = false;
+  FFUploadedFile uploadedLocalFile_uploadData80lB =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // Stores action output result for [Custom Action - verifySizeVideo] action in Button widget.
   bool? verifyVideo;
-  bool isDataUploading2 = false;
-  FFUploadedFile uploadedLocalFile2 =
+  bool isDataUploading_uploadDataZ713 = false;
+  FFUploadedFile uploadedLocalFile_uploadDataZ713 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl2 = '';
+  String uploadedFileUrl_uploadDataZ713 = '';
 
   @override
   void initState(BuildContext context) {

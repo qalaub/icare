@@ -1,11 +1,11 @@
 import '/backend/schema/enums/enums.dart';
 import '/components/calendario_widget.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
 import '/v2/professional/imganes/imganes_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'descripcion_profesional_model.dart';
@@ -252,15 +252,18 @@ class _DescripcionProfesionalWidgetState
               color: Color(0xDEBAB7B7),
             ),
           ),
-          Container(
-            width: MediaQuery.sizeOf(context).width * 0.8,
-            height: MediaQuery.sizeOf(context).height * 0.3,
-            decoration: BoxDecoration(),
-            child: wrapWithModel(
-              model: _model.imganesModel,
-              updateCallback: () => safeSetState(() {}),
-              child: ImganesWidget(
-                professional: widget.imgs!,
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 20.0),
+            child: Container(
+              width: MediaQuery.sizeOf(context).width * 0.9,
+              height: MediaQuery.sizeOf(context).height * 0.4,
+              decoration: BoxDecoration(),
+              child: wrapWithModel(
+                model: _model.imganesModel,
+                updateCallback: () => safeSetState(() {}),
+                child: ImganesWidget(
+                  professional: widget.imgs!,
+                ),
               ),
             ),
           ),
@@ -271,30 +274,33 @@ class _DescripcionProfesionalWidgetState
               color: Color(0xDEBAB7B7),
             ),
           ),
-          Flex(
-            direction: Axis.vertical,
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Align(
-                alignment: AlignmentDirectional(0.0, 0.0),
-                child: FlutterFlowVideoPlayer(
-                  path: widget.video != null && widget.video != ''
-                      ? widget.video!
-                      : 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/gv12biya5vta/video_coming_soon!.mp4',
-                  videoType: VideoType.network,
-                  width: MediaQuery.sizeOf(context).width * 0.8,
-                  height: MediaQuery.sizeOf(context).height * 0.785,
-                  aspectRatio: 0.56,
-                  autoPlay: true,
-                  looping: true,
-                  showControls: true,
-                  allowFullScreen: false,
-                  allowPlaybackSpeedMenu: false,
-                  lazyLoad: false,
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
+            child: Flex(
+              direction: Axis.vertical,
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Align(
+                  alignment: AlignmentDirectional(0.0, 0.0),
+                  child: FlutterFlowVideoPlayer(
+                    path: widget.video != null && widget.video != ''
+                        ? widget.video!
+                        : 'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/gv12biya5vta/video_coming_soon!.mp4',
+                    videoType: VideoType.network,
+                    width: MediaQuery.sizeOf(context).width * 0.9,
+                    height: MediaQuery.sizeOf(context).height * 0.785,
+                    aspectRatio: 0.56,
+                    autoPlay: true,
+                    looping: true,
+                    showControls: true,
+                    allowFullScreen: false,
+                    allowPlaybackSpeedMenu: false,
+                    lazyLoad: false,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
           SizedBox(
             width: 500.0,

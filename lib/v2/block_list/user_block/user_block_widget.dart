@@ -1,10 +1,11 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/schema/enums/enums.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/v2/block_list/user_block_options/user_block_options_widget.dart';
+import '/v2/block_list/user_block_options_copy/user_block_options_copy_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:aligned_dialog/aligned_dialog.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'user_block_model.dart';
@@ -54,70 +55,101 @@ class _UserBlockWidgetState extends State<UserBlockWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.sizeOf(context).width * 1.0,
-      height: 90.0,
-      decoration: BoxDecoration(
-        color: widget.background,
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(16.0),
-          bottomRight: Radius.circular(16.0),
-          topLeft: Radius.circular(16.0),
-          topRight: Radius.circular(16.0),
-        ),
-      ),
-      child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
+    return Stack(
+      children: [
+        Container(
+          width: MediaQuery.sizeOf(context).width * 1.0,
+          height: 90.0,
+          decoration: BoxDecoration(
+            color: widget.background,
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(16.0),
+              bottomRight: Radius.circular(16.0),
+              topLeft: Radius.circular(16.0),
+              topRight: Radius.circular(16.0),
+            ),
+          ),
+          child: Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+            child: Row(
               mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
-                  width: 75.0,
-                  height: 75.0,
-                  clipBehavior: Clip.antiAlias,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                  ),
-                  child: Image.network(
-                    valueOrDefault<String>(
-                      widget.image,
-                      'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Container(
+                      width: 75.0,
+                      height: 75.0,
+                      clipBehavior: Clip.antiAlias,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                      ),
+                      child: Image.network(
+                        valueOrDefault<String>(
+                          widget.image,
+                          'https://i.ibb.co/b7TBHQJ/imagen-defecto.png',
+                        ),
+                        fit: BoxFit.cover,
+                      ),
                     ),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                Align(
-                  alignment: AlignmentDirectional(-1.0, 0.0),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Align(
-                        alignment: AlignmentDirectional(0.0, 0.0),
-                        child: Container(
-                          decoration: BoxDecoration(),
-                          child: Visibility(
-                            visible: currentUserDocument?.plan != Plan.basic,
-                            child: AuthUserStreamWidget(
-                              builder: (context) => Text(
-                                functions
-                                    .upperCaseFirstLetter(widget.username!),
+                    Align(
+                      alignment: AlignmentDirectional(-1.0, 0.0),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Align(
+                            alignment: AlignmentDirectional(0.0, 0.0),
+                            child: Container(
+                              decoration: BoxDecoration(),
+                              child: Visibility(
+                                visible:
+                                    currentUserDocument?.plan != Plan.basic,
+                                child: AuthUserStreamWidget(
+                                  builder: (context) => Text(
+                                    functions.upperCaseFirstLetter(
+                                        widget.username!),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          font: GoogleFonts.montserrat(
+                                            fontWeight: FontWeight.bold,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Align(
+                            alignment: AlignmentDirectional(0.0, 0.0),
+                            child: Container(
+                              decoration: BoxDecoration(),
+                              child: Text(
+                                widget.service!,
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       font: GoogleFonts.montserrat(
-                                        fontWeight: FontWeight.bold,
+                                        fontWeight: FontWeight.normal,
                                         fontStyle: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .fontStyle,
                                       ),
                                       letterSpacing: 0.0,
-                                      fontWeight: FontWeight.bold,
+                                      fontWeight: FontWeight.normal,
                                       fontStyle: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .fontStyle,
@@ -125,77 +157,101 @@ class _UserBlockWidgetState extends State<UserBlockWidget> {
                               ),
                             ),
                           ),
-                        ),
+                        ].divide(SizedBox(height: 8.0)),
                       ),
-                      Align(
-                        alignment: AlignmentDirectional(0.0, 0.0),
-                        child: Container(
-                          decoration: BoxDecoration(),
-                          child: Text(
-                            widget.service!,
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  font: GoogleFonts.montserrat(
-                                    fontWeight: FontWeight.normal,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontStyle,
-                                  ),
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.normal,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .fontStyle,
-                                ),
-                          ),
-                        ),
-                      ),
-                    ].divide(SizedBox(height: 8.0)),
-                  ),
+                    ),
+                  ].divide(SizedBox(width: 12.0)),
                 ),
-              ].divide(SizedBox(width: 12.0)),
-            ),
-            Builder(
-              builder: (context) => InkWell(
-                splashColor: Colors.transparent,
-                focusColor: Colors.transparent,
-                hoverColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                onTap: () async {
-                  await showAlignedDialog(
-                    barrierColor: Colors.transparent,
-                    context: context,
-                    isGlobal: false,
-                    avoidOverflow: false,
-                    targetAnchor: AlignmentDirectional(-1.0, 0.0)
-                        .resolve(Directionality.of(context)),
-                    followerAnchor: AlignmentDirectional(0.8, -1.2)
-                        .resolve(Directionality.of(context)),
-                    builder: (dialogContext) {
-                      return Material(
-                        color: Colors.transparent,
-                        child: Container(
-                          height: MediaQuery.sizeOf(context).height * 0.2,
-                          width: MediaQuery.sizeOf(context).width * 0.4,
-                          child: UserBlockOptionsWidget(
-                            userRef: widget.userRef!,
+                Builder(
+                  builder: (context) {
+                    if (currentUserDocument?.rol == Roles.user) {
+                      return Builder(
+                        builder: (context) => InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            await showAlignedDialog(
+                              barrierColor: Colors.transparent,
+                              context: context,
+                              isGlobal: false,
+                              avoidOverflow: false,
+                              targetAnchor: AlignmentDirectional(-1.0, 0.0)
+                                  .resolve(Directionality.of(context)),
+                              followerAnchor: AlignmentDirectional(0.8, -1.2)
+                                  .resolve(Directionality.of(context)),
+                              builder: (dialogContext) {
+                                return Material(
+                                  color: Colors.transparent,
+                                  child: Container(
+                                    height:
+                                        MediaQuery.sizeOf(context).height * 0.2,
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 0.4,
+                                    child: UserBlockOptionsWidget(
+                                      userRef: widget.userRef!,
+                                    ),
+                                  ),
+                                );
+                              },
+                            );
+                          },
+                          child: Icon(
+                            Icons.more_vert,
+                            color: Colors.black,
+                            size: 24.0,
                           ),
                         ),
                       );
-                    },
-                  );
-                },
-                child: Icon(
-                  Icons.more_vert,
-                  color: Colors.black,
-                  size: 24.0,
+                    } else {
+                      return Builder(
+                        builder: (context) => InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            await showAlignedDialog(
+                              barrierColor: Colors.transparent,
+                              context: context,
+                              isGlobal: false,
+                              avoidOverflow: false,
+                              targetAnchor: AlignmentDirectional(-1.0, 0.0)
+                                  .resolve(Directionality.of(context)),
+                              followerAnchor: AlignmentDirectional(0.8, -1.2)
+                                  .resolve(Directionality.of(context)),
+                              builder: (dialogContext) {
+                                return Material(
+                                  color: Colors.transparent,
+                                  child: Container(
+                                    height:
+                                        MediaQuery.sizeOf(context).height * 0.2,
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 0.4,
+                                    child: UserBlockOptionsCopyWidget(
+                                      userRef: widget.userRef!,
+                                    ),
+                                  ),
+                                );
+                              },
+                            );
+                          },
+                          child: Icon(
+                            Icons.more_vert,
+                            color: Colors.black,
+                            size: 24.0,
+                          ),
+                        ),
+                      );
+                    }
+                  },
                 ),
-              ),
+              ],
             ),
-          ],
+          ),
         ),
-      ),
+      ],
     );
   }
 }

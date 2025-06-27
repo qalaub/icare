@@ -19,6 +19,8 @@ class AddFavoritesCopy2Model extends FlutterFlowModel<AddFavoritesCopy2Widget> {
   ///  State fields for stateful widgets in this component.
 
   // Stores action output result for [Firestore Query - Query a collection] action in IconButton widget.
+  FavoritesRecord? existingFavorite;
+  // Stores action output result for [Firestore Query - Query a collection] action in IconButton widget.
   ChatsRecord? newRefCopyCopy;
   // Stores action output result for [Backend Call - Create Document] action in IconButton widget.
   ChatsRecord? newChatThread;

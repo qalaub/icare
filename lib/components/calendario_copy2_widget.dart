@@ -1,5 +1,5 @@
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -318,10 +318,12 @@ class _CalendarioCopy2WidgetState extends State<CalendarioCopy2Widget> {
                                               safeSetState(() {});
                                             }
                                           },
-                                          side: BorderSide(
-                                            width: 2,
-                                            color: Color(0xFF9C9C9C),
-                                          ),
+                                          side: (Color(0xFF9C9C9C) != null)
+                                              ? BorderSide(
+                                                  width: 2,
+                                                  color: Color(0xFF9C9C9C),
+                                                )
+                                              : null,
                                           activeColor: Color(0xFFC14BBC),
                                           checkColor:
                                               FlutterFlowTheme.of(context).info,
@@ -370,10 +372,12 @@ class _CalendarioCopy2WidgetState extends State<CalendarioCopy2Widget> {
                                               safeSetState(() {});
                                             }
                                           },
-                                          side: BorderSide(
-                                            width: 2,
-                                            color: Color(0xFF9C9C9C),
-                                          ),
+                                          side: (Color(0xFF9C9C9C) != null)
+                                              ? BorderSide(
+                                                  width: 2,
+                                                  color: Color(0xFF9C9C9C),
+                                                )
+                                              : null,
                                           activeColor: Color(0xFFC14BBC),
                                           checkColor:
                                               FlutterFlowTheme.of(context).info,
@@ -422,10 +426,12 @@ class _CalendarioCopy2WidgetState extends State<CalendarioCopy2Widget> {
                                               safeSetState(() {});
                                             }
                                           },
-                                          side: BorderSide(
-                                            width: 2,
-                                            color: Color(0xFF9C9C9C),
-                                          ),
+                                          side: (Color(0xFF9C9C9C) != null)
+                                              ? BorderSide(
+                                                  width: 2,
+                                                  color: Color(0xFF9C9C9C),
+                                                )
+                                              : null,
                                           activeColor: Color(0xFFC14BBC),
                                           checkColor:
                                               FlutterFlowTheme.of(context).info,
@@ -520,10 +526,12 @@ class _CalendarioCopy2WidgetState extends State<CalendarioCopy2Widget> {
                                               safeSetState(() {});
                                             }
                                           },
-                                          side: BorderSide(
-                                            width: 2,
-                                            color: Color(0xFF9C9C9C),
-                                          ),
+                                          side: (Color(0xFF9C9C9C) != null)
+                                              ? BorderSide(
+                                                  width: 2,
+                                                  color: Color(0xFF9C9C9C),
+                                                )
+                                              : null,
                                           activeColor: Color(0xFFC14BBC),
                                           checkColor:
                                               FlutterFlowTheme.of(context).info,
@@ -572,10 +580,12 @@ class _CalendarioCopy2WidgetState extends State<CalendarioCopy2Widget> {
                                               safeSetState(() {});
                                             }
                                           },
-                                          side: BorderSide(
-                                            width: 2,
-                                            color: Color(0xFF9C9C9C),
-                                          ),
+                                          side: (Color(0xFF9C9C9C) != null)
+                                              ? BorderSide(
+                                                  width: 2,
+                                                  color: Color(0xFF9C9C9C),
+                                                )
+                                              : null,
                                           activeColor: Color(0xFFC14BBC),
                                           checkColor:
                                               FlutterFlowTheme.of(context).info,
@@ -624,10 +634,12 @@ class _CalendarioCopy2WidgetState extends State<CalendarioCopy2Widget> {
                                               safeSetState(() {});
                                             }
                                           },
-                                          side: BorderSide(
-                                            width: 2,
-                                            color: Color(0xFF9C9C9C),
-                                          ),
+                                          side: (Color(0xFF9C9C9C) != null)
+                                              ? BorderSide(
+                                                  width: 2,
+                                                  color: Color(0xFF9C9C9C),
+                                                )
+                                              : null,
                                           activeColor: Color(0xFFC14BBC),
                                           checkColor:
                                               FlutterFlowTheme.of(context).info,
@@ -722,10 +734,12 @@ class _CalendarioCopy2WidgetState extends State<CalendarioCopy2Widget> {
                                               safeSetState(() {});
                                             }
                                           },
-                                          side: BorderSide(
-                                            width: 2,
-                                            color: Color(0xFF9C9C9C),
-                                          ),
+                                          side: (Color(0xFF9C9C9C) != null)
+                                              ? BorderSide(
+                                                  width: 2,
+                                                  color: Color(0xFF9C9C9C),
+                                                )
+                                              : null,
                                           activeColor: Color(0xFFC14BBC),
                                           checkColor:
                                               FlutterFlowTheme.of(context).info,
@@ -774,10 +788,12 @@ class _CalendarioCopy2WidgetState extends State<CalendarioCopy2Widget> {
                                               safeSetState(() {});
                                             }
                                           },
-                                          side: BorderSide(
-                                            width: 2,
-                                            color: Color(0xFF9C9C9C),
-                                          ),
+                                          side: (Color(0xFF9C9C9C) != null)
+                                              ? BorderSide(
+                                                  width: 2,
+                                                  color: Color(0xFF9C9C9C),
+                                                )
+                                              : null,
                                           activeColor: Color(0xFFC14BBC),
                                           checkColor:
                                               FlutterFlowTheme.of(context).info,
@@ -826,10 +842,12 @@ class _CalendarioCopy2WidgetState extends State<CalendarioCopy2Widget> {
                                               safeSetState(() {});
                                             }
                                           },
-                                          side: BorderSide(
-                                            width: 2,
-                                            color: Color(0xFF9C9C9C),
-                                          ),
+                                          side: (Color(0xFF9C9C9C) != null)
+                                              ? BorderSide(
+                                                  width: 2,
+                                                  color: Color(0xFF9C9C9C),
+                                                )
+                                              : null,
                                           activeColor: Color(0xFFC14BBC),
                                           checkColor:
                                               FlutterFlowTheme.of(context).info,
@@ -924,10 +942,12 @@ class _CalendarioCopy2WidgetState extends State<CalendarioCopy2Widget> {
                                               safeSetState(() {});
                                             }
                                           },
-                                          side: BorderSide(
-                                            width: 2,
-                                            color: Color(0xFF9C9C9C),
-                                          ),
+                                          side: (Color(0xFF9C9C9C) != null)
+                                              ? BorderSide(
+                                                  width: 2,
+                                                  color: Color(0xFF9C9C9C),
+                                                )
+                                              : null,
                                           activeColor: Color(0xFFC14BBC),
                                           checkColor:
                                               FlutterFlowTheme.of(context).info,
@@ -976,10 +996,12 @@ class _CalendarioCopy2WidgetState extends State<CalendarioCopy2Widget> {
                                               safeSetState(() {});
                                             }
                                           },
-                                          side: BorderSide(
-                                            width: 2,
-                                            color: Color(0xFF9C9C9C),
-                                          ),
+                                          side: (Color(0xFF9C9C9C) != null)
+                                              ? BorderSide(
+                                                  width: 2,
+                                                  color: Color(0xFF9C9C9C),
+                                                )
+                                              : null,
                                           activeColor: Color(0xFFC14BBC),
                                           checkColor:
                                               FlutterFlowTheme.of(context).info,
@@ -1028,10 +1050,12 @@ class _CalendarioCopy2WidgetState extends State<CalendarioCopy2Widget> {
                                               safeSetState(() {});
                                             }
                                           },
-                                          side: BorderSide(
-                                            width: 2,
-                                            color: Color(0xFF9C9C9C),
-                                          ),
+                                          side: (Color(0xFF9C9C9C) != null)
+                                              ? BorderSide(
+                                                  width: 2,
+                                                  color: Color(0xFF9C9C9C),
+                                                )
+                                              : null,
                                           activeColor: Color(0xFFC14BBC),
                                           checkColor:
                                               FlutterFlowTheme.of(context).info,
@@ -1127,10 +1151,12 @@ class _CalendarioCopy2WidgetState extends State<CalendarioCopy2Widget> {
                                               safeSetState(() {});
                                             }
                                           },
-                                          side: BorderSide(
-                                            width: 2,
-                                            color: Color(0xFF9C9C9C),
-                                          ),
+                                          side: (Color(0xFF9C9C9C) != null)
+                                              ? BorderSide(
+                                                  width: 2,
+                                                  color: Color(0xFF9C9C9C),
+                                                )
+                                              : null,
                                           activeColor: Color(0xFFC14BBC),
                                           checkColor:
                                               FlutterFlowTheme.of(context).info,
@@ -1179,10 +1205,12 @@ class _CalendarioCopy2WidgetState extends State<CalendarioCopy2Widget> {
                                               safeSetState(() {});
                                             }
                                           },
-                                          side: BorderSide(
-                                            width: 2,
-                                            color: Color(0xFF9C9C9C),
-                                          ),
+                                          side: (Color(0xFF9C9C9C) != null)
+                                              ? BorderSide(
+                                                  width: 2,
+                                                  color: Color(0xFF9C9C9C),
+                                                )
+                                              : null,
                                           activeColor: Color(0xFFC14BBC),
                                           checkColor:
                                               FlutterFlowTheme.of(context).info,
@@ -1231,10 +1259,12 @@ class _CalendarioCopy2WidgetState extends State<CalendarioCopy2Widget> {
                                               safeSetState(() {});
                                             }
                                           },
-                                          side: BorderSide(
-                                            width: 2,
-                                            color: Color(0xFF9C9C9C),
-                                          ),
+                                          side: (Color(0xFF9C9C9C) != null)
+                                              ? BorderSide(
+                                                  width: 2,
+                                                  color: Color(0xFF9C9C9C),
+                                                )
+                                              : null,
                                           activeColor: Color(0xFFC14BBC),
                                           checkColor:
                                               FlutterFlowTheme.of(context).info,
@@ -1329,10 +1359,12 @@ class _CalendarioCopy2WidgetState extends State<CalendarioCopy2Widget> {
                                               safeSetState(() {});
                                             }
                                           },
-                                          side: BorderSide(
-                                            width: 2,
-                                            color: Color(0xFF9C9C9C),
-                                          ),
+                                          side: (Color(0xFF9C9C9C) != null)
+                                              ? BorderSide(
+                                                  width: 2,
+                                                  color: Color(0xFF9C9C9C),
+                                                )
+                                              : null,
                                           activeColor: Color(0xFFC14BBC),
                                           checkColor:
                                               FlutterFlowTheme.of(context).info,
@@ -1381,10 +1413,12 @@ class _CalendarioCopy2WidgetState extends State<CalendarioCopy2Widget> {
                                               safeSetState(() {});
                                             }
                                           },
-                                          side: BorderSide(
-                                            width: 2,
-                                            color: Color(0xFF9C9C9C),
-                                          ),
+                                          side: (Color(0xFF9C9C9C) != null)
+                                              ? BorderSide(
+                                                  width: 2,
+                                                  color: Color(0xFF9C9C9C),
+                                                )
+                                              : null,
                                           activeColor: Color(0xFFC14BBC),
                                           checkColor:
                                               FlutterFlowTheme.of(context).info,
@@ -1433,10 +1467,12 @@ class _CalendarioCopy2WidgetState extends State<CalendarioCopy2Widget> {
                                               safeSetState(() {});
                                             }
                                           },
-                                          side: BorderSide(
-                                            width: 2,
-                                            color: Color(0xFF9C9C9C),
-                                          ),
+                                          side: (Color(0xFF9C9C9C) != null)
+                                              ? BorderSide(
+                                                  width: 2,
+                                                  color: Color(0xFF9C9C9C),
+                                                )
+                                              : null,
                                           activeColor: Color(0xFFC14BBC),
                                           checkColor:
                                               FlutterFlowTheme.of(context).info,
@@ -1531,10 +1567,12 @@ class _CalendarioCopy2WidgetState extends State<CalendarioCopy2Widget> {
                                               safeSetState(() {});
                                             }
                                           },
-                                          side: BorderSide(
-                                            width: 2,
-                                            color: Color(0xFF9C9C9C),
-                                          ),
+                                          side: (Color(0xFF9C9C9C) != null)
+                                              ? BorderSide(
+                                                  width: 2,
+                                                  color: Color(0xFF9C9C9C),
+                                                )
+                                              : null,
                                           activeColor: Color(0xFFC14BBC),
                                           checkColor:
                                               FlutterFlowTheme.of(context).info,
@@ -1583,10 +1621,12 @@ class _CalendarioCopy2WidgetState extends State<CalendarioCopy2Widget> {
                                               safeSetState(() {});
                                             }
                                           },
-                                          side: BorderSide(
-                                            width: 2,
-                                            color: Color(0xFF9C9C9C),
-                                          ),
+                                          side: (Color(0xFF9C9C9C) != null)
+                                              ? BorderSide(
+                                                  width: 2,
+                                                  color: Color(0xFF9C9C9C),
+                                                )
+                                              : null,
                                           activeColor: Color(0xFFC14BBC),
                                           checkColor:
                                               FlutterFlowTheme.of(context).info,
@@ -1635,10 +1675,12 @@ class _CalendarioCopy2WidgetState extends State<CalendarioCopy2Widget> {
                                               safeSetState(() {});
                                             }
                                           },
-                                          side: BorderSide(
-                                            width: 2,
-                                            color: Color(0xFF9C9C9C),
-                                          ),
+                                          side: (Color(0xFF9C9C9C) != null)
+                                              ? BorderSide(
+                                                  width: 2,
+                                                  color: Color(0xFF9C9C9C),
+                                                )
+                                              : null,
                                           activeColor: Color(0xFFC14BBC),
                                           checkColor:
                                               FlutterFlowTheme.of(context).info,

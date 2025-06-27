@@ -2,7 +2,7 @@
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/backend/schema/enums/enums.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'index.dart'; // Imports other custom widgets
 import '/custom_code/actions/index.dart'; // Imports custom actions
@@ -73,6 +73,8 @@ class _MapsAustralianState extends State<MapsAustralian> {
 
   bool _lockToNewLocation = false;
   LatLng? _lockedLocation;
+
+  bool _hasAnimatedOnce = false;
 
   bool _isInteractingWithPageView = false;
   Timer? _interactionTimer;
@@ -232,7 +234,7 @@ class _MapsAustralianState extends State<MapsAustralian> {
             _selectedUser!.suburb!.latitude,
             _selectedUser!.suburb!.longitude,
           ),
-          7,
+          13,
         );
       }
     }
@@ -398,7 +400,7 @@ class _MapsAustralianState extends State<MapsAustralian> {
 
             // Restaura la ubicación bloqueada si existe
             if (_lockToNewLocation && _lockedLocation != null) {
-              _forceMapMove(_lockedLocation!, 9.0);
+              _forceMapMove(_lockedLocation!, 13.0);
             }
           });
         }
@@ -455,7 +457,7 @@ class _MapsAustralianState extends State<MapsAustralian> {
 
     if (_lockToNewLocation && _lockedLocation != null) {
       _forceMapMove(
-          _lockedLocation!, widget.isProfessional == true ? 6.0 : 12.0);
+          _lockedLocation!, widget.isProfessional == true ? 6.0 : 13.0);
       return;
     }
 
@@ -483,10 +485,10 @@ class _MapsAustralianState extends State<MapsAustralian> {
           _selectedProfessional!.sub!.latitude,
           _selectedProfessional!.sub!.longitude,
         ),
-        11,
+        13,
       );
     } else if (_locationPermissionAccepted && _initialCurrentLocation != null) {
-      _animateCameraToPosition(_initialCurrentLocation!, 11);
+      _animateCameraToPosition(_initialCurrentLocation!, 13);
     } else {
       // Default to Australia view
       mapController!.moveCamera(
@@ -495,17 +497,86 @@ class _MapsAustralianState extends State<MapsAustralian> {
     }
   }
 
-  void _animateCameraToPosition(google_maps.LatLng position, double zoom) {
-    if (mapController != null) {
-      mapController!.animateCamera(
-        google_maps.CameraUpdate.newCameraPosition(
-          google_maps.CameraPosition(
-            target: position,
-            zoom: zoom,
-          ),
-        ),
+  void _animateCameraToPosition(
+      google_maps.LatLng targetPosition, double targetZoom,
+      {int zoomOutDuration = 400,
+      int pauseDuration = 200,
+      int zoomInDuration = 600,
+      double minZoom = 4.0,
+      double maxZoom = 13.0,
+      double distanceThreshold = 0.9}) async {
+    if (mapController == null) return;
+
+    try {
+      final currentCameraPosition = await mapController!.getLatLng(
+        google_maps.ScreenCoordinate(x: 0, y: 0),
       );
+
+      final startZoom = await mapController!.getZoomLevel();
+      final startLat = currentCameraPosition.latitude;
+      final startLng = currentCameraPosition.longitude;
+
+      // Distancia mínima en grados (~100 km) para activar zoom-out
+      final distance = ((targetPosition.latitude - startLat).abs() +
+              (targetPosition.longitude - startLng).abs()) /
+          2;
+
+      if (!_hasAnimatedOnce || distance < distanceThreshold) {
+        // Interpolación suave (primer marcador o distancia corta)
+        int steps = 30;
+        double deltaLat = (targetPosition.latitude - startLat) / steps;
+        double deltaLng = (targetPosition.longitude - startLng) / steps;
+        double deltaZoom = (targetZoom - startZoom) / steps;
+
+        for (int i = 1; i <= steps; i++) {
+          final lat = startLat + deltaLat * i;
+          final lng = startLng + deltaLng * i;
+          final currentZoom = startZoom + deltaZoom * i;
+
+          final cameraUpdate = google_maps.CameraUpdate.newCameraPosition(
+            google_maps.CameraPosition(
+              target: google_maps.LatLng(lat, lng),
+              zoom: currentZoom.clamp(minZoom, maxZoom),
+            ),
+          );
+
+          await mapController!.animateCamera(cameraUpdate);
+          await Future.delayed(Duration(milliseconds: 16)); // ~60 FPS
+        }
+      } else {
+        // Transición con zoom intermedio para distancias largas
+        double midZoom = 4.0;
+
+        // 1. Zoom out con centro actual
+        await mapController!.animateCamera(
+          google_maps.CameraUpdate.newCameraPosition(
+            google_maps.CameraPosition(
+              target: currentCameraPosition,
+              zoom: midZoom,
+            ),
+          ),
+        );
+        await Future.delayed(Duration(milliseconds: zoomOutDuration));
+
+        // 2. Pausa (opcional)
+        await Future.delayed(Duration(milliseconds: pauseDuration));
+
+        // 3. Zoom in hacia el nuevo destino
+        await mapController!.animateCamera(
+          google_maps.CameraUpdate.newCameraPosition(
+            google_maps.CameraPosition(
+              target: targetPosition,
+              zoom: targetZoom.clamp(minZoom, maxZoom),
+            ),
+          ),
+        );
+        await Future.delayed(Duration(milliseconds: zoomInDuration));
+      }
+    } catch (e) {
+      print('Error in zoom transition: $e');
     }
+
+    _hasAnimatedOnce = true;
   }
 
   @override
@@ -529,7 +600,7 @@ class _MapsAustralianState extends State<MapsAustralian> {
           });
 
           // Usar un enfoque de fuerza bruta: intentar mover el mapa varias veces
-          _forceMapMoveWithRetry(newLocation, 12.0, 5); // 5 intentos
+          _forceMapMoveWithRetry(newLocation, 13.0, 5); // 5 intentos
 
           // Ordenar marcadores por proximidad a esta nueva ubicación
           _sortMarkersByProximityWithLocation(newLocation);
@@ -552,7 +623,7 @@ class _MapsAustralianState extends State<MapsAustralian> {
     if (_lockToNewLocation && _lockedLocation != null) {
       // Si hay intentos de mover el mapa por otras razones, forzar de nuevo a la ubicación bloqueada
       if (_mapInitialized && mapController != null) {
-        _forceMapMove(_lockedLocation!, 12.0);
+        _forceMapMove(_lockedLocation!, 13.0);
       }
       return; // Evitar que se procese el resto de la función
     }
@@ -885,7 +956,7 @@ class _MapsAustralianState extends State<MapsAustralian> {
 
       // 3. Cargar ícono para profesional seleccionado
       final selectedProfessionalImageUrl =
-          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/znz4vzyqj65b/profesionalMarker.png';
+          'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/new-owneri-care-app-1z9bmg/assets/fotdpfxagwh5/profesionalMarker.png';
       iconLoadingFutures.add(_buildMarkerIcon(
               widget.markersImage != null
                   ? widget.markersImage!
@@ -1047,7 +1118,7 @@ class _MapsAustralianState extends State<MapsAustralian> {
 
       // Actualiza el mapa para centrar en este profesional
       if (_sortedMarkers![index].suburb != null) {
-        _forceMapMove(_sortedMarkers![index].suburb!, 12.0);
+        _forceMapMove(_sortedMarkers![index].suburb!, 13.0);
       }
     }
   }
@@ -1122,7 +1193,7 @@ class _MapsAustralianState extends State<MapsAustralian> {
 
                       // AQUÍ sí movemos el mapa porque el usuario ha tocado el marcador directamente
                       if (user.suburb != null) {
-                        _forceMapMove(user.suburb!, 7.0);
+                        _forceMapMove(user.suburb!, 13.0);
                       }
                     }
                   },
@@ -1173,7 +1244,7 @@ class _MapsAustralianState extends State<MapsAustralian> {
 
                         // Always move to this marker when tapped
                         if (user.suburb != null) {
-                          _forceMapMove(user.suburb!, 12.0);
+                          _forceMapMove(user.suburb!, 13.0);
                         }
                       }
                     },
@@ -1256,9 +1327,9 @@ class _MapsAustralianState extends State<MapsAustralian> {
               // Different zoom limits based on whether it's a professional or regular user
               minMaxZoomPreference: widget.isProfessional == true
                   ? google_maps.MinMaxZoomPreference(4,
-                      10) // Lower max zoom (more zoomed out) for professionals
+                      11) // Lower max zoom (more zoomed out) for professionals
                   : google_maps.MinMaxZoomPreference(4,
-                      14), // Higher max zoom (more zoomed in) for regular users
+                      13), // Higher max zoom (more zoomed in) for regular users
               cameraTargetBounds:
                   google_maps.CameraTargetBounds(australiaBounds),
               markers:

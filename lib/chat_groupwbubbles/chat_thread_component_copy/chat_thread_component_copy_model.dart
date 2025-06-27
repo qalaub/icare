@@ -43,10 +43,10 @@ class ChatThreadComponentCopyModel
   List<ChatMessagesRecord>? listViewPreviousSnapshot;
   // Models for chat_threadUpdate dynamic component.
   late FlutterFlowDynamicModels<ChatThreadUpdateModel> chatThreadUpdateModels;
-  bool isDataUploading = false;
-  FFUploadedFile uploadedLocalFile =
+  bool isDataUploading_uploadDataJub4 = false;
+  FFUploadedFile uploadedLocalFile_uploadDataJub4 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl = '';
+  String uploadedFileUrl_uploadDataJub4 = '';
 
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;

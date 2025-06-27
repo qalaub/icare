@@ -3,7 +3,6 @@ import '/backend/schema/enums/enums.dart';
 import '/components/calendario_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/form_field_controller.dart';
@@ -12,6 +11,9 @@ import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
 import '/v2/professional/imagenesfotos_users/imagenesfotos_users_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
+import 'package:lock_orientation_library_opafp4/custom_code/actions/index.dart'
+    as lock_orientation_library_opafp4_actions;
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -47,6 +49,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await lock_orientation_library_opafp4_actions.lockOrientation();
       FFAppState().imagesUserUpload = [];
       _model.addToAges(valueOrDefault(currentUserDocument?.age, ''));
       safeSetState(() {});
@@ -420,7 +423,7 @@ class _VerperfilWidgetState extends State<VerperfilWidget> {
                                                 0.9,
                                             height: MediaQuery.sizeOf(context)
                                                     .height *
-                                                0.3,
+                                                0.4,
                                             decoration: BoxDecoration(),
                                             child: wrapWithModel(
                                               model: _model

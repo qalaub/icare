@@ -4,14 +4,17 @@ import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_checkbox_group.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
+import 'package:lock_orientation_library_opafp4/custom_code/actions/index.dart'
+    as lock_orientation_library_opafp4_actions;
 import 'package:easy_debounce/easy_debounce.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -41,6 +44,11 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
     super.initState();
     _model = createModel(context, () => RegisterUser2Model());
 
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await lock_orientation_library_opafp4_actions.lockOrientation();
+    });
+
     _model.ndisTextController ??= TextEditingController();
     _model.ndisFocusNode ??= FocusNode();
 
@@ -57,7 +65,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
           MoveEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 600.0.ms,
+            duration: 400.0.ms,
             begin: Offset(0.0, -11.0),
             end: Offset(0.0, 0.0),
           ),
@@ -69,7 +77,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
           MoveEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 600.0.ms,
+            duration: 400.0.ms,
             begin: Offset(0.0, -11.0),
             end: Offset(0.0, 0.0),
           ),
@@ -81,7 +89,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
           MoveEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 600.0.ms,
+            duration: 400.0.ms,
             begin: Offset(0.0, -11.0),
             end: Offset(0.0, 0.0),
           ),
@@ -93,7 +101,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
           MoveEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 600.0.ms,
+            duration: 400.0.ms,
             begin: Offset(0.0, -11.0),
             end: Offset(0.0, 0.0),
           ),
@@ -142,7 +150,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                   width: double.infinity,
                   height: MediaQuery.sizeOf(context).height * 1.0,
                   decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                    color: Color(0xFFBD39BA),
                   ),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
@@ -642,7 +650,10 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                                   context)
                                                               .width *
                                                           0.8,
-                                                      height: 270.0,
+                                                      height: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .height *
+                                                          1.0,
                                                       decoration: BoxDecoration(
                                                         color: Colors.white,
                                                         borderRadius:
@@ -734,42 +745,26 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                       ),
                                                     ),
                                                   ),
-                                                  Align(
-                                                    alignment:
-                                                        AlignmentDirectional(
-                                                            0.0, 0.0),
-                                                    child: Builder(
-                                                      builder: (context) {
-                                                        if (_model
-                                                                .checkboxGroupValues
-                                                                ?.length ==
-                                                            0) {
-                                                          return Align(
-                                                            alignment:
-                                                                AlignmentDirectional(
-                                                                    -0.7, 1.0),
-                                                            child: Text(
-                                                              key: ValueKey(
-                                                                  'disabilityRequired'),
-                                                              'Field is required',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    font: GoogleFonts
-                                                                        .montserrat(
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w600,
-                                                                      fontStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .fontStyle,
-                                                                    ),
-                                                                    color: Color(
-                                                                        0xFFFF5963),
-                                                                    letterSpacing:
-                                                                        0.0,
+                                                  Builder(
+                                                    builder: (context) {
+                                                      if (_model
+                                                              .checkboxGroupValues
+                                                              ?.length ==
+                                                          0) {
+                                                        return Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  -0.7, 1.2),
+                                                          child: Text(
+                                                            key: ValueKey(
+                                                                'disabilityRequired'),
+                                                            'Field is required',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  font: GoogleFonts
+                                                                      .montserrat(
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w600,
@@ -778,30 +773,31 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                                         .bodyMedium
                                                                         .fontStyle,
                                                                   ),
-                                                            ).animateOnPageLoad(
-                                                                animationsMap[
-                                                                    'textOnPageLoadAnimation2']!),
-                                                          );
-                                                        } else {
-                                                          return Text(
-                                                            ' ',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  font: GoogleFonts
-                                                                      .readexPro(
-                                                                    fontWeight: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .fontWeight,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .fontStyle,
-                                                                  ),
+                                                                  color: Color(
+                                                                      0xFFFF5963),
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                          ).animateOnPageLoad(
+                                                              animationsMap[
+                                                                  'textOnPageLoadAnimation2']!),
+                                                        );
+                                                      } else {
+                                                        return Text(
+                                                          ' ',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                font: GoogleFonts
+                                                                    .readexPro(
                                                                   fontWeight: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
@@ -811,10 +807,20 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                                                       .bodyMedium
                                                                       .fontStyle,
                                                                 ),
-                                                          );
-                                                        }
-                                                      },
-                                                    ),
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                              ),
+                                                        );
+                                                      }
+                                                    },
                                                   ),
                                                 ],
                                               ),
@@ -827,7 +833,7 @@ class _RegisterUser2WidgetState extends State<RegisterUser2Widget>
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 10.0, 0.0, 15.0),
+                                                    0.0, 40.0, 0.0, 15.0),
                                             child: Text(
                                               '* Password',
                                               style: FlutterFlowTheme.of(

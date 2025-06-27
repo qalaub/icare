@@ -1,7 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'user_unlock_confirm_model.dart';
@@ -47,8 +47,8 @@ class _UserUnlockConfirmWidgetState extends State<UserUnlockConfirmWidget> {
     return Align(
       alignment: AlignmentDirectional(0.0, 0.0),
       child: Container(
-        width: 320.0,
-        height: 290.0,
+        width: 330.0,
+        height: 315.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
           boxShadow: [
@@ -73,7 +73,7 @@ class _UserUnlockConfirmWidgetState extends State<UserUnlockConfirmWidget> {
         ),
         child: Column(
           mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Align(
@@ -180,6 +180,7 @@ class _UserUnlockConfirmWidgetState extends State<UserUnlockConfirmWidget> {
                 height: 50.0,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondaryBackground,
+                  borderRadius: BorderRadius.circular(12.0),
                 ),
                 child: Align(
                   alignment: AlignmentDirectional(0.0, 0.0),
@@ -238,6 +239,7 @@ class _UserUnlockConfirmWidgetState extends State<UserUnlockConfirmWidget> {
                 height: 50.0,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondaryBackground,
+                  borderRadius: BorderRadius.circular(6.0),
                 ),
                 child: Align(
                   alignment: AlignmentDirectional(0.0, 0.0),

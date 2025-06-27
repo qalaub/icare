@@ -29,16 +29,48 @@
       ]
     },
     {
-      "collectionGroup": "users",
+      "collectionGroup": "favorites",
       "queryScope": "COLLECTION",
       "fields": [
         {
-          "fieldPath": "rol",
+          "fieldPath": "professionalRef",
           "order": "ASCENDING"
         },
         {
-          "fieldPath": "favorites",
-          "arrayConfig": "CONTAINS"
+          "fieldPath": "timestamp",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "favorites",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "userID",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "timestamp",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "newsbusiness",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "business",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "isView",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "timestamp",
+          "order": "DESCENDING"
         }
       ]
     }

@@ -6,7 +6,6 @@ import '/backend/schema/enums/enums.dart';
 import '/components/calendario_copy_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -20,11 +19,15 @@ import 'dart:async';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
+import 'package:lock_orientation_library_opafp4/custom_code/actions/index.dart'
+    as lock_orientation_library_opafp4_actions;
 import 'package:easy_debounce/easy_debounce.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
 import 'profile_settings_model.dart';
 export 'profile_settings_model.dart';
@@ -56,6 +59,7 @@ class _ProfileSettingsWidgetState extends State<ProfileSettingsWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await lock_orientation_library_opafp4_actions.lockOrientation();
       FFAppState().imagesUserUpload = [];
       safeSetState(() {});
       if (currentUserDocument?.rol != Roles.user) {
@@ -115,6 +119,7 @@ class _ProfileSettingsWidgetState extends State<ProfileSettingsWidget> {
     _model.dateTextController ??= TextEditingController();
     _model.dateFocusNode ??= FocusNode();
 
+    _model.dateMask = MaskTextInputFormatter(mask: '##/##/####');
     _model.queryTextController ??= TextEditingController(
         text: functions.formatnameStreet(widget.initialSur));
     _model.queryFocusNode ??= FocusNode();
@@ -235,33 +240,33 @@ class _ProfileSettingsWidgetState extends State<ProfileSettingsWidget> {
                                                           0.0, 0.0),
                                                   child: Stack(
                                                     children: [
-                                                      Align(
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                0.0, 0.0),
-                                                        child: Container(
-                                                          width:
-                                                              MediaQuery.sizeOf(
-                                                                          context)
-                                                                      .width *
-                                                                  0.9,
-                                                          height: 280.0,
-                                                          decoration:
-                                                              BoxDecoration(),
-                                                          child: wrapWithModel(
-                                                            model: _model
-                                                                .uploadProfileImageModel,
-                                                            updateCallback: () =>
-                                                                safeSetState(
-                                                                    () {}),
-                                                            child:
-                                                                UploadProfileImageWidget(
-                                                              imgs: (currentUserDocument
-                                                                      ?.images
-                                                                      .toList() ??
-                                                                  []),
+                                                      Container(
+                                                        decoration:
+                                                            BoxDecoration(),
+                                                        child: Flex(
+                                                          direction:
+                                                              Axis.vertical,
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            wrapWithModel(
+                                                              model: _model
+                                                                  .uploadProfileImageModel,
+                                                              updateCallback: () =>
+                                                                  safeSetState(
+                                                                      () {}),
+                                                              child:
+                                                                  UploadProfileImageWidget(
+                                                                imgs: (currentUserDocument
+                                                                        ?.images
+                                                                        .toList() ??
+                                                                    []),
+                                                              ),
                                                             ),
-                                                          ),
+                                                          ],
                                                         ),
                                                       ),
                                                     ],
@@ -280,14 +285,34 @@ class _ProfileSettingsWidgetState extends State<ProfileSettingsWidget> {
                                                           MainAxisAlignment
                                                               .spaceAround,
                                                       children: [
-                                                        Text(
-                                                          'Profile Picture',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .headlineLarge
-                                                              .override(
-                                                                font: GoogleFonts
-                                                                    .montserrat(
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      10.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Text(
+                                                            'Profile Picture',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .headlineLarge
+                                                                .override(
+                                                                  font: GoogleFonts
+                                                                      .montserrat(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .headlineLarge
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  fontSize:
+                                                                      16.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .bold,
@@ -296,17 +321,7 @@ class _ProfileSettingsWidgetState extends State<ProfileSettingsWidget> {
                                                                       .headlineLarge
                                                                       .fontStyle,
                                                                 ),
-                                                                fontSize: 16.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .headlineLarge
-                                                                    .fontStyle,
-                                                              ),
+                                                          ),
                                                         ),
                                                         Padding(
                                                           padding:
@@ -444,6 +459,10 @@ class _ProfileSettingsWidgetState extends State<ProfileSettingsWidget> {
                                                         EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 0.0),
+                                                    iconColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .info,
                                                     color: Color(0xFFB928B8),
                                                     textStyle: FlutterFlowTheme
                                                             .of(context)
@@ -657,7 +676,7 @@ class _ProfileSettingsWidgetState extends State<ProfileSettingsWidget> {
                                                                   m.storagePath,
                                                                   context))) {
                                                         safeSetState(() => _model
-                                                                .isDataUploading1 =
+                                                                .isDataUploading_uploadData80l =
                                                             true);
                                                         var selectedUploadedFiles =
                                                             <FFUploadedFile>[];
@@ -684,7 +703,7 @@ class _ProfileSettingsWidgetState extends State<ProfileSettingsWidget> {
                                                                       ))
                                                                   .toList();
                                                         } finally {
-                                                          _model.isDataUploading1 =
+                                                          _model.isDataUploading_uploadData80l =
                                                               false;
                                                         }
                                                         if (selectedUploadedFiles
@@ -692,7 +711,7 @@ class _ProfileSettingsWidgetState extends State<ProfileSettingsWidget> {
                                                             selectedMedia
                                                                 .length) {
                                                           safeSetState(() {
-                                                            _model.uploadedLocalFile1 =
+                                                            _model.uploadedLocalFile_uploadData80l =
                                                                 selectedUploadedFiles
                                                                     .first;
                                                           });
@@ -706,7 +725,7 @@ class _ProfileSettingsWidgetState extends State<ProfileSettingsWidget> {
                                                           await actions
                                                               .verifySizeVideo(
                                                         _model
-                                                            .uploadedLocalFile1,
+                                                            .uploadedLocalFile_uploadData80l,
                                                       );
                                                       if (_model.verifyVideo!) {
                                                         await showDialog(
@@ -752,9 +771,9 @@ class _ProfileSettingsWidgetState extends State<ProfileSettingsWidget> {
                                                           ),
                                                         );
                                                         safeSetState(() {
-                                                          _model.isDataUploading1 =
+                                                          _model.isDataUploading_uploadData80l =
                                                               false;
-                                                          _model.uploadedLocalFile1 =
+                                                          _model.uploadedLocalFile_uploadData80l =
                                                               FFUploadedFile(
                                                                   bytes: Uint8List
                                                                       .fromList(
@@ -786,6 +805,10 @@ class _ProfileSettingsWidgetState extends State<ProfileSettingsWidget> {
                                                                   0.0,
                                                                   0.0,
                                                                   0.0),
+                                                      iconColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .info,
                                                       color: Color(0xFFB928B8),
                                                       textStyle:
                                                           FlutterFlowTheme.of(
@@ -877,8 +900,8 @@ class _ProfileSettingsWidgetState extends State<ProfileSettingsWidget> {
                                                     0.0, 0.0),
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(20.0, 10.0,
-                                                          20.0, 20.0),
+                                                      .fromSTEB(16.0, 10.0,
+                                                          16.0, 20.0),
                                                   child: Material(
                                                     color: Colors.transparent,
                                                     elevation: 2.0,
@@ -3409,7 +3432,7 @@ class _ProfileSettingsWidgetState extends State<ProfileSettingsWidget> {
                                                               '_model.queryTextController',
                                                               Duration(
                                                                   milliseconds:
-                                                                      10),
+                                                                      500),
                                                               () async {
                                                                 _model.apiResultuev =
                                                                     await GetSuggestionMapProfesionalCall
@@ -3423,16 +3446,14 @@ class _ProfileSettingsWidgetState extends State<ProfileSettingsWidget> {
                                                                         .apiResultuev
                                                                         ?.succeeded ??
                                                                     true)) {
-                                                                  _model
-                                                                      .queryResults = GetSuggestionMapProfesionalCall
-                                                                          .predictions(
-                                                                    (_model.apiResultuev
-                                                                            ?.jsonBody ??
-                                                                        ''),
-                                                                  )!
+                                                                  _model.queryResults = functions
+                                                                      .filterOutAustralianStates(GetSuggestionMapProfesionalCall.predictions(
+                                                                        (_model.apiResultuev?.jsonBody ??
+                                                                            ''),
+                                                                      )!
+                                                                          .toList())
                                                                       .toList()
-                                                                      .cast<
-                                                                          QueryResultsStruct>();
+                                                                      .cast<QueryResultsStruct>();
                                                                 }
 
                                                                 safeSetState(
@@ -4397,12 +4418,7 @@ class _ProfileSettingsWidgetState extends State<ProfileSettingsWidget> {
                                                                     multiSelectController: _model
                                                                         .serviceempleValueController ??= FormListFieldController<
                                                                             String>(
-                                                                        _model.serviceempleValue ??=
-                                                                            List<String>.from(
-                                                                      (currentUserDocument?.serviceType.toList() ??
-                                                                              []) ??
-                                                                          [],
-                                                                    )),
+                                                                        null),
                                                                     options: [
                                                                       'Support Worker',
                                                                       'Support  Coordinator',
@@ -4938,330 +4954,358 @@ class _ProfileSettingsWidgetState extends State<ProfileSettingsWidget> {
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 16.0),
-                                        child: FFButtonWidget(
-                                          key: ValueKey('save'),
-                                          onPressed: ((_model.nameTextController
-                                                              .text ==
-                                                          '') ||
-                                                  (_model.lastNameTextController
-                                                              .text ==
-                                                          '') ||
-                                                  (_model.ageTextController.text ==
-                                                          '') ||
-                                                  (_model.phoneTextController
-                                                              .text ==
-                                                          '') ||
-                                                  (_model.queryTextController
-                                                              .text ==
-                                                          ''))
-                                              ? null
-                                              : () async {
-                                                  FFAppState()
-                                                      .updateRegisterProviderFormStruct(
-                                                    (e) => e
-                                                      ..firstName =
-                                                          valueOrDefault(
-                                                              currentUserDocument
-                                                                  ?.firtsName,
-                                                              '')
-                                                      ..languagues =
-                                                          valueOrDefault(
-                                                              currentUserDocument
-                                                                  ?.languagues,
-                                                              '')
-                                                      ..description =
-                                                          valueOrDefault(
-                                                              currentUserDocument
-                                                                  ?.description,
-                                                              '')
-                                                      ..serviceType =
-                                                          (currentUserDocument
-                                                                      ?.serviceType
-                                                                      .toList() ??
-                                                                  [])
-                                                              .toList()
-                                                      ..company = valueOrDefault(
-                                                          currentUserDocument
-                                                              ?.comapny,
-                                                          '')
-                                                      ..years = valueOrDefault(
-                                                          currentUserDocument
-                                                              ?.years,
-                                                          0),
-                                                  );
-                                                  FFAppState()
-                                                      .updateRegisterProviderFormStruct(
-                                                    (e) => e
-                                                      ..firstName = _model
-                                                          .nameTextController
-                                                          .text
-                                                      ..description = _model
-                                                          .descriptionTextController
-                                                          .text
-                                                      ..updateTime =
-                                                          getCurrentTimestamp,
-                                                  );
-                                                  if (currentUserDocument
-                                                          ?.rol !=
-                                                      Roles.user) {
+                                        child: AuthUserStreamWidget(
+                                          builder: (context) => FFButtonWidget(
+                                            key: ValueKey('save'),
+                                            onPressed: ((_model.nameTextController.text == '') ||
+                                                    (_model.lastNameTextController.text ==
+                                                            '') ||
+                                                    (_model.ageTextController.text ==
+                                                            '') ||
+                                                    (_model.phoneTextController.text ==
+                                                            '') ||
+                                                    (_model.queryTextController.text ==
+                                                            '') ||
+                                                    ((currentUserDocument?.rol ==
+                                                            Roles.user) &&
+                                                        (_model.dropDownValue?.length ==
+                                                            0)) ||
+                                                    ((currentUserDocument?.rol ==
+                                                            Roles
+                                                                .profesional) &&
+                                                        (currentUserDocument?.business !=
+                                                            null) &&
+                                                        (_model.serviceempleValue
+                                                                ?.length ==
+                                                            0)) ||
+                                                    (((currentUserDocument?.rol == Roles.profesional) ||
+                                                            (currentUserDocument?.rol ==
+                                                                Roles.business)) &&
+                                                        (_model.servicesPremiunValue?.length == 0)))
+                                                ? null
+                                                : () async {
+                                                    FFAppState()
+                                                        .updateRegisterProviderFormStruct(
+                                                      (e) => e
+                                                        ..firstName =
+                                                            valueOrDefault(
+                                                                currentUserDocument
+                                                                    ?.firtsName,
+                                                                '')
+                                                        ..languagues =
+                                                            valueOrDefault(
+                                                                currentUserDocument
+                                                                    ?.languagues,
+                                                                '')
+                                                        ..description =
+                                                            valueOrDefault(
+                                                                currentUserDocument
+                                                                    ?.description,
+                                                                '')
+                                                        ..serviceType =
+                                                            (currentUserDocument
+                                                                        ?.serviceType
+                                                                        .toList() ??
+                                                                    [])
+                                                                .toList()
+                                                        ..company = valueOrDefault(
+                                                            currentUserDocument
+                                                                ?.comapny,
+                                                            '')
+                                                        ..years = valueOrDefault(
+                                                            currentUserDocument
+                                                                ?.years,
+                                                            0),
+                                                    );
+                                                    FFAppState()
+                                                        .updateRegisterProviderFormStruct(
+                                                      (e) => e
+                                                        ..firstName = _model
+                                                            .nameTextController
+                                                            .text
+                                                        ..description = _model
+                                                            .descriptionTextController
+                                                            .text
+                                                        ..updateTime =
+                                                            getCurrentTimestamp,
+                                                    );
                                                     if (currentUserDocument
-                                                            ?.rol ==
-                                                        Roles.business) {
-                                                      FFAppState()
-                                                          .updateRegisterProviderFormStruct(
-                                                        (e) => e
-                                                          ..serviceType = _model
-                                                              .servicesPremiunValue!
-                                                              .toList()
-                                                          ..abn = _model
-                                                              .abnTextController
-                                                              .text
-                                                          ..company = _model
-                                                              .companyTextController
-                                                              .text
-                                                          ..years = int
-                                                              .tryParse(_model
-                                                                  .ageTextController
-                                                                  .text),
-                                                      );
-                                                    } else {
+                                                            ?.rol !=
+                                                        Roles.user) {
                                                       if (currentUserDocument
-                                                              ?.business !=
-                                                          null) {
-                                                        FFAppState()
-                                                            .updateRegisterProviderFormStruct(
-                                                          (e) => e
-                                                            ..serviceType = _model
-                                                                .serviceempleValue!
-                                                                .toList(),
-                                                        );
-                                                      } else {
+                                                              ?.rol ==
+                                                          Roles.business) {
                                                         FFAppState()
                                                             .updateRegisterProviderFormStruct(
                                                           (e) => e
                                                             ..serviceType = _model
                                                                 .servicesPremiunValue!
-                                                                .toList(),
+                                                                .toList()
+                                                            ..abn = _model
+                                                                .abnTextController
+                                                                .text
+                                                            ..company = _model
+                                                                .companyTextController
+                                                                .text
+                                                            ..years = int
+                                                                .tryParse(_model
+                                                                    .ageTextController
+                                                                    .text),
                                                         );
+                                                      } else {
+                                                        if (currentUserDocument
+                                                                ?.business !=
+                                                            null) {
+                                                          FFAppState()
+                                                              .updateRegisterProviderFormStruct(
+                                                            (e) => e
+                                                              ..serviceType = _model
+                                                                  .serviceempleValue!
+                                                                  .toList(),
+                                                          );
+                                                        } else {
+                                                          FFAppState()
+                                                              .updateRegisterProviderFormStruct(
+                                                            (e) => e
+                                                              ..serviceType = _model
+                                                                  .servicesPremiunValue!
+                                                                  .toList(),
+                                                          );
+                                                        }
                                                       }
                                                     }
-                                                  }
 
-                                                  await currentUserReference!
-                                                      .update({
-                                                    ...createUsersRecordData(
-                                                      firtsName: FFAppState()
-                                                          .registerProviderForm
-                                                          .firstName,
-                                                      languagues: FFAppState()
-                                                          .registerProviderForm
-                                                          .languagues,
-                                                      updateTime: FFAppState()
-                                                          .registerProviderForm
-                                                          .updateTime,
-                                                      description: FFAppState()
-                                                          .registerProviderForm
-                                                          .description,
-                                                      age: FFAppState()
-                                                          .registerProviderForm
-                                                          .age,
-                                                      abn: _model
-                                                          .abnTextController
-                                                          .text,
-                                                      lastName: _model
-                                                          .lastNameTextController
-                                                          .text,
-                                                      birthdate: functions
-                                                          .convertStringToDate(
-                                                              valueOrDefault<
-                                                                  String>(
-                                                        _model
-                                                            .dateTextController
-                                                            .text,
-                                                        '01/01/2000',
-                                                      )),
-                                                      phoneNumber: _model
-                                                          .phoneTextController
-                                                          .text,
-                                                      comapny: _model
-                                                          .companyTextController
-                                                          .text,
-                                                      years: int.tryParse(_model
-                                                          .ageTextController
-                                                          .text),
-                                                    ),
-                                                    ...mapToFirestore(
-                                                      {
-                                                        'serviceType': FFAppState()
-                                                            .registerProviderForm
-                                                            .serviceType,
-                                                        'morning': FFAppState()
-                                                            .registerProviderForm
-                                                            .morning,
-                                                        'noon': FFAppState()
-                                                            .registerProviderForm
-                                                            .noon,
-                                                        'afternoon': FFAppState()
-                                                            .registerProviderForm
-                                                            .afternoon,
-                                                        'disabilities': _model
-                                                            .dropDownValue,
-                                                      },
-                                                    ),
-                                                  });
-                                                  if (FFAppState()
-                                                          .imagesUserUpload
-                                                          .length >
-                                                      0) {
                                                     await currentUserReference!
                                                         .update({
                                                       ...createUsersRecordData(
-                                                        photoUrl: FFAppState()
-                                                            .imagesUserUpload
-                                                            .firstOrNull,
+                                                        firtsName: FFAppState()
+                                                            .registerProviderForm
+                                                            .firstName,
+                                                        languagues: FFAppState()
+                                                            .registerProviderForm
+                                                            .languagues,
+                                                        updateTime: FFAppState()
+                                                            .registerProviderForm
+                                                            .updateTime,
+                                                        description: FFAppState()
+                                                            .registerProviderForm
+                                                            .description,
+                                                        age: FFAppState()
+                                                            .registerProviderForm
+                                                            .age,
+                                                        abn: _model
+                                                            .abnTextController
+                                                            .text,
+                                                        lastName: _model
+                                                            .lastNameTextController
+                                                            .text,
+                                                        birthdate: functions
+                                                            .convertStringToDate(
+                                                                valueOrDefault<
+                                                                    String>(
+                                                          _model
+                                                              .dateTextController
+                                                              .text,
+                                                          '01/01/2000',
+                                                        )),
+                                                        phoneNumber: _model
+                                                            .phoneTextController
+                                                            .text,
+                                                        comapny: _model
+                                                            .companyTextController
+                                                            .text,
+                                                        years: int.tryParse(_model
+                                                            .ageTextController
+                                                            .text),
                                                       ),
                                                       ...mapToFirestore(
                                                         {
-                                                          'images': FFAppState()
-                                                              .imagesUserUpload,
+                                                          'serviceType':
+                                                              FFAppState()
+                                                                  .registerProviderForm
+                                                                  .serviceType,
+                                                          'morning': FFAppState()
+                                                              .registerProviderForm
+                                                              .morning,
+                                                          'noon': FFAppState()
+                                                              .registerProviderForm
+                                                              .noon,
+                                                          'afternoon': FFAppState()
+                                                              .registerProviderForm
+                                                              .afternoon,
+                                                          'disabilities': _model
+                                                              .dropDownValue,
                                                         },
                                                       ),
                                                     });
-                                                  }
-                                                  FFAppState()
-                                                          .registerProviderForm =
-                                                      RegisterProviderTypeStruct
-                                                          .fromSerializableMap(
-                                                              jsonDecode(
-                                                                  '{\"images\":\"[]\",\"serviceType\":\"[]\",\"disabilities\":\"[]\",\"schedule\":\"[\\\"Monday\\\",\\\"Tuesday\\\",\\\"Wednesday\\\",\\\"Thursday\\\",\\\"Friday\\\",\\\"Saturday\\\",\\\"Sunday\\\"]\",\"morning\":\"[\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\"]\",\"noon\":\"[\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\"]\",\"afternoon\":\"[\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\"]\"}'));
-                                                  safeSetState(() {});
-                                                  if ((_model
-                                                              .uploadedLocalFile1
-                                                              .bytes
-                                                              ?.isNotEmpty ??
-                                                          false)) {
-                                                    {
-                                                      safeSetState(() => _model
-                                                              .isDataUploading2 =
-                                                          true);
-                                                      var selectedUploadedFiles =
-                                                          <FFUploadedFile>[];
-                                                      var selectedMedia =
-                                                          <SelectedFile>[];
-                                                      var downloadUrls =
-                                                          <String>[];
-                                                      try {
-                                                        selectedUploadedFiles = _model
-                                                                .uploadedLocalFile1
-                                                                .bytes!
-                                                                .isNotEmpty
-                                                            ? [
-                                                                _model
-                                                                    .uploadedLocalFile1
-                                                              ]
-                                                            : <FFUploadedFile>[];
-                                                        selectedMedia =
-                                                            selectedFilesFromUploadedFiles(
-                                                          selectedUploadedFiles,
-                                                        );
-                                                        downloadUrls =
-                                                            (await Future.wait(
-                                                          selectedMedia.map(
-                                                            (m) async =>
-                                                                await uploadData(
-                                                                    m.storagePath,
-                                                                    m.bytes),
-                                                          ),
-                                                        ))
-                                                                .where((u) =>
-                                                                    u != null)
-                                                                .map((u) => u!)
-                                                                .toList();
-                                                      } finally {
-                                                        _model.isDataUploading2 =
-                                                            false;
-                                                      }
-                                                      if (selectedUploadedFiles
-                                                                  .length ==
-                                                              selectedMedia
-                                                                  .length &&
-                                                          downloadUrls.length ==
-                                                              selectedMedia
-                                                                  .length) {
-                                                        safeSetState(() {
-                                                          _model.uploadedLocalFile2 =
-                                                              selectedUploadedFiles
-                                                                  .first;
-                                                          _model.uploadedFileUrl2 =
-                                                              downloadUrls
-                                                                  .first;
-                                                        });
-                                                      } else {
-                                                        safeSetState(() {});
-                                                        return;
-                                                      }
-                                                    }
-
-                                                    await currentUserReference!
-                                                        .update(
-                                                            createUsersRecordData(
-                                                      video: _model
-                                                          .uploadedFileUrl2,
-                                                    ));
-                                                  }
-                                                  if (_model.queryTextController
-                                                              .text !=
-                                                          '') {
-                                                    unawaited(
-                                                      () async {
-                                                        await currentUserReference!
-                                                            .update(
-                                                                createUsersRecordData(
-                                                          suburb: functions
-                                                              .changeUbication(functions
-                                                                  .stringToLatLng(
-                                                                      _model
-                                                                          .newUbication!)),
-                                                        ));
-                                                      }(),
-                                                    );
-                                                  }
-                                                  ScaffoldMessenger.of(context)
-                                                      .showSnackBar(
-                                                    SnackBar(
-                                                      content: Text(
-                                                        'Update success',
-                                                        style: TextStyle(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryText,
+                                                    if (FFAppState()
+                                                            .imagesUserUpload
+                                                            .length >
+                                                        0) {
+                                                      await currentUserReference!
+                                                          .update({
+                                                        ...createUsersRecordData(
+                                                          photoUrl: FFAppState()
+                                                              .imagesUserUpload
+                                                              .firstOrNull,
                                                         ),
+                                                        ...mapToFirestore(
+                                                          {
+                                                            'images': FFAppState()
+                                                                .imagesUserUpload,
+                                                          },
+                                                        ),
+                                                      });
+                                                    }
+                                                    FFAppState()
+                                                            .registerProviderForm =
+                                                        RegisterProviderTypeStruct
+                                                            .fromSerializableMap(
+                                                                jsonDecode(
+                                                                    '{\"images\":\"[]\",\"serviceType\":\"[]\",\"disabilities\":\"[]\",\"schedule\":\"[\\\"Monday\\\",\\\"Tuesday\\\",\\\"Wednesday\\\",\\\"Thursday\\\",\\\"Friday\\\",\\\"Saturday\\\",\\\"Sunday\\\"]\",\"morning\":\"[\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\"]\",\"noon\":\"[\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\"]\",\"afternoon\":\"[\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\",\\\"false\\\"]\"}'));
+                                                    safeSetState(() {});
+                                                    if ((_model
+                                                                .uploadedLocalFile_uploadData80l
+                                                                .bytes
+                                                                ?.isNotEmpty ??
+                                                            false)) {
+                                                      {
+                                                        safeSetState(() => _model
+                                                                .isDataUploading_uploadDataZ71 =
+                                                            true);
+                                                        var selectedUploadedFiles =
+                                                            <FFUploadedFile>[];
+                                                        var selectedMedia =
+                                                            <SelectedFile>[];
+                                                        var downloadUrls =
+                                                            <String>[];
+                                                        try {
+                                                          selectedUploadedFiles = _model
+                                                                  .uploadedLocalFile_uploadData80l
+                                                                  .bytes!
+                                                                  .isNotEmpty
+                                                              ? [
+                                                                  _model
+                                                                      .uploadedLocalFile_uploadData80l
+                                                                ]
+                                                              : <FFUploadedFile>[];
+                                                          selectedMedia =
+                                                              selectedFilesFromUploadedFiles(
+                                                            selectedUploadedFiles,
+                                                          );
+                                                          downloadUrls =
+                                                              (await Future
+                                                                      .wait(
+                                                            selectedMedia.map(
+                                                              (m) async =>
+                                                                  await uploadData(
+                                                                      m.storagePath,
+                                                                      m.bytes),
+                                                            ),
+                                                          ))
+                                                                  .where((u) =>
+                                                                      u != null)
+                                                                  .map(
+                                                                      (u) => u!)
+                                                                  .toList();
+                                                        } finally {
+                                                          _model.isDataUploading_uploadDataZ71 =
+                                                              false;
+                                                        }
+                                                        if (selectedUploadedFiles
+                                                                    .length ==
+                                                                selectedMedia
+                                                                    .length &&
+                                                            downloadUrls
+                                                                    .length ==
+                                                                selectedMedia
+                                                                    .length) {
+                                                          safeSetState(() {
+                                                            _model.uploadedLocalFile_uploadDataZ71 =
+                                                                selectedUploadedFiles
+                                                                    .first;
+                                                            _model.uploadedFileUrl_uploadDataZ71 =
+                                                                downloadUrls
+                                                                    .first;
+                                                          });
+                                                        } else {
+                                                          safeSetState(() {});
+                                                          return;
+                                                        }
+                                                      }
+
+                                                      await currentUserReference!
+                                                          .update(
+                                                              createUsersRecordData(
+                                                        video: _model
+                                                            .uploadedFileUrl_uploadDataZ71,
+                                                      ));
+                                                    }
+                                                    if (_model.queryTextController
+                                                                .text !=
+                                                            '') {
+                                                      unawaited(
+                                                        () async {
+                                                          await currentUserReference!
+                                                              .update(
+                                                                  createUsersRecordData(
+                                                            suburb: functions
+                                                                .changeUbication(
+                                                                    functions.stringToLatLng(
+                                                                        _model
+                                                                            .newUbication!)),
+                                                          ));
+                                                        }(),
+                                                      );
+                                                    }
+                                                    ScaffoldMessenger.of(
+                                                            context)
+                                                        .showSnackBar(
+                                                      SnackBar(
+                                                        content: Text(
+                                                          'Update success',
+                                                          style: TextStyle(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
+                                                          ),
+                                                        ),
+                                                        duration: Duration(
+                                                            milliseconds: 4000),
+                                                        backgroundColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondary,
                                                       ),
-                                                      duration: Duration(
-                                                          milliseconds: 4000),
-                                                      backgroundColor:
+                                                    );
+                                                  },
+                                            text: 'Save changes',
+                                            options: FFButtonOptions(
+                                              width: 167.0,
+                                              height: 50.0,
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      12.0, 0.0, 12.0, 0.0),
+                                              iconPadding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              color: Color(0xFFB928B8),
+                                              textStyle: FlutterFlowTheme.of(
+                                                      context)
+                                                  .headlineLarge
+                                                  .override(
+                                                    font:
+                                                        GoogleFonts.montserrat(
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      fontStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .secondary,
+                                                              .headlineLarge
+                                                              .fontStyle,
                                                     ),
-                                                  );
-                                                },
-                                          text: 'Save changes',
-                                          options: FFButtonOptions(
-                                            width: 167.0,
-                                            height: 50.0,
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 0.0, 12.0, 0.0),
-                                            iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            color: Color(0xFFB928B8),
-                                            textStyle: FlutterFlowTheme.of(
-                                                    context)
-                                                .headlineLarge
-                                                .override(
-                                                  font: GoogleFonts.montserrat(
+                                                    color: Colors.white,
+                                                    fontSize: 22.0,
+                                                    letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
                                                     fontStyle:
                                                         FlutterFlowTheme.of(
@@ -5269,24 +5313,15 @@ class _ProfileSettingsWidgetState extends State<ProfileSettingsWidget> {
                                                             .headlineLarge
                                                             .fontStyle,
                                                   ),
-                                                  color: Colors.white,
-                                                  fontSize: 22.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w500,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .headlineLarge
-                                                          .fontStyle,
-                                                ),
-                                            elevation: 3.0,
-                                            borderSide: BorderSide(
-                                              color: Color(0x001C1818),
-                                              width: 1.0,
+                                              elevation: 3.0,
+                                              borderSide: BorderSide(
+                                                color: Color(0x001C1818),
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(16.0),
+                                              disabledColor: Color(0xFF99A1A8),
                                             ),
-                                            borderRadius:
-                                                BorderRadius.circular(16.0),
-                                            disabledColor: Color(0xFF99A1A8),
                                           ),
                                         ),
                                       ),

@@ -60,7 +60,7 @@ class RegisterUser1Model extends FlutterFlowModel<RegisterUser1Widget> {
   // State field(s) for date widget.
   FocusNode? dateFocusNode;
   TextEditingController? dateTextController;
-  final dateMask = MaskTextInputFormatter(mask: '##/##/####');
+  late MaskTextInputFormatter dateMask;
   String? Function(BuildContext, String?)? dateTextControllerValidator;
   // State field(s) for email2 widget.
   FocusNode? email2FocusNode;

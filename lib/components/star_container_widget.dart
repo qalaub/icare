@@ -1,7 +1,7 @@
 import '/backend/backend.dart';
 import '/components/estrellas_widget.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'star_container_model.dart';
 export 'star_container_model.dart';

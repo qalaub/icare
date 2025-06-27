@@ -2,7 +2,6 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/v2/n_e_w_spremiun/navbar_empleado/navbar_empleado_widget.dart';
 import '/v2/n_e_w_spremiun/navbar_premiun/navbar_premiun_widget.dart';
@@ -10,7 +9,10 @@ import '/v2/n_e_w_spremiun/navbar_professional/navbar_professional_widget.dart';
 import '/v3correciones/likes_v3/likes_v3/likes_v3_widget.dart';
 import 'dart:async';
 import '/index.dart';
+import 'package:lock_orientation_library_opafp4/custom_code/actions/index.dart'
+    as lock_orientation_library_opafp4_actions;
 import 'package:collection/collection.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -48,6 +50,7 @@ class _PeoplewhoputyouinfavoritesWidgetState
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await lock_orientation_library_opafp4_actions.lockOrientation();
       if (valueOrDefault(currentUserDocument?.isBusinessDelete, '') ==
           'M042EFSAYUOFW24') {
         _model.chats = await queryChatsRecordOnce(
@@ -161,67 +164,85 @@ class _PeoplewhoputyouinfavoritesWidgetState
                         Align(
                           alignment: AlignmentDirectional(0.0, 0.0),
                           child: Container(
-                            width: 390.0,
+                            width: MediaQuery.sizeOf(context).width * 1.0,
                             height: 800.0,
                             constraints: BoxConstraints(
-                              maxHeight: 650.0,
+                              maxHeight: 750.0,
                             ),
                             decoration: BoxDecoration(),
-                            child: StreamBuilder<List<UsersRecord>>(
-                              stream: queryUsersRecord(
-                                queryBuilder: (usersRecord) => usersRecord
-                                    .where(
-                                      'favorites',
-                                      arrayContains: currentUserReference,
-                                    )
-                                    .where(
-                                      'rol',
-                                      isEqualTo: Roles.user.serialize(),
-                                    ),
-                              ),
-                              builder: (context, snapshot) {
-                                // Customize what your widget looks like when it's loading.
-                                if (!snapshot.hasData) {
-                                  return Center(
-                                    child: SizedBox(
-                                      width: 50.0,
-                                      height: 50.0,
-                                      child: CircularProgressIndicator(
-                                        valueColor:
-                                            AlwaysStoppedAnimation<Color>(
-                                          FlutterFlowTheme.of(context).primary,
-                                        ),
+                            child: SingleChildScrollView(
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Align(
+                                    alignment: AlignmentDirectional(0.0, -1.0),
+                                    child: StreamBuilder<List<FavoritesRecord>>(
+                                      stream: queryFavoritesRecord(
+                                        queryBuilder: (favoritesRecord) =>
+                                            favoritesRecord
+                                                .where(
+                                                  'professionalRef',
+                                                  isEqualTo:
+                                                      currentUserReference,
+                                                )
+                                                .orderBy('timestamp',
+                                                    descending: true),
                                       ),
-                                    ),
-                                  );
-                                }
-                                List<UsersRecord> listViewUsersRecordList =
-                                    snapshot.data!;
+                                      builder: (context, snapshot) {
+                                        // Customize what your widget looks like when it's loading.
+                                        if (!snapshot.hasData) {
+                                          return Center(
+                                            child: SizedBox(
+                                              width: 50.0,
+                                              height: 50.0,
+                                              child: CircularProgressIndicator(
+                                                valueColor:
+                                                    AlwaysStoppedAnimation<
+                                                        Color>(
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                                ),
+                                              ),
+                                            ),
+                                          );
+                                        }
+                                        List<FavoritesRecord>
+                                            listViewFavoritesRecordList =
+                                            snapshot.data!;
 
-                                return ListView.separated(
-                                  padding: EdgeInsets.fromLTRB(
-                                    0,
-                                    26.0,
-                                    0,
-                                    0,
+                                        return ListView.separated(
+                                          padding: EdgeInsets.fromLTRB(
+                                            0,
+                                            16.0,
+                                            0,
+                                            0,
+                                          ),
+                                          primary: false,
+                                          shrinkWrap: true,
+                                          scrollDirection: Axis.vertical,
+                                          itemCount: listViewFavoritesRecordList
+                                              .length,
+                                          separatorBuilder: (_, __) =>
+                                              SizedBox(height: 16.0),
+                                          itemBuilder:
+                                              (context, listViewIndex) {
+                                            final listViewFavoritesRecord =
+                                                listViewFavoritesRecordList[
+                                                    listViewIndex];
+                                            return LikesV3Widget(
+                                              key: Key(
+                                                  'Keynnl_${listViewIndex}_of_${listViewFavoritesRecordList.length}'),
+                                              profesionalRef:
+                                                  listViewFavoritesRecord
+                                                      .userID,
+                                            );
+                                          },
+                                        );
+                                      },
+                                    ),
                                   ),
-                                  shrinkWrap: true,
-                                  scrollDirection: Axis.vertical,
-                                  itemCount: listViewUsersRecordList.length,
-                                  separatorBuilder: (_, __) =>
-                                      SizedBox(height: 10.0),
-                                  itemBuilder: (context, listViewIndex) {
-                                    final listViewUsersRecord =
-                                        listViewUsersRecordList[listViewIndex];
-                                    return LikesV3Widget(
-                                      key: Key(
-                                          'Keynnl_${listViewIndex}_of_${listViewUsersRecordList.length}'),
-                                      profesionalRef:
-                                          listViewUsersRecord.reference,
-                                    );
-                                  },
-                                );
-                              },
+                                ],
+                              ),
                             ),
                           ),
                         ),

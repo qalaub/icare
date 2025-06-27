@@ -6,13 +6,13 @@ import '/chat_groupwbubbles/chat_thread_update/chat_thread_update_widget.dart';
 import '/components/empty_state_simple_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_media_display.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/upload_data.dart';
 import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:collection/collection.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -103,109 +103,115 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Expanded(
-                child: StreamBuilder<List<ChatMessagesRecord>>(
-                  stream: queryChatMessagesRecord(
-                    queryBuilder: (chatMessagesRecord) => chatMessagesRecord
-                        .where(
-                          'chat',
-                          isEqualTo: widget.chatRef?.reference,
-                        )
-                        .orderBy('timestamp', descending: true),
-                    limit: 200,
-                  )..listen((snapshot) {
-                      List<ChatMessagesRecord> listViewChatMessagesRecordList =
-                          snapshot;
-                      if (_model.listViewPreviousSnapshot != null &&
-                          !const ListEquality(
-                                  ChatMessagesRecordDocumentEquality())
-                              .equals(listViewChatMessagesRecordList,
-                                  _model.listViewPreviousSnapshot)) {
-                        () async {
-                          if (!widget.chatRef!.lastMessageSeenBy
-                              .contains(currentUserReference)) {
-                            await widget.chatRef!.reference.update({
-                              ...mapToFirestore(
-                                {
-                                  'last_message_seen_by': FieldValue.arrayUnion(
-                                      [currentUserReference]),
-                                },
-                              ),
-                            });
-                          }
+                child: AuthUserStreamWidget(
+                  builder: (context) => StreamBuilder<List<ChatMessagesRecord>>(
+                    stream: queryChatMessagesRecord(
+                      queryBuilder: (chatMessagesRecord) => chatMessagesRecord
+                          .where(
+                            'chat',
+                            isEqualTo: widget.chatRef?.reference,
+                          )
+                          .orderBy('timestamp', descending: true),
+                      limit: 200,
+                    )..listen((snapshot) {
+                        List<ChatMessagesRecord>
+                            listViewChatMessagesRecordList = snapshot;
+                        if (_model.listViewPreviousSnapshot != null &&
+                            !const ListEquality(
+                                    ChatMessagesRecordDocumentEquality())
+                                .equals(listViewChatMessagesRecordList,
+                                    _model.listViewPreviousSnapshot)) {
+                          () async {
+                            if (!widget.chatRef!.lastMessageSeenBy
+                                .contains(currentUserReference)) {
+                              await widget.chatRef!.reference.update({
+                                ...mapToFirestore(
+                                  {
+                                    'last_message_seen_by':
+                                        FieldValue.arrayUnion(
+                                            [currentUserReference]),
+                                  },
+                                ),
+                              });
+                            }
 
-                          safeSetState(() {});
-                        }();
-                      }
-                      _model.listViewPreviousSnapshot = snapshot;
-                    }),
-                  builder: (context, snapshot) {
-                    // Customize what your widget looks like when it's loading.
-                    if (!snapshot.hasData) {
-                      return Center(
-                        child: Padding(
-                          padding: EdgeInsets.all(16.0),
-                          child: SizedBox(
-                            width: 50.0,
-                            height: 50.0,
-                            child: CircularProgressIndicator(
-                              valueColor: AlwaysStoppedAnimation<Color>(
-                                FlutterFlowTheme.of(context).primary,
+                            safeSetState(() {});
+                          }();
+                        }
+                        _model.listViewPreviousSnapshot = snapshot;
+                      }),
+                    builder: (context, snapshot) {
+                      // Customize what your widget looks like when it's loading.
+                      if (!snapshot.hasData) {
+                        return Center(
+                          child: Padding(
+                            padding: EdgeInsets.all(16.0),
+                            child: SizedBox(
+                              width: 50.0,
+                              height: 50.0,
+                              child: CircularProgressIndicator(
+                                valueColor: AlwaysStoppedAnimation<Color>(
+                                  FlutterFlowTheme.of(context).primary,
+                                ),
                               ),
-                            ),
-                          ),
-                        ),
-                      );
-                    }
-                    List<ChatMessagesRecord> listViewChatMessagesRecordList =
-                        snapshot.data!;
-                    if (listViewChatMessagesRecordList.isEmpty) {
-                      return EmptyStateSimpleWidget(
-                        icon: Icon(
-                          Icons.forum_outlined,
-                          color: FlutterFlowTheme.of(context).primary,
-                          size: 90.0,
-                        ),
-                        title: 'No Messages',
-                        body:
-                            'You have not sent any messages in this chat yet.',
-                      );
-                    }
-
-                    return ListView.builder(
-                      padding: EdgeInsets.fromLTRB(
-                        0,
-                        12.0,
-                        0,
-                        24.0,
-                      ),
-                      reverse: true,
-                      scrollDirection: Axis.vertical,
-                      itemCount: listViewChatMessagesRecordList.length,
-                      itemBuilder: (context, listViewIndex) {
-                        final listViewChatMessagesRecord =
-                            listViewChatMessagesRecordList[listViewIndex];
-                        return Container(
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                          ),
-                          child: wrapWithModel(
-                            model: _model.chatThreadUpdateModels.getModel(
-                              listViewChatMessagesRecord.reference.id,
-                              listViewIndex,
-                            ),
-                            updateCallback: () => safeSetState(() {}),
-                            updateOnChange: true,
-                            child: ChatThreadUpdateWidget(
-                              key: Key(
-                                'Keyavg_${listViewChatMessagesRecord.reference.id}',
-                              ),
-                              chatMessagesRef: listViewChatMessagesRecord,
                             ),
                           ),
                         );
-                      },
-                    );
-                  },
+                      }
+                      List<ChatMessagesRecord> listViewChatMessagesRecordList =
+                          snapshot.data!;
+                      if (listViewChatMessagesRecordList.isEmpty) {
+                        return EmptyStateSimpleWidget(
+                          icon: Icon(
+                            Icons.forum_outlined,
+                            color: Color(0xFFBD39BA),
+                            size: 90.0,
+                          ),
+                          title: currentUserDocument?.plan == Plan.basic
+                              ? 'You must wait until you receive a message, but to start writing first, you can get the Standard plan'
+                              : 'No Messages',
+                          body: currentUserDocument?.plan == Plan.basic
+                              ? ''
+                              : 'You have not sent any messages in this chat yet.',
+                        );
+                      }
+
+                      return ListView.builder(
+                        padding: EdgeInsets.fromLTRB(
+                          0,
+                          12.0,
+                          0,
+                          24.0,
+                        ),
+                        reverse: true,
+                        scrollDirection: Axis.vertical,
+                        itemCount: listViewChatMessagesRecordList.length,
+                        itemBuilder: (context, listViewIndex) {
+                          final listViewChatMessagesRecord =
+                              listViewChatMessagesRecordList[listViewIndex];
+                          return Container(
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                            ),
+                            child: wrapWithModel(
+                              model: _model.chatThreadUpdateModels.getModel(
+                                listViewChatMessagesRecord.reference.id,
+                                listViewIndex,
+                              ),
+                              updateCallback: () => safeSetState(() {}),
+                              updateOnChange: true,
+                              child: ChatThreadUpdateWidget(
+                                key: Key(
+                                  'Keyavg_${listViewChatMessagesRecord.reference.id}',
+                                ),
+                                chatMessagesRef: listViewChatMessagesRecord,
+                              ),
+                            ),
+                          );
+                        },
+                      );
+                    },
+                  ),
                 ),
               ),
               Container(
@@ -225,7 +231,7 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    if (_model.uploadedFileUrl != '')
+                    if (_model.uploadedFileUrl_uploadDataJub41 != '')
                       Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -240,7 +246,8 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     FlutterFlowMediaDisplay(
-                                      path: _model.uploadedFileUrl,
+                                      path: _model
+                                          .uploadedFileUrl_uploadDataJub41,
                                       imageBuilder: (path) => ClipRRect(
                                         borderRadius:
                                             BorderRadius.circular(8.0),
@@ -286,12 +293,14 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                                         ),
                                         onPressed: () async {
                                           safeSetState(() {
-                                            _model.isDataUploading = false;
-                                            _model.uploadedLocalFile =
+                                            _model.isDataUploading_uploadDataJub41 =
+                                                false;
+                                            _model.uploadedLocalFile_uploadDataJub41 =
                                                 FFUploadedFile(
                                                     bytes:
                                                         Uint8List.fromList([]));
-                                            _model.uploadedFileUrl = '';
+                                            _model.uploadedFileUrl_uploadDataJub41 =
+                                                '';
                                           });
                                         },
                                       ),
@@ -346,8 +355,8 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                                     selectedMedia.every((m) =>
                                         validateFileFormat(
                                             m.storagePath, context))) {
-                                  safeSetState(
-                                      () => _model.isDataUploading = true);
+                                  safeSetState(() => _model
+                                      .isDataUploading_uploadDataJub41 = true);
                                   var selectedUploadedFiles =
                                       <FFUploadedFile>[];
 
@@ -381,16 +390,17 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                                   } finally {
                                     ScaffoldMessenger.of(context)
                                         .hideCurrentSnackBar();
-                                    _model.isDataUploading = false;
+                                    _model.isDataUploading_uploadDataJub41 =
+                                        false;
                                   }
                                   if (selectedUploadedFiles.length ==
                                           selectedMedia.length &&
                                       downloadUrls.length ==
                                           selectedMedia.length) {
                                     safeSetState(() {
-                                      _model.uploadedLocalFile =
+                                      _model.uploadedLocalFile_uploadDataJub41 =
                                           selectedUploadedFiles.first;
-                                      _model.uploadedFileUrl =
+                                      _model.uploadedFileUrl_uploadDataJub41 =
                                           downloadUrls.first;
                                     });
                                     showUploadMessage(context, 'Success!');
@@ -402,9 +412,10 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                                   }
                                 }
 
-                                if (_model.uploadedFileUrl != '') {
+                                if (_model.uploadedFileUrl_uploadDataJub41 !=
+                                        '') {
                                   _model.addToImagesUploaded(
-                                      _model.uploadedFileUrl);
+                                      _model.uploadedFileUrl_uploadDataJub41);
                                   safeSetState(() {});
                                 }
                               },
@@ -415,183 +426,279 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         8.0, 0.0, 0.0, 0.0),
-                                    child: Container(
-                                      width: double.infinity,
-                                      child: TextFormField(
-                                        key: ValueKey('message'),
-                                        controller: _model.textController,
-                                        focusNode: _model.textFieldFocusNode,
-                                        onFieldSubmitted: (_) async {
-                                          if (_model.formKey.currentState ==
-                                                  null ||
-                                              !_model.formKey.currentState!
-                                                  .validate()) {
-                                            return;
-                                          }
-                                          // newChatMessage
+                                    child: AuthUserStreamWidget(
+                                      builder: (context) => Container(
+                                        width: double.infinity,
+                                        child: TextFormField(
+                                          key: ValueKey('message'),
+                                          controller: _model.textController,
+                                          focusNode: _model.textFieldFocusNode,
+                                          onFieldSubmitted: (_) async {
+                                            if (_model.formKey.currentState ==
+                                                    null ||
+                                                !_model.formKey.currentState!
+                                                    .validate()) {
+                                              return;
+                                            }
+                                            // newChatMessage
 
-                                          var chatMessagesRecordReference =
-                                              ChatMessagesRecord.collection
-                                                  .doc();
-                                          await chatMessagesRecordReference
-                                              .set(createChatMessagesRecordData(
-                                            user: currentUserReference,
-                                            chat: widget.chatRef?.reference,
-                                            text: _model.textController.text,
-                                            timestamp: getCurrentTimestamp,
-                                            image: _model.uploadedFileUrl,
-                                          ));
-                                          _model.newChatMessage = ChatMessagesRecord
-                                              .getDocumentFromData(
-                                                  createChatMessagesRecordData(
-                                                    user: currentUserReference,
-                                                    chat: widget
-                                                        .chatRef?.reference,
-                                                    text: _model
-                                                        .textController.text,
-                                                    timestamp:
-                                                        getCurrentTimestamp,
-                                                    image:
-                                                        _model.uploadedFileUrl,
-                                                  ),
-                                                  chatMessagesRecordReference);
-                                          // clearUsers
-                                          _model.lastSeenBy = [];
-                                          // In order to add a single user reference to a list of user references we are adding our current user reference to a page state.
-                                          //
-                                          // We will then set the value of the user reference list from this page state.
-                                          // addMyUserToList
-                                          _model.addToLastSeenBy(
-                                              currentUserReference!);
-                                          if (widget.chatRef != null) {
-                                            // updateChatDocument
-                                            unawaited(
-                                              () async {
-                                                await widget.chatRefTotal!
-                                                    .update({
-                                                  ...createChatsRecordData(
-                                                    lastMessage: _model
-                                                        .textController.text,
-                                                    lastMessageSentBy:
-                                                        currentUserReference,
-                                                  ),
-                                                  ...mapToFirestore(
-                                                    {
-                                                      'last_message_seen_by':
-                                                          FieldValue.delete(),
-                                                    },
-                                                  ),
-                                                });
-                                              }(),
-                                            );
-                                            // updateChatDocument
-                                            unawaited(
-                                              () async {
-                                                await widget.chatRefTotal!
-                                                    .update({
-                                                  ...createChatsRecordData(
-                                                    lastMessage: _model
-                                                        .textController.text,
-                                                    lastMessageTime:
-                                                        getCurrentTimestamp,
-                                                    lastMessageSentBy:
-                                                        currentUserReference,
-                                                  ),
-                                                  ...mapToFirestore(
-                                                    {
-                                                      'last_message_seen_by':
-                                                          FieldValue
-                                                              .arrayUnion([
-                                                        currentUserReference
-                                                      ]),
-                                                    },
-                                                  ),
-                                                });
-                                              }(),
-                                            );
-                                          }
-                                          // clearUsers
-                                          _model.lastSeenBy = [];
-                                          safeSetState(() {
-                                            _model.textController?.clear();
-                                          });
-                                          safeSetState(() {
-                                            _model.isDataUploading = false;
-                                            _model.uploadedLocalFile =
-                                                FFUploadedFile(
-                                                    bytes:
-                                                        Uint8List.fromList([]));
-                                            _model.uploadedFileUrl = '';
-                                          });
+                                            var chatMessagesRecordReference =
+                                                ChatMessagesRecord.collection
+                                                    .doc();
+                                            await chatMessagesRecordReference
+                                                .set(
+                                                    createChatMessagesRecordData(
+                                              user: currentUserReference,
+                                              chat: widget.chatRef?.reference,
+                                              text: _model.textController.text,
+                                              timestamp: getCurrentTimestamp,
+                                              image: _model
+                                                  .uploadedFileUrl_uploadDataJub41,
+                                            ));
+                                            _model.newChatMessage = ChatMessagesRecord
+                                                .getDocumentFromData(
+                                                    createChatMessagesRecordData(
+                                                      user:
+                                                          currentUserReference,
+                                                      chat: widget
+                                                          .chatRef?.reference,
+                                                      text: _model
+                                                          .textController.text,
+                                                      timestamp:
+                                                          getCurrentTimestamp,
+                                                      image: _model
+                                                          .uploadedFileUrl_uploadDataJub41,
+                                                    ),
+                                                    chatMessagesRecordReference);
+                                            // clearUsers
+                                            _model.lastSeenBy = [];
+                                            // In order to add a single user reference to a list of user references we are adding our current user reference to a page state.
+                                            //
+                                            // We will then set the value of the user reference list from this page state.
+                                            // addMyUserToList
+                                            _model.addToLastSeenBy(
+                                                currentUserReference!);
+                                            if (widget.chatRef != null) {
+                                              // updateChatDocument
+                                              unawaited(
+                                                () async {
+                                                  await widget.chatRefTotal!
+                                                      .update({
+                                                    ...createChatsRecordData(
+                                                      lastMessage: _model
+                                                          .textController.text,
+                                                      lastMessageSentBy:
+                                                          currentUserReference,
+                                                    ),
+                                                    ...mapToFirestore(
+                                                      {
+                                                        'last_message_seen_by':
+                                                            FieldValue.delete(),
+                                                      },
+                                                    ),
+                                                  });
+                                                }(),
+                                              );
+                                              // updateChatDocument
+                                              unawaited(
+                                                () async {
+                                                  await widget.chatRefTotal!
+                                                      .update({
+                                                    ...createChatsRecordData(
+                                                      lastMessage: _model
+                                                          .textController.text,
+                                                      lastMessageTime:
+                                                          getCurrentTimestamp,
+                                                      lastMessageSentBy:
+                                                          currentUserReference,
+                                                    ),
+                                                    ...mapToFirestore(
+                                                      {
+                                                        'last_message_seen_by':
+                                                            FieldValue
+                                                                .arrayUnion([
+                                                          currentUserReference
+                                                        ]),
+                                                      },
+                                                    ),
+                                                  });
+                                                }(),
+                                              );
+                                            }
+                                            // clearUsers
+                                            _model.lastSeenBy = [];
+                                            safeSetState(() {
+                                              _model.textController?.clear();
+                                            });
+                                            safeSetState(() {
+                                              _model.isDataUploading_uploadDataJub41 =
+                                                  false;
+                                              _model.uploadedLocalFile_uploadDataJub41 =
+                                                  FFUploadedFile(
+                                                      bytes: Uint8List.fromList(
+                                                          []));
+                                              _model.uploadedFileUrl_uploadDataJub41 =
+                                                  '';
+                                            });
 
-                                          _model.imagesUploaded = [];
-                                          safeSetState(() {});
+                                            _model.imagesUploaded = [];
+                                            safeSetState(() {});
 
-                                          safeSetState(() {});
-                                        },
-                                        autofocus: false,
-                                        textCapitalization:
-                                            TextCapitalization.sentences,
-                                        textInputAction: TextInputAction.send,
-                                        readOnly: (_model.isStandar == false) ||
-                                            (_model.isRecording == true),
-                                        obscureText: false,
-                                        decoration: InputDecoration(
-                                          labelStyle: FlutterFlowTheme.of(
-                                                  context)
-                                              .labelMedium
-                                              .override(
-                                                font: GoogleFonts.readexPro(
+                                            safeSetState(() {});
+                                          },
+                                          autofocus: false,
+                                          textCapitalization:
+                                              TextCapitalization.sentences,
+                                          textInputAction: TextInputAction.send,
+                                          readOnly: (_model.isStandar ==
+                                                  false) ||
+                                              (_model.isRecording == true) ||
+                                              ((currentUserDocument?.rol ==
+                                                      Roles.profesional) &&
+                                                  (currentUserDocument?.plan ==
+                                                      Plan.basic) &&
+                                                  (widget.chatRef
+                                                          ?.lastMessage ==
+                                                      '')),
+                                          obscureText: false,
+                                          decoration: InputDecoration(
+                                            labelStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMedium
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.readexPro(
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .fontStyle,
+                                                      ),
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .fontStyle,
+                                                    ),
+                                            hintText: 'Start typing here...',
+                                            hintStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelSmall
+                                                    .override(
+                                                      font:
+                                                          GoogleFonts.readexPro(
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelSmall
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelSmall
+                                                                .fontStyle,
+                                                      ),
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelSmall
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelSmall
+                                                              .fontStyle,
+                                                    ),
+                                            errorStyle: FlutterFlowTheme.of(
+                                                    context)
+                                                .bodyMedium
+                                                .override(
+                                                  font: GoogleFonts.readexPro(
+                                                    fontWeight:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontWeight,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
+                                                  ),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .error,
+                                                  fontSize: 12.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .labelMedium
+                                                          .bodyMedium
                                                           .fontWeight,
                                                   fontStyle:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .labelMedium
+                                                          .bodyMedium
                                                           .fontStyle,
                                                 ),
-                                                letterSpacing: 0.0,
-                                                fontWeight:
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color:
                                                     FlutterFlowTheme.of(context)
-                                                        .labelMedium
-                                                        .fontWeight,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelMedium
-                                                        .fontStyle,
+                                                        .alternate,
+                                                width: 1.0,
                                               ),
-                                          hintText: 'Start typing here...',
-                                          hintStyle: FlutterFlowTheme.of(
-                                                  context)
-                                              .labelSmall
-                                              .override(
-                                                font: GoogleFonts.readexPro(
-                                                  fontWeight:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .labelSmall
-                                                          .fontWeight,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .labelSmall
-                                                          .fontStyle,
-                                                ),
-                                                letterSpacing: 0.0,
-                                                fontWeight:
+                                              borderRadius:
+                                                  BorderRadius.circular(24.0),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color:
                                                     FlutterFlowTheme.of(context)
-                                                        .labelSmall
-                                                        .fontWeight,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelSmall
-                                                        .fontStyle,
+                                                        .primary,
+                                                width: 1.0,
                                               ),
-                                          errorStyle: FlutterFlowTheme.of(
-                                                  context)
+                                              borderRadius:
+                                                  BorderRadius.circular(24.0),
+                                            ),
+                                            errorBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .error,
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(24.0),
+                                            ),
+                                            focusedErrorBorder:
+                                                OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .error,
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(24.0),
+                                            ),
+                                            contentPadding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    16.0, 16.0, 56.0, 16.0),
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
                                                 font: GoogleFonts.readexPro(
@@ -606,10 +713,6 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                                                           .bodyMedium
                                                           .fontStyle,
                                                 ),
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .error,
-                                                fontSize: 12.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight:
                                                     FlutterFlowTheme.of(context)
@@ -620,103 +723,36 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                                                         .bodyMedium
                                                         .fontStyle,
                                               ),
-                                          enabledBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .alternate,
-                                              width: 1.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(24.0),
-                                          ),
-                                          focusedBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                              width: 1.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(24.0),
-                                          ),
-                                          errorBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .error,
-                                              width: 1.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(24.0),
-                                          ),
-                                          focusedErrorBorder:
-                                              OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .error,
-                                              width: 1.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(24.0),
-                                          ),
-                                          contentPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  16.0, 16.0, 56.0, 16.0),
+                                          maxLines: 12,
+                                          minLines: 1,
+                                          maxLength: 150,
+                                          maxLengthEnforcement:
+                                              MaxLengthEnforcement.enforced,
+                                          buildCounter: (context,
+                                                  {required currentLength,
+                                                  required isFocused,
+                                                  maxLength}) =>
+                                              null,
+                                          cursorColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .primary,
+                                          validator: _model
+                                              .textControllerValidator
+                                              .asValidator(context),
+                                          inputFormatters: [
+                                            if (!isAndroid && !isiOS)
+                                              TextInputFormatter.withFunction(
+                                                  (oldValue, newValue) {
+                                                return TextEditingValue(
+                                                  selection: newValue.selection,
+                                                  text: newValue.text
+                                                      .toCapitalization(
+                                                          TextCapitalization
+                                                              .sentences),
+                                                );
+                                              }),
+                                          ],
                                         ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              font: GoogleFonts.readexPro(
-                                                fontWeight:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontWeight,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontStyle,
-                                              ),
-                                              letterSpacing: 0.0,
-                                              fontWeight:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .fontWeight,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .fontStyle,
-                                            ),
-                                        maxLines: 12,
-                                        minLines: 1,
-                                        maxLength: 150,
-                                        maxLengthEnforcement:
-                                            MaxLengthEnforcement.enforced,
-                                        buildCounter: (context,
-                                                {required currentLength,
-                                                required isFocused,
-                                                maxLength}) =>
-                                            null,
-                                        cursorColor:
-                                            FlutterFlowTheme.of(context)
-                                                .primary,
-                                        validator: _model
-                                            .textControllerValidator
-                                            .asValidator(context),
-                                        inputFormatters: [
-                                          if (!isAndroid && !isiOS)
-                                            TextInputFormatter.withFunction(
-                                                (oldValue, newValue) {
-                                              return TextEditingValue(
-                                                selection: newValue.selection,
-                                                text: newValue.text
-                                                    .toCapitalization(
-                                                        TextCapitalization
-                                                            .sentences),
-                                              );
-                                            }),
-                                        ],
                                       ),
                                     ),
                                   ),
@@ -767,7 +803,8 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                                                   ),
                                                   timestamp:
                                                       getCurrentTimestamp,
-                                                  image: _model.uploadedFileUrl,
+                                                  image: _model
+                                                      .uploadedFileUrl_uploadDataJub41,
                                                 ));
                                             _model.newChat = ChatMessagesRecord
                                                 .getDocumentFromData(
@@ -785,7 +822,7 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                                                       timestamp:
                                                           getCurrentTimestamp,
                                                       image: _model
-                                                          .uploadedFileUrl,
+                                                          .uploadedFileUrl_uploadDataJub41,
                                                     ),
                                                     chatMessagesRecordReference);
                                             // clearUsers
@@ -847,12 +884,14 @@ class _ChatThreadComponentWidgetState extends State<ChatThreadComponentWidget> {
                                               _model.textController?.clear();
                                             });
                                             safeSetState(() {
-                                              _model.isDataUploading = false;
-                                              _model.uploadedLocalFile =
+                                              _model.isDataUploading_uploadDataJub41 =
+                                                  false;
+                                              _model.uploadedLocalFile_uploadDataJub41 =
                                                   FFUploadedFile(
                                                       bytes: Uint8List.fromList(
                                                           []));
-                                              _model.uploadedFileUrl = '';
+                                              _model.uploadedFileUrl_uploadDataJub41 =
+                                                  '';
                                             });
 
                                             _model.imagesUploaded = [];

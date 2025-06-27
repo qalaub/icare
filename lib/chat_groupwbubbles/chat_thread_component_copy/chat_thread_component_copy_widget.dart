@@ -6,13 +6,13 @@ import '/chat_groupwbubbles/chat_thread_update/chat_thread_update_widget.dart';
 import '/components/empty_state_simple_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_media_display.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/upload_data.dart';
 import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:collection/collection.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -225,7 +225,7 @@ class _ChatThreadComponentCopyWidgetState
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    if (_model.uploadedFileUrl != '')
+                    if (_model.uploadedFileUrl_uploadDataJub4 != '')
                       Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -240,7 +240,8 @@ class _ChatThreadComponentCopyWidgetState
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     FlutterFlowMediaDisplay(
-                                      path: _model.uploadedFileUrl,
+                                      path:
+                                          _model.uploadedFileUrl_uploadDataJub4,
                                       imageBuilder: (path) => ClipRRect(
                                         borderRadius:
                                             BorderRadius.circular(8.0),
@@ -286,12 +287,14 @@ class _ChatThreadComponentCopyWidgetState
                                         ),
                                         onPressed: () async {
                                           safeSetState(() {
-                                            _model.isDataUploading = false;
-                                            _model.uploadedLocalFile =
+                                            _model.isDataUploading_uploadDataJub4 =
+                                                false;
+                                            _model.uploadedLocalFile_uploadDataJub4 =
                                                 FFUploadedFile(
                                                     bytes:
                                                         Uint8List.fromList([]));
-                                            _model.uploadedFileUrl = '';
+                                            _model.uploadedFileUrl_uploadDataJub4 =
+                                                '';
                                           });
                                         },
                                       ),
@@ -346,8 +349,8 @@ class _ChatThreadComponentCopyWidgetState
                                     selectedMedia.every((m) =>
                                         validateFileFormat(
                                             m.storagePath, context))) {
-                                  safeSetState(
-                                      () => _model.isDataUploading = true);
+                                  safeSetState(() => _model
+                                      .isDataUploading_uploadDataJub4 = true);
                                   var selectedUploadedFiles =
                                       <FFUploadedFile>[];
 
@@ -381,16 +384,17 @@ class _ChatThreadComponentCopyWidgetState
                                   } finally {
                                     ScaffoldMessenger.of(context)
                                         .hideCurrentSnackBar();
-                                    _model.isDataUploading = false;
+                                    _model.isDataUploading_uploadDataJub4 =
+                                        false;
                                   }
                                   if (selectedUploadedFiles.length ==
                                           selectedMedia.length &&
                                       downloadUrls.length ==
                                           selectedMedia.length) {
                                     safeSetState(() {
-                                      _model.uploadedLocalFile =
+                                      _model.uploadedLocalFile_uploadDataJub4 =
                                           selectedUploadedFiles.first;
-                                      _model.uploadedFileUrl =
+                                      _model.uploadedFileUrl_uploadDataJub4 =
                                           downloadUrls.first;
                                     });
                                     showUploadMessage(context, 'Success!');
@@ -402,9 +406,10 @@ class _ChatThreadComponentCopyWidgetState
                                   }
                                 }
 
-                                if (_model.uploadedFileUrl != '') {
+                                if (_model.uploadedFileUrl_uploadDataJub4 !=
+                                        '') {
                                   _model.addToImagesUploaded(
-                                      _model.uploadedFileUrl);
+                                      _model.uploadedFileUrl_uploadDataJub4);
                                   safeSetState(() {});
                                 }
                               },
@@ -439,7 +444,8 @@ class _ChatThreadComponentCopyWidgetState
                                             chat: widget.chatRef?.reference,
                                             text: _model.textController.text,
                                             timestamp: getCurrentTimestamp,
-                                            image: _model.uploadedFileUrl,
+                                            image: _model
+                                                .uploadedFileUrl_uploadDataJub4,
                                           ));
                                           _model.newChatMessage = ChatMessagesRecord
                                               .getDocumentFromData(
@@ -451,8 +457,8 @@ class _ChatThreadComponentCopyWidgetState
                                                         .textController.text,
                                                     timestamp:
                                                         getCurrentTimestamp,
-                                                    image:
-                                                        _model.uploadedFileUrl,
+                                                    image: _model
+                                                        .uploadedFileUrl_uploadDataJub4,
                                                   ),
                                                   chatMessagesRecordReference);
                                           // clearUsers
@@ -469,12 +475,14 @@ class _ChatThreadComponentCopyWidgetState
                                             _model.textController?.clear();
                                           });
                                           safeSetState(() {
-                                            _model.isDataUploading = false;
-                                            _model.uploadedLocalFile =
+                                            _model.isDataUploading_uploadDataJub4 =
+                                                false;
+                                            _model.uploadedLocalFile_uploadDataJub4 =
                                                 FFUploadedFile(
                                                     bytes:
                                                         Uint8List.fromList([]));
-                                            _model.uploadedFileUrl = '';
+                                            _model.uploadedFileUrl_uploadDataJub4 =
+                                                '';
                                           });
 
                                           _model.imagesUploaded = [];
@@ -720,7 +728,8 @@ class _ChatThreadComponentCopyWidgetState
                                                   ),
                                                   timestamp:
                                                       getCurrentTimestamp,
-                                                  image: _model.uploadedFileUrl,
+                                                  image: _model
+                                                      .uploadedFileUrl_uploadDataJub4,
                                                 ));
                                             _model.newChat = ChatMessagesRecord
                                                 .getDocumentFromData(
@@ -738,7 +747,7 @@ class _ChatThreadComponentCopyWidgetState
                                                       timestamp:
                                                           getCurrentTimestamp,
                                                       image: _model
-                                                          .uploadedFileUrl,
+                                                          .uploadedFileUrl_uploadDataJub4,
                                                     ),
                                                     chatMessagesRecordReference);
                                             // clearUsers
@@ -782,12 +791,14 @@ class _ChatThreadComponentCopyWidgetState
                                               _model.textController?.clear();
                                             });
                                             safeSetState(() {
-                                              _model.isDataUploading = false;
-                                              _model.uploadedLocalFile =
+                                              _model.isDataUploading_uploadDataJub4 =
+                                                  false;
+                                              _model.uploadedLocalFile_uploadDataJub4 =
                                                   FFUploadedFile(
                                                       bytes: Uint8List.fromList(
                                                           []));
-                                              _model.uploadedFileUrl = '';
+                                              _model.uploadedFileUrl_uploadDataJub4 =
+                                                  '';
                                             });
 
                                             _model.imagesUploaded = [];

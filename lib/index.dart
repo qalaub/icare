@@ -28,7 +28,6 @@ export '/v2/professional/peoplewhoputyouinfavorites/peoplewhoputyouinfavorites_w
     show PeoplewhoputyouinfavoritesWidget;
 export '/v2/professional/peoplewhoputyouinfavorite_basic/peoplewhoputyouinfavorite_basic_widget.dart'
     show PeoplewhoputyouinfavoriteBasicWidget;
-export '/v2/block_list/favoritesv2/fav_v2/fav_v2_widget.dart' show FavV2Widget;
 export '/v2/register/register_professional3/register_professional3_widget.dart'
     show RegisterProfessional3Widget;
 export '/v2/menbresiav2/membresias_v2/membresias_v2_widget.dart'
@@ -43,7 +42,6 @@ export '/v2/register/business/register_business4/register_business4_widget.dart'
     show RegisterBusiness4Widget;
 export '/v2/professional/tinderv2_c1/tinderv2_c1_widget.dart'
     show Tinderv2C1Widget;
-export '/v2/n_e_w_spremiun/news/news_widget.dart' show NewsWidget;
 export '/v2/block_list/block_list/block_list_widget.dart' show BlockListWidget;
 export '/v2/menbresias_a_c0_n_t/standar/standar_widget.dart' show StandarWidget;
 export '/v2/menbresias_a_c0_n_t/premium/premium_widget.dart' show PremiumWidget;
@@ -74,7 +72,6 @@ export '/v2/v2_mensages/chat_2_details_copy/chat2_details_copy_widget.dart'
     show Chat2DetailsCopyWidget;
 export '/v2/register/professional/user/avatars/avatars_widget.dart'
     show AvatarsWidget;
-export '/rejected/dislike_page/dislike_page_widget.dart' show DislikePageWidget;
 export '/v2/user/verperfil/verperfil_widget.dart' show VerperfilWidget;
 export '/v2/register/register_pfofesional5/register_pfofesional5_widget.dart'
     show RegisterPfofesional5Widget;

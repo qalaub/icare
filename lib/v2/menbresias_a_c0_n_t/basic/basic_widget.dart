@@ -2,10 +2,13 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
 import '/backend/stripe/payment_manager.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
+import 'package:lock_orientation_library_opafp4/custom_code/actions/index.dart'
+    as lock_orientation_library_opafp4_actions;
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'basic_model.dart';
@@ -37,6 +40,11 @@ class _BasicWidgetState extends State<BasicWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => BasicModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await lock_orientation_library_opafp4_actions.lockOrientation();
+    });
   }
 
   @override
@@ -445,11 +453,15 @@ class _BasicWidgetState extends State<BasicWidget> {
                                   safeSetState(
                                       () => _model.checkboxValue = newValue!);
                                 },
-                                side: BorderSide(
-                                  width: 2,
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                ),
+                                side: (FlutterFlowTheme.of(context)
+                                            .secondaryText !=
+                                        null)
+                                    ? BorderSide(
+                                        width: 2,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                      )
+                                    : null,
                                 activeColor: Color(0xFF8F2BFD),
                                 checkColor: FlutterFlowTheme.of(context).info,
                               ),
