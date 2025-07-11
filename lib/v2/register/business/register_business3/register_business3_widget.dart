@@ -87,17 +87,6 @@ class _RegisterBusiness3WidgetState extends State<RegisterBusiness3Widget>
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: Color(0xFFBD39BA),
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(0.0),
-          child: AppBar(
-            backgroundColor: Color(0xFFFFFEFE),
-            automaticallyImplyLeading: false,
-            actions: [],
-            centerTitle: false,
-            toolbarHeight: 0.0,
-            elevation: 0.0,
-          ),
-        ),
         body: SafeArea(
           top: true,
           child: Column(
